@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="/bits/favicon.ico" />
+<meta name="Description" content="VCE Software Development Resources by Mark Kelly" />
+<meta name="keywords" content="vce,applied computing, data analytics, software development, mark kelly" />
+<title>VCE SOFTWARE DEVELOPMENT</title>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/bits/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/bits/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/bits/favicon-16x16.png">
+<link rel="manifest" href="/bits/site.webmanifest">
+<style type="text/css">
+<!--
+h2.western {
+font-family:"Cambria", serif;
+font-size:13pt;
+font-weight:bold;
+}
+-->
+</style>
+</head>
+
+ <style>
+ 
+ 
+.flip {
+ animation-timing-function: ease-in-out;
+ animation-duration: 3s;
+ animation-direction: alternate;
+ animation-iteration-count: infinite;
+ max-width: 30em !important;
+ box-shadow: none !important;
+}
+
+
+</style>
+
+<style>
+
+.flip-rotateh {
+ animation-name: flip-rotateh;
+}
+
+@keyframes flip-rotateh {
+ 0% { transform: perspective(491px) rotatey(0); }
+ 100% { transform: perspective(491px) rotatey(240deg); }
+}
+
+</style>
+
+ 
+
+<body link="#0000ff" vlink="#8db3e2" dir="ltr" lang="en-US" >
+<table width="80%" align="center" cellpadding="3" cellspacing="0" bordercolor="#555555">
+ <tr>
+ <td>
+ 
+ <div class="demo demo-row demo-row-fit" align="center">
+ 			<div>
+				<p><a href="/index.html"><img class="flip flip-rotateh" src="/bits/title.png" alt="vcedata.com by Mark Kelly - VCE Applied Computing, VCE Data Analytics, VCE Software Development" title="Weeeee!"/></a>
+			 </p>
+				<p align="center"><img src="/bits/email.png" width="178" height="26" alt="vcedata.com email" title="Email Mark Kelly"/></p>
+  <p align="center"><a href="/mailform.htm">Contact Mark </a></p>
+  <p align="center">This page was created on 2022-01-17<br>
+Last modified on
+  <!-- #BeginDate format:fSw1m -->Thursday 2 November, 2023  13:42<!-- #EndDate -->
+  </p>
+  
+ 			</div>
+ </div></td>
+ </tr>
+ <tr>
+ <td align="center"><p ><img src="/bits/title-sd.png" alt="Software Development Units 3 and 4" width="500" height="56" title="Software Development Units 3 and 4"/> </p>
+ <p class="code" >VCE Software Development Units 3 and 4&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+</table>
+<table width="80%" border="1" align="center" cellpadding="3" cellspacing="0" bordercolor="#555555">
+ <tr>
+ <td colspan="3" valign="middle" bgcolor="#DAF8A7" ><p><strong>KK</strong> = Key Knowledge. All KK are examinable <br>
+   If a KK uses the word &quot;including&quot;, all of the following items are examinable.<br>
+If a KK uses the words &quot;for example&quot; or &quot;<em>such as</em>&quot;, the following items are for clarity, and are <em>not</em> directly examinable.<br>
+</p>
+   <p><strong>Note from 2023-10-04</strong>: The VCAA Curriculum Manager confirms that <a href="/glossary.html">glossary</a> items are only examinable if they <strong>also</strong> appear in KK. Others are just examples.</p>
+   <p>     Any bullet points shown below have been inserted by me for clarity, and are not in the <a href="https://www.vcaa.vic.edu.au/Documents/vce/computing/2020AppliedComputingSD.docx">original VCAA study design</a>. (Which is available locally <a href="/m/2020AppliedComputingSD.docx">here</a>.)</p>
+   <p>     Hover your mouse of a red asterisk <img src="/bits/gloss.png" alt="" title="OK. So that works. Good."> to see the official VCAA glossary definition of a term.</p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> links to a (big) slideshow if the icon has a label beside it</p>
+ <p><img src="/html.png" width="21" height="22" alt=""/> links to a webpage on this site.</p>
+ <p><img src="/m/babymonkey.gif" width="33" height="32" alt=""/> is cute, but completely irrelevant.</p>
+ <hr>
+ <p>Check out my incomplete <a href="/p/DA-Sample2020-solution.html"> postmortem of VCAA's 2020 sample DA exam</a> with lots of exam tips.</p></td>
+ </tr>
+</table>
+<table border="1" align="center" width="80%" cellpadding="3" cellspacing="0" bordercolor="#555555">
+ <tr>
+ <td width="10%" valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK01</strong></td>
+ <td valign="top" ><p>Characteristics of Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>s</p>
+ <p><a href="/s/Data-Types.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data types</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK02</strong></td>
+ <td valign="top" ><p>Types of Data structure<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The way data is stored to enable Efficient algorithms to be used to optimise program execution time and memory usage. Types of data structures include: arrays, associative arrays, classes, fields, files, hash tables, linked lists, queues, records and stacks.
+"/>s, including</p>
+ <ul>
+ <li>associative arrays (or dictionaries or hash tables), <span class="comment">[not to be confused with the <strong>data dictionary</strong> design tool]</span></li>
+ <li>one-dimensional arrays (single Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>, integer index) and </li>
+ <li>records (varying Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>s, field index)</li>
+ </ul>
+ <p><a href="/s/data-structures_arrays.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Arrays</a></p>
+ <p><a href="/s/data-structures_linked_lists.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Linked Lists</a> [not examinable? the glossary lists it]</p>
+ <p><a href="/s/data-structures_records+files.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Records and files</a></p>
+ <p><a href="/s/hash.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Hashing</a></p>
+ <p>The glossary also says: <!DOCTYPE html>
+   <em>Types of data  structures include: arrays, associative arrays, classes, fields,  files, hash tables, linked lists, queues, records and <strong>stacks</strong>.</em></p>
+ <p>Terms in the glossary are only  examinable if they also appear in a KK after &quot;including...&quot;</p>
+ <p>So, stacks appear in the glossary but not in any KK, so they are not directly examinable.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK03</strong></td>
+ <td valign="top" id="probstat">Methods for documenting a problem, need or opportunity<p><a href="/s/problem-statement.pptx">
+ <img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Problem Statements</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK04</strong></td>
+ <td valign="top">Methods for determining Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/> requirements, constraints and scope<p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="SRS"/> SRS - Software specification requirements</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK05</strong></td>
+ <td valign="top"><p>Methods of representing designs, including</p>
+ <ul>
+ <li>data dictionaries, </li>
+ <li>mock-ups, </li>
+ <li>object descriptions and </li>
+ <li>Pseudocode<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+A series of English-like statements used to represent an algorithm that will solve a problem. Though there is no standard to pseudocode, there are a number of conventions. These include the use of START/BEGIN and FINISH/END to indicate the beginning and end of a program, IF…ELSE and SELECT to represent decisions, and REPEAT…UNTIL/WHILE…DO for loops.
+
+"/></li>
+ </ul>
+ <p><a href="/s/design-DataDictionary.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="data dictionary"/> Data dictionaries</a></p>
+ <p><a href="/s/design-mockups.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="mockups"/> Mockups</a></p>
+ <p><a href="/s/design-Pseudocode.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="pseudocode"/> Pseudocode</a></p>
+ <p><a href="/s/Design-Tools.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="design tools"/> Design tools</a></p>
+ 
+ <p><a href="/s/design-factors.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="design factors"/> Design factors</a></p>
+ <p><a href="/s/design-DataDictionary.pptx"></a><a href="/s/Design-Tools-Database.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="database design tools"/> Design tools for databases</a></p>
+ <p><a href="/s/Design-Tools-ERD.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="ERD for databases"/> Entity relationship diagrams (ERD) for databases</a></p>
+ <p><a href="/s/design-Pseudocode.pptx"></a></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong id="csv">SD U3O1 KK06</strong></td>
+ <td valign="top"><p>Formatting and structural characteristics of files, including</p>
+ <ul>
+ <li>delimited (CSV), </li>
+ <li>plain text (TXT) and </li>
+ <li>XML file formats</li>
+ </ul>
+ <p><a href="/s/data-format-xml.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="XML"/> XML</a> </p>
+ <p><strong>Plain text data </strong> consists of (drumroll) - plain ASCII text,&nbsp;e.g.</p>
+ <p class="code">Smith<br>
+ John<br>
+ 30/5/2010<br>
+ 67 Bradley St<br>
+ Carlton<br>
+ Jones<br>
+ Mary<br>
+ 12/12/1996<br>
+ 6/101 Nepean Hwy<br>
+ Mentone<br>
+ Splatz<br>
+ Emile<br>
+ 1/4/1987<br>
+ 6, The Crest<br>
+ Bulleen </p>
+ <p >Text data files can be read and edited by any software, <strong>but</strong> they lack any information about what the fields <em>mean</em>. e.g. the dates above could be birthdate, date of employment etc.</p>
+ <p >Also, the software reading the data needs to know in advance that each record contains 5 lines of text&nbsp;- otherwise reading the data soon descends into anarchy.</p>
+ <p><strong>CSV - Comma Separated Values</strong></p>
+ <p>CSV files are also plain text, but all the fields of a single record appear on the same line, delimited (separated) by commas and quotation marks, e.g. </p>
+ <p class="code">&quot;Smith&quot;,&quot;John&quot;,&quot;30/5/2010&quot;,&quot;67 Bradley St&quot;,&quot;Carlton&quot;<br>
+ &quot;Jones&quot;,&quot;Mary&quot;,&quot;12/12/1996&quot;,&quot;6/101 Nepean Hwy&quot;,&quot;Mentone&quot;<br>
+ &quot;Splatz&quot;, &quot;Emile&quot;,&quot;1/4/1987&quot;,&quot;6, The Crest&quot;, &quot;Bulleen&quot;</p>
+ <p >There is not a lot to separate plain text and CSV data files&nbsp;in terms of usability or value-added structure. <br>
+ </p>
+ <hr>
+ <p><strong>True but irrelevant story</strong>&nbsp;- many years ago the Victorian Education Department's student record database (CASS) used a wonky version of CSV <em>without</em> the quotation marks, like so...</p>
+ <p><span class="code">Smith,John,30/5/2010,</span><span class="code">67 Bradley St,Carlton</span></p>
+ <p>This <em>usually</em> worked...but, if any field contained a <em>comma</em>, the fields went out of sequence and the <strong>entire</strong> data file threw itself into an unholy disaster. Of course, inevitably, it happened. </p>
+ <p><span class="code">Splatz,Emile,1/4/1887,</span><span class="code">6,The Crest</span></p>
+ <p><span class="code">Carlton,Anderson,Ken,3/10/2005</span></p>
+ <p>After Emile's record, all the data was trashed. It was a fun day for me, because I had Emile in <strong>my</strong> school's data and I had to inform the Education Department about the meltdown that effectively stopped all of our daily access to student data&nbsp;until Emile's raw data was changed manually. The Education Department had to rewrite their student database software and they moved to use XML instead.</p>
+ <p>Morals:&nbsp;(1) Think ahead. (2) Data management shortcuts can be costly in the long run</p>
+ <hr>
+ <p><a href="/s/data-format-xml.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="XML"/> XML</a> data files are also plain text, <strong>but</strong> they contain structural information to identify fields and records within the file. </p>
+ <p>Lots of programs rely on XML to store their data - such as Microsoft Office's DOC<strong>X</strong>, XLS<strong>X</strong> and PPT<strong>X</strong> files&nbsp;- where the &quot;X&quot; means the document is stored in <strong>X</strong>ML format.</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK07</strong></td>
+ <td valign="top">A programming language as a method for developing working modules that meet specified needs<p><a href="/s/Programming-Skills.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Programming skills</a> ?</p>
+ <p><a href="/s/Programming-Skills.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Software Requirement Specifications</a> ?</p>
+ <p class="comment">I really have no idea what VCAA wants to teach in this KK</p>
+ <p>Let's summarise the theory&nbsp;for this KK:</p>
+ <p><strong>Yes - a programming language <em>does</em> develop working modules to meet specified needs.</strong></p>
+ <p>What else does VCAA want?</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK08</strong></td>
+ <td valign="top">Naming Convention<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+A set of guidelines for providing consistency in the naming of entities in software development and data management. These include program names, function names, variable names, table names, file names, and document names. Naming conventions can minimise the effort needed to read and understand source code. "/>s for Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/> elements<p><a href="/s/naming-conventions.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="naming conventions"/> Naming conventions</a></p>
+ <p><a href="/s/Databases-Struc-Datatypes-Naming.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="naming conventions"/> Database structure naming</a></p>
+ <p><a href="/s/File-Naming.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="file naming"/> File Naming</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK09</strong></td>
+ <td valign="top"><p>Processing features<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The distinctive or characteristic parts of a programming language. These include classes, control structures, functions, instructions and methods. 
+"/> of a programming language, including</p>
+ <ul>
+ <li>classes, </li>
+ <li>control structures, </li>
+ <li>functions,</li>
+ <li> instructions and </li>
+ <li>methods </li>
+ </ul>
+ <p><a href="/s/processing-features-Functions-Statements-etc.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="Functions, statements"/> Functions, statements etc</a></p>
+ <p>Quick summary&nbsp;- </p>
+ <h3><strong>Classes</strong></h3>
+ <p>Classes are types of objects, such as Text boxes, Labels, Spiders, Wines - each has its own relevant properties</p>
+ <p>e.g. </p>
+ <ul>
+ <li>a <strong>text box</strong> may have properties: width, font, background colour.</li>
+ <li>a <strong>spider</strong> may have properties: average size, deadliness, colour.</li>
+ <li>a <strong>wine</strong> may have properties: flavour, raritym colour.</li>
+ </ul>
+ <p>Some classes (e.g. text box) are <em>inherent</em> and defined by a programming language. </p>
+ <p>Others classes&nbsp;(e.g. spider or wine) are created and defined by the programmer.</p>
+ <h3>Control structures</h3>
+ <p>Control structures are commands that control the flow of the execution of a program based on values that apply at the time of execution.</p>
+ <p>The most common types are:</p>
+ <p><em>LOGICAL (Conditional, Selection) </em> - IF / THEN / ELSE</p>
+ <p><em>LOOPS</em> (iteration) - FOR / NEXT , DO / LOOP, WHILE / UNTIL, LOOP / WHILE</p>
+ <p>Variants include <span class="code">CASE</span> which neatly collapses a large, messy collection of IF statements into a nice, neat package:</p>
+ <p>Compare:</p>
+ <p class="code">IF age = 3 then group = &quot;Tiny Tots&quot;<br>
+ IF age &gt;3 and age &lt;=6 then group = &quot;Minnows&quot;<br>
+ <span class="code">IF age &gt;=6 and age &lt;=10 then group = &quot;Sardines&quot;</span><br>
+</p>with
+ <p class="code"><strong>CASE</strong> age</p>
+ <blockquote>
+ <p class="code">  Case 3 : Group = &quot;Tiny Tots&quot;<br>
+  Case &lt;= 6 : Group = &quot;Minnows&quot;<br>
+  Case &lt;=10 : Group = &quot;Sardines&quot;
+  <br>
+ </p>
+ </blockquote>
+ <p class="code"><strong>END CASE</strong><br>
+ </p>
+ <p class="comment">Don't expect exam pseudocode to use CASE structures. They have never appeared before.</p>
+ <p class="comment">But <strong>IF</strong> statements are guaranteed to appear.<br>
+ <strong>FOR/NEXT</strong> has appeared in past exams and may well appear again.</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK10</strong></td>
+ <td valign="top"><p>Algorithms for sorting, including</p>
+ <ul>
+ <li>selection sort and </li>
+ <li>quick sort</li>
+ </ul>
+ <p><a href="/s/sort-selection.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Selection Sort</a></p>
+ <hr>
+ <p><strong>Quick sort</strong></p>
+ <p>Developed in 1961, QuickSort works by selecting a <strong>pivot</strong> value, and dividing the data into two partitions - one with values less than the pivot's value, and one with values greater. The partitions are then repeatedly (recursively) divided into two sub-arrays and and re-sorted. The QuickSort algorithm is faster than some others, such as bubble sort.</p>
+ <p>SD students in 2014's exam question B2 were asked:</p>
+ <p class="courier">2b. Briefly explain how a quick sort works and how this differs from a bubble sort. 2 marks [6 lines]</p>
+ <p>You could expect a similarly-hard question this year. My answer in my <a href="/p/postmortem-2014s.htm">postmortem</a> was </p>
+ <p class="myanswer">- A quick sort recursively subdivides the data set into 2 parts and chooses a pivot value. All items in the part of the data set that are less than the pivot value are moved to the left of the pivot item, items greater than the pivot value are moved to the right of the pivot item. This is repeated until all items are sorted.</p>
+ <p class="myanswer">- Compared to the bubble sort, the quick sort is more complex to code, but is usually more efficient with large data sets.</p>
+ <p>In their examiners' report, VCAA commented: </p>
+ <p><span class="examiner">...most students struggled to provide a complete and detailed response, with many missing the second part of the question &ndash; &lsquo;how this differs from a bubble sort&rsquo;.</span></p>
+ <p><span class="examiner"> The following are examples of high-scoring responses.</span></p>
+ <p><span class="examiner"> 1. With each iteration, a value called a pivot is chosen from the list. For each other value, if it is greater than pivot it places it to the right, if it is less than, it places to left. The pivot is in the right place and on the two side lists. <br>
+ This differs from bubble sort as it is a divide and conquer algorithm, whereas bubble sort goes through one by one. Quick sort as a result is much faster.<br />
+ </span></p>
+ <p><span class="examiner">2. A quick sort chooses a random pivot item and compared other items to that element until it has two subsets of elements higher and lower than the pivot. It then does the same to the sublists and so on till it&rsquo;s all sorted. <br>
+ The difference to the bubble sort is the creation of sublists rather than looping over one list.</span></p>
+ <p>By the way: in 2014, the average mark for this question was only 0.6 out of 2.</p>
+ <hr>
+ <p>In <a href="/p/postmortem-2016s.htm#a2">2016, SD students faced this in question A2</a></p>
+ <p class="question"><strong>Question A2</strong><br />
+ </p>
+ <p align="left" class="question">In the process of sorting an array of eight integers using the quick sort algorithm, the first partitioning with the array appears as follows. </p>
+ <div align="center">
+ <table border="1" cellspacing="0" cellpadding="2">
+  <tr>
+  <td width="76" height="47" valign="top"><h2 align="center" class="question"><strong>12 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>15 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>11 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>17 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>19 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>22 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>21 </strong></h2>
+  <h2></h2></td>
+  <td width="76" valign="top"><h2 align="center" class="question"><strong>20 </strong></h2>
+  <h2></h2></td>
+  </tr>
+ </table>
+ </div>
+ <p class="question">Which one of the following statements is correct? </p>
+ <ol type="A">
+ <li class="question">Neither 17 nor 19 was the pivot. </li>
+ <li class="question">The pivot was either 17 or 19. </li>
+ <li class="question">The pivot was 17, but was not 19. </li>
+ <li class="question">The pivot was not 17, but it could have been 19. </li>
+ </ol>
+ <p>To see the answer HIGHLIGHT FROM HERE &gt; <strong class="white">B</strong> &lt;TO HERE. It was a <em>tough</em> question for 1 mark! </p>
+ <p>TIP - If you spent 10 minutes working it out, you would have been better <em>guessing</em> and taking a 25% chance of being right.</p> 
+ <hr> <p class="yellowback">More to come.
+ </p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK11</strong></td>
+ <td valign="top"><p>Algorithms for </p>
+ <ul>
+ <li>binary searching and </li>
+ <li>linear searching</li>
+ </ul> <p><a href="/s/Search-linear-binary.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="search, sort, filter"/> Searching - linear and binary</a></p>
+ <p><a href="/s/search-sort-filter.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="search, sort, filter"/> Searching, sorting, filtering</a> </p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK12</strong></td>
+ <td valign="top"><p>Validation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The checking of data for its reasonableness and completeness. Validation of data includes: existence or presence checking, which verifies that a required field has a value entered and is not empty or blank; range checking, which involves ensuring that data entered falls within a certain range; and type checking, which confirms that data entered is of a particular type.
+
+"/> techniques, including</p>
+ <ul>
+ <li>existence checking, </li>
+ <li>range checking and</li>
+ <li> type checking</li>
+ </ul>
+ <p><a href="/p/validation.html"><img src="/html.png" width="21" height="22" alt=""/> Data Validation</a></p> 
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK13</strong></td>
+ <td valign="top"><p>Techniques for checking that modules meet design specifications, including</p>
+ <ul>
+ <li>trace tables and </li>
+ <li>construction of test data </li>
+ </ul>
+ <p><a href="/s/test-data.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="test data"/> Test data</a></p>
+ <p><a href="/s/testing-Trace-Tables-Desk-Checks.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="trace tables, desk checks"/> Trace tables, desk checks</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O1 KK14</strong></td>
+ <td valign="top"><p>Purposes and characteristics of internal documentation, including </p>
+ <ul>
+ <li>meaningful comments and syntax.</li>
+ </ul>
+ <p><a href="/s/internal-documentation.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Internal documentation</a> </p>
+ <p >&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong id="sd3201">SD U3O2 KK01</strong></td>
+ <td valign="top" bgcolor="#D8F5D9"><p>Security considerations influencing the design of solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s, including</p>
+ <ul>
+ <li>authentication and </li>
+ <li>data protection</li>
+ </ul><p>Let's assume the vague KK refers to <strong>user authentication</strong>. </p>
+ <p>In your SD software, it means that you need to demonstrate that you know the value of </p>
+ <ul>
+ <li>logins/passwords (you can fake it for the outcome outcome - e.g. accept any text for username/password and let the user in)</li>
+ <li>protecting data from accidental deletion or loss (e.g. forcing users to jump through confirmation hoops before deleting data or exiting without saving)</li>
+ </ul>
+ <p>But in terms of pure theory, user authentication and data protection measures can involve a host of things:</p>
+ <p><strong>Designing User Authentication </strong> </p>
+ <ul>
+ <li>registering new users, and verifying their email address with a test email.</li>
+ <li>PINs</li>
+ <li>login/password - including the enforcement of strong passwords</li>
+ <li>Challenge/response security questions (e.g. mother's maiden name)</li>
+ <li>Two factor (2FA) or multifactor authentication, e.g. each data access session requires the entry of a one-time access key received via text message to the user's phone; e.g. ATMs require a physical card and a&nbsp;typed PIN.</li>
+ <li>hardware tokens, e.g. Yubi key, smart card, debit/credit/ATM card</li>
+ <li>biometric readings, e.g. fingerprint, iris scan, voice print, face recognition</li>
+ </ul>
+ <h3>Designing data protection </h3>
+ <ul>
+ <li>data encryption, both stored (e.g. public key cryptography like PGP) and in transit (TTL,SSL)</li>
+ <li>bot&nbsp;exclusion, e.g. Recaptcha </li>
+ <li>providing users with information about their last recorded activity (e.g. last login date/time/IP address) to highlight illicit account access</li>
+ <li>restricting access to registered 
+  <ul>
+  <li>geographic locations, </li>
+  <li>MAC addresses (unique codes identifying individual devices)</li>
+  <li>IP addresses</li>
+  </ul>
+ </li>
+ <li>FIDO (Fast ID Online) security keys</li>
+ <li>logging users out after a period of inactivity</li>
+ <li>analysing users' behaviour patterns to detect suspicious changes to typical usage, e.g. typing speeds, common typing errors, mouse usage </li>
+ </ul>
+ <p>Most of the methods above are designed to protect against deliberate, malicious threats to data.</p>
+ <h3>Designing to protect users against themselves</h3>
+ <p>The main threat to data is not less evil, but it's much more likely - user error caused by incompetence, ignorance, laziness or carelessness.</p>
+ <p><em>UP - unauthorised people</em></p>
+ <p><strong>To all of the prevention strategics you should add</strong>: &quot;Educate / train users about this threat: its dangers, and how to recognise and handle it.&quot;</p>
+ <p>Fun fact: 91% of all successful attacks on data begin with a phishing exploit.</p>
+ <p>Moer than half of lost data was caused by user error.</p>
+ <table width="95%" border="1" cellspacing="0" cellpadding="3">
+ <tbody>
+  <tr class="yellowback">
+  <td width="56%" valign="top"><h2><strong>Threat to data</strong></h2></td>
+  <td width="44%" valign="top"><h2><strong>Prevention&nbsp;design</strong></h2></td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Phishing &amp; spear phishing (phishing targeted at specific victims)- giving passwords or identifying data about themselves to UP</td>
+  <td valign="top" bgcolor="#E9E6E6"><p>Access hierarchy - only give people the access to data that they need to do their job. No more.
+  </p></td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Misusing software or pressing the wrong keys and deleting data</td>
+  <td valign="top" bgcolor="#E9E6E6">Job training and certification that users are competent to access certain equipment, data or software.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Losing phones, laptops etc or leaving devices where they can be used by UP</td>
+  <td valign="top" bgcolor="#E9E6E6">Set up strong access controls e.g. password protection of operating system, documents, network; biometric scan.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Allowing UP access to restricted equipment, e.g. file servers, workstations, backup&nbsp;media</td>
+  <td valign="top" bgcolor="#E9E6E6">Biometric restriction of user access to sensitive areas using swipe cards, fingerprint scans etc.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Using stupidly-simple passwords</td>
+  <td valign="top" bgcolor="#E9E6E6"><p>Automate the requirement for strong (long, complex) passwords.</p>
+  <p>Lock users out after a few failed login attempts.</p></td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6"><p>Reusing the same passwords for several different accounts</p></td>
+  <td valign="top" bgcolor="#E9E6E6">Education about the risks.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Clicking links to malware</td>
+  <td valign="top" bgcolor="#E9E6E6">Scan all visited websites and incoming emails or texts for malware. Block known danger sites.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Opening infected email attachments</td>
+  <td valign="top" bgcolor="#E9E6E6"><p>Strong, current antivirus scanning.</p></td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Carelessly document disposal&nbsp;(paper or electronic)</td>
+  <td valign="top" bgcolor="#E9E6E6">Sensitive documents can easily be undeleted. Paper documents can be fished out of bins or skips. All documents should be wiped and/or shredded physically or electronically when disposed of.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Fiddling with security settings</td>
+  <td valign="top" bgcolor="#E9E6E6">To &quot;speed up my computer&quot; a user may turn off security settings like virus scanning or user access control. This can be prevented by mandating the setting in group policies that can only be changed by system administrators.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Introducing unauthorised equipment to a secure system</td>
+  <td valign="top" bgcolor="#E9E6E6">Forbid users to use their own personal software, wifi routers, switches, computers IoT devices, etc that could be insecure or infected with malware.</td>
+  </tr>
+  <tr>
+  <td valign="top" bgcolor="#E9E6E6">Social engineering</td>
+  <td valign="top" bgcolor="#E9E6E6">Educate users about being manipulated into giving UP access to data or resources.</td>
+  </tr>
+ </tbody>
+ </table>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>A clever gadget:</p>
+ <p><img src="/m/scramble-keypad.jpg" width="279" height="348" alt=""></p>
+ <p>The Scramble Keypad randomly&nbsp;assigns digits to different positions for users to enter their PINs. This prevents onlookers from detecting a PIN by the movement of the user's fingers. It also has a narrow viewing angle so people to the sides of the user cannot see the displayed digits.</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+    <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK02</strong></td>
+    <td valign="top"><p>Techniques for collecting data to determine needs and requirements, including</p>
+       <ul>
+          <li>interviews, </li>
+          <li>observation, </li>
+          <li>reports and </li>
+          <li>surveys</li>
+         </ul>
+       <p><a href="/s/data-collection-techniques.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Collection techniques</a></p>
+      <p>&nbsp;</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+    <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK03</strong></td>
+    <td valign="top">Functional and non-functional requirements<p>For more details, see...</p>
+       <p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="SRS"/> SRS - Software specification requirements</a></p>
+       <p><a href="/p/functional-requirements.html"><img src="/html.png" width="21" height="22" alt=""/> Functional and non-functional requirements</a></p>
+       <p>but the short answer is:</p>
+       <p><strong>Functional requirements</strong> (FR) = what a solution is required to <strong>do</strong>, e.g.</p>
+       <ul>
+          <li> print a receipt with 2 seconds; </li>
+          <li>adjust Australian prices to include GST</li>
+          <li>produce charts of the data</li>
+         </ul>
+       <p>Consider a FR like a <em>verb</em>.</p>
+       <p><strong>Non-functional requirements</strong> (NFR) of the solution (solution attributes) are <strong>qualities</strong> such as <br>
+         user-friendliness, performance levels, e.g. the solution should <strong>be</strong></p>
+       <ul>
+          <li> responsive,</li>
+          <li>attractive</li>
+          <li> robust, </li>
+          <li> portable, </li>
+          <li> reliable </li>
+          <li> maintainable</li>
+          <li>expandable</li>
+          <li>etc</li>
+      </ul> <p>Consider a NFR like an <em>adjective</em></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK04</strong></td>
+ <td valign="top"><p>Constraints that influence Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s, including</p>
+ <ul>
+ <li>economic, </li>
+ <li>legal, </li>
+ <li>social, </li>
+ <li>technical and </li>
+ <li>usability</li>
+ </ul><p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="SRS"/> SRS - Software specification requirements</a></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK05</strong></td>
+ <td valign="top">Factors that determine the scope of Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s<p>&nbsp;</p><p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="SRS"/> SRS - Software specification requirements</a></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK06</strong></td>
+ <td valign="top">Features and purposes of software requirement specifications<p>&nbsp;</p><p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="SRS"/> SRS - Software specification requirements</a></p></td>
+ </tr>
+ <tr>
+ <td height="32" valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK07</strong></td>
+ <td valign="top"><p>Tools and techniques for depicting the interfaces between Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s, users and networks, including </p>
+ <ul>
+ <li>use case diagrams created using Unified modelling language (UML)<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+A visual modelling language that describes the interfaces between solutions, users and networks. An example of this is a use case diagram (UCD) that models the requirements of an information system.
+
+"/></li>
+ </ul>
+ <p><a href="/s/Use-Case-Diagram-UCD.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Use Case Diagrams (UCD)</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK08</strong></td>
+ <td valign="top"><p>Features of </p>
+ <ul>
+ <li>context diagrams and </li>
+ <li>data flow diagrams</li>
+ </ul>
+ <p><a href="/s/Design-Tools-DFD,CD.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data flow diagrams (DFD) and context diagrams (CD)</a></p>
+ <p><a href="/s/design-DFD-library-example.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data flow diagram example</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK09</strong></td>
+ <td valign="top">Techniques for generating design ideas<p><a href="/s/design-ideas.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design Ideas</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK10</strong></td>
+ <td valign="top">Criteria for evaluating the alternative design ideas and the Efficiency<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+A measure of how much time, cost and effort is applied to achieve intended results. Measures of efficiency in a solution could include the cost of file manipulation, its functionality and the speed of processing. Measures of efficiency in a network include its productivity, processing time, operational costs and level of automation.
+
+
+"/> and Effectiveness
+of Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s.<p><a href="/s/Evaluation.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Evaluation</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK11</strong></td>
+ <td valign="top"><p>Methods of expressing Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/> designs using </p>
+ <ul>
+ <li>data dictionaries, </li>
+ <li>mock-ups, </li>
+ <li>object descriptions and </li>
+ <li>Pseudocode<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+A series of English-like statements used to represent an algorithm that will solve a problem. Though there is no standard to pseudocode, there are a number of conventions. These include the use of START/BEGIN and FINISH/END to indicate the beginning and end of a program, IF…ELSE and SELECT to represent decisions, and REPEAT…UNTIL/WHILE…DO for loops.
+
+"/></li>
+ </ul>
+ <p><a href="/s/Design-Tools.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="design tools"/> Design tools</a></p>
+ <p><a href="/s/design-factors.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="design factors"/> Design factors</a></p>
+ <p><a href="/s/design-mockups.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="mockups"/> Mockups</a></p>
+ <p><a href="/s/design-factors.pptx"></a><a href="/s/design-DataDictionary.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="data dictionary"/> Data dictionary</a> </p>
+ <p><a href="/s/design-Pseudocode.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="pseudocode"/> Pseudocode</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK12</strong></td>
+ <td valign="top"><p>Factors influencing the design of Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s, including</p>
+ <ul>
+ <li><a href="/s/affordance.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="pseudocode"/></a> <a href="/s/affordance.pptx">affordance</a>,</li>
+ <li> interoperability, </li>
+ <li>marketability, </li>
+ <li>security and </li>
+ <li>usability</li>
+ </ul>
+ <p><a href="/s/design-factors.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design Factors</a> </p>
+ <p class="comment">Yes, &quot;affordance&quot; - not &quot;affordability&quot; as was written in the same KK in the 2016 study design! Big whoops from VCAA there :-)</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK13</strong></td>
+ <td valign="top">Characteristics of user experiences, including Efficient<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Efficiency - 
+A measure of how much time, cost and effort is applied to achieve intended results. Measures of efficiency in a solution could include the cost of file manipulation, its functionality and the speed of processing. Measures of efficiency in a network include its productivity, processing time, operational costs and level of automation."/> and effective<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Effectiveness - 
+A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/> user interfaces<p><a href="/s/Interfaces.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Interface design</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK14</strong></td>
+ <td valign="top"><p id="sd32sdlc">Development model approaches, including</p> <ul>
+ <li>agile, </li>
+ <li>spiral and </li>
+ <li>waterfall</li>
+ </ul><p><a href="/p/sdlc-agile-spiral-waterfall.html"><img src="/html.png" width="21" height="22" hspace="3" alt="" ><em>Software Development Life Cycle</em> (SDLC) Development models  agile, spiral and waterfall </a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td height="32" valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK15</strong></td>
+ <td valign="top"><p>Features of Project management<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The practice of applying techniques, processes, tools, knowledge and skills to deliver a solution. Features of project management include identification of tasks, sequencing, time allocation, dependencies, milestones and critical path.
+
+"/> using Gantt charts, including the identification and sequencing of </p>
+ <ul>
+ <li>tasks, </li>
+ <li>time allocation, </li>
+ <li>dependencies, </li>
+ <li>milestones and </li>
+ <li>critical path</li>
+ </ul>
+ <p><a href="/s/projman-gantt.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Gantt Charts</a></p>
+ <p><a href="/s/projman-Project-management.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Project Management</a> (you can safely ignore discussion of PERT charts, exciting and useful as it is)</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK16</strong></td>
+ <td valign="top">Goals and objectives of organisations and Information system<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The combination of digital hardware, software and network components (digital systems), data, processes and people that interact to create, control and communicate ideas and data in digital solutions.
+
+"/>s<p><a href="/s/Goals-Objectives-Organisations-Systems.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Goals and objectives of organisations and systems</a></p>
+ <p><a href="/s/Goals-Objectives-Organisations-Systems.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Strategic, tactical and operational goals and objectives</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>SD U3O2 KK17</strong></td>
+ <td valign="top">Key Legal requirements<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Individuals and organisations are expected to comply with legal requirements, with respect to the ownership and privacy of information, and freedom of expression. For the purposes of this study, the key provisions of the following acts are relevant: Charter of Human Rights and Responsibilities Act 2006 (Vic) (sections 13, 14 and 15), Copyright Act 1968, Health Records Act 2001, Privacy Act 1988, including Privacy Amendment (Enhancing Privacy Protection) Act 2012 and Privacy Amendment (Notifiable Data Breaches) Act 2017, Privacy and Data Protection Act 2014, and the Spam Act 2003 (Part 1.3, Simplified outline).
+
+"/> relating to the ownership and privacy of data and information.<p><a href="/s/Legislation-Privacy.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data privacy</a></p>
+ <p><a href="/s/Legislation-Copyright.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Copyright</a></p> <p>&nbsp;</p></td>
+ </tr>
+ 
+ <tr>
+ <td height="32" valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK01</strong></td>
+ <td valign="top"><p>Procedures and techniques for handling and Managing files<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+File management includes the naming, storing and handling of files. Strategies to manage files should have a consistent and descriptive naming convention and a clear directory structure. Files should be easily identified and accessed. File management also includes procedures for backing up, archiving and deleting files.
+
+"/> and data, including</p>
+ <ul>
+ <li>archiving, </li>
+ <li>backing up, </li>
+ <li>disposing of files and data and </li>
+ <li>security</li>
+ 
+ </ul>
+ <p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security threats</a></p>
+ <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security</a></p>
+ <p><a href="/s/Testing-Net-Security.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing network security</a></p> <p></p>
+ 
+ </td>
+ </tr>
+ 
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK02</strong></td>
+ <td valign="top"><p>Ways in which </p>
+ <ul>
+ <li>storage media, </li>
+ <li>transmission technologies and </li>
+ <li>organisation of files </li>
+ </ul>
+ <p>affect access to data</p>
+ <p>Do you have a spare month or two in which to discuss this KK in detail? No? Let's keep it brief, then.</p>
+ <h3>Storage media</h3>
+ <p>Let's look at <em>size</em>/<em>capacity</em> and <em>speed</em> o<em>f storage/transmission.</em></p>
+ <ol>
+   <li> <em>Size</em> - <em>Physical</em> size of storage media - hard disks are <em>big and heavy</em>, compared with SSDs (solid-state disks), and NAND (e.g. USB keys, SD cards) which weigh next-to-nothing and can be as small as a fingernail. I tie a colourful ribbons to my 64GB / 128GB thumb drives so I don't lose them. But the sheer IMMENSE CAPACITY of spinning hard disks and their relative low cost still makes them valuable for mass data storage. Also keep in mind that the largest SSD you can buy in October 2023 is </li>
+   </ol>
+ <p><strong>Do this</strong>: go online a find the cheapest new 12TB <strong>SSD</strong> you can. Now look for the cheapest 12TB <strong>HDD</strong>. Calculate the <strong>cost per gigabyte</strong> and get back to me. I'll wait a few years. I bet I won't need to change my stance until the 2028 study design.</p>
+ <ol>
+   <li>Capacity - old-fashioned spinning-metal hard disks still far outclass solid-state storage in terms of sheer storage capacity, and cost per terabyte.</li>
+ </ol>
+ <p><img src="/m/storage.jpg" width="990" height="581" alt=""/></p>
+ <p><strong>Verdict: </strong></p>
+ <p>For portability - NAND USB drives. SD cards for insertion into phones.</p>
+ <p>For daily speed and performance in computers - SSD and M2 / NVMe drives.</p>
+ <p>For sheer outright <em></em>storage <em>capacity</em> - hard disks.</p>
+ <h3>Transmission technologies</h3>
+ <p>This gets quite technical. We have both LAN and WAN transmission to consider.</p>
+ <p><em>LAN (Local Area Network) transmission:</em></p>
+ <p>1. Wireless (Wifi) - 2GHz vs 5GHz. 2 is slower, but can can deal better with walls etc. 5 is faster, but has a weaker penetration of obstacles. We're looking at speeds of </p>
+ <p>2. Wired - CAT5 (category 5) - cable needs to be punched through walls and floors, but is much faster and more secure than wireless. Compare 1000mbps (cabled) with 54mbps (wifi) at 2023. CAT6 can reach far higher speeds than CAT5.</p>
+ <p><em>WAN (wide area network) transmission:</em></p>
+ <p>Don't worry too much about this, since it's usually out of your control. In the old days you might have been given ADSL (slow phoneline modem connection), but today you may be able to get Fibre to the node (FTTN) / curb (FTTC) / premises (FTTP) - each one offering increased speeds, depending on the plan you choose. e.g. NBN suppliers may offer plans with 100Mbps down / 40mbps up; others might offer 200Mbps down / 20 Mbps up. Swings and roundabouts, kids.</p>
+ <p>3. Satellite - remote users may have to rely on slowish satellite internet services. I have a friend in Siberia who has one.</p>
+ <p>4. Truck - for <em>huge</em> data transmission, it's still cheaper and quicker to put the data on a truck and ship it overland. True story. Amazon AWS offers the <em><a href="https://aws.amazon.com/snowmobile/">Snowmobile</a></em> which &quot;moves extremely large amounts of data to AWS. Transfer up to 100 PB [1 petabyte = 1,024TB] per Snowmobile, a 45-foot-long ruggedized shipping container pulled by a semi-trailer truck.&quot;</p>
+ <h3>Organisation of files </h3>
+ <p>I will get to this in a couple of years... maybe. <a href="/mailform.htm">Tell me if you need an urgent update</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK03</strong></td>
+ <td valign="top"><p id="datastruc">Uses of Data structure<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The way data is stored to enable Efficienta lgorithms to be used to optimise program execution time and memory usage. Types of data structures include: arrays, associative arrays, classes, fields, files, hash tables, linked lists, queues, records and stacks.
+"/>s to organise and manipulate data
+   - includes:
+   </p>
+   <h2><strong>classes</strong></h2>
+   <p>A class is a type of object used in <em>Object Oriented Programming</em> (OOP).</p>
+   <p>It is a pre-defined <em>type of thing</em>. e.g. car, box, house, textbox, button that has basic features, but may be created with differering abilities and features.</p>
+   <p>For example, take the class of <strong> a textbox</strong>.</p>
+   <p>It is created by the language's developers with specific things that it can <strong>respond to </strong> (<em>events</em>), <strong>carry out</strong> (e.g. methods) and <strong>features</strong> than can be adjusted by the programmer (<em>properties</em>).</p>
+   <p>So a textbox object may be designed with <strong>events</strong> it can respond to, such as:</p>
+   <ul>
+     <li>GOTFOCUS - what the textbox should do when the user clicks on it</li>
+     <li>KEYDOWN - what it should do when the users presses a key</li>
+     <li>UNDO - what to do when the user wants to reverse the last action</li>
+   </ul>
+   <p><strong>Methods</strong> may include its ability to: move, refresh its contents, or resize itself,.</p>
+   <p><strong>Properties</strong> are the characteristics that the programmer may give an <em>instance</em> of a class. (e.g. a specific textbox created for the entering of a postcode). Customisable values of an instance of a textbox object may include its:</p>
+   <ul>
+     <li>width</li>
+     <li>border colour</li>
+     <li>default value (the value that will be used if the user does not choose a different value)</li>
+     <li>font size</li>
+     <li>visibility (is it shown on screen or not?)</li>
+     <li>justification (is the text aligned left, right, centred?)</li>
+     <li>value (the text contained in the textbox)</li>
+   </ul>
+   <p>So, a <strong>class</strong> is a type of object that has certain pre-defined abilities and adjustable qualilties.</p>
+   <p>That's why classes of <strong>house</strong> do not have events such as &quot;losing traction on ice&quot; and classes of <strong>car</strong> don't have properties such as &quot;number of bedrooms.&quot;   </p>
+   <hr>
+   <h2><strong>fields</strong></h2>
+   <p>A field is a data type within a data structure or a file. They are most often seen in database records.</p>
+   <p>e.g. A record in a data base may contain fields such as FIRSTNAME, FAMILYNAME, DOB, STREETADDR, SUBURB,POSTCODE, SEX...</p>
+   <p>Each field has a data type (e.g. numeric, string, date) that applies to every data item in that field.</p>
+   <hr>
+   <h2>files</h2>
+   <p>A file is a set of data stored in a discrete (separate) collection. The size of a file may vary from small (a few bytes or kilobytes) to gigabytes.</p>
+   <p>Each file's data is stored with a strict format, usually consisting of <em>records</em>, which in turn are made up of <em>fields</em></p>
+   <p>- records (e.g. a collection of pre-defined <strong>fields</strong> decribing an object such as a </p>
+   <blockquote>
+     <p><em>person</em> (firstname, familyname, dateof birth, shoesize, suburb...)</p>
+     <p><em>raincoat</em> (colour, length, material, number of pockets, hooded or not...)</p>
+     </blockquote>
+   <p>Data files may be saved in a variety of formats on disk (to save time, let's assume ''disk&quot; is any form of permanent storage)</p>
+   <p>Common file formats are:</p>
+   <ul>
+     <li><strong>comma-delimited text</strong> - e,g, Smith, James, 30 Wombat St, Hightown, Vic, 3333</li>
+     <li><strong>CSV</strong> (comma separated values) e.g. &quot;Smith<strong>,</strong> the Great&quot;, &quot;A Time to Live<strong>,</strong> A Time to Die&quot;, &quot;1856&quot; (notice how CSV allows commas to be used <em>within</em> fields</li>
+     <li><strong>XML</strong> - a text-based file that contains and defines its own hierarchical structural definition. e.g. from Educba.com. Notice how each record and field has its own beginning and ending heading.The backslash (/) marks the end of a corresponding field, record or file name. The beauty of XML data files is that they contain their own database definition!</li>
+   </ul>
+   <p><strong>&lt;bookstore&gt;</strong></p>
+   <blockquote>
+     <p>&lt;<strong>book</strong>&gt;</p>
+     <blockquote>
+       <p>&lt;title&gt;Java For Dummies&lt;/title&gt;</p>
+       <p>&lt;author&gt;Tan Ah Teck&lt;/author&gt;</p>
+       <p>&lt;category&gt;Programming&lt;/category&gt;</p>
+       <p>&lt;year&gt;2009&lt;/year&gt;</p>
+       <p>&lt;edition&gt;7&lt;/edition&gt;</p>
+       <p>&lt;price&gt;19.99&lt;/price&gt;</p>
+     </blockquote>
+     <p>&lt;<strong>/book</strong>&gt;</p>
+     <blockquote>
+       <p>&lt;title&gt;More Java For Dummies&lt;/title&gt;</p>
+       <p>&lt;author&gt;Tan Ah Teck&lt;/author&gt;</p>
+       <p>&lt;category&gt;Programming&lt;/category&gt;</p>
+       <p>&lt;year&gt;2008&lt;/year&gt;</p>
+       <p>&lt;price&gt;25.99&lt;/price&gt;</p>
+     </blockquote>
+     <p><strong>&lt;/book&gt;</strong></p>
+     <blockquote>
+       <p>&lt;title&gt;The Complete Guide to Fishing&lt;/title&gt;</p>
+       <p>&lt;author&gt;Bill Jones&lt;/author&gt;</p>
+       <p>&lt;author&gt;James Cook&lt;/author&gt;</p>
+       <p>&lt;author&gt;Mary Turing&lt;/author&gt;</p>
+       <p>&lt;category&gt;Fishing&lt;/category&gt;</p>
+       <p>&lt;category&gt;Leisure&lt;/category&gt;</p>
+       <p>&lt;language&gt;French&lt;/language&gt;</p>
+       <p>&lt;year&gt;2000&lt;/year&gt;</p>
+       <p>&lt;edition&gt;2&lt;/edition&gt;</p>
+       <p>&lt;price&gt;49.99&lt;/price&gt;</p>
+       </blockquote>
+     <p><strong>&lt;/book&gt;</strong></p>
+     </blockquote>
+   <p><strong>&lt;/bookstore&gt;</strong>   </p>
+   <p>queues, and stacks</p>
+   <p><a href="/s/hash.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Hash tables</a></p>
+   <p><a href="/s/data-structures_linked_lists.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Linked Lists</a>   </p>
+   <p><a href="/s/data-structures_records+files.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Records and files</a></p>
+   <p><a href="/s/data-structures_arrays.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Arrays</a> and associative arrays</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK04</strong></td>
+ <td valign="top"><p>Processing features<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The distinctive or characteristic parts of a programming language. These include classes, control structures, functions, instructions and methods. 
+"/> of a programming language, including</p>
+ <ul>
+ <li>classes, </li>
+ <li>control structures, </li>
+ <li>functions, </li>
+ <li>instructions and </li>
+ <li>methods</li>
+ </ul>
+ <a href="/s/processing-features-Functions-Statements-etc.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Processing features</a><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK05</strong></td>
+ <td valign="top"><p>Characteristics of Efficient and effective Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s</p>
+ <p><a href="/s/Effective-Efficient-Solutions.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/>
+ Efficient and effective solutions</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK06</strong></td>
+ <td valign="top"><p>Techniques for checking that coded Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s meet design specifications, including </p>
+ <ul>
+ <li>construction of test data</li>
+ </ul>
+ <a href="/s/test-data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Test Data</a><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK07</strong></td>
+ <td valign="top"><p>Validation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The checking of data for its reasonableness and completeness. Validation of data includes: existence or presence checking, which verifies that a required field has a value entered and is not empty or blank; range checking, which involves ensuring that data entered falls within a certain range; and type checking, which confirms that data entered is of a particular type.
+
+"/> techniques, including</p>
+ <ul>
+ <li>existence checking, </li>
+ <li>range checking and </li>
+ <li>type checking</li>
+ </ul>
+ <a href="/p/validation.html"><img src="/html.png" width="21" height="22" alt=""/> Data Validation</a><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK08</strong></td>
+ <td valign="top"><p>Techniques for Testing<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Techniques to ensure that a solution is operating as intended. Test data should include data types and values that rigorously test software functions. Testing tables can be used to record the outcomes of tests.
+"/> the usability of Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s and forms of documenting test results</p>
+ <a href="/s/testing.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing</a><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK09</strong></td>
+ <td valign="top"><p>Techniques for recording the progress of projects, including adjustments to </p>
+ <ul>
+ <li>tasks and timeframes,</li>
+ <li> annotations and</li>
+ <li> logs</li>
+ </ul>
+ <p><a href="/s/projman-gantt.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Gantt charts</a></p>
+ <p><a href="/s/projman-Gantt+PERT.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Gantt and PERT charts</a> (PERT is not examinable, but nice to know)</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK10</strong></td>
+ <td valign="top"><p>Factors that influence the Effectiveness
+ of development models</p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O1 KK11</strong></td>
+ <td valign="top"><p>Strategies for evaluating the Efficiency<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+A measure of how much time, cost and effort is applied to achieve intended results. Measures of efficiency in a solution could include the cost of file manipulation, its functionality and the speed of processing. Measures of efficiency in a network include its productivity, processing time, operational costs and level of automation.
+
+
+"/> and Effectiveness
+of </p>
+ <ul>
+ <li>software Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s and </li>
+ <li>assessing project plans.</li>
+ </ul>
+ <a href="/s/PSM4-Evaluation.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Evaluation</a><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td height="32" valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK01</strong></td>
+ <td valign="top"><p>Physical<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The equipment and procedures used to assist in the protection of information systems and the files created, communicated and stored by individuals and organisations. Equipment controls include zoned security strategies, barrier techniques and biometrics. Physical procedures include backing up, shredding confidential documents and checking authorisation credentials.
+
+"/> and software security controls used to protect software development practices and to protect software and data, including</p>
+ <ul>
+ <li> version control, </li>
+ <li>user authentication, </li>
+ <li>encryption and </li>
+ <li>software updates</li>
+ </ul>
+ <h3>Version control</h3>
+ <p>In the <strong>Good Old Days</strong>&trade;, programmers were solitary animals, living in putrid cellars, dining on yesterday's pizza, and wondering if their toenail infection was preventing them landing a supermodel girlfriend. No more.</p>
+ <p>Programmers now work in teams, collaborating on code, often working on the same code at the same time as a number of other coders spread across the  city, country, or globe.</p>
+ <p>If one team's  programmer tweaked a function at the same time as another programmer saved a different modification to the same function - what would happen? Chaos!</p>
+ <p><em>Version control</em> keeps track of all code modifications in a database. If mistakes are made, they can be 'rolled back' (undone). If conflicting changes are made, one version can be kept and the others removed.</p>
+ <p>With version control, a thorough history of code development is maintained, and all changes are tracked. </p>
+ <h3>User authentication</h3>
+ <p>Obviously, a programming team needs to ensure that changes to code are being made by authorised people.</p>
+ <p>Secure logins and - if necessary - heightened authentication (e.g. two-factor identification) may ben needed to ensure that changes to code are being made by the right people.</p>
+ <h3>Encryption</h3>
+ <p>Duh. These days, any system manager would be fired for not strongly encrypting all stored code and data (e.g. RSA, DSA, RC4, DES), and not encrypting all traffic across a LAN and  WAN (e.g. SSL, TLS).</p>
+ <h3>Software updates</h3>
+ <p>Outdated software is vulnerable to new (e,g, &quot;zero day&quot; = freshly-invented) security attacks. Android devices - typically phones - only receive system updates for a couple of years, but security updates can go on for far longer in order to keep the devices safe from new threats.</p>
+ <p>A danger of using outdated operating systems (like Windows 95) is that they are sitting ducks for thousands of attacks that were never even imagined when the OS was released. Think of new COVID strains: your jab from 3 years ago is <em>not</em> going to protect you from tomorrow's new mutant strain.</p>
+ <p>Code needs to be constantly updated to address new threats.</p>
+ <p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security threats</a></p>
+ <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security</a></p>
+ <p><a href="/s/Testing-Net-Security.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing network security</a></p>
+ <p><a href="/p/ethical-hacking.html"><img src="/html.png" width="21" height="22" alt=""/> Penetration Testing (White Hat - Ethical hacking)</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK02</strong></td>
+ <td valign="top"><p>Software auditing and Testing<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Techniques to ensure that a solution is operating as intended. Test data should include data types and values that rigorously test software functions. Testing tables can be used to record the outcomes of tests.
+"/> strategies to identify and minimise potential risks</p>
+ <p> <a href="/s/testing.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing</a></p>
+ <p><a href="/s/testing-Trace-Tables-Desk-Checks.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Trace tables, desk checks</a></p>
+ <p><a href="/s/test-data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Test data</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td height="32" valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK03</strong></td>
+ <td valign="top"><p>Types of software security and data security vulnerabilities, including</p>
+ <ul>
+ <li>data breaches, </li>
+ <li>man-in-the-middle attacks and </li>
+ <li>social engineering</li>
+ </ul>
+ <p> and the strategies to protect against these</p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK04</strong></td>
+ <td valign="top"><p>Types of web application risks, including</p>
+ <ul>
+ <li>cross-site scripting and </li>
+ <li>SQL injections</li>
+ </ul>
+ <h3>Cross-site scripting</h3>
+ <p>&nbsp;</p>
+ <h3>SQL injections</h3>
+ <p>&nbsp;</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK05</strong></td>
+ <td valign="top" bgcolor="#F9F9E3"><p id="SD402risk">Managing risks posed by software acquired from third parties</p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/></p>
+ <p>Let's start with definitions:</p>
+ <ul>
+ <li><strong>First party </strong> refers to stuff (software, data, sandwiches etc) you generated <em>yourself</em>.</li>
+ <li><strong>Second party </strong>is not collected by you, but comes from someone else - a trusted partner or colleague.</li>
+ <li><strong>Third party</strong> comes from any other - possibly unknown - source. It may be 100% accurate and reliable - or it may not.</li>
+ </ul>
+ <p><img src="/tip.png" width="40" height="22" alt=""> Don't confuse <em>first/second party data</em> with <em>primary/secondary data.</em><em>First, second or third part data</em> could all be either primary (from original sources) or secondary (from sources that quote or process primary data).</p>
+ <p>Software from third parties has to be treated as if it carries the bubonic plague. Even if your dear old mum emailed you a &quot;funny program&quot; on it, you would be wise to put on rubber gloves before handling it.</p>
+ <p>Any software you did not create yourself, regardless of its origins, must be initially with suspicion. Even second-party software from your most reliable source might have been infected by trojans, viruses, worms or other malware before you got it.</p>
+ <p>Software downloaded from the internet is especially dubious. Using pirated software is like kissing a crocodile: you never know what may happen. Even if you have fifteen of the best antivirus software suites installed, a zero-day exploit may get past every one of them and your system will be immediately toasted.</p>
+ <p><strong>Possible Payloads</strong></p>
+ <p>The payload is the type of damage that malware can achieve. The term is derived from the power of military explosives.</p>
+ <p>Malware aka a computer &quot;virus&quot; nowadays can mean all sorts of bad software, such as:</p>
+ <ul>
+ <li> a <strong>virus</strong> - malicious software that usually arrives in an infected document or program and needs user action to copy itself and spread. Old viruses used to delete files or cause minor mischief, and are rare nowadays.</li>
+ <li> a <strong>worm</strong> - malicious software that (unlike a virus) can reproduce and spread on its own without user assistance. Entire networks can be infected from a single infected computer.</li>
+ <li> a <strong>Trojan</strong> is not a different technology to viruses or worms. It's a Trojan's <em>behaviour</em> that sets it apart: it gets into a system by pretending to be a friendly and harmless helpful download but it harbours evil content. It's a reference to the <a href="https://en.wikipedia.org/wiki/Trojan_Horse"> Trojan Horse</a> at the ancient battle of Troy.</li>
+ <li><strong>ransomware</strong> - your computer is locked out: and any others on your LAN. You must pay to decrypt your own storage devices.</li>
+ <li> <strong>bitcoin miner</strong> - enslaving your GPU to waste your electricity and cores while slowing your computer down. </li>
+ <li> <strong>keylogger</strong> - saving your keystrokes as you enter passwords - and then sending your credentials to hackers.</li>
+ <li> <strong>spyware</strong> - so your stalker or ex can monitor your online activities and take remote control of your computer.</li>
+ <li><strong>rootkit</strong> - a specialised type of malware that gives attackers access to the most basic, sensitive parts of a computer system. </li>
+ </ul>
+ <p>Most malware is designed to </p>
+ <ul>
+ <li>delete, damage, encrypt or steal data or documents</li>
+ <li>steal sensitive user information or login/password credentials</li>
+ <li>allow secret access to and control of a computer or a system</li>
+ <li>act as a parasite to exploit victims' IT resources to serve the attacker's needs (e.g. bitcoin mining)</li>
+ <li>change a computer's behaviour, e.g. to show popup ads, change which sites a browser goes to, participate as a zombie in DDOS (distributed denial of service) attacks</li>
+ </ul>
+ <p>And realise that <strong>Apple</strong> and <strong>Linux</strong> computers and phones are just as susceptible to malware as Windows or Android devices - they just aren't targeted as often because they are smaller populations of users and not worth the effort.</p>
+ <ul>
+ <li>Always keep your malware scanners running and up to date.</li>
+ <li>Keep an eye on new social engineering exploits, e.g. leaving infected USB keys lying around so victims will plug them in to their computers</li>
+ <li>Update your operating systems so the most up-to-date security measures are working.</li>
+ <li>Do not automatically click on links in emails, or open attachments - <em>especially</em> those in your spam folder. </li>
+ <li>Before clicking on ANY link, read it and ask yourself if it looks genuine. If in doubt, go to the organisation's public homepage and navigate from there.</li>
+ <li>Never call phone numbers given in unsolicited emails. Go to the genuine organisation's webpage and get the phone number from there.</li>
+ </ul> <p><strong>Managing the risks</strong></p>
+ <p>- Company rule: do not bring in software from outside the organisation. Do not install your own programs onto a company-owned laptop, for example. Do not bring in your own network devices (especially wifi routers) and connect them to company networks.</p>
+ <p>- Company's file server should be set to scan for malware in all files on users' devices.</p>
+ <p>- Educate users about what social engineering looks like, and how to avoid risky behaviour (e.g. opening attachments, using software from dubious sources). 95% of user error is ignorance, and not malicious intent.</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td height="32" valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK06</strong></td>
+ <td valign="top"><p>Characteristics of data that has integrity, including</p>
+ <ul>
+ <li>accuracy, </li>
+ <li>authenticity, </li>
+ <li>correctness, </li>
+ <li>reasonableness, </li>
+ <li>relevance and </li>
+ <li>timeliness</li>
+ </ul>
+ <p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data integrity</a></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK07</strong></td>
+ <td valign="top"><p>Reasons why individuals and organisations develop software, including meeting the goals and objectives of the organisation</p>
+ <p><a href="/s/goals-objectives.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Goals &amp; Objectives (take 1)</a></p>
+ <p><a href="/s/Goals-Objectives-Organisations-Systems.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Goals &amp; Objectives (take 2)</a></p> <p class="comment">I'm not sure why I did goals and objectives twice... <a href="/mailform.htm">let me know</a> if you figure out how they differ :-)</p></td>
+ </tr>
+ <tr>
+ <td height="47" valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK08</strong></td>
+ <td valign="top"><p>Key legislation that affects how organisations control the collection, storage (including cloud storage) and communication of data: </p>
+ <ul>
+ <li>the Copyright Act 1968, </li>
+ <li>the Health Records Act 2001, </li>
+ <li>the Privacy Act 1988 and </li>
+ <li>the Privacy and Data Protection Act 2014</li>
+ </ul>
+ <p><a href="/s/Legislation-Privacy.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data privacy</a></p>
+ <p><a href="/s/Legislation-Copyright.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Copyright</a> </p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK09</strong></td>
+ <td valign="top"><p>Ethical issues arising during the software development process and the use of a software Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/></p>
+ <p><a href="/s/Ethical-Dilemmas.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/>
+ Ethical dilemmas</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK10</strong></td>
+ <td valign="top"><p><strong>Criteria for evaluating the effectiveness
+ of software development security strategies</strong></p>
+ <p>Let's quote the study design's <a href="/glossary.html#effectiveness">definition of &quot;effectiveness&quot;</a> :<em> A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results</em>.</p>
+ <p>We are not discussing <strong>efficiency</strong>, which only relates to <em>time, money and effort</em>.</p>
+ <p>We are looking for criteria (singular = <em>criterion</em>) - the features used for judgement.</p>
+ <p>In other words, what features of SD security strategies should be used to judge how well those strategies perform?</p>
+ <ul>
+   <li>speed of recognising a threat? No. That is an <em>efficiency</em> criterion.</li>
+   <li>how many person-hours are required to keep a system secure? No. Again - efficiency. </li>
+   <li>cost of keeping the system secure? You got it - efficiency, not effectiveness.</li>
+ </ul>
+ <p class="red">But keep those  in mind because the examiners like to test on such distinctions in definitions.</p>
+ <p>So, what evaluation criteria are relevant to this KK?</p>
+ <p>- <em>accuracy</em>: if the system fails to recognise a genuine threat, &iacute;t's called a false negative. If it reacts to a non-threat as if it were a real threat, it's a false positive.</p>
+ <p>-  <em>attractiveness</em>? Hardly.</p>
+ <p>- <em>clarity</em> - if a threat were vaguely identifed without enough information to deal with it, that would be an effectiveness failure. e.g. &quot;One of the files just downloaded might be infected with a virus.&quot; Certainly not clear.</p>
+ <p>- r<em>elevance</em> - if an error message appeared even if the threat  did not apply to your operating system - that would be ineffective.</p>
+ <p>- <em>timeliness</em> - being warned about a threat three days after your system was compromised? NOT EFFECTIVE!</p>
+ <p>- <em>usability</em> - if a threat warning were buried deep in a system log file that you would NEVER EVER find - not effective! </p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK11</strong></td>
+ <td valign="top"><p>The impact of ineffective security strategies on data integrity</p>
+ <p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data integrity</a><a href="/s/Data integrity"></a></p>
+ <p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Threats to data</a></p>
+ <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Security</a></p> <p><strong>Possible impacts - a summary:</strong></p>
+ <ul>
+ <li>loss of trade secrets </li>
+ <li>potential violation of the Privacy Act, Health Records Act etc </li>
+ <li>if personal information is damaged or released loss of reputation as a trustworthy organisation </li>
+ <li>loss of income after catastrophic data loss destroys your ability to get paid by customers or conduct business </li>
+ <li>prosecution by the tax office if tax records are lost </li>
+ <li>corporate death</li>
+ </ul> </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>SD U4O2 KK12</strong></td>
+ <td valign="top"><p>Risk management strategies to minimise security vulnerabilities to software development practices.</p>
+ <p class="comment">Non-specific, but relevant stuff is in...</p>
+ <p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Threats to data</a></p>
+ <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Security</a></p> <p>&nbsp;</p></td>
+ </tr>
+</table>
+ 
+ 
+ <p>&nbsp;</p>
+ 
+ 
+ <table align="center" width="80%" cellspacing="0" cellpadding="3" border="0" bordercolor="#555555">
+ <tbody>
+ <tr>
+ <td colspan="2" align="center"><p><a href="javascript:history.go(-1);">Go back to wherever you were before this page</a></p>
+ <p>
+ All original content copyright &copy; 
+ <script>
+<!--
+var year=new Date();
+year=year.getYear();
+if (year<1900) year+=1900;
+document.write(year);
+//-->
+ </script> 
+ <a href="/index.html">vcedata.com</a><br />
+ All rights reserved. </p>
+ <p>&nbsp;</p></td>
+ </tr>
+ </tbody>
+ </table>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>
+<!-- #BeginDate format:fSw1m -->Thursday 2 November, 2023  13:42<!-- #EndDate -->

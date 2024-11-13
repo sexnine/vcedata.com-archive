@@ -1,0 +1,1415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VCE Informatics Exam 2016 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="/courier-prime:n4:default.js" type="text/javascript"></script>
+
+</head>
+<body lang="EN-US" >
+<h2 align="center" class="red"><a href="/index.html"><img src="/bits/title.png" alt="VCE IT Post Mortem by Mark Kelly
+" border = "0" /></a></h2>
+<p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+ <hr />
+</div>
+<div align="center">
+ <table width="80%" border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td align="center">
+ <h1 align="center">VCAA Informatics Exam Post Mortem </h1>
+ <h1 align="center">2016</h1><img src="/m/toetags.jpg" width="750" height="399" alt="Post Mortem banner"/>
+ <h1 align="center"></h1>
+ <p align="center">Now in living colour - and with an exciting new SECTION C !</p></td>
+ </tr>
+ <tr>
+ <td><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></div></td>
+ </tr>
+ <tr>
+ <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+ </tr>
+ </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"><div align="center">
+ <h2>The Post Mortem Awards</h2>
+ </div></td>
+ </tr>
+ <tr>
+ <td width="18%" valign="top"><p align="center"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+ <p>The infamous <strong>SCHMACKOS</strong> <strong>award</strong> for questions that are a complete dog's breakfast.</p></td>
+ <td width="18%" valign="top"><div align="center"><img src="/m/sickdog.jpg" alt="Sick as a Dog Award" width="125" height="125" /></div>
+ <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+ Questions that are <em>wrong </em>in a way that does not jeopardise the answer, or are just <em>dumb</em>.</p></td>
+ </tr>
+ <tr>
+ <td valign="top"><div align="center"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></div>
+ <p align="center">The <strong>Stamp of Approval</strong> for questions I like.</p></td>
+ <td valign="top"><p align="center"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ <p align="center">The exciting <strong>Illiteracy Award</strong> for crimes against the English language.</p></td>
+ </tr>
+ <tr>
+ <td colspan="2" align="center" valign="top"><p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p>
+ <p class="black">New for 2016 - the <strong>Naughty Step Award</strong>, for when the examiners breaks their own rules, and are sent to think about what they have done.</p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ <tr>
+ <td height="885"><h3 align="center" >COMPUTING: INFORMATICS</h3>
+ <h3 align="center" >Written examination</h3>
+ <p align="center"><strong>Friday 11 November 2016</strong></p>
+ <p align="center"><strong>Reading time: 11.45 pm to 12:00 noon (15 minutes) </strong></p>
+ <p align="center"><strong>Writing time: 12:00 noon to 2:00 pm (2 hours)</strong></p>
+ <table border="1" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="95" ><div ></div></td>
+ <td width="100"><p ><strong><em>Number of questions</em></strong></p></td>
+ <td width="152"><p ><strong><em>Number of questions to be answered</em></strong></p></td>
+ <td width="105"><p ><strong><em>Number of marks</em></strong></p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#a">Section A</a></p></td>
+ <td width="100" align="center"><p >20</p></td>
+ <td width="152" align="center"><p >20</p></td>
+ <td width="105" align="right"><p >20</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#b">Section B</a></p></td>
+ <td width="100" align="center" ><div >7</div></td>
+ <td width="152" align="center"><p >7</p></td>
+ <td width="105" align="right"><p >30</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#c1">Section C</a></p></td>
+ <td width="100" align="center" ><div >13</div></td>
+ <td width="152" align="center">13</td>
+ <td width="105" align="right"><p >50</p></td>
+ </tr>
+ <tr>
+ <td width="95"><div ></div></td>
+ <td width="100"><div ></div></td>
+ <td width="152"><div ></div></td>
+ <td width="105" align="right"><p >Total 100</p></td>
+ </tr>
+ </table>
+ <ul>
+ <li> Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners and rulers.
+ </li>
+ <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or correction fluid/tape. </li>
+ <li>No calculator is allowed in this examination.</li>
+ </ul>
+ <p align="left">Materials supplied</p>
+ <ul>
+ <li> Question and answer book of <strong>29</strong> pages</li>
+ <li>Detachable insert containing a case study for Section C in the centrefold. </li>
+ <li>Answer sheet for multiple-choice questions. </li>
+ </ul>
+ <p align="left">Instructions</p>
+ <ul>
+ <li> Detach the insert containing the case study during reading time.
+ </li>
+ <li>Write your <strong>student number</strong> in the space provided above on this page. </li>
+ <li>Check that your <strong>name</strong> and <strong>student number</strong> as printed on your answer sheet for multiple-choice questions are correct, <strong>and</strong> sign your name in the space provided to verify this. </li>
+ <li>All written responses must be in English. </li>
+ </ul>
+ <p><strong>At the end of the examination </strong></p>
+ <ul>
+ <li> Place the answer sheet for multiple-choice questions inside the front cover of this book.
+ </li>
+ <li>You may keep the detached insert.</li>
+ </ul>
+ <p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"></td>
+ </tr>
+ <tr>
+ <td colspan="2" ><p class="examiner"><strong>Examiners' report general comments</strong></p>
+ <p class="examiner"><br />
+ <!--EndF>><!--EndFragment--> </p></td>
+ </tr>
+ <tr>
+   <td colspan="2" bgcolor="#CCCCCC" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+     <p><strong>Instructions for Section A</strong></p>
+     <p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+       Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+       A correct answer scores 1, an incorrect answer scores 0. <br />
+       Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+       No marks will be given if more than one 
+    answer is completed for any question</p></td>
+ </tr>
+ <tr>
+   <td width="99" valign="top" bgcolor="#CCCCCC"><strong><a name="a1" id="a1"></a>A1</strong></td>
+   <td width="873" valign="top"><p><strong>Question 1</strong></p>
+     <p><br />
+       A design principle that relates to the appearance of a website is<br /><strong>
+        a. </strong> useability.<br /><strong>
+        b. </strong> repetition.<br /><strong>
+        c.</strong> robustness.<br /><strong>
+        d.</strong> accessibility.<br />
+      </p>
+     <p class="myanswer">Answer is B.</p>
+  <p class="explanation">It's the only principle of the four that is visible.</p>
+  <p><span class="examiner">% of the state got this right.</span> This bit will be filled in when the examiner's report is released - in half a year or so.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a2" id="a2"></a>A2</strong></td>
+ <td valign="top"><p><strong>Question 2</strong><br />
+ </p>
+ <p> Secure Sockets Layer technologies protect data by<br /><strong>
+a. </strong> encrypting data when it is stored in a web-based database.<br /><strong>
+b. </strong> placing a lock symbol in the address bar of a web browser.<br /><strong>
+ c.</strong> separating layers of private data from sensitive information.<br /><strong>
+ d.</strong> encrypting data while it is being transmitted to and from a website. </p>
+ <p class="myanswer">Answer is D.</p>
+<p class="explanation">Actually SSL is now replaced by the superior TLS. A browser's padlock icon often indicates SSL is active, but the icon by itself protects nothing! </p>
+</td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a3" id="a3"></a>A3</strong></td>
+ <td valign="top" ><p><strong>Question 3</strong></p>
+ <p> The efficiency of an online transaction processing system could be evaluated by<br />
+ </p>
+ <p><strong>a. </strong> measuring the time it takes to enter a valid transaction.<br /><strong>
+   b. </strong> counting the number of incorrect transactions rejected by the system.<br /><strong>
+     c.</strong> measuring the speed of processing an entry compared to previous methods.<br /><strong>
+       d.</strong> counting the number of correctly validated entries compared to previous methods. </p>
+ <p class="myanswer">Answer is C.</p>
+<p class="explanation">Key words - <em>efficiency</em> (not 'effectiveness', so rule out B and D) and <em>evaluated</em> (not 'tested' which is what A is). C involves both speed and a comparison of new and old systems, which is an important aspect of evaluation. </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a4" id="a4"></a>A4</strong></td>
+ <td valign="top" ><p><a name="bookmark6" id="bookmark6"><strong>Question 4</strong></a> </p>
+ <p> Quantitative data includes data that is<br /><strong>
+a. </strong> numeric only.<br /><strong>
+b. </strong> character only.<br /><strong>
+ c.</strong> character and numeric.<br /><strong>
+ d.</strong> character and Boolean. </p>
+ <p class="myanswer">Answer is C.</p>
+<p class="explanation">Quantitative data can be textual (e.g. The answer to this question is &quot;C&quot;). It can also be numeric. C is the best option, since D is too limited. </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a5" id="a5"></a>A5</strong></td>
+ <td valign="top" ><p><strong>Question 5</strong></p>
+ <p> Criteria that can be used to check the integrity of data include<br /><strong>
+a. </strong> timeliness, authenticity, relevance and accuracy.<br /><strong>
+b. </strong> timeliness, accountability, relevance and accuracy.<br /><strong>
+ c.</strong> timeliness, authenticity, relevance and acceptance.<br /><strong>
+ d.</strong> timeliness, accountability, referencing and acceptance. </p>
+ <p class="myanswer">Answer is A.</p>
+<p class="explanation">Accountability doesn't exist, nor does acceptance. </p>
+<p class="comment"><span class="examiner">% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a6" id="a6"></a>A6</strong></td>
+ <td valign="top" ><p><a name="bookmark8" id="bookmark8"><strong>Question 6</strong></a> </p>
+ <p>&lsquo;High temperatures affect plant growth.'<br />
+ What must be added to the statement above to make it a reasonable hypothesis?<br /><strong>
+a. </strong> a subject<br /><strong>
+b. </strong> a variable<br />
+<strong>c.</strong> a prediction<br />
+<strong>d.</strong> a conclusion </p>
+ <p class="myanswer">Answer is C.</p>
+<p class="explanation">The study design says that variables and a prediction are required for a reasonable hypothesis. <br />
+  The statement in the stem has an independent variable (the temperatures), a dependent variable (plant growth).</p>
+ <p class="comment">I didn't like this. The effect was too vague to constitute a reasonable hypothesis: it should have said <strong>how</strong> the growth is affected. <br />
+   Secondly, it needed a tentative explanation of the reason for the effect (the 'because'). </p>
+ 
+ <p class="myanswer">&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a7" id="a7"></a>A7</strong></td>
+ <td valign="top" ><p><strong>Question 7</strong></p>
+ <p> Janet has been investigating the decline in sales of music CDs. She would like to create a chart for her blog that clearly shows the decline.<br />
+ Which one of the following is the best chart to use? </p>
+ <p><img src="/m/pm/16i-a07.png" width="647" height="456" alt="VCE Informatics exam 2016"/></p>
+ <p class="myanswer">Answer is B.</p>
+<p class="explanation">Pie chart (A) is inappropriate. B clearly shows the trend. C has a messy image interfering with the data. D is counterintuitive. </p>
+</td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a8" id="a8"></a>A8</strong></td>
+ <td valign="top" bgcolor="#FFFFFF" ><p><strong>Question 8</strong></p>
+ <p><br />
+ One of the provisions of the federal Privacy Act (1988) and its amendment is to<br /><strong>
+a. </strong> permit access to the personal details of specific people.<br /><strong>
+b. </strong> prevent state and territory governments from misusing personal data.<br /><strong>
+ c.</strong> permit someone to print their own tax file number, provided that it is for personal use.<br /><strong>
+ d.</strong> protect personal information collected and stored by federal government departments,, </p>
+ <p>&nbsp;</p>
+ <p class="myanswer">Answer is D.</p>
+<p class="explanation">Yep. D. </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a9" id="a9"></a>A9</strong></td>
+ <td valign="top" ><p><strong id="sitestory">Question 9</strong></p>
+ <p><img src="/m/pm/16i-a09.png" width="447" height="286" alt="VCE Informatics exam 2016"/><br />
+ </p>
+ <p>The diagram above most likely represents<br /><strong>
+a. </strong> a site map.<br /><strong>
+b. </strong> a mock-up.<br /><strong>
+ c.</strong> a storyboard.<br /><strong>
+ d.</strong> an entity-relationship diagram.</p>
+ <p>&nbsp;</p>
+ <p class="myanswer">Answer is probably going to be C but I bet half the state also goes for A. And I would agree with them.</p>
+<p class="comment">VCAA has never defined what they think a storyboard looks like. The diagram is basically a site map with arrows attached. What do the arrows <em>mean</em>? I don't know. I can only guess they are meant to say 'This is no longer a site map.' </p>
+<p class="comment">It's a bogus question examining key knowledge that is never defined by VCAA. Is an arrow significant? No such statement has been made by VCAA at any time.</p>
+<p class="comment">The study design merely lists storyboards amongst other design tools, and the Informatics sample exam</a> (A15) again only mentions them as cousins of sitemaps.</p>
+<p class="comment">It's another example of VCAA inventing its own conventions out of the blue and examining students on their invention. Even the stem is unsure - &quot;The diagram above <strong>most likely</strong> represents&quot; - aren't they even sure themselves?</p>
+<p class="comment">The markers had better accept either A or C or I will be very displeased.</p>
+<p class="comment">I turn my back upon this question, and sniff with haughty disdain.</p>
+ <p class="comment"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+  
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a10" id="a10"></a>A10</strong></td>
+ <td valign="top" ><p><strong>Question 10</strong></p>
+ <p><br />
+ Bentwood Softball Club needs to ensure that all of its umpires are registered to umpire games in Victoria. To do this, the club needs to record detailed personal information regarding each umpire's level of skill. Recently, the club undertook an online survey of all of its 35 umpires.<br />
+ The safest way for Bentwood Softball Club to store the data from the survey is on</p>
+ <p><strong>
+     a. </strong> the club's &lsquo;members only' social media page.<br /><strong>
+       b. </strong> an unsecured web page on the club's website.<br /><strong>
+        c.</strong> a DVD kept on an open shelf in the clubrooms.<br /><strong>
+        d.</strong> a secure laptop with restricted access kept in the clubrooms. </p>
+ <p class="myanswer">Answer is D.</p>
+<p class="explanation">If you chose (B) or (C), please let me know so I can come around and slap some sense into you.</p>
+ <p class="comment"><img src="/m/pm/dog-stupid.jpg" width="248" height="203" alt="Dumb dog"/></p>
+ <p class="comment">Rather easy and obvious, but good for a giggle. </p>
+  </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a11" id="a11"></a>A11</strong></td>
+ <td valign="top" ><p align="left"><strong><a >Question 11</a></strong></p>
+ <p><img src="/m/pm/16i-a11.png" width="422" height="266" alt="VCE Informatics exam 2016"/><br />
+ </p>
+ <p>For the Gantt chart shown above, a delay in the completion of Task D by one day will<br /><strong>
+a. </strong> have no effect on Task E.<br /><strong>
+b. </strong> delay only Task E by one day.<br /><strong>
+ c.</strong> delay only Task F by one day.<br /><strong>
+ d.</strong> delay both tasks E and F by one day. </p>
+ <p class="myanswer">Answer is A.</p>
+<p class="explanation">If Task D overruns by 1 day, dependent task F starts one day late, <strong>and its dependent task G <em>also</em> starts one day late</strong>. Hence option (C) does not work because it says that <strong>only</strong> Task F is delayed.</p>
+<p class="explanation"> Task E  is dependent on F, but there is a day's slack so E is not affected. </p>
+<p class="comment"><img src="/m/pm/16i-a11-gantt1.png" width="667" height="228" alt="VCE Informatics exam 2016"/></p>
+ <p class="comment">Task D is delayed by 1 day... Task F and its dependent task G are delayed. Task E is <strong>not</strong> affected.</p>
+ <p class="comment"><img src="/m/pm/16i-a11-gantt2.png" width="700" height="209" alt="VCE Informatics exam 2016"/></p>
+ <p class="comment">A cunning question. I was wondering why task G was included... then it dawned on me. </p>
+ <p class="comment">The little word &quot;only&quot; in the options makes a <strong>big</strong> difference. </p>
+ 
+ <p align="left">&nbsp;</p> </td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#CCCCCC"><strong><a name="a12" id="a12"></a>A12</strong></td>
+   <td valign="top" ><p><strong><a >Question 12</a></strong><a ></a> </p>
+     <p><img src="/m/pm/16i-a12.png" width="420" height="296" alt="VCE Informatics exam 2016"/><br />
+       <br />
+      </p>
+     <p>In the diagram shown above, what security control is at P to ensure that the data is provided by a valid source?<br /><strong>
+       a. </strong> a switch<br /><strong>
+        b. </strong> a firewall<br /><strong>
+        c. </strong>a biometric reader<br /><strong>
+      d. </strong>antivirus software? </p>
+     <p class="myanswer">Answer is B.</p>
+  <p class="explanation">A switch (A) only connects cables within a LAN. It does not assess the credentials of packets of data. <br />
+    A firewall (B) stands between a LAN and outsiders, and actively inspects data transfers to ensure they are legitimate and allowed.<br />
+    (C) is just silly. The exam writer obviously ran out of cunning distractors.<br />
+    Antivirus software (D) does not examine the source of incoming data, only its contents.<br />
+  </p>
+  <p class="comment">&nbsp;</p>
+     </td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#CCCCCC"><strong><a name="a13" id="a13"></a>A13</strong></td>
+   <td valign="top" ><p><strong><a >Question 13</a></strong><a ></a> </p>
+     <p> A dental clinic has the following table storing appointment information. The business would like to store the data in a relational database.<br />
+       <img src="/m/pm/16i-a13.png" width="635" height="252" alt="VCE Informatics exam 2016"/><br />
+      </p>
+     <p>Which of the following diagrams shows the data in third normal form? </p>
+     <p><img src="/m/pm/16i-a13b.png" width="497" height="542" alt="VCE Informatics exam 2016"/></p>
+     <p class="myanswer">Answer is A.</p>
+  <p class="explanation">It looks scary at the start, but sketch a quick schema based on common sense. <br />
+    All options have the same 3 tables, so no decision needed there.<br />
+    The problem with (B) is that the <strong>duration</strong> is related to APPOINTMENT, not DENTIST. A quick first victim to rule out.<br />
+    (C) links the patient's <strong>whole</strong> name in one table with the <strong>FirstName</strong> in another table. Another quick loser. <br />
+    The relationships in (D) are fine, but the <strong>Duration</strong> is now in the PATIENT table, to which is doesn't belong. Also <strong>PatientName</strong> is two names in a single field and that violates 1NF. Can't be that, then.<br />
+  </p>
+     <p class="comment">A challenging way to test 3NF and relationship key knowledge in one go. Shame it's only worth 1 mark.</p>
+     <p class="comment">But why are AppointmentDate and AppointmentTime <u>underlined</u> as if they were <strong>keys</strong>? The only <strong>other</strong> underlined fields are keys!</p>
+     <p class="comment"><strong>Shame</strong> on the examiners for breaking their own rules. Go sit on the naughty step and think about your sloppy proof-reading and confusing inconsistency.</p>
+     <hr />
+     <p class="comment">Soon after...</p>
+     <p class="comment">A worthy colleague has reminded me that the underlined fields may well be acting as a multi-field primary key for the appointments table!</p>
+     <p class="comment">That is technically feasible. Grrr.</p>
+     <p class="comment">But why would <strong>anyone</strong> in their right mind create a multiple-field key after all we've learned about 2NF problems? It's just dumb database design! </p>
+     <p class="comment">I never even consider using multiple-field keys, any more than I would consider checking for gas leaks by striking a match.</p>
+     <p class="comment">All right. I <strong>withdraw</strong> my complaint about the redundant underlining, and <strong>replace</strong> it with a complaint about setting a bad example to impressionable young database designers.</p>
+     <p class="comment">Any depiction of multiple-field keys in exams should be accompanied by compulsory health warnings.</p>
+     <p class="comment">Back onto the naughty step for misguiding modern youth about good database design!     </p>
+     <p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p>
+     <p class="comment">&nbsp;</p>
+     </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a14" id="a14"></a>A14</strong></td>
+ <td valign="top" ><p><strong><a >Question 14</a></strong><a ></a> </p>
+ <p><br />
+ Information created for educating a worldwide audience about career options should be<br /><strong>
+a. </strong> age appropriate and gender inclusive.<br /><strong>
+b. </strong> appropriate for all ages and gender inclusive.<br /><strong>
+ c.</strong> suitable for adults only and culturally exclusive.<br /><strong>
+ d.</strong> suitable for young people only and culturally inclusive. </p>
+ <p class="myanswer">Answer is A.</p>
+<p class="explanation">Not all information needs to be appropriate for <strong>all</strong> ages: it needs to suit the ages at which it is targeted. Rule out B because it would not allow discussion of any 'adult' careers such as exotic dancing, or portraying Santa in a supermarket at Christmas.<br />
+  Rule out C quickly - cultural <strong>ex</strong>clusivity is never an aim unless... no. Let's not bring Donald Trump or Pauline Hanson into this.<br />
+  D is not sensible. Career options are relevant to many groups other than <strong>only</strong> young people. </p>
+ <p class="comment">Pretty easy. </p>
+  </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a15" id="a15"></a>A15</strong></td>
+ <td valign="top" ><p><strong><a >Question 15</a></strong></p>
+   <p> Greenwood Council is developing a disaster recovery plan.<br />
+ What is the best management strategy to enable the restoration of data quickly with the least loss of data?</p>
+   <p><strong>
+       a. </strong> Implement weekly full backups.<br /><strong>
+        b. </strong> Implement only daily incremental backups.<br /><strong>
+        c.</strong> Implement daily incremental and weekly full backups.<br /><strong>
+        d.</strong> Implement daily incremental and weekly incremental backups.</p>
+ <p class="myanswer">Answer is C.</p>
+<p class="explanation">I've never heard of a weekly incremental backup. It sounds impressive, and may be designed to distract weaker students. <br />
+  Option C is the current standard for backups, but is increasingly being displaced by continuous data backups (CDB) to the cloud.</p>
+ <p class="comment">I'm really glad the examiners did not roll out 'differential backups' just to muddy the waters.</p>
+ <p class="comment">I thought the abbreviated wording of options C and D was not good for ESL students. It would have better been expressed as<br />
+   &quot;Implement daily incremental BACKUPS and (other) BACKUPS.&quot;<br />
+   </p>
+ <p class="comment">Otherwise, what is a &quot;daily incremental&quot;? </p>
+ <p class="comment">Hello, Tim. Have you had your daily incremental?<br />
+   No, Tania. By golly I have not. I'd better get incremented immediately! </p>
+ <p class="comment"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ 
+ <p align="left">&nbsp;</p> </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a16" id="a16"></a>A16</strong></td>
+ <td valign="top" ><p><strong>Question 16</strong></p>
+ <p><br />
+ A school's administration is reviewing its information management strategy based on the following criteria: security, cost, speed of data retrieval and currency of data.<br />
+ Taking into account all of the criteria, which of the following is the best information management strategy to enable the urgent restoration of data?<br />
+ </p>
+ <p><img src="/m/pm/16i-a16.png" width="572" height="246" alt="VCE Informatics exam 2016"/></p>
+ <p class="myanswer">Answer is B.</p>
+<p class="explanation">The answer depends on judging the relative importance of different criteria. <br />
+  Cost is the least relevant, so ignore it at first because the question focuses on the <strong>urgent</strong> restoration of data, which depend on the last 2 criteria.<br />
+  And - contrary to the speed issue - <strong>currency of data</strong> is more important than retrieval speed. Retrieving outdated data quickly is pointless. </p>
+<p class="explanation">(A) and (D) are unreliable because they are only only current now and then.<br />
+  (B) may be slow, but at least it's always up to date.<br />
+  (C) is only up to date once a week, so it's pretty worthless.<br />
+</p>
+ <p class="explanation"><strong>Thanks for the feedback from a couple of clever people who helped improve this answer!</strong></p>
+ <p class="comment">Why have the same value for all four options' security rating? It renders it irrelevant padding. <br />
+   It would be better to leave security out altogether and only include criteria that make a difference to the answer.<br />
+ </p>
+  </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a17" id="a17"></a>A17</strong></td>
+ <td valign="top" ><p><strong><a >Question 17</a></strong><a ></a></p>
+   <p>       The photograph editor for a magazine publisher is setting up a folder structure for a new project based on the following conditions:</p>
+   <ol>
+     <li> Several photographers will be sending original photographs to the editor during the next three months. <br />
+       At the end of the project, each photographer's full set of original photographs will have to be easily identified. <br />
+       The originals will never be manipulated but will need to be archived at the end of the project.</li>
+     <li>When a photograph is to be manipulated, the editor will make a copy of the original. The copy will be manipulated as needed. There may be many different versions saved. These will require daily backup.</li>
+     <li> The final photographs that are accepted for publication will need to be sent as a batch to the publishing team. They will also need to be archived at the end of the project.</li>
+     </ol>
+   <p class="comment">[Note - I have changed the criteria dotpoints to numbers to make discussion easier]</p>
+   <p>     Which of the following folder structures will most efficiently meet these storage, backup and archival needs?<br />
+     <br />
+ </p>
+ <p><img src="/m/pm/16i-a17a.png" width="493" height="152" alt="VCE Informatics exam 2016"/></p>
+ <p><img src="/m/pm/16i-a17b.png" width="382" height="149" alt="VCE Informatics exam 2016"/></p>
+ <p><img src="/m/pm/16i-a17c.png" width="515" height="194" alt="VCE Informatics exam 2016"/></p>
+ <p><img src="/m/pm/16i-a17d.png" width="539" height="217" alt="VCE Informatics exam 2016"/></p>
+ <p>&nbsp;</p>
+ <p class="myanswer">Answer is D.</p>
+<p class="explanation">Rule out B immediately since it cannot accomplish identification of the photographer (criterion 1).<br />
+  Let's proceed through the criteria to see which other options fail to make the grade.</p>
+<p class="explanation">Criterion 1 - options A, C and D all keep all original files identifiable by their photographer.</p>
+<p class="explanation">Criterion 2 - the 'daily backup' of versions of copies would be easier if all of them were in a single folder, such as (D). Otherwise, a backup would need to search each photographer's working copy files folder individually, which is a pain. D is looking good.</p>
+<p class="explanation">Criterion 3 - again, to send the final photos as a batch, it would be easiest if they were all in the same folder as a group. Option (D) again achieves that. This is not to say that (C) would not be possible, but it would be less <em>efficient</em> (in terms of labour and time) - the main point of the question.<br />
+</p>
+<p class="comment">Wow. That's a lot of information to unpack before trying to earn a single mark! <br />
+  It's not a <strong>bad</strong> question at all, but the time it requires is significant for one mark.</p>
+ <p class="comment">&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#CCCCCC">&nbsp;</td>
+   <td valign="top" ><p><em>Use the following information to answer Questions 18-20.</em></p>
+     <p>       Two organisations, Painfree Medical Centre (PMC) and Bushwalks for Over 60s (BOS), are reviewing their information management strategies. In particular, they need to update their equipment and procedures for backing up, managing and disposing of client and membership data.<br />
+       Currently, PMC backs up its database records to a set of five 4 GB flash drives that is stored in the office. The office is open to all staff.<br />
+    BOS backs up its files to an 8 GB flash drive.</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#CCCCCC"><strong><a name="a18" id="a18"></a>A18</strong></td>
+   <td valign="top" ><p><strong><a >Question 18</a></strong><a ></a> </p>
+     <p> PMC needs a storage capacity of 20 GB per day for its client data, while BOS needs 5 MB per day for its membership data.<br />
+       Which pair of options will provide the best backup plan for both organisations?<br />
+      </p>
+     <p><img src="/m/pm/16i-a18.png" width="658" height="240" alt="VCE Informatics exam 2016"/></p>
+     <p class="myanswer">Answer is C.</p>
+  <p class="explanation">It was pretty quick and easy to eliminate options just by looking just at PMC's column.<br />
+    (A) the external HDD was OK, but backing up only once a week is a deal-breaker.<br />
+    (B) DVD is not wise, since it can only hold 4.7GB, is easily scratched, is relatively slow 
+  to burn data to, is not reusable unless it's read/write, is believed to decay over time. Oh, yes. And it's stored onsite, which rules it out immediately.<br />
+  (C) Tape is OK. Yes - 
+  shock, horror - tape is still widely used in industry and can still whoop HDD's backside when it comes to speed and capacity. Daily backups are good. Tapes stored offsite - all good.<br />
+  (D) The SSD in itself is worth considering, but the &quot;stored in office, open to all staff&quot; is dangerous.</p>
+  <p class="explanation">So (C) looks good so far so let's check the other column for (C). Automatic backup to the cloud is worthy of consideration. The 1Mbps is OK (assuming that is the upload speed - not so good if it's the download speed.     </p>
+  <p class="comment">I wish exams would tie up loose like this. It makes a considerable difference - if the <strong>download</strong> speed were only 1Mbps, it might take ages to restore one day's data. The question could have cleared up this ambiguity with only a word or two.<br />
+  </p>
+  <p class="comment">Tip: &quot;ADSL&quot; stands for Asymmetric Digital Subscriber Line, and the key word is &quot;Asymmetric&quot; which means that the upload and download speeds are significantly different. Quoting a single speed when there are in fact two is incomplete and confusing.</p>
+     <p class="explanation">So (C) stands up in both columns.</p>
+     <p class="explanation">Just for fun (yeah, I know, I don't get out much, so discussing the merits of unsatisfactory backup methods is my idea of fun) let's check out the remaining options.</p>
+     <p class="explanation">In the BOS column...<br />
+       (A) internal HDD
+     is fast and capacious, but very difficult to take offsite at the end of each day.<br />
+     (B) a <strong>read-only</strong> DVD? How are you going to write data to a read-only DVD?? Weird.<br />
+     (D) flash drives are convenient and very portable, but not hugely
+     reliable. 32GB could store 6 days' data, which is not really enough. And it's only a weekly backup, which is once again a dangerous strategy.</p>
+     
+    <p class="comment">&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a19" id="a19"></a>A19</strong></td>
+ <td valign="top" ><p><strong><a >Question 19</a></strong><a ></a></p>
+ <p> Both organisations are aware of the need for privacy when storing data. Which pair of options will provide the best rule for each organisation?<br />
+ </p>
+<p class="comment"><img src="/m/pm/16i-a19.png" width="655" height="248" alt="VCE Informatics exam 2016"/></p>
+<p class="comment"><span class="myanswer">Answer is D.</span></p>
+
+<p class="comment">If 99% of the state does not get this right, I'll be surprised. The incorrect options were too extreme to make them tempting. </p>
+</td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a20" id="a20"></a>A20</strong></td>
+ <td valign="top" ><p><strong><a >Question 20</a></strong><a ></a> </p>
+ <p> PMC has decided to replace its current backup strategy with cloud storage. It is aware of the need to dispose of data when clients' records are no longer required. PMC has a number of options:<br />
+ 1. Crush the old flash drives and place them in the garbage.<br />
+ 2. Delete backup files from the old flash drives before re-using them.<br />
+ 3. Delete data from cloud storage that is no longer needed.<br />
+ 4. Ensure that the contract with the cloud company requires it to dispose of the data PMC no longer needs.<br />
+ </p>
+ <p>Which pair of options should PMC choose to ensure old data is disposed of properly?</p>
+ <p><strong>
+     a. </strong> 1 and 3<br /><strong>
+       b. </strong> 2 and 4<br /><strong>
+        c. </strong>1 and 4<br /><strong>
+        d. </strong>2 and 3 <br />
+ </p>
+ <p class="myanswer">Answer is A.</p>
+<p class="explanation">This is a chewy question, unlike the previous one. As with all section A questions, one should look for patterns. Each option referred to one of the first two methods (both of which deal with the old backups), and one of the second two methods (which both relate to new cloud-based backups).</p>
+<p class="explanation">Looking at the methods:</p>
+<p class="explanation">(1) Obviously crushing old flash drives is an extreme, but 100% effective way of destroying data on them. Cost is not an issue nowadays since 8GB drives are nearly valueless.<br />
+  (2) Simply deleting files does not make them unrecoverable. Some data may not be overwritten for some considerable time. This is a risky strategy. Rule out options B and D that select it.<br />
+  (3) Deleting data from cloud storage is a good idea. I would have lingering doubts about how well it was actually deleted, since cloud files may be replicated on many physical servers, and the reliability of the cloud host may mean 'deleted' files are still accessible to the wrong people. Still, it's better than...<br />
+  (4) A contract means little if the host is incompetent or untrustworthy. And how would the host know which data is no longer required by PMC? So this option also drops out.</p>
+<p class="explanation">That leaves only option A. </p>
+<p class="comment">&nbsp;</p>
+ 
+<br clear="all" /></td>
+ </tr>
+ <tr>
+ <td bgcolor="#CCCCCC" ></td>
+ <td><p align="left">&nbsp;</p>
+ <p align="left"><strong>Overall for section A</strong> </p>
+ <p align="left" class="comment">Pretty easy, on the whole. A bit <strong>too</strong> easy in a few cases.. <br />
+   New key knowledge was approached fairly and sensitively. <br />
+   A9 was a disaster, and something that VCAA really needs to address since it has been a long-running bad habit of theirs to invent conventions that are used nowhere else on the planet and assess these idiosyncratic inventions in exams; also refer to their weird interpretation of ERDs in the previous study design.<br />
+   I've noticed a recent tendency
+   for section A questions to require much more reading and thought to answer, e.g. A17. This is welcome to a degree, but remember the ESL kids will be struggling with page-long questions, and most students will be taking several minutes to earn a single mark.<br />
+   On the other hand, several of the questions (such as A10 and A19) had ridiculously absurd options that 
+   provided no challenge whatsoever. Is it a good VCE exam if someone could walk in off the street and earn several marks without any Informatics study at all?<br />
+   A better balance in the degrees of difficulty would be beneficial.<br />
+ </p> </td>
+ </tr>
+ <tr>
+ <td colspan="2"></td>
+ </tr>
+</table>
+<table>
+ <tr>
+   <td colspan="2" valign="top" bgcolor="#99CCFF" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+     <p class="blueback">Instructions for Section B<br />
+    Answer all questions in the spaces provided.</p></td>
+ </tr>
+ <tr>
+   <td width="99" valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="c21"></a>B1 <br />
+    </strong></p></td>
+   <td width="996" valign="top"  ><p class="question"><strong>Question 1</strong> (4 marks)<br />
+     </p>
+     <p class="question">Marco is the owner of a recently opened shoe store. He has been storing sales records in a flat file database. Each record contains the following fields: customer ID, customer name, address, contact number, purchase price, date sold and the unique item code for each pair of shoes.<br />
+       Customers sometimes buy more than one pair of shoes. Marco has to enter a new record for each pair of shoes purchased.<br />
+       Marco is investigating the idea of moving his sales data into a relational database.<br />
+      </p>
+     <p class="question"><strong>a. </strong> State two advantages of moving the sales data to a relational database. 2 marks</p>
+     <ul>
+       <li class="myanswer">It removes much repetition of data, such as names, addresses that could be stored just once in a relational database. This would make the database smaller and more responsive.</li>
+       <li class="myanswer">It reduces the risk of invalid data being stored - e.g. if a customer moves house, the address stored in previous records would become incorrect, while yet others would be correct. This loss of integrity makes the whole database unreliable.</li>
+       <li class="myanswer">More data would be accessible. The use of relationships greatly increases the number of ways data can be searched, manipulated and arranged.</li>
+       <li class="myanswer">Data entry would be far faster, since repeated data (e.g. name, address) would not need to be entered for each item sold.<br />
+        </li>
+      </ul>
+     
+     <p  ><strong>b.</strong> 
+       Marco has started to create the entity-relationship diagram below for his data.<br />
+       Complete the diagram by showing the relationship between the two entities and the cardinality   of the relationship. 2 marks</p>
+     <p><img src="/m/pm/16i-b01b.png" width="606" height="169" alt="VCE Informatics exam 2016"/><br />
+      </p>
+     <p><br />
+      </p>
+     <p class="myanswer"><img src="/m/pm/16i-b01b-answer.png" width="612" height="178" alt="VCE Informatics exam 2016"/></p>
+     <p class="comment">OK. I have problems with this.</p>
+     <p class="comment">1. The question's case study says that &quot;Customers sometimes buy more than one pair of shoes.&quot; This guarantees at least the cardinality that ONE customer can buy MANY shoes. Hence my reluctant solution, which is actually ridiculous.</p>
+     <p class="comment">In The Real World&#8482;, one type of shoe must obviously be bought by more than one person - unless it was a <strong>particularly</strong> unsuccessful range of shoes that only ever sold a <strong>single</strong> pair, like this... </p>
+     <p class="comment"><img src="/m/stupidshoes-16i-b1b.jpg" width="245" height="206" alt="VCE Informatics exam 2016"/><br />
+      </p>
+     <p class="comment">So it should <strong>actually</strong> be a M:N (many to many) relationship. </p>
+     <p class="comment">But let's not let mere trifles like practices in The Real World&#8482; and common sense get in the way of an Informatics  exam question. Otherwise we'd be here all month.</p>
+     <p class="comment">2. What on <strong>earth</strong> is &quot;Date sold&quot; doing as an attribute of the SHOE entity? That would mean that an instance of an entire shoe variety could only be sold once - <strong>ever</strong>. It's not like &quot;Date invented&quot; which applies to <strong>every</strong> member of the SHOE class. </p>
+     <p class="comment">&quot;Date Sold&quot;  relates to a <strong>transaction</strong>, not the SHOE <strong>entity</strong>. The positioning of 'Date Sold' in this ERD is obviously wrong and icky. <br />
+      It violates 3NF, and standard human decency. It's like sneezing on a nun. Or naming a dog &quot;Stay&quot; and then calling &quot;Come here, Stay! Come here, Stay!&quot; *.</p>
+     <p><span class="comment"><strong>Newsflash</strong>. Research in The Real World (TM) reveals Chen relationships CAN have attributes, so the exam's ERD (or <a href="http://www.vcaa.vic.edu.au/Documents/vce/computing/Informatics_examination_ER_Conventions.docx">the official VCAA rules for Chen ERDs</a>) is flawed. </span></p>
+     <p class="comment"><span class="comment">
+       See&nbsp;<a href="http://www.conceptdraw.com/How-To-Guide/erd-how-to-draw-er-diagrams" target="_blank" >http://www.conceptdraw.com/How-To-Guide/erd-how-to-draw-er-diagrams</a><br />
+       
+       Specifically -&nbsp;<a href="/How-To-Guide/picture/Chen-ERD--sample.png" target="_blank" >http://www.conceptdraw.com/How-To-Guide/picture/Chen-ERD--sample.png</a><br />
+       
+       </span><br />
+       
+       It shows how&nbsp;Chen ERD relationships <strong>can have attributes attached</strong>, for example the &quot;Has&quot; relationship has attributes, &quot;LastPlayed&quot; and &quot;CreatedOn&quot;.
+     </p>
+     <p class="comment">Exam markers should accept either 1:M or M:N for this question.</p>
+     <p class="comment">3. The term  'cardinality' does not appear in the study design or 'Advice for Teachers'. It <strong>does</strong> appear in the VCAA document on Entity-relationship (ER) conventions'. It is becoming increasingly difficult to find relevant canonical course information in the growing number of VCAA's Informatics documents that are stored in disparate places (VCAA site, Advice for Teachers site) and formats (docx, HTML, PDF). </p>
+     <p class="comment">If only VCAA could take their own advice and gather their resources into a single, searchable database of relevant course information so teachers and students would not have to load a multitude several documents to check whether something is assessable or not. This site tries to do this, but it's not my job.</p>
+     <p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/><br />
+      </p>
+     
+    
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="b2"></a>B2<br />
+ </strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 2</strong> (3 marks)<br />
+</p>
+   <p>A large number of paper survey forms have been completed and now the data must be entered into a database. It is important that the data is entered accurately.<br />
+  </p>
+   <p><strong>a. </strong> State <strong>one</strong> manual technique that could be used to ensure data entry is as accurate as possible. 1 mark</p>
+   <p class="myanswer">Enter the data, then read it over and compare it with the original data on paper.</p>
+   
+   
+   <p><strong>b. </strong> Describe an electronic validation check that could be used to identify possible errors as data is entered. 2 marks</p>
+   <ul>
+     <li class="myanswer">Existence check - to detect missing data.</li>
+     <li class="myanswer">Range check - to ensure data is within acceptable limits, or is one of a permitted set of responses.</li>
+     <li><span class="myanswer">Type check - to see if data is text, numeric, or whatever is appropriate for that question.</span><br />
+     </li>
+   </ul>
+   
+   
+<p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="b3"></a>B3<br />
+ </strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 3</strong> (5 marks)<br />
+</p>
+   <p>Janice wants to create a web page to inform the public about her amateur theatre group's new play.<br />
+     The play is going to be performed each weekday during the school holidays. There will be a special price for families of at least one adult and two or more children. Janice is thinking about how the page should look.<br />
+  </p>
+   <p><strong>a. </strong> Outline two techniques Janice could use to generate alternative design ideas for her web page. 2 marks<br />
+     </p>
+   <ul>
+     <li class="myanswer">Brainstorm ideas with friends.</li>
+     <li class="myanswer">Visit several similar sites online and get ideas from them.   </li>
+   </ul>
+   <p class="explanation">There are many other possibilities, but let's rule out mushrooms, OK?   </p>
+   
+   <p><strong>b. </strong> Suggest a criterion Janice could use to evaluate which of her design ideas she should choose.<br />
+     Justify your answer. 3 marks<br />
+ </p>
+   <ul>
+     <li class="myanswer">Attractiveness - the site must look good to attract readers and maintain their interest long enough to get its message across.</li>
+     <li class="myanswer">Cost - an amateur group would probably not have a big budget.</li>
+     <li><span class="myanswer">Ease of creation - if she does not have strong web skills, the page may need to be quite simple.<br />
+       </span></li>
+   </ul>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><strong><a name="b4" id="b4"></a>B4</strong></td>
+ <td valign="top"><p><strong>Question 4</strong> (2 marks)<br />
+ </p>
+   <p>A student has found an online report containing data he wishes to use for a school project. He viewed and downloaded the report on 14 June 2016 from &lt;http://www.endangered.vic.gov.au/report&gt;.<br />
+     </p>
+   <p>The report was written by M van Olst and entitled &lsquo;The plight of the pygmy possum'. It was first published in 2014.<br />
+     </p>
+   <p>Using your preferred method of referencing and the information provided, write the reference the student would put in his reference list.<br />
+   </p>
+   <p>Referencing method -<span class="myanswer"><strong>Harvard</strong>.</span></p>
+   <p>van Olst, M 2014. <em>The plight of the pygmy possum</em>, accessed 14 June 2016. &lt;http://www.endangered.vic.gov.au/report&gt;. </p>
+ <p>Referencing method -<span class="myanswer"><strong>American Psychological Association</strong> <strong>(APA)</strong>.</span> </p>
+ <p><span class="myanswer">van Olst, M (2014). <em>The plight of the pygmy possum. </em>Retrived from http://www.endangered.vic.gov.au/report. </span> </p>
+ <p>Referencing method -<span class="myanswer"><strong>Chicago</strong>.</span></p>
+ <p><span class="myanswer">van Olst, M. <em>&quot;</em>The plight of the pygmy possum<em>.&quot; </em>endangered.vic.gov.au. http://www.endangered.vic.gov.au/report (accessed June 14, 2016)</span></p>
+ <p>Referencing method -<span class="myanswer"><strong>Institute of Electrical and Electronics Engineers (IEEE)</strong>.</span> </p>
+ <p><span class="myanswer">[1] M. van Olst (2014).<em>The plight of the pygmy possum </em>[Online] Available: http://www.endangered.vic.gov.au/report</span></p>
+ <p class="comment">Hang on a minute! The question did not specify that the 'preferred method of referencing' had to be one of the four in the study design. LOOPHOLE! </p>
+ <p class="comment">But seriously, folks, this was far from easy for the average student. Getting each comma, italic (have you ever tried to handwrite in italics?), and quotation mark right is a big ask - especially for a website reference, which is arguably trickier than a reference to a book.</p>
+ <p class="comment">I hope the markers are allowed a fair amount of latitude when awarding marks. Nevertheless, I predict the state average will be about 0.5 / 2 or less.</p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><strong><a name="b5" id="b5"></a>B5</strong></td>
+ <td valign="top"><p><strong>Question 5</strong> (7 marks) </p>
+ <p><img src="/m/pm/16i-b05.png" width="370" height="284" alt="VCE Informatics exam 2016"/><br />
+ </p>
+ <p> <br />
+ The design for the home page of a website is shown above.<br />
+ </p>
+ <p><strong>a. </strong> Identity three features of this design that do not follow appropriate conventions. 3 marks<br />
+ </p>
+ <ul>
+   <li class="myanswer">The logo is not at the top of the page.</li>
+   <li class="myanswer">Heading is too small.</li>
+   <li class="myanswer">The main navbar is at the bottom of the page.</li>
+   <li class="myanswer">Underlining is used to highlight main points.</li>
+ </ul>
+ <p class="comment">This was confusing. It was hard to see whether the slanted writing was supposed to appear as it is shown, or whether it was meant to <br />
+   (1) identify the main body text and <br />
+   (2) provide instructions re. underlining. <br />
+   Surely the slanted writing could have appeared beside the page with an arrow aiming at the main text box, and the instruction could have been in a different typeface to make it visually distinct from the other text within the page.</p>
+ <p class="comment">A rather messy and awkward presentation for a question, I thought. Question <a href="#c9">C9</a> did it a little better.</p>
+ <p class="comment"><span class="myanswer"><img src="/m/pm/confused-dog.jpg" width="87" height="119" alt="VCE Informatics exam 2016"/></span></p>
+ <p class="comment">&nbsp;</p>
+ 
+ <p><strong>b. </strong> Use the grid below to redesign the home page and apply appropriate conventions. 4 marks<br />
+   </p>
+ <p class="explanation">I couldn't be bothered drawing and scanning it. <br />
+   I have better things to do, like <br />
+   (a) writing to movie studios to threaten them if they allow Adam Sandler to make another movie, and <br />
+   (b) shouting at the dog down the street who won't stop playing Metallica CDs at full volume while his owners are at work.</p>
+ <p class="explanation"><span class="myanswer">Move the logo to the top.<br />
+Move the navbar to top. <br />
+Make the heading bigger. <br />
+Remove the underlining instruction.</span><br />
+ </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><strong><a name="b6" id="b6"></a>B6</strong></td>
+ <td valign="top"><p><strong>Question 6</strong> (5 marks)<br />
+</p>
+   <p>An organisation stores its client data on a file server that is kept in a back office. Each night, a backup tape is made. Recently, a staff member became aware that, instead of being taken off site, the backup tape was simply left on a cabinet in the back office where the file server is. The staff member reports this to the head of the organisation.</p>
+ <p class="comment">Backups  again? The examiners are back to their backup fixation of previous years.</p>
+ <p><strong>
+   a. </strong> Outline two possible consequences for the organisation if the head of the organisation does not take any action. 2 marks<br />
+ </p>
+ <ul>
+   <li class="myanswer">Data loss that could lead to an inability to conduct business - collect due payments, pay creditors, fulfil orders etc.</li>
+   <li class="myanswer">Loss of income due to a loss of data about active orders, debts and payments due.</li>
+   <li class="myanswer">Loss of reputation as a reliable organisational partner or supplier of goods or services.</li>
+   <li class="myanswer">Trouble with the tax office because of lost tax-related documents.</li>
+   <li class="myanswer">Organisational death.</li>
+   </ul>
+ 
+ <p><strong>b.</strong> Recommend an action that the head of the organisation should take to remedy the situation. 1 mark</p>
+ <p class="myanswer">Assign a person to take the backup tape offsite at the end of each day.</p>
+ <p class="comment">Duhh.</p>
+ 
+ 
+ <p><strong>c.</strong> Having been alerted to the careless information management practices within the organisation, the head of the organisation decides to investigate further. She discovers that the organisation has no disaster recovery plan.<br />
+ Explain why she should be concerned about this. 2 marks</p>
+ <p class="myanswer">The organisation has no preparation for evacuating the building, so people could die in a fire or other disaster. <br />
+   They would not have a coherent and effective backup scheme from which to recover critical data after a disaster. <br />
+   They would not be able to restore lost data and return the business to its state before the disaster.<br />
+   They would probably be unable to generate income, and could go out of business.
+ </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b7" id="b7"></a>B7<br />
+ </strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 7</strong> (4 marks)<br />
+</p>
+   <p>The internet provides access to many hours of video footage on almost any subject. It is easy to download a video and then include it in a website or other online solution.<br />
+     Discuss the key legal requirements related to this type of activity, including an outline of the circumstances in which the requirements apply and do not apply. </p>
+   <p class="myanswer">The Australian Copyright Act 1968 requires users of other people's intellectual property to seek permission to use, adapt, or broadcast the IP. It applies to any creative work -  printed or electronic - whether or not it has been labelled as copyrighted. <br />
+     Exceptions to this law include: works that are explicitly declared to be free to use; 'fair use' of a limited portion of the work for research, review or educational purposes; work that is so old that its copyright perriod has expired; works that cannot be otherwise obtained within a reasonable time (e.g. movies whose production companies went out of business decades earlier.)</p>
+ <p class="explanation">(8 ruled lines were provided for the answer.) </p>
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2" valign="top" bgcolor="#99CCFF"><p class="comment">Section B overall - The ERD question was a bit of a dog - rather unrealistic, and it violated 3NF. It will be interesting to see how strict markers will be on the referencing question: will a misplaced comma lose big marks? B5 - the website design question - was a bit confusing. Backups are big in the new exam - A15, A16, A17, A18, A20 and B6 all involve backups for a total of 9 marks so far. <br />
+ </p>
+ <p class="comment">&nbsp;</p></td>
+ </tr>
+</table>
+<div align="left">
+ <table>
+ <tr>
+ <td valign="top" ></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#E9E5A7" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+ <p align="left">Insert for Section C - Case study<br />
+ Please remove from the centre of this book during reading time. <br />
+ </p>
+ <p align="left"><strong>InformUs</strong><br />
+   InformUs is a large marketing company in Melbourne. Bill is the manager of the telemarketing department and he is in charge of all the telemarketers in the company.<br />
+   The telemarketers work between the hours of 5 pm and 8 pm, when more people are likely to be at home. They travel to the office in the late afternoon, log in to the system, download a list of telephone numbers and start making calls to participants to obtain their opinions on various products. Each participant's responses are written on a paper copy of the survey by the telemarketer.<br />
+   <strong>Issue</strong><br />
+   Bill is finding it very difficult to attract and retain telemarketers for the company. He believes that this is because many potential telemarketers do not want to travel into the city each evening for only a few hours' work.<br />
+   At a recent managers' meeting, Bill discussed the problem with Mary, the manager of the marketing department. She suggested that Bill look into allowing his staff to work from home via the internet as a way of making it more appealing and to attract and retain telemarketers.<br />
+   <strong>Proposal</strong><br />
+   Bill has put together a proposal for setting up a new system that will allow his telemarketers to work from home.<br />
+   Bill's proposed new system has four main parts:<br />
+   &bull; Telemarketers who choose to work from home will be given a laptop, a headset and a high-speed broadband connection of at least 12 Mbps for their home internet.<br />
+   &bull; At the start of each shift, the telemarketer will remotely log in to the company network as a virtual private network (VPN) client and access their list of telephone numbers to call.<br />
+   &bull; Telemarketers will make telephone calls using a voice over internet protocol (VoIP) system through the company network.<br />
+   &bull; The information collected by the telemarketers will be entered straight into a database via a web-based user interface. The database will be stored on the InformUs file server.<br />
+   During his research for his proposal, Bill formed a hypothesis: &lsquo;If the telemarketers were allowed to work from home, they would have greater levels of satisfaction. This would lead to higher retention levels (fewer people leaving the company) and fewer sick days being taken. Overall, the telemarketing department would perform better and this would be good for the company.'<br />
+   To get approval for his proposed new system, Bill must demonstrate to the Board of Directors that his hypothesis is well informed and correct. His supervisor has told him that he must have a report regarding his proposal ready for the Board by 23 December. The report will be placed on the company's VPN for the Board to access and will be password protected.<br />
+   To test his hypothesis, Bill must collect data about whether the telemarketers would prefer to work from home. To do this, he decides to undertake an online survey of all the telemarketers.<br />
+   <img src="/m/pm/16i-cs01.png" width="659" height="356" alt="VCE Informatics exam 2016"/></p>
+ <p><img src="/m/pm/16i-cs02.png" width="659" height="534" alt="VCE Informatics exam 2016"/><br />
+ </p>
+ <p>&nbsp;</p>
+ <p align="left"><strong>END OF INSERT</strong></p>
+ <p align="left" class="comment">In case you were interested, this data is genuine and the <a href="https://www.melbourneinstitute.com/downloads/hilda/Bibliography/Other_Publications/2011/Next_Generation_Telework-A_Literature_Review-July_2011.pdf">actual report can be downloaded</a>.</p> 
+ </td>
+ </tr>
+ </table>
+ <table>
+ <tr>
+   <td colspan="2" bgcolor="#FFFFCC"><p align="left"><strong>Instructions for Section C</strong></p>
+     <p align="left"> Please remove from the centre of this book during reading time. </p>
+     <p align="left">Use the case study provided in the insert to answer the questions in this section. Answers must apply to the case study.<br />
+       Answer all questions in the spaces provided.</p>
+     <p align="left">Answer <strong>all</strong> questions in the spaces provided. </p> 
+     </td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c1" id="c1"></a>C1 </strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 1</strong> (6 marks)<br />
+     </p>
+     <p align="left">There is a lot to be done to prepare his report and Bill has a deadline to meet. He decides to prepare a plan to help him manage this project. He works out the main tasks and estimates how long each will take:<br />
+       a.  Prepare an online survey for the telemarketers, (one day)<br />
+       b<strong>. </strong> Telemarketers respond to the online survey, (seven days)<br />
+       c. Organise and manipulate the survey data, (three days)<br />
+       d. Search online sources for relevant research data, (two days)<br />
+       e. Manipulate and interpret all the data for the report, (three days)<br />
+       f. Create the report, (two days)<br />
+       </p>
+     <p align="left">Using the task list above, construct a Gantt chart for Bill on the grid below. Show the durations and the dependencies, and take into account the following:<br />
+       &bull; Bill does not work on weekends.<br />
+       &bull; Bill wants to start the project on 5 December and finish the project as soon as possible.<br />
+       &bull; Bill can carry out Task D while Task B is happening.</p>
+     <p><img src="/m/pm/16i-c01.png" width="650" height="244" alt="VCE Informatics exam 2016"/></p>
+     <p><a href="/m/pm/16i-c1-gantt.png"><img src="/m/pm/16i-c1-gantt_tn.png" width="300" height="60" alt="VCE Informatics exam 2016"/></a></p>
+     <p>Click the thumbnail above to see the <a href="/m/pm/16i-c1-gantt.png">Gantt full-sized</a>.</p>
+     <p><a href="/m/pm/16i-c1-gantt-project.gan">Download the GanttProject source file</a>.</p>
+     <p class="comment">Straightforward enough. It was good to see the clear explanation of which tasks could be concurrent. </p>
+     <p class="explanation">But, as Jack from Yesodie noticed, something fishy is going on. With most corporate Gantts, the default setting is that Saturdays and Sundays are non-work days, and the question pointed out that Bill does not work on weekends. So at first I went ahead and set the duration of task B to 7 days - as one would. The problem is that noone said that the telemarketers could not reply to the survey on weekends, so I had a problem: most tasks could not use weekends, but one <strong>did</strong>. That made the critical path 2 days longer than the space allowed by the examiners in their empty Gantt. </p>
+     <p class="explanation">I consulted the GanttProject forum, and found that individual tasks could not be set to different weekend rules. Since I could not find a way to set a single task as weekend-enabled, I  had to fudge it by setting the duration of task B to <strong>five</strong> days - a messy, icky solution.</p>
+     <p class="explanation">Doing the chart on the exam paper, it would have been easy to count the days and make different tasks follow different rules.</p>
+     <p class="explanation"><img src="/m/pm/16i-c1-gantt-hand.png" width="633" height="232" alt="VCE Informatics exam 2016"/></p>
+     <p class="explanation"> Using software made a royal mess out of it. I don't know what the moral of this story is. </p>
+     <p class="explanation">I've been pondering it and decided that task B is <strong>not</strong> actually a task and should <strong>not</strong> be represented as a task. <br />
+       Bill is not involved in carrying it out. No resources are assigned to it. It's more of an <strong>event</strong> that delays task C. <br />
+       So it should somehow be represented as maybe lag time for task A, or a dummy task - concepts that go far beyond what students are expected to know about project management. </p>
+     <p class="explanation">I've decided that if this was a deliberate inclusion, it's <strong>a dirty and unfair trick</strong>.<br />
+       If it's an oversight by the writer of the question, it's <strong>careless overcomplication</strong>.<br />
+     </p>
+     <p class="explanation">Tip: when you get a Gantt in future exams, I suggest you lightly colour in the weekends with a pencil or highlighter so you don't forget to treat them with care.</p>
+     
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td width="65" valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c2" id="c2"></a>C2</strong></p>
+ </td>
+ <td width="1260" valign="top"><p><strong>Question 2</strong> (2 marks)<br />
+</p>
+   <p>Data is collected during tasks B and D.<br />
+     Identify which data is from a primary source and explain why.</p>
+ <p class="myanswer">Task B - because it is original data generated by the researcher. </p>
+ <p class="explanation">The data in task D has been generated by some other entity. Remember that simply <em>finding</em> data does not make it <em>your</em> data, and does not make it <em>primary</em>.</p>
+ <p class="comment">&quot;Explain why&quot; - why <strong>what</strong>? Explain why it is primary data,  why primary data was used, why you identified it?</p>
+ <p class="comment">Very bad wording.</p>
+ <p class="comment"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c3" id="c3"></a>C3</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p align="left"><strong>Question 3</strong> (4 marks)<br />
+ </p>
+   <p align="left">While Bill is preparing his survey questions for Task A, he has an idea. He should interview some of his telemarketers face-to-face, rather than have them complete the online survey. He could digitally record the interviews and use the recordings to create a multimodal online report, rather than preparing just a text- and image-based report.</p>
+ <p> Bill thinks it will take a day to digitally record the interviews and he will have to add a day to the time it takes to prepare the multimodal online report. Bill would like his idea to have as little impact as possible on his project's timeline.</p>
+ <p><strong>
+a. </strong> From your Gantt chart on page 18 [<span class="explanation">of the printed exam</span>], suggest the best date for Bill to conduct the face-to-face interviews in relation to the other tasks. Explain how your suggestion minimises the impact of the interviews on the overall project timeline.</p>
+ <p> Suggested date <br />
+ </p>
+ <p class="myanswer">7 December</p>
+ <p>Explanation </p>
+ <p class="myanswer">By the 7th, he has finished the search for online sources and is idle while telemarketers respond. He can use this slack time for the new task.</p>
+ <p class="explanation">'Slack time' is not strictly an examinable term, but I highly recommend you become familiar with the concept.<br />
+   For the record, slack time is the amount of time by which a task is shorter than a longer concurrent task. </p>
+ 
+ 
+ <p><strong>b. </strong> Taking into account your suggested date in part a. and the extra time needed to prepare the multimodal online report, describe the overall impact of Bill's idea on the project timeline. <br clear="all" />
+ </p>
+ <p class="myanswer">The project will take one extra day. </p>
+ <p class="explanation">The interviews do not affect the end date, but the extra day needed to finish the report pushes the end date back by one day. <br />
+   Note that the question did not require you to <strong>explain</strong> your answer. This explanation is just here for your information. <br />
+   As a rule in exams, don't provide more information than you were asked for. <br />
+   An exception to this rule is if you suspect the question is ambiguous (e.g. <a href="#c13">C13</a>) and you have to explain your reasoning to ensure the marker sees the validity of your interpretation.</p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c4" id="c4"></a>C4</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p align="left"><strong>Question 4</strong> (5 marks)<br />
+</p>
+   <p align="left">In the online survey, Bill wants to ask his telemarketers why working from home appeals to them.<br />
+     He prepares three questions:<br />
+  &bull; How important is saving on travel expenses?<br />
+  &bull; How important is not wasting time on travelling to work?<br />
+  &bull; How important is being at home to care for a sick family member?<br />
+   </p>
+ <p align="left"><strong>a.</strong> Describe a way Bill could arrange for the responses to these questions to be coded to support manipulation once the survey is closed. 2 marks</p>
+ <p align="left" class="myanswer">Assuming the answers are free-form, open-ended and text-based (i.e. people answer using whatever words they like) - which is the only reason coding of the responses would be necessary - Bill could create a translation list such as:</p>
+ <ul>
+   <li class="myanswer">Phrases like &quot;Not much&quot;, &quot;Not really&quot;, &quot;Hardly at all&quot;, &quot;Very little&quot; etc - all get coded as 'Limited extent'</li>
+   <li class="myanswer">Phrases like &quot;Neither one nor the other really&quot;, &quot;So-so&quot;, &quot;Doesn't really matter much&quot;, &quot;Don't care&quot; etc - all get coded as 'Neutral'</li>
+   <li><span class="myanswer">Phrases like &quot;Very much so&quot;, &quot;A lot&quot;, &quot;Heaps&quot;, &quot;That's a biggie!&quot; etc - all get coded as 'Great Extent'</span><br />
+   </li>
+ </ul>
+ <p align="left" class="comment">But why on earth would a survey ask such open-ended questions and make coding necessary? <br />
+   Logically, it would limit answers to one of the three pre-chosen options. </p>
+ 
+ <p align="left"><strong>b.</strong> Using the coding method described in part a.<br />
+ </p>
+ <p align="left"><strong>i. </strong> describe <strong>one</strong> technique Bill could use to identify any patterns in the responses to the   survey questions 2 marks</p>
+ <p align="left" class="myanswer">He could count the number each coded response appears, and draw a pie chart that graphically shows their relative frequencies. </p>
+ 
+ <p align="left"><strong>
+     ii. </strong> identify the type of pattern Bill could expect to find. 1 mark </p>
+ <p class="myanswer">A higher occurrence of 'Great Extent' responses for those questions that affect respondents personally and would contribute to their wellbeing?</p>
+ <p class="explanation">In other words, all three questions!<br />
+   I don't know what other sort of pattern he should expect to see.<br />
+   Maybe he would expect a pattern whereby respondents with no family often say &quot;Limited extent&quot; for the third question??</p>
+ <p class="comment">This question is a bit like the old annoying 'Guess what the examiner's thinking' questions. It's clear the writer of the question had a particular pattern in mind and wanted students to see it too.</p>
+ 
+ <p><br clear="all" />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c5" id="c5"></a>C5</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p align="left"><strong>Question 5</strong> (6 marks)<br />
+</p>
+   <p align="left">While completing his online search for Task D, Bill has found a report prepared by Deloitte Access Economics. Data sets 1 and 2 in the insert show two tables from that report that Bill would like to use in his report to support his hypothesis.</p>
+ <p align="left"><strong>
+a. </strong> State two variables in Bill's hypothesis regarding the telemarketers. 2 marks<br />
+ 1. <span class="myanswer">(Independent variable) -</span> <span class="myanswer">Telemarketers being allowed to work from home.</span></p>
+ <p align="left" class="myanswer">   2. (<span class="myanswer">Dependent variable)</span> - Choose one of these...</p>
+ <ul>
+   <li class="myanswer">greater levels of job satisfaction </li>
+   <li class="myanswer">higher staff retention levels</li>
+   <li class="myanswer">fewer sick days</li>
+   <li class="myanswer">improved performance of the telemarketing department</li>
+   <li class="myanswer">benefit to the company</li>
+ </ul>
+
+<strong>   b. </strong> Identify one item from each data set that supports Bill's hypothesis and explain how it does this. 4 marks.<br />
+   Item from Data set 1 
+ <p align="left" class="explanation">Any one of these...</p>
+ <ul>
+   <li class="myanswer">Improved employee morale (matches Bill's 'job satisfaction' variable)</li>
+   <li class="myanswer">Better retention of experienced staff (matches Bill's 'staff retention' variable) </li>
+   <li class="myanswer">Higher productivity (matches the 'improved performance' variable) </li>
+ </ul>
+ <p align="left"><br />
+   Item from Data set 2 </p>
+ <p align="left" class="explanation">One of these...</p>
+ <ul>
+   <li class="myanswer">85.5% 'great extent' responses to 'improved productivity', which agrees with Bill's 'improved performance' variable</li>
+   <li class="myanswer">82.5 'great extent' responses to 'increased job satisfaction' which confirms Bill's 'greater levels of job satisfaction' variable.</li>
+   <li class="myanswer">46% 'great extent' responses to 'decreased sick days' which corresponds with Bill's 'fewer sick days' variable.<br />
+   </li>
+ </ul>
+ </td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#D5F5D3" >&nbsp;</td><p> </p>
+   <td valign="top" bgcolor="#D5F5D3" ><p align="left" class="comment">&nbsp;</p>
+     <p align="left" class="comment">Time for an editorial break:</p>
+     <p align="left" class="comment">Well, thrillseekers, we're five questions into  section C, and I'm now wondering if this is really a 'Computing' exam at all. <br />
+       It's smelling much like a Business Management exam.</p>
+     <p align="left" class="comment"> The new course seems to have left behind many of the things for which kids used to enrol in IT.<br />
+       There's precious little computing going on.
+       <br />
+      I don't like what this is likely to do to future enrolments. </p>
+     <p align="left" class="comment">But anyhoo, let's press on...</p>
+     <p align="left" class="comment">&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c6" id="c6"></a>C6</strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 6</strong> (3 marks)<br />
+  </p>
+     <p align="left">Bill is concerned that a table of figures might not communicate his message to the Board of Directors.<br />
+       </p>
+     <p align="left">Describe another way for Bill to present Data set 1 in his multimodal online report. As part of your description, indicate how he might take advantage of the digital recordings and/or online presentations to highlight an item relating to his hypothesis in his multimodal online report.</p>
+     <ul>
+       <li class="myanswer">A chart/graph.</li>
+       <li class="myanswer">An animated display of the data.</li>
+       <li class="myanswer">An infographic, with links from each datum to a video or recording.</li>
+       <li class="myanswer">A video of cute kittens playing with stuffed mice labelled with the data.</li>
+       <li class="myanswer">A film of Elle MacPherson and Chris Hemsworth relaxing on a beach and reading the data aloud.</li>
+     </ul>
+     <p class="explanation">I'll let you decide which would be most effective. <br />
+       I'm guessing the markers will be looking for anything with action, sound, music, video.     </p>
+     
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c7" id="c7"></a>C7</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 7</strong> (2 marks)<br />
+</p>
+   <p>Mary, the marketing manager, has come up with an idea to help cut costs. She has proposed that her online marketing department use email to contact InformUs' participants rather than the telemarketing department calling participants individually.<br />
+     Under Mary's plan, participants would complete a survey online and the results would be saved to the cloud rather than on the database on InformUs' file server.<br />
+     </p>
+   <p>Explain <strong>one</strong> benefit of minimising risk for the InformUs information management strategy that Mary's proposal would have. </p>
+   <p class="comment">To begin with, I don't understand the question. <br />
+     It is asking how the proposal will minimise risk to the strategy?<br />
+     Or is it asking for a benefit of minimising risk?</p>
+   <p class="comment">Or is it clumsily asking for a benefit of cloud storage over local database storage?</p>
+   <p class="comment">     And which particular 'strategy' is the question referring to? The <strong>existing</strong> strategy of phoning participants from the city call centre? The <strong>proposed</strong> strategy of telemarketers phoning participants from their homes and sending data via the VPN?<br />
+     And can a <strong>strategy</strong> even face risks, like an information management <strong>system</strong> does? </p>
+   <p class="comment">     I don't know how students interpreted the question. I particularly feel sorry for the ESL kids trying to work out what on earth it means.</p>
+   <p class="explanation">Here's an answer:</p>
+   <p class="myanswer">One benefit of minimising risk for the information management strategy is that having <strong>less risk</strong> will make the strategy safer.</p>
+   <p class="explanation">There. I think that does it. Two marks, please.</p>
+   <p class="explanation">     When students find a question ambiguous or confusing, I advise them to try to read the examiner's 
+     mind and work out what the semantically-deficient question was <strong>probably trying to ask</strong>. <br />
+     If that doesn't work, answer <strong>both</strong> potential meanings, for example, &quot;If the question is asking X then my answer is Y. But if the question is asking Q then my answer is Z.&quot;</p>
+   <p class="explanation">In this case, however, I can't even confidently <strong>guess</strong> what the examiner is trying to say. It's a double-headed failure.   <br />
+     If there's a marker out there who can explain this to me, I'll meet you in the alley behind VCAA headquarters at midnight.
+   </p>
+   <p class="explanation"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" hspace="3" /><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" hspace="3" /></p>
+   <p class="comment">I'm guessing the answer will turn out to be something like</p>
+   <p class="myanswer">Cloud storage is offsite, so it can't be damaged by local disaster.</p>
+   <p>     Bill has completed his multimodal online report for the Board of Directors. The Board has agreed to Bill's original proposal for the telemarketers to work from home and call survey participants individually.</p>
+   <p class="comment"><a href="#endquibble">[Click here to skip a pedantic quibble]</a></p>
+   <p class="comment">If the board agrees to Bill's <strong>original</strong> proposal, does it mean that Bill had a <strong>second</strong> proposal?<br />
+Or does it mean the board agreed to Bill's  (one and only) proposal <strong>rather than Mary's proposal</strong>, which came after (Bill's) original proposal? <br />
+Is &quot;original&quot; necessary or meaningful?
+<br />
+   </p>
+   <p><em>Bill has completed his multimodal online report for the Board of Directors. The Board has agreed to Bill's proposal for the telemarketers to work from home and call survey participants individually.   </em></p>
+   <p class="comment">or, probably better...</p>
+   <p><em>Bill has completed his multimodal online report for the Board of Directors. The Board has agreed to Bill's proposal rather than Mary's.     Telemarketers will work from home and call survey participants individually.</em></p>
+   <p class="comment">     This version would at least acknowledge the death and disappearance of Mary's (significantly better) proposal.<br />
+     </p>
+   <p class="comment">I wish VCAA would hire an English teacher to proof-read their IT exams for clarity.<br />
+     I'm available, VCAA. Call me. I'll do it for free, just to stop the torture of poor innocent students and teachers.</p>
+   <p class="comment" id="endquibble">[End of pedantic quibble]     </p>
+   <p>Since Bill's proposal will go ahead, he has hired Minh, a web applications developer, to create the web-based user interface that the telemarketers will use and a database to store the survey responses they enter. </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c8" id="c8"></a>C8</strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 8</strong> (6 marks)<br />
+  </p>
+     <p align="left">Minh's first task is to construct a user flow diagram. She has drawn the user flow diagram shown on page 25 <span class="explanation">[of the printed exam]</span> but has not included any data protection requirements.<br />
+       In the spaces provided on page 25, identify where two different types of security control should be provided for data protection. For each security control:<br />
+       &bull; describe where the security control should be placed and draw a line to it </p>
+     <p align="left" class="comment">Why describe its location <strong>and</strong> draw a line to it. Surely one <strong>or</strong> the other would be sufficient?</p>
+     <p align="left">&bull; state the type of control required<br />
+       &bull; briefly explain why it is needed. 
+       </p>
+     <p align="left" class="explanation">&quot;Security control&quot; is a new piece of study design jargon. It appears in U4O2 KK11 - &quot;<em>physical and software security controls for preventing unauthorised access to data and information and for     minimising the loss of data accessed by authorised and unauthorised users</em>.&quot;</p>
+     <p align="left" class="explanation">The glossary in the study design adds:</p>
+     <p align="left" class="explanation"> <em>Physical security controls are the equipment and procedures used to assist in the     protection of information systems and the files created, communicated and stored by     individuals and organisations. <br />
+       Equipment controls include </em></p>
+     <ul>
+       <li><em class="explanation" align="left">zoned security strategies,     </em></li>
+       <li><em class="explanation" align="left">barrier techniques and </em></li>
+       <li><em class="explanation" align="left">biometrics. </em></li>
+       </ul>
+     <p align="left" class="explanation"><em>Physical procedures include </em></p>
+     <ul>
+       <li><em class="explanation" align="left">backing up, </em></li>
+       <li><em class="explanation" align="left">shredding     confdential documents and </em></li>
+       <li><em class="explanation" align="left">checking authorisation credentials.</em></li>
+       </ul>
+     <p align="left" class="explanation">About Software     security controls the glossary says...</p>
+     <p align="left" class="explanation"> <em>Software security controls are the software and procedures used to assist in the protection     of information systems and the files created, communicated and stored by individuals and     organisations. <br />
+       These include </em></p>
+     <ul>
+       <li><em class="explanation" align="left">user names and passwords, </em></li>
+       <li><em class="explanation" align="left">access logs and </em></li>
+       <li><em class="explanation" align="left">audit trails,     </em></li>
+       <li><em class="explanation" align="left">access restrictions, </em></li>
+       <li><em class="explanation" align="left">encryption, </em></li>
+       <li><em class="explanation" align="left">firewalls and system protection,</em> <span class="explanation">and </span></li>
+       <li><em class="explanation" align="left">security protocols     such as Transport Layer Security (TLS) and Secure Sockets Layer (SSL). </em></li>
+       </ul>
+     <p class="explanation">     So - <strong>thanks</strong>, study design! That's useful. But where do we stick this key knowledge (KK) in this question?</p>
+     <p align="left"><span class="explanation">I was going to start with 'encryption' before employee login, but the case study says users are connected to the database via VPN, so encryption is already taken care of. Is it not? Should it be added to the UFD? I have no idea.</span> <span class="explanation">Would students</span> <span class="explanation">get credit for adding 'encryption' as a security control?</span></p>
+     <p align="left" class="explanation">I'm guessing the examiners want <strong>one</strong> physical control and <strong>one</strong> software control, since the study design designates them so. That might help to guide one's thinking...</p>
+     <p align="left" class="explanation"><strong>Backups</strong> are conspicuously absent, so we can toss that <strong>physical control</strong> in after the data has been collected.</p>
+     <p align="left" class="explanation">Now, looking for a <strong>software</strong> control...<br />
+       </p>
+     <table width="80%" border="1" cellspacing="0" cellpadding="3">
+       <tbody>
+         <tr>
+           <td><p><strong>Security control 1</strong></p>
+             <p>Where</p>
+             <p class="myanswer">After employee login</p>
+             <p>Type of control</p>
+             <p class="myanswer">Access log </p>
+             <p>Explanation</p>
+             <p class="myanswer">Store a record of the employee's login so future crimes or errors can be traced to a user.</p>
+             <p><strong>Security control 2</strong></p>
+             <p>Where</p>
+             <p class="myanswer">After survey is complete</p>
+             <p>Type of control</p>
+             <p class="myanswer">Backup</p>
+             <p>Explanation</p>
+             <p class="myanswer">Copy the data to an offsite location in case the original is damaged or destroyed.</p></td>
+           <td align="center"><img src="/m/pm/16i-c08.png" width="295" height="831" alt="VCE Informatics exam 2016"/></td>
+           </tr>
+         </tbody>
+     </table>
+     <p class="comment">VCAA has said that there will be no prescribed format for UFDs. <br />
+       So, I'm curious whether this diagram will quietly become an unofficially-official template for UFDs in exams.<br />
+       Or will the next exam UFD be very different in structure/appearance/format? <br />
+       I await with bated breath to find out.</p>
+     <p class="comment">   But if VCAA ever examines students on the detailed nature of the arrows,  shapes, shading, underlining, or  structure of an unpublished, unofficial and arbitrary UFD format that they've invented in a back room just for an exam, I will be mightily cross.<br />
+       If they want to examine students on a diagram's intricate formatting details, they must create a canonical style guide, as they did with <a href="http://www.vcaa.vic.edu.au/Documents/vce/computing/Informatics_examination_ER_Conventions.docx">their ERD</a>.<br />
+       </p>
+     <p class="comment">Remember that - unlike the study design - <strong>VCAA exams are not themselves part of the examinable canon. </strong><br />
+       They may develop a tradition and precedent (as the style of pseudocode has become in SD exams), but exams cannot define new key knowledge or make a particular formatting style choice <strong>official</strong>.<br />
+       </p>
+     <p class="comment">And it's unfair when they try to do that.<br />
+       See the <a href="#sitestory">sitemap/storyboard question A9</a> above
+       to see what I mean. </p>
+     
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c9" id="c9"></a>C9</strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p><strong>Question 9</strong> (4 marks)<br />
+     </p>
+     <p>Minh starts designing the web pages that form the user interface. She has started with the survey questions' page. One question at a time will be displayed and the telemarketer will enter the participant's response.<br />
+       <br />
+       <img src="/m/pm/16i-c09.png" width="491" height="390" alt="VCE Informatics exam 2016"/><br />
+       </p>
+     <p class="comment">&quot;db entry only<br />
+       both text boxes disabled for user entry&quot;</p>
+     <p class="comment">Again, this will probably confuse at least ESL students who may not associate &quot;db&quot; with &quot;database&quot;. And the second sentence is unnecessarily obscure in meaning.        The annotation could have more clearly and briefly been written: &quot;These boxes only display text from the database. Users cannot type in these boxes.&quot;</p>
+     <p class="comment"><span class="explanation"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" hspace="3" /></span></p>
+     <p><strong>a.</strong> When answering a survey question, participants will be given a range of options to choose from. Minh is unsure about which of the following data entry methods to use:<br />
+       &bull; text box<br />
+       &bull; drop-down menu<br />
+       &bull; radio buttons</p>
+     <p>       She has been told that the telemarketers must be able to enter responses as quickly as possible. Which one of the three data entry methods should Minh choose? Justify your choice. 3 marks<br />
+   </p>
+     <p>Data entry method </p>
+     <p><span class="myanswer">Radio buttons</span><br />
+     </p>
+     <p>Justification </p>
+     <p class="myanswer">All options are visible onscreen, and data entry requires only one mouse click. There is no typing into a textbox, or clicking to activate a menu and then clicking a menu item.     </p>
+     
+     
+     <p><strong>b.</strong> Minh's design also shows an area to be used for navigation buttons.<br />
+       </p>
+     <p>Based on the user flow diagram shown on page 25 <span class="explanation">[of the printed exam]</span>, identity <strong>one</strong> button that should be placed       in this area and briefly state its purpose. 1 mark</p>
+     <ul>
+       <li class="myanswer">&quot;Back&quot; - to return to the previous question in case an error has just been noticed.</li>
+       <li class="myanswer">&quot;Next&quot; - to go to the next question.</li>
+       <li class="myanswer">&quot;Restart&quot; - to return to question 1 in case everything has gone pear-shaped [i.e. totally wrong] and the user needs to start again.</li>
+       <li class="myanswer">&quot;Cancel and logout&quot; to abort the session and return to the login screen.     </li>
+       <li class="myanswer">&quot;Cat video&quot; - <a href="https://www.youtube.com/watch?v=aBW5dfRoG7Q">see  a cat saving a child</a> from being attacked by a dog. Its purpose is to entertain post mortem readers and <strong>really</strong> irritate VCAA which dislikes lightheartedness or levity in <strong>any</strong> form <strong>whatsoever</strong>.</li>
+       </ul>
+     <p class="explanation">OK. Maybe not the last one.<br />
+       But - go on. Give it a try.
+     </p>
+     
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c10" id="c10"></a>C10</strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 10</strong> (2 marks)<br />
+  </p>
+     <p align="left">Australian postcodes are made up of four digits and there are currently over 3000 postcodes in use. On the participant details' page, the telemarketer has to enter the participant's postcode.<br />
+       </p>
+     <p align="left">Describe a validation technique Minh could use to ensure a valid postcode is entered by the telemarketer. </p>
+     <p align="left" class="explanation">Any of these:</p>
+     <p class="myanswer">1. An existence check - to check that data has actually been entered.<br />
+       2. A type check - to find whether the data is numeric.
+       <br />
+       3.
+       Range check - to determine of the data has 4 digits.<br />
+       4. Range check - search 
+       the list of valid postcodes to ensure the data is actually in the list. </p>
+     
+      
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c11" id="c11"></a>C11</strong></p>
+     
+     <p>&nbsp;</p></td>
+   <td valign="top"><p><strong>Question 11</strong> (2 marks)<br />
+     </p>
+     <p>For each telephone number that is dialled, the database will first receive a block of data in the following format. </p>
+     <p> <img src="/m/pm/16i-c11.png" width="502" height="117" alt="VCE Informatics exam 2016"/><br />
+       </p>
+     <p> <br />
+       When setting up the database that will store the survey data, what data type should Minh use for<br />
+       &bull; Telemarketer ID - <span class="myanswer">string/text</span>.<br />
+       &bull; Participated? <span class="myanswer">Boolean</span>.</p>
+     <p align="left" class="comment">Thank DOG the examiner interpreted  Boolean correctly! </p>
+     <p align="left" class="explanation">Too often people (and exams) assume that ANY question with only two possible answers is &quot;Boolean&quot; and that's <strong>not</strong> correct. <br />
+       A Boolean field is one that has can only have a logical <strong>true</strong> or logical <strong>false</strong> value. So...</p>
+     <p align="left" class="explanation">Field <strong>Gender</strong> ('M' or 'F') ... is NOT Boolean. It would be string, text or character.</p>
+     <p align="left" class="explanation">But </p>
+     <p align="left" class="explanation">Field <strong>Male?</strong> - (True or False) ... IS Boolean.</p>
+     <p class="explanation">Bonus fact:  Boolean true/false values are stored numerically. Zero means false, and non-zero (typically 1 or -1) means true.<br />
+       Boolean is particularly efficient in terms of storage since it may only need one binary bit to store a value. In that way one can store <strong>eight</strong> Boolean values in the same space needed for <strong>one</strong> alphanumeric character.</p>
+     
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c12" id="c12"></a>C12</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><br />
+ <strong>Question 12</strong> (2 marks)<br />
+ </p>
+   <p>After the telemarketer has entered the participant's response, a second block of data will be received.</p>
+ <p><img src="/m/pm/16i-c12.png" width="574" height="185" alt="VCE Informatics exam 2016"/><br />
+ <br />
+ </p>
+ <p>Minh is creating a relational database to store this data. Explain why the data in this format is not in first normal form. </p>
+ <p class="myanswer">There are multiple question/answer values in the Q/A field, which violates 1NF which requires each field to contain only a single datum.</p>
+ <p class="comment">A nice, easy and straightforward normalisation question. </p>
+ 
+
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c13" id="c13"></a>C13</strong></p>
+ 
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 13</strong> (6 marks)<br />
+</p>
+   <p>Shane has just started work with InformUs as a receptionist. He has discovered that the telephone numbers that the telemarketers use can be downloaded by anyone logged in to the InformUs network.<br />
+     Shane is part of a fundraising group for a local homeless shelter. The shelter is trying to build a new hostel for homeless people. He decides to download the company's list of telephone numbers so that he can contact people when he is not working and ask them to donate money to the shelter.</p>
+ <p><strong>
+a. </strong> Explain an ethical reason why Shane should not use the InformUs list of telephone numbers. 2 marks</p>
+ <p class="myanswer">The data was collected for a different purpose and the data suppliers did not consent to it being used for fund-raising.</p>
+ <p class="explanation">It would be an error to quote the Privacy Act's requirement that data should not be used for a secondary purpose. The question clearly asks for an <strong>ethical</strong> and not a <strong>legal</strong> reason.</p>
+ <p class="explanation">&nbsp;</p>
+ 
+ <p><strong>
+     b. </strong> Shane's manager at InformUs thinks it is a great idea for Shane to use the InformUs list of telephone numbers and, since InformUs does not have a privacy policy, he cannot see anything wrong with Shane doing this.</p>
+ <p> What two pieces of advice should be given to InformUs about its information management strategies with regard to the use of people's telephone numbers and personal details? Provide reasons to support the advice. 4 marks<br />
+ </p>
+ <p class="comment">OK. Let's get this out of the way. Is InformUs subject to the Privacy Act? Does it turn over more than $3m a year? <br />
+   I really, <strong>really</strong> wish exam case studies would make it clear whether the Privacy Act applies or not! <br />
+   Yes, the case study insert begins by saying that &quot;InformUS is a <strong>large</strong> marketing company' but this still does not make it obvious whether the Act applies to them. </p>
+ <p class="comment">Students need to be given sufficient relevant information to make appropriate decisions!<br />
+   Once again, the poor student needs to do the work that the question should have done by saying...</p>
+ <p class="myanswer"><strong>Assuming that  InformUs is subject to the Privacy Act 1988</strong> <strong>because it turns over more than $3 million a year</strong>, InformUs is obliged by the privacy principles to:</p>
+ <p class="myanswer">1. Create and publicly publish a privacy policy that sets out what data it collects and how it is used.</p>
+ <p class="myanswer">2. Not use data collected for one purpose for a secondary purpose without the permission of the data provider.</p>
+
+ <p class="explanation">And - we're done!</p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><div align="center">
+ <p>&nbsp;</p>
+ <p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+ </div></td>
+ </tr>
+ <tr>
+ <td colspan="2"><div align="center" class="comment">
+ <p><strong>Section C summary</strong></p>
+ <p align="left">Task B in C1 was either unfairly tricky, or carelessly overcomplicated for students. Otherwise, project management was handled quite reasonably.<br />
+   C7 was a nightmare of incomprehensibility. What on earth was it trying to say and examine? Truly it was a failure of a question.<br />
+   C8 is concerning if it's aimed to establing a de facto UFD standard for exams. If VCAA wants to set a template as they did with ERD, fine! But do it openly and honestly, not by stealth and later claiming it to be 'traditional'.
+   <br />
+   Thank the divine Labrador that the exam did not decide to examine students on the messy and artificial problems of 2NF. I hope they forever remember that 2NF problems are  completely preventable by using dedicated a key field for each table. Focus on problems that database developers need to avoid in real life, such as 1NF and 3NF.<br />
+   <br />
+   Well, lads and lassies, we got to the end. Yay! I'm not sure if I'll do it again next year. We shall see.<br />
+ </p>
+ <p align="left">&nbsp;</p>
+ </div></td>
+ </tr>
+ <tr>
+ <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ </table>
+ <p align="center">* Many thanks for Steven Wright for letting me steal his <a href="https://www.youtube.com/watch?v=r1ryQU2crKA">joke</a>.</p>
+ <p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+ <p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+ <p align="center"><font size="2">Created 10 November 2016</font></p>
+ <p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+ <p align="center"><font size="2">Original Content &copy; Mark Kelly 2016<br />
+ Images and questions are &copy; Victorian Curriculum 
+ and Assessment Authority 2016. <br />
+ Reproduced here with permission for educational purposes.</font><br />
+ Thanks, VCAA!</p>
+ <p align="center"><font size="2">VCE Applied Computing Notes &copy; <a href="/mailform.htm">Mark Kelly</a></font></p>
+ <p align="center">&nbsp;</p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

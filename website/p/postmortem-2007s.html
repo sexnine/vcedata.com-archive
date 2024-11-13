@@ -1,0 +1,1227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCE IT SD exam post mortem 2007</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<div align="center"> 
+<p><a href="/index.html" target="_top">VCE Applied Computing Notes</a>
+by <a href="/mailform.htm">Mark Kelly</a> </p>
+</div>
+
+<table border="1">
+<tr>
+<td > 
+<h1 align="center">Software Development</h1>
+<h1 align="center">VCAA Exam Post Mortem </h1>
+<h1 align="center">2007</h1>
+<p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><center><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></center></td>
+</tr>
+<tr>
+  <td ><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr><p>&nbsp; 
+</p>
+<td><p>&nbsp;</p>
+<p class="comment">State averages added 26 Feb 08 <br />
+<strong>* marks my preferred answer in multiple choice</strong> </p>
+</td></tr>
+<tr><p>&nbsp;
+  </p>
+  <td ><h1 align="center"><a name="a" id="a"></a>Section A </h1>
+  <h1 align="center">Multiple Choice </h1></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><div align="center">
+<p><a href="#b">Jump to section B</a></p>
+<p><a href="#c">Jump to section C </a></p>
+</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 1</strong><br />
+A recently developed piece of software requires 512 MB of RAM to run effectively.<br />
+Based on the information provided below, which laptop is definitely able to run this software?</p>
+<p>A. </p>
+<p>GSX Super Notebook <br />
+Features include: <br />
+Celeron 1.8 GHz, 15&quot; XGA, 
+60 GB HDD, 
+DVDRW LAN, WIFI</p>
+<p>B. </p>
+<p>HSV Games Notebook<br />
+Features include: <br />
+Core Duo 2.0 GHz, 
+256 MB RAM, 
+100 MB HDD, Bluetooth ,
+DVDRW</p>
+<p>C.</p>
+<p>SP Business Notebook <br />
+Features include:<br />
+Core Duo 1.66 GHz, 
+120 GB HDD, wireless LAN , 
+256 MB RAM upgradable</p>
+<p><strong>D.</strong>*</p>
+<p><strong>GTX Student Notebook <br />
+Features include:<br />
+Celeron 1.66 GHz, 
+17&quot; WXGA, 1 GB RAM, 
+80 GB HDD, LAN, Bluetooth</strong></p>
+<p class="comment">Easy peasy.</p>
+<p><span class="examiner"><span class="red">94% of the state got this right.</span></span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 2</strong><br />
+Stages of software development include </p>
+<p>A. designing, testing, operating.<br />
+<strong>B. analysing, testing, documenting.*<br />
+</strong>C. analysing, coding, documenting. <br />
+D. solving, implementing, evaluating.</p>
+<p class="comment">The SDLC's steps are ADDIE according to the VCAA. The Software development cycle is ADDTDIE. The Problem Solving Methodology used in ITA has ADDTDIE. Anyone know the difference between them? Anyone at all? </p>
+<p><span class="examiner">71% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 3</strong><br />
+An 'array' and a 'record' are two types of data structure.<br />
+The main difference between the two is that</p>
+<p><strong>A. arrays can only store the same type of data in each element.*</strong><br />
+B. records can only store the same type of data in each field. <br />
+C. arrays can only store numeric data.<br />
+D. records can only store textual data.</p>
+<p class="comment">It's true.</p>
+<p><span class="examiner">50% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 4</strong><br />
+A text editor can be used to</p>
+<p>A. view and edit program icons.<br />
+B. write and test programs without the need for other software. <br />
+C. test programs and make any necessary corrections.<br />
+<strong>D. write programs which can then be tested using another program.*</strong></p>
+<p class="comment">Most languages now have an editor bundled in with the compiler and linker and debugger to form an Integrated Development Environment or IDE. I believe the first to do this was Turbo Pascal way back when.</p>
+<p><span class="examiner">56% of the state got this right.</span></p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 5<br />
+</strong>When evaluating a piece of software for the role required, the best criteria to use would be </p>
+<p><strong>A. stability, reliability and usability.*</strong><br />
+B. stability, reliability and popularity.<br />
+C. reliability, sustainability and usability.<br />
+D. usability, popularity and flexibility.</p>
+<p class="comment">Popularity is not always important. Sustainability is not as important as any of the items in A. </p>
+<p class="examiner">75% of the state got this right.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><div align="center"><em>The following diagram shows the folder structure for a file server. <br />
+Use this diagram to answer Questions 6 and 7.</em></div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><div align="center"><img src= "/m/pm/07s-a05.gif" alt="Directory structure" width="496" height="282" /></div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 6</strong><br />
+The box labelled 'accounts' in the diagram is best described as </p>
+<p>A. a file.<br />
+<strong>B. a folder.*<br />
+</strong>C. a hard disk.<br />
+D. a field.</p>
+<p class="comment">A bit easy, I thought.</p>
+<p><span class="examiner">84% of the state got this right.</span><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 7</strong><br />
+The full path to invoice b4532 is </p>
+<p>A. invoices\b4532<br />
+B. accounts\invoices\<br />
+<strong>C. root\accounts\invoices\*<br />
+</strong>D. root\accounts\invoices\b 1245\</p>
+<p class="comment">The others are just silly.</p>
+<p><span class="examiner">65% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 8</strong><br />
+The product code <strong>T39.04</strong> is best stored as the data type </p>
+<p>A. floating point.<br />
+B. integer.<br />
+<strong>C. text (string).</strong>*<br />
+D. Boolean.</p>
+<p class="comment">Hmmm. Far too easy for clever-clogs doing SD. </p>
+<p><span class="examiner">54% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><em>The following information is to be used to answer Questions 9, 10 and 11.<br />
+</em></p>
+<p>Programs A, B and C were run 1000 times each on the same computer. The following statistics were<br />
+obtained.</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<th scope="col">&nbsp;</th>
+<th scope="col">Program A</th>
+<th scope="col">Program B</th>
+<th scope="col">Program C </th>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">Total number of errors in output</div></th>
+<td><div align="right">4</div></td>
+<td><div align="right">7</div></td>
+<td><div align="right">3</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">Average running time</div></th>
+<td><div align="right">3.2s</div></td>
+<td><div align="right">2.9s</div></td>
+<td><div align="right">3.5s</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">Total number of fatal errors (program 'crash')</div></th>
+<td><div align="right">1</div></td>
+<td><div align="right">0</div></td>
+<td><div align="right">1</div></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 9</strong><br />
+Which statement about efficiency is supported by the evidence in the table? </p>
+<p><strong>A. Program A is more efficient than Program C.</strong>*<br />
+B. Program B is not as efficient as Program A.<br />
+C. Program C is the most efficient program.<br />
+D. Program A and Program C are both more efficient than Program B<em>.</em></p>
+<p class="comment">A couple of bits of knowledge are needed for this: </p>
+<ol>
+<li class="comment"> what criteria relate to efficiency? Only the running time. Numbers of errors and crashes are measures of <strong>effectiveness</strong>.</li>
+<li class="comment"> what indicates higher efficiency? A smaller number of seconds running time.</li>
+</ol> <p class="comment">B is more efficient than A (2.9&lt;3.2). C is the least efficient at 3.5 seconds' executing speed. A and C are both less efficient (slower) than B. </p>
+<p><span class="examiner">55% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 10</strong><br />
+Which statement about reliability is supported by the evidence in the table? </p>
+<p>A. Program A is more reliable than Program C.<br />
+B. Program C is as reliable as Program A.<br />
+C. Program A is not as reliable as Program B.<br />
+<strong>D. Program C is the most reliable program.*</strong></p>
+<p class="comment">Were you looking in the &quot;Number of errors&quot; line, children? Good!  The lower the number, the more reliable it was.</p>
+<p><span class="examiner">70% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 11</strong><br />
+Which statement about stability is supported by the evidence in the table? </p>
+<p>A. Program B is an unstable program.<br />
+<strong>B. Program A is as stable as Program C.*<br />
+</strong>C. Program B is the least stable program.<br />
+D. Program C is more stable than Program B.</p>
+<p class="comment">Look at the number of crashes.</p>
+<p><span class="examiner">72% of the state got this right.</span></p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 12<br />
+</strong>The following IF statement needs to be tested.</p>
+<p>IF b &gt; 10 AND b &lt; 20 THEN<br />
+PRINT b<br />
+ENDIF</p>
+<p>The best set of test data for b to test this algorithm is </p>
+<p>A. 10, 11, 15, 19,20<br />
+B. 8, 9, 10, 11, 20<br />
+<strong>C. 9, 10,12, 20, 21*</strong><br />
+D. 8, 9, 10, 20, 21</p>
+<p class="comment">Good test data checks valid and invalid values and boundary conditions - the point at which the behaviour of the software should change. Printing of b will happen for numbers 11 to 19 inclusive. You would want to test that 10 and 20 are not erronously included. You want a typical in-range value (e.g. 12). Option C has all those features. </p>
+<p><span class="examiner">71% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 13</strong><br />
+After making substantial changes to its information system, BTQ Pty Ltd kept a logbook of all errors encountered when running the new software. System users were also monitored to see how quickly they completed certain tasks when using the new system. After six months the system performance data was analysed and a report was written for BTQ's management. Which aspect of the System Development Life Cycle is described above? </p>
+<p>A. the analysis phase<br />
+<strong>B. the evaluation phase</strong>*<br />
+C. the testing phase<br />
+D. the operational phase</p>
+<p class="comment">Note that this all took place <strong>after</strong> system implementation, so it can't be analysis or testing. 'Operational' doesn't exist. Evaluation is when system performance is reflected on.</p>
+<p><span class="examiner">79% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 14</strong><br />
+Here is a summary of an error log for one of the objectives of a transaction processing system.</p>
+<table width="39%" border="0" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<th width="51%" scope="col"><div align="left">Total </div></th>
+<th width="49%" scope="col"><div align="right"><strong>1 378 467</strong></div></th>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">Successful scans </div></th>
+<td><div align="right"><strong>1 325 411</strong></div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">Unsuccessful scans</div></th>
+<td><div align="right"><strong>53 056</strong></div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th scope="row"><div align="left">%</div></th>
+<td><div align="right"><strong>3.85%</strong></div></td>
+</tr>
+</table>
+<p>This data would show that the objective has been met if the objective was </p>
+<p>A. a success rate of less than 4%<br />
+B. a response rate of less than 4%<br />
+C. an accuracy rate of less than 4%<br />
+<strong>D. a failure rate of less than 4%</strong>*</p>
+<p class="comment">What a strange question. What was it getting at, I wonder? </p>
+<p><span class="examiner">86% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 15</strong><br />
+What is Spyware?</p>
+<p> A. any program that runs on your computer to detect spies<br />
+B. any program that is triggered by a specific date<br />
+C. any program that replicates itself on your computer<br />
+<strong>D. any program that monitors what you do on your computer in order to use this information without you<br />
+knowing*</strong></p>
+<p class="comment">Well, duh. <em>When in doubt, go for the option with the most words :-)</em></p><em>
+<p><span class="examiner">90% of the state got this right.</span></p>
+<p><br />
+</p>
+</em></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 16</strong><br />
+The clock speed of a CPU is measured in </p>
+<p>A. bits per second.<br />
+B. bytes per second.<br />
+<strong>C. hertz.</strong>*<br />
+D. gIgS.</p>
+<p class="comment">For D, I reckon the examiner ran out of convincing ideas for dud answers. hehehehe </p>
+<p><span class="examiner">83% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 17</strong></p>
+<p><img src= "/m/pm/07s-a17.gif" alt="Pseudocode, Nassi-Shneiderman, Flowchart" width="700" height="425" /></p>
+<p>Which statement about diagrams 1, 2 and 3 is true?</p>
+<p> A. The algorithm represented by diagram 1 is the same as that represented by diagram 2.<br />
+<strong>B. The algorithm represented by diagram 2 is the same as that represented by diagram 3.*<br /> 
+</strong>C. The algorithm represented by diagram 3 is the same as that represented by diagram 1. <br />
+D. All three diagrams represent the same algorithm.</p>
+<p class="comment">Interesting approach to this topic. Nice question. I liked it a lot. The &quot;not eof&quot; decision was counter-intuitive, though - it's like a double-negative. Normally you test for EOF, not the opposite! Oh - by the way - EOF stands for &quot;End of File&quot;. </p>
+<p><span class="examiner">60% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 18</strong><br />
+A program is being designed for a networked desktop computer that has 120 GB available on its hard disk drive. It will have to read data from a 500 MB file on a CD-ROM. The CD-ROM drive is on the computer that will run the program. The programmer would like the program to run in the shortest time possible. 
+The main factor that the programmer will have to consider when designing the program is</p>
+<p> A. data transfer rate over the network.<br />
+B. the size of the computer's hard disk drive.<br />
+<strong>C. the time taken to retrieve data from the CD-ROM.*<br />
+</strong>D. the time taken to write data to the CD-ROM.</p>
+<p class="comment">Is it just me or is this a <strong>ridiculously</strong> easy question?</p>
+<p><span class="examiner">81% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 19</strong><br />
+When implementing a new system, a large chain of supermarkets decides to install the system in one supermarket while the others continue to use the existing system. When all bugs are fixed the system will be installed at the other supermarkets.<br />
+This is an example of</p>
+<p> <strong>A. pilot conversion.*<br />
+</strong>B. direct conversion.<br />
+C. phased conversion.<br />
+D. parallel conversion.</p>
+<p class="comment">Straight-forward. Remember that pilot and parallel are not complete implementation methods. By themselves, they will not introduce the new system. They are optional accessories to the real, complete methods : direct and phased.</p>
+<p><span class="examiner">74% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p><strong>Question 20</strong><br />
+To assist a technician to <strong>install</strong> a new server on an existing system, which of the following documents would be useful?</p>
+<p> A. server technical manual, operating system manual, applications manual<br />
+B. server technical manual, system recovery manual, networking manual<br />
+<strong>C. server technical manual, networking manual, operating system manual</strong>*<br />
+D. server technical manual, backup manual, system recovery manual</p>
+<p class="comment">Hmmm. Notice the word &quot;install&quot; is bold and virtually has neon lights flashing the message, <blink>&quot;LOOK AT ME! I'M A CLUE!&quot;</blink></p>
+<p class="comment">You don't really need applications on the server, so rub out A. System recovery manual? Not really. Networking and running the OS seems reasonable. Backup and recovery - what?? I'd say C. </p>
+<p class="comment">And if you're not enjoying the spectactular blinking of the &quot;LOOK AT ME&quot; message above, get Firefox! </p>
+<p><span class="examiner">57% of the state got this right.</span></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td ><h1 align="center"><a name="b" id="b"></a>Section B </h1>
+<h1 align="center">Short Answer </h1></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 1</strong><br />
+Describe the differences between a bus, a star and a hybrid network topology. (6 lines) 
+3 marks. <span class="red">State average=2 </span></p>
+<p class="myanswer">Bus is based on a single backbone cable from which branch nodes. A break anywhere in the bus causes failure of the segment. It is usually found in old coaxial-cable networks. </p>
+<p class="myanswer">Star has a central distribution device, usually a switch, from which cables radiate to nodes. </p>
+<p class="myanswer">Hybrid is simply a combination of more than 1 topology, such as bus and star combined - often called a tree topology. </p>
+<p class="examiner">&bull; Bus: All nodes connecting computers and other devices are on the same cable (backbone). If one node fails everything after that will not work. <br />
+&bull; Star: Each computer/device is connected by its own cable that connects directly to a central distribution device (for example, a switch). If one fails it does not affect others. <br />
+&bull; Hybrid: A combination of two or more of the above structures (it can be two stars joined, or one star with one bus, etc.). <br />
+This was a straightforward question, so it was disappointing that less than half of the students completed it. A significant number of students could not provide a description of any of the topologies listed. The topology most often not attempted was hybrid. These topologies are listed in the glossary of the study design and should form part of the content covered in the course.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 2</strong><br />
+Robert is a professional photographer who saves an average of 100 pictures (each approximately 2 MB) per day. The hard disk on his computer is rapidly filling up.</p>
+<p>a. If he saves pictures on 300 days a year, how much storage space (in Gigabytes) will one year's images<br />
+take? 
+1 mark. 2 lines. <span class="red">State average=0.7</span></p>
+<p class="myanswer">60G</p>
+<p class="comment">200M per day times 300 days = 60,000M = 60G , or <br />
+<em>0.2G x 300 = 60G<br />
+</em><em>Either way, you don't need to use a calculator as one of my students did! </em></p><em>
+<p class="examiner">It was pleasing that the majority of students answered this question correctly. A question such as this has not appeared on the paper in a number of years so it was reassuring that students could attempt the calculation correctly using the information provided. A number of students provided lengthy calculations, which was not required.</p>
+<p>Judy suggests that he burns the images onto CDs and then removes these images from his hard disk.</p>
+<p class="comment">The OCR program I used said he &quot;<strong>bums</strong><em> the images&quot; instead of &quot;burns the images&quot;. Naughty, bad OCR! </em> </p>
+<p> b. Describe one problem that Robert may have using CDs as his only photo storage solution. 
+2 marks. 6 lines.<span class="red"> State average=1.5</span></p>
+<ul>
+<li class="myanswer">He'd need a lot of CDs (about 94 a year) making searching for pictures a pain.</li>
+<li class="myanswer">If a CD were scratched or lost, he'd lose his only copy of the images. </li>
+<li class="myanswer">CDs tend to degrade over time. After a while, there might be big data loss. </li>
+<li><span class="myanswer">Not too far in the future, he might not be able to read CDs because technology left them behind like 5.25&quot; floppy disks.</span><br />
+</li>
+</ul> 
+<p class="examiner">Students needed to describe a problem that may occur if only CDs are used as a storage solution. For example, using CDs as the only storage solution is high risk, because if a CD was lost there would be no back up. In addition, Robert would need an excessive number of CDs to store all the images, and locating a file would be difficult. A majority of students were able to provide an appropriate response to this question. Those who did not receive full marks had generally misread the question.</p>
+<p>c. Describe and justify a better solution for Robert to use to store his pictures and keep them safe. 
+3 marks. <span class="red"> State average=1.7</span></p>
+<p><strong>Solution:</strong> <span class="myanswer">He'd want at least 2 copies of the pictures, preferably on different media types. A large (terabyte-sized) external USB hard disk plus identical copies on DVDs (which share some of the problems of CDs, but have much greater capacity.) </span><br />
+<strong>Justification:</strong> <span class="myanswer">The second device would reduce the chances of him losing everything with one technical failure, and using a hard disk means huge, portable, very fast storage and retrieval.  </span></p>
+<p class="comment">If the exam book does not offer &quot;prompts&quot; for multi-part questions (1. Describe, 2. Justify), you can use your own subheadings to make it clear what you are talking about. It also reminds you to discuss each part! </p>
+<p class="examiner">As this question was asking students to describe an appropriate storage/backup strategy, they needed to describe and justify a number of steps when formulating a strategy. For example, use two different media, such as DVD and an external hard disk, as they are relatively cheap and have a higher capacity then CDs. Store backups in different locations to the ensure safety of the original pictures. This question was poorly done. Many students did not pick up the key point that Robert had only one storage solution, which meant that they needed to provide two alternative storage media as a key part of their response.</p>
+</em></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong><br />
+For each of the acceptance criteria listed below, describe a testing procedure that would show if the criterion<br />
+was being met. 4 marks. 4 half-page-width lines per criterion. <span class="red"> State average=2.05</span></p>
+<table width="80%" border="1" align="center" cellpadding="2" cellspacing="0">
+<tr><p>&nbsp;
+</p>
+<th width="56%" scope="col"><div align="left">Acceptance criteria</div></th>
+<th width="44%" scope="col"><div align="left">Testing procedure</div></th>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>The server must have less than two 
+failures in a month </p>
+</div></th>
+<td valign="top" class="myanswer"><p>Count the number of failures in the server's error log. </p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>The network is able to have 150 
+computers logged on at the same time 
+without crashing </p>
+</div></th>
+<td valign="top" class="myanswer"><p>Log in at least 150 of the computers and observe if the network crashes. </p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>More than one user can be using the 
+system and updating the same files at the 
+same time </p>
+</div></th>
+<td valign="top" class="myanswer"><p>Get two users to login and open the same files and make changes and see if there are any access errors. </p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>Records can always be retrieved in less 
+than four seconds </p>
+</div></th>
+<td valign="top" class="myanswer"><p>Time how long it takes to retrieve records of different types, and at different times of the day - including times of peak system activity. Count the number of times retrieval takes more than 4 seconds. </p>
+</td>
+</tr>
+</table>
+<p class="comment">A bit simple, if you ask me. Unless I've missed something.</p>
+<table width="80%" border="1" align="center" cellpadding="2" cellspacing="0">
+<tr><p>&nbsp;
+</p>
+<th width="56%" scope="col"><div align="left">Acceptance criteria</div></th>
+<th width="44%" scope="col"><div align="left">Testing procedure</div></th>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>The server must have less than two 
+failures in a month </p>
+</div></th>
+<td valign="top" class="red">Test log failures over a year: if less than two per month, the criterion has been met.</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>The network is able to have 150 
+computers logged on at the same time 
+without crashing </p>
+</div></th>
+<td valign="top" class="red">Undertake a controlled test of 150 computers: log in and if the system crashes, the criterion has not been met.</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>More than one user can be using the 
+system and updating the same files at the 
+same time </p>
+</div></th>
+<td valign="top" class="red">Have two or more people access and update the same file. Record any problems and check the data file to ensure the file was updated: if done by multiple users, the criterion has been met.</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<th valign="top" scope="row"><div align="left">
+<p>Records can always be retrieved in less 
+than four seconds </p>
+</div></th>
+<td valign="top" class="red">Have 150 people all try to retrieve a record at the same time and see how long it takes: if less than four seconds for all, the criterion has been met.</td>
+</tr>
+</table>
+<p class="examiner">Only 21 per cent of students gained full marks on this question as many students were unable to provide an appropriate &lsquo;testing procedure&rsquo;. Some students did indicate a test but then failed to describe what data they were looking for or what information they would gain from the test. For example, for the first criterion, &lsquo;log server failures&rsquo; was an insufficient answer as it did not go on to state that this would need to be done over a period of time, that the log would need to be checked to ensure that there were fewer than two failures a month during that period, or that one month of testing would be insufficient to ascertain whether the criterion had been meet.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong><br />
+Hungarian notation is a naming convention for program elements such as variables and objects. The convention is that the first two or three letters of the element's name indicate the type of element. The rest of the name indicates its purpose, and starts with a capital letter; for example a text box containing a first name could be called <strong>txtFname</strong>. State <strong>three</strong> benefits of this method of naming. 
+3 marks, 8 lines <span class="red"> State average=0.95</span></p>
+<ul>
+<li class="myanswer">The variable type can be seen from its name</li>
+<li class="myanswer">It reminds the programmer of the type of each variable or object so it is not treated improperly. (e.g. trying to address the .text property of a label in Visual Basic.) </li>
+<li class="myanswer">When listing objects, they are grouped by type. ???</li>
+<li class="myanswer"> They are independent of a language's inbuilt sigils. e.g. (as Wikipedia informs me) in BASIC, name$ names a string and count% names an integer, and in Perl, $name refers to a scalar value while @namelist refers to a list of values. Using a standard prefix like str, int, sca or lst is less confusing if working with different languages or dialects.</li>
+<li class="myanswer">It leads to more consistent variable names</li>
+<li class="myanswer">Deciding on a variable name can be a mechanical, and thus quick, process</li>
+<li class="myanswer">Inappropriate type casting and operations using incompatible types can be detected easily while reading code</li>
+<li class="myanswer">In a weakly-typed language such as Basic, it's easy to create logical errors by mismatching variable types or the properties of objects.</li>
+</ul>
+<p class="comment">Hungarian notation was invented by Charles Simonyi, who programmed at Xerox PARC (which developed the mouse, GUI and Ethernet amongst other groundbreaking technology) and who later became Chief Architect at Microsoft. He is from Hungary, where - like in Japan - people's surnames precede their given name. He would have been called Simonyi Charles at home. </p>
+<p class="examiner">Using appropriate naming conventions for variables and objects: <br />
+&bull; allows the programmer to effectively debug <br />
+&bull; ensures naming consistency <br />
+&bull; ensures easy identification of objects.<br />
+Many students did not seem to understand naming conventions within a programming environment, or they had a limited ability to express their knowledge. Many students simply rewrote what was in the question.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong><br />
+Mick had been an IT teacher at BN College for 15 years. During this time, he had created and supported their administrative system. Management wanted to sell the system to other schools to earn funds for the school. Mick rejected this idea claiming it would create too much work and would interfere with his teaching. Last year Mick moved to a new school in the new suburb of Melinda. He immediately adapted and installed his administrative system in his new school to the disapproval of the management of BN College. 
+Identify and discuss a legal <strong>or</strong> ethical issue involved in this situation.<br />
+4 marks, 10 lines <span class="red"> State average=2.0</span></p>
+<p class="myanswer">Since Mick produced the system as part of his work, rather than in his own time, the intellectual property rights would belong to his employer since it was &quot;work product&quot; according to the Copyright Act, 1968. If BN College were a government school, the education department would own the rights to the system. If BN College were independent, the college would own the rights to the system. But morally, Mick might claim ownership since he had created it with his own intellectual powers.</p>
+<p class="myanswer">Therefore, the government or college could probably <strong>legally</strong> restrict Mick's use of the system elsewhere, but ethically he could make a good case that the system was his 'baby' and only he had the copyright, especially if he came up with the idea on his own and worked on it out of work time, and let the college use it out of goodwill. </p>
+<p class="comment">It's a murky issue, and would make many lawyers a lot of money. But you can see the employer's point of view. If you are a games software company and hire a programmer to create a ripper game which earns millions - who should profit from the sales? The programmer, who was paid, or the company who hired him, paid him, and equipped him to do the job? </p>
+<p class="comment">Ah, this was interesting, and challenging. Probably <strong>too</strong> challenging from a legal point of view. </p>
+<p class="comment">From <a href="http://www.copyright.org.au/pdf/acc/infosheets_pdf/G063.pdf">http://www.copyright.org.au/pdf/acc/infosheets_pdf/G063.pdf</a></p>
+<p class="comment">&quot;<strong>Who owns copyright in artistic works?</strong><br />
+Generally, if you create an artistic work, you are the first copyright owner. However, there are some important 
+exceptions:<br />
+&bull; Employees&mdash;if you are an employee and create the work as part of your job, generally your employer owns<br />
+the copyright. (This rule does not apply to freelancers, volunteers or people who are commissioned to create<br />
+artworks).<br />
+&bull; Commissioned material&mdash;special rules apply if you take photographs, make portraits or create engravings,<br />
+where someone pays you to make the work for a private or domestic purpose (such as a family portrait or<br />
+wedding photograph).<br />
+&bull; Work done for governments&mdash;if you create artworks for a State, Territory or Commonwealth government, or a Government is the first publisher of your work, that Government will generally be the copyright owner.&quot;</p>
+<p class="examiner">An appropriate answer to a legal issue could have been: If Mick developed this administrative system as part of his work at BN College then the college owns the software and Mick is unable to implement the same system in a second location without the college&rsquo;s permission.<br />
+Students needed to demonstrate their knowledge of copyright laws and apply this knowledge to the scenario provided. Many students were not able to express more than a limited understanding of how copyright laws would be applied in this situation. Students need to ensure that they can apply their knowledge of the law, not just recite sections; therefore, teachers should endeavour to provide scenario-based discussions when addressing laws such as copyright.<br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><strong>END OF SECTION B</strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td ><h1 align="center"><a name="c" id="c"></a>Section C</h1>
+<h1 align="center">CASE STUDY </h1></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><div align="center">
+<h3>Instructions for Section C </h3>
+<p> Answer <strong>all</strong> questions in the spaces provided. 
+Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. 
+Answers must apply to the case study.</p>
+</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><div align="center">
+<h2><a name="insert" id="insert"></a>CASE STUDY INSERT </h2>
+</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top" ><h3>&nbsp; </h3>
+<h3>Flip Flop Bakery</h3>
+<p>Flip Flop Bakery is owned by Sebastian, who is a baker. He employs two assistant bakers, three delivery drivers<br />
+and four part-time sales assistants.</p>
+<p> Flip Flop Bakery makes bread and bread rolls that it sells to the public through a shop. It also sells its bread, and a range of cakes and pastries that are bought from a wholesale cake supplier, to local restaurants, coffee lounges and clubs.</p>
+<p> A typical working day follows this sequence.</p>
+<ul>
+<li>Sebastian and the assistant bakers arrive at the bakery and start baking at 4.00 am.</li>
+<li> All breads and other bread products (bread rolls and so on) are baked by 7.00 am.</li>
+<li>The bakers identify any ingredients that are in low supply and inform Sebastian.</li>
+<li> The drivers arrive at the bakery and start loading their trucks at 8.00 am.</li>
+<li> Cake deliveries arrive at the bakery around 8.00 am.</li>
+<li>The bakery drivers deliver their goods and invoices to the customers from 9.00 am.</li>
+<li>Drivers handwrite orders from the regular customers and return these to the bakery by 1.00 pm. </li>
+<li>Sebastian manually combines the orders and writes a list of the next day's baking requirements.</li>
+<li>Sebastian telephones his orders for the necessary ingredients and cakes from his suppliers. Orders must be<br />
+placed by 3.00 pm to ensure delivery for the next day's baking.</li>
+<li> The bakery closes at 5.00 pm. </li>
+</ul>
+<h4>The problems</h4>
+<p> Sebastian has identified a number of problems that, because of the growth of his business, have now become<br />
+critical.<br />
+1 When drivers return to the bakery later than 1.00 pm, Sebastian cannot complete the next day's list of baking<br />
+requirements.<br />
+2 Some drivers have such bad handwriting that Sebastian has trouble reading the orders.<br />
+3 Sebastian now spends too much time combining the orders and completing the next day's baking requirements<br />
+list.<br />
+4 Sometimes Sebastian cannot order extra ingredients on time therefore he cannot bake all of the next day's<br />
+bread and so loses orders.</p>
+<h4>Proposed system</h4>
+<p> To ensure the continued success of his business, Sebastian realises that he must make some changes to his ordering processes. Sebastian's daughter, Kayla, has just completed the first year of a university course in software engineering. She offers to look at how the problems might be solved.<br />
+Kayla believes that the only way to improve efficiency is to have a computerised ordering system. There would be a computer at the bakery and the delivery truck drivers would have some kind of mobile device. They would use this to collect and transfer data to the new computer.<br />
+</p>
+<p>&nbsp;</p>
+<p align="center"><img src= "/m/pm/07s-insert.gif" alt="Case study diagram" width="603" height="939" /></p>
+<p align="center">Figure 1</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td valign="top"><p>&nbsp;</p>
+<p>Kayla knows that to help Sebastian she must first fully understand the problems, and then analyse the current system.</p>
+<p> To start her system analysis, Kayla has drawn the diagram (Figure 1) <strong><a href="#insert">in the case study insert</a></strong>. It shows the movement of goods, invoices and orders associated with Flip Flop Bakery's operation, and the role of the various people involved. She now has to create a logical design for the bakery's information system by drawing a context diagram and data flow diagrams, as well as constructing a data dictionary.</p>
+<p><strong>Question 1</strong></p>
+<p> Kayla has started the context diagram.</p>
+<p><img src= "/m/pm/07s-c01.gif" alt="Context diagram" width="416" height="397" /></p>
+<p>a. The label for the unnamed entity should be (1 mark) <span class="red"> State average=0.5</span></p>
+<p class="myanswer">Customer</p>
+<p class="comment">... but where are the drivers? <em>If bakers are external entities, why aren't drivers? Odd... </em></p>
+<p> b. Figure 1 in the case study insert shows three arrows going between the Cake supplier and the Bakery, but the context diagram only shows two. Explain this difference. 1 mark, 3 lines <span class="red"> State average=0.2</span></p>
+<p class="myanswer">Cakes are not <strong>data</strong> flow and should not appear in DFDs / context diagrams.. They are cakes. Yummy cakes. </p>
+<p class="comment">Is there a Cake Flow Diagram? </p>
+<p>c.	Kayla has based her context diagram on Figure 1. Explain why she has drawn the Bakers as a separate entity. 1 mark, 3 lines<span class="red"> State average=0.36</span></p>
+<p class="myanswer">She's just wrong?? </p>
+<p class="comment">I have absolutely NO idea. Throw me a bone, someone. If bakers are external entities even though they exist within the data flow of Flip Flop Bakery, why are drivers not <strong>also</strong> external entities?</p>
+<p class="comment">Unless the drivers belong in the empty box in the question above... in which case why don't <strong>customers</strong> appear in the DFD?</p>
+<p class="comment">I'm confused.</p>
+<p>A reliable teacher friend says: </p>
+<p class="comment">'They provide data to the 'system' rather than process the data so they would be considered entities rather the part of the system.' </p>
+<p class="comment">Ahhh. Everyone - remember that! </p>
+<p class="examiner">The Bakers provide data to the system rather than processing the data, therefore they would be considered an entity rather than part of the system. <br />
+The use of context and data flow diagrams in the written examination has been relatively consistent over the last few years; therefore teachers and students should have been well prepared for this style of question. However, this question required students to explain their understanding rather than to construct elements of a diagram, which caused problems for a number of students. <br />
+Students need to practise constructing context and data flow diagrams and also need to have an understanding of the theory behind the decision making for each element represented. The relevant key knowledge point for this question also requires students to be able to construct data dictionaries .</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 2</strong><br />
+Kayla has made three attempts to draw a data flow diagram for the processing of customer orders and determining the baking requirements. Consider the accuracy of the DFDs shown below.</p>
+<p><img src= "/m/pm/07s-c02a.gif" alt="DFD" width="661" height="238" /></p>
+<p><img src= "/m/pm/07s-c02b.gif" alt="DFD" width="664" height="243" /></p>
+<p><img src= "/m/pm/07s-c02c.gif" alt="DFD" width="665" height="239" /></p>
+<p>a. Identify the <strong>most correct</strong> data flow diagram. 1 mark <span class="red"> State average=0.45</span></p>
+<p class="myanswer">DFD <strong>C </strong>&lt;&lt; official VCAA answer. I thought it was A.</p>
+<p class="comment">My approach was to find out what all 3 diagrams had in common so I could more easily discover where they differed. So the old highlighter came out. In red I marked all the items that all 3 diagrams shared. The remaining bits were marked in blue... <em>Your strategy might have differed,</em> </p>
+<p><img src= "/m/pm/07s-c02a-correct.jpg" width="463" height="554" /></p>
+<p class="comment">That helped me focus on the main points where the answer probably lurked. It became immediately obvious that in DFD B, its blue data flow had been discovered before: it was the 'cake flow', not a data flow. So that had to be wrong. </p>
+<p class="comment">In DFD A, the odd man out was &quot;Ingredients getting low&quot;. That needed close checking. The case study insert definitely shows the bakers sending a list of ingredients that are getting low to Sebastian, so that looks fair enough.</p>
+<p class="comment">DFD C lacks this data flow - but then again there are several data flows missing in all 3 diagrams - invoices coming in from the bread ingredients supplier and cake supplier, and the outgoing orders for ingredients. Whether this was intentional or not is hard to see, but the question clearly asks for the <strong>most correct</strong> DFD... </p>
+<p class="comment">So DFD A seemed to be the most correct. <em>A lot of brainwork for 1 mark. Ripoff! :-)</em></p>
+<p class="comment">But the thinking spent on 2a also supplies the answers for 2b, so it's not so bad... </p>
+<p>b. Explain the main error is in each of the other two data flow diagrams. 2 marks, 3.75 lines each <span class="red"> State average=0.7</span></p>
+<p class="myanswer">DFD	<strong>B</strong> is incorrect because the input of &quot;flours, yeast, sugar&quot; is a flow of goods, not data.</p>
+<p class="myanswer">DFD	<strong>C</strong> is incorrect because it lacks the &quot;ingredients getting low&quot; data flow from the bakers to 'Process Orders' </p>
+<p><span class="red">DFD <strong>A</strong> is incorrect because it has an input &lsquo;low ingredient&rsquo; that is not required to process orders. Also it does not lead to any output.<br />
+DFD <strong>B</strong> is incorrect because it shows a data flow that is ingredients (flours, yeast, sugar) rather than data.</span></p>
+<p> Kayla has also created a data dictionary, part of which is shown below.</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="3">
+<tr><p>&nbsp;
+</p>
+<td colspan="2"><strong>Flip Flop data dictionary - page 3 </strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><strong>Name</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Items to be baked</td>
+<td>List of bread and bread rolls (items) to be baked for next day's requirements<br />
+Composed of: Item name + quantity required</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Recipe ingredients</td>
+<td>Ingredients and quantities needed to bake a particular item<br />
+Composed of: Item name + number made + ingredients list</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Calculate quantities needed</td>
+<td>Use recipe ingredients and items baked to work out how much of every ingredient is needed</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Item name </td>
+<td>Name of item to be baked; for example, multigrain loaf, bread roll</td>
+</tr>
+</table>
+<p><br />
+c. Identify one inappropriate entry in the data dictionary and explain why it is inappropriate. 
+2 marks, 4 lines <span class="red"> State average=0.65</span></p>
+<p class="myanswer">&quot;Calculate quantities needed&quot; is a
+process or algorithm, not a datum. It belongs in an IPO chart rather than in a data dictionary. </p>
+<p class="comment">Impress your friends at parties: say &quot;a datum&quot; at every opportunity. </p>
+<p class="examiner">The inappropriate entry in the data dictionary was 'Calculate quantities needed' as this is a process, not an element of data.<br />
+Question 2 required students to interpret elements of a data flow diagram. Part c. asked students to demonstrate their knowledge of a data dictionary, and tested new content in this study design. It is clear that this area may need to be covered in more depth. Teachers should be incorporating this into their System Analysis and Design concepts along side DFD.</p>
+<p>Kayla has completed her analysis of the system. She has decided to start the design of the new system with the design of the software. From her analysis she knows that one thing the system has to do is to calculate the required amount of each ingredient.</p>
+<p> She designs an algorithm that</p>
+<ul>
+<li> reads a file to get the total number of different ingredients Sebastian keeps in stock (Num_Ingredients)</li>
+<li> for each bread item (Product_ID) ordered, uses recipe data and the number of items ordered (Num _ Ord) to<br />
+calculate the amount of each ingredient required for that item (Amount_ Req)</li>
+<li> adds the ingredient amounts required for each item to get the total quantity needed for each ingredient<br />
+Qty ()</li>
+</ul>
+<p>The procedure will have passed to it data that lists the amount of each ingredient required for every bread item made by the bakery (Product_Recipes)</p>
+<p><br />
+Here is Kayla's algorithm.<br />
+<img src= "/m/pm/07s-pseudo.gif" alt="pseudocode" width="695" height="447" /></p>
+<p><strong>Question 3</strong><br />
+a. What is the purpose of the <strong>first</strong> REPEAT - UNTIL loop? (1 mark) <span class="red"> State average=0.1</span></p>
+<p class="myanswer">It initialises all of the Qty array's elements to zero. It uses Ingredient_ID as the loop's index (counter).</p>
+<p class="examiner">The REPEAT &ndash; UNTIL loop initialises (sets up) the array to store the quantity of each ingredient.</p>
+<p>To test the algorithm Kayla decides to use some simplified test data with only 1 bread product and only 3 ingredients.</p>
+<p>b. Using the data below complete the test table (3 marks) <span class="red"> State average=0.3</span></p>
+<p><strong>Test data</strong> </p>
+<table width="44%" border="1" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<td width="59%"><strong>Variable</strong></td>
+<td width="41%"><strong>Initial Value </strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Num_Ingredients </td>
+<td class="myanswer">3</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Product ID </td>
+<td class="myanswer">1</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Num Ordered</td>
+<td class="myanswer">10</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Product_ Recipes(1,1) </td>
+<td class="myanswer">0.15</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Product_ Recipes(2, 1) </td>
+<td class="myanswer">0</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Product_Recipes(3,1) </td>
+<td class="myanswer">0.20</td>
+</tr>
+</table>
+<p class="comment">That's odd. Why is the indexing of the array reversed? It should be (1,3) for example - product 1, ingredient 3. That's the order it is in the algorithm. (Note: this has been confirmed as a rare booboo by the SD exam writers. It's not significant to the answers, however.) </p>
+<p><strong>Test table </strong></p>
+<table width="44%" border="1" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<td width="22%"><strong>Variable</strong></td>
+<td width="38%"><strong>Expected value </strong></td>
+<td width="40%"><strong>Actual value </strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Qty(1) </td>
+<td><div align="right">1.5</div></td>
+<td><div align="right">0.0</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Qty(2) </td>
+<td><div align="right">0.0</div></td>
+<td><div align="right">0.0</div></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Qty(3) </td>
+<td><div align="right">2.0</div></td>
+<td><div align="right">2.0</div></td>
+</tr>
+</table>
+<p>c. Describe the error in this algorithm (1 mark) <span class="red"> State average=0.1</span></p>
+<p class="myanswer">The initialising of Ingredient_ID to 1 in line 12 is wrong because the variable is incremented at the start of the loop, so the starting value is actually 2, not 1. This makes it skip the first ingredient altogether. </p>
+<p class="examiner">Ingredient_ID is set to 1 in the first of the nested repeat loops and immediately in the second part of the nested loop it is increased by 1, so the amount of the first ingredient is never calculated. <br />
+Students needed to have a full understanding of each of the elements within the algorithm in order to answer this part correctly.</p>
+<p>d. Suggest <strong>one</strong> way the algorithm could be altered to fix this error (2 marks)<span class="red"> State average=0.15</span><br />
+<br />
+<span class="myanswer">Line 12 should be...</span></p>
+<p> <span class="myanswer"><strong>Ingredient_ID <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> 0 </strong></span></p>
+<p class="examiner">Either of: <br />
+&bull; change the initial value of Ingredient_ID from 1 to 0 in the second loop <br />
+&bull; move the Ingredient_ID increment line to the end of the loop and change the terminal conditions from UNTIL Ingredient_ID = Num_Ingredients to UNTIL Ingredient_ID &gt; Num_Ingredients <br />
+Question 3 challenged students. Only a very small number completed all parts successfully, and over 80 per cent scored no marks for all parts. The algorithm in the question was not overly complicated; however, the use of a two dimensional array may have provided an extra element of difficulty that prevented many students from attempting the question.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong><br />
+Complete the following data table by inserting the correct data type from the options <strong>integer, floating point, string, boolean, one dimensional array</strong> and <strong>two dimensional array</strong>. 3 marks<span class="red"> State average=1.1</span></p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<td width="22%"><strong>Variable</strong></td>
+<td width="51%"><strong>Use</strong></td>
+<td width="27%"><strong>Type</strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Ingredient_ID</td>
+<td>Loop Control on Ingredient ID</td>
+<td class="myanswer">integer </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Num_Ingredients</td>
+<td>Total Number of Ingredients </td>
+<td class="myanswer">integer</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Qty( )</td>
+<td>Quantity in kilos of an Ingredient </td>
+<td class="myanswer">one dimensional array </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Product_ Recipes( )</td>
+<td>Quantity of a particular item required 
+for a single product </td>
+<td class="myanswer">two dimensional array </td>
+</tr>
+</table>
+<p class="examiner">This question type has occurred in a variety of forms since 2002; however, only a small percentage of students were able to gain full marks.</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong><br />
+Kayla and her uncle Michael, an experienced programmer, were discussing the best file structure to use to store the orders for each day. Sebastian has 300 regular customers who have different orders for each day of the week. As well he can have 50 casual orders on any day. Twenty-five per cent of his regular customers alter their daily order from week to week. Kayla suggests using a simple <strong>Serial</strong> Access file while Michael argues that due to the number of changes each day, a <strong>Random</strong> Access file would be best.<br />
+For the bakery's application, explain the advantage of the Random file structure for the organisation of this data. (2 marks, 6 lines)<span class="red"> State average=0.5</span></p>
+<p class="myanswer">Data would be faster to access, modify, and manage. It would give functionality similar to a database. It would also be far easier to scale up to large sizes compared to a simple, dumb serial file. </p>
+<p class="myanswer">A record in a random file can be accessed instantly by its record number, and a record is read as a single cohesive package with a known structure. All the records between the current read position and target position can simply skipped over. </p>
+<p class="myanswer">Also, random file is opened for both read and write access. A serial file must be closed and reopened in the desired mode.</p>
+<p class="myanswer">A serial file must be completely read and written as a single unit. One can't (for example) open it, change data item 45 and close it again. You'd have to open it in read mode. Read all the data up to item 44 and simultaneously write it to a second file that is opened in write mode. You'd read the target item (#45), change it, write it to the output file, then go on and read every remaining data item and write it to the output file! That's a serious amount of disk activity to modify a single data element! </p>
+<p class="myanswer">Serial files are simply a sequential list of data items. To read an item from the list, one must start reading at the start of the file and read every data item up the one you want. If the data consists of groups of related fields (such as the buyer's name, the goods ordered and the quantity), you then have to read the items individually. If the reading gets 'out of sych' so you start reading data in the middle of a 'record' rather than at its beginning, you start getting rubbish data.</p>
+<p class="myanswer">The single-unit records in a random file, on the other hand, are read and written as a single object, and the fields in the records can be referred to easily by their field names. e.g. employee.surname (where <strong>employee</strong> is a record and <strong>surname</strong> is a field in the employee record.. </p>
+<p class="comment">Yeah - a bit longer than the 6 lines available on the paper, but I added more as an educational freebie. </p>
+<p class="examiner">Appropriate responses included the following. <br />
+&bull; A Serial Access file would be unsuitable because each new order is written to the end of the file, and finding a required order would be difficult as Sebastian would have to go through each in turn until he found the required order. The same would be true for changing customers&rsquo; orders. However, Random Access files allow Sebastian to locate customer orders efficiently as the files can be added or accessed in any order; this also allows orders to be changed more efficiently. This would be important since many regular customers change their orders with the bakery. &bull; The entire Serial Access file must be read and written each time there is a change, but Random Access files can be searched and only the part that is changed needs to be rewritten. This is important as a large number of daily changes to orders must be made. <br />
+Although similar questions have appeared in past examination papers, many students were unable to provide responses that showed their understanding of Random Access files versus Serial Access files<br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><h2 align="center"><em>STRUTH! THIS PAPER SEEMS TO GO ON FOREVER! </em></h2></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 6</strong></p>
+<p>  As part of the design of the new system, Kayla must decide what kind of mobile device the drivers should use.<br />
+She has a choice of the following.</p>
+<ul>
+<li>  A laptop - this will be used to enter and store orders which will then be uploaded to the bakery's computer<br />
+on return.</li>
+<li> A Personal Digital Assistant (PDA) - this will be used to enter and immediately transmit orders from the<br />
+van to the bakery's computer.</li>
+<li> A mobile phone - this will be used to text or phone the orders from the van to Sebastian at the bakery.</li>
+</ul>
+<p> State two advantages of each device for the <strong>given use</strong>. (6 marks, 2 lines each) <span class="red"> State average=2.45</span></p>
+<p class="comment">Note the bold words &quot;given use&quot;. They don't want you talking about other activities the device could be used for. </p>
+<p><strong>Laptop</strong></p>
+<p class="myanswer">Advantage 1 - its keyboard is faster and easier to use for data entry </p>
+<p class="myanswer">Advantage 2 - its screen is far larger and can display much more data at once </p>
+<p><strong>PDA</strong></p>
+<p class="myanswer">Advantage 1 - data is transmitted - and can be acted on - as soon as it's received by the driver. There are no delays waiting for the drivers to return to the bakery before Sebastian can phone in his orders by the 3:00 deadline. </p>
+<p class="myanswer">Advantage 2- it's small, light and easy for the driver to carry in a pocket</p>
+<p class="comment">Others - Its battery would easily last an entire day's operation. </p>
+<p><strong>Mobile phone</strong></p>
+<p class="myanswer">Advantage 1 - like the PDA, data can be received from drivers before they return to base.*</p>
+<p class="myanswer">Advantage 2 - <em>Its battery would easily last an entire day's operation</em>.*</p>
+<p class="comment">* Try to avoid repeating the same answer for different sections, even if it's appropriate. Try thinking of something else. <em>But it <strong>is</strong> hard trying to find an advantage of the phone that the PDA does not have. </em></p><em>
+<p><br />
+</p>
+</em></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 7</strong><br />
+Kayla has decided that the best device for the delivery drivers to take orders would be a Digital PDA. These will be used to transmit orders from the van to the Bakery's computer. Sebastian agrees with this choice. Kayla has three PDA models to choose from. The specifications are given below.</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr><p>&nbsp;
+</p>
+<td width="15%"><strong>Key features</strong></td>
+<td width="25%"><strong>Peach</strong></td>
+<td width="32%"><strong>Watermelon</strong></td>
+<td width="28%"><strong>Strawberry </strong></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>RAM</td>
+<td>8MB</td>
+<td>32 MB/expansion slot </td>
+<td>16MB</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Display</td>
+<td>65 000 colours</td>
+<td>65 536 colours</td>
+<td>65 536 colours </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Input </td>
+<td>touch screen</td>
+<td>QWERTY keyboard; touch screen </td>
+<td>QWERTY keyboard </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Connectivity</td>
+<td>Internet enabled mobile phone</td>
+<td>Bluetooth</td>
+<td>Internet enabled 
+mobile phone</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Battery</td>
+<td>Rechargeable/ replaceable</td>
+<td>Rechargeable//			replaceable; extra cell	</td>
+<td>Rechargeable/ 
+replaceable; extra cell </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Processor</td>
+<td>200 MHz</td>
+<td>400 MHz</td>
+<td>300 MHz </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Resolution</td>
+<td>320 x 320</td>
+<td>480 x 640</td>
+<td>480 x 640 </td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td>Camera</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</table>
+<p><br />
+Considering the role that the PDAs will have, recommend the most suitable model. Give two reasons to justify your answer. 4 marks <span class="red"> State average=2.3</span></p>
+<p>Recommended PDA - <span class="myanswer">Strawberry</span> </p>
+<p>Reason 1 - <span class="myanswer">it has an internet enabled mobile phone which is necessary to send data back to the bakery (unlike the Watermelon's short-range Bluetooth) </span></p>
+<p>Reason 2 - <span class="myanswer">the QWERTY keyboard will make data entry very convenient and quick.</span> </p>
+<p class="comment">Also: the screen has good resolution and no other feature is significantly worse than the Peach. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 8</strong><br />
+Kayla now plans to set up the new system.<br />
+She explains that buying the bakery computer and PDAs and setting them up will take about 3 days; writing, testing and debugging the programs for the bakery computer will take 20 days; writing, testing and debugging the programs for the PDAs will take 15 days; and testing the whole system and making sure it works could take 5 days.<br />
+a. Complete the Gantt chart below to show how the four tasks could be completed inside 30 days. 4 marks <span class="red"> State average=3.05</span></p>
+<p><img src= "/m/pm/07s-gantt.gif" width="700" height="123" /><br />
+<br />
+<br />
+b. The task 'test system' is dependent on both programming tasks being completed first. Show this on your 
+Gantt chart above.1 mark <span class="red"> State average=0.25</span></p>
+<p class="myanswer">Refer to the beautifully mouse-drawn dependency arrows. </p>
+<p class="comment">Of course this Gantt assumes there are at least 2 programmers on the job! </p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 9</strong><br />
+Michael has agreed to help write the programs for the new system. He has advised Kayla that he wants the programs to have good internal documentation: they should contain comment lines and all variables and procedures should have meaningful names. Kayla feels this is a waste of time as she can program much faster with short variable names and no comments. 
+Explain why Kayla should follow Michael's advice. 2 marks 7 marks <span class="red"> State average=1.15</span></p>
+<p class="myanswer">Meaningful variable names make it easier to remember what variables are used for and help avoid using the wrong variable by mistake. Is is especially useful when you return to your code after some time has passed and you must re-learn your unintuitive names all over again. It is also valuable when other people must maintain your code.</p>
+<p class="myanswer">Internal documentation reminds the programmer and co-programmers what the code is meant to do and why things were done as they were. Without such inline documentation it is easy for you or a colleague to change some code without realising the implications of what you were doing. </p>
+<p> <br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 10</strong><br />
+Kayla is writing the program for the PDAs. She is concerned that the drivers may accidentally enter the wrong information into the PDA. 
+Describe what type of data validation Kayla needs to code into her program to limit the following possible errors.</p>
+<p>a. A driver enters 100 dozen loaves instead of 1 dozen loaves. 1 mark.<span class="red"> State average=0.4</span></p>
+<p><font color="#000000" class="myanswer">A range check.</font> </p>
+<p>b.	A driver tries to enter an order for a bread product that Flip Flop Bakery does not make. 1 mark<span class="red"> State average=0.5</span></p>
+<p><font color="#000000" class="myanswer">An existence check (ensures selections exist in the bakery's catalogue) </font></p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 11</strong></p>
+<p><img src= "/m/pm/07s-c11.gif" width="145" height="213" /><br />
+The diagram above shows Kayla's first attempt at an interface for the PDAs. </p>
+<p>a. What design error has she made? 1 mark<span class="red"> State average=0.5</span></p>
+<p class="myanswer">When deciding on the width of the interface, she has made it wider than the horizontal number of pixels the screen can display.</p>
+<p>b. How can it be improved? 1 mark<span class="red"> State average=0.55</span></p>
+<p class="myanswer">Reduce the font size of the labels and text boxes so they fit within the display's limits. Also move the buttons so they are fully visible. </p>
+<p class="comment">You <strong>know</strong> what you want to say, but it's hard to work out how to not sound dopey! </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 12</strong><br />
+The diagram below shows a screen for the bakery computer that will alert Sebastian that there is an incoming<br />
+message.</p>
+<p><img src= "/m/pm/07s-c12.gif" width="496" height="297" /></p>
+<p>a. What is the logical error with this screen? 1 mark<span class="red"> State average=0.45</span></p>
+<p class="myanswer">How can you tell whether you want to allow or cancel the message without knowing what the message is or whom it's from? </p>
+<p>b. Describe how to change this screen to correct this error. 1 mark<span class="red"> State average=0.45</span></p>
+<p class="myanswer">Add a control to display all or some of the message, or at least show the identity of its sender so you can judge whether you want to pay attention to it. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 13</strong><br />
+In their many discussions, Michael has reminded Kayla that staff need training. She tells Sebastian that he has to close the bakery for a day so that she can train everyone including the bakers, drivers and sales staff. She will train them in all aspects of the system. Sebastian is concerned about the cost of shutting the bakery but Michael has other concerns.</p>
+<p> a. State a concern with this training strategy other than the cost of shutting the bakery.1 mark<span class="red"> State average=0.45</span></p>
+<p class="myanswer">They are training everyone in everything, which means everyone will be getting some irrelevant information.</p>
+<p>b. Briefly describe a better approach to make certain that staff can operate the new system. 1 mark<span class="red"> State average=0.55</span></p>
+<p><span class="myanswer">People ought to be trained in groups according to their roles, so the content of the training can be tailored to their needs. </span><br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><br />
+<strong>Question 14</strong><br />
+As well as training, Michael suggests to Kayla that she should produce user documentation for the drivers to use while making deliveries. 
+Kayla has several ideas.</p>
+<p> Option 1 - Burn a video onto DVD so they can see what to do<br />
+Option 2 - Put help onto Flip Flop's new website<br />
+Option 3 - Print a quick guide that covers basic use of the software onto a card that can be put into their 
+pocket<br />
+Option 4 - Electronic help manual with a search facility stored on the PDA</p>
+<p>State which option is the best in this case and justify your answer. 4 marks 9 lines<span class="red"> State average=2.45</span></p>
+<p class="myanswer">Overall, Option 2. It depends a lot on how much information you want to give them. For very basic facts, the quick guide would suffice, and be very easily accessible. For comprehensive details, the website might be slow to access, but it can be quickly and easily updated. The help manual would take more time and skill to produce. Since they can't view a DVD on a PDA, option 1 is silly.</p>
+<p class="comment">Didn't like this question. It needed more context. Only 1 option was ridiculous: the other 3 had pros and cons but not enough is known about the amount of training the bakery wanted to give the drivers. </p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><p><strong>Question 15</strong><br />
+The system is in its first week of operation: all the drivers have a PDA and the bakery computer is also operating as a web server. The PDAs are successfully accessing the bakery's website through the Internet and transmitting orders. Sebastian, however, has read an article about conducting business on the Internet.
+He has discovered that</p>
+<ul>
+<li> his website could be accessed by unauthorised people</li>
+<li>there might be times when the PDAs are not able to connect to the web server.<br />
+</li>
+</ul> 
+<p>For each of these situations, explain a strategy that the bakery could use to limit or eliminate the concern.</p>
+<p>a. The website can be accessed by unauthorised people. 2 marks<span class="red"> State average=1.25</span></p>
+<p class="myanswer">Authenticate people accessing the site by making them enter a valid username and password.. </p>
+<p>b. There might be times when the PDAs are not able to connect to the web server. 2 marks<span class="red"> State average=1.05</span></p>
+<p class="myanswer">During times the PDA cannot connect to the server, the software should be able to store orders for later transmission when conditions are favourable. <br />
+</p>
+</td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><em><strong>Overall - a very challenging and very easy exam - in different places. Few complaints at all about quality of the expression or clarity of the questions. </strong></em></td>
+</tr>
+<tr><p>&nbsp;
+</p>
+<td><blockquote>
+<div align="center"><b><img src= "/m/banana_dance.gif" width="33" height="35" align="absmiddle" />Cheerio. See you at next year's SD post mortem! </b><img src= "/m/discobanana.gif" width="66" height="36" align="absmiddle" /></div>
+</blockquote></td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 15 November 2007 </font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 13, 2022 11:31 AM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2007<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2006. Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font></p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

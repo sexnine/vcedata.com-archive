@@ -1,0 +1,101 @@
+@charset "utf-8"; 
+
+/* VCEDATA CSS */
+
+body {
+	font-size: medium;	font-style: normal; 	font-weight: normal; 	font-family: sans-serif; 	
+ 	font: #000000; 	
+ 	line-height: 130%; 	
+ 		
+	background-repeat: repeat-y; 	
+	background-image: url(/bits/side1.png) }
+
+h1 {
+	line-height: 150%; 
+	font-weight: bold;
+	text-align: center;
+	}
+
+
+
+table {
+	
+		margin-left: auto;
+	 	margin-right: auto;	
+		width: 80%;
+		
+		border: 1px; 
+		border-color: #807E7E;
+		border-padding: 0;
+		border-spacing: 0;
+				
+	/*	START TABLE DEAD ZONE 	
+		
+		border-width: thin;
+		
+		border-collapse: collapse;
+	
+		vertical-align: top;
+		align: centre;
+		rules: "rows";
+		frame: "border";
+	*/
+	/* END TABLE DEAD ZONE */	
+			
+} 
+
+td { 	align-content: left;
+		vertical-align: top;			
+}
+
+.small 	{ 	font-size: x-small } 
+.xsmall {	font-size: x-small}
+.larger { 	font-size: large } 
+
+.courier { 	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace} 
+.arial 	{ 	font-family: Arial, Helvetica, sans-serif } 
+.times {	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif}
+
+.beige 	{ 			color: #FFFFCC } 
+.red 	{ 			color: #F00 } 
+.yellow { 			color: #FF0 } 
+.black 	{ 			color: #000 } 
+.white { 			color: #FFF } 
+.text_darkblue { 	color: #000080 } 
+.text_pink { 		color: #FF0080 } 
+.text_brown { 		color: #400000 } 
+.text_green { 		color: #0F0 } 
+.text_purple { 		color: #400080 } 
+.yellow {			color: #FFC}
+.blue {				color: #00F}
+
+.justified { 	text-align: justify } 
+.centre { 	text-align: center } 
+.left 	{ 	text-align: left } 
+.absmiddle {	vertical-align: middle}
+
+.greycellfill { 	background-color: #CCC } 
+.greyback { 	background-color: #DDD}
+.yellowback {	background-color: #FF0}
+.blueback {	background-color: #9CF}
+
+.cursive {	font-family: "Comic Sans MS", cursive}
+.comment {	font-family: "Georgia"; color: #606; padding-left: 30px}
+.myanswer {	color: #00F; font-family: "Comic Sans MS", cursive}
+.greyedout {	color: #666}
+.examiner {	font-style: italic;	color: #F00}
+.question {	font-family: "Times New Roman", Times, serif;	color: #f1a}
+.code {	font-family: "Courier New", Courier, monospace;	color: #0B419F}
+.explanation {	color: #600060;	font-style: normal}
+.crossedout {text-decoration: line-through}
+
+.inverseheading {
+	font-size: large;
+	color: #FFF;
+	background-color: #000;
+	font-style: normal;
+	font-weight: 400;
+	line-spacing: 150%;
+	font-family: "Comic Sans MS", cursive }
+
+

@@ -1,0 +1,1331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2009 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><img src="/bits/title.png" /></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr>
+  <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2009</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<table>
+<tr>
+<td>
+<p>Examiners' comments were published: 14 April 2010</p>
+<p><em>Sept 2012 - For those using old exams for revision purposes, I've marked questions that are no longer relevant in the 2011-2014 study design. The notes appear after the question numbers.</em></p>
+</td>
+</tr>
+<tr>
+  <td><p align="center" class="comment"><strong>This year I am introducing a new award: the Happy Dog award, for when I'm happy with the examiners. </strong></p>
+  <p align="center" class="comment"><strong><img src="/m/happydog2.gif" width="82" height="104" /></strong></p>
+  <p align="center" class="comment"><strong>I'd do the same for the<a href="/p/postmortem-2009i.htm"> ITA exam</a>, but I'm afraid they're never likely to earn one.</strong></p>
+  </td>
+</tr>
+<tr>
+  <td><h3 align="center">Written examination</h3>
+    <p align="center"><strong>Thursday 12 November 2009</strong></p>
+    <p align="center"><strong>Reading time: 3.00 pm to 3.15 pm (15 minutes) </strong></p>
+    <p align="center"><strong>Writing time: 3:15 pm to 5:15 pm (2 hours)</strong></p>
+    <table border="1" align="center" cellpadding="3" cellspacing="0" class="MsoNormalTable"
+style="margin-left:86.45pt;border-collapse:collapse">
+      <tr>
+        <td width="95" ><p></p></td>
+        <td width="113"><p><em>Number of questions</em></p></td>
+        <td width="153"><p><em>Number of questions to be answered</em></p></td>
+        <td width="126"><p><em>Number of marks</em></p></td>
+      </tr>
+      <tr>
+        <td width="95"><p>&nbsp;</p></td>
+        <td width="113"><p>&nbsp;</p></td>
+        <td width="153"><p>&nbsp;</p></td>
+        <td width="126"><p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p><a href="#a">A</a></p></td>
+        <td width="113"><p >20</p></td>
+        <td width="153"><p >20</p></td>
+        <td width="126"><p >20</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p ><a href="#b">B</a></p></td>
+        <td width="113" ><div>5
+          <p></p>
+        </div></td>
+        <td width="153"><p >5</p></td>
+        <td width="126"><p >21</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p ><a href="#c">C</a></p></td>
+        <td width="113&lt;p" >12</td>
+        <td width="153"><p >12</p></td>
+        <td width="126"><p >49</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p>&nbsp;</p></td>
+        <td width="113"><p>&nbsp;</p></td>
+        <td width="153"><p>&nbsp;</p></td>
+        <td width="126"><p>Total 90</p></td>
+      </tr>
+    </table>
+    <p>&bull;&nbsp;Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.<br />
+  &bull;&nbsp;Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</p>
+    <p><strong>Materials supplied</strong></p>
+    <p>&bull;&nbsp;Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.<br />
+  &bull;&nbsp;Answer sheet for multiple-choice questions.</p>
+    <p><strong>Instructions</strong></p>
+    <p>&bull;&nbsp;Remove the insert containing the case study during reading time.<br />
+  &bull;&nbsp;Write your student number in the space provided above on this page.<br />
+  &bull;&nbsp;Check that your name and student number as printed on your answer sheet for multiple-choice &bull;questions are correct, and sign your name in the space provided to verify this.<br />
+  &bull;&nbsp;All written responses must be in English. </p>
+    <p><strong>&nbsp;At the end of the examination</strong></p>
+    <p>&bull;&nbsp;Place the answer sheet for multiple-choice questions inside the front cover of this book.</p>
+    <hr />
+Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</td>
+</tr>
+<tr>
+<td>
+<center>
+Jump to <a href="#a">SECTION A</a>, <a href="#b">SECTION B</a>, <a href="#cs">CASE STUDY</a>, <a href="#c">SECTION C</a>
+</center>
+</td>
+</tr>
+<tr>
+<td><p>In the 2009 Assessment Report, the examiners said of the exam: (the <strong>emphasis</strong> is mine)</p>
+<p class="examiner">During the examination, students should:<br />
+&bull; endeavour to use correct IT terminology<br />
+&bull; discuss all options when asked to justify a choice or compare one option with another<br />
+&bull; know the different response expectations for verbs such as 'state', 'explain', 'justify' or 'describe'<br />
+&bull; reread each question and their response to ensure the question has been answered<br />
+&bull; <strong>avoid using pencil in Sections B and C</strong>, as responses in pencil can often be difficult for assessors to read<br />
+&bull; read the case study and questions carefully and underline or highlight key words<br />
+&bull; endeavour to demonstrate their knowledge of the subject and apply that knowledge to the case study, as <strong>generic responses often result in low or no marks</strong>.</p>
+</td>
+</tr>
+<tr>
+<td ><p><a name="a"></a></p>
+<h2>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer all questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is correct or that best answers the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+Marks will not be deducted for incorrect answers.<br />
+No marks will be given if more than one answer is completed for any question</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 1</strong> <em>(2011-2014 - while topologies may still be relevant to the study design, bus topology is now largely extinct)</em></p>
+<p align="left">A major weakness of a bus topology is</p>
+<p> A. if there is a cable break the whole network is likely to fail<br />
+B. if a computer fails the whole network is likely to fail.<br />
+C. it is more expensive to install than other topologies.<br />
+D. it is more difficult to install than other topologies.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer">Bus topology is wired like a string of Christmas tree lights: a single blown bulb stops the entire string of lights. Also, bus topology requires coaxial cable: try finding a NIC with a BNC (bayonet) port nowadays!</p>
+<p class="myanswer"><span class="red">77% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 2</strong></p>
+<p align="left">When writing an algorithm, logic errors can occur.<br />
+The best way to discover if an algorithm contains logic errors is to</p>
+<p> A. check the variable names.<br />
+B. read the internal documentation.<br />
+C. design and use test data to test the algorithm.<br />
+D. convert the algorithm into a program and run it.</p>
+<p class="myanswer">Answer is C. It's deskchecking. Running a program will certainly highlight syntax errors.</p>
+<p class="myanswer"><span class="red">78% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 3</strong> <em>(2011-2014 - SDLC is now PSM, and testing is no longer a separate step)</em></p>
+<p>The writing of a computer program's code for a new system occurs in which phase of the Systems Development Life Cycle?</p>
+<p> A. development phase<br />
+B. analysis phase<br />
+C. design phase<br />
+D. testing phase</p>
+<p class="myanswer">Answer is A. Has to be development.</p>
+<p class="myanswer"><span class="red">80% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><strong>Question 4</strong>
+<p align="left">A random access file is best described as a file where records</p>
+<p> A. have no fixed length.<br />
+B. must always be read in order.<br />
+C. are kept sorted by a key field.<br />
+D. can be accessed by using their record number.</p>
+<p class="myanswer">Answer is D. Random files are made of records of fixed length (unlike sequential files). Because their lengths are known, the location of a record can easily be determined by position = (recordnumber-1) * recordlength + 1</p>
+<p class="myanswer"><span class="red">58% of the state got this right. 19% went for A and 18% chose C.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 5</strong></p>
+<p align="left">The best reason for using a naming convention for program elements is that</p>
+<p> A. it makes the program run faster.<br />
+B. it makes the program look more professional.<br />
+C. it makes it easier for a user to use the program.<br />
+D. it makes the program code easier to read and understand.</p>
+<p class="myanswer">Answer is D. The other options are silly. Names disappear during compilation; naming does not affect ease of use; and users don't need to read the source code.</p>
+<p class="myanswer"><span class="red">88% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 6</strong> <em>(2011-2014 - SDLC is now PSM, and implementation is now part of the development stage. The answer now would be 'development')</em></p>
+<p>A disaster recovery plan documentation would be prepared in which phase of the Systems Development Life Cycle?</p>
+<p> A. design phase<br />
+B. analysis phase<br />
+C. evaluation phase<br />
+D. implementation phase</p>
+<p class="myanswer">Answer is D. Documentation occurs during implementation (unless you're using an SDLC with a separate documentation phase.) Documentation can't be written until the product is finished (so rule out options A and B) and evaluation occurs way <em>after</em> implementation.</p>
+<p class="myanswer"><span class="red">27% of the state got this right. 47% chose A.</span></p>
+<p class="myanswer"><span class="red">It appears that many students considered the preparation of a disaster recovery plan in the same way as the development of evaluation criteria, which takes place in the design phase. The study design explicitly lists disaster recovery plans as part of the implementation phase.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 7</strong> <em>(2011-2014 - only basic project management is now required. Critical paths are not needed.)</em></p>
+<p>Project management requires precise scheduling of time throughout the duration of a project. Within this schedule there will be a set of tasks that must be completed on time if the project is to finish on time.<br />
+The term a project manager would use for this set of tasks is</p>
+<p> A. goal.<br />
+B. target.<br />
+C. milestone.<br />
+D. critical path.</p>
+<p class="myanswer">Answer is D. The critical path is the series of tasks from the start to the end of a project that must run on time if the project is to finish on time. In other words, they have no slack.</p>
+<p class="myanswer"><span class="red">71% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 8</strong> <em>(2011-2014 - implementation is no longer relevant)</em></p>
+<p>A company has decided to introduce a new system into three stores initially, and then three additional stores each fortnight until all stores are online.<br />
+This implementation method is called</p>
+<p> A. parallel.<br />
+B. phased.<br />
+C. direct.<br />
+D. pilot.</p>
+<p class="myanswer">Answer is B. It sounded a bit like 'pilot' when it said 'three stores initially' but those stores were not used to test the system and learn lessons from so the full rollout would be more successful. Bringing change in in stages is phased implementation.</p>
+<p class="myanswer"><em>This is not how I usually use the term 'phased'. I see it as bringing in a single system a piece at a time. e.g. all the computers get stage 1 done, then all of them get stage 2 done, etc.</em></p>
+<p class="myanswer"><span class="red">78% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 9</strong></p>
+<p align="left">User documentation that details the steps to take in order to operate software is called</p>
+<p> A. a Quick Start Guide.<br />
+B. an Installation Guide.<br />
+C. a Procedures Manual.<br />
+D. a Technical Reference Manual.</p>
+<p class="myanswer">Answer is C. It's not the others: quick start guides just help you get over the first hurdles using the product; installation guides help you get it into the system and set it up for first operation; technical reference is for extending, modifying, repairing the product.</p>
+<p class="myanswer"><em>I've not often heard of a Procedures Manual used in this context. Usually procedures manuals relate to human/office procedures. In IT, it's more often called a user manual.</em></p>
+<p class="myanswer"><span class="red">61% of the state got this right. 29% went for A.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 10</strong></p>
+<p align="left">Using encryption software when transmitting data means</p>
+<p> A. data intercepted on route is unreadable.<br />
+B. data cannot be intercepted on route.<br />
+C. data arrives at its destination faster.<br />
+D. data is sent in smaller packets.</p>
+<p class="myanswer">Answer is A. A pretty simple question. Encryption renders information unreadable to unauthorised people. It does not prevent interception, nor make transmissing faster. Packet size is irrelevant.</p>
+<p class="myanswer"><span class="red">87% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 11</strong></p>
+<p>Mary works at a digital photo processing shop. The staff save the files brought in by customers onto the hard disk of a desktop computer before processing them. At the end of each day Mary copies all the photo files that have been processed onto DVDs. She places the DVDs into a fireproof cabinet and deletes all the copied files from the desktop computer's hard disk.<br />
+The procedure Mary follows is best described as</p>
+<p> A. backing up of files.<br />
+B. archiving of files.<br />
+C. disposal of files.<br />
+D. encryption of files.</p>
+<p class="myanswer">Answer is B. Backing up makes a copy of the original, and does not delete the original. Archiving puts the original into offline storage (not immediately accessible without first mounting the storage medium) and deletes the original; disposal is pure deletion with no copies left. Encryption is irrelevant.</p>
+<p class="myanswer"><span class="red">75% of the state got this right. 19% chose A.</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><em>The following information relates to Questions 12-16.</em></p>
+<p align="left"> A program is being purpose-designed for the Australian Underwater Surf Association. It will be used to manage a very large amount of data about the association's members.<br />
+So that information about members can be added, deleted and edited, a user interface has been created. The following image is a screen shot of the user interface.</p>
+<p align="left"><img src="/m/pm/09s-a12-16.jpg" width="440" height="338" /></p>
+<p>The software developer trialled the user interface with users for two weeks. At the end of the two weeks, users reported their experience to the developer.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 12</strong></p>
+<p>During the trial period users had to edit the details of several hundred members. The information about changes to member details came mostly by email, some examples of which are shown.</p>
+<p><img src="/m/pm/09s-a12.jpg" width="527" height="392" /></p>
+<p align="left">Which single feature of the user interface would cause the most annoyance to users?
+</p>
+<p> A. the placement of the buttons<br />
+B. the black and white colour scheme<br />
+C. the display of records in member ID order<br />
+D. the different fonts used in the field headings</p>
+<p class="myanswer">Answer is C. Obviously. There's nothing particularly hideous about the button placement; B&amp;W would not add nor detract much from usability; the font changes may be irritating but are otherwise trivial. The sorting of users by membership number makes sense to a database, but is useless as far as a human is concerned.</p>
+<p><span class="red">58% of the state got this right. 17% said A and 22% said D.</span></p>
+<p class="comment"><strong>2023 addition</strong>: VCAA should have added option E: <br />
+  E: the typo in the heading: &quot;MEBERSHIP&quot;. </p>
+<p class="comment"><em>So</em> sloppy, VCAA. How many people checked, edited, approved, printed and distributed this exam before it was given to annoy literate students?</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 13</strong></p>
+<p>When the 'save' button is clicked the program can take up to one minute to save all the data. The trial users reported that they did not know how long they might have to wait or when they could start editing again.<br />
+The best way for the developer to deal with this is to</p>
+<p> A. program in a 'meter' which displays how much is left to save and disappears when the save is complete.<br />
+B. program a message to be displayed which says 'please wait'.<br />
+C. program a message to be displayed after the save is complete which says 'records saved'.<br />
+D. do nothing because a minute is not such a long time.</p>
+<p class="myanswer">Answer is A. Animated progress meters are important for humans who tend to get nervous when computers seem to have possibly frozen: they tend to anxiously push all sorts of buttons as their panic increases. A reassuring message indicating an ETA at least tells them that things are well. It is better than a static &quot;please wait&quot; which could indeed cover up a software freeze. Telling the person after the event does nothing to help them during the event! D may make sense to the programmer who knows what is 'normal' waiting time, but it does not help a casual user.
+</p>
+<p><span class="red">78% of the state got this right. No one chose D.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 14</strong></p>
+<p>From the screen shot of the user interface, what evidence is there of a serious error in the data validation process?</p>
+<p> A. A help button is missing.<br />
+B. The title has been misspelt.<br />
+C. A gender has been entered as 'N'.<br />
+D. A first name has been entered all in capitals.</p>
+<p class="myanswer">Answer is C. While spelling errors may be included in 'validation', it's cosmetic and is not serious. Validation can also check for text case (upper,lower,title etc) but again it's not serious. Invalid data such as an meaningless value, however, can cause serious processing errors or inaccurate information.</p>
+<p class="myanswer"><span class="red">88% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 15</strong></p>
+<p>When the program is running it stores the data shown in the screen shot in an array of records called NAMES. Another array of records called CONTACTS is used to store contact details for each member. When the program's user clicks 'edit' that member's contact details are displayed on the screen. The field most likely used by the program to link the two arrays is<br />
+</p>
+<p>A. Member ID.<br />
+B. Family name.<br />
+C. First name.<br />
+D. Gender.</p>
+<p class="myanswer">Answer is A. It's a unique identifier (like a key field in a database) that cannot possibly occur more than one by chance. People's names and genders can obviously be duplicated.</p>
+<p class="myanswer"><em><img src="/m/meatybites.jpg" width="145" height="177" hspace="2" align="left" /></em></p>
+<p class="myanswer"><em>But key fields and relational databases are in the ITA course, not SD... </em></p>
+<p class="myanswer"><em>Bad examiners are going beyond the study design!</em></p>
+<p class="myanswer"> <em>Sorry guys - you're not allowed to do that.</em></p>
+<p class="myanswer">&nbsp;</p>
+<p class="myanswer"><span class="red">84% of the state got this right. Nearly everyone else chose B.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 16</strong></p>
+<p>Member ID numbers must be between 1 and fifty thousand (50 000). When a new member is added, the program uses the following code to generate a new member ID number.</p>
+<p align="center">Member ID = 1 + int(rand( )* 100000/2)</p>
+<p><br />
+where&nbsp; rand( ) returns a six-digit random number between zero and one, and</p>
+<p>int( ) returns the integer part of whatever number is in the brackets.</p>
+<p>If a new member is being added and rand( ) returns 0.002222 then Member ID will be set to</p>
+<p>A. 2<br />
+B. 12<br />
+C. 112<br />
+D. 1112</p>
+<p class="myanswer">Answer is C. The deskcheck is as follows:</p>
+<p class="myanswer">&gt; .002222 * 100,000 = 222.2 (remember your order of operations! * and / have the same priority so work them from left to right)<br />
+&gt; 222.2 / 2 = 111.1<br />
+&gt; int(111.1) = 111<br />
+&gt; 1 + 111 = <strong>112</strong></p>
+<p class="comment">It's damned good to see the examiners using some realistic functions in their pseudocode. </p>
+<p class="comment"><img src="/m/happydog2.gif" width="82" height="104" /></p>
+<p class="comment">I've previously grumbled about restricting pseudocode to the complexity of a four-function calculator. As long as the behaviour of the pseudocode functions is made clear, bring 'em on!</p>
+<p class="comment"><span class="myanswer">And the question was challenging, but not too hard for the average student.</span></p>
+<p class="comment">2023 note: it's a shame <strong>the logic of the entire algorithm is rubbish</strong>. Generating a random ID number totally ignores the very real fact that the number may <em>already be in use</em>. D'oh!</p>
+<p class="examiner">59% of the state got this right. 19% chose D and the rest were evenly divided between A and B..</p>
+</td>
+</tr>
+<tr>
+<td><p><em>The following information relates to Questions 17 and 18.</em></p>
+<p> ASM is a small business that has a suite of offices on the first floor of a building. It uses an old local area network (LAN) for its business operations. A floor plan of two offices and part of the LAN are shown in the following diagram.</p>
+<p><img src="/m/pm/09s-a17-18.jpg" width="416" height="238" /></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 17</strong></p>
+<p align="left"> When the LAN was first installed its goal was to improve the overall efficiency of the transfer of information within the business.<br />
+To achieve this goal there were a number of system objectives, one of which could have been</p>
+<p> A. to eliminate the need to copy data to and from CD.<br />
+B. to improve the clarity of information presented on screen and paper.<br />
+C. to minimise errors in data when it was transferred from one computer to another.<br />
+D. to maximise the amount of time workers could spend speaking to one another about work issues.
+</p>
+<p class="myanswer">Answer is A. Has to be, because the other options can be ruled out. Keep in mind the key words of the question's stem. They want to improve the <strong>efficiency</strong> of <strong>information transfer</strong>.</p>
+<p class="myanswer">Can't be B - Improving clarity of info is not an efficiency measure: it's <strong>effectiveness</strong> (quality of the product, how well it achieves its goals)<br />
+Can't be C - while it is about data transfer, accuracy is again an <strong>effectiveness</strong> measure, not efficiency.<br />
+Can't be D. While time saving is an efficiency measure, chatting about work is not a <strong>data transfer</strong> issue. </p>
+<p><span class="red">60% of the state got this right. 28% chose C.</span> </p>
+</td>
+</tr>
+<tr>
+<td><p align="center">&nbsp;</p>
+<p><strong>Question 18</strong> <em>(2011-2014 - It's doubtful whether detailed questions on topologies are still relevant)</em></p>
+<p>ASM's local area network is now outdated and it no longer meets its system goal. It has been suggested that a new network be installed as shown in the following diagram.</p>
+<p><img src="/m/pm/09s-a18.jpg" width="480" height="294" /></p>
+<p>Based on the two network diagrams, the topology of the network is most likely being changed from</p>
+<p> A. a star network to a bus network.<br />
+B. a star network to a hybrid network.<br />
+C. a bus network to a hybrid network.<br />
+D. a bus network to a star network.</p>
+<p class="myanswer">Answer is D. The original LAN had cables from the workstation all connecting (via T-pieces) to a single (coaxial) cable that led to the server. That's 'bus' and is now superseded. The new LAN has individual (CAT5e or CAT6) UTP cables from workstations going to a switch which has a single cable leading to the server. That's star topology, and it the norm for SOHO (Small Office / Home Office) LANs.</p>
+<p class="myanswer"><span class="red">77% of the state got this right. Most who got it wrong chose C.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 19</strong> <em>(2011-2014 - skip this. NSDs are no longer relevant)</em></p>
+<p><img src="/m/pm/09s-a19.jpg" width="255" height="266" /></p>
+<p align="left">The output for the Nassi-Shneiderman diagram above would be</p>
+<p> A. 2<br />
+B. 3<br />
+C. 5<br />
+D. 6</p>
+<p class="myanswer">Answer is C. Get a scrap piece of paper and do a walkthrough:</p>
+<p class="myanswer">A=<strong>1</strong><br />
+A=1*1 + 1 = <strong>2</strong><br />
+2 isn't &gt;2 so loop again...<br />
+A=2*2+1 = <strong>5</strong><br />
+5 &gt; 2 so fall through...<br />
+Write <strong>5</strong>.</p>
+<p class="myanswer"><span class="red">52% of the state got this right. 17% chose A, 22% chose B and 10% chose D.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 20</strong></p>
+<p>A software company has a policy that 50% of all lines in a program must be internal documentation lines. The reason for this is</p>
+<p> A. it makes the program easier to use.<br />
+B. it makes the program code more efficient.<br />
+C. it makes the program output easier to read.<br />
+D. it makes the program easier to alter by another programmer.</p>
+<p class="myanswer">Answer is D. Internal documentation is ignored during compilation and is never seen by the program's user. It doesn't improve the performance of the code it's in. It doesn't affect the readability of the code. It does help later programmers understand why things were done as they were so they can maintain the code after the original programmers are long gone with all their understanding of the code.</p>
+<p class="myanswer"><span class="red">86% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+<tr>
+<td ><h2><a name="b"></a>SECTION B - Short answer questions</h2>
+<p><strong>Instructions for Section B</strong></p>
+<p><strong>Answer all questions in the spaces provided.</strong></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 1</strong> <em>(2011-2014 - time/date data types are no longer relevant, and character has been added)</em></p>
+<p>A clothing store Data Base Management System (DBMS) is being updated to include more fields about items on sale. The following field types are available.<br />
+Numeric Integer, Numeric Floating Point, String/Text, Boolean, Time/Date Select the most appropriate field type for the fields below.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="306" valign="top"><p><strong>Field</strong></p>
+</td>
+<td width="174" valign="top"><p><strong>Field type</strong></p>
+</td>
+</tr>
+<tr>
+<td width="306" valign="top"><p>Colour</p>
+</td>
+<td width="174" valign="top" class="myanswer"><p>String/Text</p>
+</td>
+</tr>
+<tr>
+<td width="306" valign="top"><p>Date purchased</p>
+</td>
+<td width="174" valign="top" class="myanswer"><p>Time/Date </p>
+</td>
+</tr>
+<tr>
+<td width="306" valign="top"><p>Supplier phone no. e.g. (03) 9987 2121</p>
+</td>
+<td width="174" valign="top" class="myanswer"><p>String/Text</p>
+</td>
+</tr>
+<tr>
+<td width="306" valign="top"><p>Still available?</p>
+</td>
+<td width="174" valign="top" class="myanswer"><p>Boolean</p>
+</td>
+</tr>
+</table>
+<p>4 marks - <span class="red">state average was 3.2</span></p>
+<p class="myanswer">Colour and date purchased are clear enough. I like the way the examiners provided a sample phone number to make it clear why number was not acceptable - a number cannot store parentheses, spaces or leading zeroes! And I like the way the examiners expect SD students know Boolean by name and did not append &quot;true/false&quot; to it.</p>
+<p class="myanswer"><img src="/m/happydog2.gif" width="82" height="104" /></p>
+<p class="myanswer"><span class="red">Students were provided with a list of possible field types and were asked to select the most appropriate field type for each of the fields listed in the table. This question should have been highly accessible to students but it was disappointing that only 40 per cent of students were able to provide all four responses completely and appropriately. Many students responded incorrectly for 'Supplier' with numeric; however, the example clearly indicated that brackets and spaces would be entered so a numeric data type would not be able to contain these characters. Many students also could not identify the Boolean data type.</span></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 2</strong> <em>(2011-2014 - skip this. Global data stuff is no longer relevant)</em></p>
+<p>Robert owns a small business selling handmade model cars. Recently there has been more interest from overseas customers. He has decided to launch a website to take orders for the sale of his model cars online.<br />
+List <strong>three</strong> potential advantages for his business.</p>
+<ul>
+<li class="myanswer">Can reach a global audience &gt; more sales.</li>
+<li class="myanswer">Can include rich multimedia to provide information about his products, like photos, animations, sound &gt; promotes products, informs buyers.</li>
+<li class="myanswer">Can provide a source of after-sales help and support for buyers &gt; builds confidence in buyers &gt; repeat sales.</li>
+<li class="myanswer">Online ordering allows immediate sales and electronic payment &gt; boosts sales.</li>
+<li class="myanswer">Can update his product information instantly &gt; information is always current and reliable.</li>
+</ul>
+<p> 3 marks - <span class="red">state average 2.2</span></p>
+<p><span class="comment">On the printed exam, each advantage had 3 lines of space for answers - rather a lot for 'listing' things! I'm concerned the amount of space provided might encourage students to describe or explain rather than just <strong>list</strong>.</span></p>
+<p class="examiner">Appropriate responses included:<br />
+&bull; greater potential market share for a niche product<br />
+&bull; ability to trade 24/7<br />
+&bull; provides easier communication with customers<br />
+&bull; able to update information and prices quickly and easily<br />
+&bull; a reduction in costs for promotion and advertising.</p>
+<p class="examiner"> A variety of potential advantages were provided; however, a number of students selected one advantage, such as 'increased customer base',<strong> and wrote it in three different ways</strong>. Students needed to provide responses that related to the business scenario described.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong></p>
+<p>A school has decided to purchase a new electronic roll-marking software package. The software allows teachers to mark a student absent by scanning a barcode printed next to the absent student's name in the rollbook. This is done by using either a portable computing device that has a built-in barcode reader or by using a barcode reader that can be attached to an existing portable device. The information is then transmitted wirelessly to a central computer which alerts the coordinators of students absent from class. As the school supplied its staff with portable computing devices just last year, the principal wants to purchase only barcode readers which staff can use on their existing devices. Before purchasing the new system the school needs to check the specifications of the existing devices.</p>
+<p>From the list below select the <strong>three</strong> features that the existing portable computing devices <strong>must have</strong> for the roll-marking system to work and justify your selection.</p>
+<p>A&nbsp; large 8.2&quot; screen<br />
+B&nbsp; ability to store and run additional software<br />
+C&nbsp; full keyboard<br />
+D&nbsp; stylus<br />
+E&nbsp; ability to connect to wireless LAN<br />
+F&nbsp;&nbsp; ability to connect to Ethernet cable<br />
+G&nbsp; ability to connect to external devices (such as GPS sensor and barcode reader)</p>
+<p>6 marks - state average 5.1</p>
+<table width="90%" border="1" cellpadding="3" cellspacing="0">
+<tr>
+<th width="91" scope="col">Feature</th>
+<th width="360" scope="col">Justification (5 lines per cell)</th>
+</tr>
+<tr>
+<td><p>B&nbsp; ability to store and run additional software</p>
+</td>
+<td class="myanswer"><p>The PCD must be able to run the software that runs the attendance software, and the barcode reader's driver.</p>
+</td>
+</tr>
+<tr>
+<td><p>E&nbsp; ability to connect to wireless LAN</p>
+</td>
+<td class="myanswer"><p>The PCD is supposed to transmit attendance data wirelessly, so obviously it must be able to connect to a WLAN.</p>
+</td>
+</tr>
+<tr>
+<td><p>G&nbsp; ability to connect to external devices (such as GPS sensor and barcode reader)</p>
+</td>
+<td class="myanswer"><p>If the BCR is to be retrofitted to the PCD, the PCD must be able to connect to it (duh!)</p>
+</td>
+</tr>
+</table>
+<p class="myanswer">Why not the others?</p>
+<p><span class="myanswer">A&nbsp; large 8.2&quot; screen - a large screen may be easier to read, but is not a &quot;must have&quot;<br />
+C&nbsp; full keyboard - not necessary for scanning a barcode.<br />
+D&nbsp; stylus - data entry apart from the barcode is not indicated as being necessary.<br />
+F&nbsp;&nbsp; ability to connect to Ethernet cable - might be a nice backup, but is not required for wireless connections.</span></p>
+<p><span class="red">(B) Ability to store and run additional software --- 
+The roll-marking program that is to be used does not come as part of the<br />
+operating system already on the device, so there must be the ability to load and run additional software to enable the system to be<br />
+implemented.<br />
+(E) Ability to connect to wireless LAN --- This is essential if the system is to be able to send the student absent data wirelessly to the central computer.<br />
+(G) Ability to connect to external devices 
+(such as GPS sensor and barcode reader) --- 
+The device will not be able to read the barcodes against the absent student if this feature is not available.</span></p>
+<p><span class="red"> Given the school scenario provided, the three features listed in the table above were the essential features. Students may<br />
+have talked about other features that may have been desirable; however, they were not the features that must have been<br />
+present for the system to work as described.</span><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong> </p>
+<p>A program is needed to process data for stock items. The data is stored in a file on disk. The file could contain up to 500 records. Three typical records are shown in the following table.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="158" valign="top"><p align="center"><strong>Item ID</strong></p>
+</td>
+<td width="161" valign="top"><p align="center"><strong>Item name</strong></p>
+</td>
+<td width="158" valign="top"><p align="center"><strong>Number in stock</strong></p>
+</td>
+<td width="158" valign="top"><p align="right"><strong>Cost ($)</strong></p>
+</td>
+</tr>
+<tr>
+<td width="158" valign="top"><p align="center">1</p>
+</td>
+<td width="161" valign="top"><p align="center">CD RW drive</p>
+</td>
+<td width="158" valign="top"><p align="center">2</p>
+</td>
+<td width="158" valign="top"><p align="right">23.50</p>
+</td>
+</tr>
+<tr>
+<td width="158" valign="top"><p align="center">2</p>
+</td>
+<td width="161" valign="top"><p align="center">4 Gb RAM</p>
+</td>
+<td width="158" valign="top"><p align="center">6</p>
+</td>
+<td width="158" valign="top"><p align="right">54.00</p>
+</td>
+</tr>
+<tr>
+<td width="158" valign="top"><p align="center">3</p>
+</td>
+<td width="161" valign="top"><p align="center">17&quot; monitor</p>
+</td>
+<td width="158" valign="top"><p align="center">2</p>
+</td>
+<td width="158" valign="top"><p align="right">223.00</p>
+</td>
+</tr>
+</table>
+<p>Juan, a novice programmer, is writing the program. He has chosen a programming language that recognises the following data types: integer, floating-point decimal, text and Boolean. It will also allow the creation of data structures such as arrays and records.<br />
+Juan will use a variable named ItemCost to hold the cost of an item. He has decided to make ItemCost an integer.</p>
+<p>a. Explain why this is not the most appropriate choice of data type.</p>
+<p class="myanswer">Integer can't store the decimal fraction (cents) of the cost.</p>
+<p class="myanswer"><span class="red">The following is an example of a good student response.<br />
+<em>Because integer stores only full whole numbers, not decimals, and cost (price) values are in a decimal.</em></span></p>
+<p>2 marks - state average 1.1</p>
+<p> b. State the data type he should have chosen.</p>
+<p class="myanswer">Floating point.</p>
+<p>1 mark - state average 0.7</p>
+<p class="comment">Hmmm. <strong>Another</strong> data type question? We just had that in question B1 above.</p>
+<p>Juan knows that for the program to run most efficiently it should read all the relevant data into memory first. He starts by making a large number of variables: ItemCostl, ItemCost2, ItemCost3, and so on. A colleague sees this and tells Juan that an array will be much more efficient. Explain why. [7 lines provided]</p>
+<p class="myanswer">Values stored in arrays can be addressed by their index number, which allows the use of loops to traverse or address any number of values rather than by addressing discrete variables by name.</p>
+<p class="comment">Juan is an idiot. Which company was dumb enough to let him loose on their data?</p>
+<p>2 marks - state average 0.8</p>
+<p class="examiner">Students should be able to describe data structures, the advantages of their use and their weaknesses. Many students did not provide a response to the question, which is disappointing as data structures feature in both Units 3 and 4. The following are examples of acceptable student responses.</p>
+<p class="examiner">- <em>An array only has to be defined once and can hold a large amount of items in its list. The array can be easily loaded up at the start of the application, more quickly then loading up large amounts of variables, therefore saving on time thus being more efficient.<br />
+- Writing a large number of variables is very time consuming and makes the program look too messy (for other coders). By placing the variable ItemCost in an array, he does not need to create a large number of variables because the array is made up of the variables. An array holds one data element so an array could contain ItemCost, this way it is more efficient to run (the program needs only to search the array) and it is less time consuming.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong></p>
+<p>A programmer wishes to check that when a new product number is entered, it is valid and within the prescribed limits. If it is invalid then the user needs to know why. The programmer has chosen to validate the data in the following order: Existence test, Numeric test, Range test.</p>
+<p align="left">Explain why this order is necessary.</p>
+<p align="left" class="myanswer">The validation tests are dependent on preceding tests. Later tests are pointless if a preceding test has already failed. If the data does not exist, no following test makes sense; if it's not numeric, a range test is pointless.</p>
+<p>3 marks - state average 1.8</p>
+<p class="examiner">In general, students made a reasonable attempt at responding to this question. It was clear they knew the reason for the validation order; however, many had difficulty explaining why the order was necessary without simply restating the question. Students need to practise questions that require them to articulate programming concepts, not simply utilise these concepts while programming.</p>
+<p class="examiner">The following is an example of a good student response.<br />
+<em>This order systematically validates the data and whether it is in the prescribed limits. A numeric test cannot be undertaken if the item does not exist. The existence test assures the user that the product is there. If that succeeds then proceed to the numeric test. If not, the problem is narrowed to just the existence. Finally, if the numeric test succeeds, then the range test can be conducted to ensure that out of parameter numbers will not occur.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>END OF SECTION B</strong> - Total 21 marks </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td >
+<h2 align="center"><a name="cs"></a></h2>
+<p align="center"><strong>CASE STUDY INSERT FOR SECTION C</strong><br />
+Please remove from the centre of this book during reading time.</p>
+<hr />
+<p align="left">&nbsp;</p>
+<p align="left"><strong>Truss-Tee organisation</strong><br />
+Truss-Tee manufactures timber roof trusses and wall frames for housing construction projects (see Figure 1).</p>
+<p align="center"><img src="/m/pm/09s-cs-fig1.jpg" width="594" height="373" /></p>
+<p>Figure 1</p>
+<p align="left">The business is almost 30 years old and has factories in Melbourne, Sydney, Brisbane and Perth.<br />
+In 2001 Truss-Tee converted all four factories from manual manufacture to computer-assisted manufacture of<br />
+trusses and frames. In each factory identical systems were set up and these are still in operation today.</p>
+<p align="left"><strong>Current system - hardware and software</strong></p>
+<p align="left"> The hardware specifications for one factory are shown in the network diagram (see Figure 2). </p>
+<p align="center"><img src="/m/pm/09s-cs-fig2.jpg" width="500" height="614" /></p>
+<p align="left">RoboCut is a computer-controlled timber cutting system.<br />
+The main software component in each factory system is a package called 'MyCut 2020'. Truss-Tee pays an annual licence fee of $8800 to MyCut and this entitles it to receive all package upgrades. The package has two parts.</p>
+<ol>
+<li>MyCut DESIGNER - installed on PC2 and PC3</li>
+<li>MyCut DATABASE - only installed on PC 1 PCI also has office-style software installed.</li>
+</ol> 
+<p align="left"><strong>Current system - people and their roles</strong></p>
+<p align="left"> Each factory has a manager, two designers and eight assemblers.</p>
+<ul>
+<li><strong>The manager</strong> uses PCI to carry out management tasks, including answering letters and emails, and dealing with the factory's financial matters. The manager also works with clients. This includes starting a new job by entering the client's details into the MyCut DATABASE and later preparing a quote. The quote cannot be prepared until the designers have created the cost data. When they have, the manager obtains the transport cost from Move It, a trucking company, and combines it with the cost data stored in MyCut DATABASE to produce the quote. </li>
+</ul>
+<ul>
+<li><strong>The designers</strong> use PC2 and PC3. They enter detailed house plans for each job using MyCut DESIGNER. This is done by drawing the plans on the screen and typing in the dimensions. It is an exacting task requiring a sound knowledge of building practice, so the designers must be qualified carpenters. Depending on the size of the plans it can take three to eight hours to properly enter plans for one house. </li>
+</ul>
+<blockquote>
+<p>Once the house plans are entered MyCut DESIGNER works out the best design of the trusses and frames and creates the engineering data and cost data needed for the job.<br />
+When a job is ready for the manufacturing stage, one of the designers uses MyCut DESIGNER to produce cutting data and sends this to the RoboCut machine. This takes about five minutes.</p>
+</blockquote>
+<ul>
+<li>
+<div align="left"><strong>The assemblers</strong> put the trusses and frames together after RoboCut has cut all the timber required for a job. Once assembly is complete the trusses and frames are transported to the building site.</div>
+</li>
+</ul>
+<ul>
+<div align="left"><br />
+The data flow and processing described above is shown in the data flow diagram (DFD) below.</div>
+<div align="center"><br />
+<br clear="ALL" />
+<img src="/m/pm/09s-cs-fig3.jpg" width="477" height="600" /></div>
+</ul>
+<p><br />
+<strong><br />
+The problem</strong></p>
+<p> Last year two designers resigned from Truss-Tee, one from the Sydney factory and one from Melbourne. With an Australia-wide skill shortage, Truss-Tee has not been able to find two qualified carpenters who can do the designer jobs. It has tried to retrain some of the assemblers, but this has not proved successful.</p>
+<p>Later this year the other designer in Melbourne is due to retire. Truss-Tee is very concerned about how it can continue to provide high quality service if it cannot obtain skilled carpenters.</p>
+<p>Shaun Truscott is the managing director of Truss-Tee. He is aware that each factory has times when its designers have little to do. If their workload could be shared across the four factories, Truss-Tee would not need so many designers.</p>
+<p>END OF CASE STUDY INSERT FOR SECTION C</p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td ><h2><a name="c"></a>Instructions for Section C</h2>
+<p>Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study.</p>
+</td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 1</strong> <em>(2011-2014 - reasons for change are no longer relevant)</em></p>
+<p>To help understand the existing system, Rose first tries to identify the main reason for Truss-Tee wanting to change its system.</p>
+<p>a. State the main reason for Truss-Tee changing its system.</p>
+<p class="myanswer">Qualified designing staff are hard to find, yet they spend considerable time doing nothing. This results in both a shortage of skills and a waste of wages.</p>
+<p>1 mark - average 0.5<br />
+</p>
+<p>b. Is this a technical, economic or social factor?</p>
+<p class="myanswer">Economic.</p>
+<p>1 mark - average 0.5</p>
+<p align="left" class="red">It was disappointing that less than 50 per cent of students were able to identity the reason for change (Question 1a.) or that it was a social factor (1b.). This type of question has been done poorly by students for a number of years. Teachers should model questions regarding factors promoting change on Question 1 (Section C) in both the 2008 and 2009 examinations when preparing assessment items.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 2</strong></p>
+<p>After interviewing the people in the Melbourne factory, Rose has produced a data flow diagram (DFD) of the<br />
+factory's current computer-assisted manufacturing system (see Figure 3 in the insert).</p>
+<p>a. State the names of the processes that are performed by the program MyCut DESIGNER.</p>
+<ul>
+<li class="myanswer">Produce engineering and cost data</li>
+<li class="myanswer">Produce cutting data</li>
+</ul>
+<p>1 mark - average 0.4</p>
+<p class="examiner">&bull; produce engineering and cost data<br />
+&bull; produce cutting data<br />
+Students were provided with a data flow diagram to assist in interpreting the data flows and processing described in the case study. Many found interpreting the data flow diagram quite difficult. Some students gave only one process or listed all processes and received no marks. The question asked for the names of the processes; this clearly indicated that more than one process was required for a complete response.</p>
+<p> b. State which of the PCs are used to perform the 'Validate client data' and 'Create new job' processes.</p>
+<p class="myanswer">PC1 - the manager's.</p>
+<p>1 mark - average 0.9</p>
+<p><br />
+c. Explain the purpose of the 'Validate client data' process.</p>
+<p class="myanswer">It would make sure all the required client data was present and reasonable (e.g. name exists, postcode is 4 digits) in order to get in touch with them again.</p>
+<p>1 mark - average 0.3</p>
+<p class="examiner">A possible response could have been checking the data entry to ensure only reasonable data is allowed into the system. It was clear from students' responses that they had a general understanding of validation and why it is used, with many answering 'to check data' or 'to validate data'. However, very few students could articulate a clear definition of the process 'validate client data'. The study design defines validate as 'to check that data input to a computer system is of an appropriate type for processing and within acceptable boundaries' (page 52). Although this is the definition all students should study, responses clearly indicated that very few students had actively studied the glossary. Teachers are encouraged to copy the glossary for all students and test their understanding and knowledge of written definitions throughout the year.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Proposed system</strong> </p>
+<p align="left">Rose has found that the My Cut software is designed only to work on local area networks. To allow work to be shared between factories she proposes that a large format scanner be placed in each factory. The purpose of the scanner will be to scan house plans. Rose also proposes the following procedure, using the Melbourne factory as an example.</p>
+<p align="left"><strong>Step 1:</strong> When the Melbourne factory receives a set of plans for a house it will scan them and save each sheet as a separate Graphic Interchange Format (GIF) file. On average each set of plans has four separate sheets.</p>
+<p align="left"><strong>Step 2:</strong> If the factory in Melbourne cannot do the design work, but the factory in Perth can, then the Melbourne factory will send the GIF files to Perth via the Internet.</p>
+<p align="left"><strong>Step 3:</strong> When the Perth factory has entered the plans into its MyCut DESIGNER, it will export the engineering data and cost data to a text file. The text file will be sent to the Melbourne factory.</p>
+<p align="left"><strong>Step 4:</strong> The Melbourne factory will import the text file into its MyCut DATABASE. It will then produce the cutting data and proceed as usual.</p>
+<p align="left">Rose wants the scanner connected to PC1. She expects each GIF file to be at least 40 Mb in size. She also expects that each factory will scan about 250 sets of plans in a year. Adding the scanner will mean that other changes will have to be made to the system.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong></p>
+<p>Apart from speaking to people or contacting MyCut, suggest how Rose might have found out that the software can only operate on a local area network.</p>
+<p class="myanswer">She might have tried it and failed. <em>(Trial and error is a time-honoured experimentation technique!)</em></p>
+<p class="myanswer">The technical manual might have mentioned the fact.</p>
+<p>2 marks - average 0.6</p>
+<p class="comment">I wondering what the examiners were fishing for here...</p>
+<span class="red"><span class="red">This question tested students' knowledge of documentation types. Correct responses included, for example, reading the<br />
+technical manual (simply writing 'check documentation' was not sufficient) and checking the company's website. It<br />
+was also acceptable to respond with 'by testing the software'. However, it was clear from responses that students either<br />
+did not understand the question, as responses had nothing to do with documentation, or they did not read the question<br />
+correctly and responded with 'call MyCut' or 'speak to someone else that has used the software'. These responses were<br />
+both incorrect as the question stated that speaking to people or contacting MyCut should not be considered.<p></p>
+</span></span></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong></p>
+<p>Perform a suitable calculation and use your result to explain why the existing Internet connection in each factory will no longer be appropriate.</p>
+<p align="left"><strong>Calculation</strong></p>
+<p class="myanswer">Each set of plans averages 4 x 40M = 160M per set. V90 analogue modems can <strong>download</strong> at a theoretical maximum speed of 56Kbps, but (and here's the big but) they can <strong>upload</strong> at a maximum speed of 33.6 Kbps!</p>
+<p class="myanswer">At 33.6 Kbps to upload 160MB, the dialup modem would take...</p>
+<p class="myanswer">160,000,000 bytes * 8 bits = 1,280,000,000 bits / 33600 bps = 38,095 seconds = 635 minutes = 10.5 hours per set of plans!</p>
+<p class="comment">Most students probably said it would take about 8 hours, assuming upload speeds were 56Kbps (and that 56K was actually attainable in real life - which is hardly ever <strong>is</strong>. Never mind - the principle is still right.</p>
+<p><strong>Explanation</strong></p>
+<p class="myanswer">It would take an entire extra-long working day to transmit the files for a single set of plans!
+</p>
+<p>3 marks - average 1.2</p>
+<p class="comment">How many people remembered the asymmetric speeds of V90? I bet no kids knew it...</p>
+<p class="examiner">Possible calculations included:<br />
+&bull; ((40,000,000 bytes * 8)/56,000 bits)/60 = 95.23 min<br />
+&bull; (40,000,000 bits/56,000 bits)/60 = 11.9 min<br />
+&bull; ((40,000,000 bytes * 10)/56,000 bits)/60 = 119 min (takes into account check bits and check sums that would<br />
+be added).</p>
+<p class="examiner">Students could also multiply any of the above by four, as on average each set of plans involved four pages.<br />
+Results using either 40 Mb or 40 MB were accepted.<br />
+The second part of the question asked students to explain in detail why the existing Internet connection would no longer<br />
+be appropriate.<br />
+Following is an example of an acceptable response.<br />
+<em>One GIF file sent at a speed of 56kpps will take 95 minutes to send. The Truss-Tee company cannot afford to spend time waiting for files to transfer back and forth. This could lose the company clients and also waste worker time as they cannot work until a file is received. Paying the workers to wait is costing the company money.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong></p>
+<p>The system software, office software and MyCut DATABASE on PCI currently take up about 16 gigabytes (Gb) of disk space.<br />
+a. What is the minimum storage capacity (in gigabytes) that PC1 will need if it also has to store one year of GIF files?</p>
+<p class="myanswer">4 sheets * 40MB * 250 times a year = 40,000MB = 40GB (roughly) of GIFs + 16GB of other stuff = 56GB total.</p>
+<p>1 mark - average 0.3</p>
+<p class="examiner">Students did not need to show the calculation; it is shown here for explanation purposes only.</p>
+<p class="comment">Let's not get embroiled in a Gigabytes vs Gibibytes argument! Gibibytes sound like a breakfast cereal.</p>
+<p> b.&nbsp;&nbsp; In each factory many flammable materials are stored to keep the machinery working. Rose proposes that in the new system a full backup of PC1's files is made at the end of every day. Suggest a suitable backup medium. Justify your answer.</p>
+<p class="myanswer">Portable (USB or eSATA) hard disk drive. They are fast, capacious, reliable, very portable (easy to take offsite for storage), freely available to buy, and extremely cheap per megabyte of storage.</p>
+<p class="comment">In the past I would have said DAT tape, but the DAT drives are expensive, tapes are expensive and wear out, and HDD would surpass them in every measure nowadays.</p>
+<p>2 marks - average 1.1</p>
+<p class="comment"><img src="/m/pm/baddog.jpg" width="136" height="142" hspace="2" align="middle" />Gigabytes = GB, not Gb! Gb is gigabits. Bad examiner! <strong>Bad!</strong></p>
+<span class="red">This question asked students to suggest a backup medium and justify their answer. However, many students read this as 'provide a backup strategy'. The question did not ask about when and how the backup would happen, nor its storage location. Stating a backup medium with sufficient capacity and justifying it based on the large capacity required by Truss-Tees was expected.<br />
+Following is an example of an acceptable student response.<br />
+<em>A suitable backup medium for PC1 is an external hard drive. As the amount of data on PC1 could be quite large, storage<br />
+mediums such as CDs and DVDs will be ineffective as Truss-Tees will need a large number of them. An external hard drive will 
+be suitable as they can be purchased in a large size (eg150GB) and will be able to store all the backup files from PC1 each day.
+<p></p>
+</em></span></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 6</strong></p>
+<p>PC1 will need to be upgraded in the new system. Rose has short-listed three computers whose specifications are shown in the table below. Taking into account Rose's plans for PC1, as stated in the proposed system, list the <strong>three</strong> most important specifications she needs to consider in order to choose the most appropriate computer. Explain why each of these <strong>specifications is important for the new PC1</strong>.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="153" valign="top"><p><strong>Specification</strong></p>
+</td>
+<td width="167" valign="top"><p><strong>ABC</strong></p>
+</td>
+<td width="157" valign="top"><p><strong>GP</strong></p>
+</td>
+<td width="160" valign="top"><p><strong>Bell</strong></p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">Storage</p>
+</td>
+<td width="167" valign="top"><p align="left">120 Gb Hard Drive</p>
+</td>
+<td width="157" valign="top"><p align="left">250 Gb Hard Drive</p>
+</td>
+<td width="160" valign="top"><p align="left">160 Gb Hard Drive</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">RAM</p>
+</td>
+<td width="167" valign="top"><p align="left">4 Gb</p>
+</td>
+<td width="157" valign="top"><p align="left">3 Gb</p>
+</td>
+<td width="160" valign="top"><p align="left">2 Gb</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">CPU</p>
+</td>
+<td width="167" valign="top"><p align="left">4 GHz</p>
+</td>
+<td width="157" valign="top"><p align="left">3 GHz</p>
+</td>
+<td width="160" valign="top"><p align="left">4 GHz</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">DVD/CD drive</p>
+</td>
+<td width="167" valign="top"><p align="left">DVD +/- RW</p>
+</td>
+<td width="157" valign="top"><p align="left">DVD +/- RW</p>
+</td>
+<td width="160" valign="top"><p align="left">DVD +/- RW</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">Ports</p>
+</td>
+<td width="167" valign="top"><p align="left">3 USB 2.0</p>
+</td>
+<td width="157" valign="top"><p align="left">3 USB 2.0</p>
+</td>
+<td width="160" valign="top"><p align="left">6 USB 2.0</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">Input</p>
+</td>
+<td width="167" valign="top"><p align="left">Wireless keyboard/mouse</p>
+</td>
+<td width="157" valign="top"><p align="left">USB keyboard/mouse</p>
+</td>
+<td width="160" valign="top"><p align="left">USB keyboard/mouse</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">Connectivity</p>
+</td>
+<td width="167" valign="top"><p align="left">Gigabit Ethernet</p>
+</td>
+<td width="157" valign="top"><p align="left">Gigabit Ethernet</p>
+</td>
+<td width="160" valign="top"><p align="left">Gigabit Ethernet</p>
+</td>
+</tr>
+<tr>
+<td width="153" valign="top"><p align="left">Screen</p>
+</td>
+<td width="167" valign="top"><p align="left">24&quot; LCD 2560 x 1600</p>
+</td>
+<td width="157" valign="top"><p align="left">27&quot; LCD 1920 x 1200</p>
+</td>
+<td width="160" valign="top"><p align="left">24&quot; LCD 1920 x 1200</p>
+</td>
+</tr>
+</table>
+<p>Specification 1 </p>
+<p class="myanswer">Storage</p>
+<p>Explanation </p>
+<p class="myanswer">It needs to store at least 56G, with room for expansion later. All of the hard disks above would qualify.</p>
+<p>Specification 2</p>
+<p class="myanswer">CPU </p>
+<p> Explanation</p>
+<p class="myanswer"> A fast CPU would increase the efficiency of processing large images and performing normal office tasks.</p>
+<p>Specification 3</p>
+<p class="myanswer">RAM</p>
+<p> Explanation</p>
+<p class="myanswer">The more RAM (up to the limits the operating system can actually use) the more efficient the computer will process data and be able to multitask.</p>
+<p>2 + 2 + 2 = 6 marks. State average was 3.4</p>
+<p class="comment">RAM and CPU could easily be swapped. They are about equal in terms of importance. I didn't choose Connectivity because even an average NIC (100Mbps) is far faster than the fastest typical current internet speed (23Mbps). The screen size and number of USB ports is not really important to the case study. The designers would probably care for bigger screens, but not PC1.</p>
+<p class="examiner">Possible answers included:<br />
+&bull; CPU &ndash; PC1 needs a fast CPU as it may be processing many tasks at once, including scanning plans, entering client details into the database and other various management tasks for Truss-Tee<br />
+&bull; storage &ndash; PC1 will need a good amount of storage on which to store the GIF plans, plus any additional files. Since each GIF is 40 Mb large, a large hard drive is needed<br />
+&bull; RAM &ndash; PC1 needs to have sufficient RAM to be able to store temporary parts of the images scanned to hard drive from the scanner.</p>
+<p class="examiner">The question was answered with varying degrees of success. Students were asked to list the three most important<br />
+specifications that should be considered by Truss-Tee when selecting a new PC1; however, it appeared that a number of<br />
+students failed to read these key words. It appeared that some students randomly picked three specifications and<br />
+described them, and others thought they needed to select from computer ABC, GP or Bell. Some students assumed they<br />
+needed to pick the PC with the best RAM, storage or screen and explain why it was better. All three of these<br />
+interpretations were incorrect. This is an example of where giving students many past examinations questions and/or<br />
+papers can help them with the experience of attempting to respond to questions under examination conditions. In this<br />
+case, the table provided stimulus rather than options to be selected from.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 7</strong></p>
+<p>During her analysis of the system, Rose interviewed all the assemblers in the Melbourne factory. One assembler mentioned that sometimes RoboCut would reject a good piece of timber.<br />
+Rose investigates this and finds that the problem started after the last software upgrade six months ago. She contacts MyCut and it claims that none of its other users have reported this problem. After some argument MyCut agrees to send Rose the algorithms related to the software changes. She finds one algorithm that has to do with the cutting process. RoboCut uses this algorithm to check whether or not a piece of timber is long enough to use.</p>
+<p><strong>Function</strong> Check_Length(Timber_Length, LengthRequired) </p>
+<p><strong>Begin</strong></p>
+<blockquote>
+<p><strong>If</strong> Timber_Length &gt; Length_Required <strong>Then</strong></p>
+<blockquote>
+<p>Return <strong>true</strong></p>
+</blockquote>
+<p><strong>Else</strong></p>
+<blockquote>
+<p> Return <strong>false</strong></p>
+</blockquote>
+<p> <strong>End if</strong></p>
+</blockquote>
+<p> <strong>End</strong><br />
+</p>
+<p>Rose decides to test this algorithm by choosing a length of timber (Timber_Length) of 2.4 metres. For the other variable (Length_Required) she chooses the values 2.3, 2.4 and 2.5.</p>
+<p>a. Explain why Rose selected these values.</p>
+<p class="myanswer">They are boundary conditions to test the behaviour near, on, and beyond the critical point where the behaviour of the algorithm should change. Most subtle (and hard-to-find) errors tend to occur right at the point where behaviours should change, so test data should focus on that transition point. </p>
+<p>3 marks - average 2.0</p>
+<p class="examiner">Following is an example of an acceptable student response.<br />
+<em>The values 2.3, 2.4 and 2.5 test all possible number types that could occur. 2.3 is smaller then the required length, 2.4 is equal to the required length and 2.5 is greater then the required length. This comprehensively tests the algorithm.</em></p>
+<p> b.&nbsp;&nbsp; Complete the following table showing what the algorithm should return and what it actually returns.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="150" valign="top"><p align="center"><strong>LengthRequired</strong></p>
+</td>
+<td width="228" valign="top"><p><strong>What should be returned</strong></p>
+</td>
+<td width="229" valign="top"><p><strong>What is actually returned</strong></p>
+</td>
+</tr>
+<tr>
+<td width="150" valign="top"><p align="center">2.3 metres</p>
+</td>
+<td width="228" valign="top" class="myanswer"><p>true</p>
+</td>
+<td width="229" valign="top" class="myanswer"><p>true</p>
+</td>
+</tr>
+<tr>
+<td width="150" valign="top"><p align="center">2.4 metres</p>
+</td>
+<td width="228" valign="top" class="myanswer"><p>true</p>
+</td>
+<td width="229" valign="top" class="myanswer"><p>false</p>
+</td>
+</tr>
+<tr>
+<td width="150" valign="top"><p align="center">2.5 metres</p>
+</td>
+<td width="228" valign="top" class="myanswer"><p>false</p>
+</td>
+<td width="229" valign="top" class="myanswer"><p>false</p>
+</td>
+</tr>
+</table>
+<p>2 marks - average 0.8</p>
+<p> c. Explain why RoboCut only sometimes rejects a good piece of timber.</p>
+<p class="myanswer">It only accepts pieces <strong>longer</strong> than the length required, and rejects pieces are exactly <strong>equal to</strong> the length required.</p>
+<p>1 mark - average 0.6</p>
+<p> d. State one alteration to the algorithm that would correct this error.</p>
+<p class="myanswer">&gt; should be changed to &gt;=</p>
+<p>1 mark - average 0.8</p>
+<p class="comment">Hmm. A pretty basic &gt; vs &gt;= scenario. Not too imaginative.</p>
+<p class="examiner">&bull; If Timber_Length &gt;= Length_Required Then<br />
+&bull; If Timber_Length &gt; Length_Required OR Timber_Length = Length_Required Then<br />
+This type of question has traditionally been done poorly by students. This year's algorithm question, though it may have appeared less demanding, still provided many students with a challenge. Most students were able to identify and correct the error; however, many students were still unable to complete the test table correctly or explain why a certain value would be used to test the algorithm. Both of these concepts are highly important when developing software solutions and should be constantly reinforced even when developing minor or small programs throughout the course of the year.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 8</strong></p>
+<p>Rose recommended changes to the system's hardware and hoped to keep the software unchanged. However she now realises that there is a software fault that must also be corrected. MyCut is reluctant to believe that its software has a fault. Rose contacts some of her friends in the software industry and finds one who says he can provide her with the source code for the MyCut software. This will allow her to make her own changes to the program and correct the fault herself.<br />
+Discuss the ethical and/or legal issues faced by Rose in this situation.</p>
+<p class="myanswer">Ethically, she should want to do everything she could to do what she was hired to do - fix the company's IT problem. This is even more understandable considering the difficult and obstructive attitude of the software company when Rose's request is reasonable.</p>
+<p class="myanswer">Legally speaking, using or modifying the software without permission would contravene the Copyright Act 1968.</p>
+<p>4 marks - average 1.8</p>
+<p class="comment">Be sure to name relevant laws accurately. Vague references to actions &quot;being illegal&quot; is not as convincing.</p>
+<p class="examiner">For a number of years the examination has contained an ethical and/or legal-type question, and this year it continued to be answered poorly. However, many students were able to write an appropriate comment about copyright concerns. In the 2008 Assessment Report it was stated that students should 'contrast the two views and add further relevant information showing their understanding.' However, many students again did not provide this type of response. This is an area that students need to focus on during their examination preparation.<br />
+The following is an example of an acceptable answer.<br />
+<em>There are legal issues that face Rose in making that decision. Under the Australian Copyright law Rose would need to receive MyCut's permission for Rose to make her own modifications. Rose would also have to check the license agreement MyCut and Truss-Tee have to see if she can make modifications. Using her friend to get the software's source code is not ethically right by Rose. She is going behind the companies back and performing actions that are illegal. Rose is therefore putting Truss-Tee also in a bad position.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 9</strong> <em>(2011-2014 - the qualities of suppliers is not relevant any more)</em></p>
+<p>The new system requires a significant hardware purchase by Truss-Tee of a large format scanner for each of its factories. Two suppliers have been identified that can provide scanners with the right technical specifications for Truss-Tee at a comparable price of about $ 13,000 each. To help Truss-Tee choose between the two suppliers, identify two other factors that are important for Truss-Tee to consider and explain why these factors are important for Truss-Tee.</p>
+<p>Possibilities include:</p>
+<ul>
+<li ><span class="myanswer">Reliability &gt; Is it likely to break down soon? Does the software crash?</span></li>
+<li ><span class="myanswer">Support &gt; Does the manufacturer offer reasonable warranty and repair conditions? Does it actively upgrade firmware?</span></li>
+<li ><span class="myanswer">Functionality &gt; Does the equipment have features required by the buyer (e.g. OCR)? Is its maximum resolution adequate?</span></li>
+<li><span class="myanswer">Usability &gt; Is it easy and efficient to use? Can it be customised to suit users' preferences?</span></li>
+<li ><span class="myanswer">Accuracy &gt; Does it produce quality output?</span></li>
+<li ><span class="myanswer">Performance &gt; How long does it take to perform a scan?</span></li>
+</ul>
+<p>4 marks - average 1.9</p>
+<p class="comment">I did include hardware/technical compatibility issues at first, but as Adrian Janson pointed out, the question did say that the scanners had the right technical specs for Truss-Tee.</p>
+<p class="examiner">There were many possible answers to this question, including (but not limited to):<br />
+&bull; the availability of scanners &ndash; depending on Truss-Tee's time frame they may need to choose the supplier who has them available and can supply them in the shortest time frame<br />
+&bull; the location of the suppliers may be relevant in relation to the provision of warranty support, repairs and training. An overseas supplier may not have the ability to provide the same type of support as the local supplier. This would influence their choice<br />
+&bull; the reliability of the suppliers will be important. A brand new company may not have the track record of a long-established company and so their reliability will need to be investigated to ensure that the goods will come through. This is also related to the level of customer service provided as this will be important for future support<br />
+&bull; training requirements of the product and the training provided by the supplier may also be reasons for choosing one product over another. If the scanners are complex to set up and use, a supplier that can provide specific training may be important.</p>
+<p class="examiner">This question posed similar problems to Question 6, with students appearing to misunderstand what the question was<br />
+asking. They were asked to describe two factors to consider when comparing two scanners for purchase. The question<br />
+stated that technical specifications and cost were the same so they should not be considered. Many students still<br />
+included a technical specification in their response. Many students received no marks for this question; however, they<br />
+were able to list why one mobile phone should be considered over another. Students need to have examples that relate<br />
+to their reality to be able to contextualise some of the key concepts of the study design. They also need to develop a<br />
+glossary of terms such as factors and specifications and synonyms that could be used in an examination.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 10</strong> <em>(2011-2014 - skip this. Implementation methods are no longer relevant)</em></p>
+<p>Rose believes that Truss-Tee should use a pilot changeover method to the new system. She suggests to Shaun that the Melbourne factory should be the first to change. Shaun realises that for the new system that Rose has proposed, a pilot changeover will not work.</p>
+<p>a. Identify the feature of the new system that makes a pilot changeover inappropriate.</p>
+<p class="myanswer">The unconverted branches' old hardware would not be compatible with the pilot branch (particularly relating to transmission speeds).</p>
+<p class="myanswer"> Also, the other branches would not be able to send plans to Melbourne because they don't have scanners.</p>
+<p>1 mark - average 0.3</p>
+<p class="examiner">Appropriate responses included:<br />
+&bull; only the Melbourne factory will have high speed Internet<br />
+&bull; Melbourne can deal with graphic images but other factories cannot.</p>
+<p> b. Explain why this feature makes a pilot changeover inappropriate.</p>
+<p><span class="myanswer">Other branches would not be able to receive plans with the Melbourne branch within a working day.</span></p>
+<p class="myanswer">Other branches would not be able to send plans to Melbourne because they don't have scanners.</p>
+<p>1 mark - average 0.4</p>
+<p class="examiner">Other factories will not able to receive/handle GIF files in a timely manner, therefore the new system will not function as required.</p>
+<p> c. Recommend and justify a changeover method that Truss-Tee could use.</p>
+<p class="myanswer">For them to work as a team, all branches would need to convert directly and simultaneously to the new system. It could not be phased in within a branch because all parts of the new system are required for it to work.
+</p>
+<p>2 marks - average 0.7</p>
+<p class="examiner">Direct changeover &ndash; all factories will then be able to send/receive GIF files so the new system can be fully functional, unlike the pilot if only one factory has high speed Internet access.<br />
+Students found this question a challenge. Many were unable to explain why the pilot changeover would be a concern 
+and many responded that phased changeover would be the most appropriate method. For the new system to work all factories needed to change; this discounted any method other than a direct change in all locations. Changeover methods are a key concept with clearly defined plans of actions. Students should be able to clearly identify a method, write about it advantages and disadvantages, and suggest an appropriate method for a particular situation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 11</strong></p>
+<p>Now that Truss-Tee has upgraded its computer network it needs to improve its network security to ensure the protection of its information. For each type of protection solution listed below, provide an example and explain how it provides protection for Truss-Tee's information.</p>
+<p><strong>Software solution</strong></p>
+<p class="myanswer">- network login and password (or biometric ID) &gt; stops unauthorised people accessing workstations</p>
+<p class="myanswer">- firewall &gt; protects the LANs against unauthorised external access.</p>
+<p class="myanswer">- virus/malware scanner &gt; guards against viruses, worms, trojans, adware, spyware that could damage or steal data or information or misuse their system to send spam or DDOS attacks.</p>
+<p class="myanswer">- encryption &gt; to make their files unreadable to unauthorised people, and to protect it during transmission (e.g. PGP)</p>
+<p class="myanswer">- backups &gt; to recover data after it has been damaged or lost</p>
+<p><span class="myanswer"><strong></strong></span><strong>Physical solution</strong></p>
+<p class="myanswer">- lock branch doors, bar their windows &gt; prevent access by thieves or vandals </p>
+<p class="myanswer">- fire alarms, extinguishers &gt; detect &amp; fight fires</p>
+<p class="myanswer">- swipe cards &gt; to control who uses which doors and when</p>
+<p class="myanswer">- UPS for the server &gt; protect it from power surges, brownouts and blackouts</p>
+<p class="myanswer">- put the server in an airconditioned room &gt; protect the server against damaging heat and humidity</p>
+<p class="myanswer">- make the server room locked with a restricted key &gt; prevent unauthorised access to the vulnerable server, even by unauthorised employees</p>
+<p class="myanswer">- burglar sensors &amp; alarms, surveillance cameras &gt; detects breakins</p>
+<p class="myanswer">- lock workstations down to desks &gt; physically deter attempts to pick up and steal equipment and their data </p>
+<p>(1 +2) + (l +2) = 6 marks - average 3.3</p>
+<p class="examiner">Again, students found it difficult to construct clear and detailed responses. Many students were able to give examples of security such as virus checkers, a firewall, username/password (software solutions) and access protection, such as swipe card, biometric, surveillance measures, alarms, guards, etc. (physical), but many struggled to provided an explanation about how it would provide protection for the Truss-Tee information. Students need to practise writing responses that fully answer a question.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 12</strong></p>
+<p>Truss-Tee is establishing the evaluation criteria for the new system. The main system goal is to efficiently and effectively share the design workload between all the sites. In order to measure the success of this it has determined a number of criteria that must be met.</p>
+<p align="left"><strong>Criterion 1<br />
+</strong>To ensure that the processing of plans takes no longer than it used to whether the work is done on-site or interstate.</p>
+<p align="left"><strong>Criterion 2<br />
+</strong>To ensure the reliability of the system is maintained now that fewer staff will be handling the design process.</p>
+<p align="left">The table below outlines the evaluation strategy Truss-Tee has put in place to measure one of these criteria. Complete the table to outline a strategy they could use to evaluate the second criterion.</p>
+<table width="100%" border="1" cellpadding="3" cellspacing="0">
+<tr>
+<td width="13%" valign="top"><p><strong>Evaluation strategy</strong></p>
+</td>
+<td width="39%" valign="top"><p><strong>Criterion 1: Processing of plans takes no longer than it used to</strong></p>
+</td>
+<td width="48%" valign="top"><p><strong>Criterion 2: Reliability of the system is maintained</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p>Time frame</p>
+</td>
+<td valign="top"><p align="left">3-6 months after implementation</p>
+</td>
+<td valign="top"><p class="myanswer">3 months after the 2 designers in Melbourne retire. </p>
+<p class="myanswer"><em>Their imminent departure was the trigger that got the manager to act in the first place. The new system should only be evaluated after the effects of their departure can be observed.</em></p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p>Data to be collected and from where</p>
+</td>
+<td valign="top"><p align="left">Quote dates from PC1<br />
+Job logs from designers<br />
+Cutting start dates from assemblers<br />
+Historical data from previous system</p>
+</td>
+<td valign="top"><p class="myanswer">&nbsp;</p>
+<p class="myanswer">Number of jobs that could not be handed in each branch (number of plans sent to another branch) </p>
+<p class="myanswer">Number of jobs that were not finished in a reasonable time after being handpassed to another branch (dates of sending plans compared with dates the cutting data were returned from the other branch)</p>
+<p class="myanswer">Customer complaints about inaccurate cuts caused by design errors (phone logs, email logs)</p>
+<p class="myanswer">Amount of time designers were idle or working overtime (workstation software usage logs) </p>
+<p class="myanswer">Historical data from previous system</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p>How the data will be used to evaluate the criteria and the overall goal</p>
+</td>
+<td valign="top"><p>Data about when quotes are generated will give a start date for the process. The job logs will determine when the designers process the plans and the cutting start dates will determine when the job was finalised. This data can be compared against historical data related to job times to ensure that the new system meets this criterion. This assists in demonstrating that the goal of efficiently sharing the design workload is achieved.</p>
+</td>
+<td valign="top"><p class="myanswer">The number of handpassed jobs will act as a yardstick to indicate how heavily the system is being used and what workload it's under. If plans are regularly sent, it means the system has been required and is useful.</p>
+<p class="myanswer">If jobs are not finished on time after being handpassed, and the delay is not caused by communication delays, it means jobs are not properly attended to at the destination branch.</p>
+<p class="myanswer">Customer complaints about cutting quality indicates errors being made during design that need to be diagnosed.</p>
+<p class="myanswer">Designer idle time and overtime indicates how well the load sharing is working. If some branches are overloaded and some underloaded, the sharing plan needs to be revised.</p>
+<p class="myanswer">Historical data lets the new system be compared with the previous system to help isolate the causes of inefficiences or ineffectiveness.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p>5 marks - average 1.8</p>
+<p class="comment"><img src="/m/happydog2.gif" width="82" height="104" align="left" />With complex and potentially vague questions, I always endorse the practice of providing an example of what is required so kids aren't left playing the &quot;What the hell does the examiner want from me?&quot; game rather than demonstrating their understanding. Good examiner.</p>
+<p class="comment">On the other hand, I found this question just plain dull and tedious!</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="12%"><strong>Evaluation strategy</strong></td>
+<td width="45%"><strong>Criterion 1: Processing of plans takes<br />
+no longer than it used to</strong></td>
+<td width="43%"><strong>Criterion 2: Reliability of the system is<br />
+maintained</strong></td>
+</tr>
+<tr>
+<td><strong>Time frame</strong></td>
+<td class="red">3&ndash;6 months after implementation</td>
+<td class="red">3&ndash;6 months after implementation</td>
+</tr>
+<tr>
+<td><strong>Data to be collected and<br />
+from where</strong></td>
+<td class="red">&bull; quote dates from PC1<br />
+&bull; job logs from designers<br />
+&bull; cutting start dates from assemblers<br />
+&bull; historical data from previous system<br /></td>
+<td class="red">&bull; error logs from within the system<br /> &bull; data showing the downtime of the<br />
+system<br />
+&bull; Internet transmission data</td>
+</tr>
+<tr>
+<td><strong>How the data will be used to<br />
+evaluate the criteria and the<br />
+overall goal</strong></td>
+<td class="red">Data about when quotes are generated will give a start date for the process, the job logs will determine when the designers process the plans and the cutting start dates will determine when the job was finalised. This data can be compared against historical data related to job times to ensure that the new system meets this criterion. This assists in demonstrating that the goal of efficiently sharing the design workload is achieved.</td>
+<td class="red">With fewer staff doing the same workload and with extra Internet traffic the system will be under greater strain. Error logs and data showing the downtime of the system will demonstrate the system's performance<br />
+under strain. Internet transmission data will show how the ystem is coping with the extra traffic. This will all help to determine whether this criterion is met and assist in demonstrating the goal of efficiently sharing the design workload.</td>
+</tr>
+</table>
+<p><span class="red">This question required students to complete the table for Criterion 2, with Criterion 1 provided as an example of what was expected. Even though Criterion 1 was modelled for students, most students were not able to complete this question. It was clear that most students found the evaluation stage of the System Development Life Cycle a challenge to understand and articulate. Many students did not provide a response to the question. Students should be encouraged to write a response for every question. This is another area that teachers should concentrate on as part of examination preparation.</span><br />
+<br />
+<br />
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>Total 49 marks</strong></p>
+<p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+</td>
+</tr>
+<tr>
+<td class="comment"><h3>On the whole, a good paper. Unusually for SD, it got one Dog's Breakfast award and a couple of slaps on the tail for being bad.</h3></td>
+</tr>
+<tr>
+<td ><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 18 November 2009 </font></p>
+<p align="center"><font size="2">Last changed:
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2008<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2009. Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font><font size="2"></font></p>
+<p>&nbsp;</p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

@@ -1,0 +1,85 @@
+@charset "utf-8"; 
+
+body {
+	
+	font-size: medium;
+ 	font-family: sans-serif; 	
+ 	color: #000000; 	
+ 	line-height: 120%; 	
+ 	font-style: normal; 	
+ 	font-weight: normal; 
+	background-repeat: repeat-y; 	
+	background-image:url(/bits/side1.png);
+	
+}
+
+
+
+table{ 	border: 1px ridge;
+		vertical-align: top;
+		align: centre;
+ 		frame:"border";
+ 		margin-left: auto;
+	    margin-right: auto;
+		rules:"rows";
+ 		text-align: left; 	 
+		border-collapse: collapse;
+		border-color: #eeee44;
+		width: 80%;
+		cellpadding:"3";
+		cellspacing: "0";
+		
+} 
+
+
+
+.small { 	font-size: x-small } 
+.beige { 	color: #FFFFCC } 
+.red { 	color: #F00; } 
+.yellow { 	color: #FF0; } 
+.black { 	color: #000; } 
+
+
+.courier { font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size: 14px;} 
+	
+.white { 	color: #FFF; } 
+.larger { 	font-size: large; } 
+.justified { 	text-align: justify; } 
+.centre { 	text-align: center; } 
+.left { 	text-align: left; } 
+.arial { 	font-family: Arial, Helvetica, sans-serif; } 
+.greycellfill { 	background-color: #CCC; } 
+.text_darkblue { 	color: #000080; } 
+.text_pink { 	color: #FF0080; } 
+.text_brown { 	color: #400000; } 
+.text_green { 	color: #0F0; } 
+.text_purple { 	color: #400080; } 
+.yellow {	color: #FFC;}
+.blue {	color: #00F;}
+.cursive {	font-family: "Comic Sans MS", cursive;}
+.comment {	font-family: "Georgia"; color: #606; padding-left: 30px;}
+.myanswer {	color: #00F; font-family: "Comic Sans MS", cursive}
+.greyedout {	color: #666;}
+.examiner {	font-style: italic;	color: #F00;}
+.question {	font-family: "Times New Roman", Times, serif;	color: #f1a; font-weight:600;}
+.absmiddle {	vertical-align: middle;}
+.greyback { 	background-color: #DDD;}
+.yellowback {	background-color: #FF0;}
+.blueback {	background-color: #9CF;}
+.code {	font-family: "Courier New", Courier, monospace;	color: #0B419F;	font-size: medium;}
+.explanation {	color: #909;	font-style: normal;}
+.xsmall {	font-size: x-small;}
+.crossedout {text-decoration: line-through;}
+
+.inverseheading {
+	font-size: large;
+	color: #FFF;
+	background-color: #000;
+	font-style: normal;
+	font-weight: 400;
+	line-spacing: 150%;
+	font-family: "Comic Sans MS", cursive;
+}
+
+

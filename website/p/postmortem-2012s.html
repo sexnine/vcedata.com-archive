@@ -1,0 +1,1275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2012 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+  <table width="80%" border="1" cellspacing="0" cellpadding="3">
+    <tr>
+      <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+        <h1 align="center">VCAA Exam Post Mortem </h1>
+        <h1 align="center">2012</h1>
+      <h1 align="center"><img src="/m/toetags.jpg" alt="vcedata.com post mortem" width="527" height="235" /></h1></td>
+    </tr>
+    <tr>
+      <td><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></td>
+    </tr>
+    <tr>
+      <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+    </tr>
+  </table>
+</div>
+<table>
+  <tr>
+  <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;
+    &nbsp;</td>
+</tr>
+</table>
+<table>
+  <tr>
+    <td colspan="3"><div align="center">
+      <h2>The Post Mortem Awards</h2>
+    </div></td>
+  </tr>
+  <tr>
+    <td width="25%"><p align="center"><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+      <p>The <strong>SCHMACKOS</strong> award is given to questions that are a complete dog's breakfast.</p></td>
+    <td width="50%"><div align="center"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></div>
+      <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+        Questions that are not totally <em>wrong,</em> but are just <em>dumb</em> <br />
+        or are wrong in a way that does not jeopardise the answer.</p></td>
+    <td width="25%"><p align="center"><img src="/m/illiterate.jpg" alt="" width="47" height="89" />&nbsp;</p>
+      <p align="center">And the exciting Illiteracy Award.</p></td>
+  </tr>
+</table>
+<table>
+  <tr>
+  <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;
+  &nbsp;</td>
+</tr>
+<tr>
+<td><h3 align="center">Written examination</h3>
+<p align="center"><strong>Friday 16 November 2012</strong></p>
+<p align="center"><strong>Reading time: 3.00 pm to 3:15 (15 minutes) </strong></p>
+<p align="center"><strong>Writing time: 3:15 to 5:15 pm (2 hours)</strong></p>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td   ><div ></div></td>
+<td><p ><strong><em>Number of questions</em></strong></p>
+</td>
+<td><p ><strong><em>Number of questions to be answered</em></strong></p>
+</td>
+<td  ><p ><strong><em>Number of marks</em></strong></p>
+</td>
+</tr>
+<tr>
+<td  ><div ></div></td>
+<td><div ></div></td>
+<td><div ></div></td>
+<td  ><div ></div></td>
+</tr>
+<tr>
+<td  ><p ><a href="#a">A</a></p>
+</td>
+<td><p >20</p>
+</td>
+<td><p >20</p>
+</td>
+<td  ><p >20</p>
+</td>
+</tr>
+<tr>
+<td  ><p ><a href="#b">B</a></p>
+</td>
+<td ><div >5</div></td>
+<td><p >5</p>
+</td>
+<td  ><p >20</p>
+</td>
+</tr>
+<tr>
+<td  ><p ><a href="#c">C</a></p>
+</td>
+<td ><div >16</div></td>
+<td>16</td>
+<td  ><p >60</p>
+</td>
+</tr>
+<tr>
+<td  ><div ></div></td>
+<td><div ></div></td>
+<td><div ></div></td>
+<td  ><p >Total 100</p>
+</td>
+</tr>
+</table>
+<ul>
+<li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.</li>
+<li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+</ul>
+<p align="left">Materials supplied</p>
+<ul>
+<li>Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.</li>
+<li>Answer sheet for multiple-choice questions.</li>
+</ul>
+<p align="left">Instructions</p>
+<ul>
+<li>Remove the insert containing the case study during reading time.</li>
+<li>Write your student number in the space provided above on this page.</li>
+<li>Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this.</li>
+<li>All written responses must be in English. At the end of the examination </li>
+<li>Place the answer sheet for multiple-choice questions inside the front cover of this book.</li>
+</ul>
+<p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+<tr>
+  <td ><p>Examiners' report comments were added 5 June 2013. See the <a href="http://www.vcaa.vic.edu.au/Documents/exams/technology/2012/softwaredev_assessrep12.pdf">original 2012 SD exam report</a> on the VCAA site.</p>
+    <p class="examiner">The multiple-choice questions were well done by many students. Areas of weakness tended to be the theoretical 
+      components of the study, such as control structures, design characteristics and the purpose of a software requirements 
+      specification (SRS). Throughout the year, it may be useful for students to practise answering questions based on these 
+      areas.      </p>
+    <p class="examiner">In general, Section B required students to demonstrate sound theoretical knowledge and to provide detailed and accurate      responses. In 2012, this section contained two questions that asked students to apply their knowledge of pseudocode 
+      algorithms. The study design specifies pseudocode as the only algorithmic representation to be used as a method of 
+      expressing software designs. Many students appeared to welcome the challenge to demonstrate their skills in this area.      </p>
+    <p class="examiner">The format of Section C was consistent with that of previous years and student responses were expected to refer to the 
+      case study. The key weakness of many responses in this section was the lack of depth and detail provided by students. 
+      During the examination, students should      </p>
+    <ul>
+      <li class="examiner">endeavour to use correct IT terminology      </li>
+      <li class="examiner">discuss all options when asked to justify a choice or compare one option to another     </li>
+      <li class="examiner"> respond to key instructional terms in questions, such as 'state', 'explain', 'justify' or 'describe'      </li>
+      <li class="examiner">reread each question and their response to ensure that the question has been answered     </li>
+      <li class="examiner"> remove the case study insert and refer to it when completing Section C      </li>
+      <li class="examiner">read the case study and questions carefully, and underline or highlight keywords     </li>
+      <li class="examiner"> endeavour to demonstrate their knowledge of the subject and apply that knowledge to the case study, as 
+        general responses often result in low or no marks; knowledgeable, clear and appropriate responses receive full 
+        marks.</li>
+    </ul>    </td>
+</tr>
+<tr>
+<td ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+No marks will be given if more than one 
+Answer is completed for any question</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 1</strong><br />
+When investigating an existing information problem, a use case diagram is developed. At which stage of the problem-solving methodology does this occur?<br />A. &nbsp;design<br />
+B. &nbsp;analysis<br />
+C. &nbsp;evaluation<br />
+D. &nbsp;development</p>
+<p class="myanswer">Answer is B. The UCD describes how external entities interact with functionality within the system.</p>
+<p class="examiner">It is very important that students thoroughly understand the  problem-solving methodology (PSM). Use case diagrams  are part of Area of Study 1, Unit 3, which focuses 
+  exclusively on the analysis stage of the PSM.
+</p><p class="examiner"> 58% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 2</strong><br />
+Bill is writing a new software application for a small real estate company. Four real estate agents from the company all want an application on their mobile phones that allows them to access the data files back at the office while they are out. Each agent has a different model/make of phone.<br />
+To obtain information to help Bill write the software requirements specification (SRS), the most appropriate action for him to take is to<br />A. &nbsp;interview all four real estate agents.<br />
+B. &nbsp;observe one real estate agent at work.<br />
+C. &nbsp;survey at least four clients to find out what they would like.<br />
+D. &nbsp;interview at least four clients to find out what they would like.
+</p>
+<p class="myanswer">Answer is A. Interviewing the clients would not tell him what the agents need from the software, so rule out C and D. While watching one real estate agent might give detailed information on how they work, interviewing all 4 would give more information about their needs.</p>
+<p class="examiner"> 83% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 3</strong><br />
+Software known as a Trojan<br />A. &nbsp;may look like useful software.<br />
+B. &nbsp;is an antivirus software application.<br />
+C. &nbsp;always replicates itself across a network.<br />
+D. &nbsp;always removes files without you knowing.</p>
+<p class="myanswer">Answer is A. Trojans don't use any distinctive technology. They just masquerade as useful software to get users to install them.</p>
+<p class="examiner"> 78% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 4</strong><br />
+A code of ethics for software developers is a set of moral principles and guidelines that assists when<br />A. &nbsp;a logic error is found within a program code.<br />
+B. &nbsp;a runtime error is found within a program code.<br />
+C. &nbsp;an issue occurs with management over pay and conditions.<br />
+D. &nbsp;an issue occurs with management over what a program will do.
+</p>
+<p class="myanswer">I think the answer should be C. A code of ethics describes how people should behave morally, which makes A and B irrelevant. D is not an ethical issue, leaving C, which is a human matter.</p>
+<p class="myanswer"><em>I interpreted option D as a simple argument about scope: should the program be expected to produce emails, for example - a trivial matter that would not use a code of ethics to sort out.</em></p>
+<p class="myanswer"><em><img src="/m/schmackomaybe.jpg" alt="bad?" width="98" height="150" hspace="3" align="right" />I interpreted my preferred option C as a position where management might be (legally) exploiting work contracts to force programmers into working unfair hours or reducing their pay. That's where I thought a code of ethics could be used to prevent such exploitation.</em></p>
+<p class="myanswer"><em>However, others have argued that &lt;D&gt; could mean that programmers are instructed to put ethically-unacceptable functionality into a program (e.g. a keylogger). That's valid.</em></p>
+<p class="myanswer"><em>So there is a problem in the vagueness of &quot;an issue&quot;. Since others and I can come up with different issues that satisfy options C and D, they both should be accepted by markers.</em></p>
+<p class="examiner"> The official answer (which was given no explanation in the exam report) was D. <br />
+  60% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 5</strong><br />
+Compared to a cabled local area network, a wireless local area network is generally<br />A. &nbsp;easier to set up, cheaper and more secure.<br />
+B. &nbsp;easier to set up, cheaper but not as secure.<br />
+C. &nbsp;harder to set up, more secure and cheaper.<br />
+D. &nbsp;harder to set up, more secure but will not work over long distances.</p>
+<p class="myanswer">Answer is B. Cabling can be expensive. The supposed extra security of wireless rules out C and D, which leaves you to focus on A and B, and since we know wireless is less secure than cable, A also goes.</p>
+<p class="examiner"> 81% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 6</strong><br />
+One of the functions of the physical layer of the Open Systems Interconnections (OSI) model is to<br />A. &nbsp;route data to a remote computer.<br />
+B. &nbsp;establish a connection to a communications medium.<br />
+C. &nbsp;establish a connection to a remote application program.<br />
+D. &nbsp;translate data into a form that is acceptable to the application layer.</p>
+<p class="myanswer">Answer is B. Options C and D are far too high-level for the physical layer. Routing data involves the selection of direction, which is also high level - part of the internet protocol (IP). The physical layer is responsible for sending bits over a wire.</p>
+<p class="examiner"> 58% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 7</strong></p>
+<p align="left"><img src="/m/pm/12s-a7.jpg" width="212" height="130" alt="A7" /></p>
+<p align="left">The algorithm above is tested with a number of inputs.<br />
+Which set of inputs will <strong>always</strong> cause variable TooBig to become True?<br />A. &nbsp;47, 48, 49<br />
+B. &nbsp;49,51,53<br />
+C. &nbsp;50, 54, 56<br />
+D. &nbsp;51,52,53 </p>
+<p class="myanswer">Answer is D. The other options have at least one value that is less than or equal to 50.</p>
+<p class="examiner"> 89% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 8</strong><br />
+Which of the following is a key activity in the design stage of the problem-solving methodology?<br />A. &nbsp;collect data<br />
+B. &nbsp;produce training material<br />
+C. &nbsp;develop evaluation criteria<br />
+D. &nbsp;determine how well the evaluation criteria have been met</p>
+<p class="myanswer">Answer is C. This is defined in the study design. </p>
+<p class="myanswer"><em>Don't get me started on why evaluation criteria can't (and should not) be developed during analysis, where the end result of the software is defined. Developing evaluation criteria is a logical task, not physical design. Grumble. Grrr.</em></p>
+<p class="examiner"> 75% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p align="left">Use the following information to answer Questions 9-12. Lindsay is writing a program that requires the entry of the following data. </p>
+<p align="left"><img src="/m/pm/12s-a8.jpg" width="522" height="392" alt="Question A8" /></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 9</strong><br />
+For a user who has a standard keyboard and mouse, input into the program will most likely be<br />A. &nbsp;more efficient and effective with Option A.<br />
+B. &nbsp;more efficient and effective with Option B.<br />
+C. &nbsp;more effective with Option B, but less efficient.<br />
+D. &nbsp;more efficient with Option B, but less effective.</p>
+<p class="myanswer">Answer is B. Clicking a radio button is quicker (more efficient) and guaranteed to generate valid (effective) data. The less typing a user does, the less chance there is of errors being introduced.</p>
+<p class="examiner"> 70% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 10</strong><br />
+The first line of the code segment is an example of<br />A. &nbsp;an SRS.<br />
+B. &nbsp;user documentation.<br />
+C. &nbsp;criteria for evaluation.<br />
+D. &nbsp;internal documentation.</p>
+<p class="myanswer">Answer is D. Comments are also known as internal documentation, for the programmers - not the software's users.</p>
+<p class="examiner"> 86% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 11</strong><br />
+What is the program control structure shown in the last five lines of the code segment?<br />A. &nbsp;repetition structure<br />
+B. &nbsp;sequence structure<br />
+C. &nbsp;recursion structure<br />
+D. &nbsp;selection structure</p>
+<p class="myanswer">Answer is D. The IF structure selects an option.</p>
+<p class="examiner">A sequence structure (alternative B) was incorrect because  a sequence structure is a series of unconnected steps. This  was clearly a set of steps to select a value (i.e. alternative  D).</p>
+<p class="examiner"> 44% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 12</strong><br />
+The purpose of the code segment is to validate the user input into the variable OTreading. To be thorough, what else should the code segment perform?<br />A. &nbsp;type check<br />
+B. &nbsp;limit check<br />
+C. &nbsp;range check<br />
+D. &nbsp;uniqueness check</p>
+<p class="myanswer">Answer is A. There is - as far as I know - no such thing as a limit check, but examiners have been known to come up with their own cute names for things we know by other terms. The code has already done a range check, so that's not it. The data does not have to be unique, leaving A - checking that the data is not text, for example.</p>
+<p class="examiner"> 61% of the state got this right.
+</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 13</strong><br />
+One of the purposes of an SRS is to provide<br />A. &nbsp;the breakdown of a problem into its component parts.<br />
+B. &nbsp;the user with instructions for operating the new software.<br />
+C. &nbsp;information to other programmers about how a program works.<br />
+D. &nbsp;criteria for evaluating whether or not the solution requirements have been met.</p>
+<p class="myanswer">Answer is A. The SRS analyses the problem so it can be better understood. B is user documentation; C is internal documentation; D is evaluation criteria.</p>
+<p class="examiner"> 49% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 14</strong><br />
+A procedure is required that can sort a list of randomly arranged items. This list can be of any given size. Two separate procedures are written, one using a quick sort algorithm and the other using a bubble sort algorithm. The performance of each procedure is compared by measuring the time it takes to sort an increasing number of list items. The results are shown below.</p>
+<div align="left"></div>
+<p align="left"><img src="/m/pm/12s-a13.jpg" width="421" height="280" alt="A13" /><br />
+The graph line that most likely represents the performance of the bubble sort is<br />A. &nbsp;neither (1) nor (5) because a bubble sort cannot sort very large lists.<br />
+B. &nbsp;(2) because a bubble sort generally takes less time than a quick sort.<br />
+C. &nbsp;(1) because a bubble sort generally takes more time than a quick sort.<br />
+D. &nbsp;neither (1) nor (2) because the time taken for a bubble sort does not depend on the list size.</p>
+<p class="myanswer">Answer is C. Bubble sorts are quite easy to code, but become exponentially less efficient as the amount of data to sort increases. Quick sort is harder to code, but is quicker with large data sets.</p>
+<p class="examiner"> 80% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 15</strong><br />
+Xian wants to design games for handheld personal computers and mobile phones. What are the most important characteristics of mobile phones that Xian should consider?<br />A. &nbsp;screen size, weight and memory size<br />
+B. &nbsp;screen size, weight and operating system<br />
+C. &nbsp;screen resolution, processor speed and memory size<br />
+D. &nbsp;screen resolution, memory size and operating system</p>
+<p class="myanswer">Answer is D. This is a bit of a tricky one. We can safely eliminate weight as a factor for a programmer to worry about; after all, what could a programmer do to address a weight issue (apart from eating less pizza, but I digress.) That leaves only C and D.</p>
+<p class="myanswer">The only difference between the remaining options is processor speed vs operating system, and the programmer can't do much about the processor speed, apart from try to code more cunningly if the CPU is slow. </p>
+<p class="myanswer">The operating system, however, is definitely going to affect the way a programmer works when coding because the OS may or may not, for example, support certain input devices (e.g. handwriting recognition) which would mean the programmer must seek alternative solutions.</p>
+<p class="examiner">Alternatives A and B were not viable options because the  weight of a mobile phone would not affect the  programmer's coding. Memory size and screen resolution  are both important considerations when designing games  (images and clarity), but it is the operating system (option  D) rather than the processor speed (option C) that will most affect the functioning of a games program on a mobile  phone. Incompatible operating systems would render a  program inoperable, whereas processor speed is likely to  allow the program to run but at a lower speed.</p>
+<p class="examiner"> 34% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 16</strong><br />
+The name, date of birth, membership number, address, suburb, postcode and phone number of one person is to be stored in memory. Which one of the following would be the best data structure?<br />A. &nbsp;record<br />
+B. &nbsp;random file<br />
+C. &nbsp;sequential file<br />
+D. &nbsp;one-dimensional array</p>
+<p class="myanswer">Answer is A. A record is a structure that is defined by the programmer to contain a complete set of data fields of different data types. B and C only exist on disk, not in memory as the question insists. A 1D array can store a lot of data, but each entry has to be the same data type.</p>
+<p class="comment">Maggie has pointed out that PHP users could opt for record or array, since PHP can store different data types in a 1D array. I hope the markers are aware of that aspect of PHP! It's a pity that PHP students can't explain their answers in section A.</p>
+<p class="examiner"> 58% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 17</strong><br />
+Joanne, the owner of a small business that sells computer equipment, has asked a software developer to write a simple software solution that will allow her customers to buy items online. As her business is only small, she does not want to go to the expense of implementing secure storage or password protection.<br />
+The software developer advises strongly that secure storage and password protection must be included, but it will cost more. This advice creates a conflict.<br />
+Who are the major stakeholders affected by this conflict?<br />A. &nbsp;Joanne, her customers and the software developer<br />
+B. &nbsp;Joanne, her customers and her equipment suppliers<br />
+C. &nbsp;Joanne, her internet service provider and her equipment suppliers<br />
+D. &nbsp;Joanne's customers, her internet service provider and the software developer</p>
+<p class="myanswer">Answer is A. The ISP and equipment suppliers are irrelevant. Joanne is a stakeholder because she must pay for the extra programming. Her customers are stakeholders because their financial data is potentially at risk of being revealed. The software developer is a stakeholder because he/she is making money from the work, and could potentially get into professional trouble by deliberately releasing substandard software.</p>
+<p class="examiner"> 66% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 18</strong><br />
+A company network crashed five times in January. To discover the cause of these crashes, the most helpful action the system administrator could take is to<br />A. &nbsp;run a firewall update.<br />
+B. &nbsp;check all the error logs.<br />
+C. &nbsp;run the antivirus software.<br />
+D. &nbsp;complete an audit of all software on the network.</p>
+<p class="myanswer">Answer is B. The error logs would help explain what was happening at the time of the crashes. Options A and B could conceivably solve the problem if it were caused by hacking, but they would not identify the cause of the crashes. Listing all the software on the network would not, probably, yield an answer either.</p>
+<p class="examiner"> 73% of the state got this right.</p></td>
+</tr>
+<tr>
+<td><p><strong>Question 19</strong><br />
+When planning software projects, it is necessary to identify, schedule and then monitor<br />A. &nbsp;resources, people, time and tasks.<br />
+B. &nbsp;resources, people and documentation.<br />
+C. &nbsp;tasks, time, people and documentation.<br />
+D. &nbsp;tasks, resources, documentation and systems.</p>
+<p class="myanswer">Answer is A. Documentation is the common fault in the other 3 options. You don't need to know a lot about project management for SD, but you need to know option A.</p>
+<span class="examiner">61% of the state got this right. </span></td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 20</strong><br />
+An online sales company has decided to develop a mobile phone application that will allow its customers to access the sales website at all times. From a customer's point of view, which of the constraints listed below should the company consider most important when designing its solution?<br />A. &nbsp;speed of processing<br />
+B. &nbsp;cost of development<br />
+C. &nbsp;security of transactions<br />
+D. &nbsp;capacity of the web server
+</p>
+<p class="myanswer">Answer is C. Data security always trumps other factors.</p>
+<p class="examiner"> 87% of the state got this right.</p></td>
+</tr>
+<tr>
+<td class="comment"><p align="center">Overall for section A - a decent set of questions. Not too easy, not too hard. A Goldilocks collection.</p>
+<p align="center">Well done, examiner. Good dog!</p>
+<p align="center"><img src="/m/partydog.jpg" width="350" height="269" alt="Party dog!" /></p>
+<p align="center">For those correct-answer counters out there, there were 7 A's, 5 B's, only 3 C's and 5 D's.</p>
+</td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;&nbsp;</td>
+</tr>
+</table>
+<table>
+<tr>
+<td valign="top" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+<p>Instructions for Section B<br />
+Answer all questions in the spaces provided.</p>
+<p class="examiner">Note: Student responses reproduced in this report have not been corrected for grammar, spelling or factual  information.This report provides sample answers or an indication of what the answers may have included. Unless otherwise stated,  these are not intended to be exemplary or complete responses.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 1</strong><br />
+'Worms' and 'spyware' are both terms used to describe specific types of malware. </p>
+<p align="left">a. What feature must malware contain to be called a worm? 1 mark</p>
+<p align="left" class="myanswer">It travels, propagates and activates itself without the need for human intervention.</p>
+<p align="left" class="examiner">Acceptable responses included a reference to a worm being self-replicating (i.e. creating a copy without the need for  human intervention). For example:  It must replicate itself and spread over a network without user intervention.</p>
+<p align="left" class="examiner">Average mark 60%<br />
+</p>
+<p align="left">b.&nbsp;&nbsp; What feature must malware contain to be called spyware? 1 mark</p>
+<p align="left" class="myanswer">It secretly tracks human behaviour on a computer and often steals information.</p>
+<p align="left" class="examiner">Students should have commented on data being 'unknowingly' collected.  For example:  To be spyware, the malware must take data from a computer/device/network without knowledge of the owner and transmit it back  to its creator.</p>
+<p align="left" class="examiner">Average mark 50%<br />
+</p>
+<p align="left">c. Explain how a single malware program can be called both a worm and spyware. 2 marks</p>
+<p align="left" class="myanswer">Because it does what I already said in answers (a) and (b)!</p>
+<p align="left" class="comment">I don't get this question. What is it on about, exactly? </p>
+<p align="left" class="comment">Worms and spyware are not mutually-exclusive: the 'worm' definition describes its species. The 'spyware' defines its behaviour.</p>
+<p align="left" class="comment"> It's like saying &quot;Explain how a single animal could be called both a cat and a food thief.&quot;</p>
+<p align="center" class="comment"><img src="/m/pm/confused-dog.jpg" width="87" height="119" alt="Dubious" /></p>
+<p align="left" class="examiner">Some students struggled to provide a clear, detailed response to this question. Malware can be considered both a worm  and spyware if it moves around a network with the self-replicating features of a worm and performs the actions of  spyware, collecting user data unknowingly.<br />
+  The following is an example of a high-scoring response: 
+  To be both a worm and spyware, a malware program must have the ability to access and record personal information, but also  hold the ability to self-replicate in order to spread.</p>
+<p align="left" class="examiner">Students are expected to know the functions, technical underpinnings and sources of worms, trojans and spyware. This  question provided students with an opportunity to display their knowledge. Even though parts a. and b. were worth only  one mark each, many students were unable to show sufficient detail or depth of knowledge to gain full marks. Students  needed to ensure that they responded to the keyword in the question, which was to state the 'feature' of the malware 
+  listed.</p>
+<p><span class="examiner">Average mark 50%</span></p></td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 2</strong><br />
+Minama has just begun working for a software developer. He is given the pseudocode for a program and asked to write the program code.</p>
+<p align="left"> a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> At what stage of the problem-solving methodology does program coding take place? 1 mark</p>
+<p align="left" class="myanswer">Development.</p>
+<p align="left" class="comment">That's all you need to write.</p>
+<p align="left" class="examiner">The majority of students were able to identify that the development stage was the appropriate stage of the<br />
+  problem-solving methodology at which to undertake program coding.</p>
+<p align="left" class="examiner">Average mark 90%</p>
+<p align="left"> Minama is unsure about what naming convention he should follow.<br />
+b.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; i.&nbsp;&nbsp; Identify two features of a naming convention for solution elements of a program that Minama could use. 2 marks</p>
+<ul>
+<li class="myanswer">One that prefixes an object with an indicator of the object's type, e.g. intIncome or cmdCalculate (i.e. Hungarian notation)</li>
+<li class="myanswer">One that uses multiple words in a name, with the beginning of each word marked by the use of a capital letter (i.e. CamelCase)</li>
+</ul>
+<p class="examiner">Students were asked to identify two features of a naming convention. Many confused this with stating a naming<br />
+  convention, such as Hungarian notation or camel case. There was a range of acceptable features that students could  have identified, including capitalisation, underscores and abbreviated start of the variable for object type.<br />
+  The following is an example of a high-scoring response.<br />
+  The first three letters of an element name should denote what type of element it is. For example for a button the name would  begin with 'btn'. The remainder of the name should describe the elements function, with each word beginning with a capital.  For example, 'btnPrintReceipt'.</p>
+<p align="left">ii.&nbsp;&nbsp; Explain how this naming convention helps both the development and the maintenance of the software solution. 2 marks</p>
+<p align="left" class="myanswer">Indicating the type of an object makes it less likely that a programmer will accidentally and inappropriately treat it as if it were a different type of object (e.g. confusing an integer and a floating point number, leading to the loss of decimal places.) This is likely to happen when programmers are maintaining other people's code.</p>
+<p align="left" class="myanswer">CamelCase encourages the use of meaningful names, yet makes them easier to read and less potentially ambiguous, e.g. the famous penisland.com would be better as PenIsland.com, choosepain.com is more understandable as ChooseSpain.com, and itscrap.com is actually an IT scrap recycler.</p>
+<p align="left" class="examiner">  Students needed to explain how a naming convention could help both development and maintenance of a solution to  gain full marks. They could have mentioned the following features: consistency, simplicity, sets standards for all 
+  variables, easy to read, easier to understand code, etc. Students are advised to avoid using the words 'efficiency' and  'effectiveness' without any qualifying statements (for example, 'it makes it more efficient'), as responses such as this  often result in low or no marks.<br />
+  The following is an example of a high-scoring response: 
+  During development, the meaningful variable names easily identify what the variable is and makes it easier to understand the  code of the program. During maintenance, meaningful variable names with capitalised letters make the program much more  clear and readable and makes the process of finding errors and modifying code easier.</p>
+<p><span class="examiner">Average mark 53%</span></p></td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 3</strong><br />
+In a computer science lesson, Dr Little claims that, at times, it can be more cost effective to produce code quickly and not be concerned about the quality of the program and code. State when this may be the case. Explain your answer. 2 marks</p>
+<p align="left" class="myanswer">When developing a prototype solution to demonstrate the look and feel of software to a client. A prototype is not expected to be fully functional or high polished. It's just meant to give an impression of what the finished product will be like if it's produced.</p>
+<p align="left" class="comment">I can't think of anything else...</p>
+<p align="left" class="examiner">Appropriate responses included 'when creating a prototype' or 'when creating a program that is used infrequently'.<br />
+  A number of students thought the correct response was to say this should never happen. However, the question<br />
+  specifically asked when this could occur.<br />
+  The following are examples of a high-scoring response: 
+  'This may be the case when the needed program is simple and won't have any long term application. If the program is simple in  design then its developers should not have to spend large amount of time creating the solution which reduces the cost of the  programmers wages. As long as the program doesn't have a long useful life and the scope of the program isn't very large. This may be the case if it is only going to be used once, and does not require future maintenance or alterations and if only the  sole programmer is making it, so no others need to read the code.  This may be the case when making an example program to show functionality, that is not part of the solution code. As the code  will be written quickly and discarded afterwards, it does not need to be written well as it will not be used in the real solution,  only as an example or demonstration.'</p>
+<p align="left" class="examiner">Average mark 40%</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 4</strong><br />
+The algorithm below contains five lines, three of which are not shown. Length and Width are variables. Write the next three lines of the algorithm that is needed to swap the contents of Length and Width. You may introduce other variables as needed. 3 marks</p>
+<p align="left">Length&nbsp;&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />&nbsp; 5<br />
+Width <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 7</p>
+<p align="left" class="myanswer">temp <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> Length<br />
+Length <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> Width<br />
+Width <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> Temp</p>
+<p align="left" class="comment">This is the first time students have been asked to write pseudocode. I always thought it was going to happen.</p>
+<p align="left" class="examiner">In the 2012 examination, students were expected to write pseudocode for the first time. While it is pleasing to note that  35 per cent of students scored full marks, it is disappointing to note that 60 per cent scored zero.<br />
+  [Shown above] are the expected three lines of the algorithm. 'Temp' could have been replaced with any variable name  other than width or length. [The first 2 lines could appear in any order].</p>
+<p align="left" class="examiner">Average mark 43%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><p align="left" class="black"><strong>Question 5</strong><br />
+A procedure starts. It sets Variable A to 1 and Variable B to 2. A loop is started. Variable A is doubled and Variable B has 1 added to it. The loop continues until Variable A is bigger than or equal to Variable B. The procedure then stops.<br />
+Write this as pseudocode. 6 marks<em></em></p>
+<p align="left" class="myanswer"> A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 1<br />
+B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 2<br />
+<strong>while</strong> A&lt;B<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> A*2<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> B+1<br />
+<strong>endwhile</strong></p>
+<p align="left" class="myanswer">--or--</p>
+<p align="left" class="myanswer"> A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 1<br />
+B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 2<br />
+<strong>while</strong> B&gt;A<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> A*2<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> B+1<br />
+<strong>endwhile</strong></p>
+<p align="left" class="myanswer"><br />
+  <span class="comment">The algorithm is not too complicated, but you need to take your time writing pseudocode. It's really easy to get the &lt; and &gt;= confused, for example because the question's use of 'until' reverses the usual logic of a WHILE comparison. </span></p>
+<p align="left" class="comment">Note - I left out the traditional <strong>begin</strong> and <strong>end</strong> lines, since they are implied, and 6 marks = 6 lines of code makes marking easier.</p>
+<span class="comment">
+There are no rules about pseudocode syntax, so there are many variations you could choose for the loop structure's syntax (e.g. WHILE..WEND), and you could have chosen the alternative loop type (e.g. DO..WHILE) that tests at the end rather than at the top. </span>
+<p align="left" class="comment">Actually. the wording of the algorithm implies that the doubling of A and incrementing of B occurs at least once, and <strong>then</strong> the test happens, so a <strong>bottom-driven</strong> loop (e.g. DO..WHILE) now seems more appropriate than a WHILE..WEND type of <strong>top-driven</strong> loop. Is this significant in the marking, I wonder? </p>
+<p align="left" class="comment">The choice of top vs bottom driven loop can be vital - it all depends on whether the enclosed code should be allowed to run even <strong>once</strong>. For example... </p>
+<p align="left" class="comment">Do<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LightTheFuse<br />
+While ExplosionIsWanted</p>
+<p align="left" class="comment">This will <strong>always</strong> cause an explosion, since the test is not done until the damage is done. Compare that to...</p>
+<p align="left" class="comment">While ExplosionIsWanted<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LightTheFuse<br />
+Wend</p>
+<p align="left" class="comment">See the difference?</p>
+<p align="left" class="comment">The markers will be having to accept all varieties of pseudocode syntax that yield the expected results. For example...</p>
+<p align="left" class="comment"><span class="myanswer">A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 1<br />
+B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 2<br />
+<strong>repeat</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> A*2<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> B+1<br />
+<strong>until </strong></span>A&gt;=B</p>
+<p align="left" class="comment">-- and --</p>
+<p align="left" class="comment"><span class="myanswer">A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 1<br />
+B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 2<br />
+<strong>do</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> A*2<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> B+1<br />
+<strong>loop until </strong></span>A&gt;=B</p>
+<p align="left" class="comment">A total of 9 marks for writing pseudocode! The examiners are getting really keen about going down this new skill path.</p>
+<p align="left" class="examiner">Students were given a procedure as a set of written statements with the expectation that they develop the algorithm  using pseudocode. Most students attempted this question. Students often confused a selection control structure (IF) with  an iteration control structure (WHILE/REPEAT). Also, many did not know the difference between assigning a value to  a variable (<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />) and setting a variable to equal a value (=).<br />
+  The following are two possible algorithms.</p>
+<p align="left" class="examiner">Average mark 62%</p>
+<p align="left" class="examiner"><img src="/m/pm/12s-B5-examreport.gif" width="600" height="174" alt="SD exam report B5" /></p>
+</td>
+</tr>
+</table>
+<div align="left">
+<table>
+<tr>
+<td valign="top" ><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+<p align="left">CASE STUDY INSERT FOR SECTION C<br />
+Please remove from the centre of this book during reading time. </p>
+<h3 align="center">The air quality and asthma study</h3>
+<p align="left">  The government has funded Bigton University to carry out a major study into the effects of air pollution on asthma sufferers in Victoria. They would like to find out</p>
+<ol>
+<li>how much effect common air pollutants have on asthmatics</li>
+<li>the geographical distribution of asthma attacks in relation to the time when they occur and the pollutants involved. </li>
+</ol>
+<p align="left">Dr John Fischer has been put in charge of the research. He has a team of postgraduate students who will acquire data about air pollution and asthma, and store it in one place so that they can analyse it.</p>
+<p align="left">  To achieve the goals of the study, the team will recruit up to 1500 volunteer asthmatics from as many parts of Victoria as possible and collect data from them during a one-year period.</p>
+<p align="left">  The data collection system must obtain data about symptoms from the asthmatics as well as obtain measurements of air quality, location and time for up to 24 hours before an asthma episode. The data must also be acquired by a method that is portable.</p>
+<p align="left">  One of the team members suggests that they could give each asthmatic a 'smart' mobile phone. The asthmatic could enter data about their asthma episode and the phone could provide the location and time data.</p>
+<p align="left">  Dr Fischer asks the university's engineering department to design a cheap device that can measure levels of four common air pollutants, so that the data collection system can measure air quality. He would also like this device to be attached to a mobile phone.</p>
+<h4 align="left">The Clip-on Air Sampler and Sensor Array</h4>
+<p align="left"> In response to Dr Fischer's request, the engineering department has designed and built a small device that can be clipped onto the back of a mobile phone.</p>
+<p align="left">  The Clip-on Air Sampler and Sensor Array (CASSA) contains four sensors, one for each air pollutant of interest. In order for the CASSA to work properly, users must wear the phone and the device on a belt rather than having it in their pocket or handbag. The CASSA is a simple device that communicates with the mobile phone via a mini USB cable. It is capable of taking one set of measurements every five minutes.</p>
+<p align="left"><img src="/m/pm/12s-casestudy3.jpg" width="669" height="242" alt="case study pic 3" /></p>
+<h4>The Air Quality and Asthma Data Acquisition System (AQADAS)</h4>
+<p><br />
+Now that the team has the hardware to capture all the data that it needs for the study, it can start work on creating a system that will collect and store all this data. One of the team members, Ilma, is studying computer programming. She agrees to design the Air Quality and Asthma Data Acquisition System (AQADAS) and write whatever software is needed. Two other students, Anton and Maria, offer to help her.</p>
+<p>  Ilma starts her analysis by leading a discussion about how data collection in AQADAS could work. The three students think that the simplest approach would be</p>
+<ol>
+<li>either during the asthma episode or soon after an episode, the asthmatic enters details about their symptoms into the mobile phone</li>
+<li>after completing the entry, the asthmatic sends all the data acquired by the mobile phone to a central file server at the university, as shown in Diagram 2.</li>
+</ol>
+<p>As the discussion proceeds, Ilma draws a data flow diagram (DFD). The three students agree that the DFD shown in Diagram 3 represents what they need for the data collection section of the system. They also agree to work out the details of the main data store later. Ilma draws a single data store to represent all the data that would be stored in the system. Similarly she draws a single process to show the research team's own data processing requirements.</p>
+<h2 align="left"><img src="/m/pm/12s-casesstudy4.jpg" width="601" height="240" alt="case study 4" /></h2>
+<p align="left"><img src="/m/pm/12s-casestudy10002.jpg" width="432" height="549" alt="caset study 5" /></p>
+<p align="left"><img src="/m/pm/12s-casestudy10001.jpg" width="531" height="649" alt="case study 6" /></p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td><p align="left"><strong>Instructions for Section C</strong></p>
+<p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p>
+</td>
+</tr>
+<tr>
+<td><p align="left">Having obtained agreement about the overall system, Ilma carries out a full analysis. She will document this in a software requirements specification (SRS) and give it to the team to make sure they agree with her analysis.</p>
+<p align="left"><strong id="C1">  Question 1</strong></p>
+<p align="left">  The data collection section of AQADAS has a number of non-functional and functional requirements.</p>
+<p align="left">a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Identify the most important non-functional requirement. 1 mark</p>
+<p align="left" class="myanswer">It must be portable.</p>
+<p align="left" class="examiner">Even though a range of responses was accepted, one of the most important non-functional requirements is 'ease of use'.</p>
+<p align="left" class="examiner">Average mark 40%</p>
+<p align="left">b.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Identify two important functional requirements. 2 marks</p>
+<ul>
+<li class="myanswer">It must obtain data about symptoms.</li>
+<li class="myanswer">It must obtain measurements of air quality, location and time before an asthma episode.</li>
+</ul>
+<p class="examiner">This question asked students to identify what AQADAS is required to do and should be able to do. There was a range of  functional requirements that students could have identified, including 'facilitate entry of symptoms', 'obtain air quality  measurements', 'obtain location and time' and 'keep data for up to 24 hours'.</p>
+<p class="examiner">Average mark 25%</p>
+<p align="left"> c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Identify one important functional requirement that a mobile phone alone cannot provide. 1 mark</p>
+<p align="left" class="myanswer">Measuring levels of air pollutants.</p>
+<p align="left" class="examiner">Even though obtaining air quality measurements may be a functional requirement, it is not something that a mobile  phone can do without additional hardware/software.</p>
+<p align="left" class="examiner">This question asked students to analyse the case study and identify solution requirements &ndash; both functional (what it is  required) and non-functional (the solution attributes, such as user-friendliness, response rates, robustness, portability,  reliability and maintainability). Many students were unable to write solution requirements, and confused functional and  non-functional requirements.<br />
+  Throughout the year, clear and concise solution requirements should be modelled (using dot points, numbered lists,  tables, etc.), where appropriate, in design briefs and SRS. In addition, students should practise identifying and writing  appropriate solution requirements from provided stimulus material.</p>
+<p align="left" class="examiner">Average mark 50%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 2</strong></p>
+<p align="left">Ilma begins to draw a context diagram (below) so that it is clear where AQADAS will get its data from and to whom it will provide information. Based on the case study, including the data flow diagram (DFD; Diagram 3), complete the diagram for Ilma. 3 marks</p>
+<p align="left"><img src="/m/pm/12s-casesstudy5.jpg" width="478" height="213" alt="CD" /></p>
+<p align="left"><img src="/m/pm/12s-c2.jpg" width="499" height="282" /></p>
+<p align="left" class="comment">This was trickier than I thought. I first just attached the symptom_data arrow to the CASSA external entity and thought, &quot;3 marks... but I've only added 2 things, the data flow and the label. How are they going to mark this? I must be missing something.&quot; Another read of the case study made it clearer. I was treating the CASSA unit and the mobile phone as a single entity, but the phone should be considered a separate entity responsible for the symptom data. The new entity, the data flow arrow and the label accounted for 3 marks. The moral of the story: when you have an indeterminate number of things to add, use the marking scheme to guide you to how many items are expected.</p>
+<p align="left" class="comment">19 Nov 2012 - Our friend Kevork has pointed out an interesting issue with this context diagram. It shows CASSA providing sensor data directly to AQADAS, but the DFD clearly shows CASSA's data going to the phone for collation and transmission. We all know data flows between external entities do not appear in CDs or DFDs, so strictly speaking the CD is wrong. </p>
+<p align="left" class="comment">VCAA might say that CASSA provides data to AQADAS and the phone is just an intermediary, but the phone does have to collate the data... &nbsp;Hmmm. Interesting. What do you guys think?</p>
+<p align="left" class="examiner">Many students were not able to complete the context diagram provided. Students should have carefully read the case  study stimulus material that was provided in the insert since it contained a data flow diagram (DFD) that would have  assisted them with completing the diagram. A significant number of students identified the 'mobile phone' as an  external entity, when in fact it should have been 'asthmatics'; they provide the data. The mobile phone is the collection  device and thus not included on a DFD.</p>
+<p align="left" class="comment">Yep, in retrospect I'd agree with that. Change 'Mobile phone' to 'Asthmatics' in the DFD above.</p>
+<p align="left" class="comment"><span class="examiner">Average mark 36%</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 3</strong></p>
+<p align="left">  Ilma thinks that her non-computer-science colleagues might not understand technical diagrams, so she decides to include a use case diagram in her SRS. Most of the diagram is drawn below.</p>
+<p align="left"><img src="/m/pm/12s-c3.jpg" width="465" height="450" alt="C3" /><br />
+Based on the case study, complete the diagram by</p>
+<p align="left">A. &nbsp;&nbsp; labelling the un-named actor in the diagram. 
+1 mark</p>
+<p align="left" class="myanswer">Asthmatics.</p>
+<p align="left"><br />
+B. &nbsp;&nbsp; identifying the actions that this actor needs to carry out and appropriately labelling the empty use cases. 2 marks</p>
+<ol>
+<li class="myanswer">Validate symptom data.</li>
+<li class="myanswer">Collate asthma episode data.</li>
+</ol>
+<p align="left"><span class="comment">The first use case can be determined because in the DFD the first process after the data arrives is validation.<br />
+</span></p>
+<p align="left"><span class="comment">The second one was trickier. I originally had &quot;Record symptom data&quot; because it matched the equivalent communication line coming in from the CASSA actor.</span></p>
+<p align="left"><span class="comment">Heath, however, suggested it could be the collation process since it passes data including the phone_id</span>, <span class="comment">which is not mentioned earlier, which suggests that the phone_id is fetched by the collation process and not when recording symptom data.</span></p>
+<p align="left" class="examiner">Students had difficulty identifying the correct use cases (set of tasks that the system must carry out), with many  identifying the mobile phone as the actor (role) rather than the asthmatics.<br />
+  The use of exemplar DFDs and use case diagrams throughout the year is encouraged. In addition, students may find  value in practising the construction of DFDs and use case diagrams from the stimulus material.</p>
+<p align="left" class="examiner"><img src="/m/pm/12s-C3-examreport.gif" width="527" height="496" alt="SD exam report C3 UCD" /></p>
+<p align="left" class="examiner">Average mark for 3a and 3b - 40%<br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 4</strong></p>
+<p align="left">  From the DFD in the case study, list the processes that have to be included in the software solution for the mobile phones. 1 mark</p>
+<p class="myanswer">1,2,3,4.</p>
+<p align="left" class="myanswer">Funny... only one mark for several processes listed... but two marks for question 3b. Do students get two-thirds of a mark if they only found 2 of the points above?</p>
+<p align="left" class="comment">This involved clearly working out in the DFD geographically <strong>where</strong> things were happening in the system - in the phone or in CASSA. </p>
+<p align="left" class="examiner">Few students were able to identify the correct processes from the DFD. These were<br />
+  &#61623; 1. standardise measurements<br />
+  &#61623; 2. append location and time<br />
+  &#61623; 3. collate asthma episode data<br />
+  &#61623; 4. validate symptom data.</p>
+<p align="left" class="examiner">This information was taken directly from the DFD in the case study insert. Students could have written the numbers  1, 2, 3 and 4 or written out each process in full as above. The order was not important.<br />
+  If students listed all five processes, they received no marks as they did not understand that the question related only to  the processes involved in the software solution used on the mobile phone.</p>
+<p align="left" class="examiner">Average mark 10%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 5</strong></p>
+<p align="left">  After reading through Ilma's SRS, Anton suggests that it might be a good idea to implement the system as a virtual private network (VPN).</p>
+<p align="left">a.&nbsp;&nbsp; Briefly describe a VPN. 2 marks</p>
+<p align="left" class="myanswer">It's a secure, encrypted connection ('pipeline') to communicate from outside a LAN to within the LAN using the standard internet infrastructure.</p>
+<p align="left" class="examiner">This question, needing a technical description, was well answered by many students. However, it is disappointing that  many students do not score any marks for this type of question. It is important that students are able to provide  technically accurate descriptions. The development of a glossary of technical terms throughout the year may assist  students with these terms. Answers should have referred to a VPN being a private network that uses public  infrastructure and that access was gained through authentication security protocols.</p>
+<p align="left" class="examiner">Average mark 55%</p>
+<p align="left"> b.&nbsp;&nbsp; Do you agree or disagree with Anton's recommendation? Justify your answer. 2 marks</p>
+<p align="left" class="myanswer">I agree. The VPN's encryption would safeguard the sensitive medical data being communicated, and the VPN's use of standard internet infrastructure means they don't need expensive dedicated communication lines.</p>
+<p align="left" class="examiner">Students were required to agree or disagree with the recommendation to set up a VPN. They also needed to ensure that  reasons were provided, applicable to the case study, to justify their contention.  An example of an acceptable answer for supporting a VPN is the increased security will better protect the privacy of  asthmatics. An acceptable answer for opposing a VPN is the additional cost to the research project of setting up  authorisations.</p>
+<p align="left" class="examiner">Average mark 50%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 6</strong></p>
+<p align="left">  Ilma is about to begin the design and development of the software when Dr Fischer receives an email from the university's legal department, reminding him that there are some legal obligations that must be complied with by the software developer.<br />
+Discuss two concerns that Ilma needs to investigate to make sure she meets her legal obligations and describe what she can do to deal with these concerns. 4 marks</p>
+<p align="left">concern 1</p>
+<p align="left" class="myanswer">Under the Health Records Act (Vic) 2001, the developers have a responsibility to safeguard the health and medical information of the volunteers, and protect it from misuse, damage, loss or unauthorised access. She can encrypt stored data, and protect data during communication using SSL or TLS or a VPN.</p>
+<p align="left">concern 2</p>
+<p align="left" class="myanswer">Under the Copyright Act 1968, the developers must ensure if they use other people's programming code that they respect the intellectual property rights of its authors. She can either use no other person's code, or contact the authors to get permission to use it, or pay for the rights to use it.</p>
+<p align="left" class="comment">Don't forget to do the second bit of the question, describing what she can do to deal with the concerns. That accounts for half the marks, and is easy to overlook when focusing on identifying the laws.</p>
+<p align="left" class="examiner">This question contained two parts: discussing the concerns and then describing what could be done to deal with the  concerns. Many students overlooked the second part of the question.<br />
+  Responses could have included the Privacy Act or the Health Records Act and anything within these to do with privacy,  security, access, collection or dissemination. Copyright of coding was also appropriate.<br />
+  The following are extracts from high-scoring responses: <br />
+  </p>
+<p align="left" class="examiner">'Ilma needs to make sure that the data she collects through the use of her design is only collected once the users are made aware  of what their data will be used for and what they will be collecting and then agree to these terms and conditions. She can assure  this by asking permission of the user before collecting the data.'</p>
+<p align="left" class="examiner">'
+  To obey the Privacy Acts, the medical data sent by the asthmatics must be protected and secure. This can be achieved by  encrypting the data when transferring it, and making sure the file storage is protected, both physically and logically, e.g. locks  and guards at the university, and a firewall along with antivirus, anti spyware and passwords on accounts that can access the  data.'</p>
+<p align="left" class="examiner">Average mark 53%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 7</strong></p>
+<p align="left">  The application software on the mobile phone will cause an air quality measurement to be taken every five minutes. As shown in the DFD, the air quality data will be stored in the data store  <strong>accumulated_air_quality_data</strong>. Since only 24 hours of data is needed, after each measurement is taken any air quality measurement that is more than 24 hours old will be deleted.<br />
+What type of data structure is most suited to storing data in this way? Justify your selection, making reference to other data structures. 3 marks</p>
+<p align="left">data structure</p>
+<p align="left" class="myanswer">a sequential data file </p>
+<p align="left" class="black">justification </p>
+<p align="left" class="myanswer">In 24 hours, there would only be 288 records to store (24 * 12 per hour), which is quite a modest quantity of data. A sequential text file would be very easy to code and it would not require the superior retrieval speed offered by a&nbsp;<strong>random file </strong>which comes at the cost of fixed-length records (which can be wasteful of space) and increased coding complexity.</p>
+<p align="left" class="myanswer">Alternatively does the data store need to be in a file at all? This relatively small amount of data could be stored in RAM in records containing 4 numeric pollutant readings + location code + time + date fields.</p>
+<p align="left" class="comment"><em>The study design's key knowledge refers to data structures as being (with my <strong>emphasis</strong>)<br />
+- 
+U3O2 KK03 - types of data structures, including one-dimensional arrays, <strong>records</strong> and <strong>files</strong><br />
+-
+U4O1 KK10 - forms and uses of data structures to organise and manipulate data, including two-dimensional arrays, stacks and <strong>queues</strong></em></p>
+<p align="left" class="comment">Others have said that it should be a queue. I'm not so sure. A queue keeps incoming data in order so it can be processed in order, but the DFD shows the pollutant data is stored with its timestamp, so the data need not be stored in any particular order: they could be sorted and processed using their timestamp.</p>
+<p align="left" class="comment">So files, records and queues are on the agenda. Which is right? The markers should be able to accept any of them with a reasonable and relevant justification, IMO.</p>
+<p align="left" class="examiner">Even though there is considerable information provided in the case study insert, students need to ensure that they  carefully read any of the additional information provided within each question. This additional information is often used  to prepare or guide the student when analysing the situation and may help them narrow their possible responses.</p>
+<p align="left" class="examiner">  Students should have knowledge of the following data structures: one- and two-dimensional arrays, records and files, 
+  stacks and queues. In this question, information was provided about what data would be stored, when it would be  stored, for how long it would be stored and in what order it would be deleted (oldest deleted first). This information was  to be used to select a suitable data structure (from the above list). </p>
+<p align="left" class="examiner">Many students had difficulty identifying a data  structure and used programming terms that were not data structures. Students should have identified a queue as the  appropriate data structure, described it as 'first in first out' and explained that a stack, being 'last in first out', was not  appropriate in this situation (as the first data in was what should be removed).</p>
+<p align="left" class="examiner">Average mark 30%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 8</strong></p>
+<p align="left">  Maria is given the task of designing the user interface to be used on the mobile phones. The SRS has the following specifications.</p>
+<div align="center">
+<table width="80%" border="1">
+<tr>
+<td><p align="left">When an asthmatic enters data about the symptoms of an asthma episode, the system must obtain the following.<br />
+Date and time of episode - user will accept system time and date or change them if they are logging it after the event</p>
+<p align="left">   Symptom data:</p>
+<div align="left">
+<ul>
+<li>wheezing or whistling - none, mild, medium, severe</li>
+<li>cough - none, mild, medium, severe</li>
+<li>shortness of breath - none, mild, medium, severe</li>
+<li>tightness in chest - none, mild, medium, severe</li>
+<li>Has the asthmatic participated in physical activity? Yes/No</li>
+<li>Does the asthmatic currently have a cold/illness? Yes/No</li>
+</ul>
+</div></td>
+</tr>
+</table>
+</div>
+<p align="left">Maria has been advised that some asthmatics will enter this data during or immediately after an asthma episode, so the user interface needs to ensure that the data is captured efficiently and limit the chance of errors. The sketches marked Design 1 and Design 2 in the case study insert show two designs that Maria has created for this interface.<br />
+</p>
+<p align="left">a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Identify one important technical consideration that has affected the two designs of the user interface. 1 mark</p>
+<ul>
+<li class="myanswer">Screen aspect (height compared to width)</li>
+<li class="myanswer">Screen resolution.</li>
+<li class="myanswer">The availability of touchscreen capabilities.</li>
+<li class="myanswer">Availability of scrollable lists and option buttons in the programming language's GUI.</li>
+</ul>
+<p class="examiner">The screen size and input/output methods were the most common and appropriate technical considerations that affected  the design of the user interface.</p>
+<p class="examiner">Average mark 50%</p>
+<p align="left">  b. For both Design 1 and Design 2, explain one advantage of each that makes that design the more efficient and/or effective method of data entry for the asthmatics. 2 marks</p>
+<p align="left">Advantage of Design 1</p>
+<p align="left" class="myanswer">Less user activity (tapping) is involved because all of the necessary controls are visible and don't need a separate tap to reveal them : 10 taps for a complete record using design 1 compared to 17 for design 2.</p>
+<p align="left">Advantage of Design 2</p>
+<p align="left" class="myanswer">It takes up less screen space, which is advantageous for phones with lower screen resolution.</p>
+<p align="left" class="examiner">Some accepted advantages of the designs include the speed of Design 1, as the user just touches options that are already  displayed on the screen, and the compactness of Design 2 means it is less likely that the user would have to scroll or  swipe through the screen to get to all data entry points.<br />
+  Most students were able to provide an advantage of each design. Responses such as 'Design 1 is more efficient' or<br />
+  'Design 2 is quicker and easier' received no marks. Details were required as to why one was more efficient, why one  was more effective, etc.</p>
+<p align="left" class="examiner">Average mark 85%</p>
+<p align="left">  c. Of the two interface designs provided, select and justify the better option for the AQADAS system. 2 marks</p>
+<p align="left" class="myanswer">Question C16 says that asthmatics are given a phone, so the study could select a phone with a tall aspect
+and be sure that the interface will fit it. In that case design 1 will be preferable.</p>
+<p align="left" class="myanswer">As Kevork has added, being able to see and review all of your selected answers at once would be better than having them all hidden in submenus.</p>
+<p align="left" class="myanswer">However, if the asthmatics used their own variety of phones and screen sizes, it would have been better to design conservatively and use design 2, which all phones would have been able to display. While some phones would have the height to accommodate design 1, many would not and users might have to scroll the display up and down to see the entire interface.</p>
+<p align="left" class="comment">If, during reading time, students had not noticed this information in question 16 about the phones being provided by the university, they might have given a very different answer here. The moral of the story is that later questions can inform earlier questions.</p>
+<p align="left" class="comment">19 Nov 2012 - Kevork has been pointed out that it is unfair to expect students to use information from a later question to correctly answer an earlier one. I agree. </p>
+<p align="left" class="comment">Students should be able to rely just on the information provided SO FAR to answer a question. They should not have to take 'future' information into account.</p>
+<p align="center" class="comment"><img src="/m/pm/baddog.jpg" width="136" height="142" alt="Bad dog!" /></p>
+<p align="center" class="comment">Bad examiner! Bad!</p>
+<p align="left" class="examiner">Students should have provided a response that examined the two options and included a reasoned explanation of their  choice. Either design could have been selected.</p>
+<p align="left" class="examiner">Average mark 75%</p>
+</td>
+</tr>
+<tr>
+  <td>While Maria is designing the user interface for the mobile phone, Ilma starts to work out how to store the data in the university's file server. There will be a large amount of air quality and symptom data sent to the university by asthmatics. The researchers will also need to store personal data about the asthmatics. Ilma decides to put the data in two separate files: <strong>SymptomAirQualFile</strong> and <strong>AsthmaticsFile</strong>. To link the two files, each asthmatic will be given a code number.</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 9</strong></p>
+<p align="left">  It is decided to have the asthmatics fill out a standard form so that the large amount of personal data can be entered efficiently. This data will then be entered using Optical Character Recognition (OCR). Unfortunately, this can produce a number of errors and, where possible, Ilma wants the software to validate the data before it is stored in AsthmaticsFile.<br />
+<br clear="all" />
+The table below shows some of the data that will need to be stored. From the following list of data types, select the most appropriate data type and give one reason for your choice. An example has been provided. 4 marks</p>
+<p><strong>Data types: integer, floating point number, Boolean, character, string</strong></p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="76" valign="top"><p><strong>Data</strong></p>
+</td>
+<td width="133" valign="top"><p><strong>Use</strong></p>
+</td>
+<td width="114" valign="top"><p><strong>Data type</strong></p>
+</td>
+<td width="299" valign="top"><p><strong>Reason</strong></p>
+</td>
+</tr>
+<tr class="cursive">
+<td width="76" valign="top"><p><em>surname</em></p>
+</td>
+<td width="133" valign="top"><p><em>to store the surname of the asthmatic</em></p>
+</td>
+<td width="114" valign="top"><p><em>string</em></p>
+</td>
+<td width="299" valign="top"><p><em>a simple list of characters is required</em></p>
+</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p>postcode</p>
+</td>
+<td width="133" valign="top"><p>to store the postcode of the asthmatic</p>
+</td>
+<td width="114" valign="top" class="myanswer"><p>integer </p>
+  <p class="examiner">or string</p></td>
+<td width="299" valign="top" class="myanswer"><p>Numeric searches may need to be done using the postcode, so a numeric format is appropriate. It has no decimal place, and no postcode will approach the maximum value an integer can store (65535).</p>
+  <p class="examiner">postcodes are whole numbers or postcodes<br />
+    do not need to be used in calculations</p></td>
+</tr>
+<tr>
+<td width="76" valign="top"><p>gender</p>
+</td>
+<td width="133" valign="top"><p>the gender of the asthmatic stored as M or F</p>
+</td>
+<td width="114" valign="top" class="myanswer">character</td>
+<td width="299" valign="top" class="myanswer"><p>It's a single letter, which char can hold.</p>
+  <p class="examiner">only a single letter is required</p></td>
+</tr>
+<tr>
+<td width="76" valign="top"><p>adult</p>
+</td>
+<td width="133" valign="top"><p>Is the asthmatic over 18?<br />
+True or false?</p>
+</td>
+<td width="114" valign="top" class="myanswer">Boolean</td>
+<td width="299" valign="top" class="myanswer"><p>It's a yes/no, true/false answer which Boolean specialises in.</p>
+  <p class="examiner">requires only a yes or no value    (string or character not the most appropriate)</p></td>
+</tr>
+<tr>
+<td width="76" valign="top"><p>mobile</p>
+</td>
+<td width="133" valign="top"><p>to store the mobile number of the asthmatic in the form +61(0)499999999</p>
+</td>
+<td width="114" valign="top" class="myanswer">String</td>
+<td width="299" valign="top" class="myanswer"><p>Since it contains non-numeric characters, it must be stored as string rather than number. Since no arithmetic will be done on the number, this is not a problem.</p>
+  <p class="examiner">contains characters other than numbers</p></td>
+</tr>
+</table>
+<p align="left" class="examiner">The majority of students handled this question well. Students had to correctly state the data type and the reason for each  listed data to score one mark.</p>
+<p align="left" class="examiner">Average mark 70%</p>
+<p align="left"><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 10</strong></p>
+<p align="left">  To check that the postcode for the asthmatic is valid, the function below is written. To be a valid Victorian postcode for a residential address, it must be a number from 3000 to 3999. The function is called after validating that the postcode has been entered and is a number.</p>
+<p align="left"><strong>Function</strong> CheckPostcode(postcode) <br />
+<strong> Begin</strong><br />
+&nbsp;&nbsp;ValidPostcode&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> true<br />
+&nbsp;&nbsp;<strong>If</strong> postcode&lt;3000 or postcode&gt;3999 <strong>Then</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;ValidPostcode <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> false<br />
+&nbsp;&nbsp;<strong>Endif<br />
+&nbsp; Return</strong> ValidPostcode<br />
+<strong>End</strong></p>
+<p align="left">  a.&nbsp;&nbsp; Complete the table below by giving four values of a postcode that would test the function and give a reason for selecting each. These values together should give a broad test of the function. 4 marks</p>
+<table border="1" align="center" cellpadding="2" cellspacing="0">
+<tr>
+<td width="114" valign="top"><p><strong>Postcode value</strong></p>
+</td>
+<td width="504" valign="top"><p><strong>Reason</strong></p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top" class="myanswer"><p>2999</p>
+  <p class="examiner">2999</p></td>
+<td width="504" valign="top" class="myanswer"><p>Invalid: Too low</p>
+  <p class="examiner">a number below the lowest limit is needed to test the lower limit from below</p></td>
+</tr>
+<tr>
+<td width="114" valign="top" class="myanswer"><p>3000</p>
+  <p class="examiner">3000</p></td>
+<td width="504" valign="top" class="myanswer"><p>Within valid range, on the low borderline</p>
+  <p class="examiner">tests the exact cut-off</p></td>
+</tr>
+<tr>
+<td width="114" valign="top" class="myanswer"><p>3999</p>
+  <p class="examiner">3999</p></td>
+<td width="504" valign="top" class="myanswer"><p>Within valid range, on the high borderline</p>
+  <p class="examiner">tests an exact cut-off and also tests above the minimum</p></td>
+</tr>
+<tr>
+<td width="114" valign="top" class="myanswer"><p>4000</p>
+  <p class="examiner">4000</p></td>
+<td width="504" valign="top" class="myanswer"><p>Too high</p>
+  <p class="examiner">a number above the highest limit is needed to test that the cut-off number works</p></td>
+</tr>
+</table>
+<p class="examiner">This is another example where the stem of the question contained valuable information that assisted with answering the  question. The function 'check postcode' validation had already occurred to ensure that a four-digit number was entered.  The function performed a range check and required the boundary conditions to be tested.</p>
+
+<p align="left">  b.&nbsp;&nbsp; Not all numbers between 3000 and 3999 are used as postcodes in Victoria. Ilma decides to include a function that checks whether the entered number matches a postcode that is used in Victoria.  How is this type of validation best described? 1 mark</p>
+<p align="left" class="myanswer">A range check to ensure the supplied postcode is in a list of valid postcods.</p>
+<span class="comment">There are only 3 usual validation contenders: existence, range and type. Since the question says that type and existence have already been applied, range is all that is left. Checking to see that data exists within a limited list (e.g. days of the week, states of Australia, the names of Santa's reindeer) also fits under &quot;range check&quot; - but don't confuse &quot;existing within a limited list&quot; with an existence check.</span> <p align="left" class="examiner">An additional validation is recommended, which checks if the postcode is a valid Victorian postcode. Students were  asked to state how this would best be described. The question did not ask for the name of the validation technique that was suggested. One way of describing this test would be, 'it checks if the postcode is contained in the list of valid  Victorian postcodes'. A range of other responses was accepted.</p>
+<p align="left" class="examiner">Average mark for 10a plus 10b - 52%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 11</strong></p>
+<p align="left">  Dr Fischer has decided that he wants an equal number of males and females involved in this study. Ilma writes the following short procedure to calculate the number of male and female asthmatics already entered.<br />
+</p>
+<p align="left"><strong>Begin</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumAsthmatics&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 0 <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumMales <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> 0 <br />
+&nbsp;<strong>&nbsp;&nbsp;Repeat</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Read</strong> AsthmaticsGender from AsthmaticsFile <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>If</strong> AsthmaticsGender = 'M' <strong>Then</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumMales <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumMales + 1<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Endif</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumFemales&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />&nbsp; NumAsthmatics - NumMales <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumAsthmatics <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumAsthmatics + 1 <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Until</strong> End of File<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Display</strong> NumAsthmatics, NumMales, NumFemales<br />
+<strong>End</strong><br />
+</p>
+<p align="left">a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> To check the algorithm, the values F, M, F have been entered into AsthmaticsFile.<br />
+Use this test data to complete the table below, showing the actual output of the algorithm.<br />
+</p>
+<p align="left">Working space (25% of a page) <span class="comment">It's good to see some working space provided!</span> </p>
+<table width="90%" border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td width="51%">NM=0. NF=0.</td>
+<td width="16%">loop 1</td>
+<td width="17%">loop 2</td>
+<td width="16%">loop 3</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<strong>&nbsp;&nbsp;</strong>Repeat<br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Read Gender <br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->If AsthmaticsGender = 'M' Then<br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumMales <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumMales + 1<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Endif<br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumFemales&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />&nbsp; NumAsthmatics - NumMales <br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->NumAsthmatics <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumAsthmatics + 1 <br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Until End of File<br /></td>
+<td valign="top"><em><br />
+gender=F<br />
+false<br />
+<br />
+<br />
+NF=0-0=0<br />
+NA=1<br />
+</em></td>
+<td valign="top"><em><br />
+gender=M<br />
+true<br />
+NM=0+1=<strong>1</strong><br />
+<br />
+NF=1-1=0<br />
+NA=1+1=2<br />
+</em></td>
+<td valign="top"><em><br />
+gender=F<br />
+false<br />
+<br />
+<br />
+NF=2-1=<strong>1</strong><br />
+NA=2+1=<strong>3</strong><br />
+</em></td>
+</tr>
+</table>
+<p align="left" class="comment">This is how I handle deskchecks with looping values. Beside each line of code I put the current values of variables as they are calculated. Each extra column shows a new iteration of the loop. It works for me and avoids simple but significant errror.</p>
+<table border="1" align="center" cellpadding="2" cellspacing="0">
+<tr>
+<td width="182" valign="top">&nbsp;</td>
+<td width="145" valign="top"><p><strong>NumAsthmatics</strong></p>
+</td>
+<td width="145" valign="top"><p><strong>NumMales</strong></p>
+</td>
+<td width="145" valign="top"><p><strong>NumFemales</strong></p>
+</td>
+</tr>
+<tr>
+<td width="182" valign="top"><p><strong>Values displayed at the end of the procedure</strong></p>
+</td>
+<td width="145" align="center" valign="top" class="myanswer"><p>3</p>  <p align="center" class="examiner">3</p></td>
+<td width="145" valign="top" class="myanswer"><div align="center">
+  <p>1</p>
+  <p class="examiner">1</p>
+</div></td>
+<td width="145" valign="top" class="myanswer"><div align="center">
+  <p>1</p>
+  <p class="examiner">1</p>
+</div></td>
+</tr>
+</table>
+<div align="left"></div>
+<p align="right">1 mark</p>
+<p align="left" class="examiner">Students were required to consider a presented algorithm, check its logic and identify the error. To support students,  working space was provided so that they could draw up a draft table to desk-check the algorithm if required. It was  encouraging to see that many students utilised this space.</p>
+<p align="left" class="examiner">Average mark 40%</p>
+<p align="left">  b.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Unfortunately, when Ilma runs the procedure the results show that it is not working properly.<br />
+What is it about the values displayed at the end of the procedure that show that the procedure is not working properly? 1 mark</p>
+<p align="left" class="myanswer">numMales + NumFemales should equal NumAsthmatics</p>
+<p align="left" class="myanswer"><span class="examiner">To get the one mark for this question, students needed to provide a response similar to: 'The value displayed for the number of females is wrong. The number of females is one fewer than it should be. The expected values should be:<br /> 
+  Asthmatics = 3, Males = 1 and Females = 2.</span></p>
+<p align="left" class="myanswer"><span class="examiner">Average mark 40%</span></p>
+<p align="left">  c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Explain how this error could be corrected. As part of your explanation, write in full the pseudocode statement(s) to which you are referring. Do not use line numbers. 2 marks</p>
+<p align="left" class="myanswer">The line &quot;NumAsthmatics <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumAsthmatics + 1&quot; 
+should update the NumAsthmatics count before the 
+line &quot; NumFemales&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />&nbsp; NumAsthmatics - NumMales.&quot;</p>
+<p align="left" class="examiner">The line of pseudocode statement(s) that needed correction/editing was<br />
+  NumAsthmatics <img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" /> NumAsthmatics + 1<br />
+  or<br />
+  NumFemales&nbsp;<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />&nbsp; NumAsthmatics - NumMales</p>
+<p align="left" class="examiner">An appropriate explanation related to the line of code could have been as follows.<br />
+  Move NumAsthmatics<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />NumAsthmatics + 1 to immediately after the <strong>end if</strong> or after the <strong>Read</strong>.<br />
+  or<br />
+  Move the line NumFemales<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />NumAsthmatics &ndash; NumMales to immediately before or after the <strong>Until</strong>.<br />
+  E.g.<br />
+  NumFemales<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />NumAsthmatics &ndash; NumMales<br />
+  <strong>Until </strong>End of File<br />
+  or<br />
+  <strong>Until</strong> End of File<br />
+  NumFemales<img src="/m/pm/equals.jpg" width="15" height="13" alt="equals" />NumAsthmatics &ndash; NumMales</p>
+<p align="left" class="examiner">  Students needed to suggest one of the ways that worked. There were other appropriate suggestions. However, the key to  correcting the algorithm was to ensure that the number of females is calculated after the total number of asthmatics is  increased.</p>
+<p align="left" class="examiner">Average mark 40%<br />
+</p></td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 12</strong></p>
+<p align="left">  It will be necessary from time to time to update personal information for some of the asthmatics. It is thought that this will need to be done no more than three times a month for the life of the project. The code used to uniquely identify each asthmatic will be a simple number starting at 0001 and increasing to 1500. There are two possible ways that the AsthmaticsFile can be organised, either as serial access or as random access.</p>
+<p align="left">  Ilma decides to use a random access file and use the asthmatics code to retrieve the record.<br />
+Using <strong>two</strong> advantages that random access has over serial access in this situation, explain why she has made this decision. 4 marks</p>
+<p align="left" class="myanswer">1. Random file access can be far faster that serial access since the starting point of records can be calculated mathematically and a record sought immediately without have to read all the intervening records.</p>
+<p align="left" class="myanswer">2. Changing a record in a random file is as simple as locating it and writing its new values in its existing position (which is possible since all records are the same length). A serial file can only add records at the end of the file, so to change (say) record 5 of 1000, you must read the first 4 records from the existing file, write them to a new file, write the altered record 5, then read the next 995 records from the original file and write them to the new file. Then the old file needs to be closed, deleted, and the new file renamed with the original file's name.</p>
+<p align="left" class="examiner">Random access versus serial access has appeared in a number of examinations over the last few years. However,  students still found it difficult to express their response in a detailed and clear manner. An appropriate response would  have included comments about ease of reading and/or writing random access files, would have compared these to serial  access and would have indicated why random access was appropriate in this scenario.</p>
+<p align="left" class="examiner">For example: A sequential file would require the whole file to be read each time and then, after making the alterations,  the whole file would have to be rewritten. With a random access file, you can read just the record that you require and  rewrite just this record. In this case, you have the asthmatics code, which could be used to identify the record in a  random file, so access is no problem. You are doing this only infrequently, so you do not want to have to read the whole  file, just the record that you are interested in. Hence, random access would be much faster.</p>
+<p align="left" class="examiner">Average mark 35%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 13</strong></p>
+<p align="left">  The records in AsthmaticsFile will be kept in asthmatics code order (from lowest to highest). It will be necessary to find individual records by using the asthmatic's name. Anton suggests using a simple linear search, where you start at the first record and read each record until you find the one you want. Maria says that for 1500 records this will be too slow and argues that they should use a binary search.<br />
+Which method is the more appropriate to use in this case and why? 2 marks</p>
+<p align="left" class="myanswer">Since the data is sorted by code rather than name, it will not allow a binary search by name because the names are in random order. A linear search is the only alternative.</p>
+<p align="left" class="examiner">In this question, students needed to indicate that a linear search (Anton's suggestion) was more appropriate and justify it  by explaining why a binary search would not work in this situation. The question required students to have in-depth  knowledge of the binary search technique. In the AsthmaticsFile, the records are not ordered according to the  asthmatic's name, so a binary search will not work as it requires the records to be ordered in the field you are searching  and the researchers plan to find records by using the asthmatic's name.</p>
+<p align="left" class="examiner">Average mark 15%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 14</strong></p>
+<p align="left">  Before Ilma can announce that the mobile phone software solution is ready to be used, she needs to go through the process of acceptance testing.<br />
+</p>
+<p align="left">a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Who else should be involved in the acceptance testing?1 mark</p>
+<p align="left" class="myanswer">Dr Fischer (the programmer's client)</p>
+<p align="left" class="comment">This is potentially ambiguous: does it mean acceptance testing by the customer (Dr Fischer) or user acceptance testing (by a typical end-user, like an asthmatic)? Some people use the term &quot;acceptance testing&quot; to mean &quot;user acceptance testing.&quot; The last part of the next question offers a clue that Dr Fischer is indeed the person being referred to in this question. The moral of the story: if you see the same key knowledge apparently being examined twice, consider whether you got one of the two things mis-identified!</p>
+<p align="left" class="examiner">Many students read this question as an evaluation question when, in fact, it covered acceptance testing, which occurs in  the last part of any development prior to implementation. Typically, the key personnel in acceptance testing is the client &ndash; meaning Dr Fischer or the research team.<br />
+</p>
+<p align="left">
+b.&nbsp;&nbsp; The table below shows three criteria that should be tested. Outline a technique for obtaining information about each. 3 marks</p>
+<table border="1" align="center" cellpadding="2" cellspacing="0">
+<tr>
+<td width="228" valign="top"><p><strong>Criteria</strong></p>
+</td>
+<td width="389" valign="top"><p><strong>Technique</strong></p>
+</td>
+</tr>
+<tr>
+<td width="228" valign="top"><p>Are the requirements in the SRS for the mobile phone being met?</p>
+</td>
+<td width="389" valign="top" class="myanswer"><ul>
+<li>Carry out each of the requirements in turn and verify that each one succeeds. e.g. enter data on an asthma episode and see that it's correctly received and processed by the system to produce the required information.</li>
+<li class="examiner">Research team enter test data into the solution and check  output/requirements against SRS</li>
+</ul></td>
+</tr>
+<tr>
+<td width="228" valign="top"><p>Is the output from the mobile phone in the correct format?</p>
+</td>
+<td width="389" valign="top" class="myanswer"><ul>
+<li>Examine the output visually and compare it with correctly formatted data. </li>
+<li>Check error logs to see if incorrectly formatted data has triggered a validation exception.</li>
+<li class="examiner">Research team crosscheck output against manual calculations to ensure  format is correct</li>
+</ul>  </td>
+</tr>
+<tr>
+<td width="228" valign="top"><p>Is the mobile phone software solution easy to use?</p>
+</td>
+<td width="389" valign="top" class="myanswer"><ul>
+<li>Give it to a typical end user and set them a data-entry challenge. Observe whether they have trouble using the system or make errors.</li>
+<li class="examiner">Research team run a number of simulations of data entry in a range of  circumstances (darkness, in the car, etc.) and complete a checklist about  ease of use under each circumstance</li>
+</ul></td>
+</tr>
+</table>
+<p align="left" class="comment">This last one is definitely user acceptance testing, which strengthens my guess that the earlier question does refer to (client) acceptance testing.</p>
+<p align="left" class="examiner">When describing a technique, students should indicate who the stakeholders are, what data will be collected, the method  of collection (survey, observation, etc.) and how this will be used to check against criteria/requirements. There were  many possible responses. <br />
+  Generally, students performed poorly on this question as it required them to apply their knowledge of acceptance testing  and techniques to the case study.</p>
+<p align="left" class="examiner">Average mark for 14a and 14b - 20%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 15</strong></p>
+<p align="left">  Anton is preparing user documentation that will be provided to the 1500 asthmatics in the asthma study. He has proposed the development of a printed user manual that outlines how to use the software, the mobile phone and the sensor that is provided to the asthmatics. However, Maria has suggested that an electronic guide that is stored on the mobile phone would be a better approach.</p>
+<p align="left">a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Outline two advantages of a printed manual over an electronic guide. 2 marks</p>
+<ul>
+<li class="myanswer">It can be read even when the system is not yet present or is not working.</li>
+<li class="myanswer">Its larger area will make it easier to read than a little phone's screen could. </li>
+<li class="myanswer">Users can write notes in the margins and highlight text.</li>
+</ul>
+<p align="left" class="comment">It's hard coming up with 2 advantages! </p>
+<p align="left" class="comment"><span class="examiner">Average mark 75%</span></p>
+<p align="left">b.&nbsp;&nbsp; Outline two advantages of an electronic guide over a printed manual. 2 marks</p>
+<ul>
+<li class="myanswer">It's far cheaper to reproduce, compared to colour printing.</li>
+<li class="myanswer">It can be updated quickly and uploaded to phones quickly.</li>
+<li class="myanswer">It can use multimedia (e.g. sound, video)</li>
+<li class="myanswer">It can use electronic searches for key words.</li>
+<li class="myanswer">It can offer content-sensitive help according to what the user is currently doing with the software.</li>
+</ul>
+<p><span class="examiner">Average mark 80%</span></p>
+<p align="left">  c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Ilma has looked at both of these options and is not happy with either of them.<br />
+  Suggest another way to present the user documentation that would suit this situation and explain the benefits to users. 2 marks</p>
+<p align="left" class="myanswer">Put it on a website. On the larger surface area of a computer monitor, the text will be more readable. It will retain all the advantages of being electronic, as shown above.</p>
+<p align="left" class="examiner">Most students were able to provide appropriate examples of the advantages of a printed manual, including that it is  simple and easy to use, can be used without knowledge of the phone and can be used when there is no power for the phone, and the advantages of an electronic guide, including that it is always available, easily updated and it is easier to  search for information that you need, plus cheaper.<br />
+  Students were also able to provide a range of alternatives, including a website, context-sensitive help and quick start  guide.</p>
+<p align="left" class="examiner">Average mark 60%</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">  <strong>Question 16</strong></p>
+<p align="left">  Asthmatics in the study will be mailed their pack one month prior to the commencement of the research. The pack contains their mobile phone (with the software solution pre-installed), the sensor and user documentation. The research team has insisted that all users of the system be provided with appropriate training in the use of the software module and the use and care of the sensor. The team also wants the asthmatics to undertake a short quiz at the end of the training to ensure that they have developed the necessary skills and knowledge to use the software and equipment. All of the training must be completed within four weeks of the asthmatics receiving their packs. As the 1500 asthmatics are located across all of Victoria, this will be a very difficult task to organise.</p>
+<p align="left"> Outline the most suitable training strategy that will allow all 1500 asthmatics to undertake the necessary training and meet the requirements set out by the research team. Justify your strategy. 4 marks</p>
+<p align="left" class="myanswer">The most feasible option is online training, using multimedia tutorials on a website. Such training can be entertaining and responsive to users' actions. It can also do the testing and assessment of users' skills.</p>
+<p align="left" class="myanswer">Any other option would be too slow, difficult or ineffective: group lectures would force many people to travel long distances; one-on-one training would be far too slow, even if it would be very effective in catering for individual needs; train-the-trainer won't work because there are no groups for the trainer to go back and train.</p>
+<p class="examiner">Many students found it difficult to develop a training strategy. A strategy is a method by which an activity is carried  out. This would include a set of steps/procedures covering what will be done, when it will happen, who does it, etc.  In their training strategy, students should have included the following</p>
+<ul>
+  <li class="examiner">    a timeline of activities (when training will occur)</li>
+  <li class="examiner">  the method of training e.g. online, trainer, website, class, etc.</li>
+  <li class="examiner">  the method of evaluating the training e.g. short test, quiz, demonstration, etc.</li>
+  <li class="examiner">  justification (of appropriate method) e.g. access across Victoria, cannot have 1500 in one place at one time, etc.</li>
+</ul>
+<p align="left" class="examiner">Average mark 48%</p>
+</td>
+</tr>
+<tr>
+<td class="comment"><p align="center">On the whole - a good paper! Me gusta!</p>
+<p align="center"><img src="/m/MeGusta.png" width="115" height="118" alt="Me gusta" /></p>
+</td>
+</tr>
+<tr>
+<td><p align="center"><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+</td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 18 November 2012</font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->May 7, 2022 11:58 AM<!-- #EndDate --> 
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2012<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2012. <br />
+Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font></p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

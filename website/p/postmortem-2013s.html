@@ -1,0 +1,1584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2013 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><a href="/index.html"> <img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+ <table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+ <h1 align="center">VCAA Exam Post Mortem </h1>
+ <h1 align="center">2013</h1>
+ <h1 align="center"><img src="/m/toetags.jpg" alt="vcedata.com post mortem" width="527" height="235" /></h1></td>
+</tr>
+<tr>
+<td><div align="center">
+ <p></p><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><span class="examiner">Examiners' comments were published on 30 April 2014</span><p></p>
+ <p><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /> NEW! 2013 - warning signs for badly-answered questions! <img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p align="center">&nbsp;</p>
+</div></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+ </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+&nbsp;
+&nbsp;</td>
+ </tr>
+</table>
+<table>
+ <tr>
+<td colspan="4"><div align="center">
+ <h2>The Post Mortem Awards</h2>
+</div></td>
+ </tr>
+ <tr>
+<td width="25%"><p align="center"><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+<p>The <strong>SCHMACKOS</strong> award is given to questions that are a complete dog's breakfast.</p></td>
+<td width="50%"><div align="center"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></div>
+<p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+ Questions that are not totally <em>wrong,</em> but are just <em>dumb</em>, or are wrong in a way that does not jeopardise the answer.</p></td>
+<td width="25%"><div align="center"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></div>
+<p align="center">The Stamp of Approval for questions I like.</p></td>
+<td width="25%"><p align="center"><img src="/m/illiterate.jpg" alt="" width="47" height="89" />&nbsp;</p>
+<p align="center">The exciting Illiteracy Award.</p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+&nbsp;
+&nbsp;</td>
+ </tr>
+ <tr>
+<td><h3 align="center">Written examination</h3>
+<p align="center"><strong>Friday 15 November 2013</strong></p>
+<p align="center"><strong>Reading time: 3.00 pm to 3:15 (15 minutes) </strong></p>
+<p align="center"><strong>Writing time: 3:15 to 5:15 pm (2 hours)</strong></p>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+  
+  <td ><p ><strong><em>Number of questions</em></strong></p></td>
+  <td ><p ><strong><em>Number of questions to be answered</em></strong></p></td>
+  <td ><p ><strong><em>Number of marks</em></strong></p></td>
+ </tr>
+ <tr>
+  <td ><p ><a href="#a">A</a></p></td>
+  <td ><p >20</p></td>
+  <td ><p >20</p></td>
+  <td ><p >20</p></td>
+ </tr>
+ <tr>
+ <td ><p ><a href="#b">B</a></p></td>
+ <td  ><div >6</div></td>
+ <td ><p >6</p></td>
+ <td ><p >20</p></td>
+ </tr>
+ <tr>
+ <td ><p ><a href="#c">C</a></p></td>
+ <td  ><div >15</div></td>
+ <td >15</td>
+ <td ><p >60</p></td>
+ </tr>
+ <tr>
+ <td ><div ></div></td>
+ <td ><div ></div></td>
+ <td ><div ></div></td>
+ <td ><p >Total 100</p></td>
+ </tr>
+</table>
+<ul>
+ <li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.</li>
+ <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+</ul>
+<p align="left">Materials supplied</p>
+<ul>
+ <li>Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.</li>
+ <li>Answer sheet for multiple-choice questions.</li>
+</ul>
+<p align="left">Instructions</p>
+<ul>
+ <li>Remove the insert containing the case study during reading time.</li>
+ <li>Write your student number in the space provided above on this page.</li>
+ <li>Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this.</li>
+ <li>All written responses must be in English. At the end of the examination </li>
+ <li>Place the answer sheet for multiple-choice questions inside the front cover of this book.</li>
+</ul>
+<p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+<td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+ &nbsp;</td>
+</tr>
+ <tr>
+<td colspan="2" ><p class="examiner"><strong>Examiners' report general comments</strong></p>
+ <p class="examiner">Students generally performed well on the multiple-choice section. <br />
+  In Section B, students needed to provide detailed and accurate responses. <br />
+  In Section C, it is important that responses are specifically applied to the case study.<br />
+  During the examination, students should</p>
+ <ul>
+  <li class="examiner">   use correct IT terminology</li>
+  <li class="examiner">
+   discuss all options when asked to justify a choice or compare one option to another</li>
+  <li class="examiner">
+   respond to key instructional terms in questions, such as &lsquo;state&rsquo;, &lsquo;explain&rsquo;, &lsquo;justify&rsquo; and &lsquo;describe&rsquo;</li>
+  <li class="examiner">
+   re-read each question and their response to ensure that the question has been answered</li>
+  <li class="examiner">
+   remove the case study insert and refer to it when completing Section C</li>
+  <li class="examiner">
+   read the case study and questions carefully, and underline or highlight keywords</li>
+  <li class="examiner">
+   endeavour to write clearly and write in pen, rather than pencil</li>
+  <li class="examiner">
+   demonstrate their knowledge of the subject and apply that knowledge to the case study, as general responses often result in low or no marks; knowledgeable, clear and appropriate responses receive full marks.</li>
+ </ul></td>
+ </tr>
+ <tr>
+<td colspan="2" class="greyback" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+ Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+ A correct answer scores 1, an incorrect answer scores 0. <br />
+ Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+ No marks will be given if more than one 
+ Answer is completed for any question</p></td>
+ </tr>
+ <tr>
+<td width="86" valign="top" class="greyback"><strong><a name="a1" id="a1"></a>Question 1</strong></td>
+<td width="665"><p><strong>Question 1</strong></p>
+<p>In data flow diagrams, various symbols are used to represent different features.<br />
+ Which one of the following is the symbol for a data store?</p>
+<p><img src="/m/pm/13s-a01.gif" width="549" height="238" alt="A1" /></p>
+<p class="myanswer">Answer is D.<br />
+ (A) is an external entity.<br />
+ (B) is a data flow.<br />
+ (C) is a process. </p>
+<p class="examiner">82% of the state got this right. <br />
+ Most of the wrong answers were A.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback"><strong><a name="a2" id="a2"></a>Question 2</strong></td>
+<td><p><strong>Question 2</strong></p>
+<p> A software project has been completed and the software solution has been running successfully for a few months. Simon is collecting all the documentation that was created during the project. In one of the documents he notices this statement: 'When executed, the program must occupy no more than 10 MB of main memory.'<br />
+ During which stage of the problem-solving methodology was this statement most probably written?<br />
+ <strong>A.</strong> design<br />
+ <strong>B.</strong> analysis<br />
+ <strong>C.</strong> evaluation<br />
+ <strong>D.</strong> development</p>
+<p class="myanswer">Answer is B. It's a (non-functional) solution requirement, and these are determined during analysis.</p>
+<p class="comment">Note: I've been asked whether it might be an evaluation criterion, which would be determined during design. If it were, it would be evaluated over time after implementation (as reliability or profitability would be), which does not seem to fit in this case. The question stresses that the statement was <strong>found</strong> after implementation, but that does not mean it was <strong>written</strong> about evaluation - it could easily have been written during analysis or design.</p>
+<p class="comment">A wise teacher, has suggested that the statement is a <strong>technical constraint</strong> and not a solution requirement nor an evaluation criterion, which sounds right to me. Peter deserves a virtual Schmacko. <br />
+ In either case, the answer to A2 is still B.</p>
+<p class="comment">Interesting question: how do you tell the difference between a solution's non-functional requirement (e.g. 'it must be easy to use') and a solution's evaluation criterion (e.g. 'it must be easy to use') ?</p>
+<p class="comment">Could the statement have been written during either analysis <strong>or</strong> design, for different reasons?</p>
+<p class="examiner">50% of the state got this right. <br />
+ 32% chose A.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a3" id="a3"></a>Question 3</strong></td>
+<td ><p><strong>Question 3</strong></p>
+<p> Frank rings his computer-repair person. He explains, 'I'd just finished using a new application program that I downloaded from the internet and my computer suddenly went crazy. I shut my computer down and, when I restarted it, I noticed that all my photos had been deleted'.<br />
+ Based on his explanation, Frank has most likely fallen victim to<br />
+ <strong>A.</strong> spyware.<br />
+ <strong>B.</strong> a Trojan.<br />
+ <strong>C.</strong> a hard-disk failure.<br />
+ <strong>D.</strong> poor programming.</p>
+<p class="myanswer">Answer is B. A Trojan is malicious software which could likely damage files, amongst other undesirable actions.<br />
+ Spyware monitors a user's actions but is not designed to do damage. <br />
+ A hard disk failure would not selectively delete files of one type (photos, for example).<br />
+ Poor programming might cause a crash, but is unlikely to also happen to also delete every file of one type. </p>
+<p><span class="examiner">86% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a4" id="a4"></a>Question 4</strong></td>
+<td ><p><strong>Question 4</strong></p>
+<p> A program contains an object called <strong>person</strong>. The following line of code appears in the program. </p>
+<p align="center">person.clearAll<br />
+</p>
+<p>It causes all the data held by the object to be cleared.<br />
+ The part of the code after the point, clearAll, is most commonly called a<br />
+ <strong>A.</strong> control structure.<br />
+ <strong>B.</strong> sequence.<br />
+ <strong>C.</strong> method.<br />
+ <strong>D.</strong> loop.</p>
+<p class="myanswer">Answer is C. It's an action that can be applied to an object.</p>
+<p class="comment">The expression in the line &quot;The part of the code after the point, clearAll, is most commonly called a&quot; is VERY confusing. Why not say, &quot;The part of the code after the word 'person' is...&quot; ?<br />
+ And most kids nowadays would call
+ it a 'dot', not a point.</p>
+<p class="comment">Bad expression!</p>
+<p class="comment"><span class="examiner">50% of the state got this right.</span> <span class="examiner"><br />
+ Wrong answers were evenly split between A and B.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a5" id="a5"></a>Question 5</strong></td>
+<td ><p><strong>Question 5</strong></p>
+<table>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+</table>
+<p> A program contains a data structure that can be visualised as shown in the diagram above. The program enters the values 5, 9, 11, 12 into the data structure in that order. Later, the values are read from the data structure in this order: 12, 11, 9, 5.<br />
+ The data structure is<br />
+ <strong>A.</strong> a stack.<br />
+ <strong>B.</strong> a queue.<br />
+ <strong>C.</strong> an integer.<br />
+ <strong>D.</strong> a 2-D array.</p>
+<p class="myanswer">Answer is A. A stack returns values in the reverse order in which they were entered. (First in last out).<br />
+ A queue would return values in the same order in which they were entered (First in first out - a special form of stack). <br />
+ An integer is a data type, not a data structure.<br />
+ It can't be a 2-D array because it's obviously only one-dimensional. </p>
+<p><span class="examiner">82% of the state got this right.<br />
+ Nearly everyone else chose B
+ .</span><br />
+</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a6" id="a6"></a>Question 6</strong></td>
+<td ><p><strong>Question 6</strong></p>
+<p>A dictionary of computer terminology for secondary students has the following definition.<br />
+ 'A system that uses internet protocols to allow the sharing of information across an organisation's local area network. Usually only accessible from a computer within the local area network, it can be protected from unauthorised external access through the use of a network gateway or firewall.'<br />
+ This is a definition for<br />
+ <strong>A.</strong> an intranet.<br />
+ <strong>B.</strong> the internet.<br />
+ <strong>C.</strong> a virtual private network.<br />
+ <strong>D.</strong> an organisation's website.</p>
+<p class="myanswer">Answer is A. An intranet is a closed, private system using HTTP and TCP/IP to share data across a LAN.<br />
+ It won't be (C) because it does not refer to authorised external access.<br />
+ Their website would be open and very publicly visible, not constrained to their LAN. </p>
+<p><span class="examiner">76% of the state got this right<br />
+ Most of the others chose A
+ .</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" >&nbsp;</td>
+<td ><p><em>Use the following information to answer Questions 7 and 8.</em></p>
+<p> Freya is writing a short program to calculate the circumference of a large number of circles. She knows the formula is C = 2 <img src="/m/pi.gif" width="13" height="11" alt="Pi" /> r, where C is the circumference of the circle and r is the radius of the circle. She decides to name <img src="/m/pi.gif" width="13" height="11" alt="Pi" /> as myPi and set <img src="/m/pi.gif" width="13" height="11" alt="Pi" /> = 3.14, and use the variable names Circum for C and Rad for r.</p>
+<p><img src="/m/pm/13s-a7+8.gif" width="115" height="110" alt="A7-A8" /></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a7" id="a7"></a>Question 7</strong></td>
+<td ><p><strong>Question 7</strong></p>
+<p>For the program to be useful in all circumstances, Freya must ensure that the program treats<br />
+ <strong>A.</strong> Rad as an integer and Circum as an integer.<br />
+ <strong>B.</strong> Rad as an integer and Circum as a floating point number.<br />
+ <strong>C.</strong> Rad as a floating point number and Circum as an integer.<br />
+ <strong>D.</strong> Rad as a floating point number and Circum as a floating point number.</p>
+<p class="myanswer">Answer is D. Since either number could contain fractional parts, both need to be floating point.</p>
+<p class="comment">Instead of <img src="/m/pi.gif" width="13" height="11" alt="Pi" />, shouldn't she set <strong>myPi</strong> to 3.14 - after all, how can you set a constant, universal value Pi (<img src="/m/pi.gif" width="13" height="11" alt="Pi" />) to 3.14, unless Freya lived in <a href="http://en.wikipedia.org/wiki/Indiana_Pi_Bill">Indiana, USA</a>?? </p>
+<p class="comment">Or is this meant to be an error by Freya rather than by the examiners?</p>
+<p><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></p>
+<p><span class="examiner">74% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><p><strong><a name="a8" id="a8"></a>Question 8</strong></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td ><p><strong>Question 8</strong></p>
+<p>Freya's program will read values for the radius from a file. It will write the answers to another file. Which one of the following algorithms appears to be the most efficient?</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+ <tr>
+ <td><strong>A.</strong><br />
+ <strong>While</strong> not end of file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong> Read</strong> Rad <strong>from</strong> file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;myPi <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 3.14<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;Circum <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 2 &times; myPi &times; Rad<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Write</strong> Circum <strong>to</strong> newFile<br />
+ <strong>EndWhile</strong></td>
+ <td><p><strong>B.<br />
+</strong>myPi <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 3.14<br />
+<strong>While</strong> not end of file<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Read</strong> Rad <strong>from</strong> file<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;Circum <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 2 &times; myPi &times; Rad<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Write</strong> Circum <strong>to</strong> newFile<br />
+<strong>EndWhile</strong></p></td>
+ </tr>
+ <tr>
+ <td><strong>C.</strong><br />
+ <strong>While</strong> not end of file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Read</strong> Rad <strong>from</strong> file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;my2Pi <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 6.28<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;Circum <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> my2Pi &times; Rad<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Write</strong> Circum <strong>to</strong> newFile<br />
+ <strong>EndWhile</strong></td>
+ <td><strong>D.</strong><br />
+ my2Pi <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> 6.28<br />
+ <strong>While</strong> not end of file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Read</strong> Rad <strong>from</strong> file<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;Circum <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment symbol" /> my2Pi &times; Rad<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Write</strong> Circum <strong>to</strong> newFile<br />
+ <strong>EndWhile</strong></td>
+ </tr>
+</table>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">This is a cunning question. I like it. Many smartypants out there might have seen (B) and gone &quot;Bingo!&quot; and leapt to the next question, thinking &quot;What's this &quot;6.28&quot; rot going on in the other options?&quot;</p>
+<p class="myanswer">While all of the options would work, the best answer comes down to <strong>efficiency</strong>.</p>
+<p class="myanswer">(A) is the least efficient since it contains an invariant statement - it repetitively assigns the same value to myPi on every loop even though the value never needs to change.<br />
+ (B) is better, because it moves the invariant statement
+ outside the loop so it is evaluated only once for the entire run of the program.<br />
+ But if you look closely, there is yet another invariant statement - 2 * myPi in (A) and (B). That could be removed from the loop as well, saving one more unnecessary operation.<br />
+ (C) shares the same efficiency problem as (A), so exclude that.<br />
+ That leaves (D) - the most efficient (but slightly harder to read) alternative. <br />
+</p>
+<p class="myanswer">This dilemma between choosing tight code or readability has been with programmers for years. One strategy is to use simpler, verbose code while debugging, then <strong>optimise</strong> the code after it's working. The C family has often been criticised for the impenetrable nature of its code when its really tightly optimised.</p>
+<p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p>
+<p><span class="examiner">31% of the state got this right!<br />
+ 41% wrongly chose B and 20% chose A.
+</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><p><strong><a name="a9" id="a9"></a>Question 9</strong></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td ><p><strong>Question 9</strong></p>
+<p>Fast Ethernet is a local area networking technology. One of the standards it is based on is known as 100BASE-T, which specifies a 100 megabits per second transmission rate using multi-level signal encoding over a twisted pair cable.<br />
+ From this description, which layer of the Open Systems Interconnections (OSI) model does 100BASE-T deal with?<br />
+ <strong>A.</strong> the	network layer<br />
+ <strong>B.</strong> the	data link layer<br />
+ <strong>C.</strong> the	physical layer<br />
+ <strong>D.</strong> the	transport layer</p>
+<p class="myanswer">Answer is C. The study design says that the physical layer is really the only one you need to know, so the examiners will be unlikely to present a really specific question on any other OSI layer.</p>
+<p><span class="examiner">42% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a10" id="a10"></a>Question 10</strong></td>
+<td ><p><strong>Question 10</strong></p>
+<p>John is using a text editor to help write his program. A text editor is an example of a<br />
+ <strong>A.</strong> file.<br />
+ <strong>B.</strong> utility.<br />
+ <strong>C.</strong> compiler.<br />
+ <strong>D.</strong> programming language.</p>
+<p class="myanswer">Answer is B.<br />
+</p>
+<p class="comment">A nice easy question for the kids who would soon be drawing pictures of Megadeth or pussy cats in the margins of their incomplete exam answer booklets.</p>
+<p class="myanswer">A utility is an assistant program that helps with programming. Most programming environments are IDE (Integrated Development Environments) where the editor is built in with the compiler, linker and debugger as a unified whole.</p>
+<p><span class="examiner">75% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a11" id="a11"></a>Question 11</strong></td>
+<td ><p><strong>Question 11</strong></p>
+<p>The charts below provide some comparisons between wired and wireless networks.<br />
+ <img src="/m/pm/13s-a11.gif" width="583" height="142" alt="a11" /></p>
+<p> In the diagram<br />
+ <strong>A.</strong> label (1) should read	'wired network' and	label (3)	should read	'wireless network'.<br />
+ <strong>B.</strong> label (2) should read	'wired network' and	label (4)	should read	'wireless network'.<br />
+ <strong>C.</strong> label (1) should read	'wired network' and	label (4)	should read	'wireless network'.<br />
+ <strong>D.</strong> label (2) should read	'wired network' and	label (3)	should read	'wireless network'.</p>
+<p class="myanswer">Answer is C. You are asked to judge 3 criteria: speed, mobility and reliability.</p>
+<p class="myanswer">Wired networks will have higher speed than wireless, so eliminate options (B) and (D). Quick and easy.<br />
+ Wireless is more mobile 
+ but less reliable than wired, so label 4 will be wireless, giving option (C).</p>
+<p class="comment"> Another nice, novel question. It's good to see some creative questioning. </p>
+<p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /> </p>
+<p><span class="examiner">85% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a12" id="a12"></a>Question 12</strong></td>
+<td ><p><strong>Question 12</strong></p>
+<p>Pseudocode is used to represent<br />
+ <strong>A.</strong> a	set of logical steps for analysing a program.<br />
+ <strong>B.</strong> a	sequence of logical steps for solving a problem.<br />
+ <strong>C.</strong> a	sequence of steps for developing a programming	language.<br />
+ <strong>D.</strong> a	set of program instructions written in a specific programming language that solves a problem. </p>
+<p class="myanswer">Answer is B.<br />
+ Pseudocode is not used during analysis (A). <br />
+ It <strong>is</strong> used to solve problems in program logic. (B)<br />
+ It <strong>would</strong> be occasionally used during the development of a new programming language (C), but that case would be pretty rare compared to the its use during the development of other programs.<br />
+ It is definitely <strong>not</strong> the same as coding in a specific language.
+ (D). Pseudocode is meant to be a universal, language-independent tool for logic design. It does use common constructs like LOOP, ENDWHILE, READ etc - but these are concepts used in all languages, although their names will vary.</p>
+<p><span class="examiner">55% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" >&nbsp;</td>
+<td ><p><em>Use the following information to answer Questions 13 and 14.</em></p>
+<p>A company has just installed a new software solution and has provided training for its staff.<br />
+ The company is also monitoring staff to see how quickly certain tasks are completed when using the new software.<br />
+</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a13" id="a13"></a>Question 13</strong></td>
+<td ><p><strong>Question 13</strong></p>
+<p>By collecting data about how quickly certain tasks are completed, the company is evaluating <br />
+ <strong>A.</strong> the efficiency and effectiveness	of the solution. <br />
+ <strong>B.</strong> the efficiency and effectiveness	of the users. <br />
+ <strong>C.</strong> the effectiveness of the software solution. <br />
+ <strong>D.</strong> the efficiency of the software solution.</p>
+<p class="myanswer">Answer is D. The traditional efficiency/effectiveness definition question. It wouldn't be Christmas without it.<br />
+ Evaluating quickness (speed) is an efficiency criterion, so quickly eliminate
+ all of the options referring to effectiveness. That leaves only (D).</p>
+<p class="myanswer">Note: the users could be mangling every task they undertake, but the question is only concerned with how <strong>quickly</strong> they mangle them (efficiency) , not how <strong>much</strong> they mangle them (effectiveness).</p>
+<p><span class="examiner">80% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a14" id="a14"></a>Question 14</strong></td>
+<td ><p><strong>Question 14</strong></p>
+<p>Which one of the following is the best type of documentation to provide to users of this new software? <br />
+ <strong>A.</strong> online help <br />
+ <strong>B.</strong> an installation guide <br />
+ <strong>C.</strong> internal documentation <br />
+ <strong>D.</strong> network documentation</p>
+<p class="myanswer">Answer is A. These questions can be difficult, since they often force students to choose between two quite appropriate forms of documentation with the silly assumption that only one could be used. This question avoids that pot hole.</p>
+<p class="myanswer">Online help (A) would certainly help users.<br />
+ Installation guides (B) would be for technicians, not users. <br />
+ Internal documentation (C) is in source code, for the use of programmers. Users never see it. <br />
+ Network documentation (D) is used by technicians to designs networks - completely irrelevant here.</p>
+<p><span class="examiner">67% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a15" id="a15"></a>Question 15</strong></td>
+<td ><p><strong>Question 15</strong></p>
+<p>A validation check used to ensure that entered data is a number is called <br />
+ <strong>A.</strong> a type check. <br />
+ <strong>B.</strong> a range check. <br />
+ <strong>C.</strong> a character check. <br />
+ <strong>D.</strong> an existence check.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="comment">Thank Dog they didn't repeat what they did in the <a href="/p/postmortem-2012i.htm#a2">2012 ITA paper (question A2)</a> and call it a &quot;a required field check,&quot; a non-standard validation term understood by no-one but the exam writer.</p>
+<p class="comment">Well done, examiners</p>
+<p class="comment"><img src="/m/encouragement_award.jpg" width="300" height="210" alt="Pat on the back" /></p>
+<p class="comment"><span class="examiner">78% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a16" id="a16"></a>Question 16</strong></td>
+<td ><p><strong>Question 16</strong></p>
+<p>An application is designed that will record a person's heart rate every 10 minutes and keep a record of the heart rate readings for a week. What would be the functional requirements for this software?<br />
+ <strong>A.</strong> The	application is reliable and stores the heart rates for a week. <br />
+ <strong>B.</strong> The	application records the heart rates and stores them for a week. <br />
+ <strong>C.</strong> The	application is easy to turn on and off, and keeps accurate readings. <br />
+ <strong>D.</strong> The	application records the heart rates and provides a user-friendly screen.</p>
+<p class="myanswer">Answer is B. </p>
+<p class="myanswer">Functional requirements are those that need to be specifically programmed into an application so it can achieve a particular task.</p>
+<p class="myanswer">Non-functional requirements are qualities that the software must possess, but are not necessarily coded in. They could, for example, be achieved by effective design of an interface.</p>
+<p class="myanswer">In short, remember if you can say &quot;The program must <strong>be able to</strong>...&quot; followed by a verb - it's a functional requirement. <br />
+ If you can say, &quot;The program must <strong>be</strong>...&quot; followed by an adjective, it's a non-functional requirement.</p>
+<p class="myanswer">In this case, reliability (A), ease of use (C), and being user friendly (D) are all non-functional requirement. </p>
+<p><span class="examiner">85% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a17" id="a17"></a>Question 17</strong></td>
+<td ><p><strong>Question 17</strong></p>
+<p>To review the security of a company's network, an IT technician could<br />
+ <strong>A.</strong> install antivirus software.<br />
+ <strong>B.</strong> reset all users' passwords.<br />
+ <strong>C.</strong> check the network audit trails.<br />
+ <strong>D.</strong> ensure the network is shut down every night. </p>
+<p class="myanswer">Answer is C. Options (A) and (B) would <strong>improve</strong> security, but not review past security performance.<br />
+ (D) is an odd one - workstations should be shut down at night to prevent unauthorised use, but networks (file servers, switches etc) are not shut down at night : they are securely locked away instead.</p>
+<p><span class="examiner">89% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a18" id="a18"></a>Question 18</strong></td>
+<td ><p><strong>Question 18</strong></p>
+<p>Network technicians can use error logs to measure the<br />
+ <strong>A.</strong> speed of a network.<br />
+ <strong>B.</strong> usability of a network.<br />
+ <strong>C.</strong> reliability of a network.<br />
+ <strong>D.</strong> maintainability of a network.</p>
+<p class="myanswer">Answer is C.</p>
+<p class="comment">Not a really challenging question.</p>
+<p class="comment"><span class="examiner">81% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" >&nbsp;</td>
+<td ><p><em>Use the following information to answer Questions 19 and 20.</em></p>
+<p>Jessica is setting up a home computer but, as yet, has no security measures installed. From home, she would like to securely access her files that are stored on her company's network.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a19" id="a19"></a>Question 19</strong></td>
+<td ><p><strong>Question 19</strong></p>
+<p>Which one of the following provides the most secure method?<br />
+ <strong>A.</strong> the company's intranet<br />
+ <strong>B.</strong> a virtual private network<br />
+ <strong>C.</strong> a wireless internet connection<br />
+ <strong>D.</strong> a broadband internet connection</p>
+<p class="myanswer">Answer is B.<br />
+ We already ruled out (A) - the intranet -as a possibility in question A6. <br />
+ A
+ VPN is a secure, encrypted tunnel across the standard internet into a distant LAN.<br />
+ You would need (C) or (D) to <strong>reach</strong> the company, but that would not get you <strong>into</strong> the company LAN. </p>
+<p><span class="examiner">79% of the state got this right.</span></p></td>
+ </tr>
+ <tr>
+<td valign="top" class="greyback" ><strong><a name="a20" id="a20"></a>Question 20</strong></td>
+<td ><p><strong>Question 20</strong></p>
+<p>Jessica will need to protect the files on her home computer. She can back up and restore her files, but is unsure of the additional security measures that she requires.<br />
+ Which of the following is the best set of additional security measures for her home computer?<br />
+ <strong>A.</strong> antivirus software, anti-spyware and file recovery software<br />
+ <strong>B.</strong> antivirus software, a firewall and file recovery software<br />
+ <strong>C.</strong> a firewall, anti-spyware and video conferencing<br />
+ <strong>D.</strong> a firewall, anti-spyware and antivirus software</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">The question says she can already back up and restore files, so she does not need (A) or (B) which have more file recovery software.<br />
+ The videoconferencing software in (C) is irrelevant, and leaves her vulnerable to virus attack. <br />
+ Option (D) is all about protection. </p>
+<p><span class="examiner">71% of the state got this right.<br />
+ 23% chose B
+</span><span class="examiner">.</span><br />
+</p></td>
+ </tr>
+ <tr>
+<td >&nbsp;</td>
+<td><p align="center">Overall for section A - a good set of questions.<br />
+ It's a shame, however, that the examiners want programmers to be able <a href="#a7">change the value of Pi </a>! </p></td>
+ </tr>
+ <tr>
+<td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+ &nbsp;&nbsp;</td>
+</tr>
+</table>
+<table>
+ <tr>
+<td colspan="2" valign="top" class="blueback" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+<p class="blueback">Instructions for Section B<br />
+ Answer all questions in the spaces provided.</p>
+<p class="comment">[x lines] indicates the number of ruled lines provided on the paper for the answers.</p></td>
+ </tr>
+ <tr>
+<td width="87" valign="top" class="blueback"><p><strong><a name="b1" id="c21"></a>Question 1 <br />
+ (3 marks)</strong></p>
+ <p>&nbsp;</p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td width="664" valign="top"><p><strong>Question 1 (3 marks)</strong></p>
+<p> The following are three structures used in programming languages. Briefly describe each.</p>
+<ul>
+ <li>selection control structure [3 lines]</li>
+ </ul>
+<p class="myanswer">This structure controls program flow, choosing which code is executed and which is skipped based on the outcome of a logical test that returns a Boolean True/False result. Typical examples are IF/THEN and SELECT CASE.</p>
+<p class="myanswer">Side note: Other control structures are Iteration (looping structures such as FOR/NEXT, WHILE/WEND, REPEAT/UNTIL) and Sequence (statements executing in linear order).</p>
+<ul>
+ <li>procedure [3 lines]</li>
+ </ul>
+<p class="myanswer">A self-contained module containing a sequence of instructions that achieves a specific outcome but does not return a value.</p>
+<ul>
+ <li>function [3 lines]</li>
+ </ul>
+<p class="myanswer">A procedure that returns a value. Functions are often given input data which they use to generate their return value (e.g. the Square root function is called with a parameter, and the function returns the value of the square root of the parameter.)</p>
+<p class="examiner">Average mark: 0.7/3 (23%)</p>
+<p class="examiner">Many students had difficulty expressing the descriptions required for this question. Very few students were able to provide accurate definitions and many were superficial. Students are encouraged to keep a glossary of key terms throughout the year (in additional to the glossary in the study design), including key programming concepts.<br />
+ The following is an example of a response that provided an appropriate brief description of each structure.</p>
+<blockquote>
+ <p class="examiner"> Selection control structure<br />
+  This chooses which section of code to execute or to skip the code contained depending on whether the condition specified has been met or not.</p>
+ <p class="examiner">  Procedure<br />
+  A procedure is a section of code which can be called repeatedly from any line of a program in order to complete certain actions.</p>
+ <p class="examiner">  Function<br />
+  This is similar to a procedure, in that it can be called upon when required but will accept parameters when called upon and return a value when it is done.</p>
+</blockquote></td>
+ </tr>
+ <tr>
+<td valign="top" class="blueback"><p><strong><a name="b2" id="c20"></a>Question 2<br />
+ (3 marks)</strong></p>
+ <p>&nbsp;</p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td valign="top"><p><strong>Question 2 (3 marks)</strong></p>
+<p> Complete the following algorithm so that, at its end, the variable <strong>largestAge</strong> contains the largest number in the 1-D array of integers, <strong>ages</strong>. The array contains 1000 elements and ages [ 0 ] is not used.</p>
+<p> <strong>Begin</strong><br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;largestAge<img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" /> 0 <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>For</strong> i <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />1 to 1000</p>
+<p><span class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;IF ages(i) &gt; largestAge then<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->largestAge <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" /> ages(i)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;END IF
+</span><br />
+</p>
+<p><strong> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;EndFor</strong><br />
+ <strong>End</strong></p>
+<p class="comment">A fun question.<br />
+ The &quot;The array contains 1000 elements and ages [ 0 ] is not used.&quot; information in the question wasn't necessary.</p>
+<p class="examiner">Average mark: 0.6/3 (20%)</p>
+<p class="examiner">A lack of exposure to algorithm development was clear from student responses to this question. Students were either able to write a complete, accurate algorithm or struggled to identify the correct logic and the selection statement required. Students are expected to use the variables identified and include appropriate indentation.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="blueback"><p><strong><a name="b3" id="c19"></a>Question 3 <br />
+ (4 marks)</strong></p>
+ <p>&nbsp;</p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td valign="top"><p><strong>Question 3 (4 marks)</strong></p>
+<p> A software development company has just completed a software solution for the plumbing faculty of a college. The software will randomly generate sets of multiple-choice questions that will test students on various parts of a plumbing course. The software will be able to assess the test and provide immediate results to the students and their teachers.</p>
+<p><strong>a.</strong> What is acceptance testing and who should be involved in the acceptance testing of this software solution? 2 marks [6 lines]</p>
+<p class="myanswer">Acceptance testing is when the client (or an end-user*) uses the software to determine if it meets the needs that were determined during system analysis, and to determine whether they should accept the software.<br />
+ The dean of the plumbing faculty (or a plumbing teacher or plumbing student*) would be involved.</p>
+<p class="comment">*There are different interpretations of &quot;acceptance testing&quot; and &quot;user acceptance testing&quot;. Some people treat them synonymously; others use &quot;acceptance testing&quot; to refer to testing by the client (e.g. plumbing faculty manager), and UAT to refer to testing by a typical end-user (e.g. a plumbing student) to get a real user's perspective. </p>
+<p class="comment">The study design (SD U4O2 KK07 - page 47) itself includes key knowledge of &quot;criteria and techniques for <strong>testing acceptance by users</strong> of solutions&quot; ; in fact the design ONLY refers to &quot;acceptance by users.&quot; This actually strongly implies that the question is about UAT (acceptance by typical users) rather than acceptance by the purchaser of the software (e.g. the plumbing faculty's boss.)</p>
+<p class="comment">I hope the markers are aware of this greyness of definitions. The Real World&#8482; stubbornly resists the neat categorisations that VCAA loves so much. I will be on my Very High Horse if the examiner's report does not accept UAT.</p>
+<p class="examiner">Average mark: 1.0/4 (25%)</p>
+<p class="examiner">Acceptance testing is conducted during development to determine if the solution requirements (functional and non-functional) as specified in the software requirements specification (SRS) have been met. It is usually conducted by members of the organisation who commissioned the solution.<br />
+ In a question of this type it is important that students identify the two parts of the question, first the &lsquo;what&rsquo; and then the &lsquo;who&rsquo;; both needed to be addressed to gain the two marks for the question. Many students did not answer both parts of this question. Students are encouraged to clearly show their knowledge, which can be done by answering each part as a separate statement; for example, by defining acceptance testing in detail then describing who in this scenario would be involved in testing the solution.</p>
+<p class="examiner">The following is an example of a high-scoring response.</p>
+<blockquote>
+ <p class="examiner">  Acceptance testing is where you get the client/users of the software solution to use the software developed and make sure it fulfils all their needs and the requirements specified in the SRS. In this case the students and teachers from the plumbing faculty college would be involved in the testing.</p>
+</blockquote>
+<p><strong>b.</strong> Suggest <strong>two</strong> specific evaluation criteria to measure the effectiveness of this solution for the plumbing faculty. 2 marks [6 lines]</p>
+<ul>
+ <li class="myanswer">accuracy of assessments</li>
+ <li class="myanswer">the degree of randomness of the questions.</li>
+ <li class="myanswer">readability of the questions.</li>
+ <li class="myanswer">accessibility for students with disabilities.</li>
+ <li class="myanswer">usability</li>
+</ul>
+<p class="myanswer">Note: I orignally included 'speed' since the case study did stress &quot;immediate results&quot;, but then re-read the question and remembered the &quot;effectiveness&quot; criterion! 'Ease of use' is also (according to VCAA) an effectiveness measure.</p>
+<p class="myanswer">Teacher Peter has pointed out that &quot;timeliness&quot; might suit here, since it's listed in the glossary as an effectiveness measure. The dividing line between efficiency's &quot;speed&quot; and effectiveness' &quot;timeliness&quot; is a difficult and grey area, I'd say. Speed is very closely bound to timeliness... A very messy can of worms!</p>
+<p class="myanswer">One must assume the criteria I suggested are reasonable even though the case study does not suggest any other constraints. One should avoid unrealistic speculation that is not supported by the given facts, such as &quot;resistance to nuclear attack.&quot;</p>
+<p class="comment">The software would not &quot;assess the test&quot; - this would mean determining if the test were good or not. It would assess the <strong>student's answers</strong>.</p>
+<p class="examiner">Average mark: 1.2/2 (60%)</p>
+<p class="examiner">Measures of an effective solution include completeness, readability, attractiveness, clarity, accuracy, accessibility, timeliness, communication of message, relevance and usability.<br />
+ Evaluation criteria are developed during design and reflect the solution requirements. This question required students to suggest appropriate effectiveness criteria; however, many students missed this keyword. Effectiveness and efficiency are keywords defined in the study design glossary and students should be able to apply them as appropriate throughout their responses.<br />
+ Some student examples of possible evaluation criteria are listed below, in a number of formats; questions, statements and identification of measure. All of these were acceptable.</p>
+<blockquote>
+ <p class="examiner"> Does the software solution provide 100% accurate test results to the students and teachers?<br />
+  Does the software solution provide test results in a form that is relevant and complete?<br />
+  Is the user interface easy to understand?<br />
+  Is the solution clear and well explained?<br />
+  Does it use the correct plumbing language?<br />
+  Results of the test are given accurately after the completion of the test.<br />
+  Accuracy &ndash; the solution&rsquo;s results must be correct i.e. returning the correct number of marks that each student received.<br />
+  Completeness &ndash; the information that is returned to the students and teachers should be able to return all information i.e. their mark, which ones were incorrect etc.</p>
+</blockquote></td>
+ </tr>
+ <tr>
+<td valign="top" class="blueback"><strong><a name="b4" id="c18"></a>Question 4 <br />
+(4 marks)</strong></td>
+<td valign="top"><p><strong>Question 4 (4 marks)</strong></p>
+<p> A personnel file is being created. The table below shows some of the fields that are required in each record. From the list of data types, select the most appropriate type for each field.<br />
+ Data types: integer, floating point number, Boolean, character, string</p>
+<table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="136" valign="top"><strong> Data </strong></td>
+ <td width="227" valign="top"><p align="center"><strong>Use</strong></p></td>
+ <td width="231" valign="top"><p align="center"><strong>Data type</strong></p></td>
+ </tr>
+ <tr>
+ <td width="136" valign="top"><p>GivenName</p></td>
+ <td width="227" valign="top"><p>to store the given name</p></td>
+ <td width="231" valign="top" class="myanswer">String.</td>
+ </tr>
+ <tr>
+ <td width="136" valign="top"><p>Status</p></td>
+ <td width="227" valign="top"><p>F for full-time employee or P for part-time employee or V for volunteer</p></td>
+ <td width="231" valign="top" class="myanswer">Character.</td>
+ </tr>
+ <tr>
+ <td width="136" valign="top"><p>FirstAid</p></td>
+ <td width="227" valign="top"><p>Do they have first-aid qualifications? <br />
+True or false?</p></td>
+ <td width="231" valign="top" class="myanswer">Boolean.</td>
+ </tr>
+ <tr>
+ <td width="136" valign="top"><p align="center">HomePhoneNumber</p></td>
+ <td width="227" valign="top"><p>stored in the form <br />
+(09) 9999 9999</p></td>
+ <td width="231" valign="top" class="myanswer">String.</td>
+ </tr>
+</table>
+<p class="myanswer">Note: phone numbers are always stored as string, to allow the inclusion of parentheses, leading zeroes, spaces etc.</p>
+<p class="examiner">Average mark: 3.2/4 (75%)</p>
+<p class="examiner">All possible data types were listed in the question. The most common error was HomePhoneNumber, with many students indicating that it should be integer or floating point. It is important that all information provided is considered when making a decision on data type; for example, the table indicated how HomePhoneNumber would be stored, with spaces and brackets, which could only occur if a string data type is used.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="blueback"><p><strong><a name="b5" id="c17"></a>Question 5<br />
+ (2 marks)</strong></p>
+ <p>&nbsp;</p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p></td>
+<td valign="top"><p><strong>Question 5 (2 marks)</strong></p>
+<p> When discussing the storage of data, people often use the terms 'records' and 'files'.</p>
+<p><strong>a.</strong> What is a record? 1 mark [4 lines]</p>
+<p class="myanswer">A pre-defined group of fields forming a fixed-length, complete description of an item. The fields are often different data types. An example is firstname, lastname, date of birth, married?, shoe size.</p>
+<p class="examiner">Average mark: 0.3/1 (33%)</p>
+<p class="examiner">The following are examples of appropriate student responses.<br />
+ </p>
+<blockquote>
+ <p class="examiner">A record is a control structure and method of storing and grouping related data together: eg ID 001, Name Fred, LastName Jones. This data is a record as it is relevant to each other and stored together.<br />
+  A record is a data structure which stores related information such as name, score, year in one data store. Individual data stored in a record can be accessed through an index to find the related information within that record.</p>
+</blockquote>
+<p><strong>b.</strong> What is a file? 1 mark [4 lines]</p>
+<p class="myanswer">A collection of binary records (a random file) or variable-length plain text data (a sequential file, often comma-separated CSV) stored on disk in a single object.</p>
+<p class="comment">Four lines of writing for 1 mark? Whoa!</p>
+<p class="examiner">Average mark: 0.3/1 (33%)</p>
+<p class="examiner">The following are examples of appropriate student responses.</p>
+<blockquote>
+ <p class="examiner"> A file is a type of data structure which stores data or information on a storage medium. A file may contain a set of records and a file may be accessed through random or serial access.<br />
+  A file is an external storage of data for a solution which can be created by the solution and read back into at a later date.</p>
+</blockquote>
+<p class="examiner">As with Question 1, students often struggled to provide a clear and technically accurate definition of a record and a file. Students should have used these during their programming area of study; however, they also need to be able to show their understanding in written form.</p></td>
+ </tr>
+ <tr>
+<td valign="top" class="blueback"><strong><a name="b6" id="c16"></a>Question 6 <br />
+(4 marks)</strong></td>
+<td valign="top"><p><strong>Question 6 (4 marks)</strong></p>
+<p> An organisation publishes a monthly journal that it sells online to its members.<br />
+ The following use case diagram shows the organisation's online purchasing system.</p>
+<p><img src="/m/pm/13s-b06.gif" width="664" height="359" alt="UCD" /><br />
+</p>
+<p><strong>a.</strong> What does the diagram suggest that <strong>any</strong> visitor to the website can do? 1 mark [1 line]</p>
+<p class="myanswer">Join the organisation.<br />
+</p>
+<p class="myanswer">Note: It does <strong>not</strong> include 'Browse catalog' because that &lt;&lt;includes&gt;&gt; (always requires) a login.</p>
+<p class="examiner">Average mark: 0.9/1 (90%)</p>
+<p><strong>b.</strong> What does the diagram suggest that the manager must do before the manager is able to manage the catalog? 1 mark [1 line]</p>
+<p class="blue">Login.</p>
+<p class="comment">This is repeating the examination of the &lt;&lt;includes&gt;&gt; knowledge. They could have thought of something else to ask about.</p>
+<p class="examiner">Average mark: 1.0/1 (100%)</p>
+<p><strong>c.</strong> Describe the difference between a visitor's interaction with the 'login' use case and their interaction with the 'purchase journal' use case. 2 marks [7 lines]</p>
+<p class="myanswer">The user must always login to browse the catalogue. <br />
+ The journal purchase may or may not happen.</p>
+<p class="comment">&lt;&lt;Extends&gt;&gt; arrows usually spell out - as a part of their label - the circumstances under which the extension is carried out. It's a shame the question couldn't use a classic example of an &quot;IF...&quot; for the &lt;&lt;extends&gt;&gt;.</p>
+<p class="examiner">Average mark: 1.4/2 (70%)</p>
+<p class="examiner">The following are examples of high-scoring student responses.</p>
+<blockquote>
+ <p class="examiner"> When a visitor to the website wants to browse the catalog, they are always required to &lsquo;login&rsquo; beforehand, whereas they can choose to purchase a journal at any point they wish, though this will always be after they have completed their &lsquo;login&rsquo; procedure.<br />
+  In order for a visitor to browse the catalog, he/she MUST login. The &laquo;includes&raquo; means that it is a must be done in order to browse the catalog. If a visitor is browsing the calalog, then they have the option to purchase a journal, however it is only conditional as depicted by &laquo;extends&raquo;. This means he/she does not have to purchase a journal when browsing, but has the option to do so. </p>
+</blockquote>
+<p class="examiner">It was pleasing to see that students, in general, were able to read and interpret the elements of a use case diagram.<br />
+ Most understood the difference between &lsquo;includes&rsquo; (must) and &lsquo;extends&rsquo; (optional), but a number of students had some difficulty expressing that clearly in part c.</p></td>
+ </tr>
+ <tr>
+<td colspan="2" valign="top"><p class="comment">Section B overall - some quite good questions, but the wording of some is sloppy. It would be wise of examiners to avoid definition questions of terms that are not defined in the study design glossary, since The Real World&#8482; rarely agrees on a single definition of an IT term.</p></td>
+ </tr>
+</table>
+<div align="left">
+ <table>
+<tr>
+<td valign="top" ><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+ &nbsp;</td>
+</tr>
+<tr>
+<td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+ <p align="left">CASE STUDY INSERT FOR SECTION C<br />
+ Please remove from the centre of this book during reading time. </p>
+ <p><strong>Case study</strong><br />
+ </p>
+ <p>An organisation called the Protection of National Parks and Wildlife (PNPW) is responsible for monitoring the health of native animals and controlling wild animals across all national parks in Victoria. Currently this is achieved in three ways</p>
+ <ul>
+ <li>a network of animal-monitoring stations located in the national parks, where park rangers monitor animal activity on a weekly basis</li>
+ <li>the use of aircraft to actively locate animals using heat-detection cameras in the very remote areas</li>
+ <li>
+ <div align="left">reports from staff who work in the parks, the general public and other emergency service organisations</div>
+ </li>
+ </ul>
+ <p align="left">As a result of recent budget cuts, PNPW needs to find ways to reduce its costs. The animal-monitoring stations are important and relatively inexpensive to run. However, the use of aircraft requires the hiring of several aircraft and pilots every week.</p>
+ <p align="left"> Brenda Benbow, the manager of PNPW, has been working on a plan for using a drone (an unmanned aircraft) to monitor the native animals. This will cut down on the annual cost associated with the hiring of aircraft and pilots.</p>
+ <p align="left"><img src="/m/pm/13s-cs1.gif" width="331" height="236" alt="drone" /><br />
+ </p>
+ <p align="left">She has chosen a model that can pilot itself once it has been given simple instructions. This model is fitted with a standard micro-video camera, an infra-red camera and global positioning system (GPS) technology. It also has two communication channels: a standard wireless network interface card and a radio transmitter/receiver. The radio has a range of about 50 km.</p>
+ <p align="left"> Each drone will be placed at a rural airfield. When a drone has to make a flight, it will be sent flight instructions from PNPW headquarters in Melbourne via a PNPW officer's notebook computer. The PNPW officer will then launch the drone from a car at the airfield.</p>
+ <h3 align="center"><img src="/m/pm/13s-cs2.gif" width="600" height="166" alt="data transfer" /></h3>
+ <p align="left">Once airborne, the drone will fly its preset patrol path. It can detect hotspots as small as 20 cm in diameter. This means that it can 'see' most wildlife. On detection of a hotspot, the drone will interrupt its preset patrol path, start monitoring the hotspot and pass control to a tablet computer at the nearest monitoring station. The drone will also transmit what it is 'seeing' to the tablet computer. The tablet will use wi-fi to communicate with the drone through the monitoring 
+ station's wi-fi router. The router uses the national park's communication system to communicate with the drone. The park rangers who are monitoring animals will then decide whether or not the picture shows an animal that requires further monitoring.</p>
+ <p align="left"><img src="/m/pm/13s-cs3.gif" width="700" height="442" alt="communications" /></p>
+ <p align="left">Brenda has hired Drone Solutions to develop the software for the new Aerial Animal-Detection System (AADS). She has provided the company with details of the drone operation, the hardware resources contained on the drone and the requirements of the software operation. Software will have to be written for the computer at PNPW headquarters, the drone and the tablet computers to be used by the park rangers.</p>
+ <p align="left"><img src="/m/pm/13s-cs4.gif" width="593" height="546" alt="context diagram" /></p>
+ <p align="left"><img src="/m/pm/13s-cs5.gif" width="679" height="490" alt="dfd" /></p>
+ <p align="left"><strong>END OF CASE STUDY INSERT FOR SECTION C</strong></p></td>
+</tr>
+ </table>
+ <table>
+<tr>
+<td colspan="2" class="yellowback"><p align="left">&nbsp;</p>
+ <p align="left"><strong>Instructions for Section C</strong></p>
+ <p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p>
+ <p align="left">&nbsp;</p></td>
+</tr>
+<tr>
+<td width="90" valign="top" class="yellowback"><p class="question"><strong><a name="c1" id="c1"></a>Question 1 </strong></p>
+ <p class="question"><strong>  (3 marks)</strong></p></td>
+<td width="669" valign="top"><p align="left"><span class="question"><strong>Question 1 (3 marks)</strong></span></p>
+ <p align="left"><span class="question"> Drone Solutions has determined that it has four months to develop the software solution for the Aerial Animal-Detection System (AADS). Melanie, who is leading the development team at Drone Solutions, has prepared a chart to help her monitor all aspects of the project.<br />
+ </span></p>
+ <p align="left"><span class="question">a.	Melanie will use the chart to monitor the tasks required to complete the project. One of the major tasks she has scheduled on the chart is designing the AADS software.<br />
+ Outline two tasks that you would expect to see scheduled before the software design task. 2 marks </span><span class="question"> [4 lines for each task]</span></p>
+ <p align="left" class="comment">The exam should have bolded the word &quot;two&quot; in the question.</p>
+ <ul>
+  <li> <span class="myanswer">Determine the constraints on the solution.</span></li>
+  <li class="myanswer">Determine solution requirements - functional and non-functional.</li>
+  <li class="myanswer">Define the scope of the solution.</li>
+ </ul>
+ <p align="left" class="myanswer">Note: This is a classic &quot;What do you do during the PSM analysis phase?&quot; question.</p>
+ <p align="left" class="examiner">Average mark: 1.2/2 (60%)</p>
+ <p align="left" class="examiner">Tasks that related to understanding/identifying the solution requirements, solution constraints and solution scope where appropriate.<br />
+  It was encouraging to see that students were able to identify that this question asked for tasks that occurred during the analysis stage of the problem-solving methodology. It was important to note that the question required a task. This meant that an action word (for example, create, interview, determine, write, etc.) needed to be provided within the response.<br />
+  The following are examples of appropriate student responses.</p>
+ <blockquote>
+  <p align="left" class="examiner">  Prepare a Software Requirements Specification (SRS) which will be used in the later stages of the project.<br />
+   Collect data that would assist in the creation of the AADS, which could range from interviewing rangers to researching similar systems.<br />
+   Determine the solution requirements. This includes the functional requirements of the AADS (what it must do to meet the goals of the solution) and the non-functional requirements (the qualities of the AADS).<br />
+   Determine the scope of the solution. This sets the boundaries as to exactly what AADS will do and equally as important, what it won&rsquo;t do.</p>
+ </blockquote>
+ <p align="left"><span class="question">b.	In addition to monitoring the tasks required to complete the project, identify <strong>one</strong> other area
+  that the chart should monitor.	1	mark [2 lines]</span></p>
+ <ul>
+  <li class="myanswer">Resources.</li>
+  <li class="myanswer">People.</li>
+  <li class="myanswer">Time.</li>
+ </ul>
+ <p align="left" class="myanswer">Note: This is a simple &quot;What does project management monitor?&quot; question, excluding &quot;tasks.&quot;</p>
+ <p align="left" class="examiner">Average mark: 0.6/1 (60%)</p>
+ <p align="left" class="examiner">The chart could also monitor resources, people or time.<br />
+  Most students were able to identify one of these elements of project planning.</p>
+ <p align="left">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c2" id="c2"></a>Question 2 </strong></p>
+ <p class="question"><strong>  (5 marks)</strong></p></td>
+<td valign="top" ><p><strong>Question 2 (5 marks)</strong></p>
+ <p> Melanie has started a data dictionary for the context diagram (Diagram 4). It is incomplete.<br />
+ </p>
+ <p>a.	Complete the table below by writing the appropriate data flow names from the context diagram into rows 3, 4 and 6. 3 marks.</p>
+ <table width="100%" border="1" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="38" valign="top">&nbsp;</td>
+ <td width="164" valign="top"><p align="center"><strong>Data flow </strong></p></td>
+ <td width="498" valign="top"><p align="center"><strong>Composition </strong></p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>1 </p></td>
+ <td width="164" valign="top"><p align="left">visualised_telemetry_data </p></td>
+ <td width="498" valign="top"><p>GPS_data + image_data (formatted for display) </p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>2 </p></td>
+ <td width="164" valign="top"><p>GPS_data </p></td>
+ <td width="498" valign="top"><p>reading_time + latitude + longitude </p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>3 </p></td>
+ <td width="164" valign="top" class="myanswer">image_data</td>
+ <td width="498" valign="top"><p>reading_time + optical_image_data + infrared_image_data </p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>4 </p></td>
+ <td width="164" valign="top" class="myanswer">flight_command</td>
+ <td width="498" valign="top"><p>['take-off' / 'land' / 'fly to' / 'circle'] + latitude + longitude </p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>5 </p></td>
+ <td width="164" valign="top"><p>flight_log</p></td>
+ <td width="498" valign="top"><p>time + latitude + longitude + altitude + <em>optional</em> [hot_spot_images + animal_spotter_id + animal_ <br />
+ spotter_response] </p></td>
+ </tr>
+ <tr>
+ <td width="38" valign="top"><p>6 </p></td>
+ <td width="164" valign="top" class="myanswer"><strong>patrol_path</strong></td>
+ <td width="498" valign="top"><p><em>sequence</em> of [latitude + longitude] </p></td>
+ </tr>
+ </table>
+ <p class="comment">The examiners kindly completed the flight_log row so you would see that it could not be the answer to one of the other questions. Nice of them!</p>
+ <p class="examiner">Average mark: 2.3/3 (76%)</p>
+ <p class="examiner">The majority of students were able to interpret the elements of the context diagram; however, students should ensure that they use the examples in the table and text provided in the diagram to assist in formulating accurate responses; for example, image_data is a more accurate response than image or picture data, etc.</p>
+ <p>b.	To state the position of any animal found, longitudes will be entered as numbers, for example, 97.73858. When creating the data dictionary for individual data items, Melanie has a choice of setting longitude to 'integer' or 'floating point'.<br />
+  Which should she choose? Justify your response. 2 marks.<br />
+ </p>
+ <p>choice [1 line]</p>
+ <p class="myanswer">Floating point.</p>
+ <p class="question">  justification [4 lines]</p>
+ <p class="myanswer">The numbers contain a fractional part, and integers cannot hold these.</p>
+ <p class="comment" >A pretty easy way to earn 2 marks. If you needed 4 lines to justify your choice, something is going wrong!</p>
+ <p class="examiner">Average mark: 1.6/2 (80%)</p>
+ <p class="examiner">Most students were able to identify &lsquo;floating point&rsquo; as the most appropriate data type for storing longitudinal values, as they required the use of decimal values.</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c3" id="c3"></a>Question 3 </strong></p>
+ <p class="question"><strong>  (3 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 3 (3 marks)</strong></p>
+ <p class="question"> Software will have to be written for the PNPW computer, the drone and the tablet computers to be used by park rangers. Melanie has worked out the main processes for the AADS. These are shown and numbered in the incomplete data flow diagram (DFD; Diagram 5).</p>
+ <p class="question"> Which process will run on each of the computer systems below? (You may write just the process number.)<br />
+ </p>
+ <p class="question">the PNPW computer - <span class="myanswer">(1) plan flight</span><br />
+ </p>
+ <p class="question">the drone - <span class="myanswer">(3) control flight and detect hotspots</span><br />
+ </p>
+ <p class="question">the tablet computers - <span class="myanswer">(2) visualise telemetry data</span></p>
+ <p class="comment">Note - it's pretty easy to find the named external entities in the DFD and trace the outgoing arrows back to the circles of their related processes.</p>
+ <p class="examiner">Average mark: 2.5/3 (83%)</p>
+ <p class="examiner"> the PNPW computer: 1 &ndash; plan flight<br />
+   the drone: 3 &ndash; control flight and detect hotspots<br />
+   the tablet computers: 2 &ndash; visualise telemetry data<br />
+  Most students were able to interpret the data flow diagram (DFD), and many took advantage of simply listing the number of the process involved.</p>
+ <p class="question">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c4" id="c4"></a>Question 4 </strong></p>
+ <p class="question"><strong>(3 marks)</strong></p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p></td>
+<td valign="top"><p class="question"><strong>Question 4 (3 marks)</strong></p>
+ <p class="question"> Melanie has not yet labelled the data flows in her DFD (Diagram 5).<br />
+ What labels should be shown on the data flows A, B and C?<br />
+ </p>
+ <p class="question">A - <span class="myanswer">Visualised telemetry data</span></p>
+ <p class="question"> B - <span class="myanswer">Flight Command</span></p>
+ <p class="question"> C - <span class="myanswer">Patrol Path</span></p>
+ <p class="myanswer">Note: This question may look like a scary DFD question, but it's really quite straightforward.<br />
+  A - the 'A' arrow
+ goes to the park ranger. Looking at the context diagram, what is the only data flow to the park ranger? Visualised telemetry data!<br />
+ B - 
+ In the DFD, the B arrow is the only data going to the drone. What data is flowing to the drone in the Context Diagram? Flight Command.<br />
+ C - 
+ What data is flowing from the HQ staff? Look at the Context Diagram... Patrol Path.</p>
+ <p class="myanswer">It's much easier if you remember that the DFD is actually just details of processes <strong>within</strong> the Context diagram's circle. Notice that both the DFD and CD show the same external entities (park ranger, HQ, drone), so their data flows can be read together to get information about flows within the system and between the system and its partners.</p>
+ <p class="comment">It's a good question to test students' understanding of the relationship between a CD and a DFD.</p>
+ <p class="comment"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p>
+ <p class="examiner">Average mark: 0.9/3 (30%)</p>
+ <p class="examiner">The data flows should have been labelled<br />
+   A: visualised_telemetry_data<br />
+   B: flight_command<br />
+   C: patrol_path<br />
+  Again, students should have taken advantage of the text provided in the diagram to assist in formulating an accurate response; for example, &lsquo;telemetry data&rsquo; is not as accurate as &lsquo;visualised_telemetry_data&rsquo;.</p>
+ <p class="comment">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c5" id="c5"></a>Question 5 </strong></p>
+ <p class="question"><strong>  (4 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 5 (4 marks)</strong></p>
+ <p class="question"> The data store in Melanie's DFD will contain a sequential list of global positioning system (GPS) coordinates. The coordinates will be entered in flight order, with the first coordinate entered being the first point the drone flies to. Before take-off, more points could be added to the end of the list if required.</p>
+ <p class="question">  In her design notes, Melanie has indicated that this data store should have a stack structure. A colleague suggests that it should be a queue data structure.<br />
+  Which would you choose? Justify your choice.</p>
+ <p class="question">  choice [1 line]</p>
+ <p class="myanswer">Queue.<br />
+ </p>
+ <p class="question">justification [6 lines]</p>
+ <p class="myanswer">You want the entries to come in the order in which they were entered - the first datum out of the structure should be the first point to fly to. A queue, being First In First Out (FIFO) behaves like this.</p>
+ <p class="myanswer">A stack, however, would return the last-entered coordinates first, and end with the starting coordinates, because it is a First In Last Out (FILO, or LIFO) structure.</p>
+ <p class="comment">Note - It's easy to remember... </p>
+ <ul>
+  <li class="comment">   A <strong>queue</strong> is like a human queue: the first person in the queue is the first to be served and get out.</li>
+  <li class="comment">   A <strong>stack</strong> is like a stack of dinner plates in the cupboard. The last one added to the pile is the first one to be taken from the pile at tea time. </li>
+ </ul>
+ <table width="50" border="0" align="center" cellpadding="3" cellspacing="0">
+  <tr>
+   <td><img src="/m/queue.jpg" width="255" height="175" alt="Queue" /></td>
+   <td><img src="/m/stack-plates.jpg" width="171" height="257" alt="Stack" /></td>
+   <td><img src="/m/gooddog.jpg" width="225" height="225" alt="Dog" /></td>
+   </tr>
+  <tr>
+   <td><div align="center">Queue - FIFO</div></td>
+   <td><div align="center">Stack - FILO</div></td>
+   <td><div align="center">Dog - FIDO</div></td>
+   </tr>
+ </table>
+ <p><span class="examiner">Average mark:</span> <span class="examiner">2.6/4</span><span class="examiner"> (65%)</span></p>
+ <p class="examiner">Queue data structure<br />
+  Students should have noted the requirement to justify their response, and that four marks had been allocated. In general, a response that provided the correct choice, provided a justification for a queue data structure or stack structure and correctly applied the response to the case study obtained full marks.<br />
+  The following are examples of high-scoring student responses.</p>
+ <blockquote>
+  <p class="examiner">  Choice: queue<br />
+   Justification: As the first coordinates entered will the first points the drone flies to, queue would be the most appropriate data structure, as it goes by the rules &lsquo;first in first out&rsquo; as compared to a stack which goes by the rule &lsquo;last in first out&rsquo; which would not be appropriate as this would cause the last coordinate being entered to be the first point the drone flies to.<br />
+   Choice: queue<br />
+   Justification: Since the queues have a &lsquo;first in first out&rsquo; nature, this would satisfy the &lsquo;first coordinates entered being the first point the drone flies to&rsquo; statement. Melanie&rsquo;s choice would be incorrect as a stack follows the &lsquo;first in, last out&rsquo; principle, which would not satisfy the required method stated.</p>
+ </blockquote></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c6" id="c6"></a>Question 6 </strong></p>
+ <p class="question"><strong>  (5 marks)</strong></p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p></td>
+<td valign="top"><p class="question"><strong>Question 6 (5 marks)</strong></p>
+ <p class="question"> George, one of the programmers for Drone Solutions, has been doing some research on the internet and has found some software, written for a drone, that was developed overseas. He downloads the software and begins altering it. Melanie sees what he is doing and orders him to look up the code of ethics for Drone Solutions.</p>
+ <p class="question"> a.	Explain the purpose of a code of ethics. 3 marks. [7 lines]</p>
+ <p class="myanswer">It lays down the rules for acceptable behaviour for members of a group so they are all aware of what is appropriate and what is not. This can prevent breaches of the rules due to honest ignorance of them, e.g. by newcomers. It also lets the group leaders sanction rule breakers since they had no excuse for misbehaving.</p>
+ <p class="myanswer">A code of ethics also serves to uphold the public reputation of a group. It also bonds its members in a comraderie born of shared ideals.</p>
+ <p class="examiner">Average mark: 1.3/3 (43%)</p>
+ <p class="examiner">In general, students were able to give some information about the purpose of a code of ethics; however, many found it difficult to expand their response to provide adequate detail and depth for full marks.<br />
+  The following is a possible response.</p>
+ <blockquote>
+  <p class="examiner">  A code of ethics outlines values and principles that should be upheld by stakeholders. A code states what is acceptable behaviour and can provide guidelines for resolving ethical dilemmas. They are not laws but rather values that help professionals make decisions about going about their work.</p>
+ </blockquote>
+ <p class="question">  b.	What should George do to resolve this ethical dilemma? 2 marks [7 lines]</p>
+ <ul>
+  <li class="myanswer">Seek permission to use the software from its author/owner.</li>
+  <li class="myanswer">Pay for the software, if it's commercial.</li>
+  <li class="myanswer">Throw the software away and start his own version.</li>
+ </ul>
+ <p class="comment">Once again (they did it in the <a href="/p/postmortem-2013i.htm#b8">2013 ITA paper, B8c</a>) the examiners have just assumed there <strong>is</strong> an ethical dilemma with no due explanation. The case study did not say whether the software was commercial, freeware, Open Source, GNU licensed or whatever. Did Melanie even ask the status of the software?<br />
+  If the software were commercial, it would be a copyright issue, and there would be no ethical dilemma because his use of it would be a legal matter, not an ethical one.<br />
+  If there <strong>is</strong> an ethical dilemma in the situation, why not give enough information for the students to determine what the dilemma is? Then ask them to say what it is, and then ask how to resolve it.</p>
+ <p class="comment">Not a good question.</p>
+ <p class="question"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></p>
+ <p class="examiner">Average mark: 0.5/2 (25%)</p>
+ <p class="examiner">Students needed to discuss using the code of ethics and/or decision support frameworks to help resolve the ethical dilemma.<br />
+  Many students found it difficult to identify the ethical dilemma of whether George should use the code; instead they concentrated on the illegal downloading of the code. Many responses incorrectly stated &lsquo;just stop using the code&rsquo; as the way he could resolve the dilemma. Students are reminded that answers should apply to the case study.<br />
+  The following is an example of a high-scoring student response.</p>
+ <blockquote>
+  <p class="examiner">  His ethical dilemma is that if he uses the software off the internet without permission, he could be in breach of the Copyright Act 1968, but by using the software it will make the development process of the software be much quicker (more efficiency). To resolve the ethical dilemma, George must consult the company&rsquo;s code of ethics and decision support framework to see what the best method to go about creating the software is, and to see what company policy says about using other people intellectual property.</p>
+ </blockquote>
+ <p class="question">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c7" id="c7"></a>Question 7</strong></p>
+ <p class="question"><strong>  (5 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 7 (5 marks)</strong></p>
+ <p class="question"> When a drone detects a hotspot (a temperature above 20&deg;C), it immediately interrupts its preset patrol path and begins monitoring the hotspot. This new path will allow the drone to continuously view the hotspot. This is done in a function called StartMonitoring. It will continue to monitor for five minutes before returning to its patrol path unless told to continue monitoring or to resume its patrol path immediately. This message is received in a variable AlertReply. If told to continue monitoring, it will do so for five minutes or until another AlertReply is sent. When it has finished monitoring, it automatically resumes its patrol path using a function ResumePatrol.<br />
+ </p>
+ <p class="question">The following is a section of the algorithm.</p>
+ <p class="question"> <strong>Get</strong> DetectedTemp <br />
+ <strong>If</strong> DetectedTemp &gt; 20 <strong>Then</strong> <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Call</strong> StartMonitoring<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;FinalTime <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />CurrentTime + 5mins<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Send</strong> Alert <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Repeat</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong></strong><strong>Get</strong> AlertReply <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>If </strong>AlertReply = Monitor <strong>Then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->FinalTime <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />CurrentTime + 5 mins<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>Endif</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Until</strong> (CurrentTime &gt; FinalTime) <strong>And </strong>(AlertReply = Patrol)<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Call</strong> ResumePatrol<br />
+ <strong>Endif</strong></p>
+ <p class="question"><strong>a.</strong> George decides to desk check the <strong>loop</strong> in this algorithm by using various values of CurrentTime and AlertReply to see if the loop behaves as required.</p>
+ <p > Complete the following table if the value for FinalTime on entering the <strong>loop</strong> is 11:00 am. 3 marks<br />
+ </p>
+ <table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="46" valign="top">&nbsp;</td>
+ <td width="94" valign="top"><p align="center"><strong>CurrentTime </strong></p></td>
+ <td width="83" valign="top"><p><strong>AlertReply </strong></p></td>
+ <td width="341" valign="top"><p align="center"><strong>Action observed </strong></p></td>
+ </tr>
+ <tr>
+ <td width="46" valign="top"><p>test 1 </p></td>
+ <td width="94" valign="top"><p align="center">10:58 </p></td>
+ <td width="83" valign="top"><p>NULL </p></td>
+ <td width="341" valign="top"><p>drone continues to monitor hotspot </p></td>
+ </tr>
+ <tr>
+ <td width="46" valign="top"><p>test 2 </p></td>
+ <td width="94" valign="top"><p align="center">10:58 </p></td>
+ <td width="83" valign="top"><p>Monitor </p></td>
+ <td width="341" valign="top" class="myanswer">drone continues to monitor</td>
+ </tr>
+ <tr>
+ <td width="46" valign="top"><p>test 3 </p></td>
+ <td width="94" valign="top"><p align="center">10:58 </p></td>
+ <td width="83" valign="top"><p>Patrol </p></td>
+ <td width="341" valign="top" class="myanswer">drone continues to monitor</td>
+ </tr>
+ <tr>
+ <td width="46" valign="top"><p>test 4 </p></td>
+ <td width="94" valign="top"><p align="center">11:04 </p></td>
+ <td width="83" valign="top"><p>NULL </p></td>
+ <td width="341" valign="top" class="myanswer">drone continues to monitor</td>
+ </tr>
+ </table>
+ <p class="question">Working space [ about 6 empty lines of space]<a name="tracetable" id="tracetable"></a></p>
+ <table width="100%" border="1" cellspacing="0" cellpadding="2">
+  <tr>
+   <td width="32%"><span class="myanswer">&nbsp;<strong>Repeat</strong></span></td>
+   <td width="24%"><span class="myanswer"><strong>TEST 2 </strong></span></td>
+   <td width="22%"><span class="myanswer"><strong>TEST 3</strong></span></td>
+   <td width="22%"><span class="myanswer"><strong>TEST 4</strong></span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer"><em>Values on loop entry</em></span></td>
+   <td><span class="myanswer">CT=10:58. <br />
+    FT=11:00</span></td>
+   <td><span class="myanswer">CT=10:58. <br />
+    FT=11:00</span></td>
+   <td><span class="myanswer">CT=11:04.<br />
+    FT=11:00</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer"><strong>Get</strong> AlertReply </span></td>
+   <td><span class="myanswer"><em>Monitor</em></span></td>
+   <td><span class="myanswer"><em>Patrol</em></span></td>
+   <td><span class="myanswer">NULL</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer"><strong>If </strong>AlertReply = Monitor <strong>Then</strong></span></td>
+   <td><span class="myanswer">True</span></td>
+   <td><span class="myanswer">False</span></td>
+   <td><span class="myanswer">False</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer">FinalTime <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />CurrentTime + 5 mins</span></td>
+   <td><span class="myanswer">FT = 11.00 + 5 = 11:05</span></td>
+   <td class="myanswer">(skipped)</td>
+   <td class="myanswer">(skipped)</td>
+  </tr>
+  <tr>
+   <td><span class="myanswer"><strong>Until</strong> (CurrentTime &gt; FinalTime) <strong>And </strong></span></td>
+   <td><span class="myanswer">10.58 &gt; 11.05 ? <br />
+    False</span></td>
+   <td><span class="myanswer">10:58 &gt; 11:00? <br />
+    False</span></td>
+   <td><span class="myanswer">11:04 &gt; 11:00? <br />
+    True</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer">(AlertReply = Patrol)</span></td>
+   <td><span class="myanswer">False</span></td>
+   <td><span class="myanswer">True</span></td>
+   <td><span class="myanswer">False</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer">So...</span></td>
+   <td><span class="myanswer">False AND False = False,<br />
+so loop repeats</span></td>
+   <td><span class="myanswer">False AND True = False so loop repeats</span></td>
+   <td><span class="myanswer">True AND False = False so loop repeats</span></td>
+  </tr>
+  <tr>
+   <td><span class="myanswer">Observation...</span></td>
+   <td><span class="myanswer">Drone monitors</span></td>
+   <td><span class="myanswer">Drone monitors</span></td>
+   <td><span class="myanswer">Drone monitors</span></td>
+  </tr>
+ </table>
+ <p class="myanswer">Note - This is how I do deskchecks - beside each line of code I put down the state of variables and logical tests after that line is executed. <br />
+  Each loop, or each test gets its own column. <br />
+  In this way it's harder to overlook little factors that can have a significant effect on the answer. </p>
+ <p class="examiner">Average mark: 1.6/3 (53%)</p>
+ <p class="examiner">Similar types of questions have appeared in past examinations. In this question, students were required to provide the action observed in each test; many missed this and wrote about the change to variables or that the drone continues on its path.</p>
+ <p class="question">  b.	Identify the major logic error in this algorithm.	1	mark [4 lines]</p>
+ <p class="myanswer">The ending condition of the loop is incorrect. The drone should should continue monitoring until the final time is reached or the AlertReply tells it to resume its patrol.</p>
+ <p class="examiner">Average mark: 0.5/1 (50%)</p>
+ <p class="examiner">Many students identified that the algorithm required both conditions (time expired and resume patrol) to be true, but only one needed to be true to resume the patrol.<br />
+  The question asked students to identify the problem. It was not sufficient to only write the line of code containing the error without some explanation.</p>
+ <p class="question">  c.	Rewrite <strong>one</strong> line of the algorithm to correct the major logic error.	1	mark [2 lines]</p>
+ <p class="myanswer"><strong>Until</strong> (CurrentTime &gt; FinalTime) <strong>Or </strong>(AlertReply = Patrol)</p>
+ <p class="comment">There's quite a lot of work involved in answering his question. I thought it was worth more than 5 marks!<br />
+  Still, I appreciate the working space provided for the students to do their thinking so they don't have to squeeze notes into the margin of the answer book, or use the empty back pages.</p>
+ <p class="examiner">Average mark: 0.5/1 (50%)</p>
+ <p class="examiner">Many students were able to identify that the AND needed to change to an OR in the UNTIL statement.<br />
+  The following is an example of a correct response.<br />
+  UNTIL (CurrentTime &gt; FinalTime) OR (AlertReply = Patrol)</p>
+ <p class="myanswer">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c8" id="c8"></a>Question 8</strong></p>
+ <p class="question"><strong>  (3 marks)</strong></p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p></td>
+<td valign="top"><p class="question"><strong>Question 8 (3 marks)</strong></p>
+ <p class="question"> George says it will not take him long to create the screen design for the software on the tablet that will be used by the park rangers, as the screen design will be easy and everyone uses tablets these days.<br />
+ </p>
+ <p class="question">Outline <strong>one </strong>concern with George's approach to the screen design and suggest what George could do to ensure that his screen design is effective. [7 lines]</p>
+ <p class="myanswer">His assumption that &quot;everyone uses tablets&quot; is incorrect, so he may design the software carelessly, making it hard to use by those who don't know how to use tablets.</p>
+ <p class="myanswer">He should consider the needs of all types of users - especially those unfamiliar with using tablets - to make the software as easy to use as possible, while not inconveniencing skilled 'power' users.</p>
+ <p class="myanswer">During the design process, he should get the input from skilled and unskilled tablet users to reveal potential problems with his design ideas.</p>
+ <p class="examiner">Average mark: 0.6/3 (20%)</p>
+ <p class="examiner">The majority of students were not able to outline a concern such as &lsquo;George is not taking the skills or knowledge of the animal spotters into consideration&rsquo; and instead wrote lengthy responses about elements of the user interface. Ideally, responses should have identified a concern (not seeking input from spotters), and discussed two methods for gaining input (before design) or feedback about the design from the spotters.</p>
+ <p class="myanswer">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c9" id="c9"></a>Question 9</strong></p>
+ <p class="question"><strong>  (5 marks)</strong></p></td>
+<td valign="top" ><p class="question"><strong>Question 9 (5 marks)</strong></p>
+ <p class="question"> Before a park ranger can give directions to a drone via the software on a tablet computer, they must enter a username and password.<br />
+ Using the variable names Username and Password, write an algorithm that accepts the username and password entered by the user, and checks that they match the variables CorrectUserName and CorrectPassword.<br />
+ If they are correct, the algorithm should start the monitoring program, and if not, it should display an 'incorrect username/password' message. [7 lines]</p>
+ <p class="myanswer">DISPLAY &quot;Username?&quot;<br />
+GET Username<br />
+DISPLAY &quot;Password?&quot;<br />
+GET Password<br />
+ </p>
+<p class="myanswer">IF (Username = CorrectUserName) AND (Password = CorrectPassword) THEN<br />
+ <span class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;CALL MonitorProgram<br />
+ELSE<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;DISPLAY &quot;Incorrect username/password&quot;<br />
+ENDIF</span><br />
+</p>
+<p class="comment"> Hmmm. Rather basic and repetitive: the previous question has already exercised students' knowledge of AND and IF. <br />
+ Surely a different nugget of programming wisdom could have been tested here? It's not as if we're short of them...</p>
+<p class="examiner">Average mark: 2.9/5 (58%)</p>
+<p class="examiner">A complete algorithm is shown below. Other answers were also possible.<br />
+ </p>
+<p class="examiner">Get (or Read) UserName and Password<br />
+ IF UserName =CorrectUserName AND Password = CorrectPassword then<br />
+ Load Monitoring Program<br />
+ Else<br />
+ Display incorrect username/password message<br />
+ ENDIF<br />
+ </p>
+<p class="examiner">Students were expected to use the information provided in the text of the question to develop an algorithm. Key elements of the algorithm included getting the inputs, correct logic within a selection control structure, control structure options (load and display) and appropriate indentation.</p>
+<p class="comment">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c10" id="c10"></a>Question 10</strong></p>
+ <p class="question"><strong>  (3 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 10 (3 marks)</strong></p>
+ <p class="question"> Each park ranger will be asked to provide a password for the monitoring program. <br />
+  This password must contain more than four characters that are only letters or numbers. The following algorithm is created to check this.<br />
+  It uses a function <strong>Length</strong>(string) to give the length of a string and a function <strong>Midchar</strong>(string, position) to give the character that is in each position from the start.</p>
+ <p class="question"> <strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Get</strong> Password<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;LengthPassword <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" /><strong>Length</strong>(Password)<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>If </strong>LengthPassword &gt; 4 <strong>Then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;Position <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />0 <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;ValidChar <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />True <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>Repeat</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Position <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />Position + 1<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->PasswordChar <strong><img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />Midchar</strong>(Password, Position)<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>If</strong> PasswordChar <strong>Not alphabetic And</strong> PasswordChar <strong>Not numeric then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;ValidChar <img src="/m/pm/equals.jpg" width="15" height="13" alt="Assignment operator" />False<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Endif</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>Until</strong> Position = LengthPassword <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>If </strong>ValidChar = False<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Display Message Password contains invalid characters<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;<strong>Endif</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Else</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Display Message Password too short<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;<strong>Endif</strong><br />
+ <strong>End</strong></p>
+ <p class="question"> Complete the table below with three passwords that will test each of the different circumstances listed.<br />
+ </p>
+ <table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="72" valign="top"><p align="center"><strong>Test no. </strong></p></td>
+ <td width="156" valign="top"><p align="center"><strong>Password </strong></p></td>
+ <td width="447" valign="top"><p align="center"><strong>What is being tested? </strong></p></td>
+ </tr>
+ <tr>
+ <td width="72" valign="top"><p align="center">1 </p></td>
+ <td width="156" valign="top" class="myanswer"><p>This</p>
+  <p class="examiner">&lt;= 4 characters or digits.<br />
+   Eg: abcd,1234, ab12</p></td>
+ <td width="447" valign="top"><p>message 'Password too short' displayed </p></td>
+ </tr>
+ <tr>
+ <td width="72" valign="top"><p align="center">2 </p></td>
+ <td width="156" valign="top" class="myanswer"><p>Question</p>
+  <p class="examiner">&gt;4 only alphanumeric<br />
+   Eg: Adgjl, 13579, ad123</p></td>
+ <td width="447" valign="top"><p>a valid password is accepted </p></td>
+ </tr>
+ <tr>
+ <td width="72" valign="top"><p align="center">3 </p></td>
+ <td width="156" valign="top" class="myanswer"><p>Is Really Dumb!!!</p>
+  <p class="examiner">At least 5; with 4 or less valid and at least one invalid character<br />
+   Eg: asdf!</p></td>
+ <td width="447" valign="top"><p>message 'Password contains invalid characters' displayed </p></td>
+ </tr>
+ </table>
+ <p class="comment">I mean - the code is completely useless! Why is it there? <br />
+  We were told in the question what the password rules are, and the code merely implements the rules.<br />
+  There were no hidden sneaky errors in the code that would reject a valid password, or accept an invalid one!</p>
+ <p class="comment">Students only had to create three passwords that followed the rules given at the start of the question. They needn't have read the code <strong>at all</strong>. Or they could have wasted their time as I did trying to work out what the &quot;gotcha&quot; was, because - hey! - that code had to be there for a <strong>reason</strong>, right? Apparently not.</p>
+ <p class="comment">And to think of the time I wasted neatly formatting that pointless lump of code with all of those nice &amp;nbsp; and bolded operators and graphic assignment operators! Grrr.</p>
+ <p class="comment">  This was far, far too simple, even it's only worth 3 marks!<br />
+  And a time-waster for the better kids who carefully studied the code, suspecting it must have had some meaning.
+ </p>
+ <p><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></p>
+ <p class="examiner">Average mark: 2.6/3 (87%)</p>
+ <p class="examiner">A number of students missed the requirement for &gt;4 (greater than four characters) and only provided four, while others missed the requirement that to test the last condition the test data had to be greater than four plus an invalid character.</p>
+ <p>&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c11" id="c11"></a>Question 11 </strong></p>
+ <p class="question"><strong>  (6 marks)</strong></p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p></td>
+<td valign="top"><p class="question"><strong>Question 11 (6 marks)</strong></p>
+ <p class="question"> George talks to Melanie, who points out a major flaw in his password system. The aim is to have one tablet per monitoring station, not one per user, to reduce costs. A file of all usernames and passwords (expected to exceed 1000 over time as staff move between parks) will be on this tablet. Maximum memory will be needed on the tablet to display the high-resolution video, so Melanie suggests that the file is searched each time a user logs in instead of reading the whole file into memory. She suggests that the file be a random access file, and that the username and password are located using a binary search.<br />
+ </p>
+ <p class="question">a.	To allow a successful binary search on username to occur, describe what must be done with the records in the file before the search begins. 1 mark [3 lines]</p>
+ <p class="myanswer">They must be sorted by username.</p>
+ <p class="examiner">Average mark: 0.2/1 (20%)</p>
+ <p><span class="examiner">The data in an array needs to be sorted on the username field.<br />
+  Students are encouraged to make use of past examination reports as there has been a question on binary searching on the past two examinations. This may have assisted students in avoiding the common mistake of not identifying the data field that needed to be sorted. Many students were aware that for a binary search to occur the data in an array needed to be sorted; however, very few indicated that it needed to be sorted on the username field.</span><br />
+ </p>
+ <p class="question">b.	Describe the process that the binary search will use to locate the given username. 2 marks [8 lines]</p>
+ <p class="question"><span class="myanswer">It will divide the list in half and determine which half the username should be in. <br />
+  It discards the other half of the list. <br />
+  It repeats the process until only one username remains, or none remain, indicating that the name is not in the list.</span></p>
+ <p class="examiner">Average mark: 0.7/2 (35%)</p>
+ <p><span class="examiner">The starting point of the search is the midpoint of the file. Half will be disregarded based on the midpoint being higher or lower than the search value. This is then repeated until the value was located.<br />
+  Describing a binary search process was quite difficult for most students.<br />
+  The following is an example of a high-scoring student response.</span></p>
+ <blockquote>
+  <p><span class="examiner">  The binary search will compare the username in the middle of the file to username entered. If the entered username is greater then it compares it with the value in the middle of the usernames between the middle of the list and the end of the list. If the entered username is smaller than it will compare it with the username in the middle of the usernames from the start to the middle of the list. This is repeated until the middle value equals the entered username.</span><br />
+  </p>
+ </blockquote>
+ <p class="question">c.	Explain the difference in the way records are accessed when using a random access file compared to a serial access file and why Melanie has suggested using a random access file. 3 marks [7 lines]</p>
+ <p class="myanswer">Since all records in a random file are the same length, the starting byte of any record can be calculated mathematically with <span class="code">(recordnum - 1) * recordlen + 1</span>. Thus, any record can be accessed immediately, skipping any records between the search start point and the record's location.</p>
+ <p class="myanswer">Serial files, however, contain records of variable length so any record's starting point cannot be calculated. A search for a record must begin at the start of the file and step sequentially through every record until the desired one is found.</p>
+ <p class="myanswer">Thus, random file access can be far faster than serial file access, particularly as file sizes increase, which is what Melanie is anticipating.</p>
+ <p class="comment">There <strong>must</strong> be some other questions that VCAA can ask about binary searches and random files... These old chestnuts appear on <strong>every</strong> exam....</p>
+ <p class="examiner">Average mark: 1.4/3 (47%)</p>
+ <p class="examiner">To gain full marks students were required to describe how records are accessed when using a random access and a serial access file, and why random access files are more appropriate when doing a binary search.<br />
+  Many students answered the first two parts of the question but many did not answer the &lsquo;why&rsquo; part. Students are reminded that using the words &lsquo;more efficient&rsquo; is not considered a justification. Students often find it difficult to clearly express the difference between random access and serial access.<br />
+  The following is an example of a high-scoring student response.</p>
+ <blockquote>
+  <p class="examiner">  Random access file allows access to any point in the file, meaning that it does not have to be read in the order it was written (usually indexed). Serial files only allow reading of the contents in the order it was written. Melanie wants to access the file of usernames/passwords for any random person, checking the input of a username and password hence a random access file will be more beneficial as it doesn&rsquo;t have to read in order every time (like a serial file).</p>
+ </blockquote>
+ <p class="question">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c12" id="c12"></a>Question 12</strong></p>
+ <p class="question"><strong>  (2 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 12 (2 marks)</strong></p>
+<p class="question"> Brenda suggests to George that instead of using tablets to display the data coming from the drone, they should use mobile phones as these are cheaper and everyone has one, so tablets would not have to be purchased.<br />
+Explain why the tablet is a better choice. [6 lines]</p>
+<ul>
+ <li class="myanswer">Its display is larger and easier to read.</li>
+ <li class="myanswer"> It has more space for a bigger battery, therefore having longer life between recharges.<br />
+ </li>
+ <li><span class="myanswer">The software writers would not have to port the software to many different phone platforms. It could be tailor-made for a specific tablet, and exploit the advantages of that tablet.</span></li>
+ </ul>
+<p class="examiner">Average mark: 1.3/2 (65%)</p>
+<p class="examiner">The use of a tablet was a better choice as the data being displayed was images with small detail; this was not appropriate on the small screen of a mobile phone.</p>
+<p><br />
+</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c13" id="c13"></a>Question 13</strong></p>
+ <p class="question"><strong>  (4 marks)</strong></p></td>
+<td valign="top"><p class="question"><strong>Question 13 (4 marks)</strong></p>
+<p class="question"> When the drone lands, the data files, including video and GPS coordinates, will be downloaded onto a notebook computer. The files will then be deleted from the drone so that there is space for data files from the next flight.</p>
+<p class="question"> a.	Is this an example of backup or archiving? Give a reason for your answer.	2	marks [5 lines]</p>
+<p class="myanswer">It's archiving. A backup leaves the copied data in place. Archiving moves the data, then deletes the original.</p>
+<p class="examiner">Average mark: 1.7/2 (85%)</p>
+<p class="examiner">This is an example of archiving, and many students were able to identify that this was characterised by removing the file from the original device.</p>
+<p class="question"> b.	Describe another procedure that would reduce the chance of these files being lost.	2	marks [7 lines]</p>
+<p class="comment"><strong>&quot;Another&quot;</strong> procedure? The first procedure was not aimed at reducing the chance of files being lost - it was just <strong>moving</strong> them! The question should have been &quot;Describe <strong>a</strong> procedure...&quot;<br />
+</p>
+<p class="comment"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></p>
+<p class="myanswer"><span class="comment">So - what is the question expecting - backup suggestions, perhaps?</span></p>
+<p class="myanswer">Copy the files to another device (e.g. USB drive, portable HDD, cloud storage) and store the files in a different location.</p>
+<p class="comment">Note - Encryption would not stop the files getting lost. It would just stop them being read if they got stolen.</p>
+<p class="examiner">Average mark: 1.3/2 (65%)</p>
+<p class="examiner">Students were able to describe a backup method that used an additional storage medium, with many suggesting &lsquo;cloud&rsquo; options.</p>
+<p class="question">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c14" id="c14"></a>Question 14 </strong></p>
+ <p class="question"><strong>  (6 marks)</strong></p>
+ <p></p>
+ <p align="center"><img src="/m/warning_sign.gif" width="24" height="24" alt="warning" /></p>
+ <p class="question">&nbsp;</p></td>
+<td valign="top"><p class="question"><strong>Question 14 (6 marks)</strong></p>
+<p class="question"> A major security concern for the software being designed to run on the drone is that hackers (unauthorised users) could take over control of the drone.<br />
+ State two measures that could prevent this from happening. Clearly explain how each would prevent unauthorised access to the drone.</p>
+<p class="comment">The exam should have bolded the word &quot;two&quot;.</p>
+<ul>
+ <li class="myanswer">Encrypt all communications between the drone and its operators - this would obfuscate commands and data passing between authorised operators and the drone so that unauthorised users would not be able to read the data or send commands to the drone.</li>
+ <li class="myanswer">Require a valid username and password for drone launchers and operators - this would prevent hackers stealing and launching a drone, or using a found/stolen tablet to control the drone.</li>
+ <li class="myanswer">Keep inactive drones securely locked away from the public so hackers can't gain access to them and interfere with their operating software.</li>
+ <li class="myanswer">Turn off the drone's SSID broadcasting. This would make it a tiny bit harder for hackers to detect the drone's wifi router.</li>
+ <li class="myanswer">Make sure the drone's wifi router had a changed admin username and password. This would prevent hackers using default logins to access the drone's router and gaining access to its file system.</li>
+ <li class="myanswer">Turn on strong wifi encryption (e.g. WPA2+). This encrypts local wifi communications between the drone's router and nearby people.</li>
+ <li class="myanswer">Encrypt the stored source code of the drone's software so it cannot be read by hackers if they managed to find and copy it. This would prevent them finding security vulnerabilities and creating exploits to take advantage of them.</li>
+ <li class="comment"><strong>Kill</strong> all of the programmers once the job is done. Bwahahahahaha! <strong>Now</strong> let those hackers try to nail the programmers to a stake and threaten to slice off their ... oops. Sorry. Got a bit &quot;Game of Thrones&quot; there.</li>
+ </ul>
+<p class="examiner">Average mark: 1.8/6 (30%)</p>
+<p class="examiner">This question was poorly answered by most students. Many gave generic security measures, and/or failed to explain the measure or provide details as to how the measure would prevent unauthorised access. Students needed to ensure that the measures they were explaining were appropriate to the device identified in the question (the drone).<br />
+ The following is an example of a high-scoring student response.</p>
+<blockquote>
+ <p class="examiner"> Install a firewall between the tablet and router<br />
+  - A firewall controls which user can and cannot have access to certain ports.<br />
+  - The firewall would only allow the park rangers access to the drones and would prevent unauthorised outside users.<br />
+  </p>
+ <p class="examiner">Ensure all path instructions are encrypted<br />
+  - Encryption changes the &lsquo;plain text&rsquo; of the flight instructions into unreadable &lsquo;ciphertext&rsquo;.<br />
+  - This will ensure that the drones can only accept instructions from the official tablet devices and nothing else.</p>
+</blockquote>
+<p>&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" class="yellowback" ><p class="question"><strong><a name="c15" id="c15"></a>Question 15 </strong></p>
+ <p class="question"><strong>  (3 marks)</strong></p></td>
+<td valign="top"><p class="question"> <strong>Question 15 (3 marks)</strong></p>
+<p class="question"> Once the software has been accepted by PNPW, all park rangers will be required to use it. The park rangers are very unhappy about this as they have no idea how the new software will work and so they complain to the PNPW management.<br />
+ Explain how management could resolve this conflict. [6 lines]</p>
+<ul>
+ <li class="myanswer">They need to advertise the benefits of the software so rangers will appreciate its importance and be willing to give it a fair go.</li>
+ <li class="myanswer">They then need to train rangers how to use the system in a brief and unthreatening way (with nice sandwiches.) Regional training sessions with small groups might be best.</li>
+ <li class="myanswer">Training one ranger in each park to become a trainer would provide quick on-site support to other rangers by someone they are familiar and comfortable with.</li>
+ <li class="myanswer">They also need to provide plenty of easily accessed documentation to teach or remind rangers how to use the system.</li>
+ <li class="myanswer">They need to provide friendly technical support for rangers who are having system faults or trouble using the system.</li>
+</ul>
+<p class="examiner">Average mark: 1.7/3 (57%)</p>
+<p class="examiner">As this question asked students to &lsquo;resolve this conflict&rsquo; it was expected that they would write about decision support frameworks; however, most responses included details of training and/or documentation and were awarded some marks. As some resolution was required, it was important to include some evaluation/feedback mechanism from the park rangers, before, during and/or after training.</p></td>
+</tr>
+<tr>
+ <td colspan="2"><p align="center"><strong>END OF QUESTION AND ANSWER BOOK</strong></p></td>
+</tr>
+<tr>
+<td colspan="2" ><p align="center" class="comment">On the whole - good, with a glitch or two. Certainly better than the <a href="/p/postmortem-2013i.htm">ITA paper</a> - as usual.</p>
+ <ul>
+  <li class="comment">   Please don't include information or code that serves no purpose - e.g. <a href="#b2">B2</a> and <a href="#c10">C10</a>. Good students will waste their time trying to find the typical logic holes in it, only to discover they could have been using their time ignoring it and getting on with answering questions! </li>
+  <li class="comment">Don't re-examine the same material. Once is quite enough for AND and IF statements (<a href="#c7">C7</a> and <a href="#c9">C9</a>). <br />
+   This also &lt;&lt;Includes&gt;&gt; <a href="#b6">B6a and B6b</a></li>
+  <li class="comment">Proofread until it hurts - e.g. myPi.</li>
+  <li class="comment">If you're going to use <strong>bold</strong> to highlight the required number of items, please do it consistently (<a href="#c1">C1</a> and <a href="#c14">C14</a>)</li>
+ </ul>
+ <p align="center">&nbsp;</p></td>
+</tr>
+<tr>
+ <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="yellowback"><div align="center">
+<h3><strong>STUDENT FEEDBACK</strong></h3>
+ </div></td>
+</tr>
+<tr>
+<td valign="top">Matt</td>
+<td>Mr Kelly (or Mark or whatever)<br />
+ <br />
+ Friday's software development exam was my last year 12 exam, and I felt awesome going into it because I feel like I really know the software course, and THAT was almost ALL because of your awesome website.<br />
+ VCEIT was my true companion in sofdev this year, taking on the role of textbook and teacher, as neither my actual textbook nor my actual teacher seemed like they wanted to teach me the course (clsss was mainly devoted to SAC practice, which I didn't get a lot out of having already learned how to program beyond a VCE sofdev level before year twelve).<br />
+ So I want to thank your website for being there for me and actually allowing me to self-study the course while it wasnt being taught in class. I was only able to move through the course due to the comprehensive notes you had on offer, filling in anything I was missing with a quick google search.<br />
+ If you're at all interested, I feel like I nailed the exam (~90% but well see) and it was a great way to finish the year off, because of the confidence I built from your website up. I'm hoping for a study score in the 40's and I would have been clueless if it weren't for VCEIT.<br />
+ Once more, thanks for existing and stuff, I look forward to reading the post mortem.</td>
+</tr>
+<tr>
+ <td valign="top">Jesse</td>
+ <td><div>
+  <p>Hey I got all of the answers that you got for <a href="#a2">section A except for Q2</a>. I chose design, but you selected B (analysis). Could you tell me why the answer is not design, as I feel something as specific as occupying &lt;10MB would show up in evaluation criteria. Thanks :)</p>
+  <p>PS: Everybody down at atarnotes is eagerly awaiting sections B and C :) and we're very appreciative of your solutions :)</p>
+ </div>
+  <div></div></td>
+</tr>
+ </table>
+<p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 17 November 2013</font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate -->
+</font></p>
+ <p align="center"><font size="2">Original Content &copy; Mark Kelly 2013<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2013. <br />
+Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font></p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

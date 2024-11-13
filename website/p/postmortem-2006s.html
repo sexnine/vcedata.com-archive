@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCAA IS Exam Post Mortem 2006</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<div align="center"> 
+<p><a href="/index.html" target="_top">VCE Applied Computing Notes</a>
+by <a href="/mailform.htm">Mark Kelly</a> </p>
+</div>
+<table>
+<tr> 
+<td > 
+<h1 align="center">Information Systems</h1>
+<h1 align="center">VCAA Exam Post Mortem </h1>
+<h1 align="center">2006</h1>
+<p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+<td><center><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><font size="2"></font>
+</center></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr> 
+<td><p>Since I'll be teaching Software Development in 2007 I thought I'd have a look at the 2006 IS exam. Hereunder please find a brief account of what some answers may look like. Please take this with a grain of salt since I have never taught IS and am relying on many years of amateur programming 
+and teaching IPM.</p></td></tr>
+<tr>
+<td ><h1 align="center"><a name="a"></a>Section A </h1></td>
+</tr>
+<tr>
+<td><div align="center"><a href="#b">Jump to section B</a></div></td>
+</tr>
+<tr>
+<td><p>A1. A cinema uses a network of computers for selling tickets from day to day. What type of information system is the cinema using (1 mark)</p>
+<p><font color="#000000" class="blue">Transaction Processing System.</font></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>A2. </p>
+<p><img src="/m/pm/06s-a2.jpg" alt="floorplan" width="412" height="446" /></p>
+<p>a. State the <strong>topology</strong> of the network above. (1)</p>
+<p><font color="#000000" class="blue">Star.</font></p>
+<p>b. State the type of network used above (1).</p>
+<p class="comment"><em>I don't like the ambiguous wording of this: there are several ways of categorising a network. Students could say &quot;LAN&quot; or &quot;Client/server&quot;. As a guess, I'd put down</em></p>
+<p><font color="#000000" class="blue">Local Area Network</font></p>
+<p class="comment"><em>and trust the examiners will be magnanimous enough to accept either answer. </em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>A3. Describe the major difference between the functions of a switch and a modem in a network. (1) </p>
+<p class="blue">A switch is a device to interconnect network nodes so that devices can exchange data. They are commonly used to split one cable into many cables, like an electrical powerboard. Unlike hubs, switches are smart and only pass on traffic to devices that the traffic is intended for.</p>
+<p class="blue">A modem on the other hand is the device that connects a computer to the outside world, usually the internet. </p>
+<p class="comment"><em>Strictly speaking, a modem is an <strong>analogue</strong> device that <strong>mod</strong>ulates digital data into sound so it can upload over phone lines and <strong>dem</strong>odulate downloads of sound back into digital data. (Get it? MODulateDEModulate?) There is <strong>no way</strong> any modern network of any importance would use a real analogue modem - at a theoretical maximum download speed of 56kbps (and upload at 33.6kbps) it is far too slow, prone to data error and line dropouts, and it monopolises a phone line.</em></p>
+<p class="comment"><em>A cable &quot;modem&quot; just splits internet data from cable TV data. It does not modulate/demodulate and is purely digital. <br />
+An ADSL &quot;modem&quot; is also not really a modem because it put digital data over a standard phone line at a frequency that does not interfere with normal voice signals. </em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>A4. A network operating system provides services to network administrators and users. State two <strong>important</strong> services you would expect to be provided: one for the administrator and one for the user. (2) </p>
+<table>
+<tr>
+<td width="413" ><strong>Administrator</strong></td>
+<td width="462" ><strong>User</strong></td>
+</tr>
+<tr class="blue">
+<td valign="top"><ul>
+<li> set user privileges such as what can be done in what directories, what printers they can access, and how big their home directory is</li>
+<li> monitor user activity</li>
+<li> control print queues</li>
+<li> control IP address usage</li>
+</ul>  
+<p>&nbsp;</p>
+</td>
+<td valign="top"><ul>
+<li> virus scanning</li>
+<li> providing an IP address for internet access</li>
+<li> storing user's files in home directory</li>
+<li> protecting user's home directory from other users</li>
+<li> providing access to printers and internet</li>
+<li> caching downloads for faster access next time </li>
+</ul></td>
+</tr>
+</table> 
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>A5 - Link each of these scenarios with one of the following states of the systems development life cycle: analysis, design, development, implementation, evaluation </p>
+<table>
+<tr>
+<td width="64%" valign="top">A network administrator identifies the error rate of his organisation's internet connection </td>
+<td width="36%" valign="top" class="comment"><em>Hmmm. Tricky. Could be <strong class="myanswer">analysis</strong> if he plans a project to try to fix the error rate. Could be <strong class="myanswer">evaluation</strong> if he has finished a project to fix the error rate. Quite ambiguous. By the stressing of the word &quot;currently&quot; in the third scenario (which is clearly analysis), it suggests this one should be</em> evaluation...<em> but it's definitely tricky. </em></td>
+</tr>
+<tr>
+<td valign="top">A school replaces ild computers in the computer room with new ones during the school holidays </td>
+<td valign="top"><strong class="blue">Implementation</strong>. <em class="comment">Pretty easy.</em> </td>
+</tr>
+<tr>
+<td valign="top">A graphics company identifies some concerns in the way it <strong>currently</strong> stores and accesses past customers' details. </td>
+<td valign="top"><strong class="blue">Analysis</strong><em class="comment"> involves observation of the system to better understand the nature of the problem.</em> </td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>A6 - A company, No Blots, supplies ink cartridges for printers which are sold only through the internet. When customers place an order, the order is checked, a confirmation is sent back to the customer and the details of the order are sent to the warehouse. The diagram below shows the data flow diagram (DFD) for the No Blots online purchasing system. The diagram does not show the data sources and destinations.</p>
+<p><img src="/m/pm/06s-a6.jpg" alt="Data flow diagram" width="543" height="309" /></p>
+<p>a. In a DFD a circle represents a process. Briefly explain what is meant by a process. (1)</p>
+<p class="blue">A process is some form of processing which take
+data as input, does something to it, and provides outputs</p>
+<p>b. In the DFD, what do the symbols labelled <strong>stock</strong> and <strong>orders</strong> represent? (1) </p>
+<p class="blue">They are data stores, including electronic 
+stores such as databases, and physical stores such as filing cabinets
+or stacks of paper.</p>
+<p>c. Complete the context diagram below for the No Blots system. (3)</p>
+<p align="center"><img src="/m/pm/06s-a6c.jpg" alt="Context diagram" width="431" height="216" /></p>
+<p align="center">&nbsp;</p>
+<p align="center"><img src="/m/pm/06s-a6c2b.jpg" alt="Context diagram answer" width="650" height="282" /></p>
+<p align="left" class="comment"><em>Now, this is my first DFD so there are no guarantees it's up to scratch. It seems that we need to provide an input to the warehouse from the online purchasing system (OPS). We would also need to add an <strong>external entity</strong>, the customer, and link the customer to the OPS. I'm only guessing that the warehouse must send some form of invoice or receipt or packing slip to the customer when the goods are shipped.</em></p>
+<p align="left" class="comment"><em>I'd be happy to be instructed on this! </em></p>
+<p align="left" class="comment"><em>Thanks to two wise souls who informed me that flows cannot go directly from one external entity to another - I had an invoice/receipt going from the warehouse to the customer. Such flows need to pass through a process, hence the amended DFD above. </em></p>
+<p align="left" class="comment"><em>As a tip: I used Word's drawing tools (basic shapes, connectors) to draw the DFD. The connector arrows move around when you move connected shapes. Add text to shapes by right-clicking the shape and selecting &quot;Add text&quot;. Add text to arrows the hard way with a text box (formatted to have no fill and no lines). </em></p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>A7. A computerised machine sorts fruit by weight. It uses a program that directs the fruit through three different gates according to weight. Below is a small segment of that program.</p>
+<p>message <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> &quot;Fruit is undersized&quot;<br />
+fruit_count <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> 0<br />
+Repeat <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->good_fruit <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> true <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Close all gates<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->input (fruit_weight)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->if (fruit_weight &gt; 30.00) then <br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; open (gate1)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; fruit_count <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> fruit_count + 1<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->else<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; if (fruit_weight &gt; 20.00) then<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; open (gate2)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; fruit_count <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> fruit_count + 1<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->else<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->good_fruit <img src="/m/pm/equals.jpg" width="15" height="13" alt="Equals" /> false<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; open (gate3)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->endif<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->if not (good_fruit) then<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp; output (message)<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->end if<br />
+until eof *** end of fruit<br />
+output (fruit_count)<br />
+</p>
+<p>a. Identify each variable shown in the table below as one of the following variable types: text, date, boolean, integer, floating point. (3) </p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="183"><strong>Variable</strong></td>
+<td width="309"><strong>Type</strong></td>
+</tr>
+<tr>
+<td>fruit_count</td>
+<td class="blue">integer</td>
+</tr>
+<tr>
+<td>message</td>
+<td class="blue">text</td>
+</tr>
+<tr>
+<td>good_fruit</td>
+<td class="blue">boolean</td>
+</tr>
+</table>
+<ul>
+<li class="comment"><em><strong>Text</strong> holds alphanumeric data - can contain any ASCII character &gt;= 32. Basically, If you can type it and see it onscreen, it can be stored as text. Excludes control codes (ASCII codes &lt; 32).</em> Numbers can be stored as text (e.g. phone numbers), but if so, they cannot be manipulated as numbers. </li>
+<li class="comment"><em><strong>Date</strong> is a special data type designed to store a date code efficiently.</em></li>
+<li class="comment"><em><strong>Boolean</strong> is the least memory-hog type: it stores yes/no, true/false, on/off binary conditions (i.e. only two possible values)</em></li>
+<li class="comment"><em><strong>Integer</strong> is a whole positive or negative number (no fractional part). There are short integer and longer integer subvarieties. </em></li>
+<li class="comment"><em><strong>Floating point</strong> is a positive or negative number with a fractional component (e.g. 3.14159). Integer values can be stored as floating point, but it wastes storage space.</em></li>
+</ul> 
+<p>b. The code is to be written as a procedure within a larger program. The programmer decides to name the procedure 'helen' in honour of his girlfriend. Briefly explain whythis is a poor choice of name for the procedure. (1)</p>
+<p class="blue">Well, it gives no clue as to the contents of the procedure. A good name is a short, pithy, informative label that lets you identify the nature of an object without having to open it and inspect its guts. Also, once he and Helen split up acrimoniously, the name will be there forever to haunt him in the future.</p>
+<p class="comment"><em>Question A7 was a bit too easy, I think. </em></p>
+</td>
+</tr>
+<tr>
+<td><p>A8. Explain the difference between Read Only Memory (ROM) and Random Access Memory (RAM). (2)</p>
+<p class="blue">Once a ROM's contents are written it, they cannot be changed. On the other hand, they survive with no electricity. RAM is <strong>volatile</strong> and loses its contents continuously, thereby requiring refreshing many times a second (unless it's expensive <strong>static RAM</strong>). RAM loses its contents when the power goes off.</p>
+<p class="comment"><em>ROM is used to store permanent programming (such as controllers of toasters and microwaves). RAM is used to store program code that is running, and to store temporary ('scratch') calculations.</em></p>
+<p class="comment"><em>Intermediary forms between ROM and RAM are PROM, EPROM, EEPROM and Flash memory whose contents can be rewritten. </em></p>
+<p><span class="comment"><em>Actually, I've been wanting to make a nerdy point for a long time: ROM is <strong>also</strong> random access, so they really should be called RORAM and RWRAM.</em></span><em> </em><img src="/m/woot.gif" width="24" height="24" hspace="3" align="absmiddle" /> </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td align="left"><p>A9. Describe how a router can help make a large network run more efficiently. (2)</p>
+<p class="comment"><em>Notice it said &quot;efficiently&quot;, not &quot;effectively&quot;, so we're concerned with saving time, money and labour: we are NOT interested in quality, accuracy, safety etc. I hope the examiners notice this too!</em></p>
+<p class="comment"><em>Routers have 3 functions:</em></p>
+<p class="comment"><em>1) they can be programmed to protect a LAN from undesirable incoming traffic, and can kill unwanted outgoing traffic.</em></p>
+<p class="comment"><em>2) they can divide a LAN into discrete sections with different privileges. For example in a school the teachers' admin network is logically separated from the students' curriculum network by the router. Staff can see the student network, but students are prevented from seeing the admin network by the smart router. While it seems there are two separate networks, they are in fact one.</em></p>
+<p class="comment"><em>3) they guide TCP/IP packets from their source to their destination across LANs and the internet. Routers come in all sizes from paperback-sized home router boxes to room-sized supercomputers used by telcom giants like Telstra and AT&amp;T. </em></p>
+<p class="comment"><em>Now, how can they make a &quot;large network run more <strong>efficiently</strong>&quot;?</em></p>
+<p class="myanswer">Saving time: they prevent unwanted incoming packets that would have to be dealt with by the LAN. They help prevent hackers entering a LAN, thereby saving time having to be spent recovering from data destruction or theft. Routers direct packets efficiently to their destination, thereby saving users time waiting for uploads and downloads to finish. </p>
+<p class="myanswer">Saving money: data loss by intruders can be hideously expensive. Re-creating lost data is massively expensive and disruptive. </p>
+<p class="myanswer">Saving effort: since the router protects the LAN from hackers, less effort is required to maintain it. Dividing the LAN into discrete sections with a router can make one group of users (e.g. the payroll department) invisible to other users (e.g. greedy sales staff) so less work needs to be done enforcing network security. </p>
+<p class="comment"><em>Yeah - stretching a long bow, I know. Not terribly convincing, but that's what the question asked. </em></p>
+<p><em>To quote the OFFICIAL
+IT study design glossary (Page 48)... </em></p>
+<p><em>EFFECTIVENESS = A measure of how well something works, such as an information
+system, file management strategies and an information product, and the
+extent to which it achieves its intended results. Measures of an effective
+information system include reliability and maintainability. Measures of
+an effective information product include completeness, readability, attractiveness,
+clarity, accuracy, accessibility, timeliness, communication of message,
+relevance and usability. Measures of an effective file management strategy
+include integrity of data, security, ease of retrieval and currency of
+files.</em></p>
+<p><em>EFFICIENCY = A measure of how little time, cost and/or effort is wasted
+in order to achieve intended results. Measures of an efficient information
+system include its productivity, processing time, operational costs and
+level of automation. Measures of an efficient information product include
+the speed of processing, the functionality of the solution, the ease of
+use of the solution and output and the cost of information processing.</em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>A10. A company requires a particular task to be carried out using a computer. It has a choice of two programs, A and B. The company would like to evaluate both programs so that it can decide which to purchase. Several criteria can be used to evaluate software, including effectiveness, efficiency, maintainability, reliability, usability.</p>
+<p>The company will perform three trials, each trial measuring a different criterion. The trials are shown in the table below. For each trial, state which if the criteria listed above is being measured.</p>
+<table width="92%" border="1" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td width="78%" ><strong>Trial</strong></td>
+<td width="22%" ><strong>Criterion being measured </strong></td>
+</tr>
+<tr>
+<td>Carefully examine the user interface of each program. </td>
+<td class="blue">usability</td>
+</tr>
+<tr>
+<td>Give the same task to both programs and record the time each takes to complete it. </td>
+<td class="blue">efficiency</td>
+</tr>
+<tr>
+<td>Have each program run the same task 1000 times and count how many times each crashes. </td>
+<td class="blue">reliability</td>
+</tr>
+</table> 
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td ><h1 align="center"><a name="b"></a>Section B </h1> </td>
+</tr>
+<tr>
+<td><div align="center">
+<h2>CASE STUDY INSERT </h2>
+</div></td>
+</tr>
+<tr>
+<td ><p><br />
+Lucy is the owner of Lucky Orchids which specialises in growing orchids for the pot plant market. Her nursery, 
+a 600 square metre heated greenhouse, is located next to her house in country Victoria. At most times during 
+the year there are 100 000 plants growing in the nursery. The orchids are worth about $2 000 000.</p>
+<p><strong>Lucy&rsquo;s current system</strong></p>
+<p> So she can grow the best orchids, Lucy has to have different growing conditions at different stages of a plant&rsquo;s
+life. For example, her seedlings and younger plants require less light, a higher temperature and higher humidity
+than older plants. To achieve this, Lucy has divided the greenhouse into three rooms.</p>
+<p>Each room has its own set of climate control units as shown in Figure 1 on the following page. They can be set
+according to the needs of the plants in that room.</p>
+<p>For example, for Lucy&rsquo;s flowering plants</p>
+<p>&bull; if the light exceeds 15 000 lux (a measure of light brightness), shade curtains are automatically pulled across
+the roof<br />
+&bull; if the humidity rises above 80%, the mist sprayers are turned off<br />
+&bull; if the temperature is above 25&deg;C, vents are opened to allow fresh air into the greenhouse.</p>
+<p>Each unit operates independently and automatically although sometimes one will fail. This can have serious
+consequences for Lucy&rsquo;s plants and she can only check each unit by going into the greenhouse and reading various
+climate gauges in the greenhouse. For example, if heaters fail at night she will not know until the morning when
+she physically checks the thermometer. Cool overnight temperatures will cause her plants to grow more slowly or even kill them. Failure to control light or humidity may also cause damage. Unfortunately, Lucy cannot be
+in the nursery every day because of personal and business commitments.</p>
+<p align="center"><img src="/m/pm/06s-insert1.jpg" width="390" height="546" /></p>
+<p>
+With the current system, Lucy can grow plants from seedling to flowering in 2.5 years. On a recent trip to
+Holland, to purchase new varieties of plants, she noted that Dutch nurseries were growing plants from seedling
+to flowering in 1.5 to 2 years. The reason for this is that the climate in their greenhouses is computer controlled.
+All the sensors and climate control devices are connected to a computer. A computer program then maintains ideal growing conditions. For example, if the temperature gets too high, shade curtains are activated regardless
+of the light level, and in extreme conditions, mist sprayers are also turned on, even if humidity is above 80%.</p>
+<p><strong>Lucy&rsquo;s new system</strong></p>
+<p> Lucy recently purchased a new nursery five kilometres from her house. It has unheated greenhouses covering
+3000 square metres of land. Because her new greenhouses will have to be upgraded for her orchids, Lucy
+decides that she wants to introduce a computer controlled climate system into both her existing local nursery
+and her new remote nursery.</p>
+<p> She would like this computer climate control system to<br />
+&bull; combine control of all climate devices to produce better conditions for orchid growth<br />
+&bull; allow her to remotely check and alter the conditions in each greenhouse room in both nurseries<br />
+&bull; record errors and send an alert message to her mobile phone if something fails.</p>
+<p>Lucy imagines that the new system will be something like that shown in Figures 2 and 3. </p>
+<p align="center"><img src="/m/pm/06s-insert2.jpg" width="357" height="365" /></p>
+<p align="center"><img src="/m/pm/06s-insert3.jpg" width="660" height="561" /> </p>
+</td>
+</tr>
+<tr>
+<td><div align="center">
+<h3><br />
+Instructions for Section B</h3>
+<p> Answer all questions in the spaces provided.<br />
+Remove the case study insert and read all the information provided before you answer these questions.<br />
+Answers must <strong>apply to</strong> the case study.</p>
+</div></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>1. Lucy has decided she needs some help to introduce her new computer climate control system for her greenhouses. 
+She employs a system analyst, Susan, and outlines her current system and what she would like to achieve with 
+the new system.</p>
+<p><strong>Question 1</strong></p>
+<p>Susan asks Lucy for technical information about the sensors used in her current system, but Lucy cannot help 
+her. </p>
+<p>a. Identify a primary source from which Susan can obtain more information about the sensors.<br />
+1 mark </p>
+<p class="myanswer">The sensor manufacturer. Susan could search their website or contact them by phone or email. </p>
+<p>b. State two examples of the technical information Susan can expect to obtain from the primary source.<br />
+2 marks</p>
+<p class="myanswer">Power requirements, wiring configurations, interface requirements, expansion methods, how to adjust settings, software requirements, care and maintenance, common faults and fixes.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 2</strong></p>
+<p> Lucy describes the temperature control to Susan.</p>
+<p> The temperature in a greenhouse room is constantly monitored and if it falls below 19&deg;C a heater is turned on. 
+If the temperature rises above 21&deg;C the heater is turned off. When the temperature goes over 25&deg;C vents are
+opened to allow fresh air into the room and if it gets hotter than 29&deg;C evaporative cooling is turned on. Once
+the temperature drops below 24&deg;C vents are closed and cooling stops.</p>
+<p> Susan finds this description confusing so she documents this process with a Nassi-Shneiderman (NS) 
+diagram.<br />
+Susan&rsquo;s NS diagram is shown below.<br />
+<strong>Five</strong> items are missing from it.<br />
+From the following list choose only five items and write each item in the correct place in the diagram.</p>
+<table border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td valign="top">1. turn water on<br />
+2. turn heater off<br />
+3. turn evaporative cooling on<br />
+4. temperature &gt; 30&deg;C<br />
+5. temperature &gt; 29&deg;C<br />
+6. temperature &lt; 24&deg;C<br />
+7. temperature &lt; 19&deg;C<br />
+8. monitor temperature</td>
+<td><img src="/m/pm/06s-b2.jpg" alt="NS diagram" width="470" height="728" /></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 3</strong></p>
+<p> Lucy has seen that the Dutch system, as discussed in the case study, is robust and reliable. She would like to
+combine parts of this system with her current system but feels further investigation is required.</p>
+<p> By referring to Lucy&rsquo;s current system, describe <strong>two</strong> further factors about the Dutch <strong>equipment</strong> that Lucy will
+need to investigate. Explain why each of these factors needs investigation.</p>
+<p align="center"><em>The table filled most of the page. </em></p>
+<table>
+<tr>
+<td width="48%"><strong>Factors</strong></td>
+<td width="52%"><strong>Need for investigation </strong></td>
+</tr>
+<tr>
+<td valign="top">Compatibility</td>
+<td valign="top" class="myanswer"><p>Whether the sensors can be physically plugged into the current system; whether they are electrically compatible (e.g. voltage, polarity); whether their output signals can be recognised by the existing system's hardware and software. </p>
+<p>Why? If the equipment cannot be connected to the current system it is useless, or will require expensive modification. </p>
+</td>
+</tr>
+<tr>
+<td valign="top">Cost</td>
+<td valign="top" class="myanswer"><p>How much will it cost to buy, and how much to maintain? </p>
+<p>Why? The higher the cost, the longer it will take Lucy to recoup her expenses with increased profits. </p>
+</td>
+</tr>
+<tr>
+<td valign="top">Accuracy</td>
+<td valign="top" class="myanswer"><p>Do the sensors accurately read environmental conditions?</p>
+<p>Why? If the sensors are inaccurate, Lucy's current problems might not be removed at all. </p>
+</td>
+</tr>
+<tr>
+<td valign="top">Accessibility</td>
+<td valign="top" class="myanswer"><p>Can the equipment be bought in Australia? Is is labelling and documentation available in English? </p>
+<p>Why? If the company does not supply equipment to Australia, or it does not come in English it will be impossible to get or difficult to work with. </p>
+</td>
+</tr>
+<tr>
+<td valign="top">Support</td>
+<td valign="top" class="myanswer"><p>Can the manufacturer offer after-sales support, repairs and upgrades in Australia? </p>
+<p>Why? If the manufacturer does not support their product, any problems or faults could be disastrous. </p>
+</td>
+</tr>
+<tr class="comment">
+<td valign="top">Where they were in December 1795 </td>
+<td valign="top"><p>When the Dutch East India Company (Vereenigde Oost-Indische Compagnie)
+collapsed and I lost all my money...</p>
+<p>Umm. I'm older than I look. </p>
+</td>
+</tr>
+</table> 
+<p align="center" class="comment"><em>Remember that &quot;equipment&quot; includes hardware and software - in IPM at least!</em> <em><br />
+Sadly, the IT study design's glossary does not define the word. </em></p>
+<p align="center">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 4</strong></p>
+<p> Susan has discovered a shareware program on the Internet that appears to suit Lucy&rsquo;s needs. The program
+uses a number of standard interface screens that will allow Lucy to make adjustments to the conditions in the
+greenhouses. Other screens are used to alert Lucy to problems in the greenhouses.<br />
+The following screen is a typical data entry screen.</p>
+<p><img src="/m/pm/06s-b4.jpg" width="361" height="329" /></p>
+<p>Lucy thinks that this screen has a major design fault. </p>
+<p>a. Identify this fault.1 mark</p>
+<p class="blue">The data entry fields are not adequately labelled - one has to assume the left hand fields are minima and the right hand fields are maxima. And what units are the values to use (e.g. Celsius or Fahrenheit)? </p>
+<p>b. Suggest how the fault can be corrected.1 mark </p>
+<p><span class="blue">Adding helpful labelling, e.g. &quot;Min&quot; and &quot;Max&quot; labels above the columns of fields. Units specified e.g. &quot;Light (lux)&quot;, &quot;Temperature (Celsius)&quot;
+</span><br />
+</p>
+<p>The following screen is used to alert Lucy to problems with the growing conditions in the greenhouses.</p>
+<p><img src="/m/pm/06s-b4c.jpg" width="361" height="329" /></p>
+<p>Lucy thinks that this screen also has a major design fault. </p>
+<p>c. Identify this fault.1 mark </p>
+<p class="blue">The alert does not specify what greenhouse room is affected, or when the alert happened. It also does not say how severe the problem is and therefore how urgently the problem needs to be attended to.</p>
+<p>d. Suggest how the fault can be corrected. 
+1 mark</p>
+<p class="blue">&quot;URGENT ALERT<br />
+Greenhouse room 1 temperature is 10 degrees C too high.<br />
+Curtains have failed to close.<br />
+Manual intervention is required.<br />
+Alert logged at 13:34 on 23 Oct 2007.&quot; </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong></p>
+<p> Lucy has decided against the shareware program and buys the Dutch software. After installing it, her friend
+Peter, who is a programmer, is convinced that the Dutch software has some major faults. He has offered to fix
+these problems for Lucy, free of charge. </p>
+<p>Explain the legal obligations and/or ethical considerations that Lucy should think about before she accepts or
+rejects Peter&rsquo;s offer to alter the program code. 4 marks</p>
+<p class="blue">The first obligation is copyright. Assuming the
+software is a compiled executable (and not interpreted from source code),
+it would need to be decompiled or reverse-engineered to modify it, and
+most EULAs (End User Licence Agreements) forbid such actions. Lucy would
+need to ascertain that the licence agreement authorised customers to
+modify their software. </p>
+<p class="comment"><em>I found this question a little unrealistic. The examiners seem to be fishing for a discussion of copyright and licence agreements, but in the real world Lucy would not have the source code, and modifying compiled code is a not as easy as looks.</em></p>
+<p>&nbsp; </p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>After checking carefully Lucy is satisfied that she can allow Peter to fix problems and make any changes that
+he would like.</p>
+<p>
+<strong>Question 6</strong></p>
+<p>Lucy wants to receive an alert message if the humidity drops below 20% or rises above 80%. Peter writes a 
+program module to do this and tests it with the following test data. </p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Test data</strong></td>
+<td><strong>Expected results</strong></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Alert</td>
+</tr>
+<tr>
+<td>25</td>
+<td>No Alert</td>
+</tr>
+<tr>
+<td>80</td>
+<td>No Alert</td>
+</tr>
+</table>
+<p> a. Susan is not satisfied that this data has fully tested the program module. Explain why. 
+2 marks</p>
+<p class="blue">&quot;Below 20%&quot; is tested, and an in-range
+value is tested, but &quot;over 80%&quot; is not tested. Peter has failed
+to fully test the boundary condition. &nbsp; </p>
+<p class="comment"><em>Remember there's a <b>big</b> difference between = and &gt;= and &lt;= </em>. <em>Logical errors like this around boundary conditions are very common and hard to debug.</em> </p>
+<p>b. Explain exactly what Peter needs to do to satisfy Susan&rsquo;s concerns.
+2 marks</p>
+<p class="blue">Add &quot;81%&quot; as the fourth piece of test
+data. To be complete, you'd also want to
+add a test for &quot;20%&quot; to be sure all boundary conditions have
+been exhaustively tested.</p>
+<p class="comment"><em>Gee - two marks for <b>that</b>? Rather simple, IMHO.</em> </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 7</b></p>
+<p>
+One of the errors that Peter has found is in the code to control the shade curtain motor.<br />
+For her flowering orchids, Lucy wants the shade curtain to be closed if the light exceeds 15 000 lux (MaxLight).
+She also wants the shade curtain closed when the temperature exceeds 33&deg;C (MaxTemp). The curtain should
+only be opened when the light falls below 7 000 lux (MinLight) and when the temperature drops below 30&deg;C
+(MinTemp). The light and temperature values will vary depending on the plants grown in each greenhouse &lsquo;room&rsquo;.<br />
+Peter has found that the code follows the algorithm below. </p>
+<p><strong>Begin</strong></p>
+<blockquote>
+<p><strong>If </strong>Temperature &gt; MaxTemp <strong>Or</strong> Light &gt;MaxLight <strong>Then</strong></p>
+<blockquote>
+<p>CurtainMotor (Close)</p>
+</blockquote>
+<p><strong>Endif</strong></p>
+<p><strong>If</strong> Temperature &lt; MinTemp <strong>Or</strong> Light &lt; MinLight <strong>Then</strong></p>
+<blockquote>
+<p>CurtainMotor (Open)</p>
+</blockquote>
+<p><strong>Endif</strong></p>
+</blockquote>
+<p><strong>End</strong> </p>
+<p>a. Below is a testing table. Work out the action that the algorithm finally produces and complete the <strong>last</strong> column.</p>
+<table width="80%" border="1" cellpadding="3" cellspacing="0">
+<tr>
+<td width="14%">&nbsp;</td>
+<td width="17%">&nbsp;</td>
+<td width="25%"><div align="center"><strong>Action required </strong></div></td>
+<td width="44%"><div align="center"><strong>Action produced by
+algorithm</strong></div></td>
+</tr>
+<tr>
+<td><strong>temperature</strong></td>
+<td><div align="right"><strong>light </strong></div></td>
+<td><div align="center"><strong>curtain motor</strong></div></td>
+<td><div align="center"><strong>curtain motor</strong></div></td>
+</tr>
+<tr>
+<td><div align="right">34 </div></td>
+<td><div align="right">16000 </div></td>
+<td><div align="center">Close</div></td>
+<td class="blue"><div align="center">close</div></td>
+</tr>
+<tr>
+<td><div align="right">34 </div></td>
+<td><div align="right">5000 </div></td>
+<td><div align="center">Close</div></td>
+<td class="blue"><div align="center"><b>(close, then) OPEN</b>* </div></td>
+</tr>
+<tr>
+<td><div align="right">29 </div></td>
+<td><div align="right">5000 </div></td>
+<td><div align="center">Open</div></td>
+<td class="blue"><div align="center">open</div></td>
+</tr>
+<tr>
+<td><div align="right">29 </div></td>
+<td><div align="right">16000 </div></td>
+<td><div align="center">Close</div></td>
+<td class="blue"><div align="center">(close, then) open</div></td>
+</tr>
+</table>
+<p> 4 marks </p>
+<p align="left" class="comment"><em>*13 Nov 06 - my original answer to the second test case was &quot;Close&quot; based on the action of the first IF statement. Thanks to clever Hon for correcting me on it: it should be &quot;Open&quot;. I wonder if the examiners noticed that too. </em></p>
+<p align="left" class="comment"><em>If you look at the algorithm, the t=34 triggers the <b>first</b> IF statement (which closes the curtain). But then in the<b> second</b> IF statement the L=5000 triggers the curtain <b>opening</b>. So the curtain closes, then opens, so the algorithm <b>finally</b> produces an OPEN status - which is what the question asked. Ooops! </em></p>
+<p align="left" class="comment"><em>Also, in test case 4 the curtain also does an unnecessary closure before (erroneously) opening. </em></p>
+<p>b. A line in the algorithm contains a logic error. Identify that line by writing it out in full. 
+1 mark </p>
+<p class="blue"><strong>If</strong> Temperature &lt; MinTemp <strong>Or</strong> Light &lt; MinLight <strong>Then</strong></p>
+<p>c. Describe how this error can be corrected. 
+1 mark</p>
+<p class="blue">Change it to </p>
+<p class="blue"><strong>If</strong> Temperature &lt; MinTemp <strong>AND</strong> Light &lt; MinLight <strong>Then</strong></p>
+<p class="comment"><em>Fortunately this patch fixes <b>both</b> of the cases of algorithm misbehaviour!</em> </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 8</b> </p>
+<p>The new system requires a computer in each nursery to control the greenhouse climates. The orchids may be
+damaged if these computers fail to work. Each computer will be placed in a small enclosed area as shown in
+Figure 3 of the case study.</p>
+<p>
+a. List three separate hazards to which these computers will be exposed. 3 marks<br />
+1. Heat <br />
+2. Water <br />
+3. Humidity</p>
+<p>Also direct sunlight could be a problem over time.</p>
+<p>
+b. Select one hazard and describe why this is a concern for Lucy. 
+2 marks</p>
+<p class="blue">Excessive humidity can damage electronic components
+and possibly cause short circuits. Direct contact with water will,
+of course short circuit the electronics and excessive heat will reduce
+the computer's lifespan. UV will damage the computer's case. </p>
+<p>
+c. Describe how Lucy should protect the computers from the hazard described in part b.
+2 marks</p>
+<p class="blue">Fit a refrigerated air conditioner in the room to control heat and humidity. Put curtains over any windows in the room. Don't put sprinklers in the computer room! </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 9</b></p>
+<p>
+Lucy wishes to connect the computer in the local nursery with a computer in her house so she can monitor the
+greenhouse from her study. The distance is approximately 30 metres. She has two choices.</p>
+<p> Option 1: to connect via CAT-5 cable<br />
+Option 2: to set up a wireless link</p>
+<p>
+Select the better option for Lucy. Justify your selection by comparing the two options. 
+2 marks</p>
+<p class="comment"><em>Both options are clearly viable, and I feel a
+student could argue persuasively for either one: the <b>argument</b> rather
+than the <b>actual choice</b> will be the important factor.</em></p>
+<p class="blue">30m is well within CAT5's 100m range. Wireless will also manage 30m comfortably if there are no significant obstacles in the line of sight. Wireless is also quite reliable and cheap nowadays. The deciding factor for me is the difficulty in threading 30 metres of CAT5 between the house and the greenhouse. Putting it underground would require conduit and digging trenches is a difficult job. It also runs the risk of being cut by careless diggers. If the cable were strung aerially, it would also require protection from UV, and it risks being snagged by tall vehicles. Also, once cable is put in place, it is difficult to move or remove later: wireless is far more flexible. I'd go for the wireless option. </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 10</b></p>
+<p>Lucy needs to monitor her new remote nursery as described in the case study insert. She needs to connect the
+nursery computer (five kilometres away) to her home computer. She expects the remote nursery computer to
+transmit approximately 2 KB of data every five minutes to the home computer. She has a phone service to the
+remote nursery. She is investigating a number of options for this task.</p>
+<p>
+a. What type of network does Lucy want to set up? 
+1 mark</p>
+<p class="blue">Again, the vague &quot;type of network&quot; problem. I think the question is angling for students to say &quot;WAN&quot;. I wonder if kids would get marks for saying Lucy wants to set up a good / reliable / easy to use / happy network?? </p>
+<p> b. For each of the following three options outline one strength.3 marks</p>
+<p>
+Option 1: Use dial up Internet &ndash; get the computer to use the Internet by dialling in every 5 minutes.<br />
+Option 2: Use broadband instead of dial up Internet.<br />
+Option 3: Set up a microwave link.<br />
+</p>
+<p class="blue">1. Dialup - cheap, basic equipment requirements. Quick and easy to set up. Cheap internet plan. </p>
+<p class="blue">2. Broadband - will not tie up a phone line. Can be used for other internet needs at home and at the remote greenhouse. Fast. Reliable.</p>
+<p class="blue">3. Microwave - it would impress animals and small children, but that's about it. It's not a serious contender. I guess students could say its ferocious speed and massive bandwidth would be ideal to send 2KB of data every 5 minutes!</p>
+<p>
+c. Select the best possible option for Lucy. Justify your selection by discussing the three options above. 
+3 marks</p>
+<p class="blue">Go for option 2. </p>
+<p class="blue">Dialup may be cheap in terms of equipment, but consider the running costs: dialing 288 times a day at 18c per call would cost $51.84 per DAY! </p>
+<p class="blue">Two cheap ADSL plans could be bought for $40 a MONTH, and small download allowances would not be a problem with the small amount of data that would be sent (288 calls * 2K = half a meg a day = 15M per month.) </p>
+<p class="blue">And the less said about the microwave option, the better.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 11</b></p>
+<p>
+Lucy wants to be able to compare the humidity, temperature and light measurements from different times of
+the year so she can identify the best growing conditions for her orchids.<br />
+Peter has agreed to write a program that will store the data for this purpose. His preferred programming language
+will only allow data files to be organised for sequential or random access. Peter decides to use a random access
+file. </p>
+<p>Compare the two access methods and comment on the suitability of Peter&rsquo;s choice for Lucy&rsquo;s purpose. 
+3 marks</p>
+<p class="comment"><em>I don't know why she doesn't just use an off-the-shelf DBMS, but anyway... </em></p>
+<p class="blue">Sequential access requires one to read through all the data between the beginning of the file and the desired point where the data resides... think of having to wind through video tape to get to the third episode recorded on it.</p>
+<p class="blue">Random access allows the input device to jump immediately to the place in the file that contains the desired data, making it quicker. However, for random acess to work, the structure of records must be determined in advance, and the length of each record must be uniform. </p>
+<p class="blue">A sequential file permits records of varying length, and their data tends to be ASCII, which makes it easier to import and export between applications. </p>
+<p class="comment"><em>Gee this brings back memories of QuickBASIC. Ah, the good ol' days of 'OPEN AS RANDOM'.<br />
+And FOR I = 1 to 100:NEXT to create a one second pause... </em></p>
+<p class="comment"><em>Quick Quiz - why do programmers traditionally use &quot;I&quot; as the index variable in a FOR a loop? Because FORTRAN, the grandfather of BASIC, defined its variables I to N as integer type (IN = INteger - get it?) Naturally you used integers for loop indexes for speed, and the first integer variable in FORTRAN was I - so generations of coders have used I for the first loop index, and J for the second in a nested loop. </em></p>
+<p class="comment"><em>And why do Unix guys use FOO and BAR as dummy names? It comes from World War 2 Army slang FUBAR which (when cleaned up) stands for &quot;Fouled Up Beyond All Recognition.&quot;</em></p>
+<p class="comment"><em>Anyway enough of that. Let's get back to Lucy.</em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 12</b></p>
+<p>
+Lucy has a huge project to convert her current greenhouse, and to include her new greenhouses into the new
+computer climate controlled system.</p>
+<p> For each greenhouse, she has to coordinate tasks such as<br />
+&bull; purchasing new equipment<br />
+&bull; removing old equipment<br />
+&bull; installing new equipment including computers, cabling and sensors<br />
+&bull; installing the software<br />
+&bull; setting up the network.</p>
+<p>
+a. Which project management tool would be most suitable for Lucy to use to plan her project? 
+1 mark</p>
+<p class="blue">Gantt chart. PERT is not so good for seeing timelines. PERT's better at showing task dependencies. </p>
+<p class="comment"><em>Repeat after me: It is spelled G-a-n-t-t. Not GANTT, Gannt or variations thereof! </em></p>
+<p> b. Describe three ways in which this project management tool will help Lucy manage the project. 
+3 marks</p>
+<p class="blue">She can see when tasks need to begin and end so contractors can be organised to be onsite when they are required. By allocating people responsibilities for tasks, she can ensure that people are not double-booked or sitting idle. Tasks can be organised efficiently by being set up so they can be done concurrently. Tasks will not be overlooked because they have to be identified and planned in advance. Progress can be monitored and milestones can be checked to ensure tasks are on time. </p>
+<p>&nbsp; </p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 13</b> </p>
+<p>Lucy has decided to trial the new computerised greenhouse climate control system in her local nursery first
+before installing it in her remote nursery. She also considered two other methods.</p>
+<p>&bull; running both the new and current system at the same time for a month<br />
+&bull; changing over to the new system in both nurseries all at once</p>
+<p>
+a. Identify the type of changeover method Lucy has decided to use. 
+1 mark</p>
+<p class="blue">Trialling a new system on a small scale before rolling it out everywhere is called a pilot scheme. </p>
+<p>b. Explain why this method is a better choice for Lucy than the other two options.
+3 marks</p>
+<p class="myanswer">You can't realistically use the first option (parallel implementation) - having two different controllers running a system would end in chaos. Which one has the final say about what actions to take? They'd be fighting each other for control. And anyway: it would be no benefit to Lucy because if there were system behaviour errors, it would be hard to see which system failed.</p>
+<p class="myanswer">Changing to the new system in both nurseries at once (direct implementation / cutover) is quick but risky. If the new system fails, it could be catastrophic. </p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 14</b> </p>
+<p>Lucy has read a great deal lately about viruses that can attack home computers through Internet connections.
+Lucy is relying on her Internet connection to monitor her remote nursery&rsquo;s greenhouse conditions and to alert
+her of any problems. It is important that her computer is always turned on and connected to the Internet.</p>
+<p> Describe two ways Lucy could protect her computer against attack from viruses.4 marks </p>
+<p class="comment"><em>Before we start, a firewall or router is NOT relevant. They protect against port sniffing and stop installed trojans from transmitting data back to the hacker. Firewalls DO NOT STOP VIRUSES ENTERING A SYSTEM! </em></p>
+<p class="myanswer">1. She should have virus scanner software running
+on each computer. The software scans incoming files and looks for text
+or code that is is known to be in existing viruses. The software
+can quarantine or delete the infected file. The software must be capable
+of scanning emails, and the virus definitions must be kept up to date.</p>
+<p class="myanswer"> 2. She should not open any unexpected email attachments. Any staff she hires must be trained to also treat emails with caution. </p>
+<p class="myanswer">3. She should not install pirated software (e.g. from Bittorrent) that could be infected. </p>
+<p class="comment"><em>If we're being fussy (and we ARE!), there are
+hardly any viruses around any more... most of them are <b>worms</b>.&nbsp; Traditional viruses attach themselves
+to executable code and propagate by attaching to other files.&nbsp; Worms
+are self-contained malicious programs, usually travelling through email.&nbsp; Gee
+- get with the 21st century, folks!</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 15</b> </p>
+<p>Lucy had to be rushed to hospital for an appendix operation. She was forced to leave her nurseries in the hands
+of a fellow orchid grower, Edmund. Edmund is very familiar with looking after orchids but has never used a
+system like Lucy&rsquo;s new greenhouse climate control system. Lucy had no time to give Edmund instructions on
+running the system so she told Edmund where to find the 365-page user manual.</p>
+<p>
+a. Describe another form of user documentation that should have been available for Lucy to give to
+Edmund.
+1 mark</p>
+<p class="myanswer">A quick reference card with a summary of the day-to-day operation of the system. </p>
+<p>
+b. Identify the main topics this documentation should contain.
+3 marks</p>
+<p class="myanswer">Only day-to-day issues such as: how to recognise
+reports of system errors that need intervention; how to solve common
+problems (e.g. stuck blinds, frozen computer, clogged mister nozzles*);
+how to reboot the system if it freezes; warnings about important dumb
+things to <b>avoid </b>doing.</p>
+<p class="comment"><em>It would <b>not</b> cover topics like installing the software, extending the system, or technical reference details. </em></p>
+<p class="comment"><em>* No - Mister Nozzles is <b>not</b> her neighbour, and I doubt she's unclog him
+if he were.</em> But hell - Mr Nozzles is a great name.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><b>Question 16</b></p>
+<p>
+After Lucy&rsquo;s system had been set up and working for about three months, a data security company contacted Lucy
+about backing up her data. This company uses the Internet to transfer customer data to their storage facilities.
+The company has made the following three claims about their service.</p>
+<p>
+Claim 1: Lucy would not need to worry about the backup, they would do it all for her.<br />
+Claim 2: Lucy would always be able to access the backup.<br />
+Claim 3: They would keep Lucy&rsquo;s backup on a very secure site that is well away from the nurseries.</p>
+<p>
+Discuss what Lucy needs to investigate before accepting each claim. 2 + 2 + 2 = 6 marks</p>
+<p>Claim 1</p>
+<ul>
+<li class="blue">How are they planning to get remote access to her system - do they need to have her passwords?</li>
+<li class="blue">    At what time of day are they going to do the backup? Is it going to interfere with her use of her system?</li>
+<li class="blue">    Does her internet plan charge for uploads as well as downloads? Will such backups eat up her monthly traffic allowance?
+</li>
+<li class="blue">    What is their backup strategy? Do they overwrite previous backups too soon? Can data be recovered from any time in the past? </li>
+<li class="blue">    How reliable is the security company - what sort of reputation they have? Can they be trusted? </li>
+<li class="blue">    If they lose her data or damage her system, what compensation do they guarantee? </li>
+<li class="blue">    If Lucy suffers a system failure and it turns out that the company had failed to carry out effective backups and Lucy could not recover her lost data, how would the company atone for its sins? </li>
+</ul>
+<p>Claim 2</p>
+<ul>
+<li class="blue">How would she access the backup? Is it web-based, FTP? Is it password protected?</li>
+<li class="blue"> Is the connection a secure SSL link? </li>
+<li class="blue">How long would it take to download a backup?</li>
+<li class="blue">Is access available 24x7, even on public holidays? </li>
+<li class="blue">If Lucy's system failed completely, including the internet connection, how would she get her backups? Would they mail her the backup on DVD, for example?</li>
+<li class="blue">Does she need any special software to access the backup? </li>
+<li class="blue">Is 24x7 help available? </li>
+</ul>
+<p class="blue"> Claim 3</p>
+<ul>
+<li class="blue">Where in the world are they based? Are they subject to Australian Information Privacy laws?</li>
+<li class="blue">Do they have a privacy policy?</li>
+<li class="blue">Just how secure is the company's storage facilities? e.g. are her backups encrypted?</li>
+</ul>
+<p class="comment"><em>I always thought online backup schemes were boogeymen invented by examiners
+to scare young IT students around the campfire... but they exist - <a href="http://www.idrive.net.au/">like
+this</a> (and the link is NOT a recommendation!) </em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><b>Question 17</b></p>
+<p>
+When the system was being designed, Lucy produced a list of objectives for the new system. </p>
+<p>Objective 1: The temperature, light and humidity do not go outside the set limits.<br />
+Objective 2: No more than two errors in a month will be recorded.<br />
+Objective 3: Record all errors and immediately send an alert message to her mobile phone. </p>
+<p class="comment"><em>Objective 2 is <b>really </b>badly worded. It sounds like that of all the errors that happen in a month, only two of them will be recorded in the log. All the others will be ignored! What the question is trying to say is &quot;No more than two errors will happen in a month.&quot; </em></p>
+<p>After six months of operation, Lucy thinks that her new greenhouse climate control system is a success. However,
+she wants some data to support her feeling, so she has checked the error log from both nursery computers. The
+content of the error log is shown below. </p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td>12-3-2006</td>
+<td>17:31:57</td>
+<td>vents stuck</td>
+<td>action required</td>
+</tr>
+<tr>
+<td>15-3-2006</td>
+<td>03:54:29</td>
+<td>mist sprayers malfunction</td>
+<td>action required</td>
+</tr>
+<tr>
+<td>27-5-2006</td>
+<td>13:45:11</td>
+<td>greenhouse too hot</td>
+<td>action required</td>
+</tr>
+<tr>
+<td>31-8-2006</td>
+<td>07:34:51</td>
+<td>vents stuck</td>
+<td>action required</td>
+</tr>
+<tr>
+<td>03-9-2006</td>
+<td>14:04:33</td>
+<td>greenhouse too bright</td>
+<td>action required</td>
+</tr>
+</table></td>
+</tr>
+</table> 
+<p>
+a. For Objective 1, indicate the data that informs Lucy that the objective is<b> not being met</b>. 
+1 mark </p>
+<p class="blue">&quot;greenhouse too hot&quot;, &quot;greenhouse too bright&quot; </p>
+<p class="comment"><em>Note that I did not select &quot;mist sprayers malfunction&quot;
+nor &quot;vents stuck&quot;.&nbsp; They
+may eventually CAUSE temperature or humidity to go out of range, but they
+are not the SAME as temperature or humidity going out of range.&nbsp; Both
+may malfunction without the undesirable result taking place! </em></p>
+<p>b. For Objective 2, indicate the data that informs Lucy that the objective<b> is being met</b>. 
+1 mark </p>
+<p class="comment"><em>Assuming you have mentally re-written Objective 2 so it makes sense... </em></p>
+<p class="myanswer">There is no month with more than 2 faults recorded. </p>
+<p>c. What additional data needs to be checked to evaluate if <b>Objective 3</b> has been met? Explain. 
+2 marks</p>
+<p class="myanswer">If every error in the log has a matching message in her phone's message history, she can be assured objective 3 has been met. </p>
+</td>
+</tr>
+<tr>
+<td><blockquote>
+<div align="center"><b><img src= "/m/banana_dance.gif" width="33" height="35" align="absmiddle" />Cheerio. See you at <a href="/p/postmortem-2007s.htm">next year's SD post mortem</a>! </b><img src= "/m/discobanana.gif" width="66" height="36" align="absmiddle" /></div>
+</blockquote></td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 10 Nov 06 </font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 12, 2022 12:29 PM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2006<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2006. Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font><font size="2"></font></p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Archive taken on 2024-11-14 -->
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <link rel="shortcut icon" type="image/x-icon" href="/bits/favicon.ico" />
+    <meta name="Description" content="VCE IT Applied Computing, Data Analytics, Software Development Resources by Mark Kelly" />
+    <meta name="keywords" content="vce,applied computing, data analytics, software development, mark kelly" />
+    <title>Validation - vcedata.com</title>
+    <link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/bits/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/bits/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/bits/favicon-16x16.png">
+<link rel="manifest" href="/bits/site.webmanifest">
+
+
+  </head>
+  
+  
+  <style>
+.flip {
+    animation-timing-function: ease-in-out;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    max-width: 30em !important;
+    box-shadow: none !important;
+}
+
+.flip-rotate {
+    animation-name: flip-rotate;
+}
+
+@keyframes flip-rotate {
+      0% { transform: perspective(491px) rotatex(0); }
+    100% { transform: perspective(491px) rotatex(230deg); }
+}
+
+</style>
+
+
+
+<style>
+
+.flip-rotateh {
+    animation-name: flip-rotateh;
+}
+
+@keyframes flip-rotateh {
+      0% { transform: perspective(491px) rotatey(0); }
+    100% { transform: perspective(491px) rotatey(230deg); }
+}
+
+</style>
+
+
+  
+  <body >
+
+
+  <div class="demo demo-row demo-row-fit" align="center">
+        <div> 
+          <p><a href="/index.html"><img class="flip flip-rotate" src="/bits/title.png" alt="title"/></a>
+          </p>
+          <p><a href="/mailform.htm"><img src="/bits/email.png" width="178" height="26" alt="Write to Mark Kelly"/></a></p>
+    </div>
+  </div>
+
+
+  
+  <table width="80" border="1" cellpadding="3" cellspacing="0">
+    <tbody>
+      
+      <tr>
+        <td align="center" background="/m/paperback-grey.jfif" >
+          <h1 ><em>Data Validation</em></h1>
+          <p ><em>by Mark Kelly, vcedata.com</em></p>
+        <p>&nbsp;</p></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <table width="80" border="1" cellpadding="3" cellspacing="0">
+    <caption>
+      <br>
+    </caption>
+    <tbody>
+      <tr>
+        <td ><p id="sd32sdlc4">&nbsp;</p>
+          <h1>Data Validation</h1>
+          <ul>
+            <li><strong>Validation methods</strong></li>
+            <li>Manual&nbsp;(performed by human intelligence)</li>
+            <li>Electronic&nbsp;(done by programming)</li>
+            <li><strong>Validation Types</strong></li>
+            <li>existence&nbsp;check (has a value been entered?)</li>
+            <li>type&nbsp;check (does the type of data match the type required by the question?)</li>
+            <li>range&nbsp;check (does the data match one of our criteria or sit within our limits? e.g. yes, no, sometimes / January-December / under 13)          </li>
+          </ul>
+          <ul>
+            <li>The step taken after data input.</li>
+            <li>Ensures data are&nbsp;<strong>reasonable&nbsp;</strong>and<strong>&nbsp;complete</strong>.</li>
+            <li>Cannot&nbsp;check for&nbsp;<strong>accuracy</strong>&nbsp;of data!</li>
+            <li>Does not apply to&nbsp;information (output)!</li>
+            <li>Helps prevents processing of bad data to create bad information...</li>
+            <ul>
+              <li><strong>GIGO</strong>&nbsp;= garbage in, garbage out</li>
+            </ul>
+          </ul>
+          <h1>&nbsp;</h1>
+          <ul>
+            <li>You run a kindergarten. You receive some filled-in forms for prospective enrolments.</li>
+            <ul>
+              <li>#1 says the person was born in&nbsp;<strong>England&nbsp;</strong>3 years ago.</li>
+              <li>#2 says the person was born in&nbsp;<strong>Mordor&nbsp;</strong>in the year&nbsp;<strong>1592</strong>.</li>
+              <li>#3 does not say when the child was born.</li>
+            </ul>
+            <li>Validation can tell #1 is&nbsp;<strong>reasonable</strong></li>
+            <ul>
+              <li>England - the country&nbsp;<em>does</em>&nbsp;exist</li>
+              <li>people&nbsp;<em>do</em>&nbsp;come from England</li>
+            </ul>
+            <li>But the data still may be completely&nbsp;<em>incorrect</em></li>
+            <ul>
+              <li>the student may&nbsp;<em>not</em>&nbsp;be from England.</li>
+            </ul>
+          </ul>
+          <h1>#1</h1>
+          <ul>
+            <li><em>England does exist =&nbsp;</em>example of&nbsp;<strong>range checking</strong></li>
+            <li>Child is 3 years old&nbsp;<em>=&nbsp;</em>example of&nbsp;<strong>range checking&nbsp;</strong>(47-year-old preschoolers may be a problem)</li>
+            <li>Range checking = Does a value...</li>
+            <ul>
+              <li>exist in a list of approved options?</li>
+              <ul>
+                <li>e.g. Is your preferred hand: left? right? either?</li>
+              </ul>
+              <li>fit within an approved range of values?</li>
+            </ul>
+          </ul>
+          <h1>Example</h1>
+          <ul>
+            <li>Validation can tell form #2 is&nbsp;<strong>unreasonable</strong>&nbsp;and therefore invalid</li>
+            <ul>
+              <li>Mordor does&nbsp;<em>not</em>&nbsp;exist</li>
+              <li>people (or orcs) do&nbsp;<em>not&nbsp;</em>come from Mordor</li>
+            </ul>
+            <li>Kellyrule 2047b<strong>&nbsp;- Do not process invalid data</strong></li>
+            <ul>
+              <li>or let orcs immigrate</li>
+            </ul>
+          </ul>
+          <h1><strong>Range checking</strong></h1>
+          <h2><strong>Range checking</strong></h2>
+          <ul>
+            <li>Is an input datum within an approved&nbsp;<strong>range of values</strong>?</li>
+            <ul>
+              <li>&ldquo;nice weather&rdquo; = 20C&nbsp;&ndash;&nbsp;25C (inclusive)</li>
+              <li>people allowed in pub are 18+</li>
+              <li>Old age pension for people&nbsp;<strong>&gt;=</strong>&nbsp;65 years          </li>
+            </ul>
+          </ul>
+          <p><strong>Be careful of ranges in Software Development!</strong>          </p>
+          <p><em>Old age pension for people&nbsp;<strong>&gt;=</strong>&nbsp;65 years</em>          </p>
+          <p>Do ranges&nbsp;<strong>include or exclude</strong>&nbsp;the limit values?</p>
+          <p> &gt; vs &gt;=          &lt; vs &lt;=          </p>
+          <p>SD exam questions&nbsp;<strong>often</strong>&nbsp;test validation range limits. e.g. legal drinking age...
+          </p>
+          <h1>&nbsp;</h1>
+          <h2>&nbsp;</h2>
+          <h2>Is the legal drinking age (in Victoria, Australia in 2022)</h2>
+          <ul>
+            <li>&gt;&nbsp;18 years</li>
+            <li>&gt;=&nbsp;18 years</li>
+            <li>=&nbsp;18 years</li>
+            <li>&lt;=&nbsp;18 years          </li>
+          </ul>
+          <h2><strong>Answer</strong></h2>
+          <ul>
+            <li>&gt;=&nbsp;18 years</li>
+            <h2>SD exams often test subtle range limits.</h2>
+            <h2>&nbsp;</h2>
+          </ul>
+          <h1>Validity? Testing?</h1>
+          <ul>
+            <li><em>Validate&nbsp;input data</em>&nbsp;to weed out obvious rubbish that is not even worth processing.</li>
+            <li><em>Test</em>&nbsp;output information to check its accuracy, relevance, completeness, clarity etc.</li>
+            <li><strong>VALIDITY</strong>&nbsp;&ne; CORRECTNESS or ACCURACY</li>
+            <li><strong>TESTING</strong>&nbsp;&ne; validation</li>
+          </ul>
+          <h1>Validity ?</h1>
+          <ul>
+            <li><em>Valid</em>&nbsp;data may be completely&nbsp;<em>incorrect</em>.</li>
+            <li><strong>VALIDITY</strong>&nbsp;&ne; CORRECTNESS or ACCURACY</li>
+          </ul>
+          <p>The rules of email addresses easily determine&nbsp;<em>validity</em>,&nbsp;<strong>but not accuracy</strong></p>
+          <p><img src="/m/valid-emails.png" width="564" height="263" alt=""/></p>
+          <h1>Validation rules &ndash; OK?</h1>
+          <ul>
+            <li><em>Validation&nbsp;</em>is simple</li>
+            <li>Can reliably be based on rules</li>
+            <li>Rules can be&nbsp;<strong>programmed</strong></li>
+            <ul>
+              <li>e.g. into databases, spreadsheets</li>
+            </ul>
+            <li><strong>= electronic&nbsp;</strong>validation</li>
+          </ul>
+          <h1><strong>Electronic Validation</strong></h1>
+          <ul>
+            <li>Databases/spreadsheets allow easy &amp; automatic data validation based on simple rules:</li>
+          </ul>
+          <p><img src="/m/valid-msaccess.png" width="342" height="302" alt=""/></p>
+          <p>Validation rules in Microsoft Access</p>has&nbsp;<em>any</em>&nbsp;value been entered? e.g. not worth cooking a pizza to be delivered if no address has been given in the order.
+          <ul>
+            <li>has&nbsp;<em>any</em>&nbsp;value been entered? e.g. not worth cooking a pizza to be delivered if no address has been given in the order.</li>
+          </ul>
+          <p><strong>Electronic Validation</strong></p>
+          <h1><strong>Validation Rule 2 : type</strong></h1>
+          <ul>
+            <li><strong>type</strong>: is input data...?</li>
+            <ul>
+              <ul>
+                <li><strong>text</strong>&nbsp;(e.g. a real name),</li>
+                <li><strong>numeric</strong>&nbsp;(number of orcs immigrating today), date (of birth),</li>
+                <li><strong>email address</strong>&nbsp;(alphanumeric string + &ldquo;@&rdquo; + alphanumeric string + DOT + valid top-level-domain (e.g. COM, ORG, SPACE)</li>
+                <li><strong>binary</strong>&nbsp;&ndash; consists of only characters 1 and 0</li>
+                <li><strong>Australian postcode</strong>&nbsp;&ndash; 4 digits, zero to nine</li>
+                <li><strong>alphanumeric</strong>&nbsp;&ndash; mixture of letters and digits, e.g. credit card number</li>
+                <li><strong>JPG</strong>&nbsp;&ndash; a valid JPEG picture in JPG format          </li>
+              </ul>
+            </ul>
+          </ul>
+          <ul>
+            <li><strong>type</strong>: is input data&nbsp;<strong>text</strong>&nbsp;(e.g. a&nbsp;<strong>real</strong>&nbsp;name),</li>
+            <ul>
+              <li><em>Tesla chief executive Elon Musk, he may need to rethink the name of his new baby boy, X &AElig; A-12.</em></li>
+              <li><em>Musk announced that he and his girlfriend, singer Grimes, had welcomed a baby son and ... identified the second character as &ldquo;ash&rdquo; &mdash; saying it was pronounced X-Ash-A-12.</em></li>
+              <li><em>But California, where Musk lives, allows&nbsp;<strong>only the 26 English letters of the alphabet to be used on birth certificates, along with a limited list of special characters including apostrophes, hyphens and periods</strong>. That means no numbers or &AElig; symbols.</em></li>
+              <h2>https://www.washingtonpost.com/technology/2020/05/08/musk-grimes-baby-name/          </h2>
+            </ul>
+          </ul>
+          <ul>
+            <li>is input data in an approved list, or within acceptable limits</li>
+            <ul>
+              <ul>
+                <li><strong>text</strong>&nbsp;(e.g. a name),</li>
+                <li><strong>numeric</strong>&nbsp;(number of orcs immigrating today), date (of birth),</li>
+                <li><strong>alphanumeric</strong>&nbsp;&ndash; a combination of text and numeric, often in a specific pattern, e.g.&nbsp;<em>SMY34</em>&nbsp;(three alphabetic then two numeric characters)</li>
+                <ul>
+                  <li>it could be more rigorous, e.g. the alpha characters must be uppercase, and the digits must not be 1 or 0 (to avoid misreading letters I and O)</li>
+                </ul>
+              </ul>
+            </ul>
+          </ul>
+          <p><strong>RULE 3 : RANGE</strong>          </p>
+          <ul>
+            <li>is input data in an approved list, or within acceptable limits</li>
+            <ul>
+              <ul>
+                <li><strong>email address</strong>&nbsp;(alphanumeric string + &ldquo;@&rdquo; + alphanumeric string + DOT + valid top-level-domain (e.g. COM, ORG, SPACE)</li>
+                <li><strong>an invented code&nbsp;</strong>(e.g. PY + year of manufacture + model code + series number) e.g. IFC2020X103b</li>
+              </ul>
+            </ul>
+          </ul>
+          <p><strong>RULE 3 : RANGE</strong></p>
+          <h1>Why validate?</h1>
+          <ul>
+            <li>Strips out worthless data that only takes up storage/communication space</li>
+            <li>Saves processing time processing unworthy inputs</li>
+            <li>Prevents rubbish&nbsp;<strong>data</strong>&nbsp;leading to rubbish&nbsp;<strong>information</strong>&nbsp;that threatens the integrity (reliability, trustworthiness) of output</li>
+          </ul>
+          <h1>Validity</h1>
+          <ul>
+            <li>Data may be&nbsp;<em>valid</em>&nbsp;but&nbsp;<em>incorrect</em>&nbsp;or&nbsp;<em>inaccurate</em>.</li>
+            <li>A form saying a kindergarten enrolee is&nbsp;<strong>45.67&nbsp;</strong>years old is accurate but not reasonable<strong>.</strong></li>
+            <li>Sometimes &lsquo;unreasonable&rsquo; data needs further verification...</li>
+            <li>e.g. stress does&nbsp;<em>not</em>&nbsp;cause stomach ulcers</li>
+            <li>tossing a coin 20 times and getting 19 heads</li>
+          </ul>
+          <h1>To review - What&rsquo;s &lsquo;reasonable&rsquo;?</h1>
+          <ul>
+            <li>The main validation checks:</li>
+            <ul>
+              <li><strong>Type check</strong></li>
+              <li><strong>Range check</strong></li>
+              <li><strong>Existence check&nbsp;</strong>(or presence check)</li>
+            </ul>
+          </ul>
+          <h1>Type check</h1>
+          <ul>
+            <li>A value should be of the right&nbsp;<strong>type</strong></li>
+            <ul>
+              <li>Names should be text</li>
+              <li>Dates should be&nbsp;<strong>dd/mm/yyyy</strong>&nbsp;format (in Oz)</li>
+              <ul>
+                <li>some type checks are regional and may need to be extended to accommodate other regions e.g. an Oz site accepting USA zipcodes</li>
+              </ul>
+              <li>Number of pets should be&nbsp;<strong>numeric</strong></li>
+              <li>A photo field should contain a&nbsp;<strong>JPG image</strong>&nbsp;rather than a spreadsheet</li>
+              <li>A credit card number field rejects the letter &ldquo;O&rdquo; instead of a zero</li>
+            </ul>
+          </ul>
+          <h1>Range check</h1>
+          <ul>
+            <li>Data should be within a certain&nbsp;<strong>range</strong></li>
+            <ul>
+              <li>Kindergarten students&rsquo; ages should be between 3 and 6</li>
+              <li>Number of pets should be&nbsp;&gt;=&nbsp;0</li>
+            </ul>
+            <li>Data must exist in a&nbsp;<strong>limited list&nbsp;</strong>of options</li>
+            <ul>
+              <li><strong>State</strong>&nbsp;of residence must be in (Vic, SA, Qld, WA, ACT, Tas, NT).</li>
+              <li><strong>Sex</strong>&nbsp;must be M or F.</li>
+              <li><strong>Gender</strong>&nbsp;must be M or F.</li>
+              <li>The definition and range of some lists is fluid and needs ongoing maintenance by database managers over time.          </li>
+            </ul>
+          </ul>
+          <ul>
+            <li>Some data must be&nbsp;<strong>unique</strong></li>
+            <ul>
+              <li>e.g. a phone number, customer ID</li>
+            </ul>
+            <li>Data must be of a minimum, maximum or fixed&nbsp;<strong>length</strong></li>
+            <ul>
+              <li>e.g. credit card number has 16 digits</li>
+            </ul>
+            <li>Data must have a given&nbsp;<strong>format</strong></li>
+            <ul>
+              <li>E.g. user ID must have 3 letters and 2 digits</li>
+              <li>Date must be in&nbsp;<strong>dd-mm-yyyy</strong>&nbsp;format</li>
+              <li>credit card numbers</li>
+            </ul>
+          </ul>
+          <h1>Existence check</h1>
+          <ul>
+            <li>Is the data present?</li>
+            <li>Some data absences are OK, others are not</li>
+            <ul>
+              <li>with pizza delivery orders, leaving off the customer&rsquo;s name may not be vital, but leaving off the address&nbsp;<strong>is</strong>.</li>
+            </ul>
+            <li>Database existence checks can reject records that lack vital data.</li>
+          </ul>
+          <h1>Warning!</h1>
+          <ul>
+            <li>Don&rsquo;t make validation so&nbsp;<strong>strict</strong>&nbsp;that valid data are rejected.</li>
+            <li>Data can be unexpected but accurate!</li>
+            <ul>
+              <li>kindergarten child&nbsp;<em>could</em>&nbsp;be 8 years old in rare circumstances</li>
+              <li>mandating the entry of a phone number would wrongly reject people with no phone</li>
+            </ul>
+            <li>Validation should reject&nbsp;<strong>absurd&nbsp;</strong>data, not&nbsp;<strong>slightly odd</strong>&nbsp;or&nbsp;<strong>unexpected</strong>&nbsp;data</li>
+          </ul>
+          <h1>Bad&nbsp;validation</h1>
+          <ul>
+            <li>American websites that insist on a 5 digit zip code (postcode) &ndash; even if you&rsquo;re not American</li>
+            <li>Databases that reject addresses with no street/ Avenue/Road/Lane (etc) value: some addresses don&rsquo;t have them. (e.g. Broadway)</li>
+            <li>Testing for existence in a&nbsp;<em>limited list</em>&nbsp;when the list is not actually limited.</li>
+            <p>e.g.&nbsp;<em>Title</em>&nbsp;must be one of: Mr, Miss, Mrs,</p>
+            <p>Dr, Sir, Madam,</p>
+            <p>Se&ntilde;orita, Professor</p>
+          </ul>
+          <p>Bad&nbsp;validation</p>
+          <p>Don&lsquo;t force people to invent or change true data to suit your inadequate validation rules!</p>
+          <p>e.g. Having to change their address from &lsquo;123 Broadway&rsquo; to &lsquo;123 Broadway&nbsp;<strong>St</strong>&rsquo; because your database&rsquo;s&nbsp;<em>StreetType</em>&nbsp;field is marked&nbsp;<strong>Required</strong>.</p>
+          <p>You would be damaging your own data&rsquo;s integrity.</p>
+          <h1>Manual &amp; Electronic</h1>
+          <ul>
+            <li>Some data needs a human&rsquo;s common sense to detect unreasonable entries</li>
+            <ul>
+              <li>Spelling of names</li>
+              <li>Entry of&nbsp;<strong>Adam Sandler</strong>&nbsp;in a database of talented actors</li>
+              <li>&ldquo;Jane Smith&rdquo; registered as a male &ndash; some &ldquo;common sense&rdquo; validation may change over time</li>
+            </ul>
+            <li>Other checks are better done electronically</li>
+            <ul>
+              <li>It&rsquo;s faster, more accurate to get a database to check for missing or alphabetical ID number values          </li>
+            </ul>
+          </ul>
+          <ul>
+            <li>Tip &ndash;&nbsp;<strong>never</strong>&nbsp;try to validate people&rsquo;s names using a limited list. The list is infinitely long &ndash;</li>
+            <ul>
+              <li>Janine</li>
+              <li>Jueaneene</li>
+              <li>Janeen</li>
+              <li>Jenene</li>
+              <li>Janeene</li>
+              <li>Jeeneen</li>
+              <li><em>X &AElig; A-12</em></li>
+              <li>etc</li>
+            </ul>
+          </ul>
+          <h1>Some validation techniques</h1>
+          <h2><strong>Check digits</strong></h2>
+          <ul>
+            <li>Used for numerical data. An extra digit is added to a number &ndash; the digit is calculated from the other digits.</li>
+            <li>The computer checks this calculation when data are entered, e.g., The ISBN for a book. The last digit is a check digit calculated using a modulus 11 method.</li>
+            <li>Detects mis-typing or fake entries.</li>
+          </ul>
+          <h1>Credit card number validation</h1>
+          <h2>Credit card numbers are&nbsp;<em>self-validating&nbsp;</em>and<em>&nbsp;internally consistent</em></h2>
+          <ul>
+            <li>Fake or mistyped numbers are identifiable from the number alone</li>
+            <li>First digit identifies the card issuer (e.g. Visa = 4)</li>
+            <li>Depending on the issuer certain other digits identify the issuing bank (e.g. Commonwealth)</li>
+            <li>Other specific digits give the account number</li>
+            <li>A check digit, calculated from other digits*, is used to check the validity of the entire card number. If the check digit is not right, the card number is invalid.</li>
+            <li>The 3-digit CVC number on the back of the card is another card validation strategy.</li>
+          </ul>
+          <p>*using the Luhn algorithm</p>
+          <h1>Some validation techniques</h1>
+          <h2><strong>Spelling and grammar check</strong></h2>
+          <ul>
+            <li>Looks for spelling and grammatical errors.</li>
+            <li>Can be electronic, but needs human common sense too, especially with regional spellings and grammar.</li>
+            <ul>
+              <li>Never electronically spell-check people&rsquo;s names.</li>
+              <li>Place names&nbsp;<em>can</em>&nbsp;be electronically checked.          </li>
+            </ul>
+          </ul>
+          <h2><strong>Consistency Check</strong></h2>
+          <ul>
+            <li>Checks fields to ensure that data in different fields agree with each other, e.g.</li>
+            <ul>
+              <li>If&nbsp;<strong>Title</strong>&nbsp;= "Mr" then&nbsp;<strong>Sex*</strong>&nbsp;should be "M" (again, time may change some rules)</li>
+              <li>If&nbsp;<strong>employed</strong>&nbsp;= &ldquo;N&rdquo; then&nbsp;<strong>employer_name</strong>&nbsp;field should be empty</li>
+            </ul>
+          </ul>
+          <h1>Prevention is better than cure</h1>
+          <p><em>Better it is to prevent the input of invalid data than it be to deal with it later. -&nbsp;</em>Wallace Shakespeare</p>
+          <p>It&rsquo;s far better to stop invalid data getting into a dataset in the first place.</p>
+          <p>But this safeguard comes&nbsp;<strong>before</strong>&nbsp;validation &ndash; it is not validation in itself...</p>
+          <p>in spite of what some past VCAA exams have tried to assert</p>
+          <h1>Preventing invalid data entry</h1>
+          <h2><strong>Drop-down menus or lists</strong></h2>
+          <ul>
+            <li>Force data to be entered from a pre-made selection</li>
+            <ul>
+              <li>States of Australia</li>
+              <li>Months of the year</li>
+            </ul>
+            <p><img src="/m/valid-dropdown.png" width="379" height="253" alt=""/></p>
+          </ul>
+          <p><strong>Once again</strong>&nbsp;&ndash; do&nbsp;<strong>not</strong>&nbsp;use menus or lists to enter data that is not strictly limited in scope. You don&rsquo;t want people entering incorrect data because your data entry choice forced them to!</p>
+          <h1>Helping users enter valid data</h1>
+          <ul>
+            <li>Give&nbsp;<strong>examples</strong>&nbsp;or&nbsp;<strong>advice</strong>&nbsp;about expected data formats&hellip;          </li>
+          </ul>
+          <p><img src="/m/valid-help.jpg" width="915" height="174" alt=""/></p>
+          <h1>Helping users</h1>
+          <ul>
+            <li>Make data entry rules clear&hellip;</li>
+          </ul>
+          <p><img src="/m/valid-rulesclear.png" width="531" height="567" alt=""/></p>
+          <p>This form clearly indicates which fields are&nbsp;<strong>required</strong>&nbsp;(*) and which are optional</p>
+          <h1>Use a calendar control</h1>
+          <ul>
+            <li>Date&nbsp;<strong>cannot</strong>&nbsp;be&nbsp;<strong>invalid</strong>&nbsp;since it must be chosen from a set of valid dates</li>
+            <li>It can still be&nbsp;<strong>inaccurate</strong>&nbsp;however!</li>
+          </ul>
+          <p><img src="/m/valid-calendar.png" width="545" height="501" alt=""/></p>
+          <h1>Calendar control helps organisations</h1>
+          <ul>
+            <li>Date data is not ambiguous</li>
+            <ul>
+              <li>Does 02/05/06 entered mean:</li>
+              <ul>
+                <li>2 May 2006?</li>
+                <li>5 Feb 2006?</li>
+                <li>6 May 2002?</li>
+              </ul>
+            </ul>
+          </ul>
+          <p>A bad date could be prevented with good validation</p>
+          <h1>Calendar control helps users</h1>
+          <ul>
+            <li>User does not have to guess correct date format expected</li>
+            <ul>
+              <li>23/08/09?</li>
+              <li>23-08-2009?</li>
+              <li>23 Aug 09?</li>
+              <li>8/23/09 (US format)?</li>
+              <li>2009-08-23 Asian [and my favourite] format)?</li>
+            </ul>
+          </ul>
+          <h1>Radio buttons</h1>
+          <ul>
+            <li>Use these wisely.</li>
+          </ul>
+          <p><img src="/m/valid-radiobuttons.png" width="585" height="385" alt=""/></p>
+          <ul>
+            <p>RADIO BUTTONS force users to choose one option (and no more than one) from a list.</p>
+          </ul>
+          <h1>Radio buttons</h1>
+          <p>If the option is yes/no, consider a&nbsp;<strong>switch / toggle control</strong>&nbsp;instead </p>
+          <p><img src="/m/valid-toggle.png" width="273" height="320" alt=""/></p>
+          <p>or a single checkbox</p>
+          <p><img src="/m/valid-singlecheck.png" width="329" height="45" alt=""/></p>
+          <h1>Checkboxes (tick boxes)</h1>
+          <ul>
+            <li>Use these wisely.</li>
+            <p>CHECKBOXES (tickboxes) &ndash; allow users to choose none, one, or many listed items</p>
+            <p><img src="/m/valid-toppings.png" width="256" height="339" alt=""/></p>
+          </ul>
+          <p>Tip: start to reconsider your data entry controls if the list of items gets large</p>
+          <p><img src="/m/valid-large-list.png" width="437" height="256" alt=""/></p>
+          <p>Tip: grey-out (disable) options that are not currently available          </p>
+          <p><img src="/m/valid-greyed.png" width="173" height="374" alt=""/></p>
+          <p>Tip: if you&rsquo;re not sure if your list is indeed 100% limited, offer an &ldquo;Other&rdquo; textbox option</p>
+          <p><img src="/m/valid-other.png" width="318" height="260" alt=""/></p>
+        <h1>&nbsp;</h1></td>
+      </tr>
+      <tr>
+        <td ><p>That's it. You can go now. Have fun.</p></td>
+      </tr>
+      <tr>
+        <td align="center">
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+    <table align="center" width="80%" cellspacing="0" cellpadding="3" border="0">
+      <tbody>
+       
+        <tr>
+          <td colspan="2" align="center"><p><a href="/mailform.htm">Write to Mark Kelly</a></p>
+            <p>All original content copyright &copy; <a href="/Library/currentyear.lbi"></a>
+            <script>
+<!--
+var year=new Date();
+year=year.getYear();
+if (year<1900) year+=1900;
+document.write(year);
+//-->
+              </script>
+            <a href="/index.html">vcedata.com</a><br />
+All rights reserved.
+            </p>
+            <p>This page was created on 2022-04-28 @ 11:59 AM<br>
+              Last modified on 
+                <!-- #BeginDate format:fSw1m -->Thursday 28 April, 2022  12:16<!-- #EndDate -->
+</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

@@ -1,0 +1,1269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2010 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><img src="/bits/title.png" /></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr>
+  <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2010</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+</table>
+<table>
+<tr>
+  <td colspan="4"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+  <script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+<tr>
+  <td ><p><em>Sept 2012 - For those using old exams for revision purposes, I've marked questions that are no longer relevant in the 2011-2014 study design. The notes appear after the question numbers.</em></p>
+  </td>
+</tr>
+<tr>
+<td colspan="4"><p align="center" class="comment"><strong>Once again, when the examiners have been good, I'll bestow the Happy Dog award unto them.</strong></p>
+<p align="center" class="comment"><strong><img src="/m/happydog2.gif" width="82" height="104" /></strong></p>
+</td>
+</tr>
+<tr>
+  <td colspan="4"><h3 align="center">Written examination</h3>
+    <p align="center"><strong>Thursday 11 November 2010</strong></p>
+    <p align="center"><strong>Reading time: 11.45 am to 12. noon (15 minutes) </strong></p>
+    <p align="center"><strong>Writing time: 12:00 noon to 2:00 pm (2 hours)</strong></p>
+    <table border="1" align="center" cellpadding="3" cellspacing="0">
+      <tr>
+        <td width="95" >&nbsp;</td>
+        <td width="113"><p><em>Number of questions</em></p></td>
+        <td width="153"><p><em>Number of questions to be answered</em></p></td>
+        <td width="126"><p><em>Number of marks</em></p></td>
+      </tr>
+      <tr>
+        <td width="95">&nbsp;</td>
+        <td width="113">&nbsp;</td>
+        <td width="153">&nbsp;</td>
+        <td width="126">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="95"><p><a href="#a">A</a></p></td>
+        <td width="113"><p >20</p></td>
+        <td width="153"><p >20</p></td>
+        <td width="126"><p >20</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p ><a href="#b">B</a></p></td>
+        <td width="113" >4</td>
+        <td width="153"><p >4</p></td>
+        <td width="126"><p >17</p></td>
+      </tr>
+      <tr>
+        <td width="95"><p ><a href="#c">C</a></p></td>
+        <td width="113&lt;p" >13</td>
+        <td width="153"><p >13</p></td>
+        <td width="126"><p >53</p></td>
+      </tr>
+      <tr>
+        <td width="95">&nbsp;</td>
+        <td width="113">&nbsp;</td>
+        <td width="153">&nbsp;</td>
+        <td width="126"><p>Total 90</p></td>
+      </tr>
+    </table>
+    <ul>
+      <li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.</li>
+      <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+    </ul>
+    <p><strong>Materials supplied</strong></p>
+    <ul>
+      <li>Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.</li>
+      <li>Answer sheet for multiple-choice questions.</li>
+    </ul>
+    <p><strong>Instructions</strong></p>
+    <ul>
+      <li>Remove the insert containing the case study during reading time.</li>
+      <li>Write your <strong>student number</strong> in the space provided above on this page.</li>
+      <li>Check that your <strong>name</strong> and <strong>student number</strong> as printed on your answer sheet for multiple-choice questions are correct, <strong>and</strong> sign your name in the space provided to verify this.</li>
+      <li>All written responses must be in English. </li>
+    </ul>
+    <p><strong>At the end of the examination </strong></p>
+    <ul>
+      <li>Place the answer sheet for multiple-choice questions inside the front cover of this book.</li>
+    </ul>
+    <p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+</tr>
+<tr>
+<td colspan="4"><center>
+Jump to <a href="#a">SECTION A</a>, <a href="#b">SECTION B</a>, <a href="#cs">CASE STUDY</a>, <a href="#c">SECTION C</a>
+</center></td>
+</tr>
+<tr>
+  <td colspan="4"><p align="center"><a href="http://www.vcaa.vic.edu.au/vcaa/vce/studies/infotech/softwaredevel/assessreports/2010/softdev_assessrep_10.pdf">Examiner's 2010 Assessment Report</a></p>
+    <p class="examiner">Students performed well in Section A of the 2010 paper; however, some students did not answer all multiple-choice questions. It is important for students to provide responses to all multiple-choice questions. Throughout the year it may be appropriate for students to practise answering this type of question.</p>
+    <p class="examiner">Section B provided a challenge for many students. This section required students to demonstrate sound theoretical knowledge and to provide detailed and accurate responses.</p>
+    <p class="examiner"> In Section C, student responses were expected to apply the case study to the questions asked. This year the algorithm question (Section C, Question 9) was challenging for many students.</p>
+    <p class="examiner"> During the examination, students should:<br />
+      &bull; endeavour to use correct IT terminology<br />
+      &bull; discuss all options when asked to justify a choice or compare one option to another<br />
+      &bull; know how to respond to key instructional terms in questions, such as 'state', 'explain', 'justify' or 'describe'<br />
+      &bull; reread each question and their response to ensure the question has been answered<br />
+      &bull; avoid using pencil in Sections B and C as responses in pencil can often be difficult for assessors to read<br />
+      &bull; read the case study and questions carefully and underline or highlight key words<br />
+      &bull; endeavour to demonstrate their knowledge of the subject and apply that knowledge to the case study, as<br />
+    generic responses often result in low or no marks.</p></td>
+</tr>
+<tr>
+<td colspan="4" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+No marks will be given if more than one answer is completed for any question</p>
+</td>
+</tr>
+<tr>
+  <td colspan="4"><p><strong>Question 1</strong></p>
+  <p> If you buy a software licence from a company it means you can<br />
+    A. use the software.<br />
+    B. sell the software.<br />
+    C. make copies of the software to give to friends.<br />
+    D. hold the company responsible if your computer fails.</p>
+  <p class="myanswer">Answer is A.</p>
+  <p class="myanswer"><em>A nice easy one to start with.</em></p>
+  <p class="examiner">88% got this right.</p>
+  </td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 2</strong></p>
+<p> A small company uses two floors of a building for its office. A 24-port switch is used on each floor to connect all the computers on that floor. Each computer has a network card and is connected to the switch by cable.<br />
+The topology used on <strong>each floor</strong> is<br />
+A. bus only.<br />
+B. star only.<br />
+C. hybrid.<br />
+D. a combination of bus and star.</p>
+<p class="myanswer">Answer is B.</p>
+<p><span class="myanswer">I was worried that it was going to ask for the topology for the whole LAN, which would have been messy because it could've been C or D. But the question did stress &quot;on each floor&quot;, which simplifies matters to a simple star branching from the switch. </span></p>
+<p><span class="examiner">72% got this right.</span></p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 3</strong> <em>(2011-2014 - replace SDLC with PSM)</em></p>
+<p> User documentation is prepared in which phase of the Systems Development Life Cycle (SDLC)?<br />
+A. design<br />
+B. analysis<br />
+C. evaluation<br />
+D. implementation</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">You can't write documentation for a product that does not yet exist (A,B) and C is way after the product has been implemented and is in use. That only leaves D.</p>
+<p class="myanswer"><em>In the new study design, there is no SDLC any more - it's all Problem Solving Methodology. Consistency at last, thank Dog. </em></p>
+<p class="myanswer"><span class="examiner">55% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 4</strong></p>
+<p> Computer systems use protocols to communicate.<br />
+A protocol that allows computers to communicate with the Internet is<br />
+A. HTTP<br />
+B. TCP/IP<br />
+C. BIOS<br />
+D. IP Address</p>
+<p class="myanswer">Answer is B.</p>
+<p class="myanswer"><em>To be more accurate, TCP/IP is a <strong>pair</strong> of protocols, but they work together to enable internet access. HTTP is for web pages, which are <strong>part</strong> of the internet but not the whole internet.</em> </p>
+<p class="myanswer"><span class="examiner">56% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="center">The following algorithm applies to Questions 5, 6 and 7.</p>
+<p align="center"><img src="/m/pm/10s-a05-7.jpg" width="373" height="346" alt="pseudocode" /><br />
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 5</strong></p>
+<p> When converting the above algorithm into a program it would be best for other programmers if the program used<br />
+A. meaningful variable names and internal documentation.<br />
+B. meaningful variable names and external documentation.<br />
+C. single letter variable names and internal documentation.<br />
+D. meaningful variable names and no documentation.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer">Meaningful variable names are obviously a good idea, and some sort of documentation is wise. <br />
+Internal documentation is intended for other programmers reading your code.<br />
+External documentation is intended for the end user.<br />
+Since the discussion is of the programmers, their need would be internal documentation.
+</p>
+<p><span class="examiner">84% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 6</strong></p>
+<p> When the above algorithm was tested it was found that it did not provide the correct result when T=20. This was caused by a<br />
+A. logic error.<br />
+B. syntax error.<br />
+C. run time error.<br />
+D. compile time error.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer">A<em> logic error</em> is when the code can be interpreted by the compiler, but the algorithm behind the calculation is wrong.<br />
+<em>Syntax errors</em> occur when the code cannot be interpreted by the compiler (e.g. an unknown command is used, or the punctuation is not what the compiler expected).<br />
+<em>Run time errors</em> occur when a situation arises during program execution that causes a fatal error, such as an unhandled division by zero or running out of memory.<br />
+A <em>compile time</em> error (I'm guessing) is an obscure error type which would usually be a synonym for syntax error. Maybe an expected library can't be found or something? </p>
+<p class="myanswer"><span class="examiner">72% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 7</strong></p>
+<p> Test the above algorithm with the value T=25. The variable X will contain<br />
+A. 'cold'<br />
+B. 'warm'<br />
+C. 'perfect'<br />
+D. 'very hot'</p>
+<p class="myanswer">Answer is C.</p>
+<p class="myanswer">T is not &gt; 35 so drop to the first ELSE. </p>
+<p class="myanswer">T is not &gt;25 so drop to the next else (line 8). </p>
+<p class="myanswer">T <strong>is</strong> &gt; 20, so 'perfect' is stored in X. </p>
+<p class="myanswer"><span class="examiner">80% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p>The following two sets of data are required for Questions 8 and 9.</p>
+<p><img src="/m/pm/10s-a08-9.jpg" width="673" height="663" alt="question a8+a9" /></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 8 </strong><em>(2011-2014 - replace SDLC with PSM where implementation is no longer a step in its own right)</em></p>
+<p> Both data set 1 and data set 2 were obtained from a <strong>new</strong> system.<br />
+For which phase of the Systems Development Life Cycle (SDLC) would the data have been collected?<br />
+A. design<br />
+B. analysis<br />
+C. evaluation<br />
+D. implementation</p>
+<p class="myanswer">Answer is C.</p>
+<p class="myanswer">If the data had come from an old system, it could well have been under analysis (B) before work began on modifying it.<br />
+You would not be designing a system that's already in use and producing data. You might look at data from an <strong>old</strong> system if you're modifying it.<br />
+Implementation does not require such data to be collected.<br />
+Since the system is in place, one would collect this data to see whether the system is meeting its expectations: evaluation.
+</p>
+<p class="myanswer"><span class="examiner">68% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 9</strong></p>
+<p> Select the most correct pair of statements.<br />
+A.&nbsp; Data set 1 could be used to measure an <strong>efficiency</strong> objective.<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Data set 2 could be used to measure an <strong>efficiency</strong> objective.<br />
+B.&nbsp; Data set 1 could be used to measure an <strong>effectiveness</strong> objective.<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Data set 2 could be used to measure an<strong> effectiveness</strong> objective.<br />
+C.&nbsp; Data set 1 could be used to measure an <strong>efficiency</strong> objective.<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Data set 2 could be used to measure an <strong>effectiveness</strong> objective.<br />
+D.&nbsp; Data set 1 could be used to measure an <strong>effectiveness</strong> objective.<br />
+<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Data set 2 could be used to measure an <strong>efficiency</strong> objective.</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">Data set 1 was all about accuracy and reliability: an <em>effectiveness</em> criterion. Rule out options A and C. Focus on B and D.<br />
+Data set 2 takes a bit of pondering: what does it prove? It seems to be about the time taken to fulfil orders, which is an <em>efficiency</em> criterion.<br />
+Only D matches that pair of facts. </p>
+<p class="myanswer"><span class="examiner">83% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left">&nbsp;</p>
+<p align="left"><em>The following information is required for Questions 10, 11 and 12.</em></p>
+<p align="left"> The Big Computer Company (BCC) has a project involving the creation of a new information system for The Small Book Store (SBS).<br />
+Simon works for BCC. He has just finished installing a new information system at SBS's head office. Cheryl works for SBS. She watches Simon run a series of tests on the new system. At the end of the tests Cheryl signs a document agreeing that the system has passed all the tests.</p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 10</strong> <strong></strong><em>(2011-2014 - its unclear whether 'milestone' is still relevant in the new cut-down project management key knowledge)</em></p>
+<p> Cheryl's signing of the test document marks a project milestone. This means that<br />
+A. a major point in the project has been reached.<br />
+B. a major delay in the project has been avoided.<br />
+C. a dependency in the project has been completed.<br />
+D. no further work can happen until another task is complete.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer"><em>Too easy.</em> </p>
+<p><span class="examiner">81% got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 11</strong></p>
+<p> The procedure carried out by Simon and Cheryl is known as<br />
+A. informal testing.<br />
+B. software testing.<br />
+C. validation testing.<br />
+D. acceptance testing.</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">It's also formal testing, where the developer proves that the specifications spelled out in the logical design have been achieved.<br />
+Informal testing happens during development when the developers check that a functional unit of a system works as it should.<br />
+There is no such animal as 'validation testing', unless you mean testing that the validation rules are working - and that's just part of normal testing. </p>
+<p class="myanswer"><em>I wonder what happens to students who opted for B. After all, software <strong>is</strong> being tested. </em></p>
+<p class="myanswer"><span class="examiner">39% got this right.</span></p>
+<p class="examiner">Thirty-nine percent of students identified the procedure as acceptance testing (option D). Students should familiarise themselves with a range of techniques for testing acceptance by users.</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 12</strong> <strong></strong><em>(2011-2014 - skip this. Implementation is no longer needed)</em></p>
+<p> Simon has worked all weekend to get the new information system up and running by Monday morning. SBS had shutdown its old information system on Friday night.<br />
+The changeover method being used is<br />
+A. pilot.<br />
+B. direct.<br />
+C. phased.<br />
+D. parallel.</p>
+<p class="myanswer">Answer is B.</p>
+<p class="myanswer">Pilot is introducing the new system to a subset of the total population.<br />
+Phased is bringing in the new system in stages, piece by independent piece.<br />
+Parallel is running the new and old systems concurrently for a while.<br />
+It's not any of those 
+options.</p>
+<p><span class="examiner">86% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 13</strong></p>
+<p align="left"> Assume A=l, B=2 and C=3.<br />
+The statement that causes D to become true is<br />
+A. If A&gt;B and C&gt;B then D &laquo; true<br />
+B. If B&gt;A and B&gt;C then D &laquo; true<br />
+C. If A&gt;B or C&gt;B then D&laquo; true<br />
+D. If A&gt;B or B&gt;C then D &laquo; true</p>
+<p class="myanswer">Answer is C.</p>
+<p class="myanswer">1 is not &gt; 2, but 3 <strong>is</strong> &gt; 2 so that is<strong> true</strong>.</p>
+<p><span class="myanswer">In option A, 1 isn't &gt; 2.<br />
+In option B, 2 is &gt; 1 but 2 is not &gt; 3.<br />
+In option D, 1 is again not &gt;
+2 and 2 is not &gt; 3 so both side of the OR condition fail.</span></p>
+<p><span class="myanswer"><em>I trust that by the end of a year in SD students still don't get &lt; and &gt; confused.</em></span></p>
+<p><span class="examiner">68% got this right.</span><br />
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 14</strong></p>
+<p>The two data types that best store the family name of a person, for example Smith, and their phone number, for example (03) 9999 9999, are</p>
+<p>A. Number and Time/Date<br />
+B. Number and String/Text<br />
+C. String/Text and Time/Date<br />
+D. String/Text and String/Text</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">Names, obviously are text/string. The example phone number contained parentheses, leading zero and spaces - none of which can be stored in a number field.</p>
+<p class="myanswer"><em>The date options were too easy for students to rule out. A little more of a challenge would have been better (e.g. datatype called 'Name', or memo)</em>.<br />
+<em>It's good to see the examiners covering their bases with terminology that might vary from language to language.</em></p>
+<p><span class="examiner">66% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 15</strong></p>
+<p align="left">A variable is required to store a true/false value. The best data type for this variable is</p>
+<p>A. Number<br />
+B. Boolean<br />
+C. String/Text<br />
+D. Time/Date</p>
+<p class="myanswer">Answer is B.</p>
+<p class="myanswer"><em>An easy mark.</em></p>
+<p class="myanswer"><span class="examiner">91% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 16</strong></p>
+<p align="left">Each diagram below represents a kind of data structure. The diagram that best represents a two-dimensional array is</p>
+<p align="left"><img src="/m/pm/10s-a16.jpg" width="659" height="165" alt="A16" /></p>
+<p align="left" class="myanswer">Answer is B.</p>
+<p align="left" class="myanswer">A looks like a records in a sequential file.<br />
+C is a linked list.<br />
+D is a one-dimensional array.</p>
+<p align="left" class="myanswer"><span class="examiner">59% got this right.</span></p>
+<p align="left"> <br />
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 17</strong></p>
+<p>Removing data no longer being used and storing it on a DVD in case it is required in the future is known as</p>
+<p>A. archiving.<br />
+B. backing up.<br />
+C. file disposal.<br />
+D. data security.</p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer">The difference between archiving and backing up is that when archived, the original data is removed.</p>
+<p class="myanswer">Option D was a bit lame. Perhaps, &quot;data retirement&quot; might better distract students with vague memories of grandfather/father/son backups?</p>
+<p><span class="examiner">92% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 18</strong></p>
+<p align="left">Copying data onto CDs in case the original data is lost is known as</p>
+<p>A. archiving.<br />
+B. backing up.<br />
+C. file disposal.<br />
+D. data security.</p>
+<p class="myanswer">Answer is B.</p>
+<p class="myanswer"><em>I thought it was little wasteful of 2 marks to test that small amount of understanding. It might have been tested more concisely with a composite question like:</em></p>
+<p class="myanswer"><em>Jim copied data to a DVD and then deleted the original data. Jenny copied data to a DVD and kept the original data.<br />
+A. Jim archived data, and Jenny backed up data*
+<br />
+B. Jim backed up data, and Jenny archived data<br />
+C. Jim disposed of data, and Jenny restored backups<br />
+D. Jim stored data, and Jenny retrieved data</em></p>
+<p><span class="examiner">97% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p align="left"><strong>Question 19</strong> <strong></strong><em>(2011-2014 - skip this - Nassi Shneiderman knowledge is not required)</em></p>
+<p>Below is part of an algorithm that reads and checks passwords. It is to be represented as a Nassi-Schneiderman diagram.</p>
+<p><img src="/m/pm/10s-a19.jpg" width="343" height="273" alt="a19" /></p>
+<p>Which diagram shows the correct <strong>structure</strong> for this part of the algorithm?</p>
+<p><img src="/m/pm/10s-a19b.jpg" width="639" height="413" alt="a19" /></p>
+<p class="myanswer">Answer is C. </p>
+<p class="myanswer">Rule out A because there's no loop in it.<br />
+B has a nested IF which is not in the pseudocode.<br />
+C has the required box for the 'Read code' step, which D 
+lacks.</p>
+<p class="myanswer"><em>A nicely formulated question drawing on more than one set of skills and knowledge. Nicely challenging.</em></p>
+<p class="myanswer">It should look like this:</p>
+<p><img src="/m/pm/10s-a19-ns.jpg" width="403" height="329" alt="N-S chart" /></p>
+<p><span class="examiner">60% got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="4"><p><strong>Question 20</strong></p>
+<p><img src="/m/pm/10s-a20.jpg" width="463" height="253" alt="a20" /></p>
+<p align="left">Which statement best represents what is shown in the data flow diagram above?</p>
+<p>A. A customer places an order for a spare part and an invoice is sent to them.<br />
+B. A process reads data from two data stores and creates an invoice for customers.<br />
+C. Two processes send data to a program which then stores the invoice in a file called customer.<br />
+D. Two data flows are combined in a data store to produce a new data flow which then goes to the customer.</p>
+<p class="myanswer">Answer is B.<br />
+Can't be A because there's no incoming data flow from the customer.<br />
+It's not C because the two shapes on the left are data stores, not processes.<br />
+It's not D because the central shape is a process, not a data store.
+</p>
+<p><span class="examiner">69% got this right.</span></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td ><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+</table>
+<div align="left">
+<table>
+<tr>
+<td valign="top" ><h2><a name="b"></a>SECTION B - Short answer questions</h2>
+<p><strong>Instructions for Section B</strong></p>
+<p>Answer <strong>all</strong> questions in the spaces provided.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 1</strong></p>
+<p align="left">  Sue Sands Super Store has an extensive database of all items that it sells. One of the files in the database uses 3.5 GB (gigabytes) of hard disk space. A new procedure requires individual records from this file to be displayed on the screen. Two alternative methods for obtaining the data have been suggested.</p>
+<table width="90%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><p align="left"><strong>Method 1</strong><br />
+At the start of the program read the whole file into memory and search memory each time a record is required.</p>
+<p align="left"><strong>Method 2</strong><br />
+Obtain the record from the file each time it is required.</p>
+</td>
+</tr>
+</table>
+<p><span class="examiner">This question was poorly done. The majority of students were able to identify one disadvantage, but most were unable to articulate how the file could be organised to make it more efficient.</span></p>
+<p align="left">a. State one disadvantage of method 1.</p>
+<p align="left" class="myanswer">It would consume most, if not all of the computer's RAM and severely degrade system performance. </p>
+<p align="left">1 mark</p>
+<p align="left" class="examiner">This question required students to discuss the use of RAM when loading &lsquo;the whole file into memory&rsquo;, such as the disadvantage of needing a large amount of RAM for this method.</p>
+<p align="left">b. State one disadvantage of method 2.</p>
+<p align="left" class="myanswer">It would take more time to access each record from secondary storage.</p>
+<p align="left">1 mark</p>
+<p align="left" class="examiner">Students needed to make a comment about how slow it would be obtaining &lsquo;the record from the file each time&rsquo;.</p>
+<p align="left">c. i.&nbsp; Outline how the file could be organised to make method 2 more efficient.</p>
+<p align="left" class="myanswer">Store the records in a random access file.</p>
+<p align="left" class="examiner">Students were expected to be able to identify a random access file as the more efficient way the file could be organised.</p>
+<p align="left">ii.&nbsp; Explain why this file organisation will be more efficient.</p>
+<p align="left" class="myanswer">Because the records are fixed-length, it's possible to locate the exact starting point of a record mathematically and jump to that spot instantly and load the record. It avoids the drawback of sequential files in which you have to scroll through all the intervening records to reach the one you need.</p>
+<p align="left">1 + 1=2 marks</p>
+<p align="left" class="examiner">The following is an example of a high-scoring response: <em><br />
+A random access file means that you can go directly to a specific record without having to look at all the records starting with the first file each time you need to search for a file.</em> </p>
+<p align="left" class="examiner">Average mark: 1.2 out of 4</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p><strong>Question 2</strong> </p>
+<p>  Threats to computer systems come in many forms.<br />
+a.&nbsp; Explain the key difference between the way viruses and trojans get into a computer system.</p>
+<p class="myanswer">Viruses enter a system attached to other files (not email attachments, virus code is injected into host files, particularly executable files and travels inside the host.)</p>
+<p class="myanswer">Trojans are self-contained malware that are usually downloaded and opened by users who are deceived or tricked into thinking it is something good. </p>
+<p>2 marks</p>
+<p class="examiner">While viruses come attached to emails, files and programs, and install themselves into computer systems, a user installs a trojan by installing the program containing the trojan. The following is an example of a high-scoring response. <em>Trojans usually appear as something positive like an email from a friend, but when the email is opened the Trojan software is installed on your computer. Viruses may be received through infected USBs, going onto certain bad websites are installed automatically into your machine usually without your knowledge.</em></p>
+<p>  b.&nbsp; Explain the key difference between the purpose of spyware and the purpose of viruses.</p>
+<p class="myanswer">Spyware is designed to monitor a system and its users and return information to the spyware's controller. Monitoring can include keystrokes, including passwords and bank account data (via keyloggers), websites visited, work rate etc.</p>
+<p class="myanswer">Viruses have a variety of purposes including causing data loss, annoying people, showing off, or just getting their virus to propagate widely. Viruses yield no real or direct benefit to their authors.</p>
+<p>2 marks</p>
+<p class="examiner">The purpose of a virus is to copy itself to as many other computers as possible and to generally cause disruptions.<br />
+However, spyware is installed to transmit information about the use of the computer to an outside source.<br />
+The following is an example of a high-scoring response.<br />
+<em>Spyware &ndash; designed to spy on the actions on the computer of the user and send this data back to the creator of the code. Viruses<br />
+are designed to destroy data and in the process destroy the system (destructive code) through malicious code.</em></p>
+<p class="examiner">It was evident that some students did not read each question carefully as they gave generic definitions of the words &lsquo;viruses&rsquo;, &lsquo;spyware&rsquo; and &lsquo;trojans&rsquo; instead of focusing on the key words in each question: &lsquo;get into a computer system&rsquo; (2a.) and &lsquo;the purpose of&rsquo; (2b.).</p>
+<p class="examiner">Average 2.3 / 4</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 3</strong> <strong></strong><em>(2011-2014 - skip a and b - the global envirionment stuff not in the study design)</em></p>
+<p align="left">  Novorodsky Dancing Shoes (NDS) manufactures custom-made dancing shoes in its small Sydney factory. Its information system consists of a database containing product and customer information. The company has a long list of regular customers and it relies on its excellent reputation to get new sales. About 50% of its orders come from Sydney, the rest from other parts of Australia. They are usually made over the phone although some are made by fax or letter. It usually takes about a month to fill an order.<br />
+The owner of NDS has decided that it is time for her company to have a presence on the World Wide Web. She would like a website that includes an online ordering page. It will link to NDS's existing database.</p>
+<p align="left">  a.&nbsp; In addition to allowing customers to order dancing shoes, state <strong>two</strong> other purposes NDS might have in putting its information system into a global environment.</p>
+<p class="myanswer">- advertising the company globally</p>
+<p class="myanswer">- demonstrating and promoting their product line to increase sales</p>
+<p class="myanswer">- remote database access by authorised employees? </p>
+<p>2 marks</p>
+<p class="examiner">Examples of appropriate responses included: <br />
+&bull; trading 24/7 <br />
+&bull; access to global clientele <br />
+&bull; wider audience <br />
+&bull; accurate, up-to-date advertising.</p>
+<p>b. In addition to security concerns, explain one disadvantage for NDS in putting its information system into a global environment.</p>
+<p class="myanswer">It would involve a great change to their practices to support overseas customers. Their entire business model would have to be radically changed. It would incur great cost and effort.</p>
+<p>2 marks</p>
+<p class="examiner">Some students did not read this question carefully and wrote a response regarding security; for example, hackers. The following is an example of a high-scoring response. <em>It may be difficult for them to communicate with and provide support to, overseas customers. If an issue arises it may be difficult to handle.</em></p>
+<p>  c. The online ordering page of the website will require a program that allows the user to look at a catalogue of products and place an order. NDS can either buy an existing web-based ordering program or hire a programmer to write its ordering program, </p>
+<p>i.&nbsp; State one advantage of buying an existing program.</p>
+<p class="myanswer">Quicker.</p>
+<p class="myanswer">Cheaper.</p>
+<p class="myanswer">Support from other users. </p>
+<p>ii.&nbsp; State one advantage of hiring a programmer to write NDS's own program.</p>
+<p class="myanswer">It can be customised to perfectly fit NDS's particular functionality needs.</p>
+<p align="left">1 + 1=2 marks</p>
+<p align="left" class="examiner">Most students were able to indicate that advantages of buying an existing program included the ability for the program to be used immediately, the probability of reduced cost (3ci.), and that hiring a programmer allowed for a more tailored approach to the client&rsquo;s needs (3cii.).</p>
+<p align="left" class="examiner">Overall, this question was handled reasonably well by students; however, some students misread parts of the question.</p>
+<p align="left" class="examiner">Average 4.2 / 6</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 4</strong> <strong></strong><em>(2011-2014 - SDLC is now PSM. Logical design is not mentioned in the design.)</em></p>
+<p align="left">The main result of the <strong>analysis</strong> phase of the Systems Development Life Cycle (SDLC) is the <strong>logical design</strong> of a new or modified information system. The main result of the <strong>design</strong> phase of the SDLC is the <strong>physical</strong> design of a new or modified system.<br />
+</p>
+<p align="left">a.&nbsp; Describe the main difference between the logical design and the physical design of a new system.</p>
+<p class="myanswer">A logical design lays down the desired functionality of the new system but does not try to explain <strong>how</strong> that functionality will be achieved.</p>
+<p>2 marks</p>
+<p class="examiner">The main difference is that the logical design describes what the new system has to do, not how to do it. The physical design specifies the technical components that will be used to create the new system.</p>
+<p>  b.&nbsp; State one type of tool that can be used to represent the physical design of a new system.</p>
+<ul>
+<li class="myanswer">IPO chart.</li>
+<li class="myanswer">Site map.</li>
+<li class="myanswer">Pseudocode.</li>
+<li class="myanswer">Flowchart, NS chart.</li>
+<li class="myanswer">Layout diagrams, interface mockups</li>
+<li class="myanswer">Prototyping</li>
+<li class="myanswer">DFDs</li>
+<li class="myanswer">Storyboards</li>
+<li class="myanswer">Structure charts</li>
+<li class="myanswer">etc</li>
+</ul>
+<p class="myanswer"><em>Students just need to avoid listing <strong>logical design tools</strong> that are used during analysis, such as use-case diagrams, decision trees, checklists, org charts and context diagrams.</em></p>
+<p>1 mark </p>
+<p class="examiner">There are a range of tools that could be used to represent the physical design; for example, system flowchart, structure chart and network diagram.</p>
+<p class="examiner">Average 0.9 / 3</p>
+<p>Total 17 marks <span class="comment">(in future, section B will be worth an even 20 marks - at last!)</span></p>
+<p class="examiner">Many students were unable to provide adequate responses to these questions.</p>
+<p><strong>END OF SECTION B </strong></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><h2 align="left"><a name="cs"></a>Case study</h2>
+<p align="left"><br />
+Country hospitals are finding it difficult to employ specialist doctors. To deal with the problems caused by this, it was suggested that doctors in country hospitals be put in touch with specialists in Melbourne via the Internet. The government decided to set up a project to create the suggested system naming it RuraLink.<br />
+Percy Farmer has been hired to manage the RuraLink system. He was told that RuraLink must allow</p>
+<div align="left">
+<ul>
+<li> the specialists in Melbourne to obtain medical data about patients directly from equipment, such as heart-rate monitors, X-ray machines, ultrasound scanners and video cameras</li>
+<li>the specialists to access patient records in the country hospital databases</li>
+<li>doctors and nurses at the country hospitals to send any measurements or observations they make; for example patients' weight or a description of injuries</li>
+<li>the specialists in Melbourne to provide immediate advice to the country hospital doctors and nurses.</li>
+</ul>
+</div>
+<p align="left">Percy drew this diagram (Figure 1) to help him understand what was required.</p>
+<p align="left"><img src="/m/pm/10s-cs1.jpg" width="631" height="289" alt="figure 1" /></p>
+<p align="left">After some investigation Percy found that all country hospitals have a computer-based administration system. These systems are usually small local area networks with workstations located in the administration area, at each ward desk, and in the emergency department, as shown in Figure 2. To keep costs to a minimum Percy has decided that RuraLink should use as much of the existing country hospital's system as possible.</p>
+<p align="left"><img src="/m/pm/10s-cs2.jpg" width="591" height="334" alt="figure 2" /></p>
+<p align="left">Percy's investigations have also found that it would be better if the equipment came to the patients rather than having the patients moved to the equipment. He drew a diagram showing how a 'telemedicine' trolley might be used to bring the equipment to the patients. It is shown in Figure 3.</p>
+<p align="left"><br clear="ALL" />
+The computer on the telemedicine trolley will connect to a country hospital's network and use its Internet connection to Melbourne. </p>
+<p align="left"><img src="/m/pm/10s-cs3.jpg" width="263" height="283" alt="figure 3" /> </p>
+<p align="left">End of case study insert for section C</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><em class="myanswer">A very short and DFD-free / pseudocode-free case study. How interesting!</em></td>
+</tr>
+<tr>
+<td valign="top"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top"><h2><a name="c"></a>SECTION C - Case study</h2>
+<table width="90%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><p align="left"><strong>Instructions for Section C</strong></p>
+<p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p>
+</td>
+</tr>
+</table>
+<p align="left"><strong>Question 1</strong> <strong></strong><em>(2011-2014 - skip b. Causes of change are not in the new study design)</em></p>
+<p align="left"> At the beginning of his analysis, Percy wants to make sure that he understands why RuraLink is being created.<br />
+a.&nbsp; State the government's main reason for the creation of RuraLink.</p>
+<p class="myanswer">To give country hospitals access to specialist doctors.</p>
+<p>1 mark</p>
+<p class="examiner">The government&rsquo;s main reason for the creation of RuraLink is to try to overcome the issues created by the shortage of specialist doctors in country areas. Many students were able to provide the appropriate response. However, a number of students incorrectly referred to the solution that was put in place &ndash; to put rural hospitals in touch with specialists in the city. </p>
+<p class="myanswer"><em>I'd still argue about that one. It's not easy to explain, but I'm not happy with the examiners' hair-splitting. The <strong>original</strong> problem, according to the case study, was employing specialist doctors. The <strong>resultant</strong> <strong>problems </strong>of that led to the suggestion to use the internet. So the answer should be &quot;To give country hospitals access to specialist doctors&quot;, not to address the consequence issues.</em></p>
+<p class="myanswer">State average 0.5 / 1</p>
+<p>  b.&nbsp; Is this a technical, economic or social factor that is prompting change?</p>
+<p class="myanswer">Social. It's to make people's health and lives better.</p>
+<p class="myanswer"><em>There are no technological factors promoting the change.<br />
+While Percy is keeping the bush hospitals' systems to reduce costs, money is not the driving force behind this new system.</em> </p>
+<p>1 mark</p>
+<p class="examiner">This change is prompted by a social factor. Many students were able to answer this question correctly.</p>
+<p class="examiner">State average: 0.7 / 1</p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">Question 2</p>
+<p align="left"> After completing his analysis Percy draws a context diagram for the new RuraLink system. Complete his context diagram by filling in the boxes.</p>
+<p align="left"><img src="/m/pm/10s-c2.jpg" width="595" height="366" alt="c2" /></p>
+<p align="left">4 marks</p>
+<table width="47%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="36%" class="myanswer">Trolley equipment (1)</td>
+<td width="22%">&nbsp;</td>
+<td width="42%" class="myanswer">Country hospital database (2)</td>
+</tr>
+<tr>
+<td class="myanswer">&nbsp;</td>
+<td><div align="center">RuraLink</div></td>
+<td class="myanswer">&nbsp;</td>
+</tr>
+<tr>
+<td class="myanswer">Doctors &amp; nurses (3)</td>
+<td>&nbsp;</td>
+<td class="myanswer">Specialist (4)</td>
+</tr>
+</table>
+<p align="left" class="myanswer">This had me scratching my head. All 4 boxes are obviously external entities, but sorting out which was which was a pain. But a couple of people have pointed out that if you look again at the clues in the 4 dotpoints, things become clearer. The bold+italics indicate the corresponding text in the context diagram.</p>
+<ol>
+<li class="myanswer">the specialists in Melbourne to obtain <strong><em>medical data</em></strong> about patients directly from <strong>equipment</strong>...</li>
+<li class="myanswer">the specialists to access<strong> <em>patient records</em></strong> in the <strong>country hospital databases</strong></li>
+<li class="myanswer"><strong>doctors and nurses</strong> at the country hospitals to send any <strong><em>measurements or observations</em></strong> they make; for example patients' weight or a description of injuries</li>
+<li class="myanswer">the <strong>specialists</strong> in Melbourne to provide immediate advice to the country hospital doctors and nurses. </li>
+</ol>
+<p align="left" class="myanswer"><span class="examiner"></span> </p>
+<table width="47%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="36%" class="examiner">patient/equipment</td>
+<td width="22%">&nbsp;</td>
+<td width="42%" class="examiner">Country hospital database</td>
+</tr>
+<tr>
+<td class="myanswer">&nbsp;</td>
+<td><div align="center">RuraLink</div></td>
+<td class="myanswer">&nbsp;</td>
+</tr>
+<tr>
+<td class="examiner">doctors and nurses</td>
+<td>&nbsp;</td>
+<td class="examiner">Specialist</td>
+</tr>
+</table>
+<p align="left" class="examiner">Students should be familiar with Data Flow Diagrams and be able to complete them accurately. However, only a small number of students were able to correctly complete the diagram and many students repeated entities.</p>
+<p align="left" class="comment">But it's a context diagram, not a DFD!</p>
+<p align="left">State Average: 2.4 / 4</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 3</strong></p>
+<p align="left"> During his investigation Percy found that a single consultation with a patient could create about 1 GB (gigabyte) of data. He also found that in 0.1 % of cases complications can arise up to five years after the consultation. Many doctors told him that it would be an advantage if they could review a patient's video and other data again.</p>
+<p align="left">  a.&nbsp; Assuming 100 consultations occur across the state on any day, and given that there are 365 days in a year, how much data will need to be stored for five years (ignoring leap years)?</p>
+<p align="left" class="myanswer">100 consultations * 365 days * 1GB * 5 years = 182,500 GB = 182.5 Terabytes</p>
+<p align="left" class="myanswer"><em>Will students get marks for answering in Gigabtytes, or will the examiners expect answers to be in Terabytes?</em></p>
+<p align="left">1 mark</p>
+<p align="left" class="examiner">182,500GB of data would need to be stored for five years, ie. 100 x 365 x 5 Most students were able to complete the required calculation for five years of data storage. Many students showed their working; however, <strong>this was not required</strong>.</p>
+<p align="left" class="examiner">State average: 0.7 / 1</p>
+<p align="left"> Percy has three possible solutions for storing this data.</p>
+<p align="left">Solution A: Store all the patient data in the RuraLink system for five years.<br />
+Solution B: Store only the data for the 0.1% of cases the doctors wish to review.<br />
+Solution C: Store the data onto a DVD and give it to the patients to keep.</p>
+<p align="left">b.&nbsp; Select one solution and justify why you think this would be the best choice for RuraLink. </p>
+<p align="left" class="myanswer">Solution A</p>
+<p align="left">Justification (9 lines provided) </p>
+<p align="left" class="myanswer">For option B. How can they know <em>now</em> which 0.1% of cases will need to be reviewed in the future?<br />
+For option C, you'd only get 4 or 5 consultations on a DVD, and the patient is likely to lose or damage the DVD if they hold onto it.</p>
+<p align="left" class="myanswer">With option A, the data is all in one place, and can be accessed instantly when needed from any computer within the system. </p>
+<p>3 marks - state average 1.8</p>
+<p class="myanswer"><em>Not a very challenging question, I thought. The &quot;bad guy&quot; options were too blatantly evil - black hats and scars all over.</em></p>
+<p class="examiner">Solution A or C was possible. Solution B was impractical as there was no way of determining which 0.1 per cent of cases to keep. Many students handled this &lsquo;select and justify&rsquo; question well. <br />
+When responding to this type of question, <strong>students should remember to discuss why their selection is the &lsquo;best&rsquo; and also discuss why the alternatives are not the &lsquo;best&rsquo;.</strong> A number of students did not indicate why the alternatives were inappropriate.</p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><p align="left"><strong><a name="c4"></a>Question 4</strong></p>
+<p align="left"> One of RuraLink's specifications is that a specialist in Melbourne can access patient records stored in a country hospital's database. Patients, however, may have data about them stored at more than one hospital. So that RuraLink can provide data to the specialist from any hospital database, the patients' Medicare numbers will be used as a link between databases.</p>
+<blockquote>
+<blockquote>
+<p align="left"><img src="/m/pm/10s-c4.jpg" width="237" height="149" alt="medicare card" /></p>
+</blockquote>
+</blockquote>
+<p>Percy is writing the program specification. For the section dealing with entry of the Medicare number he writes</p>
+<blockquote>
+<p>  If the user makes a mistake entering the Medicare number, the program has to provide as much information as possible about what is wrong. Therefore include these validation tests.<br />
+<strong>Length</strong> - to make sure that the correct number of characters has been entered<br />
+<strong>Existence</strong> - to make sure that the number entered exists on Medicare's database<br />
+<strong>Null</strong> - to make sure something has been entered<br />
+<strong>Type</strong> - to make sure that only numeric characters have been entered</p>
+<p>Note: These tests must be performed in the most effective order.</p>
+</blockquote>
+<p>a. Place these validation tests in the most effective order.</p>
+<p class="myanswer">SEE BELOW</p>
+<p>1 mark - state average 0.8</p>
+<p align="left" class="myanswer"><em>I've started getting a bee in my bonnet (or a terrier in my trousers) about this question.<br />
+<br />
+Hmm. What is "effective" about the order? It must relate to <strong>how well</strong> it does the job of finding invalid numbers.<br />
+<br />
+But if <strong>all 4 tests</strong> are going to be conducted, any order of the 4 tests will yield <strong>exactly the same</strong> results.<br />
+<br />
+It might be different if we wanted to find invalid numbers <strong>soonest,</strong> or with the <strong>minimum number of tests</strong>, but they are <strong>efficiency</strong> criteria, not effectiveness.<br />
+<br />
+I'm seriously starting to believe that this is a Bull Mastiff of a question... All orders must be equally effective.<br />
+<br />
+I can usually work out what the examiners were probably trying to get at, but this one has me completely baffled (like <a href="/p/postmortem-2010i.htm#Q3">multichoice Q3 on the ITA paper</a>).&nbsp; I have no idea whatsoever of what knowledge the examiners are hoping I will show.<br />
+<br clear="all" />
+So, can anyone please tell me:<br />
+<br />
+1. how one order can be more effective than another.<br />
+2. what order is most effective, and why the reverse order would be less effective!<br />
+<br />
+Growl.</em></p>
+<p align="left" class="examiner">Either of: <br />
+&bull; Null, Length, Type, Existence <br />
+&bull; Null, Type, Length, Existence. <br />
+Students were generally able to put the validations tests listed in an appropriate order.</p>
+<p>b. Give three reasons why this order is the most effective way of doing these validation tests.</p>
+<p align="left">Reason 1</p>
+<p>Reason 2</p>
+<p>Reason 3</p>
+<p>3 marks - average 1.9</p>
+<p align="left" class="examiner">Some students had difficulty giving reasons why their nominated order was the most effective. Students were expected  to have knowledge of validation techniques, including existence checking, range checking and type checking for Unit 4, 
+Outcome 1.<br />
+The following is an example of a high-scoring response.<br />
+<em>Reason 1 A Null test must come first, as none of the other test can be done if nothing has been entered.<br />
+Reason 2 The Existence test should come last, as the input will not be in the database if it has failed the previous tests.<br />
+Reason 3 The Length test should come before the type test, as it requires less processing to check and inputs length.</em></p>
+<p align="left" class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p class="myanswer"><img src="/m/meatybites.jpg" width="145" height="177" alt="Dog's breakfast" /></p>
+<p class="myanswer">2 December 2010 - VCAA responded to my complaint about the question:</p>
+<p class="myanswer">&quot;In relation to VCE IT: Software Development, Section C Question 4 the Panel Chair and Chief Assessor have provided the following information:</p>
+<p class="myanswer">This question is about a validation strategy based on the program specification. The definition of effectiveness in the Study Design is 'a measure of how well something works'. The definition also continues with 'measures of an effective information system'; one of these is given as 'communication of message'. This relates to the question where it talks about the user ... and the program has to provide as much information as possible about what is wrong. The most effective way of providing this is therefore null first, existence last. You have assumed that all four tests are going to be conducted. The statement in the question 'therefore include these validation tests' cannot be interpreted as 'these tests must be run on every number'. These tests are included in the program - perhaps using 'if statements in such a way that the most effective message is returned - therefore, the question 'place the validation tests in the most effective order'. &quot;</p>
+<p class="myanswer">O well... I still don't like the question.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 5</strong></p>
+<p align="left"> Percy decides to use a BrandX video camera for the telemedicine trolley. However, Suzie, Percy's chief programmer, found a much higher resolution video camera at a similar cost and reliability. She also makes sure that her camera will be compatible with the other equipment on the telemedicine trolley. Suzie argues that her choice will improve the images the specialists in Melbourne receive in real time.<br />
+Explain one other aspect of the system that needs to be checked before changing to Suzie's choice of video camera.</p>
+<ul>
+<li class="myanswer">How much bandwidth is required to transfer such high-resolution video? It might take so much that their comms choke up.</li>
+<li class="myanswer">Is the video recorded in a format that the specialists can view? If not, the video may be useless. </li>
+</ul>
+<p>2 marks - average 0.9</p>
+<p class="examiner">A range of responses was accepted, including warranty and customer support; however, bandwidth was the most obvious and critical aspect that needed to be checked to ensure the transmission of the video data. </p>
+<p class="examiner">Students must remember to read questions carefully and ensure that they understand the question stem. This question asked for an explanation, so statements such as &lsquo;check the Internet connection&rsquo; or &lsquo;check the bandwidth&rsquo; were not adequate. Students needed to provide details as to why the system aspects should be checked. </p>
+<p class="examiner">Students should familiarise themselves with the range of question stems and be aware of the expectations of each. Teachers should endeavour to utilise a range of these when setting assessment. </p>
+<p class="examiner">The following is an example of a high-scoring response. <em>Whether the internet connection will have a high enough bandwidth to efficiently stream such high resolution video from multiple cameras in the hospital at one time.</em></p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 6</strong></p>
+<p align="left"> The specialists in Melbourne require real-time data about patients. Nurses need to use a portable device to</p>
+<ol>
+<li>find patient records on the hospital database</li>
+<li>enter various observations such as blood pressure and pulse rates then <strong>upload</strong> these from the portable device to the telemedicine trolley</li>
+<li>access important blood test results</li>
+<li>read reports from doctors and other nurses.</li>
+</ol>
+<p align="left">One way of connecting the portable device to the telemedicine trolley is to use a cable, </p>
+<p align="left">a.&nbsp; Suggest another way to connect to the telemedicine trolley.</p>
+<p class="myanswer">Wireless, wi-fi, 802.11</p>
+<p>1 mark - average 0.9 </p>
+<p class="examiner">Students performed very well on this question.</p>
+<p>  b.&nbsp; Other than cost, explain one major advantage and one major disadvantage of your method.</p>
+<p>Advantage</p>
+<p class="myanswer">Doctors and nurses can be more mobile and not constrained by cable length.</p>
+<p class="myanswer">Cables get in the way.</p>
+<p class="myanswer">Cables must be rolled and unrolled and untangled frequently - a messy inconvenience. (Not a &quot;major&quot; disadvantage, I admit)</p>
+<p>Disadvantage</p>
+<p class="myanswer">Security - communications to and from the device could be intercepted and misused. </p>
+<p>2 marks - average 1.5</p>
+<p class="examiner">Students needed to ensure that they read this part of the question carefully as it asked them to suggest advantages and disadvantages of the method (other than cost) selected in 6a. Responses that related to cost were incorrect. <br />
+Most students gave mobility or safety due to lack of cables as the advantage, and loss of signal, interference or security of transmission as the disadvantage. It was important, that the explanation provided was applicable to the hospital; simply stating &lsquo;easy to move around&rsquo; was not sufficient</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">Question 7</p>
+<p align="left"> Percy has to decide what type of portable device needs to be purchased for the nurses. The most important feature of these portable devices is the method of communication. Select three essential features from the list below and explain why each is important.<br />
+</p>
+<table width="27%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Features</strong></td>
+</tr>
+<tr>
+<td>touch screen </td>
+</tr>
+<tr>
+<td>battery life </td>
+</tr>
+<tr>
+<td>weight </td>
+</tr>
+<tr>
+<td>keypad</td>
+</tr>
+<tr>
+<td>storage capacity (bytes) </td>
+</tr>
+<tr>
+<td>stylus</td>
+</tr>
+<tr>
+<td>USB connections </td>
+</tr>
+<tr>
+<td>Ethernet connection </td>
+</tr>
+<tr>
+<td>screen size</td>
+</tr>
+</table>
+<p align="left">&nbsp;</p>
+<p>Feature 1 </p>
+<p class="myanswer">Ethernet connection</p>
+<p>Explanation </p>
+<p class="myanswer">Since communication is the most important feature, Ethernet connectivity is vital so the device can connect to the LAN to exchange data.</p>
+<p>Feature 2 </p>
+<p class="myanswer">Weight</p>
+<p>Explanation</p>
+<p class="myanswer">Since it must be portable, the ease of handling its weight is the next most vital feature of a portable computing device.</p>
+<p>Feature 3 </p>
+<p class="myanswer"><em>After covering Ethernet and weight, any of these can appear in third spot...</em></p>
+<ul>
+<li class="myanswer">screen size - the bigger the screen, the more data can be viewed at a legible size</li>
+<li class="myanswer">touch screen - when mobile and hand-help, touch screens are easier to use that little keyboards.</li>
+<li class="myanswer">battery life - being portable, it must run on batteries. Long battery life is a distinct advantage.</li>
+</ul>
+<p class="myanswer"><em>These would be harder to justify. You might disagree.</em></p>
+<ul>
+<li class="myanswer">keypad - not really a vital feature unless it was the only data input method.</li>
+<li class="myanswer">storage capacity - the device will be uploading to the trolley, so it will not need to store a huge amount of data for very long.</li>
+<li class="myanswer">stylus - a pretty trivial point nowadays</li>
+<li class="myanswer">USB connection - not vital unless super-fast upload speed is needed. It perhaps could be used to recharge the device's battery.</li>
+</ul>
+<p>3 marks - average 2.3</p>
+<p class="examiner">The most appropriate features were battery life, screen size and weight; however, students could have selected other features as long as they were also able to explain why the feature was essential. <strong>Ethernet connection was not appropriate as the question asked for items other than methods of communication.</strong> Many students were able to provide appropriate responses.</p>
+<p><span class="comment">8 Sept 2011 - But the question did NOT ask for items other than methods of communication!&nbsp; <br />
+In fact, Ethernet would be a crucial feature because the portable device could not connect to the LAN without it.<br />
+I would be displeased if students were punished for discussing Ethernet.</span></p>
+<p class="comment">The answer turned out to be as follows:</p>
+<p class="examiner">&quot;The following was reported to students via Chief Supervisors on the day of the exam: <br />
+Turn to page 16, Section C, Question 7.<br />
+Insert the word &lsquo;other&rsquo; as the third word in the third sentence so that it reads &lsquo;Select three other essential features from the list below and explain why each is important.&rsquo;.&quot;</p>
+<p class="comment">I hope in future, such exam-room instructions are mentioned in the examiners' reports!</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 8</strong></p>
+<p align="left"> Percy has decided to first build a trial system. It will connect one country hospital to one Melbourne hospital. The country hospital chosen for the trial is the Wanlan Base Hospital.<br />
+One of Percy's aims in conducting the trial will be to evaluate the software to be used on the telemedicine trolley computer.<br />
+Software qualities are measured on the basis of</p>
+<ul>
+<li>effectiveness</li>
+<li>efficiency</li>
+<li>stability</li>
+<li>reliability</li>
+<li>usability</li>
+<li>maintainability.</li>
+</ul>
+<p> Percy is proposing four criteria to evaluate the software. For each criterion listed in the table, select from the above list one quality that the criterion is measuring.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="414" valign="top"><p align="center"><strong>Criteria</strong></p>
+</td>
+<td width="228" valign="top"><p align="center"><strong>Software quality</strong></p>
+</td>
+</tr>
+<tr>
+<td width="414" valign="top"><p>After 1 hour's training the software can be operated by doctors and nurses without further help in 98% of all cases.</p>
+</td>
+<td width="228" valign="top" class="myanswer">Usability</td>
+</tr>
+<tr>
+<td width="414" valign="top"><p>The software can be modified to take on new diagnostic equipment where needed.</p>
+</td>
+<td width="228" valign="top" class="myanswer">Maintainability</td>
+</tr>
+<tr>
+<td width="414" valign="top"><p>The software uses less than 50% of its allowable bandwidth to transmit data at maximum resolution.</p>
+</td>
+<td width="228" valign="top" class="myanswer">Efficiency</td>
+</tr>
+<tr>
+<td width="414" valign="top"><p>The software allows all video and images to be transmitted in a clear high-resolution format.</p>
+</td>
+<td width="228" valign="top" class="myanswer">Effectiveness</td>
+</tr>
+</table>
+<p>4 marks - average 3.0</p>
+<p class="myanswer"><em>Wanlan - WAN, LAN - it's a networking joke! Geddit?</em></p>
+<p class="examiner">It was evident that most students knew the meaning of the software qualities listed; however, some students were not able to gain full marks for this question. <br />
+Key terms such as usability, maintainability, efficiency and effectiveness should be used throughout the year so that students become familiar with their usage.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 9</strong></p>
+<p align="left"> During the trial it was found that when nurses changed their passwords for the portable devices the program failed and they were locked out. Investigation found that entering certain characters caused the problem, so it was decided to limit the passwords to just alphabetic letters and numbers. Suzie has suggested the algorithm below to validate a new password before it is stored in the system. She must now test it.</p>
+<p align="left"><img src="/m/pm/10s-c9.jpg" width="593" height="445" alt="c9" /></p>
+<p align="left">Suzie created the test data shown below.<br />
+<br clear="ALL" />
+a.&nbsp; For each item of data, give a reason for why that data was chosen.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="76" valign="top"><p align="center"><strong>Test data</strong></p>
+</td>
+<td width="498" valign="top"><p><strong>Reason for choosing it</strong></p>
+</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">12a</p>
+</td>
+<td width="498" valign="top" class="myanswer">It's a valid password and should be accepted by the program</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">*la</p>
+</td>
+<td width="498" valign="top" class="myanswer">Finds invalid character at the beginning of the password</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">l*a</p>
+</td>
+<td width="498" valign="top" class="myanswer">Finds invalid characters anywhere in the middle of the password</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">la*</p>
+</td>
+<td width="498" valign="top" class="myanswer">Finds invalid character at the end of the password</td>
+</tr>
+</table>
+<p align="left">4 marks - average 2.6 </p>
+<p align="left" class="myanswer"><em>To me, it seems pretty simplistic and repetitive for 4 marks' worth. Why not ask students to propose &amp; justify their own test data?</em></p>
+<p align="left" class="examiner">Students struggled significantly with this algorithm question and the related questions. Most students were able to identify that the first value (12a) was valid and the other three items of data were checking an invalid * at the start, middle and end of the password. Students should practise these types of questions either in classroom activities, using past examination papers or in assessment where appropriate. </p>
+<p align="left">b.&nbsp; Suggest one other item of data that will test another aspect of the password procedure and explain why it should also be used.</p>
+<p align="left">Test data</p>
+<p align="left" class="myanswer">Null string</p>
+<p align="left">Explanation</p>
+<p align="left" class="myanswer">In case no password is entered, does the procedure behave properly? Especially since it increments the charcount before the password is even looked at!</p>
+<p>2 marks - average 0.9</p>
+<p class="examiner">A large number of students correctly suggested that an additional aspect which should be tested was &lsquo;blank&rsquo; or &lsquo;null&rsquo;. However, many students were not awarded any marks as they suggested tests that did not test another aspect of the procedure.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 10</strong></p>
+<p align="left"> a.&nbsp; For the algorithm in Question 9, complete the test table below showing what output is expected from the test data and what it actually produces.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="76" valign="top"><p align="center"><strong>Test data</strong></p>
+</td>
+<td width="267" valign="top"><p><strong>Expected output</strong></p>
+</td>
+<td width="270" valign="top"><p><strong>Actual output</strong></p>
+</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">12a</p>
+</td>
+<td width="267" valign="top" class="myanswer">Password accepted</td>
+<td width="270" valign="top">Password rejected</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">*la</p>
+</td>
+<td width="267" valign="top" class="myanswer">Password rejected</td>
+<td width="270" valign="top">Password rejected</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">l*a</p>
+</td>
+<td width="267" valign="top" class="myanswer">Password rejected</td>
+<td width="270" valign="top">Password rejected</td>
+</tr>
+<tr>
+<td width="76" valign="top"><p align="center">la*</p>
+</td>
+<td width="267" valign="top" class="myanswer">Password rejected</td>
+<td width="270" valign="top">Password rejected</td>
+</tr>
+</table>
+<p align="left">2 marks - average 0.7</p>
+<p align="left" class="examiner">  This question required students to desk check the algorithm and fill in the table. Students needed to fill in each column correctly to be awarded full marks. When testing the algorithm, the content of the table needed to reflect the output as writing in the algorithm, so responses such as &lsquo;true&rsquo;, &lsquo;false&rsquo; or &lsquo;access granted&rsquo; were not appropriate.</p>
+<p align="left">Suzie found her algorithm does not produce the output expected.</p>
+<p align="left"> b.&nbsp; Explain why the algorithm is giving the wrong output.</p>
+<p align="left" class="myanswer">Firstly: In the IF statement, it will reject <strong>all</strong> input because <strong>any</strong> character has to be either not numeric or not alphabetic - or both.</p>
+<p align="left" class="myanswer">Secondly: even if the IF statement's OR was changed to AND, it would still fail with test data <strong>*la</strong> because the first character of the password is not being checked. Notice how the first character is stored in PasswordChar before the <strong>Repeat</strong>, but the first thing in the <strong>Repeat</strong> construct is loading the <em>next</em> character! The first character is never tested.</p>
+<p>2 marks - average 0.8</p>
+<p class="examiner">The algorithm had two key errors that students needed to identify: <br />
+&bull; the first character in the password is never tested as the first character is always skipped <br />
+&bull; the If statement &ndash; all possible passwords combinations are rejected. A significant number of students were not able to identify the two key errors. Students need to ensure that they practise these types of questions throughout the year.</p>
+<p align="left"><br />
+c.&nbsp; Explain how the algorithm could be corrected.</p>
+<p align="left" class="myanswer">Firstly, change the OR in the IF statement to AND.</p>
+<p align="left" class="myanswer">Secondly, delete lines 3 and 4 of the program.</p>
+<p>3 marks - average 0.6</p>
+<p class="myanswer"><em>Are students expected to find <strong>both</strong> problems in the code?</em></p>
+<p class="examiner">The algorithm could be corrected in the following ways:</p>
+<p class="examiner">PasswordChar &lt;- Next Character of Password<br />
+Charcount &lt;- Charcount +1<br />
+Put these lines after the If statement but before the end of the <strong>Repeat Until</strong></p>
+<p class="examiner"><strong>-Or-</strong></p>
+<p class="examiner">Add the <strong>If</strong> statement before the start of the Repeat loop as well as leaving it inside<br />
+<strong>- And -</strong><br />
+If (PasswordChar is Not Numeric) AND (PasswordChar is Not Alphabetic) Then  <br />
+ValidPassword=False<br />
+EndIf<br />
+<br />
+The If statement should have the <strong>Or</strong> changed to <strong>And</strong>.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 11</strong></p>
+<p>The new telemedicine trolley for Wanlan Base Hospital arrived with three large printed technical manuals for each component of the hardware and software. These manuals were left with the trolley for the staff to use. The doctors and nurses who are to use the trolley have complained to management that the manuals are unsuitable.</p>
+<p align="left">a.&nbsp; Explain why these technical manuals are not suitable for use by the doctors and nurses.</p>
+<p class="myanswer">Their non-technical roles makes the information in the manuals irrelevant to them.</p>
+<p>1 mark - average 0.7</p>
+<p class="examiner">A technical manual provides specifications that the medical staff do not need and is often written in highly technical language that they may not understand. Students were expected to explain that technical manuals were inappropriate for end users as technical manuals are intended for IT professionals.</p>
+<p>Identify two different types of user documentation that would be more suitable for the doctors and nurses. State reasons for your choices.</p>
+<p>Type 1</p>
+<p class="myanswer">Quick start guide (printed)</p>
+<p>Reason</p>
+<p class="myanswer">Gets a user operating quickly (albeit unskilfully) with minimal training needs.</p>
+<p>Type 2</p>
+<p class="myanswer">User manual (printed, or electronic on the trolley's computer)</p>
+<p> Reason</p>
+<p class="myanswer">Provides full details of the operation of the system that can be referred to when it's needed. If electronic, it can be quickly and easily copied, edited and searched.</p>
+<p>4 marks - average 2.6</p>
+<p class="examiner">Suitable user documentation included: <br />
+&bull; Online procedures manual &ndash; the medical staff would be better off using online simple quick-start guides, procedure manuals, or user guides that are presented in simpler language, easily searchable and are aimed at the needs of the medical staff. <br />
+&bull; Quick-start guides that are printed and laminated &ndash; these could be attached easily to the side of the trolley for quick and easy reference for the staff. </p>
+<p class="examiner">It was pleasing to see that most students were able to discuss a range of user documentation and were able to identify the appropriateness for intended audiences. The following is an example of a high-scoring response for one type of user documentation. </p>
+<p class="examiner"><em>Type &ndash; Online User guide explaining all functions of the software</em></p>
+<p class="examiner"><em>Reason &ndash; The doctors and nurses will need to know how to use all of the functions that the software provides, and an online help<br />
+facility with a search function will make it easier to find help</em></p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 12</strong></p>
+<p>With the new system in place, Wanlan Base Hospital must now decide on a suitable training program for users of the system before it can be put to use. Doctors and nurses must use this system.</p>
+<p>a.&nbsp; Identify one other key group of staff that must have training in the operation of this new equipment.</p>
+<p class="myanswer">Technicians - so they can repair, upgrade and modify the system in the future.</p>
+<p class="myanswer">Management - so they can support its resourcing or use it in an emergency (?) </p>
+<p>1 mark - average 0.5</p>
+<p class="examiner">Students were able to demonstrate a sound level of knowledge on training strategies, with many indicating that technicians or support staff would also need to be trained.</p>
+<p>Percy has developed a training strategy for the hospital and has recommended that all staff be trained on site.</p>
+<p>b.&nbsp; Discuss why he has recommended this strategy.</p>
+<p class="myanswer">Familiar surroundings are more comfortable for trainees.</p>
+<p class="myanswer">No need for staff to travel = less stress, wasted travel time and cost.</p>
+<p class="myanswer">Can use the equipment in the actual environment in which it will be used for real - potential problems related to the environment can be identified. Usage procedures can be tailored for their environment (e.g. where is the trolley stored when not in use?)</p>
+<p>2 marks - average 1.3</p>
+<p class="examiner">Students were able to articulate why onsite training was a valuable training strategy, with many indicating that onsite training would allow the users to learn to use the equipment and software in a real environment.</p>
+<p align="left">The hospital has been offered a one-day intensive training session for each member of staff.</p>
+<p align="left">c.&nbsp; Suggest one reason why a one-day session is not considered the most appropriate by the hospital management.</p>
+<p align="left" class="myanswer">With trainees at all different levels of skill, a &quot;one course fits all&quot; approach would mean the unskilled users would not get enough introductory information, and the skilled users would find all the basic material dull and irrelevant.</p>
+<p align="left" class="myanswer">Also, medical staff and technical staff have different information needs, and a single session would be providing lots of irrelevant information to both groups.</p>
+<p>2 marks - average 0.8</p>
+<p class="examiner">Staff require ongoing support in order to use the new systems, rather than a one-day session. <br />
+Some students appeared to think the &lsquo;one-day intensive training&rsquo; meant that all staff were out on the same day and this would mean that the hospital would not be able to function. Teachers should ensure that students are able to contextualise how each training method may occur.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left"><strong>Question 13</strong></p>
+<p>In order to evaluate the success of the new system, the hospital needs to collect data from the system to determine whether the goals and objectives have been achieved.</p>
+<p>One of the key hospital goals for RuraLink is to improve country patient outcomes through timely specialist treatment of serious medical issues via the telemedicine trolley.</p>
+<p align="left">Data can be collected to evaluate the extent to which the hospital's goal was achieved.</p>
+<p align="left">Give two examples of data that could be collected, and explain how this data would be used.</p>
+<p>Data 1 </p>
+<p class="myanswer">Mortality figures</p>
+<p>How this data would be used to evaluate the achievement of the goal </p>
+<p class="myanswer">A reduction in the the number of deaths over time clearly indicates improved health outcomes.</p>
+<p>Data 2 </p>
+<p class="myanswer">The amount of time taken to arrive at an accurate diagnosis and treatment.</p>
+<p>How this data would be used to evaluate the achievement of the goal </p>
+<p class="myanswer">If the system helps local doctors get a quicker diagnosis and treatment regime from the city specialists, and dangerous complications and secondary illnesses are prevented, then the system is achieving its goals.</p>
+<p>4 marks - average 1.5</p>
+<p class="examiner">Appropriate comments could have included: <br />
+&bull; the average time taken to gain access to a specialist in that medical area &ndash; this could be compared to previous lengths of time it took to access the specialists. If the length of time has decreased, patient outcomes have improved <br />
+&bull; the time between the presentation of symptoms, diagnosis and treatment &ndash; could be compared to previous lengths of time <br />
+&bull; the number of patients with positive outcomes &ndash; if fewer patients are dying, then the patient outcomes have improved. </p>
+<p class="examiner">Students struggled with this evaluation question and it was clear that most students had limited knowledge about how to provide an appropriately detailed response. Many students left this question blank; however, students should be encouraged to provide a response to all questions even if they are unsure of the correct response. The key with most evaluations strategies is that data from a previous system is compared with current details, so data collected must be measurable and allow a comparison.</p>
+<p>Total 53 marks - <span class="comment">from now on the total for section C will be 60.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top"><h2 class="myanswer">OVERALL</h2>
+<p class="myanswer"><em>On the whole, a slightly easy paper. Some of the options to choose from were absurdly easy to rule out: they could have been more challenging.</em></p>
+<p class="myanswer"><em>There's not as much actual <strong>coding</strong> as I'd expect from a course called &quot;Software Development&quot;. That always bemuses me: lots of questions on peripheral matters, and not much on <strong>core </strong>programming business.</em> <em>It's the price you pay for creating an academic programming course, I guess.</em></p>
+<p class="myanswer"><em>The case study could have had more information to clarify the external entities. </em></p>
+<p class="myanswer"><em>A few questions were creatively formulated, and reached just the right level of difficulty.</em></p>
+<p class="myanswer"><em>Question 4 in section C is a mad dog beast that escaped its cage at VCAA and should have been shot in the head by Atticus Finch as it lurched down Spring Street, slavering and howling its nonsense. My 2c worth </em>:-)<em><br />
+</em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="/pagead/show_ads.js"> </script>&nbsp;</td>
+</tr>
+</table>
+</div>
+<p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 17 November 2010</font></p>
+<p align="center"><font size="2">Last changed:
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2010<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2010. Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font></p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

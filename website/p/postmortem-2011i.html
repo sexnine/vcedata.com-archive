@@ -1,0 +1,1876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCE ITA 2011 Exam Post Mortem - VCE Applied Computing Notes by Mark Kelly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="VCAA,exam,software development,post mortem,Mark Kelly" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<div align="center">
+<div align="center"> 
+<p><a href="/index.html" target="_top">VCE Applied Computing Notes</a>
+by <a href="/mailform.htm">Mark Kelly</a> </p>
+</div>
+</div>
+<table>
+<tr>
+  <td colspan="3" ><div align="center">
+    <h1 align="center"><a name="top" id="top"></a>IT Applications</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2011</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p>
+    <h6 >&nbsp;</h6>
+  </div></td>
+</tr>
+<tr>
+  <td colspan="3" ><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><font size="2">Last changed:
+  <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate -->
+  </font></div></td>
+</tr>
+<tr>
+  <td colspan="3" ><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan="3"><div align="center">
+<h2>The Post Mortem Awards</h2>
+</div></td>
+</tr>
+<tr>
+<td width="25%"><p align="center"><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+<p>The <strong>SCHMACKOS</strong> award is given to questions that are a complete dog's breakfast.</p>
+</td>
+<td width="50%"><div align="center"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></div>
+<p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award 
+Questions that are not totally <em>wrong,</em> but are just <em>dumb</em> 
+or are wrong in a way that does not jeopardise the answer.</p>
+</td>
+<td width="25%"><p align="center"><img src="/m/illiterate.jpg" alt="" width="47" height="89" />&nbsp;</p>
+<p align="center">And the exciting Illiteracy Award.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+  <td width="100%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td><p>From the examiners' report's opening remarks</p>
+<p class="examiner">The examiner says: Generally, students understood that good data produces relevant and accurate information, and they identified the 
+appropriate data types, validation techniques and software functions to achieve this. They also described and named a 
+comprehensive range of security equipment and procedures to protect data and information to meet various legal 
+obligations. Less well understood was the need to provide a comprehensive testing strategy during the development 
+stage of the problem-solving methodology. </p>
+<p class="examiner"> For the first time in this study students were asked to provide a comprehensive solution to an information problem in 
+the form of an extended response. </p>
+<p class="examiner">Many students provided lengthy and accurate descriptions of either a database or 
+spreadsheet layout for appropriately selected data but failed to complete the task by naming functions that would 
+ultimately provide the required information. </p>
+<p class="examiner">Very few responses then identified data to test the functions named or 
+processes described or even outlined a testing strategy. Teachers are reminded that lists of the functions to be studied 
+are published on the VCAA website. </p>
+<p class="examiner"> It was very pleasing to see that the majority of students used a range of tools to represent both the appearance of 
+solutions and the relationships between elements in solutions. Many students, for example, successfully used an 
+annotated sketch to enhance their answer to the extended response question.</p>
+<p class="examiner"> In many instances where full marks were gained students provided well-thought-out examples to clarify their 
+descriptions, explanations and recommendations. Words such as &quot;list&#8223;, &quot;describe&#8223;, &quot;explain&#8223;, &quot;discuss&#8223; and &quot;recommend&#8223; require appropriate responses. </p>
+</td>
+</tr>
+<tr>
+  <td valign="top"><p align="center" >Victorian Certificate of Education 2011</p>
+    <p align="center">INFORMATION TECHNOLOGY: IT APPLICATIONS<br />
+      Written examination</p>
+    <p align="center" >Monday 14 November 2011<br />
+    </p>
+    <p align="center" >Reading time: 11.45 pm to 12.00 pm (15 minutes) <br />
+      Writing time: 12.00 pm to 2.00 pm (2 hours)</p>
+    <p align="center" >QUESTION AND ANSWER BOOK</p>
+    <p align="center">Structure of book</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="3">
+        <tr>
+          <td width="94" valign="top"><p><em>Section</em></p></td>
+          <td width="114" valign="top"><p><em>Number of questions</em></p></td>
+          <td width="139" valign="top"><p><em>Number of questions to be answered</em></p></td>
+          <td width="88" valign="top"><p><em>Number of marks </em></p></td>
+          </tr>
+        <tr>
+          <td width="94" valign="top"><p align="center">A</p></td>
+          <td width="114" valign="top"><p align="center">20</p></td>
+          <td width="139" valign="top"><p align="center">20</p></td>
+          <td width="88" valign="top"><p align="center">20</p></td>
+          </tr>
+        <tr>
+          <td width="94" valign="top"><p align="center">B</p></td>
+          <td width="114" valign="top"><p align="center">11</p></td>
+          <td width="139" valign="top"><p align="center">11</p></td>
+          <td width="88" valign="top"><p align="center">70</p></td>
+          </tr>
+        <tr>
+          <td width="94" valign="top">&nbsp;</td>
+          <td width="114" valign="top">&nbsp;</td>
+          <td width="139" valign="top">&nbsp;</td>
+          <td width="88" valign="top"><p>Total 90</p></td>
+          </tr>
+      </table>
+    </div>
+    <ul>
+      <li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners and rulers.</li>
+      <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+      <li>No calculator is allowed in this examination.</li>
+  </ul>
+    <p><strong>Materials supplied</strong></p>
+    <ul>
+      <li>Question and answer book of 18 pages.</li>
+      <li>Answer sheet for multiple-choice questions.</li>
+    </ul>
+    <p><strong>Instructions</strong></p>
+    <ul>
+      <li>Write your student number in the space provided above on this page.</li>
+      <li>Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this.</li>
+      <li>All written responses must be in English. </li>
+    </ul>
+    <p><strong>At the end of the examination </strong></p>
+    <ul>
+      <li>Place the answer sheet for multiple-choice questions inside the front cover of this book. </li>
+    </ul>
+    <p>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</p></td>
+</tr>
+<tr>
+<td width="100%" ><center>
+<h1><b><a name="a" id="a"></a>SECTION A - Multiple-choice questions</b></h1>
+<p><a href="#b">Go to section B</a></p>
+</center></td>
+</tr>
+<tr>
+  <td><p>&nbsp;</p>
+  <h2>SECTION A - Multiple-choice questions </h2>
+  <h3 >Instructions for Section A</h3>
+  <p>Answer all questions in pencil on the answer sheet provided for multiple-choice questions. </p>
+  <p>Choose the response that is correct or that best answers the question. </p>
+  <p>A correct answer scores 1, an incorrect answer scores 0. </p>
+  <p>marks
+    will not be deducted for incorrect answers.<br />
+  </p>
+  <p>No marks
+    will be given if more than one answer is completed for any question. </p>
+  </td>
+</tr>
+<tr>
+<td><p><strong>Question 1</strong></p>
+<p > A club offers every new member the chance to buy one scarf and/or one badge and/or one poster.<br />
+The most efficient technique for validating each member's selection when they complete an online membership form would be</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a set of three text boxes.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a set of three check boxes.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a drop-down list with three items.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a link to a blank order form to print. </p>
+<p >Answer is B. </p>
+<p class="myanswer">Explanation - checkboxes allows any or all of the items to be selected. <br />
+Text boxes are hard to validate since they can contain all sorts of content; a dropdown list only allows one item to be selected. Printing a form to be filled in by hand and then entered electronically is very inefficient.</p>
+<p class="examiner">State average - 72%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 2</strong></p>
+<p > Which of the following components connects multiple networks?</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; router<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; switch<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; wireless access point<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; network interface card</p>
+<p > Answer is A. </p>
+<p class="myanswer">Explanation - A router allows networks to connect, and it acts as a firewall to protect a LAN against the other networks (including the rest of the internet.) Switches connect devices within a LAN. A WAP lets wireless devices connect to a wired LAN. A NIC does the same for a non-wireless device.</p>
+<p class="examiner">State average - 57%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 3</strong></p>
+<p > The analysis of a proposed website solution to support a VCE online community would include</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; reporting the extent to which the solution meets the requirements of the clients six months after the clients have started using the website.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; specifying a timeline, outlining what data will be collected and by what methods and techniques, and how the data relates to the criteria.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; determining the evaluation criteria and what measures will be used to judge whether or not the solution requirements have been met.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; identifying the constraints of the solution. Typically these include cost, speed of processing, requirements of users, security, compatibility, level of expertise, capacity and availability of equipment. </p>
+<p > Answer is D. </p>
+<p class="myanswer">Explanation - &lt;A&gt; is done after implementation, during evaluation. <br />
+&lt;B&gt; is confusing. Analysis <em>does</em> involve data collection, but what do the criteria relate to? Is it evaluation again?<br />
+</p>
+<p class="myanswer"><em>According to VCAA, determining evaluation criteria is done during design. Dog knows why, but that's what they reckon. So it's not &lt;C&gt;<br />
+Identifying constraints is done during analysis. Why all the examples of constraints is given is anyone's guess. Most odd. </em></p>
+<p class="examiner">State average - 70%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 4</strong></p>
+<p > A firewall is used to<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; illegally destroy data on a network.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; upload and download files from the Internet.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; minimise the risk of fire in a networked information system.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; prevent unauthorised access to data and information on a network.<br />
+</p>
+<p > Answer is D. </p>
+<p class="myanswer">Explanation - a hardware or software firewall protects a network from intrusion. I love &lt;C&gt;, however <br />
+:-)</p>
+<p class="examiner">State average - 98%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 5</strong><br />
+</p>
+<p >Determining the benefits a solution has for a user is stated in the<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; scope.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; requirements.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; functionality plan.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; data manipulation document.</p>
+<p > Answer is A. </p>
+<p class="myanswer">Explanation - You know this or you don't. It's mentioned in the study design's description of the PSM... &quot;Determining the scope of the solution. What can the solution do? What can't the solution do? <em>What are the benefits of the solution to the user?</em>&quot;</p>
+<p class="myanswer">Of course we <strong>all</strong> read the details of the study design, didn't we? If not, you could have eliminated the other options because they don't exist.</p>
+<p class="examiner">State average - 50%</p>
+<p class="examiner">The examiner says: The problem-solving methodology described on pages 16 
+and 17 of the study design clearly states the activities 
+associated with each stage. </p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 6</strong></p>
+<p > The design below shows the Y and Z tables of a relational database.</p>
+<p ><img src="/m/pm/11i-a06.jpg" width="319" height="311" /></p>
+<p>The relationship shown from the Y table to the Z table is one to many. This means that</p>
+<p> A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; I is a foreign key in Z.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; F is a foreign key in Y.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; D is a foreign key in Y.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; G is a foreign key in Z. </p>
+<p > Answer is A. </p>
+<p class="myanswer">Explanation - the primary key is the key field(s) in the current table (Y). The foreign key is the corresponding key in the related table (Z). So if you're in table Y, the foreign table is Z and the key field there is I. From table Z's point of view, field I is the primary key and field D in table Y is the foreign key. I think.</p>
+<p class="examiner">State average - 65%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 7</strong></p>
+<p > This section of a data sheet for use by a school's sports administrator shows primary and foreign keys.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="127" valign="top"><p><strong>CoachID</strong></p>
+</td>
+<td width="127" valign="top"><p><strong>PlayerlD</strong></p>
+</td>
+<td width="127" valign="top"><p><strong>Team</strong></p>
+</td>
+<td width="128" valign="top"><p><strong>AgeGroup</strong></p>
+</td>
+<td width="128" valign="top"><p><strong>Sport</strong></p>
+</td>
+</tr>
+<tr>
+<td width="127" valign="top"><p>0004</p>
+</td>
+<td width="127" valign="top"><p>0234</p>
+</td>
+<td width="127" valign="top"><p>Flyers</p>
+</td>
+<td width="128" valign="top"><p>U-15</p>
+</td>
+<td width="128" valign="top"><p>Hockey</p>
+</td>
+</tr>
+<tr>
+<td width="127" valign="top"><p>0003</p>
+</td>
+<td width="127" valign="top"><p>0435</p>
+</td>
+<td width="127" valign="top"><p>Macs</p>
+</td>
+<td width="128" valign="top"><p>U-15</p>
+</td>
+<td width="128" valign="top"><p>Tennis</p>
+</td>
+</tr>
+<tr>
+<td width="127" valign="top"><p>0004</p>
+</td>
+<td width="127" valign="top"><p>0452</p>
+</td>
+<td width="127" valign="top"><p>Flyers</p>
+</td>
+<td width="128" valign="top"><p>U-13</p>
+</td>
+<td width="128" valign="top"><p>Hockey</p>
+</td>
+</tr>
+</table>
+<p>The primary key for this data sheet is</p>
+<p> A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; CoachID<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; PlayerlD<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Team<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; AgeGroup<br />
+</p>
+<p > Answer is B. </p>
+<p class="myanswer">Explanation - this was a nicely interesting one. At first sight you mutter, &quot;But you can't tell just from <em>that</em>. You need to know...&quot; but then you look at the sample data. You see 0004 repeated in the CoachID field. That means that the values are not unique and, by definition, it can't be a key field. You check the other fields: all of them except PlayerID have duplicate values. So the only field with unique values, PlayerID, must be the primary key field. I liked this question.</p>
+<p class="examiner">State average - 60%</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 8</strong></p>
+<p> An effective validation technique in a database is evident when</p>
+<p> A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; all data is reasonable.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; all reports are accurate.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; records are sorted reasonably.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; calculated fields return correct answers.</p>
+<p > Answer is A. </p>
+<p class="myanswer">Explanation - repeat after me children: the word &quot;data&quot; is plural; &quot;datum&quot; is the singular. So &quot;all data <strong>are</strong> reasonable&quot;. One Illiteracy Award, please... </p>
+<p class="myanswer"><span class="red"><img src="/m/illiterate.jpg" alt="" width="47" height="89" /></span></p>
+<p class="myanswer">Anyway, validation only checks that data are reasonable, not that they're accurate. e.g. if you filled in that you were 14 years old and you were actually 15, there is no way any validation could tell it was wrong. However if you said you were 239, &quot;cat&quot; or -3 year old, validation could flag that as unreasonable. &lt;B&gt; and &lt;D&gt; would be discovered by testing.</p>
+<p class="examiner">State average - 26%</p>
+<p class="examiner">The examiner says: Validation occurs at data entry before processing occurs; 
+calculations are made or reports are created. </p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 9</strong></p>
+<p > A retail business based in country Victoria sells poultry at one location. To make a tactical decision about selling poultry at an additional location, what information would the owner need?</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; yearly profits<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; monthly sales<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; long-term profit objectives<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; poultry production rates in Victoria 2007-2010 </p>
+<p > Answer is B. </p>
+<p class="myanswer">Explanation - this is not an easy one. Personally, I would have viewed the establishment of a new location as a big <em>strategic</em> decision, but the question insists it's tactical so you learn to live with that and move on. </p>
+<p class="myanswer">You think about the scope of tactical decisions: they are measured in months, so long term profit objectives &lt;C&gt; are not relevant as they are clearly <em>strategic</em> and not tactical. &lt;D&gt; is irrelevant to the internal decision making of the business on this issue. That leaves &lt;A&gt; and &lt;B&gt;. Monthly sales could show that sales are good enough to deserve a second location, so I'd choose that. Sure, more sales will improve yearly profits, but you wouldn't need to know the current profits before deciding to open the second location.</p>
+<p class="myanswer"><em>A question that takes a bit of thought. I always dread the strategic/tactical/operational question in exams: they're rarely clear-cut.</em></p>
+<p class="examiner">State average - 36%</p>
+<p class="examiner">The examiner says: A tactical decision is short to medium term. </p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 10</strong></p>
+<p > Sandra manages a Victorian local council's communication projects. She has obtained from a friend a copy of a customer database belonging to a large sports gear company.<br />
+Sandra wants to promote the council's new recreation centre and asks the IT project officer of her website to create a mailing list from the customer database so she can mail vouchers to the homes of potential members of the recreation centre. The legislation the IT project officer should cite to convince Sandra her idea is a bad one is<br />
+</p>
+<p ><em>A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Spam Act 2003.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Copyright Act 1968.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Health Records Act 2001.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Information Privacy Act 2000.</em></p>
+<p > Answer is maybe D.</p>
+<p class="myanswer">Explanation - this is a hairy question, and your knowledge of the legislation need to be pretty keen. The Spam Act forbids the sending of unsolicited commercial email but <em>snail mail is not email</em>, so it's not spam! So if it's not that, what law applies? </p>
+<p class="myanswer">How she got the data is unclear, and whether the data could be said to be copyrighted is dubious. </p>
+<p class="myanswer">The Health Records Act would apply to any Victorian organisation that held health data, but the sports gear database would not contain such data. Strike out &lt;C&gt;. </p>
+<p class="myanswer">The IPA affects Victorian public service departments - does that include councils, I wonder? The IPA basically repeats the federal Privacy Act's privacy principles, but none of them seem to me to apply here. Using data for a secondary purpose than that for which it was originally collected? That's probably as close as we can get.</p>
+<p class="myanswer"><em>Did the examiners really mean to specify the vouchers are sent by snail mail, or did they mess it up during editing?</em></p>
+<p class="examiner">State average - 45% - official answer was D.</p>
+<p class="examiner">The examiner says: The SPAM Act 2003 refers to electronic mail. This 
+question dealt with paper mail outs. </p>
+<p class="comment">Oooh - Hormel Foods <strong>will</strong> be upset! &quot;SPAM&quot; in capitals is their registered trademark. They allow lowercase &quot;spam&quot; to refer to unsolicited emails, however, which is nice of them.</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 11</strong></p>
+<p > The design tools to best represent relationships in the solution for a new website would include<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; mock-up and storyboard.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; layout diagram and storyboard.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; hierarchy chart and site map.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; entity-relationship diagram and mock-up.</p>
+<p > Answer is C. </p>
+<p class="myanswer">Explanation - tools for representing relationships do not include mockups and layout diagrams - they design the <em>appearance</em> of web pages - so rule out everything except C. Both of the tools in C <em>do</em> show relationships, so go for that.</p>
+<p class="examiner">State average - 39%</p>
+<p class="examiner">The examiner says: Hierarchy charts and site maps represent relationships in a 
+website, and mock-ups and layout diagrams represent 
+appearance. </p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 12</strong></p>
+<p > The best description of a tutorial for a software product is<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a response to the current content the user is accessing.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; brief simple instructions on how to begin using the product.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; step-by-step instructions for using the features and functions of the product.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; important information about system requirements and configuration settings.<br />
+<br />
+Answer is C. </p>
+<p class="myanswer">Explanation - &lt;A&gt; is context-sensitive help (or &quot;content sensitive&quot; as the study design says. Mr Google reports 78,000 hits for &quot;content sensitive help&quot; and 1,860,000 for &quot;context sensitive help&quot;. <em>Mr Google knows best.</em>) &lt;B&gt; would be a quick-start guide. &lt;D&gt; is technical reference or user manual. A tutorial <em>teaches</em> with step-by-step instructions.</p>
+<p class="examiner">State average - 81%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong><a name="A13" id="A13"></a>Question 13</strong></p>
+<p > When the four items 34, 17, 6, 20 are entered as text data and sorted from A to Z the list returned is<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; 6,17,20,34<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; 17,20,34,6<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; 34,20,17,6<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; 34,17,6,20</p>
+<p > Answer is B. </p>
+<p class="myanswer">Explanation - Yes, folks. You got it wrong. &quot;This is easy,&quot; you smirked. But you didn't realise that <em>text</em> data is sorted alphabetically, not numerically. So a &quot;6&quot; always comes after a &quot;1&quot;, and &quot;11&quot; comes alphabetically <em>before</em> &quot;6&quot;. So &quot;34&quot; comes <em>before</em> &quot;6&quot;. You may notice this sometimes when looking at files starting with numbers shown in a file manager. That's why clever people use leaving zeroes to force correct sorting. Moral: Always look for the sting in the tail of an &quot;easy&quot; question.</p>
+<p class="myanswer"><em>This smells much more like a Software Development question with its assumption of knowledge of ASCII codes. It really is not the province of ITA. Not a fair question.</em></p>
+<p class="examiner">State average - 13%</p>
+<p class="examiner">The examiner says: Characters entered as text data do not have a place value, 
+so the first digit in &quot;17&#8223; is worth one and not ten. The 
+items listed are sorted according to the first character of 
+each 1, 2, 3, 6. </p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 14</strong></p>
+<p > Which is the most appropriate design tool to represent the appearance of a new website solution?</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; flow chart<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; layout diagram<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; entity-relationship diagram<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Input-Process-Output chart</p>
+<p > Answer is B. </p>
+<p class="myanswer">Explanation - a layout diagram is another name for a page/screen mockup. The others design processes (A), component relationships &copy; or calculations (D).</p>
+<p class="examiner">State average - 91%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 15</strong></p>
+<p > The following data sheet shows the bookings for a holiday house.</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="106" valign="top"><p><strong>CustID</strong></p>
+</td>
+<td width="106" valign="top"><p><strong>CustLastName</strong></p>
+</td>
+<td width="106" valign="top"><p><strong>CustFirsfName</strong></p>
+</td>
+<td width="106" valign="top"><p><strong>NumAdults</strong></p>
+</td>
+<td width="107" valign="top"><p align="right"><strong>NumChildren</strong></p>
+</td>
+<td width="107" valign="top"><p><strong>NumNights</strong></p>
+</td>
+</tr>
+<tr>
+<td width="106" valign="top"><p>12345</p>
+</td>
+<td width="106" valign="top"><p>Jones</p>
+</td>
+<td width="106" valign="top"><p>Steve</p>
+</td>
+<td width="106" valign="top"><p>2</p>
+</td>
+<td width="107" valign="top"><p align="right">0</p>
+</td>
+<td width="107" valign="top"><p align="right">5</p>
+</td>
+</tr>
+<tr>
+<td width="106" valign="top"><p>12678</p>
+</td>
+<td width="106" valign="top"><p>McMillan</p>
+</td>
+<td width="106" valign="top"><p>Meredith</p>
+</td>
+<td width="106" valign="top"><p>3</p>
+</td>
+<td width="107" valign="top"><p align="right">5</p>
+</td>
+<td width="107" valign="top"><p align="right">12</p>
+</td>
+</tr>
+<tr>
+<td width="106" valign="top"><p>12890</p>
+</td>
+<td width="106" valign="top"><p>Nguyen</p>
+</td>
+<td width="106" valign="top"><p>Jenny</p>
+</td>
+<td width="106" valign="top"><p>2</p>
+</td>
+<td width="107" valign="top"><p align="right">3</p>
+</td>
+<td width="107" valign="top"><p align="right">3</p>
+</td>
+</tr>
+<tr>
+<td width="106" valign="top"><p>12368</p>
+</td>
+<td width="106" valign="top"><p>Smith</p>
+</td>
+<td width="106" valign="top"><p>Joel</p>
+</td>
+<td width="106" valign="top"><p>1</p>
+</td>
+<td width="107" valign="top"><p align="right">0</p>
+</td>
+<td width="107" valign="top"><p align="right">2</p>
+</td>
+</tr>
+</table>
+<p>Which design for a query will return the cost of accommodation if adults pay $90 each per night and children each pay 50% of the adult price?</p>
+<p> A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Cost: [NumAdults]*[NumChildren]*[NumNights]*(90-0.50)<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Cost: [NumAdults]*[NumNights]+[NumChildren]*[NumNights]+(90-0.50)<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Cost: [NumAdults]*[NumNights]*90+[NumChildren]*[NumNights]*(90-0.50)<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Cost: [NumAdults]*[NumNights]*90+[NumChildren]*[NumNights]*(0.50*90) </p>
+<p > Answer is D. </p>
+<p class="myanswer">Explanation - the algorithm is: Total cost = (number of adults * number of nights * adult cost) PLUS (number of kids * number of nights * half adult cost)</p>
+<p class="myanswer">Subtracting 0.5 from a number of dollars (A, B and C) does not calculate half the number of dollars. The only option left is the correct one. </p>
+<p class="myanswer"><em>Pretty easy: I would've given another option the correct &quot;0.50*90&quot; part and made a different error somewhere else.</em></p>
+<p class="examiner">State average - 73%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 16</strong></p>
+<p > Bobby is updating a company's relational database so that the details of any customer who has not purchased anything since 2005 are removed from the customer table and are archived. The design for search criteria would be<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; DateLastPurchase &lt; = Today -6<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; DateLastPurchase &gt; 31/12/2005<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; DateLastPurchase &lt; 01/01/2006<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Date Last Purchase &lt; = 01/01/2006<br />
+<br />
+Answer is C. </p>
+<p class="myanswer">Explanation - &lt;A&gt; means &quot;6 days ago&quot;, not &quot;6 years ago&quot;.<br />
+&lt;B&gt; means &quot;<em>after</em> the end of 2005&quot;, not before. &lt;D&gt; is close, but includes the first day of 2006, which is not what the problem wanted.</p>
+<p class="examiner">State average - 60%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 17</strong></p>
+<p > A small business plans to replace a weekly full backup of data stored on two removable hard drives with a daily incremental backup stored online.<br />
+Which is the best criterion to evaluate the effectiveness of the new backup strategy?</p>
+<p > A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Do staff find the new backup procedure easier?<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Is all the data backed up online at the end of each week?<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Does the online backup process slow down transactions?<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Is it cheaper to use the online backup than the removable hard drives?</p>
+<p > Answer is B. But it's wrong.</p>
+<p class="myanswer">Explanation - this question is odd in more than one way. Why would any business do away with full backups? It's insane. How could you recover your data if only new or changed data is ever being backed up? However, the question is trying to see if you know what <strong>effectiveness</strong> means.</p>
+<p class="myanswer"> &lt;A&gt; is ease of use, which the study design says is efficiency. I disagree, but let's not gnaw old bones here.<br />
+&lt;C&gt; is speed, which is also efficiency. <br />
+&lt;D&gt; is cost, which is also efficiency. </p>
+<p class="myanswer">That leaves &lt;B&gt;, but it's wrong. If only <em>incremental</em> backups are being done, only new and changed data will be backed up. Existing data will <em>not</em> be copied to the online backup. So, checking that &quot;<strong>all</strong> the data&quot; is backed up will not happen. Only new and changed data will be backed up online a the end of each week.</p>
+<p class="myanswer">Perhaps the examiner meant to say &quot;Is all of the data that <em>should be</em> backed up actually backed up at the end of each week?&quot; It's badly worded, and confusing, and the premise is ridiculous.</p>
+<p class="myanswer"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></p>
+<p class="examiner">State average - 52%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 18</strong></p>
+<p > Georgie has received an email from her local sports club which offers her $15 for every person who buys a booklet of 20 cinema tickets on her recommendation. Georgie does not really want to buy a booklet of the tickets herself because she does not think it is good value and is wondering if recommending it to close friends is okay. Georgie is facing<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a legal obligation.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; an ethical dilemma.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a technical protocol.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a security procedure.</p>
+<p > Answer is B. </p>
+<p class="myanswer">Explanation - too easy. An ethical dilemma is where <strong>all</strong> of the options for a decision are morally bad options: Georgie either exploits her friends or misses out on the kickback. She can't behave properly and still win. That's an ethical dilemma.</p>
+<p class="examiner">State average - 86%</p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 19</strong></p>
+<p ><img src="/m/pm/11i-a18.jpg" width="490" height="216" /></p>
+<p >The forum post shown above does not conform to online social protocols because<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; the topic heading is too long.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; it is signed with a nickname.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; the content text is all in upper case.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; the attachment has an unrecognisable file name.</p>
+<p > Answer is C. </p>
+<p class="myanswer">Explanation - UPPERCASE implies shouting, which can be impolite in online communities. There are no conventions about heading length, nicknames or filenames.</p>
+<p class="examiner">State average - 46%</p>
+<p class="examiner">The examiner says: In online communication, uppercase text is recognised as 
+shouting. </p>
+</td>
+</tr>
+<tr>
+<td><p ><strong>Question 20</strong></p>
+<p > The recovery plan in a disaster recovery strategy includes<br />
+</p>
+<p >A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; procedures to follow when shutting down equipment and removing files.<br />
+B.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; an unannounced disaster simulation to help identify points of weakness in the evacuation procedures.<br />
+C.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; identification of the information technology services that must be restored first and a secondary site where data can be processed.<br />
+D.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; a listing of the people who are responsible for gathering the backup resources and for transporting them to a secondary processing site. </p>
+<p > Answer is C. And perhaps D.</p>
+<p class="myanswer">Explanation - interesting. The emphasis is the words &quot;recovery plan&quot;, so we're focusing on the part of the strategy concerned with recovering from a disaster that has already happened. <br />
+&lt;A&gt; is shutting down, not starting up again. <br />
+&lt;B&gt; tests the recovery plan, but is not actually used during a real recovery. <br />
+&lt;C&gt; 
+Identifying what to recover first and a place to continue processing during the recovery would be important to a recovery plan. <br />
+But &lt;D&gt; also seems relevant: you would want to know who has to do what during the recovery. I can't see why that's not important too. </p>
+<p class="myanswer"><em>I hope markers are told to accept &lt;C&gt; or &lt;D&gt;.</em></p>
+<p class="examiner">State average - 68% - official answer was C</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>END OF SECTION A</strong></p>
+<p ></p>
+</td>
+</tr>
+<tr>
+<td><div align="center" class="myanswer"><em>Overall - not as bad as it could have been, but a couple of questions are decidedly smelly.</em><br clear="all" />
+</div></td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<table>
+<tr>
+<td width="14%" >&nbsp;</td>
+<td width="86%" ><h1 align="center"><b><a name="b" id="b"></a>SECTION B - Short answer questions</b></h1>
+<center>
+<a href="#a">Go up to section A </a>
+</center></td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td><center>
+<b>Instructions for Section B</b>
+</center>
+<p align="center">Answer <b>all </b>questions in the spaces provided.</p>
+</td>
+</tr>
+<tr>
+<td ></td>
+<td></td>
+</tr>
+<tr>
+<td height="84" valign="top" ><strong>Question 1</strong></td>
+<td height="84"><p ><strong>Question 1</strong> </p>
+<p >How should sales staff dispose of customers' contact and financial data stored on their laptops?</p>
+<p >1 mark - 2 lines provided for the answer</p>
+<p ><span class="myanswer">They should be wiped rather than just deleted. Wiping overwrites the data many times to make it unrecoverable with undelete utilities.</span></p>
+<p ><span class="myanswer"><span class="red">State average: 30%</span></span> </p>
+<p class="examiner">The examiner says: Most students indicated that the data should be permanently deleted, but only a minority of responses indicated how this 
+could be achieved. Typically, responses which received a mark suggested &quot;overwrite the files&#8223;, &quot;format the disk&#8223; or &quot;physically destroy the disk&#8223;. Other answers which described specialised software to electronically clean or shred the 
+files were also accepted. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 2</strong></td>
+<td><p >Question 2 
+</p>
+<p >Fashion Design is an electronic magazine being created for communicating the latest trends in teenage fashions. The magazine will collect data from users and store it in a database. 
+</p>
+<p >a.&nbsp;&nbsp; At what stage of the problem-solving methodology should the solution be tested to see that it does what it was intended to do?</p>
+<p >1 mark - 1 line</p>
+<p class="myanswer" >Development. </p>
+<p class="myanswer" ><em>&quot;Testing&quot; is not a discrete step in the Problem Solving Methodology.</em></p>
+<p class="examiner" >State average: 35% </p>
+<p class="examiner" >The examiner says: The solution is tested at the development stage of the problem-solving methodology. Many students confused testing 
+with evaluation. </p>
+<p >List two tasks typically involved in testing.</p>
+<ul>
+<li class="myanswer">Creating test data.</li>
+<li class="myanswer">Creating a testing table.</li>
+<li class="myanswer">Deskchecking (manual calculation to verify the output of formulae)</li>
+<li class="myanswer">Validation testing.</li>
+<li class="myanswer">Unit testing, integration testing, system testing.</li>
+<li class="myanswer">Acceptance testing (with a typical end-user)</li>
+</ul>
+<p >2 marks - 3 lines</p>
+<p class="examiner" ><span class="red">State average: 50%</span> </p>
+<p class="examiner" >The examiner says: The most commonly accepted answers were &quot;deciding what tests will be conducted&#8223;, &quot;what test data will be used&#8223;, &quot;conducting tests&#8223;, &quot;recording actual results&#8223;, identifying errors&#8223;, &quot;correcting errors&#8223; and &quot;checking that validation 
+methods worked&#8223;. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 3</strong></td>
+<td><p >Question 3 
+</p>
+<p >Explain two benefits of normalising data in a Relational Database Management System (RDBMS).</p>
+<ul>
+<li class="myanswer">Removing data duplication by storing data in only place rather than many times</li>
+<li class="myanswer">Removing duplication speeds up database operation because it's smaller</li>
+<li class="myanswer">This also maintains data integrity since a piece of data only needs to be changed in one location rather than in many. When the same data appears many times, if the data changes it must be changed in every case, otherwise data loses its integrity.</li>
+<li class="myanswer">Helping maintain referential integrity by ensuring that key field values used for lookups are not deleted.</li>
+<li class="myanswer">Allows more powerful data access through complex relationships.</li>
+</ul>
+<p >2 marks - 6 lines
+</p>
+<p class="examiner" ><span class="red">State average: 40%</span> </p>
+<p class="examiner" >The examiner says: Many students stated that normalising data reduces errors and saves time but did not go on to explain how normalisation 
+achieves these. Typically, responses which received marks included statements such as</p>
+<ul>
+<li> <span class="red">&quot;because it reduces data 
+redundancy there are fewer errors when data is updated&#8223;, </span></li>
+<li class="red">&quot;because it reduces data repetition, processing time can be 
+saved&#8223;, </li>
+<li class="red">&quot;because related data are grouped it is clear to read&#8223; and</li>
+<li> <span class="red">&quot;key fields define accurate relationships between tables&#8223; 
+or &quot;key fields help create accurate queries&#8223;. </span></li>
+</ul>
+<p class="examiner" >Responses to this question indicated that students had learnt the theory 
+associated with relational databases very well. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 4</strong></td>
+<td><p >Question 4 
+</p>
+<p >Speedie Racers Car Club is developing its website to provide information to the public about the club and to provide forum facilities for its members. The home page is shown below.</p>
+<p ><img src="/m/pm/11i-b04.jpg" width="513" height="257" /></p>
+<p >a.&nbsp;&nbsp; Identify one format used on the home page and explain how it enhances the effectiveness of the website for users. </p>
+<p ><strong>Format </strong> - Explanation</p>
+<p class="myanswer" ><strong>Bold, large heading</strong> - makes the name of the club easy to find</p>
+<p class="myanswer" ><strong>Navbar in a box</strong> - makes the navbar a visual unit and separates it from the other text</p>
+<p class="myanswer" ><strong>Line under the welcome text</strong> - visually separates the static welcome text from the changeable event text beneath it.</p>
+<p class="myanswer" ><strong>Reversed colours for the buttons</strong> - makes them stand out clearly from non-button text.</p>
+<p ><span class="myanswer"><em>Were the examiners actually trying to get students to refer to design elements like proportion and contrast rather than formats?</em></span></p>
+<p >2 marks - 2 lines</p>
+<p class="examiner" ><span class="red">State average: 65%</span> </p>
+<p class="examiner" >The examiner says: Students scored one mark if they correctly identified a format applied in the image of the webpage. An additional mark 
+was allocated if the students could explain how this feature contributed to the effectiveness of the webpage. <br />
+Relevance, 
+as a measure of effectiveness, was explained in terms of the use of &quot;bold and reserve font to show the main information 
+groups on the website&#8223;. <br />
+Completeness, as a measure of effectiveness, was explained in terms of &quot;tables used to give a 
+complete list of important information headings&#8223;. <br />
+Accepted responses included &quot;links displayed in bolded, white font on 
+black&#8223; and &quot;links underlined&#8223;. Many other responses were also accepted. These referred to left, centre or right 
+&quot;alignment of particular elements&#8223;, the &quot;orientation of groups of links&#8223;, the proportion or hierarchy evident in the 
+&quot;arrangement of titles-subtitles-links&#8223;, &quot;the consistency in font style&#8223; or colour and contrast used to emphasise &quot;hierarchy 
+of titles-subtitles-links&#8223;.</p>
+<p >b.&nbsp;&nbsp; Recommend a test that could be used to ensure that the forum performs as it should for members. Justify your answer.</p>
+<p class="myanswer" >Typical member users should be asked to enter the forum and perform all of the functions supported by the forum (e.g. creating a post, editing a post, reading posts). They should report any features that do not behave as expected. Using typical users (rather than using managers, technicians etc) will better demonstrate the forum's performance when being used by real users.</p>
+<p >2 marks - 6 lines
+</p>
+<p class="examiner" ><span class="red">State average: 53%</span></p>
+<p class="examiner" >The examiner says: Most students recommended an appropriate test to ensure the website worked as it should for members. For example, 
+&quot;click on the forum link to check that it goes to the login&#8223;. Other successful responses included &quot;ask a group of members 
+to use the links from the forum button to check that all features and links work as expected&#8223;. </p>
+<p class="examiner" >Justifications included the 
+login restricts access to members only and testing each link checks that all features of the forum operate as intended. 
+A number of students suggested conducting a member survey three to six months after the website had been running. 
+Again, these students were confusing the problem-solving stage of evaluation with the testing that takes place during 
+the development stage. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 5</strong></td>
+<td><p >Question 5 
+</p>
+<p >Lawrence and his sister belong to a youth group that holds social functions where members can meet and discuss issues affecting young people. They both communicate with friends online and have suggested the youth group could set up a website with the aims of</p>
+<div >
+<ol>
+<li>increasing attendance at youth group events</li>
+<li>increasing awareness of community events</li>
+<li>encouraging more young people to be active citizens</li>
+<li>facilitating the discussion of issues.</li>
+</ol>
+</div>
+<p >a.&nbsp;&nbsp; Suggest the type of website that would best suit the youth group's needs. Justify your answer.</p>
+<p class="myanswer" >The site should use more than one Web 2.0 tool since a single tool would not be suitable for all the jobs it needs to do. It should use a blog for announcing and promoting events, and a forum for discussing issues. 
+</p>
+<p >2 marks
+- 5 lines
+</p><p class="examiner" ><span class="red">State average: 70%</span>  
+</p><p class="examiner" >The examiner says: Many students were able to suggest a type of website to meet the stated needs of the youth group. Successful responses 
+included &quot;a social network such as a forum with a login for members because it has an online space for discussions&#8223;, &quot;a 
+membership login that restricts access to members of the youth group&#8223; or &quot;a forum because it provides advertising space 
+for group events&#8223;. Responses that suggested a wiki or a blog, along with a reasonable explanation, were also awarded 
+marks.
+</p><p >b.&nbsp;&nbsp; State two features that could be included in the website to assist in building the youth group's collective identity.</p>
+<p class="myanswer" >A wiki for the members to build community information sources. 
+Social networking so they can socialise informally.
+</p>
+<p >2 marks - 3 lines
+</p><p class="examiner" ><span class="red">State average: 53%</span> 
+</p><p class="examiner" >The examiner says: Again, most students stated the features needed on a website to help build the youth group&#8223;s collective identity. 
+Successful responses included &quot;consistent use of colours and a logo or image relevant to the group&#8223;, &quot;images and reports 
+of youth group events regularly posted on the site&#8223; and &quot;an Introduce Yourself section and About Us page&#8223;. 
+</p><p class="myanswer"><em>It baffles me why the study design believes that a wiki alone, or a blog alone is a &quot;type of website&quot;. No real community site of any size has a single tool to accomplish all of its goals.</em> </p>
+<p >c.&nbsp;&nbsp; Identify and explain two social online protocols, other than meeting legal obligations, that should be followed on the youth group's website.</p>
+<p class="myanswer" >They should set up an Acceptable User Policy which members must agree to before they can use the site's features. The AUP should specify:</p>
+<ul>
+<li class="myanswer">no spamming of members</li>
+<li class="myanswer">no abusive language</li>
+<li class="myanswer">no commercial promotion</li>
+<li class="myanswer">no misuse of shared resources</li>
+<li class="myanswer">no SHOUTING or flaming or trolling</li>
+<li class="myanswer">in the forum, do not start a new discussion topic as a reply to a post on a different topic</li>
+<li class="myanswer">never use another member's username or password (fraudulent identity)</li>
+<li class="myanswer"> cyberbullying, harassment</li>
+<li class="myanswer"> posting 
+  inappropriate information</li>
+<li class="myanswer">etc </li>
+</ul>
+<p >4 marks - 2 x 4 lines</p>
+<p class="examiner" ><span class="red">State average: 51%</span> </p>
+<p class="examiner" >The examiner says: Many students identified and explained social online protocols. Typical responses were in two general categories. First 
+was &quot;discussions on the forum should show respect for others&#8223; explaining that &quot;everyone needs to feel safe when using 
+the site&#8223; or that &quot;no one should be bullied and everyone has the right to contribute.&#8223; The second category was that 
+discussion on a topic should be under one heading &quot;to stop the same issues being repeated under different headings.&#8223; </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 6</strong></td>
+<td><p >Question 6 
+</p>
+<p >G Petto has been making puppets and toys for his family and friends for many years. His nephew Paul believes that he can create a website to help his uncle sell custom-made puppets and toys online.</p>
+<p class="myanswer" ><em>G Petto - get it? Geppetto? The carver of Pinnocchio? Puppet maker? ROFL.</em></p>
+<p > a.&nbsp;&nbsp; List two different items of data that customers using the website would need to provide to successfully have the toys purchased and delivered.</p>
+<ul>
+<li class="myanswer">Name</li>
+<li class="myanswer">Address</li>
+<li class="myanswer">Credit card, direct debit, or Paypal information</li>
+<li class="myanswer">Probably also a registered username and password</li>
+</ul>
+<p >2 marks
+</p><p ><span class="red">State average: 78% 
+</span> 
+</p><p ><span class="red">The examiner says: Most responses identified data associated with a delivery address such as &quot;Customer Address&#8223; and with a payment 
+method such as &quot;Credit Card Details&#8223;. Responses which included contact data for the purpose of order tracking were 
+also awarded a mark. Students answered this question well. </span>  
+</p><p class="myanswer" ><em>Is this really a year 12 level question?</em>
+</p><p >b.&nbsp;&nbsp; Explain why Paul should use a text box and not a drop-down list for the requirements of the custom-made puppets.</p>
+<p class="myanswer" >Because they are custom-made items, the number of possible requirements would be impossible to define in advance and put in a limited list. The textbox allows any type of requirement to be entered by the customer.</p>
+<p >2 marks - 5 lines
+</p><p class="examiner" ><span class="red">State average: 78%</span>  
+</p><p class="examiner" >The examiner says: The majority of students explained that a text box allowed customers to type in &quot;an infinite variety of individual details 
+they wanted in their customised puppet&#8223; and that a drop down list &quot;would not be practical&#8223; because it would need 
+millions of items to meet &quot;all possible variations in colours and clothes&#8223;. Again, this question was well answered.  
+</p><p >c.&nbsp;&nbsp; Recommend one technique to validate numeric customer data entered into the website. Justify your answer.</p>
+<ul>
+<li class="myanswer">range check - to ensure it lies within reasonable values</li>
+<li class="myanswer">existence check - to ensure vital data is entered at all</li>
+<li class="myanswer">type check - to make sure the number is in fact a valid number </li>
+</ul>
+<p class="examiner" >2 marks - 5 lines
+</p><p class="examiner" ><span class="red">The examiner says: Most students could name a correct validation technique, which scored one mark, but only some could then justify its 
+use in the database described. The most common student response was range check where &quot;if a zero or negative number 
+is entered an error message pops up&#8223; or &quot;the quantity must be between 1 and 10&#8223;. Other accepted answers included &quot;a 
+drop list where Paul can decide what quantity of any toy is sold&#8223;, a &quot;type check, where quantity must be a number or an 
+error message is shown&#8223; and an &quot;existence check, where if nothing is entered in a field then &quot;a required field&quot; error 
+message is displayed&#8223;. </span>
+</p><p class="comment" >What is it with examiners and &quot;drop lists&quot;? They do not exist! They are drop-down lists! <br />
+And I still maintain that limited lists are a validation technique - they <strong>prevent the entry</strong> of invalid data, they do not <strong>detect</strong> invalid data! Grrr. Anyway, they are not a <strong>technique</strong>: they are <strong>things</strong>.
+</p><p >State average: 45%
+</p><p class="myanswer"><em>An awkward question, I thought. Asking students to give an example would have been far more informative than bland and non-specific validation theory.</em></p>
+<p >d.&nbsp;&nbsp; Complete the data types for each table.</p>
+<div ><br clear="all" />
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="272" colspan="2" valign="top"><p><strong>Customer table</strong></p>
+</td>
+</tr>
+<tr>
+<td width="136" valign="top"><p><strong>Field Name</strong></p>
+</td>
+<td width="136" valign="top"><p><strong>Data Type</strong></p>
+</td>
+</tr>
+<tr>
+<td width="136" valign="top"><p>CustomerlD</p>
+</td>
+<td width="136" valign="top"><p>Unique Number</p>
+</td>
+</tr>
+<tr>
+<td width="136" valign="top"><p>CustomerGender</p>
+</td>
+<td width="136" valign="top" class="myanswer">Text</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="266" colspan="2" valign="top"><p><strong>Toys table</strong></p>
+</td>
+</tr>
+<tr>
+<td width="132" valign="top"><p><strong>Field Name</strong></p>
+</td>
+<td width="133" valign="top"><p><strong>Data Type</strong></p>
+</td>
+</tr>
+<tr>
+<td width="132" valign="top"><p>ToylD</p>
+</td>
+<td width="133" valign="top"><p>Unique Number</p>
+</td>
+</tr>
+<tr>
+<td width="132" valign="top"><p>ToyCost</p>
+</td>
+<td width="133" valign="top" ><ul>
+<li class="myanswer">Number</li>
+<li class="myanswer">Currency</li>
+<li class="myanswer">Real</li>
+<li class="myanswer">Single precision</li>
+</ul>  </td>
+</tr>
+</table>
+<br clear="all" />
+</div>
+<p >2 marks
+</p><p class="examiner" ><span class="red">State average: 60%</span>  
+</p><p class="examiner" >This question was well answered.
+</p><p>
+e. Explain how the CustomerlD and ToylD fields will enhance the effectiveness of retrieving information.</p>
+<p class="myanswer">By uniquely identifying customers and toys in the tables, they avoid the problems of accidentally choosing the wrong record (e.g. two customers with the same name).</p>
+<p >2 marks - 7 lines
+</p><p class="examiner" ><span class="red">State average: 50%</span>  
+</p><p class="examiner" >The examiner says: Students clearly understood that ToyID and CustomerID provided unique identities for customers and toys, and that this 
+not only reduced errors when queries were made on individual tables but also when queries were made across tables. 
+</p><p class="examiner" >For example, &quot;the ToyID can be included as a foreign key in the Customer table and a relationship set so that Paul can 
+then create Queries to accurately show which toys a customer has purchased&#8223; or &quot;customers with same name can be 
+identified uniquely and their orders processed accurately.&#8223;
+</p><p>
+f.&nbsp;&nbsp; Draw an entity-relationship (ER) diagram to represent the tables shown in part d.</p>
+<p><img src="/m/pm/11i-B6f-erd.jpg" width="460" height="270" /></p>
+<p >3 marks - the box filled 33% of the page
+</p>
+<p class="examiner" ><span class="red">State average: 45%</span> </p>
+<p class="examiner" >The examiner says: Most students drew a [Chen Style] Entity Relationship (ER) Diagram and received marks. While the study design does not name 
+any specific diagram styles, the most frequent style presented was the Chen style shown [above]. Many students also 
+correctly included a one-to-many representation in this style of diagram. </p>
+<p class="examiner" >Another common response was the Bachman style ERD... </p>
+<p class="examiner" ><img src="/m/pm/11i-6f-bachman.jpg" width="486" height="148" /></p>
+<p class="examiner" >Responses which represented the one-to-many relationship using text or symbols such as &quot;1 to &#61605;&#8223; and &quot;one-to-many&#8223; were also awarded marks. Other recognised styles of Entity Relationship diagram were also acceptable. </p>
+<p class="myanswer" ><em>Drawing an entire diagram, let alone an ERD in its first year in the study design, is not playing fair in an exam, I reckon.</em></p>
+<p class="myanswer" >&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 7</strong></td>
+<td valign="top"><p >Question 7</p>
+<p > Pete's Bathroom and Kitchen Equipment has been a successful business for the last four years. Pete has three sales staff working for him. He wants to analyse the sales figures and pay each staff member a $100 bonus when they sell more than $5000 worth of bathroom or kitchen equipment in a month.</p>
+<p > Describe how Pete can use either a spreadsheet or a Relational Database Management System (RDBMS) to create formatted reports that show</p>
+<ul>
+<li>the best selling item each month over a 6-month period</li>
+<li>staff bonuses calculated monthly over a 6-month period. </li>
+</ul>
+<p >Your answer should include specific functions for manipulating data, and selection of appropriate test data. Indicate with a tick one software type your answer will refer to. </p>
+<p class="examiner" >&nbsp;</p>
+<hr />
+<p ><strong>Spreadsheet</strong></p>
+<p ><em>1. The best selling item each month over a 6 month period</em></p>
+<p class="myanswer" >In <em>one</em> report? That's not easy! You'd need to somehow group all sales by month, calculate a sales total for each item in that month, then plot that item's sales in a chart. But it's not easy to do...</p>
+<p class="myanswer" >How is the data stored? Is it a raw list of transactions with each row containing item ID, sale date and sale amount? </p>
+<ul>
+<li class="myanswer">In an empty column you extract the month from the date with =MONTH(Saledate) to get a number (1=January, 2=February). </li>
+<li class="myanswer">Create a filter on the 'month' column and select the month you're interested in.</li>
+<li class="myanswer">Use =SUMIF(items,1,salesamounts) to get the sales total for item 1, a similar formula for item 2 etc. That would give the total sales for each item in each month.</li>
+<li class="myanswer">Use the MAX( ) function to find the highest sales value for all items that month.</li>
+<li class="myanswer">Use the INDEX( ) function to extract the item number corresponding to that maximum sales value.</li>
+<li class="myanswer">Copy the value, item and month to another part of the spreadsheet and create a chart of the items' sales figures.</li>
+</ul>
+<p class="myanswer"><em>That's pretty unreasonable. Perhaps they want a pivot table? Do they want a line graph showing the monthly sales of each item on separate lines? That would still require grouping the monthly sales figures. Or am I overthinking it? Is there a bleedin' obvious method I've missed?</em></p>
+<p ><em>2. Bonuses calculated monthly over a 6 month period</em></p>
+<p class="myanswer" >The basic formula to see if someone gets a bonus would be</p>
+<p class="myanswer" >=IF(salestotal&gt;5000,100,0)</p>
+<p class="myanswer" >where <em>salestotal</em> for a salesperson would be calculated by</p>
+<p class="myanswer" >=SUMIF(salespersonID,n,sales)</p>
+<p class="myanswer" >where <em>n</em> is the staff person's ID and <em>sales</em> is the column contain sales figures for the month in question.</p>
+<p class="myanswer" >Test data should include total monthly sales figures adding up to $4999, $5000 and $5001 to test that the bonus is awarded only for $5001.</p>
+<hr />
+<p > 
+<strong>Relational Database Management System</strong></p>
+<p ><strong>1. Best selling items by month</strong></p>
+<ul>
+<li class="myanswer">In a table there should be fields for SalespersonID, salesDate (date type), SaleAmount (number or currency). This solution applies to Filemaker Pro.</li>
+<li class="myanswer">Sort the tranaction records by <em>month</em>, then by <em>item</em>. </li>
+<li class="myanswer"> Create a summary field defined as SUM of SALES. This will add all records' sales fields in the group of records defined by the sorting order.</li>
+<li class="myanswer">Create a subsummary part when sorted by <em>month</em>, and another subsummary part when sorted by <em>item</em>.</li>
+<li class="myanswer">In the <em>item</em> subsummary part, put the summary field.</li>
+<li class="myanswer">You can also put the field in in the <em>month</em> subsummary part, to show the monthly total sales.</li>
+<li class="myanswer">This layout will show all sales, sorted by month. Within each month, records are sorted by item, and at the end of each item's records is a line showing the total sales for that item.</li>
+<li class="myanswer">At the end of each month's records, the monthly sales total appears.</li>
+</ul>
+<p><strong>2. Sales bonuses</strong></p>
+<ul>
+<li class="myanswer">In another layout similar to the one above, create summary fields for SUM of SALES.</li>
+<li class="myanswer">Create subsummary parts when sorted by month, then another when sorted by StaffID. Set them up as described above.</li>
+<li class="myanswer">Create a new calculated field called <em>BonusAmount</em> with the formula </li>
+<li class="myanswer">IF(salestotal&gt;5000,100,0)</li>
+<li class="myanswer">Put this field in the StaffID subsummary part, format it to show currency ($ with 2 decimal places, right justified) and it will show whether each staff member gets a bonus or not.</li>
+</ul>
+<p class="myanswer"><em>It's interesting how much quicker it is to do this in a database. In the exam, I certainly would have chosen the database option. I am still having trouble working out how to do it elegantly in a spreadsheet. The sorting, grouping and filtering is too much for my brain.</em> <em>It's either a bad question, or I'm really missing something.</em></p>
+<p >8 marks - 18 lines
+</p>
+<p ><span class="red">State average: 25%</span> 
+</p>
+<p class="examiner" >The examiner says: </p>
+<p class="examiner" >Most students began their response to this question with an introduction. Successful responses were frequently 
+organised under the three headings &quot;Best-Selling Item&#8223;, &quot;Staff Bonus&#8223; and &quot;Test Data&#8223;. Generally, marks were awarded 
+to students who comprehensively described and named the data and formulae or functions or queries under these 
+headings. </p>
+<p class="examiner" >Students who took note of the statement &quot;Your answer should include . . .&#8223; and used the requirements listed to 
+plan their answers generally gained high marks. </p>
+<p class="examiner" ><strong>Spreadsheet </strong></p>
+<p class="examiner" >Students who chose a spreadsheet solution generally described or sketched a Sales worksheet that included columns for 
+Staff and Products. Other students described or sketched linked worksheets for Products, Sales and Staff. Syntax was 
+not taken into account. </p>
+<table width="92%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td class="red"><p><strong>Best-Selling Item </strong> 
+Examples included &quot;QuantitySold&#8223;, a &quot;Product Sales column&#8223; and a combination of Sum and Max functions to 
+return a best-selling item. Marks were also awarded to students who explained how a CountIF function or Sort 
+could be used. 
+</p>
+<p><strong>Staff Bonus </strong> 
+For example, &quot;Create a Sales ($) column for each staff member in a Staff worksheet and in another column 
+called MonthlyBonus use a formula (if Sales&gt;5000, &quot;yes&quot;, &quot;no&quot;).&#8223;  </p>
+<p><strong>Test data </strong> 
+Successful responses provided complete sets of test data and named the expected outcome. Two items of test 
+data for the best-selling item were &quot;all different quantities with a clear maximum expected&#8223; and &quot;two quantities 
+the same with both, expect both to be highlighted&#8223;. Three items of test data for the monthly bonus calculations 
+were &quot;one &lt;5000, expecting no&#8223;, &quot;one=5000, expecting no&#8223; and &quot;one&gt;5000, expecting yes&#8223;. </p>
+</td>
+</tr>
+</table>
+<h3 class="red" ><strong>DATABASE</strong></h3>
+<p class="examiner" >Students who chose a database solution generally described or sketched normalised or related tables for Products, Sales 
+and Staff or a Sales Table with fields for StaffID, ProductID and QuantitySold or Sales. Syntax was not taken into 
+account. </p>
+<table width="92%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td class="red"><p><strong>Best-Selling Item </strong> 
+Many successful responses described a &quot;QuantitySold&#8223; or a &quot;Sales&#8223; calculated field and using a Sort or Order 
+function &quot;to bring the best selling item to the top&#8223;. 
+</p>
+<p><strong>Staff Bonus </strong> 
+&quot;Have a Sales ($) calculated field in the Staff table and use a query (if Sales&gt;5000) to list the staff who should 
+receive the bonus.&#8223; 
+</p>
+<p><strong>Test data </strong> 
+Again, successful responses provided complete sets of test data and named the expected outcome. Two items of 
+test data for the best-selling item were &quot;all different quantities grouped with a clear best expected at the top&#8223; and 
+&quot;two quantities the same with both expected at the top&#8223;. Three items of test data for the monthly bonus query or 
+calculations were &quot;one &lt;5000, not expected&#8223;, &quot;one=5000, not expected&#8223; and &quot;one&gt;5000, expected to be listed&#8223;. </p>
+</td>
+</tr>
+</table>
+<p class="examiner" >Students who answered &quot;use real data and manual desk check and compare the expected to actual outcomes&#8223; also 
+received a mark. It is worth noting that very few responses included test data, indicating that many students did not read 
+the question carefully. </p>
+<p class="comment" >At only 25% success, this is a luke-warm debut for the new 8 mark question format! Along with Q10a, this is the worst-answered question on the paper.</p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 8</strong></td>
+<td><p >Question 8</p>
+<p > After some problems with the theft of patient data by dishonest employees, a Victorian hospital has proposed new policies for all staff. These include a new procedure stating that all emails coming in to and going out from the hospital's network are available for managers to read. Many employees are upset by this proposed change.</p>
+<p > a.&nbsp;&nbsp; Explain one legal obligation the hospital has regarding patient data. State the relevant Act.</p>
+<p class="myanswer" >Under the <strong>Privacy Act 1988</strong> (also the <strong>Health Records Act 2001</strong> - either one will do):</p>
+<ul>
+<li class="myanswer">They must keep the data safe from unauthorised access, loss or damage.</li>
+<li class="myanswer">They must ensure it's accurate and up to date. </li>
+<li class="myanswer">They must not use it for any other purpose than that for which it was originally collected. </li>
+<li class="myanswer">They may not send it to another organisation overseas.</li>
+<li class="myanswer">They must publish a privacy policy stating what data they collect and how it's used.</li>
+</ul>
+<p class="myanswer"><em>They're the main national privacy principles worth mentioning</em></p>
+<p >2 marks
+- 4 lines
+</p><p class="examiner" ><span class="red">State average: 58%</span>  
+</p><p class="examiner" >The examiner says: It was pleasing to note that most students could explain the legal responsibilities of the hospital. The Health Records 
+Act 2001 is the relevant Act. Accepted answers related to either the access rights of patients or the data collection 
+responsibilities of the hospital. Access means patients having the right to their health information kept by the hospital. 
+Accepted legal obligations regarding collection included only using health information for primary purposes, not 
+secondary purposes, or the hospital taking reasonable steps to protect the patient data from misuse, loss, unauthorised 
+access, modification and disclosure, or the hospital ensuring that its data is accurate, complete, up-to-date and relevant 
+to its activities.  
+</p><p>
+b.&nbsp;&nbsp; Discuss possible consequences for the hospital if the new procedure is implemented despite the negative feedback from employees.</p>
+<ul>
+<li><span class="myanswer">Resentment by staff, perhaps leading to absenteeism, lowered productivity, staff loss through resignation.</span> </li>
+<li class="myanswer">Staff using unauthorised and unmonitored email services.</li>
+<li class="myanswer">Hostility towards management and reduced staff morale.</li>
+</ul>
+<p >2 marks - 4 lines
+</p><p class="examiner" ><span class="red">State average: 48%</span>
+</p><p class="examiner" >The examiner says: Many students recognised that implementing such procedures against staff wishes would affect staff morale. Examples 
+included &quot;honest employees will think the hospital doesn&#8223;t trust them and not work as hard&#8223; and &quot;hackers will find other 
+ways of getting the data out anyway&#8223;. Other students suggested &quot;the hospital&#8223;s reputation would suffer&#8223; first because of 
+the data theft and secondly because &quot;the staff were unhappy and going on strike&#8223;.
+</p><p>
+c. The hospital decided to implement the new policy. A manager is checking the emails when he reads that one staff member is planning to take a sick day and go to the beach. The manager is faced with an ethical dilemma. Explain what the manager should consider before deciding whether to talk to the employee.</p>
+<p class="myanswer" >This knowledge was gained accidentally when trying to solve the completely different problem of data theft. The manager has to consider whether it is morally more right to punish the staff using this 'fruit of the poisoned tree' information, or whether whether the tainted information should be used for the benefit of the organisation. Not using it respects the staff member's privacy but hurts the hospital, and vice versa.
+</p><p >2 marks
+- 4 lines
+</p><p class="examiner" ><span class="red">State average: 28%</span>
+</p><p class="examiner" >The examiner says: Many students did not consider an ethical dilemma when answering this question. Successful responses included &quot;if the 
+manager takes advantage of other information he has read he is behaving unethically&#8223;. Responses that did not directly 
+mention ethics but that did indicate risk or moral difficulty such as &quot;to solve the problem of data theft the manager risks 
+losing the trust of his employees&#8223; and &quot;the manager is allowed to read staff emails to protect the patient data not pry into 
+their private lives&#8223; were awarded marks.
+</p><p>
+d.&nbsp;&nbsp; Recommend an alternative procedure the hospital could follow to reduce data theft.</p>
+<ul>
+<li class="myanswer">Publish a code of ethics which staff must formally sign up to before they are allowed to resume work.</li>
+<li class="myanswer">Educate staff about the contents of, and reasons for the code.</li>
+<li class="myanswer">Set up a decision support framework to guide management in deciding how to behave in different circumstances when the code is breached.</li>
+<li class="myanswer">Establish appropriate sanctions for violations of the code.</li>
+</ul>
+<p >3 marks - 6 lines
+</p>
+<p class="examiner" ><span class="red">State average: 42%</span></p>
+<p class="examiner" > 
+The examiner says: Responses generally included two or three steps in a procedure the hospital could follow. Typically, these covered 
+communicating with staff, checking physical security and upgrading protective software. For example, &quot;the hospital 
+should explain the legal obligation to secure patient data&#8223; or &quot;discuss possible solutions with all the employees&#8223;. They 
+could check all security procedures &quot;with staff assistance, and make any changes that might help&#8223;. And very frequently 
+&quot;use electronic tagging and see if there is some way of tracking data&#8223; and &quot;tighten up the passwords so that only certain 
+people can access patient data&#8223;. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 9</strong></td>
+<td><p >Question 9 
+</p>
+<p >Visiting lecturers give lectures to students at colleges across the state. The data used to manage the lectures is shown below as spreadsheets as well as database tables.</p>
+<p ><strong>Spreadsheet&nbsp;&nbsp;- Lecture sheet</strong></p>
+<div >
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="38" valign="top" >&nbsp;</td>
+<td width="86" valign="top" ><p>A</p>
+</td>
+<td width="86" valign="top" ><p>B</p>
+</td>
+<td width="80" valign="top" ><p>C</p>
+</td>
+<td width="83" valign="top" ><p>D</p>
+</td>
+<td width="105" valign="top" ><p>E</p>
+</td>
+<td width="79" valign="top" ><p align="center">F</p>
+</td>
+<td width="84" valign="top" ><p align="center">G</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>1</p>
+</td>
+<td width="86" valign="top"><p>IDLecturer</p>
+</td>
+<td width="86" valign="top"><p>ID College</p>
+</td>
+<td width="80" valign="top"><p>College</p>
+</td>
+<td width="83" valign="top"><p>Campus</p>
+</td>
+<td width="105" valign="top"><p>Suburb</p>
+</td>
+<td width="79" valign="top"><p>State</p>
+</td>
+<td width="84" valign="top"><p>Postcode</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>2</p>
+</td>
+<td width="86" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>CollegeOOl</p>
+</td>
+<td width="80" valign="top"><p>Albatross</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Richmond</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3121</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>3</p>
+</td>
+<td width="86" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>College002</p>
+</td>
+<td width="80" valign="top"><p>Swan</p>
+</td>
+<td width="83" valign="top"><p>Ballarat</p>
+</td>
+<td width="105" valign="top"><p>Sebastopol</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3356</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>4</p>
+</td>
+<td width="86" valign="top"><p>HALC</p>
+</td>
+<td width="86" valign="top"><p>College003</p>
+</td>
+<td width="80" valign="top"><p>Sparrow</p>
+</td>
+<td width="83" valign="top"><p>Bendigo</p>
+</td>
+<td width="105" valign="top"><p>Golden Square</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3555</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>5</p>
+</td>
+<td width="86" valign="top"><p>JAMF</p>
+</td>
+<td width="86" valign="top"><p>College004</p>
+</td>
+<td width="80" valign="top"><p>Kite</p>
+</td>
+<td width="83" valign="top"><p>Sale</p>
+</td>
+<td width="105" valign="top"><p>Sale</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3850</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>6</p>
+</td>
+<td width="86" valign="top"><p>BROS</p>
+</td>
+<td width="86" valign="top"><p>College005</p>
+</td>
+<td width="80" valign="top"><p>Hawk</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Dandenong</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3175</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>7</p>
+</td>
+<td width="86" valign="top"><p>AING</p>
+</td>
+<td width="86" valign="top"><p>College006</p>
+</td>
+<td width="80" valign="top"><p>Eagle</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Mentone</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3194</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>8</p>
+</td>
+<td width="86" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>College007</p>
+</td>
+<td width="80" valign="top"><p>Seagull</p>
+</td>
+<td width="83" valign="top"><p>Castlemaine</p>
+</td>
+<td width="105" valign="top"><p>Castlemaine</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3450</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>9</p>
+</td>
+<td width="86" valign="top"><p>BROS</p>
+</td>
+<td width="86" valign="top"><p>College008</p>
+</td>
+<td width="80" valign="top"><p>Robin</p>
+</td>
+<td width="83" valign="top"><p>Mildura</p>
+</td>
+<td width="105" valign="top"><p>Red Cliffs</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3496</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>10</p>
+</td>
+<td width="86" valign="top"><p>HALC</p>
+</td>
+<td width="86" valign="top"><p>College009</p>
+</td>
+<td width="80" valign="top"><p>Hawk</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Melton</p>
+</td>
+<td width="79" valign="top"><p align="center">Vic</p>
+</td>
+<td width="84" valign="top"><p align="center">3337</p>
+</td>
+</tr>
+</table>
+</div>
+<p ><strong>Spreadsheet&nbsp;&nbsp;- Feedback sheet</strong></p>
+<div >
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="38" valign="top" >&nbsp;</td>
+<td width="87" valign="top" ><p>A</p>
+</td>
+<td width="86" valign="top" ><p>. B</p>
+</td>
+<td width="80" valign="top" ><p>C</p>
+</td>
+<td width="87" valign="top" ><p>D</p>
+</td>
+<td width="117" valign="top" ><p>E</p>
+</td>
+<td width="106" valign="top" ><p>F</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>1</p>
+</td>
+<td width="87" valign="top"><p>ID Report</p>
+</td>
+<td width="86" valign="top"><p>ID_Lecturer</p>
+</td>
+<td width="80" valign="top"><p>Session</p>
+</td>
+<td width="87" valign="top"><p>SessionDate</p>
+</td>
+<td width="117" valign="top"><p align="right">NumberStudents</p>
+</td>
+<td width="106" valign="top"><p>SessionReport</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>2</p>
+</td>
+<td width="87" valign="top"><p>0001</p>
+</td>
+<td width="86" valign="top"><p>HALC</p>
+</td>
+<td width="80" valign="top"><p>Exam Prep</p>
+</td>
+<td width="87" valign="top"><p>1/7/2011</p>
+</td>
+<td width="117" valign="top"><p align="right">155</p>
+</td>
+<td width="106" valign="top"><p>Follow-up</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>3</p>
+</td>
+<td width="87" valign="top"><p>0002</p>
+</td>
+<td width="86" valign="top"><p>JAMF</p>
+</td>
+<td width="80" valign="top"><p>Study Time</p>
+</td>
+<td width="87" valign="top"><p>3/8/2011</p>
+</td>
+<td width="117" valign="top"><p align="right">206</p>
+</td>
+<td width="106" valign="top"><p>Feedback</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>4</p>
+</td>
+<td width="87" valign="top"><p>0003</p>
+</td>
+<td width="86" valign="top"><p>BALR</p>
+</td>
+<td width="80" valign="top"><p>Past Exams</p>
+</td>
+<td width="87" valign="top"><p>5/10/2011</p>
+</td>
+<td width="117" valign="top"><p align="right">58</p>
+</td>
+<td width="106" valign="top"><p>Summary</p>
+</td>
+</tr>
+<tr>
+<td width="38" valign="top" ><p>5</p>
+</td>
+<td width="87" valign="top"><p>0004</p>
+</td>
+<td width="86" valign="top"><p>JAMF</p>
+</td>
+<td width="80" valign="top"><p>Study Time</p>
+</td>
+<td width="87" valign="top"><p>6/10/2011</p>
+</td>
+<td width="117" valign="top"><p align="right">107</p>
+</td>
+<td width="106" valign="top"><p>Follow-up</p>
+</td>
+</tr>
+</table>
+</div>
+<p >OR 
+</p>
+<p ><img src="/m/pm/11i-b09.jpg" width="637" height="259" /><br clear="all" />
+<strong>Database&nbsp; - Lecture table</strong></p>
+<div >
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="87" valign="top"><p><strong>IDLecturer</strong></p>
+</td>
+<td width="86" valign="top"><p><strong>ID College</strong></p>
+</td>
+<td width="80" valign="top"><p><strong>College</strong></p>
+</td>
+<td width="83" valign="top"><p><strong>Campus</strong></p>
+</td>
+<td width="105" valign="top"><p><strong>Suburb</strong></p>
+</td>
+<td width="79" valign="top"><p><strong>State</strong></p>
+</td>
+<td width="84" valign="top"><p><strong>Postcode</strong></p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>CollegeOOl</p>
+</td>
+<td width="80" valign="top"><p>Albatross</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Richmond</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3121</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>College002</p>
+</td>
+<td width="80" valign="top"><p>Swan</p>
+</td>
+<td width="83" valign="top"><p>Ballarat</p>
+</td>
+<td width="105" valign="top"><p>Sebastopol</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3356</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>HALC</p>
+</td>
+<td width="86" valign="top"><p>College003</p>
+</td>
+<td width="80" valign="top"><p>Sparrow</p>
+</td>
+<td width="83" valign="top"><p>Bendigo</p>
+</td>
+<td width="105" valign="top"><p>Golden Square</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3555</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>JAMF</p>
+</td>
+<td width="86" valign="top"><p>College004</p>
+</td>
+<td width="80" valign="top"><p>Kite</p>
+</td>
+<td width="83" valign="top"><p>Sale</p>
+</td>
+<td width="105" valign="top"><p>Sale</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3850</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>BROS</p>
+</td>
+<td width="86" valign="top"><p>College005</p>
+</td>
+<td width="80" valign="top"><p>Hawk</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Dandenong</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3175</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>AING</p>
+</td>
+<td width="86" valign="top"><p>College006</p>
+</td>
+<td width="80" valign="top"><p>Eagle</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Mentone</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3194</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>BALR</p>
+</td>
+<td width="86" valign="top"><p>College007</p>
+</td>
+<td width="80" valign="top"><p>Seagull</p>
+</td>
+<td width="83" valign="top"><p>Castlemaine</p>
+</td>
+<td width="105" valign="top"><p>Castlemaine</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3450</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>BROS</p>
+</td>
+<td width="86" valign="top"><p>College008</p>
+</td>
+<td width="80" valign="top"><p>Robin</p>
+</td>
+<td width="83" valign="top"><p>Mildura</p>
+</td>
+<td width="105" valign="top"><p>Red Cliffs</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3496</p>
+</td>
+</tr>
+<tr>
+<td width="87" valign="top"><p>HALC</p>
+</td>
+<td width="86" valign="top"><p>College009</p>
+</td>
+<td width="80" valign="top"><p>Hawk</p>
+</td>
+<td width="83" valign="top"><p>Melbourne</p>
+</td>
+<td width="105" valign="top"><p>Melton</p>
+</td>
+<td width="79" valign="top"><p>Vic</p>
+</td>
+<td width="84" valign="top"><p align="right">3337</p>
+</td>
+</tr>
+</table>
+<br clear="all" />
+</div>
+<p class="examiner" >The examiner says: Students were given identical data displayed in formats suitable for either spreadsheet or database manipulation. 
+Students selected to answer questions on one of these software types. </p>
+<p >Indicate with a tick one software type your answers will refer to.</p>
+<ul>
+<li>Spreadsheet</li>
+<li>  Relational Database Management System</li>
+</ul>
+<p >a.&nbsp;&nbsp; Describe how the lecture data could be manipulated to make it easier for lecturers to see where they are timetabled.</p>
+<p >Spreadsheet: 
+</p><p ><span class="myanswer">Sort the Lecture Sheet by the ID_Lecturer column so a lecturer's lectures are grouped.</span>  
+</p><p ><span class="myanswer"><strong>Or</strong> create a filter on the Lecture sheet to show only one lecturer's classes on demand.</span> 
+</p><p >RDBMS: 
+</p><p ><span class="myanswer">Sort the Lecture table's records by the ID_Lecturer field</span> 
+</p><p ><span class="myanswer"><strong>Or</strong> use a find/query to show only one lecturer's classes in the Lectures table.</span>
+</p><p >2 marks - 4 lines
+</p><p class="examiner" ><span class="red">State average: </span><span class="red">35%</span>
+</p><p class="examiner" >The examiner says: Spreadsheet responses mostly stated &quot;Sort or Order the LecturerID column in the Lecturer data sheet from A to Z&#8223;. 
+Database responses mostly stated &quot;Sort or Order the LecturerID field in the Lecturer data table from A to Z&#8223;.
+</p><p>
+b.&nbsp;&nbsp; Explain how all lectures and colleges for lecturer BALR can be listed.</p>
+<p>Spreadsheet:</p>
+<p class="myanswer">On the lecture sheet, create a filter on the Lecturer_ID field so lecturers can select only their ID and have only their lectures shown.</p>
+<p>RDBMS:</p>
+<p class="myanswer">Use a find or query to find and display the records where the ID_Lecturer field contents match the ID of the desired lecturer.</p>
+<p >2 marks - 4 lines
+</p><p class="examiner" ><span class="red">State average: 38%</span>  
+</p><p class="examiner" >The examiner says: Spreadsheet responses generally suggested an automated procedure or conditional formula such as &quot;if 
+LecturerID=BALR&#8223; to identify the required rows and show them in either a separate worksheet, grouping, column or 
+colour. 
+Database responses generally suggested &quot;design a select query or filter such as LecturerID=BALR&#8223; to show LecturerID 
+and the College fields.
+</p><p>
+c.&nbsp;&nbsp; Describe a software technique used to determine the total number of students attending all of the lectures.</p>
+<p>Spreadsheet:</p>
+<p class="myanswer">On the Feedback sheet, cell E6 (or elsewhere) put the formula =SUM(E2:E5)</p>
+<p>RDBMS:</p>
+<p class="myanswer">In the feedback table, create a summary field (in Filemaker Pro) defined as SUM of NUMBERSTUDENTS. In the Feedback table, create a subsummary part when sorted by ID_report. In the subsummary part, put the summary field. After the list of session records, a line will show the total number of students across all of the records in the table.</p>
+<p >2 marks - 4 lines
+</p>
+<p class="examiner" ><span class="red">State average: 40%</span> </p>
+<p class="examiner" >The examiner says: Many students suggested the spreadsheet SUM formula at the bottom of the NumberStudents column or wrote &quot;a 
+formula sum(E2:E5) and label it TotalAttendance&#8223;. 
+For database, many students wrote &quot;calculate TOTAL in new field using the NumberStudents field&#8223; and others wrote 
+&quot;create a query called TotalAttendance using Total on the NumberStudents field&#8223;.</p>
+<p class="examiner" >Other reasonable answers, including annotated sketches, were also awarded marks. </p>
+<p class="myanswer" ><em>What - no relationship question? What's going on here?</em></p>
+<p ></p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 10</strong></td>
+<td><p >Question 10</p>
+<p > ABC Golf Club has a website which provides general information to visitors and members. The current site map is shown below.</p>
+<p ><img src="/m/pm/11i-b10a.jpg" width="612" height="317" /></p>
+<p ><br clear="all" />
+ABC Golf Club would like to have a Members Only section for their website. This would allow members to book a game online, keep their personal details up to date and access an online space on the match results.</p>
+<p > a.&nbsp;&nbsp; Name one appropriate navigation link ABC Golf Club could use in a new Members Only section.</p>
+<p >1 mark</p>
+<p class="examiner" ><span class="red">State average: 25%</span> 
+</p>
+<p class="examiner" >The examiner says: Appropriate navigation links were listed in the scenario presented in the question. These were game bookings, personal 
+details and match results. Any one of these was accepted. Some students used other similar phrases such as &quot;game 
+scores&#8223; or &quot;member profile&#8223;, which were also accepted.  
+</p>
+<p class="myanswer" >A link back to the open part of the site.</p>
+<p class="myanswer" > A link to any of: the game booking page, personal details page, or match results page.</p>
+<p class="comment" ><em>Is that all? Hardly seems worthy of a mark.</em> Yet the state average was only 25%.&nbsp; Shudder!</p>
+<p >b.&nbsp;&nbsp; On the site map below, indicate where the new web pages would be shown.</p>
+<p ><img src="/m/pm/11i-b10b.jpg" width="482" height="231" /></p>
+<p ><img src="/m/pm/11i-B10c.jpg" width="715" height="347" border="1" /><br clear="all" />
+</p>
+<p >3 marks </p>
+<p class="examiner" ><span class="red">State average: 50%</span> </p>
+<p class="examiner" >The examiner says: The most frequently accepted answer is shown below. </p>
+<p class="examiner" ><img src="/m/pm/11i-10b.jpg" width="677" height="223" /></p>
+<p class="examiner" >Many students correctly placed the new pages one level further down and added a Member or Login page in the private 
+space immediately below the horizontal line. Generally, responses which indicated that three new pages were in a 
+private space and below the level of the Home page received full marks. </p>
+<p class="comment" >It seems the examiner's sample answer suffered during its transition to PDF! The vertical lines to the 3 new boxes are missing.</p>
+<p >c.&nbsp;&nbsp; Describe a technique for protecting the personal information of members on the website.</p>
+<ul>
+<li class="myanswer">Logins and passwords are required. </li>
+<li class="myanswer">Passwords must be strong (7+ characters, mixed case, symbols, digits). </li>
+<li class="myanswer">SSL or TLS encryption of all pages sent/received in the members' area. </li>
+</ul>
+<p >2 marks - 4 lines
+</p>
+<p class="examiner" ><span class="red">State average: 65%</span> </p>
+<p class="examiner" >The examiner says: Most students described a security procedure the golf club could use and gave an example of the protection it provided. 
+Successful responses included &quot;a member ID given by the club and then a strong password chosen by the member&#8223; or &quot;a 
+firewall or antivirus software to stop hackers stealing members&#8223; private details&#8223; or &quot;use secure banking like PayPal&#8223; 
+when members&#8223; fees are paid online by credit card. This question was well answered. </p>
+<p >d. The online space for members will allow them to discuss the rules of golf. Some members have suggested a wiki, others a forum. Would you recommend a forum or a wiki? Justify your answer. Indicate your preference with a tick.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; </p>
+<p class="myanswer" ><strong>Forum</strong> - The aim is to discuss, which a forum is very good at. It allows threaded question/answer/replies on different topics. A wiki, on the other hand, is meant as a tool to collate knowledge into a single document. It does not support discussion.</p>
+<p >2 marks - 3 lines
+</p><p class="examiner" ><span class="red">State average: 73%</span>
+</p><p class="examiner" >The examiner says: Students who chose a forum over a wiki were able to provide two very direct reasons for their selection. For example, &quot;a 
+forum will let members have their say in a conversation-like manner&#8223; and &quot;a wiki is more formal and might frighten 
+some members out of stating their opinion&#8223;. 
+</p><p class="examiner" > Others explained that the editing/referencing protocols of a wiki might 
+make discussion &quot;more difficult for ordinary members and a forum would be easier for discussion&#8223;. Those who argued 
+for a wiki over a forum typically suggested that a wiki would be best because &quot;rules need a regulated environment for 
+discussion&#8223;. Other responses which argued a case in the context of the golf club also received a mark.
+</p><p >e. Draw a mock-up of the home page of ABC Golf Club including access to the new Members Only section.</p>
+<p >3 marks - half a page box provided. 
+</p><p ><span class="red">State average: 83%</span>  
+</p><p ><span class="myanswer">The homepage would want these things:</span> 
+</p><ul>
+<li class="myanswer">big, bold headings; smaller body text</li>
+<li class="myanswer">an attractive logo </li>
+<li class="myanswer">a picture relevant to the club</li>
+<li class="myanswer">a navbar with links to 'About Us', 'Golf' and 'Membership', plus a new link to 'Members Login' (the login boxes could be on the homepage or member's login page)</li><li class="myanswer">a privacy policy link (even though they don't have such a page, they need one)</li>
+<li class="myanswer">a link to the contacts page (to make it easy to find)</li>
+<li class="myanswer">subtle colours</li>
+<li class="myanswer">underlined links </li>
+</ul>
+<p class="examiner" >The examiner says: Successful representations of the new home page for the website indicated a header or logo, navigation links and 
+membership login section. This question was very well answered. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 11</strong></td>
+<td><p >Question 11</p>
+<p > A team of seven biologists researching the eating habits and movements of koalas in a national park send descriptions, images and maps to each other and to head office while the biologists are working.</p>
+<p > The team currently uses digital cameras to capture images and wireless laptops to input data and email attachments to head office. At the end of each day the data on each laptop is backed up to a removable hard disk carried in a backpack by one of the biologists.</p>
+<p class="myanswer" ><em>If the biologists are not working in the same location, please explain how one of them will back up the data on each of the laptops. If they are all working in the same location, why do they need to send stuff to each other by wireless?</em></p>
+<p > Head office has suggested that the biologists use cloud computing to back up their data as it is collected.</p>
+<p >a.&nbsp;&nbsp; Explain how this suggestion could improve the timeliness of their data.</p>
+<p class="myanswer" >Because the data is stored centrally as it's entered, it's immediately available to each of the biologists and head office as soon as it's required.</p>
+<p >2 marks
+</p><p class="examiner" ><span class="red">State average: 50%</span> 
+</p><p class="examiner" >The examiner says: Most students could explain that data saved directly to the cloud is backed up as it is recorded and therefore available to 
+other team members or head office almost immediately. Typically accepted responses included &quot;data will be available to 
+teams more quickly and will be more up-to-date&#8223;.
+</p><p>
+b.&nbsp;&nbsp; State a criterion for evaluating the communication of image data to the cloud.</p>
+<ul>
+<li class="myanswer">Speed</li>
+<li class="myanswer">Accuracy</li>
+<li class="myanswer">Security</li>
+<li class="myanswer">Cost </li>
+</ul>
+<p >1 mark</p>
+<p ><span class="red">State average: 45% 
+</span></p>
+<p ><span class="red">The examiner says: Most accepted responses presented a criterion in the form of a question comparing the quality of new and old images. 
+Examples included, &quot;Are the images using the cloud the same resolution?&#8223; and &quot;Are the new images as clear as the old 
+images?&#8223; 
+Responses which compared the download speed, ease of retrieval or security of images were also accepted.</span></p>
+<p > The biologists are worried that criminals will intercept their data and use it to trap koalas for illegal zoos.</p>
+<p >c.&nbsp;&nbsp; Recommend equipment to prevent criminal access to the data as it is communicated.<span class="myanswer"></span></p>
+<p class="myanswer" ><em>Encrypt the data before it's sent (e.g. with Pretty Good Privacy which uses RSA public key encryption)</em></p>
+<p class="myanswer" ><em>Use a cloud host which supports SSL or TLS connections.</em></p>
+<p class="myanswer" ><em>Use a Virtual Private Network (VPN) box to securely connect to the cloud host.</em></p>
+<p class="examiner" >2 marks</p>
+<p class="examiner" >State average 45% </p>
+<p class="examiner" >The examiner says: Many students received a mark for stating that encrypting the data would protect it from hackers during communication. 
+Complete answers included an explanation such as &quot;encryption scrambles the data and makes it unreadable to hackers&#8223; 
+or &quot;data is encrypted with a key before it is sent and only users with the key will be able to decrypt and read the data&#8223;. </p>
+</td>
+</tr>
+<tr>
+<td valign="top" >&nbsp;</td>
+<td>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;
+&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<table>
+<tr>
+<td width="100%" height="84"><p class="myanswer"><em>Overall - a bit too easy. </em></p>
+<p class="myanswer"><em>Not enough on database relationships. </em></p>
+<p class="myanswer"><em>A very difficult &quot;top selling item each month over 6 months&quot; question.</em></p>
+</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 14 November 2010</font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly 2001- 
+<script type="text/javascript">
+D = new Date();
+year = D.getFullYear();
+document.write(year);
+</script> 
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2010<br />
+Images and questions &copy; Victorian Curriculum 
+and Assessment Authority 2010. <br />
+Reproduced here with permission.</font></p>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

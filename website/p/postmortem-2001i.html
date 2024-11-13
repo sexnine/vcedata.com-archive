@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCE Applied Computing Notes - 2001 exam post mortem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr> 
+  <td colspan="2"> 
+    <h1 align="center"><a name="top" id="top"></a>Information Processing and Management</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2001</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+  <td colspan="2"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td colspan="2"><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td colspan="2"><div align="center">Last changed:
+    <!-- #BeginDate format:Am1a -->March 12, 2022 12:29 PM<!-- #EndDate --></div>
+    <div align="center"></div></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="comment">Let's have a look at the 2001 exam which finished about an hour ago. 
+All comments here are mine alone and reflect nothing about what the examiners 
+may or may not have expected.</p>
+<p class="comment">On the whole, the exam was pretty easy. No really curly or downright 
+weird questions. The PERTish chart in Q9 was odd, but at least it was 
+readable and not difficult to interpret. Several of my students finished 
+early.</p>
+<p class="comment"> As usual, internet-related questions were common, so it's worth your 
+while become internet-literate if you're doing IPM.</p>
+<p>Historical Note: at this early stage of the post mortems I did not include the entire questions; I just paraphrased them.</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 1</h3>
+<h4 align="center">1 mark. Tickbox.</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p>Introducing an email system into an organisation to improve communication 
+would surely be caused by a <span class="myanswer">desire for increased competitiveness.</span></p>
+<p> <span class="comment">Tick the first box. As usual, the exam starts with a quick and easy 
+one to settle your nerves.</span></p>
+<p class="comment">Some say this answer was not as obvious as I believe, but the other alternatives 
+are much less likely to be the cause, IMHO.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 2</h3>
+<h4 align="center">2 marks. 6 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="comment">You are only supposed to do one of the alternatives. Don't do both, because 
+the first answer will be answered and the second one ignored, no matter 
+how brilliant it may have been. You should tick either the Alternative 
+A box or the Alternative B box and answer in the space provided.</p>
+<h4><font color="#000000">Alternative A: describe in detail how an image 
+is placed on the page in a particular web authoring program that you have 
+used.</font></h4>
+<p class="myanswer">To place an image in a webpage using Dreamweaver 4, place the cursor 
+where the picture needs to go. Press CTRL+ALT+I or select menu Insert 
+&gt; Image. Use the standard Windows file dialog box to navigate to the 
+picture file and click the &quot;Select&quot; button.</p>
+<p class="comment">Since the question's instructions specified &quot;describe in detail&quot;, 
+you would want to be very detailed and produce a description that could 
+be followed to successfully insert an image. Note that the &quot;particular 
+web authoring program&quot; is named in the answer.</p>
+<h4><font color="#000000">Alternative B: List a software tool you have used 
+and describe two methods of electronic data validation.</font></h4>
+<p>Example answer 1: <span class="myanswer">Microsoft Excel 2000. </span></p>
+<p>Method 1: <span class="myanswer">In the Data &gt; Validation menu you can specify what values 
+are allowed in a cell or range (e.g. text, date). A specified message 
+can be made to appear when the cell is selected and if validation rules 
+are broken.</span></p>
+<p>Method 2: <span class="myanswer">A formula could be written to check the contents of another 
+cell. e.g. if the value in cell A1 is not allowed to be negative, this 
+formula in B1 would highlight the error</span></p>
+<p class="myanswer">=if(A1&lt;0,&quot;Error in cell A1&quot;,&quot;&quot;)</p>
+<hr />
+<p>Example answer 2: <span class="myanswer">Microsoft Word 2000.</span></p>
+<p>Method 1: <span class="myanswer">By running a spell check, Word finds all words in the document 
+that are not in its dictionary. It will detect typing and spelling errors, 
+unless the error by chance matches a legitimate word (e.g. if you typed 
+&quot;There&quot; instead of &quot;Their&quot;, or if you typed &quot;bag&quot; 
+instead of &quot;big&quot;.)</span></p>
+<p>Method 2: <span class="myanswer">By running a grammar check, Word will check your writing 
+for grammatical errors such as &quot;They is good&quot;. It can also detect 
+possibly poor writing style such as partial sentences or passive voice.</span></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 3</h3>
+<h4 align="center">2 marks. 4 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">You are asked to explain two factors that affect 
+the suitability of information for a given purpose.</p>
+<p>1. <span class="myanswer">Timeliness: information needs to be available when it's needed, and need to be up to date if it is to be useful. 
+Outdated information will not be useful (e.g. old stock prices)</span></p>
+<p>2. <span class="myanswer">Relevance: if the information has little or nothing to do with 
+what you need to know, it is unsuitable.</span></p>
+<p class="comment">You could also mention factors such as level of complexity, clarity, 
+its format, accuracy, completeness, consistency, validity, appropriateness, 
+meaning, appropriateness of genre, etc.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 4</h3>
+<h4 align="center">1 mark. 2 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">Explain why using inappropriate desks and chairs 
+can cause health problems for computer users.</p>
+<p class="myanswer">Chairs or desks of the wrong height can cause strain to back, arm 
+and leg muscles. Reaching up to a desk that is too high will strain the 
+arms. If the monitor is raised too high, the neck can be strained. If 
+a chair lacks lumbar support, the back can start hurting. If a chair is 
+too high and the user's feet do not touch the ground, discomfort can result.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 5</h3>
+<h4 align="center">1 mark. 2 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">What's a social issue arising from a store requiring 
+customers to register personal details over the internet before being 
+able to purchase goods?</p>
+<p class="myanswer">Customer Privacy. If the transaction is not carried out over a secure 
+link, others may see sensitive information like credit card numbers passing 
+through the internet and the information may be exploited. Even on a secure 
+link, if the staff at the shop misuse customer information, the customer's 
+privacy is invaded.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<h3 align="center">Question 6</h3>
+<h4 align="center">2 parts: 2+1 marks</h4>
+<h4 align="center">Two tick boxes, two lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question"> A tutoring business lets school students employ 
+someone to help them, either at home or elsewhere, for $28 an hour. Tutors 
+are sent a weekly email with an attached file telling them what their 
+appointments are for the coming week.</p>
+<p class="question">6a) There are two boxes, each containing a list 
+of possible input data items for a business information system. You had 
+to tick the item in each list that would be the least essential.</p>
+<p class="myanswer">On the student data side, obviously for this case study, the tutor needs 
+to know the student's name and address. The subject is necessary because 
+tutors probably could teach more than one subject. When the appointment 
+is scheduled is also vital. The only one left is the gender of 
+the student.</p>
+<p><font size="2" class="comment">Pedantic note: Languages have &quot;genders.&quot; Humans 
+have &quot;sex.&quot; Yeah. Stop giggling. That's why people say &quot;gender&quot;, 
+I suppose. ;-) </font></p>
+<p class="myanswer">On the tutor data side, one would logically need all the fields (including 
+email address since information is sent by email) except &quot;Other 
+employers&quot; which would not be useful for organising tutorials.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr > 
+<td valign="top" width="48%"> 
+<ul>
+<li>Name of student</li>
+<li>Address of student</li>
+<li>Gender of student <span class="myanswer">(not essential)</span></li>
+<li>Subject required</li>
+<li>Time and duration of appointment</li>
+</ul></td>
+<td width="52%"> 
+<ul>
+<li>Name of tutor</li>
+<li>Subject Tutored</li>
+<li>Other employer(s) <span class="myanswer">(not essential)</span></li>
+<li>Pay rate</li>
+<li>Email address</li>
+<li>Postal address</li>
+</ul></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">6b) What other output, apart from the email, 
+would tutors expect to receive on a regular basis?</p>
+<p class="myanswer">Since they are getting paid for their work, they would expect regular 
+statements of their work and earnings. Perhaps the system can also print 
+cheques for payment.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 7</h3>
+<h4 align="center">1 mark. 2 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">A business has developed a software solution 
+to calculate the time worked by employees. Two types of documentation 
+have been specified for the solution: one for the person managing the 
+system and another for the employees who will enter their work times.</p>
+<p>You are asked to explain the difference between the two types of documentation.</p>
+<p class="myanswer">The system manager's documentation would be describe the entire system, 
+from data entry to processing, storage and output. It would be longer, 
+more detailed and contain more technical detail of how the system works.</p>
+<p class="myanswer">The employees' documentation would be short, clear, simple and dedicated 
+solely to explaining the data input procedures.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 8</h3>
+<h4 align="center">1 mark. 2 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">Explain the term Project Management. 
+<span class="comment">(Hey: couldn't get a shorter question; it's not very simple though!)</span></p>
+<p class="myanswer">Project Management is a model of the steps required to successfully 
+handle a big and complex job involving many people and actions from beginning 
+to end. It describes project analysis, design, development, implementation 
+and closure. It does not describe how a product is produced, but it guides 
+a team through the steps needed to produce it. </p>
+<p class="comment">Obviously this is a very cut down discussion of Project Management, but 
+in 2 lines and 2 minutes, what else can you do? If anything, my answer 
+is too long anyway!</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > <h3 align="center"><a name="2001gp" id="2001gp"></a>Question 
+9</h3>
+<h4 align="center">3 parts: 1+1+1 marks. 2+1+1 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p><font color="#000000" class="comment">You are given a diagram that looks rather like 
+a Clayton's PERT chart: the PERT chart you have when you're not having 
+a PERT chart. It's an odd beastie, that's for sure. I quote the exam questions 
+exactly. The case study is:</font></p>
+<p><font color="#000000">A college committee organising a VCE social 
+is changing to an online booking and recording system. This diagram shows 
+some tasks and the timeline associated with the development of the online 
+system.</font></p>
+<p align="center"><img src="/m/pm/01i-Q9.gif" alt="PERT chart" width="670" height="252" /></p>
+<p class="question">&quot;Note: only weekdays included&quot; 
+<span class="comment">(thank heaven, after last year's mess on the Gantt chart!)</span></p>
+<p class="question">9a) &quot;If the design team cannot agree on 
+the steps involved in testing and the task takes two extra days what impact 
+will this have on the critical path of the project?&quot;</p>
+<p class="myanswer">It must be referring to the top left box &quot;Write the steps...&quot;. 
+That task is on a path on its lonesome, taking 5 days. The alternative, 
+concurrent path, &quot;Identify...(2) &quot; + &quot;Advertise (10)&quot; 
++ &quot;Select (5)&quot; adds up to 17 days before the two paths converge 
+again at the mysterious empty box. In other words, there are 12 slack 
+days for the top left task. If the &quot;Write the steps&quot; tasks 
+now takes 7 days, it is still TEN DAYS shorter than the longer path below 
+(i.e. 10 days' slack), so the short answer is NO IMPACT.</p>
+<p class="question">9b) &quot;What task would be shown in the empty 
+box?&quot;</p>
+<p class="myanswer">Well, it's a no-brainer. Everything before the empty box is about setting 
+up testing. Everything after it is about fixing errors that were found 
+by testing. What's missing? TESTING!</p>
+<p class="question">9c) &quot;What is the maximum number of days 
+the task &quot;select testers&quot; could take if the critical path cannot 
+be changed?&quot;</p>
+<p class="myanswer">Since &quot;Select testers&quot; is <b>on the critical path</b> (it is 
+part of the longest path from beginning to end), the easy answer is FIVE 
+DAYS (i.e. no change, since any change to the task would change the 
+critical path.) It's a bit of a trick question!</p>
+<p class="comment">Thank Dog this question was much more reasonable than last year's! You're 
+a lucky bunch of Vegemites compared to the kids who were the IPM 2000 
+guinea pigs.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 10</h3>
+<h4 align="center">2 parts: 2+2 marks. 2 labels + 4 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">&quot;The list of positions in a large multinational 
+company in Australia include(s) department heads, store managers, sales 
+assistants, a state manager and a national manger.&quot; <span class="comment">Shame 
+about the (grammatical error)!</span></p>
+<p align="center"><img src="/m/pm/01i-Q10.gif" width="283" height="251" /></p>
+<p class="question">10a) &quot;Complete the organisational chart 
+above to show the management structure for Victoria only, by placing one 
+management position listed above in each blank level of the diagram.</p>
+<p class="myanswer">You'd first mentally sort the positions by hierarchy:</p>
+<ul>
+<li class="myanswer">national manger</li>
+<li class="myanswer">state manager</li>
+<li class="myanswer"><b>store managers</b></li>
+<li class="myanswer">department heads (within each store)</li>
+<li class="myanswer">sales assistants</li>
+</ul>
+<p class="myanswer">Above &quot;Store manager&quot; would be the STATE MANAGER, since 
+we are told to only look at Victoria and to ignore the national manager.</p>
+<p class="myanswer">Below the &quot;Store manager&quot; would be the DEPARTMENT HEADS</p>
+<p class="comment">Easy as that! This is an easy exam so far!</p>
+<p class="question">10b) The company produces a report for 
+each store providing the total sales by department for the current week, 
+the previous week and the year so far. A copy of the report for the relevant 
+store is given to the store manager and each department head. Explain 
+how each of these people would use the report (2 marks - 4 lines)</p>
+<p class="myanswer">The store manager [tactical management level] would use the report 
+to see how individual departments were performing and help plan tactical 
+changes to departments. The manager could support (or scare) the department 
+head into better results; or praise (or reward) the department head for 
+his/her good results. The manager could reorganise resources and training 
+to aid departments that were underperforming and inspect high-performing 
+departments to learn their secrets of success. The store manager's changes 
+would be aimed at improving department heads' implementation of the company's 
+goals.</p>
+<p class="myanswer">The department head [operational managment level] would use the report 
+to better manage the day-to-day operation of the department; discover 
+whether workers were performing well or poorly and adjust how workers 
+were supervised or resourced. The department head's changes would be practical 
+changes at a worker level.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 11</h3>
+<h4 align="center">2 parts: 1+2 marks. 1+3 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="comment">Can anyone explain why this question was divided in (i) and (ii) where 
+other questions were divided into (a) and (b) etc? Methinks the VCAA need 
+a style guide!</p>
+<p class="question">&quot;Give one form (type) of information that 
+may be provided over the Internet and describe the technical aspects to 
+be considered in providing the information.&quot;</p>
+<p>&quot;(i) Form&quot;</p>
+<p>(choose any of these...)</p>
+<ul>
+<li>Textual</li>
+<li>Graphical</li>
+<li>Numerical</li>
+<li>Aural (sound)</li>
+</ul>
+<p class="question">&quot;(ii) Description of technical aspects 
+to be considered&quot;</p>
+<p>(Pick one of the following)</p>
+<p class="myanswer">Textual: typeface (will the user have the same font as the webpage 
+creator and see what the creator intended?), fontsize (if the user has 
+a different screen resolution, the font will appear in very different 
+sizes)</p>
+<p class="myanswer">Graphical: can the user's browser display the graphics used by the 
+creator (e.g. PNG)? How long will the graphic take to download? How much 
+of the screen will it take up? Will it appear properly if the user has 
+different numbers of displayable colours on his/her video card/monitor? 
+If it is animated, does it show smoothly or jerkily due to bandwidth restrictions?</p>
+<p class="myanswer">Numerical: (no relevant technical aspects that I can think of)</p>
+<p class="myanswer">Aural: Does the user have the necessary plugin or browser support 
+for playing the sound? How long does it take to download? Does the user's 
+soundcard play MIDI files with the same instruments as the creator's soundcard?</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 12</h3>
+<h4 align="center">2 marks. 4 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">A school has 50 computers that are loaned 
+to students. The school is concerned that some are requiring excessive 
+repairs and has asked you to develop an information system to monitor 
+the loans and maintenance. Describe what you would do in the design phase.</p>
+<p class="myanswer">In the design phase I would choose the hardware and software needed 
+to produce the required output. I would plan the fields and tables required 
+for a database to record loan and maintenance events. I would design the 
+input and output formats of the system. I would decide how the system 
+would be tested to ensure it was working properly. I could design the 
+data flow plan with a data flow diagram. I could plan processes with a 
+flowchart or Nassi-Shneiderman chart.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 13</h3>
+<h4 align="center">3 marks. 6 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">The table below shows some records maintained 
+by a company and the people who have access to them.</p>
+<table width="90%%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><font color="#000000">Financial 
+records</font></td>
+<td><font color="#000000">Accountant 
+and finance department staff</font></td>
+</tr>
+<tr>
+<td><font color="#000000">Personnel 
+contact details and employment history</font></td>
+<td><font color="#000000">Personnel 
+manager and staff</font></td>
+</tr>
+<tr>
+<td><font color="#000000">Stock 
+lists</font></td>
+<td><font color="#000000">All 
+staff</font></td>
+</tr>
+</table>
+<p class="question">Choose one type of record and describe 
+strategies to ensure the security of the data and integrity of the information</p>
+<p class="comment">First, interpret the question. For computer lovers, &quot;records&quot; 
+in the question does not mean &quot;records&quot; as in a database (a 
+collection of related fields). It just means &quot;recordings of information&quot;. 
+Second: the records match the users: read across from left to right.</p>
+<p class="comment">Notice how the records are in decreasing order of security.</p>
+<p class="myanswer">Choose from:</p>
+<p class="myanswer">1. Network passwords so only authorised employees can enter the system</p>
+<p class="myanswer">2. Application passwords so only authorised users can enter the database 
+and read/change the data they are entitled to access and/or change</p>
+<p class="myanswer">3. Regular and documented backups to protect data from loss</p>
+<p class="myanswer">4. Physical security (locks, bars, locked floppy drives, ID-card operated 
+doors) to prevent outsiders entering restricted areas or accessing computers</p>
+<p class="myanswer">5. Encryption of data to prevent unauthorised people reading data 
+even if they can access it.</p></td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 14</h3>
+<h4 align="center">2 parts, part A divided into 3 parts (3+2 marks)</h4>
+<h4 align="center">6 lines + 4 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">An organisation sells art and craft supplies, 
+and is divided into departments. One person in each department has been 
+given responsibility of overseeing the development of webages which will 
+display products, prices and staff contact information. The system administrator 
+has suggested students from local schools be engaged to develop the pages. 
+Each department has been assigned students from a different school. It 
+is expected that the students will work at times that suit them and that 
+the pages will be developed independently.</p>
+<p><font color="#000000">a) Explain three weaknesses in this approach</font></p>
+<ol>
+<li class="myanswer"> Pages might not be ready when they are required - if they <b>ever</b> 
+appear</li>
+<li class="myanswer"> Each page will look different, lending a messy appearance to 
+the site</li>
+<li class="myanswer"> The students' skill levels may not be up to the professional 
+job expected of an organisation</li>
+</ol>
+<p class="question">b) Who would you suggest tests the solution 
+and why would you choose this person?</p>
+<p class="myanswer">The system adminstrator should test the solution since he/she would 
+understand the technical requirements of the website and notice any shortcomings 
+in the pages supplied. He/she would know what to test for to detect typical 
+problems with webpages. The administrator would also be able to compare 
+the departments' pages and see if they are consistent in style and content.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 15</h3>
+<h4 align="center">5 parts: 1+1+2+3+1 marks (8 marks total). 2+2+4+6+2 lines of writing</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">A town has 2 hospitals. Only one of them has 
+an X-ray unit and the hospitals are considering sharing some other facilities 
+wuch as their pharmacies and kitchens. Some doctors work at both hospitals 
+and some patients attend both hospitals. A communications link has been 
+proposed to connect the computer systems in both hospitals.</p>
+<p>15a) What would be one of the organisational 
+goals of a hospital in the town?</p>
+<p class="myanswer">To provide effective and efficient treatment of patients' illnesses.</p>
+<p class="question">The hospitals have decided to set up a common 
+patient admissions and medical history database.</p>
+<p>15b) State what data item(s) would allow the 
+hospitals to uniquely identify each patient.</p>
+<p class="myanswer">Medicare card number </p>
+<p class="myanswer"><em>(In 2001 the Privacy Act was not part of the study design, and I didn't know that organisations were not allowed to use an identifier from another organisation's database to identify an individual)</em></p>
+<p class="myanswer">surname + given name + phone number</p>
+<p class="comment">(In 2001, databases were not part of the study design either, and I was not so aware that using multiple fields to define a key leaves one vulnerable to Second Normal Form [2NF] normalisation problems)</p>
+<p class="myanswer">etc (so long as there is no chance of even million-to-one chances of 
+duplicate identities)</p>
+<p class="question">15c) Give two examples of data, other than patient 
+details, that the two hospitals may wish to share.</p>
+<p><span class="myanswer">1. Bookings of X-ray machine usage</span> <span class="comment">(it is suggested in the case 
+study)</span></p>
+<p><span class="myanswer">2. Drugs given to patients by pharmacies</span> <span class="comment">(to stop drug-seeking 
+patients)</span></p>
+<p><span class="myanswer">Bonus: 3. Nutritional requirements of patients</span> <span class="comment">(if they share 
+a kitchen)</span></p>
+<p class="question">15d) Name and describe the functions of one 
+active hardware component that would be essential in the network to enable 
+applications and information to be accessed from workstations in the other 
+hospital.</p>
+<p><font color="#000000" class="comment">This is an example of a question that separates 
+the B+ from the A+ students...</font></p>
+<ul>
+<li class="myanswer">Network card: connects a computer to a network and identifies the 
+data that are intended for that computer</li>
+<li class="myanswer">Router: screens network traffic to determine whether it is legitimate 
+and where it should go</li>
+<li class="myanswer">Hubs/Switches: pass data from one network node to its destination</li>
+<li><span class="myanswer">Computer</span> (<span class="comment">dunno if the examiners would give marks for this one...</span>)</li>
+<li class="myanswer">File server: manages the network and flow of all communications and 
+data. </li>
+</ul>
+<p class="question">The hospital administrators suggest that the 
+database should be read-only for all users and only the data entry clerks 
+in each hospital can change or add records.</p>
+<p class="question">15e) State one reason why doctors should not 
+be allowed to change or add data</p>
+<ul>
+<li class="myanswer">They could unwittingly add patients who are already in the database 
+if they were unaware the patient was already registered.</li>
+<li class="myanswer">They could illicitly add &quot;phantom&quot; patients, prescribe them 
+narcotics and use their drugs for their own purposes.</li>
+<li class="myanswer">They would not know the proper procedures for adding patients and 
+make faulty admissions</li>
+<li class="myanswer">Different doctors treating the same patient may make different entries.</li>
+</ul>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 16</h3>
+<h4 align="center">3 parts (part a has 2 responses, part b has 1 response, 
+part c has 3 responses). 2+1+3 marks</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">A company is small, but rapidly growing. In 
+the past, staff have been given an allowance to purchase their own computer 
+equipment. This worked well at first, since staff could select the type 
+of computer they liked best. However, management has become worried that 
+as the company expands, there is no consistency in the technology being 
+bought by the employees. Management and staff have agreed that as from 
+next year the company would buy computers for all staff members.</p>
+<p>16a) List two methods that could be used to 
+gather the data needed to enable the company to determine the specifications 
+for the computers to be purchased.</p>
+<ol>
+<li class="myanswer"> Study the quantities and types of data handled by the computers 
+and determine the specifications to suit the data handled</li>
+<li class="myanswer"> Record the performance of different hardware types used by different 
+employees compared with their efficiency in processing data</li>
+<li class="myanswer"> Interview employees about their satisfaction with the processing 
+abilities of their systems</li>
+</ol>
+<p class="question">16b) Explain why it is necessary for the company 
+to evaluate a range of solutions before selecting an option.</p>
+<p class="myanswer">The company must find the cheapest but most effective solution, and 
+by evaluating a variety of solutions, they should discover the optimal 
+solution. They can uncover weaknesses and strengths in solutions they 
+had previously not known about.</p>
+<p class="question">16c) Another company has offered to provide 
+a networked solution. Suggest two changeover procedures that could be 
+considered and justify one of the two alternatives.</p>
+<ol>
+<li class="myanswer"> Direct conversion</li>
+<li class="myanswer"> Pilot conversion</li>
+</ol>
+<p class="comment">(Parallel does not really make sense in this case study.) Thanks to Mark 
+Scott of Billanook for feedback on my answers to this question.</p>
+<p class="question">Justification:</p>
+<p class="myanswer">With a direct changeover scheme, the conversion is quick and system 
+improvements can be enjoyed immediately by everyone. Direct conversion 
+is cheaper and less complicated than alternative strategies.</p>
+<p class="comment">or</p>
+<p class="myanswer">With a phased changeover, parts of the new system can be introduced 
+in stages. In this way, staff will not be overwhelmed by change, and disruptions 
+to the organisation will be reduced if changes are made bit by bit. They 
+could introduce the new workstations first, then phase in the network 
+once the workstations are in place and staff are comfortable with them. 
+By debugging each new part of the system before introducing the next one, 
+system reliabilty is enhanced.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 17</h3>
+<h4 align="center">4 parts (1+1+4+2 = 8 marks). 2+2+9+4 lines of writing</h4>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p class="question">The Chief Executive Office of a book company 
+has said that the company must always aim to meet the organisation's goal 
+of 'providing customers with a fast, reliable, personalised service.' 
+The South Melbourne store manager believes that an in-store computer facility, 
+where customers can search the company's stocks, will improve customer 
+satisfaction and provide a faster service. The staff at the store have 
+objected to this, saying it will not provide personalised service. Previously, 
+the store's staff would search the company database when a customer made 
+a request for a book.</p>
+<p>17a) If the CEO approves a trial of the computer 
+facility, explain one data security or training requirement that will 
+need to be addressed.</p>
+<p class="myanswer">Data security: they will need to ensure that customer use of the database 
+could not alter or delete database records.</p>
+<p class="comment">or</p>
+<p class="myanswer">Training: they would need to train staff so they knew how to show 
+customers how to use the customer database.</p>
+<p class="question">17b) Explain why using a computer terminal may 
+not meet the company's goal.</p>
+<p class="myanswer">Since one of the company's organisational goals is &quot;personalised&quot; 
+service, it would not be good if the terminal removed the personal staff/customer 
+relationship.</p>
+<p class="question">17c) Customer response to the trial has been 
+positive and the CEO wants to install an in-store facility across all 
+stores. Identify and explain in detail one requirement, apart from 
+the cost and requirement answered in part a above, that would need 
+to be considered before implementing the change.</p>
+<p class="question">Requirement: <span class="myanswer">Compatibility with 
+existing equipment, health and safety of staff and customers.</span></p>
+<p class="question">17d) Recommend an evaluation strategy for determining 
+the success of the change.</p>
+<p class="myanswer">Monitor sales, to see if they increase. Monitor complaints by customers 
+about poor service or inability to find what they want. Review profit 
+statistics over time. Study costs of implementation of terminals and database 
+maintenance. </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > 
+<h3 align="center">Question 18</h3>
+<h4 align="center">6 marks. 24 lines of writing (a whole page)</h4></td>
+</tr>
+<tr> 
+<td colspan="2"> 
+<p>&nbsp;</p>
+<p>More and more organisations are providing 
+access to the Internet from their Local Area Network (LAN) so that employees 
+may use email and the Internet. Discuss the risks this creates for the 
+organisation and some of the strategies that might be adopted to minimise 
+these risks.</p>
+<p class="comment">This is an interesting style of question: it is more of an essay. Still, 
+you have several things you could have talked about.</p>
+<p class="myanswer">1. Viruses - from email or program attachments could infiltrate the 
+server and workstations, destroying data, disclosing data, interfering 
+with normal operations. Strategies would include training of users in 
+the wise handling of attachments, installing and regularly upgrading and 
+running virus and trojan scanners.</p>
+<p class="myanswer">2. Hacking from outside - firewalls, either software or hardware, 
+would need to be installed to prevent ne'er do wells trying to break into 
+the organisation's system from the outside. </p>
+<p class="myanswer">3. Misuse of resources - staff may spend more time playing online 
+games and searching for pornography than actually working. The organisation 
+could install filters to prevent certain sites being accessed or certain 
+types of text being downloaded. They could monitor emails to check that 
+they were work-related. They would also want to regularly scan network 
+directories to ensure improper material was not being stored on the network.</p>
+<p class="myanswer">4. Sexual harassment cases - staff who upset others with sexually-explicit 
+pictures or text downloaded from the internet could cause legal worries 
+for the organisation.</p>
+<p class="myanswer">5. Spam - could clog the mailboxes of staff and slow work-related 
+internet operations. Staff would need to be instructed not to sign up 
+for trivial email deliveries, and they would be wise to install email 
+filters to automatically kill-file mail from known spammers.</p>
+<p class="myanswer">6. Health and safety - with staff spending more time at their computers, 
+there is increased risk of Occupational Health and Safety issues - RSI, 
+carpal tunnel syndrome, sore necks and eyes etc. The organisation would 
+want to instruct staff in good work practices and provide ergonomic furniture 
+and equipment to avoid later claims for injuries incurred.</p>
+<p class="myanswer">7. Costs - the organisation runs the risk of running up large bills 
+for internet access and downloads. They would want to monitor their costs 
+and take action when costs became too high.</p>
+<p class="myanswer">8. If the organisation became dependent on internet and email access 
+to do business, technical failure could be catastrophic. They would want 
+to ensure their equipment was reliable, and perhaps have a backup internet 
+connection (even just a dialup modem) for emergencies.</p>
+<p class="comment">There are probably others I haven't thought of. If you made a point and 
+could justify it, you would be credited with marks.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2001<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2002. Reproduced here with permission for educational purposes.</font></p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

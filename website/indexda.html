@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+ <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+ <link rel="shortcut icon" type="image/x-icon" href="/bits/favicon.ico" />
+ <meta name="Description" content="VCE Data Analytics by Mark Kelly" />
+ <meta name="keywords" content="vce,applied computing, data analytics, software development, mark kelly" />
+ <title>VCE DATA ANALYTICS</title>
+ <link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+ 
+<link rel="apple-touch-icon" sizes="180x180" href="/bits/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/bits/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/bits/favicon-16x16.png">
+<link rel="manifest" href="/bits/site.webmanifest">
+
+ </head>
+ 
+ <style>
+.flip {
+ animation-timing-function: ease-in-out;
+ animation-duration: 5s;
+ animation-direction: alternate;
+ animation-iteration-count: infinite;
+ max-width: 30em !important;
+ box-shadow: none !important;
+}
+</style>
+
+<style>
+.flip-rotateh { animation-name: flip-rotateh;}
+@keyframes flip-rotateh {
+ 0% { transform: perspective(491px) rotatey(0); }
+ 100% { transform: perspective(491px) rotatey(1480deg); }
+}
+</style>
+ 
+ <body link="#0000ff" vlink="#800000" dir="ltr" lang="en-US" >
+ 
+ 
+ <table width="80%" align="center">
+ 
+ <tr>
+ <td>
+ 
+ <div class="demo demo-row demo-row-fit" align="center">
+ 			<div>
+				<p>
+					<a href="/index.html">
+						<img class="flip flip-rotateh" src="/bits/title.png" 
+						alt="vcedata.com by Mark Kelly - VCE Applied Computing, VCE Data Analytics, VCE Software Development" title="Weeeee!"/>
+					</a>
+		 </p>
+				<p align="center"><img src="/bits/email.png" width="178" height="26" alt="vcedata.com email" title="Email Mark Kelly"/></p>
+  <p align="center"><a href="/mailform.htm">Contact Mark</a></p>
+  <p align="center">&nbsp;</p>
+ 			</div>
+ </div>
+	</td>
+ </tr>
+ 
+	<tr>
+ <td align="center" >
+		<p ><img src="/bits/title-da.png" width="500" height="56" alt="data analytics units 3 and 4" title="data analytics units 3 and 4"/></p>
+ 	 <p class="code" >VCE Data Analytics units 3 and 4</p>
+ </td>
+ </tr>
+	<tr>
+	 <td align="center" bgcolor="#A7ECF8" ><p><strong>KK</strong> = Key Knowledge. All KK are examinable (as are all terms in the <a href="/glossary.html">glossary</a> that are relevant to this course)<br>
+	 If a KK uses the word &quot;including&quot;, all of the following items are examinable.<br>
+	 If a KK uses the words &quot;for example&quot; or &quot;<em>such as</em>&quot;, the following items are for clarity, and are <em>not</em> directly examinable.<br>
+	 Any bullet points shown below have been inserted by me for clarity, and are not in the <a href="https://www.vcaa.vic.edu.au/Documents/vce/computing/2020AppliedComputingSD.docx">original VCAA study design</a> (or locally <a href="/m/2020AppliedComputingSD.docx">here</a>.)<br>
+	 Hover your mouse of a red asterisk <img src="/bits/gloss.png" alt="" width="17" title="Yep. That works."> to see the official VCAA glossary definition of a term.</p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> links to a (big) slideshow if the icon has a label beside it</p>
+ <p><img src="/html.png" width="21" height="22" alt=""/> links to a webpage on this site.</p>
+ <hr>
+ <p>Check out my the (incomplete) <a href="/p/DA-Sample2020-solution.html"> postmortem of VCAA's 2020 sample DA exam</a> with lots of exam tips.</p></td>
+ </tr>
+ 
+ 
+ </table>
+ <table width="80%" border="1" align="center" cellpadding="3" cellspacing="0" >
+ 
+ <tr>
+ <td width="13%" bgcolor="#F4F4C2" >
+		 <strong id="dau3o1k01">DA U3O1 KK01</strong></td>
+ 
+ <td width="87%" >
+	 <p><strong> <a href="/p/data-collection-techniques.html"><img src="/html.png" width="21" height="22" alt=""/> </a></strong><a href="/p/data-collection-techniques.html">Techniques for efficient and effective data collection</a>, including methods to collect </p>
+ <ul>
+  <li>census<span class="explanation"> [data]</span>, </li>
+  <li><a href="/s/GIS-geographic-info-system.pptx"><strong><img src="/html.png" width="21" height="22" alt=""/></strong> Geographic Information Systems</a> (GIS) data,</li>
+  <li> sensor<span class="explanation"> [data]</span>, </li>
+  <li>social media <span class="explanation"> [data]</span> and </li>
+  <li>weather<span class="explanation"> [data]</span></li>
+ </ul>
+ <p><span class="explanation">[Note: I have edited the KK punctuation to clarify its ambiguous punctuation.</span> <a href="/mailform.htm">Let me know</a> <span class="explanation">if you read it differently.</span>]</p>
+ <p><a href="/s/data-collection-techniques.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> General Data collection techniques</a></p>
+ <p><a href="/s/GIS-geographic-info-system.pptx"><strong><img src="/html.png" width="21" height="22" alt=""/></strong>  Geographic Information Systems</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td bgcolor="#F4F4C2" valign="top"><strong>DA U3O1 KK02</strong></td>
+
+<td valign="top"><p>Factors influencing the integrity of data, including </p>
+ <ul>
+ <li>accuracy, </li>
+ <li>authenticity, </li>
+ <li>correctness, </li>
+ <li>reasonableness, </li>
+ <li>relevance and </li>
+ <li>timeliness</li>
+ </ul> <p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data integrity</a></p>
+ <p>Timely?</p>
+ <p>Dictionary: 1. Done or happening at the appropriate or proper time. 2. Before a time limit expires</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK03</strong></td>
+
+<td valign="top">Sources of, and methods and techniques for, acquiring authentic data stored in large repositories<p>&quot;Authentic&quot; data refers to facts that have not been corrupted since their creation.</p>
+<p>Corruption tends to happen during processing and editing. e.g. an inappropriate choice of 'average' may be chosen. </p>
+<p>e.g. A country ruled by a dictator has a population of a million people. 99% of them earn nearly no money. 1% are billionaires. The dictator proudly delares that his subjects earn an average (<em>mean</em>) of $100,000 a year. But the m<em>ode</em> - the most common value - is nearly zero.</p>
+<p>Corruption may be <em>accidental</em>, e.g. valuable data is deleted or mistyped.</p>
+<p>Corruption may be <em>deliberate</em>, e.g. &quot;cherry-picked&quot; to only present the data that supports the thesis of the publishers. e.g. &quot;The twentieth century was a peaceful time&quot; - leaving out any mention of world wars 1 and 2, Korea, Vietnam, Pol Pot, etc.</p>
+<p>Authentic data must accurately represent the true state of the real world. And this is NOT easy.</p>
+<p>Rarely, if ever, will data include 100% information from the entire population. Even the compulsory 2021 Australian census was only completed by 96% of the population.</p>
+<p>Most data collections are <em>samples</em> of the full population, e.g. 10% of the total number of relevant people.</p>
+<p>Samples may be unrepresentative of the population, e.g interviewing people walking down the street at 10am on a weekday about health care could artificially select a large number of unemployed or retired people, who could well provide a skewed and unrepresentative result.</p>
+<p>Authentic data is more likely to come from a competent, unbiased source that has the resouces to gather and process the data fairly.</p>
+<p>Biased sources (those with a vested interest in the contents of the data) are to be treated with suspicion: e.g. churches, policical zealots, idiots, agitators... </p>
+<p>Basically, that includes <em>everyone</em>. Collecting masses of data is very difficult and expensive, and is usually  undertaken by organisations who will somehow benefit from presenting the data. Ask yourself: &quot;Here is a lot of data. Who collected it? Why did they collect it? What did they gain?&quot;</p>
+<p>But let us ignore the motive and competence of data sources for the moment. Let's assume the data is representative, vast, and honest.</p>
+<p>For example, the <a href="https://reg.bom.gov.au/climate/data-services/">Australian Bureau of Meteorology's (BOM) historical weather statistics</a>. But data is not always free: even the government's BOM charges for large data requests.</p>
+<p>Large data requests usually involve an <strong>API</strong> - application programming interface. It's a way that a data provider can supply data to users safely. It's like buying something behind the counter at a milk bar. You approach the API interface (the counter), make your request to the shop assistant (the API) in a fashion they can understand, and are provided with the goods you need. The API  controls what data (goods) are provided, and the provider protect itself with defences such as a counter, bulletproof glass windows, and logins.</p>
+<p>Many large data sources, such as Quora, Reddit, Wikipedia, IMDb, offer an API to allow high-volume users to request and receive their data.</p>
+<p>The <strong>format</strong> of the data provided by a large data repository is important to consider. Can you decode it?</p>
+<p>You might be able to load a Microsoft Excel spreadsheet if you have Excel or a clone (e.g. <em>Libre Office</em> - my favourite).</p>
+<p>But what if the download is in an unfamiliar or unhelpful format like XML, JSON, RSS, or CSV? You might be able to download it, but can you interpret it?</p>
+<p>Probably not, if you're a casual user with a spreadsheet on your PC.</p>
+<p><em>Large</em> data repositories with APIs are <em>not</em> intended for casual download cowboys. They are for Big Data Grownups who know what JSON is, and can convert from XML to SQL. T'hats probably not you. It's certainly not me.</p>
+<p>And once you have acquired a LARGE data set - what is 'large'? We may be talking not just megabtytes, but <strong>gigabytes</strong> of data. Petabytes, maybe.</p>
+<p>Your  phone can't handle that. Your laptop probably can't. </p>
+<p>Your 2023 desktop with an Intel Core i7-13700K running at 3.4GHZ with 32 GB of RAM and a 12TB HDD would be struggling to process such quantities of data.</p>
+<p>Your <em>MS Excel</em> or <em>Libre Office Calc</em> would freeze in shock.</p>
+<p><em>Large</em> data repositories are seriously large. </p>
+<p>There are <em>data warehouses</em>, gathering data from many sources. There are <em>data lakes</em>. Data marts, with data that is specific to certain users. Data cubes. The list goes on.</p>
+<p>SO</p>
+<p>To summarise...</p>
+<p><strong>Authentic data</strong> is trustworthy and unpolluted by errors or misinformation.</p>
+<p>It is available from reliable sources that have no reason to mislead their users.</p>
+<p>It is usually provided though an API that controls the requests for and delivery of stored data.</p>
+<p>It is often available in huge quantities in formats that many casual users will not be able to easily process.</p>
+<p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK04</strong></td>
+
+<td valign="top"><p>Methods for referencing primary and secondary sources, including </p>
+ <ul>
+ <li>American Psychological Association (APA) referencing system</li>
+ </ul>
+ <p><a href="/s/data-info-primary-secondary-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Primary and secondary data</a></p>
+ <p><a href="/p/apa.html"><img src="/html.png" width="21" height="22" alt=""/> APA referencing system summary</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK05</strong></td>
+
+<td valign="top"><p>Characteristics of Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>s</p>
+ <p><a href="/s/Data-Types.pptx"><img src="/ppt.png" width="28" height="22" alt="slideshow"/> Data types</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK06</strong></td>
+
+<td valign="top"><p>Methods for documenting a problem, need or opportunity</p>
+ <p><a href="/s/problem-statement.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Problem statements</a> </p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK07</strong></td>
+
+<td valign="top">Methods for determining Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/> requirements, constraints and scope<p><a href="/s/Design-Tools-SRS.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Software solution requirements (SRS)</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK08</strong></td>
+
+<td valign="top">Naming Convention<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="General or formal agreements to ensure consistency and clarity when working with $$$s"/>s to support Efficient<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how much time, cost and effort is applied to achieve intended results. Measures of efficiency in a solution could include the cost of file manipulation, its functionality and the speed of processing. Measures of efficiency in a network include its productivity, processing time, operational costs and level of automation.."/> use of databases, spreadsheets and Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality."/>s<p><a href="/s/naming-conventions.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="naming conventions"/> Naming conventions</a></p>
+ <p><a href="/s/Databases-Struc-Datatypes-Naming.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="naming conventions"/> Database structure naming</a></p>
+ <p><a href="/s/File-Naming.pptx"><img src="/ppt.png" alt="vcedata.com slideshow" width="28" height="22" title="file naming"/> File Naming</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td height="47" valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK09</strong></td>
+
+<td valign="top"><p>A methodology for creating a database structure: </p>
+ <ul>
+ <li>identifying entities, </li>
+ <li>defining tables and fields to represent entities;</li>
+ <li> defining relationships by identifying primary key fields and foreign key fields; </li>
+ <li>defining Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>s and field sizes, </li>
+ <li>normalisation to third normal form</li>
+ </ul> <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> D<a href="/s/database-beginning.pptx">atabase - beginning</a>s</p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> <a href="/s/database-normalisation-example.pptx">Database-normalisation-example</a></p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> D<a href="/s/database-normalisation-forms.ppt">atabase-normalisation-forms</a></p>
+ <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> <a href="/s/Database-Normalisation.pptx">Database-Normalisation</a></p>
+ <p><a href="/s/Databases-Struc-Datatypes-Naming.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Databases-Structure-Datatypes-Naming</a></p>
+ <p><a href="/s/Databases-Struc-Datatypes-Naming.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/></a> <a href="/s/Databases1-Purposes.pptx">Databases-Purposes</a> </p> <p>Examiners <em>love</em> their databases.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK10</strong></td>
+
+<td valign="top"><p>Design tools for representing databases, spreadsheets and Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s, including </p>
+ <ul>
+ <li>data dictionaries, </li>
+ <li>tables, </li>
+ <li>charts, </li>
+ <li>input forms, </li>
+ <li>queries and </li>
+ <li>reports</li>
+ </ul>
+ <p><a href="/s/Design-Tools-Database.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Database design tools</a></p>
+ <p><a href="/s/Design-Tools-ERD.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Entity relationship diagram</a></p>
+ <p><a href="/s/design-DataDictionary.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data dictionary</a></p>
+ <p><a href="/s/design-mockups.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Mockups</a></p>
+ <p><a href="/p/design-principles.html"><img src="/html.png" width="21" height="22" alt=""/> Design Principles</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK11</strong></td>
+
+<td valign="top"><p>Design principle<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Design principles are accepted characteristics that contribute to the functionality, usability and appearance of solutions. In this study the principles related to usability include ease of use, flexibility and robustness, and accessibility, including navigation and error tolerance. Design principles related to appearance are alignment, balance, contrast, image use, space, and text and table formatting.
+"/>s that influence the functionality and appearance of </p>
+ <ul>
+ <li>databases, </li>
+ <li>spreadsheets and</li>
+ <li> Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul>
+ <p><a href="/p/design-principles.html"><img src="/html.png" width="21" height="22" alt=""/> Design Principles</a></p>
+ <p><a href="/s/design-factors.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design Factors</a></p>
+ <p><a href="/s/Design-Elements-Web.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design Elements</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK12</strong></td>
+
+<td valign="top">Functions and techniques to retrieve required information through querying data sets, including searching, sorting and filtering to identify relationships and patterns<p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK13</strong></td>
+
+<td valign="top"><p>Software functions, techniques and procedures to efficiently and effectively<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/> </p>
+ <ul>
+ <li>validate, </li>
+ <li>manipulate and </li>
+ <li>cleanse data including files, and </li>
+ </ul>
+ <p>applying Formats<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The physical appearance in which data and information can be presented. These include images, graphs, tables, text and web pages. Formats specify characteristics such as presentation style or arrangement, shape and size.
+
+"/>
+ and Convention<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+General or formal agreements to ensure consistency and clarity when working with $$$s. Program names and file names are examples of conventions to be used during software development. Conventions can be mandatory, such as when passwords must have specific characters, and recommended, such as including a subject line in emails."/>s</p>
+ <p><a href="/p/validation.html"><img src="/html.png" width="21" height="22" alt=""/> Data Validation</a></p>
+ <p><a href="/s/Formats+Conventions-Web.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Formats and conventions (mainly web)</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK14</strong></td>
+
+<td valign="top">Types and purposes of Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s
+ <p> <a href="/p/datavis.html"><img src="/html.png" width="21" height="22" alt=""/> Data visualisations </a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK15</strong></td>
+
+<td valign="top">Formats<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The physical appearance in which data and information can be presented. These include images, graphs, tables, text and web pages. Formats specify characteristics such as presentation style or arrangement, shape and size.
+
+"/>
+and Convention<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+General or formal agreements to ensure consistency and clarity when working with $$$s. Program names and file names are examples of conventions to be used during software development. Conventions can be mandatory, such as when passwords must have specific characters, and recommended, such as including a subject line in emails."/>s applied to Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s to improve their Effectiveness<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/>
+ for intended users, including clarity of message <p><a href="/s/Formats+Conventions-Web.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Formats and conventions (mainly web)</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK16</strong></td>
+
+<td valign="top"><p>Methods and techniques for Testing<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Techniques to ensure that a solution is operating as intended. Test data should include data types and values that rigorously test software functions. Testing tables can be used to record the outcomes of tests.
+"/></p>
+ <ul>
+ <li>databases, </li>
+ <li>spreadsheets and </li>
+ <li>Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul> <p><a href="/s/testing.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing</a></p>
+ <p><a href="/s/User-Acceptance-Testing-UAT.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> User Acceptance Testing</a></p>
+ <p><a href="/p/datavis.html"><img src="/html.png" width="21" height="22" alt=""/> Data visualisations </a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O1 KK17</strong></td>
+
+<td valign="top">Reasons why organisations acquire data.<p><a href="/s/Data-Importance.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> The Importance of data to organisation</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK01</strong></td>
+
+<td valign="top">Roles, functions and characteristics of digital system<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Refers to elements such as hardware and software, and their interconnectedness, used to create digital solutions. When $$$s are connected they form a network. 
+"/> components<p><a href="/s/Hardware-Software.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Hardware &amp; software</a></p>
+ <p><a href="/s/hardware.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Hardware</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong id="030201">DA U3O2 KK02</strong></td>
+
+<td valign="top">Physical<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The equipment and procedures used to assist in the protection of information systems and the files created, communicated and stored by individuals and organisations. Equipment controls include zoned security strategies, barrier techniques and biometrics. Physical procedures include backing up, shredding confidential documents and checking authorisation credentials.
+
+"/> and software security controls used by organisations for protecting stored and communicated data<p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Security</a> </p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK03</strong></td>
+
+<td valign="top"><p>Primary and secondary data sources and methods of collecting data, including</p>
+ <ul>
+ <li> interviews, </li>
+ <li>observation, </li>
+ <li>querying of data stored in large repositories and </li>
+ <li>surveys</li>
+</ul> <p><a href="/s/data-info-primary-secondary.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Primary and secondary data</a></p>
+<p><a href="/p/data-acquisition.html"><img src="/html.png" width="21" height="22" alt=""/> Data Acquisition</a></p>
+<p>&nbsp;</p>
+<hr>
+<h3>Querying of data repositories</h3>
+<p>Refers to searching datasets to extract useful information from the masses of data.<br>
+  May query primary data (original data collected personally by the researchers) or secondary data (data collected by other people, e.g. government departments like CSIRO)<br>
+  Many providers of secondary data provide an API (application programming interface) to allow outsiders controlled access to their datasets.<br>
+  E.g. the Australian Bureau of Meteorology lets developers create apps that extract weather forecast data from its databases.</p>
+<p>Queries may use SQL or QBE</p>
+<p><strong>SQL</strong> = Structured Query Language. A standardised format for selecting data from databases. E.g.</p>
+<p><span class="blue">SELECT</span> * <span class="blue">FROM</span> Book <span class="blue">WHERE</span> price &gt; 100.00 <span class="blue">ORDER BY</span> title;</p>
+<p><strong>QBE</strong> = Query By Example. The user types what they want to find in the field they want to find it.</p>
+<p><img src="/m/qbe.gif" width="723" height="433" alt=""/></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK04</strong></td>
+
+<td valign="top"><p>Techniques for </p>
+ <ul>
+ <li>searching, </li>
+ <li>browsing and </li>
+ <li>downloading </li>
+ </ul>
+ <p>data sets</p><p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK05</strong></td>
+
+<td valign="top">Suitability of quantitative and qualitative data for manipulation<p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p>
+<p><strong>Quantitative data</strong> - usually <strong>numeric</strong>. It is fact-based, measures of values or counts - e.g. this printer produces <strong>15</strong> pages per minute</p>
+<p>e.g.</p>
+<p><img src="/m/quantitative-data-eg.jpg" width="917" height="121" alt=""></p>
+<p><em>From the ABS website, 2022-02-28</em></p>
+<p>Quantitative data can be verified for accuracy.</p>
+<p><strong>Qualitative data</strong> - descriptive, judgemental, non-stastical, unstructured, opinion-based data expressed in <strong>words</strong> rather than number - e.g. &quot;I think this page layout is attractive.&quot; It can be&nbsp;in the form of text, video, photos, audio recordings, art, music, body&nbsp;language, facial expressions... anything that can't be measured and given a numeric value.</p>
+<p>Arbitrary categories are also qualitative, e.g. fashionable vs unfashionable&nbsp;clothes, social class, conservative vs liberal politician.</p>
+<p>Whenever possible and appropriate, prefer <em>quantitative</em> data. It's hard to argue with.</p>
+<p>Use <em>qualitative</em> data if you have to, especially regarding human&nbsp;feelings that cannot be measured. e.g. &quot;<em>That</em> logo is cute. The other one is yucky - urghh&quot;</p>
+<p>Example: </p>
+<p>SEX = quantitative - must be male, female, intersex - according to Australian law. It can be scientifically established.</p>
+<p>vs</p>
+<p>GENDER = qualitative -&nbsp; it depends on an individual's emotions or judgement, and cannot be externally proved or disproved.</p>
+<p>The Australian Bureau of Statistics website defines qualitative data as &quot;measures of 'types' and may be represented by a name, symbol, or a number code. Qualitative data are data about categorical variables (e.g. what type).&quot;</p>
+<p>(But what would they know?)</p>
+<p>Note - neither quantitative nor qualitative data is always better or worse than the other. Their value depends on appropriateness to a particular use. They are often used <em>together</em> to fully describe a situation.</p>
+<p>e.g. when researching students, it is found that 32% show elevated stress levels&nbsp;using data about their blood pressure, blood cortisol levels etc. That is valuable quantitative data, but it does not explain the <em>reasons</em> for the stress. That qualitative data - which can vary from person to person - can only be gathered through other means such as observation, interviews, surveys etc.</p>
+<p>e.g. When buying a printer, quantitative speed measurements are valuable. When judging the layout of a book cover, qualitative data about people's reactions and emotions is more important.</p>
+<p><strong>Quiz</strong>: which data types are qualitative and which are quantitative?</p>
+<ul>
+ <li> He had 15 years of formal education</li>
+ <li> He is well-educated.</li>
+ <li> He is smart.</li>
+ <li> He went to a good school.</li>
+ <li> He was a popular student.</li>
+ <li> Of his cohort, he got the top exam result (96%).</li>
+ <li> He is tall.</li>
+ <li> He weighs 80kg.</li>
+</ul>
+<p>Answers: highlight the next blank line to see the <em>qualitative</em> attributes</p>
+<p>HIGHLIGHT FROM HERE</p>
+<ul>
+ <li class="white"> He is well-educated.</li>
+ <li class="white"> He is smart.</li>
+ <li class="white"> He went to a good school.</li>
+ <li class="white"> He was a popular student.</li>
+ <li class="white"> He weighs 80kg.</li>
+</ul>
+TO HERE
+<p><strong>Quiz 2</strong> (thanks to https://www.g2.com/articles/qualitative-vs-quantitative-data&nbsp;for the idea)</p>
+<p>A bookcase is described as follows. Which descriptors are qualitative and which are quantitative?</p>
+<ul>
+ <li>Costs $1500</li>
+ <li>Is made of oak </li>
+ <li>Has golden knobs </li>
+ <li>Is 100cm long </li>
+ <li>Was built in Italy </li>
+ <li>Has a smooth finish</li>
+ <li>Weighs 50kg</li>
+ <li>Has 3 shelves</li>
+ <li>Is deep brown</li>
+</ul>
+<p>HIGHLIGHT FROM HERE to see the <em>qualitative</em> descriptors</p>
+<ul>
+ <li class="white">Is made of oak </li>
+ <li class="white">Has golden knobs </li>
+ <li class="white">Was built in Italy </li>
+ <li class="white">Has a smooth finish</li>
+ <li class="white">Is deep brown</li>
+</ul>
+<p>TO HERE</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK06</strong></td>
+
+<td valign="top">Characteristics of Data type<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Data types
+The forms that an item of data can take, including binary (as represented in images and sound), Boolean, character and numeric, characterised by the kind of operations that can be performed on it. Depending on the software being used, these data types can be divided into more specific data types, for example integer and floating point, which are numeric types. More sophisticated types can be derived from them, for example a string of characters or a data type, and their names may vary, such as text data type versus string data type.
+"/>s and Data structure<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The way data is stored to enable Efficientalgorithms to be used to optimise program execution time and memory usage. Types of data structures include: arrays, associative arrays, classes, fields, files, hash tables, linked lists, queues, records and stacks.
+"/>s relevant to selected software tools<p><a href="/s/Data-Types.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Types</a></p>
+ <p><a href="/s/data-structures_records+files.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Structures</a> - records &amp; files in databases</p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK07</strong></td>
+
+<td valign="top">Methods for referencing secondary sources, <em>including </em>the APA referencing system
+ <p><a href="/p/apa.html"><img src="/html.png" width="21" height="22" alt=""/> APA referencing</a></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK08</strong></td>
+
+<td valign="top"><p>Criteria to check the integrity of data, including </p>
+ <ul>
+ <li>accuracy, </li>
+ <li>authenticity, </li>
+ <li>correctness, </li>
+ <li>reasonableness,</li>
+ <li> relevance and </li>
+ <li>timeliness</li>
+ </ul> <p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="21" height="22" alt="vcedata.com slideshow"/> Data integrity</a></p><p>
+ <!DOCTYPE html></p>
+ <h2 > Consistency (not examinable, but important)</h2>
+ <p >For data to have integrity, it should be consistent. Inconsistency occurs <em>within</em> a single data source or <em>between</em> data sources when conflicting versions of data appear in different places. Data inconsistency is unwelcome because it means that data have become unreliable. If the &lsquo;true&rsquo; value cannot be determined, the entire data source loses integrity and becomes tainted. Any information drawn from it becomes untrustworthy.</p>
+ <p >Examples:</p>
+ <ul>
+ <li>a 	date of birth in one database table does not match an age calculated 	in another table</li>
+ <li>in 	one survey question people say they&rsquo;ve never used drugs, but later 	answers say they used marijuana more than zero times</li>
+ <li>data 	stored in one location (e.g. a local database) does not match 	corresponding data in another location (e.g. a linked website 	database).</li>
+ </ul>
+ <p >Common cures:</p>
+ <ul>
+   <li>normalise 	to third normal form (3NF) to ensure proper synchronisation of table 	data, and prevent duplicate data. Any data stored in more than one 	place immediately invites the risk of inconsistency. If employee 	addresses are stored in the STAFF database and also the CONTACTS 	database, they could easily become inconsistent if one table is 	updated and the other is not. </li>
+ <li>enforce 	referential integrity in databases to ensure key fields cannot be 	deleted without also deleting or modifying related fields. If the 	&lsquo;Sales&rsquo; department is deleted from the &lsquo;Departments&rsquo; table, 	everyone working in &lsquo;Sales&rsquo; need to be either deleted or moved 	to another department, otherwise their &lsquo;Department&rsquo; data becomes 	meaningless.</li>
+ <li>ask 	the same question again in different ways to check the consistency 	of answers in surveys and questionnaires. This is important for 	issues about which people tend to lie or bend the truth to avoid 	embarrassment or boost their egos. Question 7 may ask &ldquo;Do you 	gamble?&rdquo; and question 37 may ask &ldquo;Last year, how often did you 	bet on a horse, buy a lottery ticket, or use poker machines?&rdquo; 	People often forget they fibbed in an earlier question and 	accidentally tell the truth later!</li>
+ <li>Use 	electronic checking to detect inconsistent answers. e.g. <span >IF 	(NumberOfChildren = 0 and AgeOfOldestChild &gt; 0) then Consistency 	Error!</span></li>
+ <li>Use 	a single master-copy data source (&lsquo;Single Point of Truth&rsquo; or 	&lsquo;SPOT&rsquo;) instead of multiple data clones that are sluggishly 	synchronised. If all data was read from a single master copy rather 	than a copy that is only updated occasionally, the data is 	guaranteed to be up to date.</li>
+ <li>use 	consistent data formatting and validation rules to enforce 	consistent data entry. If people can enter a birthdate in either of 	two places in a database, use the same data format in each location. 	Don&rsquo;t expect &ldquo;YYYY-MM-DD&rdquo; on one form and &ldquo;D MMM YY&rdquo; on 	the other form.</li>
+ <li>use 	an input mask to force a particular data entry format. (e.g. 	XXXX-XXXX-XXXX-XXXX for credit card numbers)</li>
+ <li>use 	fuzzy logic to handle trivial differences in data e.g. accept 	&lsquo;Robert&rsquo; if he&rsquo;s also known as &lsquo;Bob&rsquo;; treat &ldquo;St Kilda&rdquo; 	the same as &ldquo;Saint Kilda.&rdquo;</li>
+ <li>standardise 	data so they are in a consistent, predictable and comparable format
+  <ul>
+  <li>store 		family names in all capitals so - when doing comparisons and 		queries - &ldquo;Smith&rdquo; is not overlooked as a match for &ldquo;smith&rdquo; 		or &ldquo;SMITH&rdquo;</li>
+  <li>strip 		spaces from phone number data, and the beginnings and ends of all 		text data.</li>
+  <li>when 		dates are stored as text, they always use the same format</li>
+  </ul>
+ </li>
+ </ul>
+ <p ><img src="/think.png" width="30" height="31" alt="Thinking Time"/>&ldquo;YYYY-MM-DD&rdquo; is the international ISO standard format for dates. e.g. <a href="/Library/currentyear.lbi">currentyear</a>-01-02 means 2 January <a href="/Library/currentyear.lbi">currentyear</a>. Can you suggest why is there an international standard for date formats? </p>
+ <ul>
+ <ul>
+  <li>use 		a standardised time setting, such as Greenwich Mean Time, 		Australian Eastern Summer Time etc. </li>
+  <li>use 		a consistent year numbering scheme: 
+  <ul>
+   <li>Common 			Era (e.g. &lsquo;the moon landing in 1969&rsquo;)</li>
+   <li>Islamic 			(&lsquo;the moon landing in 1347&rsquo;)</li>
+   <li>Jewish 			(&lsquo;the moon landing in 5729&rsquo;)</li>
+  </ul>
+  </li>
+  <li>all 		currency values are stored in the same units (e.g. $AU, $US, &pound;UK, 		&euro;)</li>
+ </ul>
+ </ul> </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK09</strong></td>
+
+<td valign="top">Techniques for coding qualitative data to support manipulation<p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK10</strong></td>
+
+<td valign="top"><p><a href="/p/research-questions.html"> <img src="/html.png" width="28" height="28" alt="">Features of a research question</a>, including a statement identifying the research question as an information problem</p>
+ <p>Yes! It's a webpage, not a slideshow.</p>
+ <p>Also, you need to see this, especially if you're at Hume Grammar.... I've been watching you guys.</p>
+ <p><a href="/s/problem-statement.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Problem Statements</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK11</strong></td>
+
+<td valign="top"><p>Functional and non-functional requirements, including </p>
+ <ul>
+ <li>data to support the research question, </li>
+ <li>constraints and </li>
+ <li>scope</li>
+ </ul> <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK12</strong></td>
+
+<td valign="top"><p>Types and purposes of </p>
+ <ul>
+ <li>Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and </li>
+ <li>dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul> <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p> 
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK13</strong></td>
+
+<td valign="top"><p>Design principle<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="Design principles are accepted characteristics that contribute to the functionality, usability and appearance of solutions. In this study the principles related to usability include ease of use, flexibility and robustness, and accessibility, including navigation and error tolerance. Design principles related to appearance are alignment, balance, contrast, image use, space, and text and table formatting.
+"/>s that influence </p>
+ <ul>
+ <li>the appearance of Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and </li>
+ <li>the functionality and appearance of dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul>
+ <p><a href="/p/design-principles.html"><img src="/html.png" width="21" height="22" alt=""/> Design Principles</a></p> 
+ <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK14</strong></td>
+
+<td valign="top"><p>Design tools for representing the appearance and functionality of Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/>
+ and dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s, including data manipulation and Validation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The checking of data for its reasonableness and completeness. Validation of data includes: existence or presence checking, which verifies that a required field has a value entered and is not empty or blank; range checking, which involves ensuring that data entered falls within a certain range; and type checking, which confirms that data entered is of a particular type.
+
+"/>, where appropriate</p>
+  <p><a href="/s/Design-Elements-Web.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design-Elements-Web</a></p>
+  <p><a href="/s/design-factors.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> design-factors</a></p>
+  <p><a href="/s/design-mockups.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> design-mockups</a></p>
+  <p><a href="/s/Design-Tools-Website.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design-Tools-Website</a></p>
+  <p><a href="/s/Design-Tools.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design-Tools</a></p>
+  <p><a href="/p/design-principles.html"><img src="/html.png" width="21" height="22" alt=""/> Design Principles</a></p>
+  <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p> 
+  <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK15</strong></td>
+
+<td valign="top">Techniques for generating alternative design ideas<p><a href="/s/design-ideas.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Design Ideas</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK16</strong></td>
+
+<td valign="top">Criteria for evaluating alternative design ideas and the Efficiency<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+A measure of how much time, cost and effort is applied to achieve intended results. Measures of efficiency in a solution could include the cost of file manipulation, its functionality and the speed of processing. Measures of efficiency in a network include its productivity, processing time, operational costs and level of automation.
+
+
+"/> and Effectiveness<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/>
+of Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> or dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s<p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK17</strong></td>
+
+<td valign="top"><p>Features of Project management<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The practice of applying techniques, processes, tools, knowledge and skills to deliver a solution. Features of project management include identification of tasks, sequencing, time allocation, dependencies, milestones and critical path.
+
+"/> using Gantt charts, including </p>
+ <ul>
+ <li>the identification and sequencing of tasks, </li>
+ <li>time allocation, </li>
+ <li>dependencies, </li>
+ <li>milestones and </li>
+ <li>the critical path</li>
+ </ul> <p><a href="/s/projman-gantt.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Gantt charts</a></p>
+ <p><a href="/s/projman-gantt.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/></a> <a href="/s/projman-Gantt+PERT.pptx">Gantt and PERT charts</a> (PERT is not examinable in Data Analytics, but really nice to know)</p>
+ <p><a href="/s/projman-Project-management.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Project management</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#F4F4C2" ><strong>DA U3O2 KK18</strong></td>
+
+<td valign="top"><p>Key Legal requirements<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Individuals and organisations are expected to comply with legal requirements, with respect to the ownership and privacy of information, and freedom of expression. For the purposes of this study, the key provisions of the following acts are relevant: Charter of Human Rights and Responsibilities Act 2006 (Vic) (sections 13, 14 and 15), Copyright Act 1968, Health Records Act 2001, Privacy Act 1988, including Privacy Amendment (Enhancing Privacy Protection) Act 2012 and Privacy Amendment (Notifiable Data Breaches) Act 2017, Privacy and Data Protection Act 2014, and the Spam Act 2003 (Part 1.3, Simplified outline).
+
+"/> for the storage and communication of data and information, including</p>
+ <ul>
+ <li>human rights requirements, </li>
+ <li>intellectual property and</li>
+ <li> privacy.</li>
+ </ul> <p><a href="/s/Legislation-Rights-Spam.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Human Rights and Spam legislation</a></p>
+ <p><a href="/s/Legislation-Privacy.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Privacy Act</a></p>
+ <p> <a href="/s/Legislation-Copyright.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Copyright Act</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK01</strong></td>
+
+<td valign="top"><p>Procedures and techniques for handling and Managing files<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+File management includes the naming, storing and handling of files. Strategies to manage files should have a consistent and descriptive naming convention and a clear directory structure. Files should be easily identified and accessed. File management also includes procedures for backing up, archiving and deleting files.
+
+"/>, including </p>
+ <ul>
+ <li>archiving, </li>
+ <li>backing up, </li>
+ <li>disposing of files and </li>
+ <li>security</li>
+ </ul> <p><a href="/s/File-Management.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> File management</a></p>
+ <p><a href="/s/backups.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Backups</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK02</strong></td>
+
+<td valign="top">The functional capabilities of software to create Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s<p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p>  <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK03</strong></td>
+
+<td valign="top"><p>Characteristics of information for educating targeted audiences, including </p>
+ <ul>
+ <li>age appropriateness, </li>
+ <li>commonality of language,</li>
+ <li> culture inclusiveness and </li>
+ <li>gender</li>
+ </ul> <p><a href="/p/inclusiveness.html"><img src="/html.png" width="21" height="22" alt=""/> Inclusiveness</a></p> 
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK04</strong></td>
+
+<td valign="top"><p>Characteristics of efficient and effective<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of dataduring storage and transmission."/> </p>
+ <ul>
+ <li>Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and </li>
+ <li>dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the fo rm of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul> <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK05</strong></td>
+
+<td valign="top" bgcolor="#F9F8E4"><strong>Functions, techniques and procedures for efficiently and effectively<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/> manipulating data using software tools</strong>
+  <p>Welp! This KK is a three-year course in itself. It includes nearly everything you consider &quot;IT&quot;</p>
+  <p>So, let's try to break this down into manageable chunks:</p>
+  <p>Manipulating data  = basically what <strong>any</strong> software does. If software doesn't manipulate data, <em>it's not software</em>.</p>
+  <p class="myanswer">Data manipulation = using data to create new data (e.g. create a graph from a table of numbers)</p>
+  <p class="myanswer">Data modification = changing data to a new value and replacing the original data (e.g. replacing Excel cell E3 with a new value)</p>
+  <h2>How can data be manipulated?  </h2>
+  <p><strong>Sorted</strong>, e.g.  by size, name, age, </p>
+  <p><strong>Categorised</strong> - e.g. by media type, musical genre</p>
+  <p><strong>Summarised</strong> - statistically: to find averages, trends, maximum &amp; minimum values</p>
+  <p><strong>Converted</strong> - to different forms, e.g. from numeric data to a visual graph, from digital data to sound or video. Converting a spreadsheet into a database. Converting a slideshop into a webpage. Reformatting data.</p>
+  <p><strong>Compressed</strong> - e.g. with JPG / GIF / TIFF (images), MP3 /  FLAC (audio), RAR / ZIP (files) , </p>
+  <p><strong>Encrypted</strong> -  PGP, WEP / WPA (wifi), HTTPS, SSL / TLS (web pages)</p>
+  <p><strong>Deleted,  merged, inserted</strong></p>
+  <hr>
+  <h2>Common data manipulation software tools</h2>
+  <p><strong>Spreadsheet</strong> - a flat-file database (though VLOOKUP gives some valuable relational ability)</p>
+  <p><strong>Relational database</strong> - with two or more related tables</p>
+  <p><strong>Specialist tools</strong> - e.g. video editors, web browsers, file managers, text editors. They are very limited in the data they can accept and the manipulation they can do, but they are vital for specific tasks.</p>
+  <hr>
+  <h2>SPREADSHEETS</h2>
+  <p>If you only spent an hour in a spreadsheet class, you would have been told about:</p>
+  <p>- the structure of spreadsheets: sheets, rows, columns, cells, formulas, values</p>
+  <p>- basic functions - sum, average, maximum/minimum</p>
+  <p>&nbsp;</p>
+  <hr>
+  <h2>DATABASES</h2>
+  <p>If you only spent three hours in a database class, you would have been told about:</p>
+  <p></p>
+  <p>- the structure of databases: tables, records, fields</p>
+  <p>- relationships between tables</p>
+  <p>- queries, reports</p>
+  <p>- basic functions - sum, average,  maximum/minimum</p>
+  <p>&nbsp;</p>
+  <p>More to come, eventually</p>
+  <p>2022-04-25 @ 1:20 PM</p>  
+  <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK06</strong></td>
+
+<td valign="top"><p>Techniques for creating</p>
+ <ul>
+ <li> Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and </li>
+ <li>dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s</li>
+ </ul> <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK07</strong></td>
+
+<td valign="top">Techniques for Validating<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The checking of data for its reasonableness and completeness. Validation of data includes: existence or presence checking, which verifies that a required field has a value entered and is not empty or blank; range checking, which involves ensuring that data entered falls within a certain range; and type checking, which confirms that data entered is of a particular type.
+
+"/> and Verifying<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The checking of data after data entry. This can include proofreading to ensure that the data entered matches the source data.
+
+"/> data<p><a href="/p/validation.html"><img src="/html.png" width="21" height="22" alt=""/> Data Validation</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK08</strong></td>
+
+<td valign="top">Techniques for Testing<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Techniques to ensure that a solution is operating as intended. Test data should include data types and values that rigorously test software functions. Testing tables can be used to record the outcomes of tests.
+"/> that Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s perform as intended<p><a href="/s/testing.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Testing</a></p>
+ <p><a href="/s/test-data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Test data</a></p>
+ <p><a href="/s/testing-Trace-Tables-Desk-Checks.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Trace Tables</a>, Desk Checking</p>
+ <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK09</strong></td>
+
+<td valign="top"><p>Techniques for recording the progress of projects, including</p>
+ <ul>
+ <li> adjustments to tasks and timeframes, </li>
+ <li>annotations and</li>
+ <li> logs</li>
+ </ul> <p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O1 KK10</strong></td>
+
+<td valign="top"><p>Strategies for </p>
+ <ul>
+ <li>evaluating the Effectiveness<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/>
+of Infographics<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+Graphical representations of complex data or information. They rely upon visual elements to quickly and clearly communicate patterns or trends in data or information. These include complementary colour schemes, easy-to-read fonts, graphs, simple charts and statistics.
+
+"/> and dynamic Data visualisation<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="The result of a process of using software tools to select and access data from large repositories to present the data as a graphic representation usually in the form of charts, histograms, graphs, maps, network diagrams and spatial relationships diagrams. Data visualisations help to identify patterns and relationships in large amounts of data. Data visualisation tools allow graphic representations to be static or dynamic and can incorporate virtual reality and augmented reality.
+"/>s Solution<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+(Digital solution) - The method of creating required digital output through the application of digital systems and processes that transforms data into information. The output of a solution may take the form of an information product, such as a website, instructions to control a game, an abstract piece of art or a soundscape. Solutions can be interactive or non-interactive, online (internet connected) or not, multimodal or not. 
+"/>s and </li>
+ <li>assessing project plans.</li>
+ </ul> <p><a href="/p/infographics.html"><img src="/html.png" width="21" height="22" alt=""/> Infographics</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK01</strong></td>
+
+<td valign="top">Characteristics of wired, wireless and mobile networks<p><a href="/s/network-wired-wireless-mobile.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Networks - wired, wireless, mobile</a></p>
+ <p><a href="/s/networks-hardware.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Network hardware</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK02</strong></td>
+
+<td valign="top">Types and causes of accidental, deliberate and events-based threats to the integrity and security of data and information used by organisations<p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Threats to data and information</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK03</strong></td>
+
+<td valign="top"><p>Physical and software security controls for </p>
+ <ul>
+ <li>preventing unauthorised access to data and information and for</li>
+ <li> minimising the loss of data accessed by authorised and unauthorised users</li>
+ </ul> <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security</a></p>
+ <p><a href="/p/ethical-hacking.html"><img src="/html.png" width="21" height="22" alt=""/> Penetration Testing, White Hat / Ethical hacking</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK04</strong></td>
+
+<td valign="top">The role of hardware, software and technical protocols in managing, controlling and securing data in Information system<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The combination of digital hardware, software and network components (digital systems), data, processes and people that interact to create, control and communicate ideas and data in digital solutions.
+
+"/>s<p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK05</strong></td>
+
+<td valign="top">The advantages and disadvantages of using network attached storage and cloud computing for storing, communicating and disposing of data and information<p><a href="/s/Cloud-Computing.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Cloud computing</a> </p>
+  <p><a href="/s/storage-nas-cloud.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> NAS and cloud storage</a></p>  <p>Cloud <strong>computing</strong> and cloud <strong>storage</strong> are <em>very</em> different beasts. VCAA seems to be unsure what they mean.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK06</strong></td>
+
+<td valign="top"><p>Characteristics of data that has integrity, including </p>
+ <ul>
+ <li>accuracy, </li>
+ <li>authenticity, </li>
+ <li>correctness, </li>
+ <li>reasonableness, </li>
+ <li>relevance and </li>
+ <li>timeliness</li>
+ </ul> <p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data integrity</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK07</strong></td>
+
+<td valign="top">The importance of data and information to organisations<p><a href="/s/Data-Importance.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Importance of data and information</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK08</strong></td>
+
+<td valign="top">The importance of data and information security strategies to organisations<p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data security</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK09</strong></td>
+
+<td valign="top">The impact of diminished data integrity in Information system<img src="/bits/gloss.png" width="8" height="12" alt="glossary link" title="
+
+The combination of digital hardware, software and network components (digital systems), data, processes and people that interact to create, control and communicate ideas and data in digital solutions.
+
+"/>s<p><a href="/s/data-integrity.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data integrity</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK10</strong></td>
+
+<td valign="top"><p>Key legislation that affects how organisations control the collection, storage, communication and disposal of their data and information:</p>
+ <ul>
+ <li> the Health Records Act 2001, </li>
+ <li>the Privacy Act 1988 and </li>
+ <li>the Privacy and Data Protection Act 2014</li>
+ </ul> <p><a href="/s/Legislation-Privacy.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Privacy Act</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK11</strong></td>
+
+<td valign="top">Ethical issues arising from data and information security practices<p><a href="/s/Ethical-Dilemmas.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Ethical dilemmas</a></p><p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK12</strong></td>
+
+<td valign="top">Strategies for resolving legal and ethical issues between stakeholders arising from information security practices<p><a href="/s/Ethical-Dilemmas.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Ethical dilemmas</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK13</strong></td>
+
+<td valign="top"><p>Reasons to prepare for disaster and the scope of disaster recovery plans, including</p>
+ <ul>
+ <li> backing up, </li>
+ <li>evacuation, </li>
+ <li>restoration and </li>
+ <li>test plans</li>
+ </ul>
+ <p><a href="/s/disasterplan.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Disaster Recovery Plans</a></p>
+ <p><a href="/s/backups.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Backups</a></p> 
+ <p><a href="/s/Security-Data.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Data Security</a></p>
+ <p><a href="/s/security-Threats.pptx"><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> Threats to Data Security</a></p> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong>DA U4O2 KK14</strong></td>
+
+<td valign="top">Possible consequences for organisations that fail or violate security measures<p><img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/> </p>
+ <p>A summary from the <em>Security-Threats</em> PPT:</p>
+ <ul>
+ <li>Loss of valuable data that can't be replaced at all, or only with huge effort and cost </li>
+ <li>Competitors finding out your secrets </li>
+ <li>Damage to or loss of expensive equipment </li>
+ <li>Financial loss through misuse of credit cards or bank accounts</li>
+ <li>Unwitting participation in illegal actions such as spamming or DDOS attacks </li>
+ <li>Damage to of reputation through negligently letting customer information go public </li>
+ <li>Penalties by the tax office for not having proper GST or tax records </li>
+ <li>Prosecution under the Privacy Act if sensitive information is not properly protected. </li>
+ <li>Loss of income when unable to do business due to system failure </li>
+ <li>Total failure of the organisation after catastrophic data loss </li>
+ <li><strong>Organisational death.</strong></li>
+ </ul> <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#C0F5D8" ><strong id="da-4-2-15">DA U4O2 KK15</strong></td>
+
+<td valign="top"><h3><strong>Criteria for evaluating the effectiveness<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solutioCrn, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/>
+  of data and information security strategies.</strong>
+</h3>
+  <p><strong>Point 1</strong> - <em>Effectiveness</em> relates to how well the job is done, regardless of time, money or effort is expended. <strong>Efficiency</strong> refers to speed, cost and labour. Everything else is <em>effectiveness</em>.</p>
+<p><strong>Point 2</strong> - <em>Criteria</em> are the relevant factors used to measure the value of something. e.g. the criteria of a cat are: <em>fluffiness</em>, <em>purriness</em>, <em>jumpiness</em>. Not how well they <em>guard the house</em>, or <em>lead the blind</em>..</p>
+<p><strong>Point 3</strong> - Data: the raw, unprocessed numbers gained from a sensor, survey, census, or other data-gathering system. <strong>Data</strong> have <em>potential</em> data, but are unorganised, bulky, and their meaning is unclear,</p>
+<p><strong>Point 4</strong> - Information: is processed from data to create meaningful and understandable knowledge. e.g. A national census may contain the incomes of 15 million people (which is <em>data</em>) but only when those 15 million incomes are added up or averaged will useful <em>information</em> be derived from them.</p>
+<p>e.g.:</p>
+<ul>
+  <li>DATA = <strong>crude oil</strong>. Unprocessed, may be useful.</li>
+  <li>INFORMATION = <strong>petrol</strong>. Processed. Useful.</li>
+</ul>
+<p>So - back to the Key Knowledge.</p>
+<p>How does one evaluate how well different methods protect the security of data and information?</p>
+<p>We're not worried about what the different methods <em>are</em>. They might involve armed guards, virus scanners, ceiling-mounted laser cannons. It matters not.</p>
+<p>What we're worried about is what rules we use to judge the quality of the different methods.</p>
+<p>Now it gets easier.</p>
+<p>What criteria would you use to judge to evaluate the effectiveness of a <strong>CAR</strong>? speed, reliability, running costs, safety, seating capacity, cup holders.</p>
+<p>What criteria would you use to judge to evaluate the effectiveness of a<strong> DOG</strong>?  woofiness, friendliness, size. OK. I don't understand dogs.</p>
+<p>In case you're getting bored, here's a picture of a dog.</p>
+<p><img src="/m/hungrydog.gif" width="249" height="311" alt=""/></p>
+<p>You use very different criteria when judging cats and dogs.</p>
+<p>And you use different vriteria for evaluating the effectiveness<img src="/bits/gloss.png" width="8" height="12" alt="" 
+title="A measure of how well a solution, information management strategy or a network functions and whether each achieves its intended results. Measures of effectiveness in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, completeness, readability, relevance, timeliness, and usability. Measures of effectiveness of an information management strategy include currency of files, ease of retrieval, integrity of data and security. Measures of effective networks include maintainability, reliability and the security of data during storage and transmission."/> of data and information security strategies.</p>
+<p><strong>CRITERIA:</strong></p>
+<p>- <span class="crossedout">Speed of response to the threat</span>. <strong>Nope!</strong> That is an <em><strong>efficiency </strong>criterion</em>, not <em>effectiveness</em> as the KK asks. Same applies to the <em>cost</em>, or <em>amount of labour</em> required. Be careful!</p>
+<p>- <strong>Accuracy</strong>. How many <strong>false negatives</strong> (real attacks that were <em>not</em> detected) or <strong>false alarms</strong> (harmless events that were wrongly judged as being harmful) were recorded?</p>
+<p>- <strong>Usefulness</strong>. If a strategy gave useful information about the <em>source</em> of the threat, the <em>type or nature</em> of the threat, how to <em>counteract</em> the threat etc, it would be a jolly good strategy. It would give quality information.</p>
+<p>- <strong>Recoverability</strong> - yes, it's an ugly word (and not examinable) but a quality data security strategy would offer a quick and easy way to get back lost or damaged data quickly and accurately. You could also call it <em>resilence</em> - the ability to get back to normal after a setback.</p>
+<p>- <strong>Reliability</strong>- can the strategy be trusted? Is it dodgy? </p>
+<p>- <strong>Comprehensiveness</strong>- Does the strategy detect all relevant threats? A security scanner that completely ignores <em>trojan horses</em> or <em>rootkits</em>, for example, may leave a system open to exploitation..</p>
+<p>- Basically - ANY means of judgement that does NOT involve speed, cost, or labour.</p>
+<p></p>
+<p>&nbsp;</p></td>
+ </tr>
+ </table >
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <table align="center" width="80%" cellspacing="0" cellpadding="3" border="1">
+ <tbody>
+ 
+ <tr>
+ <td colspan="2" align="center"><p><a href="javascript:history.go(-1);">Go back to wherever you were before this page</a>
+ </p>
+ <p>All original content copyright &copy;
+ <script>
+<!--
+var year=new Date();
+year=year.getYear();
+if (year<1900) year+=1900;
+document.write(year);
+//-->
+ </script>
+ <a href="/index.html">vcedata.com</a><br />
+All rights reserved.
+ </p>
+ <p>This page was created on 2022-01-17<br>
+ Last modified on 
+ <!-- #BeginDate format:fSw1m -->Monday 1 January, 2024  13:28<!-- #EndDate -->
+</p></td>
+ </tr>
+ </tbody>
+ </table>
+ </body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

@@ -1,0 +1,1363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCE Applied Computing Notes - Exam 2003 Post Mortem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<div align="center">
+<a href="/index.html">VCE Applied Computing Notes</a> by a href="/mailform.htm">Mark Kelly</div>
+<table>
+<tr> 
+<td colspan="2" > <h1 align="center"><a name="top" id="top"></a>Information Processing and Management</h1>
+  <h1 align="center">VCAA Exam Post Mortem </h1>
+  <h1 align="center">2003 </h1>
+  <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr >
+  <td colspan="2" ><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr > 
+<td colspan="2" ><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><p align="center"><a href="#b">Jump to section B</a></p>
+</td>
+</tr>
+<tr> 
+<td colspan="2" > <h2 align="center">SECTION A - Multiple 
+Choice</h2></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>1</h2></td>
+<td valign="top" ><p> [B]. Reducing the price of unsold chickens is 
+a local, immediate decision. [A] and [C] would be strategic decisions, [D] would 
+be tactical.</p>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>2</h2></td>
+<td valign="top" > <p>[B]. Transmission
+Control Protocol (which breaks files into packets, and
+reassembles 
+packets into files and checks for errors in transmission), together with
+the Internet Protocol (which guides packets from source to destination)
+makes up
+TCP/IP,
+which control
+most 
+internet and network communications. ISP is an internet service provider,
+ADSL and ISDN are data channel technologies.</p>
+</td>
+</tr>
+<tr > 
+<td valign="top" > <h2>3</h2></td>
+<td valign="top" ><p> [D]. Altering
+and enhancing images is obviously manipulation, rather than output, validation
+or acquisition.</p>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>4</h2></td>
+<td valign="top" ><p> [D]. A flat-bed scanner converts printed documents 
+into electronic files. It digitises analogue information, such as images 
+and text (with OCR)</p>
+</td>
+</tr>
+<tr > 
+<td valign="top" > <h2>5</h2></td>
+<td valign="top" > <p>Which of the following design tools shows the 
+process to be followed when producing a solution?</p>
+<p>[A] - Flowcharts design processes. Storyboards 
+design interrelationships of components, especially related to navigation 
+in slideshows, webpages and multimedia presentations. Hierarchy charts 
+design the structure of components in things like websites and databases. 
+Mockups design the appearance of output screens or pages.</p>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>6</h2></td>
+<td valign="top" > <p>As part of upgrading to a new information system
+a manager decides to have software specially written for the organisation.
+Writing the new software program occurs in which phase of the System Development
+Life Cycle.</p>
+<p>A. design<br />
+B. evaluation<br />
+<b>C. development</b>*<br />
+D. implementation</p>
+</td>
+</tr>
+<tr > 
+<td valign="top" > <h2>7</h2></td>
+<td valign="top" > <p> Which one of the following actions would be 
+illegal under the Copyright Amendment (Digital Agenda) Act 2000?</p>
+<p>A. Citing a quote from a web site in a year 12 research assignment.<br />
+B. Making a back up of a computer program you have just purchased.<br />
+<b>C. Selling a program you wrote for your employer to another company.</b>*<br />
+D. Obtaining the owner's permission to insert a photograph on your web 
+site.</p>
+<p>Since the program was work product copyright was 
+owned by the employer, not the employee. The employee does not own the 
+rights to distribute the intellectual property without permission. Option 
+[B] is a &quot;maybe&quot;, depending on the licensing conditions of the 
+software. Since [C] is a certainty, and [B] is iffy, you would NOT choose 
+[B]!</p>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>8</h2></td>
+<td valign="top" > <p> An instruction pamphlet for updating data on 
+a new web site should be provided to staff</p>
+<p>A. before the site is uploaded.<br />
+B. before the site links are tested.<br />
+C. before the site evaluation is completed.<br />
+<b>D. before the site is available to customers.</b>*</p>
+<p>A bit of a tricky one. We need to think of the 
+stages of the product development life cycle: analysis, design, development, 
+testing, documentation, implementation, evaluation.</p>
+<p>It can't be [C] because evaluation happens well 
+after the system is in operation. Can't be [B] because testing precedes 
+documentation. [A] probably comes under the heading of implementation, 
+so it's probably not that, leaving [D] by a process of elimination. Takes 
+a bit of thinking, though.</p>
+<p>32% of students mistakenly chose [A] </p>
+</td>
+</tr>
+<tr > 
+<td valign="top" > <h2>9</h2></td>
+<td valign="top" > <p>A chain of video lending libraries has established
+a range of goals and objectives. Which of the following sentences contains
+an information system objective?</p>
+<p>A. Management wish to increase their market share.<br />
+B. The directors wish the company to make a profit of 10% of sales income.<br />
+<b>C. Management wish to install self-service terminals to improve the 
+speed of service by 15%.</b>*<br />
+D. The directors of the company wish to provide a fast, efficient services 
+to clients of all age groups.</p>
+<p>Key word 1: SYSTEM. Key word 2: OBJECTIVE. A system 
+goal/objective is what a particular system (not the whole organisation) 
+aims to achieve. An Objective is a shorter term target aimed towards achieving 
+larger goal. [A] is an organisational goal. [B] is more like an organisational 
+objective. [D] is an org goal. That leaves C.</p>
+<p>30% of students chose [D]. </p>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>10</h2></td>
+<td valign="top" > <p>A privately owned organisation has established
+a shared network drive accessible by all staff. It contains a folder called
+Images which stores all the photos used for staff ID cards. Which of the 
+following measures would enable the organisation to meet the provisions 
+of the Privacy Amendment (Private Sector) Act 2000?</p>
+<p>A. using the photos for publicising the company<br />
+B. allowing all staff full access to the Images folder<br />
+<b>C. distributing to staff a memo stating how the images will be secured</b>*<br />
+D. allowing all staff the ability to view all files in the Images folder</p>
+<p>[I wonder why these options did not start with a capital letter and end 
+in a full stop like the other questions where the options did not finish 
+the question stem... hmmm... anyway...]</p>
+<p>All of the other options reduce privacy! The only 
+logical answer is [C]!
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>11</h2></td>
+<td valign="top" > <p>Which diagram best represents phased conversion?</p>
+<p><img src= "/m/pm/03i-q11.jpg" width="302" height="290" /></p>
+<p>Gotta be [A]!
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>12</h2></td>
+<td valign="top" > <p>If the condition 'Sales are greater than or equal to 100' needs to be tested, what would be the best test data?</p>
+<p>A. 90,95,99<br />
+B. 98,99,100<br />
+<strong>C. 95,100,105*<br />
+</strong>D. 100,150,1000 </p>
+<p>[C]&nbsp; To 
+test properly, you need data that meets the condition, and data that does 
+<em>not </em>meet the condition.</p>
+<p> [A] and [B] cannot test for &quot;greater than&quot; and [D] can't 
+test for &quot;less than&quot;</p>
+<p>41% of students chose [D]! 
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>13</h2></td>
+<td valign="top" > <p>The impetus for an organisation
+changing to using telecommuting? [A] - maybe.</p>
+<p>Could nearly equally be [A] human or [B] economic. 
+Employees could be pushing management to let them work at home for the 
+sake of their families etc. Equally possible, management can reduce costs 
+by having some employees work at home - smaller buildings are needed, 
+fewer parking spots need be provided etc. I would accept [A] or [B] but 
+would lean towards [A] as the stronger possibility.</p>
+<p>The examiners said the answer is B. 
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>14</h2></td>
+<td valign="top" > <p>A firm aims to improve the efficiency of electronically
+processing application forms. This would be an example of ...</p>
+<p>A. A legal objective<br />
+B. An organisational goal<br />
+<strong>C. an information system goal</strong>*<br />
+D. an information system objective </p>
+<p>Won't be [A] - there's no legal compliance involved. 
+It's not an organisational goal because it does not affect the direction 
+of the entire organisation. That leaves [C] (info system goal) and [D] 
+(info system objective) to choose from. A goal is a larger ambition than 
+an objective, which is a sort of &quot;sub-goal&quot; aiming to achieve 
+the goal. 
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>15</h2></td>
+<td valign="top" > <p>Daily temperatures are shown in a graph</p>
+<p><img src= "/m/pm/03i-q15.jpg" width="496" height="213" /></p>
+<p>The structure of the information would be [A] detailed 
+rather than [B] annotated, [C] aggregated or [D] summarised.&nbsp;Look at the graph - it shows data for each day of the week - it is not summarised (e.g. totalled, averaged). </p>
+<p>Unfortunately, this was the hardest question of all the multiple choices, according to students' responses. Only 21% got it right. Most of them chose 'summarised' [D].
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>16</h2></td>
+<td valign="top" > <p><a name="gantt"></a>A Gantt question!</p>
+<p><img src= "/m/pm/03i-q16.jpg" width="610" height="209" /></p>
+<p>You're asked whether Task D is a predecessor for tasks... E&amp;F, B&amp;C, 
+C&amp;F or B&amp;E. Well, since there are no traditional 
+dependency arrows shown, you have to assume that a task that does not 
+start on day 1 must be dependent on some other task. So, which tasks are 
+dependent on task D (so task D is a predecessor to the tasks)? Remember: 
+a predecessor comes before a task that is dependent on it! Which tasks 
+start as soon as task D has finished? E and F. So the answer is [A]. Pretty 
+easy if you know what &quot;predecessor&quot; means. 
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>17</h2></td>
+<td valign="top" > <p>When saving a template file for producing a 
+weekly calendar of events, choose the best folder and filename...</p>
+<p>A. \Weekly\events<br />
+B. \Calendar\weeks<br />
+C. \Templates\template<br />
+<b>D. \Templates\weekly events</b>*</p>
+<p>[D] is the most descriptive, though I personally 
+would never use a space in a file name!
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>18</h2></td>
+<td valign="top" > <p>The most significant constraint on a suburban
+video store's ability to increase transactions would be having only one...</p>
+<p>It's got to be [B] barcode reader, which inputs 
+data. The colour printer, flat-bed scanner and user manuals are not involved 
+in transactions.
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>19</h2></td>
+<td valign="top" ><p>If a survey showed all users understood where 
+to enter responses, the solution attribute tested by the survey would 
+be...</p>
+<p>[B] usability</p>
+<p>It's the ability and ease with which users can 
+use the solution. Layout relates to its appearance (which could aid or 
+hinder usability). Accuracy relates to the quality of the output, not 
+input. Functionality relates to what jobs the solution can handle.
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>20</h2></td>
+<td valign="top" ><p>Which criterion would evaluate the effectiveness
+of file management procedures?</p>
+<p>It's clearly [D] a reduction in the difficulty 
+of retrieving a file.  
+</p></td>
+</tr>
+<tr >
+<td colspan="2" valign="top"><h3 align="center">The VCAA summary of how many students chose each multiple choice answer </h3>
+<p align="center">Correct answers are in <strong>bold</strong>. </p>
+<table width="36%" border="1" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="23%"><div align="right"><strong>Question</strong></div></td>
+<td width="21%"><div align="right"><strong>A % </strong></div></td>
+<td width="18%"><div align="right"><strong>B % </strong></div></td>
+<td width="19%"><div align="right"><strong>C % </strong></div></td>
+<td width="19%"><div align="right"><strong>D % </strong></div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>1</strong></div></td>
+<td><div align="right">15</div></td>
+<td><div align="right"><strong>79</strong></div></td>
+<td><div align="right">3</div></td>
+<td><div align="right">3</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>2</strong></div></td>
+<td><div align="right">18</div></td>
+<td><div align="right"><strong>67</strong></div></td>
+<td><div align="right">9</div></td>
+<td><div align="right">6</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>3</strong></div></td>
+<td><div align="right">2</div></td>
+<td><div align="right">4</div></td>
+<td><div align="right">3</div></td>
+<td><div align="right"><strong>91</strong></div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>4</strong></div></td>
+<td><div align="right">15</div></td>
+<td><div align="right">5</div></td>
+<td><div align="right">7</div></td>
+<td><div align="right"><strong>73</strong></div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>5</strong></div></td>
+<td><div align="right"><strong>74</strong></div></td>
+<td><div align="right">15</div></td>
+<td><div align="right">5</div></td>
+<td><div align="right">6</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>6</strong></div></td>
+<td><div align="right">28</div></td>
+<td><div align="right">2</div></td>
+<td><div align="right"><strong>65</strong></div></td>
+<td><div align="right">5</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>7</strong></div></td>
+<td><div align="right">14</div></td>
+<td><div align="right">35</div></td>
+<td><div align="right"><strong>47</strong></div></td>
+<td><div align="right">4</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>8</strong></div></td>
+<td><div align="right">32</div></td>
+<td><div align="right">3</div></td>
+<td><div align="right">17</div></td>
+<td><div align="right"><strong>48</strong></div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>9</strong></div></td>
+<td><div align="right">4</div></td>
+<td><div align="right">6</div></td>
+<td><div align="right"><strong>60</strong></div></td>
+<td><div align="right">30</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>10</strong></div></td>
+<td><div align="right">6</div></td>
+<td><div align="right">8</div></td>
+<td><div align="right"><strong>74</strong></div></td>
+<td><div align="right">12</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>11</strong></div></td>
+<td><div align="right"><strong>70</strong></div></td>
+<td><div align="right">6</div></td>
+<td><div align="right">6</div></td>
+<td><div align="right">18</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>12</strong></div></td>
+<td><div align="right">2</div></td>
+<td><div align="right">5</div></td>
+<td><div align="right"><strong>52</strong></div></td>
+<td><div align="right">41</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>13</strong></div></td>
+<td><div align="right">19</div></td>
+<td><div align="right"><strong>58</strong></div></td>
+<td><div align="right">13</div></td>
+<td><div align="right">10</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>14</strong></div></td>
+<td><div align="right">3</div></td>
+<td><div align="right">24</div></td>
+<td><div align="right"><strong>45</strong></div></td>
+<td><div align="right">28</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>15</strong></div></td>
+<td><div align="right"><strong>21</strong></div></td>
+<td><div align="right">14</div></td>
+<td><div align="right">23</div></td>
+<td><div align="right">42</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>16</strong></div></td>
+<td><div align="right"><strong>68</strong></div></td>
+<td><div align="right">18</div></td>
+<td><div align="right">5</div></td>
+<td><div align="right">9</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>17</strong></div></td>
+<td><div align="right">13</div></td>
+<td><div align="right">7</div></td>
+<td><div align="right">1</div></td>
+<td><div align="right"><strong>79</strong></div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>18</strong></div></td>
+<td><div align="right">3</div></td>
+<td><div align="right"><strong>89</strong></div></td>
+<td><div align="right">4</div></td>
+<td><div align="right">4</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>19</strong></div></td>
+<td><div align="right">24</div></td>
+<td><div align="right"><strong>62</strong></div></td>
+<td><div align="right">7</div></td>
+<td><div align="right">7</div></td>
+</tr>
+<tr>
+<td><div align="right"><strong>20</strong></div></td>
+<td><div align="right">15</div></td>
+<td><div align="right">11</div></td>
+<td><div align="right">9</div></td>
+<td><div align="right"><strong>65</strong></div></td>
+</tr>
+</table> <p>&nbsp; </p>
+</td>
+</tr>
+<tr > 
+<td colspan="2" valign="top" >
+<div align="center">
+<h2><a name="b"></a>SECTION B</h2>
+</div></td>
+</tr>
+<tr>
+<td colspan="2" valign="top" ><p><strong>GENERAL COMMENTS FROM THE EXAMINERS</strong></p>
+<p><strong>Adapted from the <a href="http://www.vcaa.vic.edu.au/vce/studies/infotech/infoprocess/assessreports/2003/informationprocess03.pdf">2003 Examiners' Report</a></strong>
+</p>
+<ul>
+<li class="examiner">A small proportion of students rewrote the question in the space provided in the question and answer booklet before commencing their response - this is not required and often means that the space in the answer booklet is not used effectively. </li>
+<li class="examiner">There were a number of students who were clearly still unfamiliar with the terminology used in the study design. You must be familiar with the definitions in the study design&rsquo;s glossary (page 82&ndash;86) as these are used in setting the examination.</li>
+<li class="examiner">Lower scoring students were either unable to explain their answer or did not pick up on the prompts in the questions. For example in Question 10b, there were five areas given to address in their strategy and it was disappointing to see the number of students who did not address all five areas. Lower scores were also given to responses that did not respond in the way indicated by the stem of the question, e.g. listing an answer when an explanation was required. Pay close attention to the type of response required for each question. </li>
+<li class="examiner">Higher scoring students were able to explain their answers when required, and relate it to the case study information given in the question. </li>
+<li class="examiner">When a question indicates how many reasons or responses are required (e.g. &lsquo;State <strong>two</strong> reasons ...&rsquo;) , you need to provide what is requested. e.g. If you provided more than (for example) <strong>two</strong> reasons, the exam assessors only marked the first <strong>two</strong> reasons provided.</li>
+</ul></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>1</h2></td>
+<td > <p>1. An advertising agency produces high quality A3 and A4 posters 
+using high-resolution graphics to communicate their message. Give 2 reasons 
+why a black and white A4 InkJet printer is unsuitable.</p>
+<p class="myanswer">Not too hard. Firstly, A4 printers can't handle 
+A3 paper - and sticking A4 pages together is not satisfactory. </p>
+<p class="myanswer">Secondly, advertising usually relies heavily on 
+colour, which the black and white inkjet can't manage.</p>
+<p class="comment">Read the clues in the question!</p>
+<p class="examiner">The Examiners said: A lengthy response was not required.</p>
+</td>
+</tr>
+<tr > 
+<td valign="top" > <h2>2</h2></td>
+<td > <p>2. Many IT experts believe that 'to be useful, information must be 
+relevant'. Describe what is meant by relevant and provide one example 
+of relevant information.</p>
+<p class="myanswer">'Relevant' means that the information has value 
+to the audience in that it provides the information the audience needs 
+or wants. An example of relevant information would be ticket prices on 
+a concert poster, a phone number in a newspaper ad, conditions of entry 
+in a competition announcement, ingredients on a food product package, 
+instructions on how to install a product. There are thousands of other 
+relevant examples.</p>
+<p class="examiner">The examiners said: Some students found it quite difficult to define relevance without using the word relevant and frequently did not read 
+the question, which asked for one example of relevant information. A large number of students gave an example of 
+irrelevant information. It was expected that the description would say that the information should be meaningful to the 
+person receiving it.</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>3</h2></td>
+<td > <p>3. Identify two conventions used in formatting this numeric data...</p>
+<p><img src= "/m/pm/03i-qb3.gif" width="512" height="268" border="1" /></p>
+<ul>
+  <li class="myanswer">Right-justification of numbers. </li>
+  <li class="myanswer">Putting $ currency identifier in column header rather than before each 
+    number (except for totals)</li>
+  <li class="myanswer">Use of commas (in Australia) as thousand separators.</li>
+  <li class="myanswer">Leaving cents off large money amounts.</li>
+  <li class="myanswer">Dividing line before totals. Double/thicker line before grand totals</li>
+  <li class="myanswer">Bolder typeface for important grand totals.</li>
+</ul>
+<p class="examiner"><span class="examiner">The examiners said: </span>The question asked students to identify, so detailed explanations were not required but the convention had to relate to 
+  the numeric data. A number of students did not appear to understand the word convention or relate their response to the 
+  numeric data.<br />
+  
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>4</h2></td>
+<td > <p>4. Explain the role of a 48x speed CD-ROM and describe one capability 
+and one limitation of the drive.</p>
+<p class="myanswer">A CD-ROM drive reads the data on of CD-ROM disks.</p>
+<p class="myanswer">A capability is to access CD data randomly at high 
+speed and transfer data at high speed to the system.</p>
+<p class="myanswer">A limitation is that it cannot read DVDs, it cannot 
+read at a speed faster than 48x, it is relatively slow compared to a hard 
+disk drive, it cannot write data.</p>
+<p class="examiner">Most students were able to explain the <strong>role</strong> of the CD-ROM and give a <strong>limitation </strong>but very few were able to describe a 
+<strong>capability</strong>. Many students simply repeated the role of the drive as its capability rather than describing how well it 
+performs its function. The expected responses were:<br />
+<em>Role</em>: to read files previously stored on CDs; to retrieve or access stored files.<br />
+<em>Capability</em>: 48 speed ensures faster retrieval than a floppy disk; Drive accesses data on CD directly, not in sequential order; Drive can access around 600&ndash;700MB of data/information from one CD.<br />
+<em>Limitation:</em> cannot write to the disk as it is only a CD-ROM drive so cannot be used to store files created by the user; it can only read certain media (cannot read DVDs).
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>5</h2></td>
+<td > <p>5. A new company specialises in providing tips and tricks for customers 
+who purchase their computer games. Manager Mr Fedora, wants to set up 
+a web site with a 'Members Only' area.</p>
+<p>a. State one method of identifying members that Mr Fedora could use on 
+his web site and describe how it would apply.</p>
+<p class="myanswer">Mr Fedora would need to password protect the members-only 
+directory on the web server, and set up database of authorised user names 
+with matching passwords. When a person tries to access any page in the 
+password-protected directory, the web server would bring up a login box. 
+The person would need to enter a valid user name and password to access 
+any of the protected members-only information.</p>
+<p class="examiner">The two most 
+common responses were:</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td class="examiner"><strong>Method</strong></td>
+<td class="examiner"><strong>Description</strong></td>
+</tr>
+<tr>
+<td class="examiner">User ID and Password</td>
+<td class="examiner">When a customer purchases an item, they would be given a User Code based on their name and asked to set a password. To access the members&rsquo; section later, the customer would need to enter their unique user ID and then correctly enter the set password. </td>
+</tr>
+<tr>
+<td class="examiner">Membership Number</td>
+<td class="examiner">When a customer purchases an item they are automatically assigned a membership 
+number which is requested when they click to enter the members only area.</td>
+</tr>
+</table>
+<p>  Mr Fedora plans to include 
+in the Members Only area a list of all members, their email addresses 
+and the games they have purchased. This data is taken from the warranty 
+cards lodged with the company. </p>
+<p>b. Discuss, in the context of current legislation, one concern you would 
+have regarding Mr Fedora's plans.</p>
+<p class="myanswer">The National Privacy Principles, embedded in the 
+Privacy Amendment (Private Sector) Act 2000, forbid the use of data (such 
+as email addresses, purchases etc) for a purpose other than that for which 
+the data was collected (e.g. warranty registration). Mr Fedora must not 
+use members' private information from the warranty cards on the website 
+unless the people have given permission for him to use this information 
+for a different purpose.</p>
+<p class="examiner">Students were required to discuss ONE concern. To obtain full marks students were required to relate their concern to 
+the privacy legislation. Many students only answered half the question, focusing either on the concern and not on how 
+this connected to the legislation or focusing on what the legislation states without indicating how Mr Fedora might be 
+causing problems.
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>6</h2></td>
+<td > <p>6. Using either a spreadsheet or a database example, describe one 
+electronic technique used to validate input data. Illustrate your answer 
+with an example of a data item that might be rejected.</p>
+<p class="myanswer">Spreadsheet...</p>
+<p class="myanswer">In Excel 98 and after, validation rules can be 
+used to detect and report invalid data. For example, a cell meant to contain 
+a person's age may be told to reject negative numbers or text input.</p>
+<p class="myanswer">Another validation technique is to use a formula 
+that monitors the contents of another cell and notifies the user if certain 
+conditions arise. e.g. If a person's account balance falls below zero, 
+a formula in a neighbouring cell could warn that the person is in debt 
+e.g. =IF(BALANCE&lt;0, &quot;Person is in debt!&quot;,&quot;&quot;)</p>
+<p class="myanswer">Database...</p>
+<p class="myanswer">Databases allow validation rules to be attached 
+to data fields. Fields can be limited to a range of values (e.g. 0-100), 
+or values from a list (e.g. states of Australia). The type of data can 
+also be checked (e.g. text, numeric). Values can be forced to be unique 
+(e.g. user names), or of certain length (e.g. Australian business numbers, 
+credit card numbers.)</p>
+<p class="examiner">Students found this question difficult and often listed a validation technique rather than describing it and either did not 
+provide an item that would be rejected by the technique or provided an item that would be accepted by the technique. It 
+is essential that students read questions carefully to ensure they answer the question that is being asked. Regardless of 
+whether the student selected spreadsheet or database, the most common responses by students were to use a range check 
+or limit the data type that could be entered into a cell or field.
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>7</h2></td>
+<td > <p>7. Classify each of the decisions below as one of the following 
+types: 
+                 
+                    operational (o), 
+tactical (t), 
+strategic (s)
+
+</p><p>i. A customer is given an extra discount on damaged stock</p>
+<p class="myanswer"> OPERATIONAL. </p>
+<p class="comment">Some might say &quot;tactical&quot;, 
+  I guess, but it's not a big decision. If the store policy were changed 
+  to allow this extra discount, that may be be tactical decision in the 
+  pursuit of better customer satisfaction.</p>
+<p>ii. A company decides to close two of their smaller branches</p>
+<p class="myanswer"> TACTICAL. </p>
+<p class="comment">Arguably &quot;strategic&quot; if the 
+  company had very few branches and closing 2 would be a major cut. If they 
+  were multinational, closing 2 small stores would be a &quot;middle manager&quot; 
+  strategy to save money. I disagree with the official answer (below) </p>
+<p>iii. A receptionist orders a different brand of photocopy paper</p>
+<p class="myanswer"> OPERATIONAL. </p>
+<p class="comment">No argument about that one.</p>
+<hr /> 
+<p class="comment">These could be debated. Really, sometimes 
+I feel such decisions will depend on the size of the organisation. In 
+an owner-operated shop, case (i) might be considered a decision that is 
+a bit more than a run-of-the-mill daily choice. In case (ii) if the company 
+is a small one with only a few branches, closing 2 branches would be a 
+BIG strategic decision for them; for an international industrial juggernaut, 
+closing 2 branches would be a minor tactical decision.</p>
+<p class="comment">The rule of thumb is that operational decisions 
+are those made in the course of day-to-day business. They do not involve 
+medium or long-term planning.</p>
+<p class="comment">Tactical decisions are those with a medium-length 
+timeframe - weeks or months - and usually are aimed at implementing a 
+strategic decision.</p>
+<p class="comment">The top-level strategic decisions affect the long-term 
+direction and purposes of the entire organisation. They are long-term 
+- months to years - often expensive, and can greatly influence an organisation's 
+successes for the better or worse.</p>
+<p class="examiner">Generally, students wanted to allocate all of the options over the three statements <em>[i.e. they felt O, S, and T all had to be used]</em>. As a result only a small percentage of 
+students obtained full marks for this question, as the most common response was 'O, S, T.' </p>
+<p class="examiner">The actual answer was: 
+(O) perational, (S) trategic, (O) perational.
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>8</h2></td>
+<td ><p>8. <br />
+  <img src= "/m/pm/03i-qb8.gif" width="475" height="95" /></p>
+<p>The cartoon above shows a thief attempting to steal data/information 
+from a network. </p>
+<p class="comment">The question is WHY? The cartoon is completely 
+pointless and adds no useful information. What on earth were the examiners 
+thinking?</p>
+<p>One possible way to prevent this is to install a firewall.</p>
+<p>a. Describe how a firewall works</p>
+<p class="myanswer">A firewall is a hardware or software device that 
+monitors the 65,536 internet ports that are opened when a computer connects 
+to the internet. Most of these ports are unused, but others serve as vital 
+communication channels (e.g. port 80 is for web pages, 21 is for FTP.) 
+Hackers can gain access to a networked computer by sniffing or probing 
+for open internet ports and use software to install Trojan Horses or similar 
+tools onto a vulnerable system. These tools can later be used to control 
+the PC (e.g. participating in a distributed denial of service attack) 
+or steal information from it.</p>
+<p class="myanswer">The firewall monitors incoming and outgoing activity 
+on internet ports and only permits authorised programs to communicate 
+with the internet. It also &quot;hides&quot; the unused internet ports 
+so any external port probe gets no response : as far as the hacker can 
+tell, the PC does not exist. </p>
+<p class="examiner">Students knew in general what a firewall was although many of them had difficulty in describing how it worked. </p>
+<p>b. Describe one limitation of using a firewall</p>
+<p class="myanswer">Well, I can't think of any significant ones.</p>
+<ul>
+<li class="myanswer">Some software that legitimately needs access 
+to the internet may be inadvertently blocked by the firewall. </li>
+<li class="myanswer">Running the firewall does consume some of the 
+PCs resources and processing time. </li>
+<li class="myanswer">Some firewalls do not block unauthorised outgoing 
+communications so PCs already infected with a Trojan can still communicate 
+with hackers.</li>
+<li class="myanswer">Some firewalls cost money to buy.</li>
+</ul>
+<p class="examiner">Student responses to this question were quite varied and it was often left unanswered. The most common responses, 
+however, focused on the:<br />
+&bull; need for technical expertise to set up and manage the firewall effectively<br />
+&bull; checks slowing down the network<br />
+&bull; fact that it can still be bypassed by hackers.</p>
+<p>Another strategy that can be used to protect data 
+is encryption.</p>
+<p>c. Select the email that is most likely to be encrypted 
+and justify why it is more likely to be encrypted that either of the other 
+two choices.</p>
+<p>i. an email message confirming a date and time 
+for a meeting.<br />
+ii. an email with an attached file asking for bank account details.<br />
+iii. an email containing a user's login name and password.</p>
+<p class="myanswer">Obviously email (iii) is the one containing the 
+most secret and valuable information, and should be encrypted. Email (ii) 
+probably will not contain any information that could be used against someone. 
+Email (i) is most likely useless to anyone but the recipient, unless the 
+very fact that two people were meeting was significant (e.g. an employee 
+meeting with the personnel manager of a rival company.)</p>
+<p class="examiner">It was expected that students would explain why option <strong>three</strong> was more likely to be encrypted than both option two and 
+option one. Teachers should be aware that the examiners expect in the future that if a student is 
+given two or more options and asked to justify their choice, <em>students must relate their justification to the options 
+provided</em>.</p>
+<p class="examiner"> In this question students commonly misread option two as containing personal bank account details rather than 
+requesting them.
+</p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>9</h2></td>
+<td > <p>9. Label only those sections of the diagram below that are needed 
+to show the path to each of the following files.</p>
+<p>File 1: Test1.bmd is stored in C:\data\users\teacher\smith</p>
+<p>File 2: c:\data\users\student1\outcome1.xls</p>
+<p>File 3: c:\programs\office\word\word.exe</p>
+<p>File 4: Answers.txt is stored in c:\programs\notepad</p>
+<p><img src= "/m/pm/03i-q9.jpg" width="600" height="726" /></p>
+<p class="comment">Pretty easy, if you know directory structures. 
+Actually this question was kind of fun to do :-)</p>
+<p class="examiner">Generally, students handled this question well. The most common error was to assume that all sections of the diagram 
+needed to have entries and a small number of students placed files in the users folder.
+</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>10</h2></td>
+<td > <p>10. Springfield Lending Library opens Monday to Friday from 9am to 
+5pm. The file server stores all the programs for the library - an operating 
+system and a library program called 'Borrow All'. Borrow All generates 
+a loans data file which records all items out on loan. Currently there 
+is no back-up even though a tape back-up unit has been purchased.</p>
+<p>a. A computer technician makes the following 3 recommendations about 
+possible backup procedures. For each recommendation explain one concern 
+you would have if it was implemented.</p>
+<p>Recommendation 1 - two tapes to be purchased and rotated</p>
+<p>Concern: </p>
+<p class="myanswer">Backups would be overwritten too soon - after two 
+days, backup information is lost. If data loss were discovered more than 
+two days later, the backed up copy would already have been overwritten!</p>
+<p class="examiner">Two tapes are not sufficient because:<br />
+&bull; if one was damaged then you are always over writing the current backup<br />
+&bull; you can only restore/retrieve files from the last two days.</p>
+<p>Recommendation 2 - all programs files be backed up daily</p>
+<p>Concern:</p>
+<p class="myanswer">Backing up program files rather than data is a 
+waste of time. If the program files were somehow destroyed, they could 
+easily be reinstalled from the original CDs or disks. It's the data that 
+are irreplaceable!</p>
+<p class="examiner">&bull; program files do not change frequently and so do not need to be backed up daily<br />
+&bull; backing up program files daily is a waste of media space or a waste of time as they do not change very often.</p>
+<p>Recommendation - backups should be done at 9am</p>
+<p>Concern:</p>
+<p class="myanswer">Backups should be done when the network is usually 
+idle - usually at midnight. One reason is that any files that are open 
+and being used cannot be backed up. Another reason is that backups can 
+consume considerable resources on a server - and will slow down network 
+operations for users.</p>
+<p class="examiner">9 am is an inappropriate time to complete a back-up because:<br />
+&bull; it is the time the library opens and users will want to login and start up the system and the back-up will make the 
+system too slow<br />
+&bull; if done at 9 am then none of the previous days changes are saved if something happens overnight.</p>
+<p class="examiner">In general, students found this question quite difficult. It was clear that students did not think the recommendations were appropriate, but they found it hard to explain the concern if the recommendation was implemented. </p>
+<p>b. Recommend an appropriate backup strategy. Your strategy should 
+  cover</p>
+<ul>
+  <li class="myanswer">content, timing and storage of backup</li>
+  <li class="myanswer">media and frequency of backup</li>
+  <li class="myanswer">Only data files need be backed up. Program files 
+    can be reinstalled from the original CDs.</li>
+  <li class="myanswer">Backups should be automated to occur every night 
+    when the network is idle.</li>
+  <li class="myanswer">Backups should be stored in a secure off-site location.</li>
+  <li class="myanswer">Media will be DAT Quarter Inch Cartridges to suit 
+    the existing tape drive.</li>
+  <li class="myanswer">The best backup protocol would be Grandfather-father-son. 
+    This involves a daily tape for each working day of the week. On Monday, 
+    a full backup of data is performed, and from Tuesday to the end of the 
+    week, incremental backups save only data that has changed since the last 
+    full backup. At the end of the week, a full backup is done to one of four 
+    weekly tapes. At the end of the month, a full backup is done to one of 
+    12 monthly tapes. At the end of the year, a full backup is done to an 
+    annual tape that is securely archived and never re-used.</li>
+  <li class="myanswer">Since daily tapes are used most frequently (each 
+    tape is used once a week), they will wear faster than the other tapes. 
+    After a set period of use, daily tapes are 'promoted' to be used as weekly 
+    tapes, then after more use they are promoted to become monthly, then annual 
+    tapes. Before promotion, tapes must be verified for accuracy and reliability.</li>
+</ul>
+<p class="examiner">In general, students could recommend appropriate strategies; however, 
+  there were weaknesses in many responses. Firstly, students did not address the five areas listed in the question and 
+  secondly, their description of a back-up strategy was inappropriate for the organisation described. For example, a small  number of students recommended backing up every time a book was borrowed or returned or every ten to 15 minutes. 
+  The expected response was:
+</p><table width="99%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><strong>Item</strong></td>
+<td><strong>Recommendation</strong></td>
+</tr>
+<tr>
+<td>Content</td>
+<td class="examiner">Data files to be backed up daily. Program files to be backed up weekly or after changes.</td>
+</tr>
+<tr>
+<td>Timing</td>
+<td class="examiner">Backing up to be done after hours in the evening.</td>
+</tr>
+<tr>
+<td>Storage </td>
+<td class="examiner">Backup to be stored off site OR<br />
+Backup to be stored away from the computer.</td>
+</tr>
+<tr>
+<td>Media</td>
+<td class="examiner">Tape backup OR CD burner.</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td class="examiner">Backed up daily (incremental) and backed up weekly (full).</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr> 
+<td valign="top" > <h2>11</h2></td>
+<td > <p>11.                         
+  </p><blockquote>
+    <p>Distance education teachers will no longer be able to hide their bad 
+      hair days, as new satellite technology will enable students to see their 
+      teachers online... As part of a 3 year, $17 million project, three School 
+      of the Air teaching studios in NSW (Dubbo, Broken Hill and Port Macquarie) 
+      and two distance education centres in the Northern Territory (Darwin 
+      and Alice Springs) will be supplied with new equipment. Each studio 
+      will have computers with large touch screens, video cameras and satellite 
+      broadband infrastructure. Students will have a satellite dish, a dedicated 
+      PC and software in their homes. Once fully operational, they will be 
+      able to see their teachers on their screens as well as hear them... 
+      Initially due to costs and bandwidth limitations, teachers won't be 
+      able to see students, nor students to see other students.</p>
+  </blockquote>
+  <blockquote>
+    <p><em>The Age, Next, p.10, Tuesday 11 Feb 2003</em></p>
+    <p class="comment">Would ESL students know what a &quot;bad hair day&quot; is?</p>
+  </blockquote>
+<p>a. What type of network is described in the above article?</p>
+<p class="myanswer">A WAN (Wide Area Network)</p>
+<p class="examiner">Students either knew this or tried to reply with a type of network topology (e.g. star). Accepted answers were WAN or 
+Wide Area or Wide Area Network.</p>
+<p>b. Explain what is meant by 'bandwidth limitations' by referring to the 
+article.</p>
+<p class="myanswer">Bandwidth is a measure of the amount of data that 
+can be transmitted in a given time. Because the Schools of the Air will 
+be transmitting video as well as data, they do not have sufficient data-transfer 
+capacity to support two-way video data exchange, so students can only 
+see the teacher and not vice versa.</p>
+<p class="examiner">Students could not describe bandwidth limitations and in general found it difficult to relate to the case study, other than 
+quoting the article. At Year 12 it is expected that students will be able to explain in their own words and not just write 
+down the exact phrase that appears in the article. The examiners expected students to respond as indicated below.<br />
+Bandwidth limitations:<br />
+&bull; refers to the amount of bytes that can be transferred in a set amount of time 
+OR<br />
+&bull; indicates the amount of data that you can send across your connection, the lower the bandwidth the slower the 
+response time.<br />
+</p>
+<p class="examiner">Reference to the article:<br />
+&bull; a video image of teachers and students would take a lot of bytes to look real and so if there is a restriction on the 
+bandwidth then fewer images will be used, e.g. teachers only initially.<br />
+An example was accepted if it related to the distance education scenario, even though it was not directly mentioned in 
+the article.</p>
+<p>c. In the future 'on an outback station, a student communicates in real-time 
+with the teacher and other students via a web cam attached to the PC. 
+Email replaces the slow and unreliable postal service.'</p>
+<p>Discuss two benefits of upgrading to a real-time system with email facilities 
+for students.</p>
+<p class="myanswer">Teachers will be able to conduct classes involving 
+visual aspects rather than only tasks that can be done by speech (e.g. 
+art, drama). The teacher will be able to immediately see a student's performance 
+and offer immediate feedback. The important human connection needed in 
+teaching will be reinforced by students and teachers being able able to 
+see each other's body language and facial expressions.</p>
+<p class="myanswer">Email will allow the instant sharing of documents 
+with teachers and other students. The documents could contain text, pictures, 
+even music and multimedia work. The teacher will be able to assess students 
+far more quickly, and will be easily able to edit student work and return 
+it immediately.</p>
+<p class="examiner">Benefits were required to relate to either real-time or email and most students picked up on this requirement. Lower order responses tended to list the benefit rather 
+than discuss it. The most common responses related to the following benefits.<br />
+&bull; instant response/feedback for students rather than waiting. The new system will allow teachers to receive work 
+within minutes rather than days and to return work equally as quickly<br />
+&bull; the teacher can demonstrate visually which is clearer than just words and go over difficult areas immediately. The 
+interaction, possible in real-time, improves the learning experience for students<br />
+&bull; more variety of tasks makes education more interesting; students are able to submit a wider variety of work via 
+email, e.g. sound, video, multimedia to the teacher without risking it being damaged in the mail<br />
+&bull; immediate response to difficulties; teachers can answer student queries on the spot as they arise rather than waiting 
+for a letter and show them visually how to solve the problem.</p>
+<p>Once the network with the web cam has been fully implemented, students 
+will be surveyed about the success of the change.</p>
+<p>d. Prepare 2 questions for inclusion in the survey. The first question 
+must focus on identifying any improvements in the efficiency of the network. 
+The second question must focus on the effectiveness of the new network.</p>
+<p>Efficiency</p>
+<ul>
+<li class="myanswer">Has the teacher been able to assess your work 
+more quickly than with the old system?</li>
+<li class="myanswer">Has taking classes become any easier for you?</li>
+<li class="myanswer">Have you been able to complete work more quickly 
+with the new system?</li>
+</ul>
+<p class="examiner">The proposed questions in the survey needed to be specific and not general, e.g. 'Is it more efficient?' Students found it 
+difficult to frame a question and often reversed the efficiency and effectiveness responses.<br />
+This question must relate to efficiency (time/cost/effort)<br />
+&bull; is it easier to send your assignments to your teacher?<br />
+&bull; does it take less effort to send your work to your teacher?<br />
+&bull; has the new system helped you to meet due dates for assignments?</p>
+<p>Effectiveness</p>
+<ul>
+<li class="myanswer">Do you think you have you been learning more 
+with the new system or the old system?</li>
+<li class="myanswer">Have your grades improved under the new system?</li>
+<li class="myanswer">Do you feel happier and more connected with 
+your teacher and other students?</li>
+<li class="myanswer">Has the new system performed with fewer failures 
+or errors than the old system?</li>
+<li class="myanswer">Have the video and sound of the new system been 
+clear and smooth?</li>
+</ul>
+<p class="comment"><em>Just remember that efficiency deals with saving 
+time, money and effort. Effectiveness relates to the quality of the finished 
+product (e.g. accuracy, clarity of output)</em></p>
+<p class="examiner">This question must relate to effectiveness (improved process/product/output)<br />
+&bull; how has being able to see your fellow students improved your ability to understand the work?<br />
+&bull; how has having the teacher demonstrate work as you watch improved your understanding of how to complete a 
+task?<br />
+&bull; has the new system made your education more interesting?</p></td>
+</tr>
+<tr > 
+<td valign="top" > <h2>12</h2></td>
+<td > <p>12. Fleur's Florist is a very successful chain of florist shops specialising 
+in parties and weddings throughout Victoria. They are about to open new 
+stores in Sydney and Brisbane and are keen to promote their stores in 
+these two states.</p>
+<p>a. Outline two reasons why the manager might suggest a web site would 
+best suit the intended customers.</p>
+<ul>
+<li class="myanswer">A website would have national and international 
+exposure, and will greatly increase the chain's public exposure for 
+little cost.</li>
+<li class="myanswer">A website can be updated frequently and respond 
+to recent developments or events (e.g. special offers)</li>
+<li class="myanswer">A website can offer online ordering and payment 
+to encourage customers to make purchases.</li>
+<li class="myanswer">A website can include rich media such as full-colour 
+images, animations, links to related sites etc</li>
+<li class="myanswer">A website will make the organisation look more 
+professional and up-to-date</li>
+<li class="myanswer">A website can offer large amounts of helpful 
+information about the organisation, its products and services. It can 
+give support such as FAQs or online help.</li>
+</ul>
+<p class="examiner">Most students were able to outline two reasons why the manager would suggest a website, although lower marks were 
+awarded to students who repeated the same reason in slightly different words or talked about promoting the store to 
+overseas clients, which was clearly not part of the scenario. The most common reasons were:<br />
+&bull; no need to mail interstate or make interstate phone calls<br />
+&bull; easy to change or update and cheaper to redesign a website than redo a brochure<br />
+&bull; communication, e.g. ordering can be done easily via an online form<br />
+&bull; cheaper to display to clients than producing printed brochures<br />
+&bull; target audience is generally younger and more computer literate<br />
+&bull; a website could allow the user to design their own floral display<br />
+&bull; a website is more timely and can have more up to date information than a printed brochure<br />
+&bull; the one website can deal with all three locations at once.</p>
+<hr /> 
+<p>b. Outline one reason why the manager would request a screen layout 
+mockup as a design representation before approving the website.</p>
+<p class="myanswer">The appearance of a website has a big impact on its success. Ugly or 
+hard-to-read screens will deter or confuse visitors. The manager would 
+want to see that:</p>
+<ul>
+<li class="myanswer"> navigation controls were easy to find and unambiguous 
+in their behaviour</li>
+<li class="myanswer">colours were attractive, did not make text unreadable, 
+and were visible to colour-blind men</li>
+<li class="myanswer">font selections were appropriate and attractive</li>
+<li class="myanswer">page elements appeared in appropriate and optimal 
+places (e.g. banners, links)</li>
+<li class="myanswer">no important page elements were missing (e.g. 
+contact info, date of last page revision, links to online ordering)</li>
+<li class="myanswer">frames, if used, are sensibly organised and 
+helpful rather than a hindrance</li>
+<li class="myanswer">tables are used to constrain and position pictures 
+and text</li>
+<li class="myanswer">page sizes are suitable for the most common 
+screen resolutions</li>
+</ul>
+<p class="examiner">Students generally handled this well, although it was clear that a small number of students did not know what a screen 
+layout mock-up represented. Accepted reasons included:<br />
+&bull; being able to see what the final page/site will look like for approval<br />
+&bull; ensuring that the company image presented is what the company requires.</p>
+<p>The solution attribute of functionality needs to be tested.</p>
+<p>c. State two tests that would test the solution's functionality and explain 
+how you would conduct each test.</p>
+<p>Test 1</p>
+<p class="myanswer">Testing that links to other pages or sites work</p>
+<p>Explanation</p>
+<p class="myanswer">Click each link on each page and see whether the 
+appropriate destination is reached.</p>
+<p>Test 2</p>
+<p class="myanswer">Testing that images, animations and alternative 
+text appear as expected</p>
+<p>Explanation</p>
+<p class="myanswer">View the page using different versions of different 
+browsers (e.g. Netscape 4,6, IE 4,5,6, Opera, Safari on a Mac, Netscape 
+running on Linux), different screen resolutions (e.g. 640x480, 800x600, 
+1024 x 976) to check that images appear properly, alt text is correct, 
+animations play with each browser type and version. If problems arise 
+with a particular plugin, browser type or version of browser, an attempt 
+should be made to provide the same information in an alternative manner 
+(e.g. graphics links need text equivalents, framed sites need a 'frameless' 
+version). Javascript should be thoroughly tested for correct results, 
+and consideration given to users who lack JS - no essential page functions 
+should be available only through JS, Java or exotic plugins (e.g. Flash) 
+- some 'plain vanilla' alternative method should be offered (e.g. you 
+should not support feedback or contact only through forms - provide an 
+email address that people can use if their browser does not handle forms 
+properly.)</p>
+<p class="examiner">Students found it difficult to identify a test that related to functionality and the term was clearly unfamiliar to a large 
+number. Students commonly responded with surveys, which showed customer satisfaction rather than testing 
+functionality. Those students who were able to identify a test that related to functionality of the solution still had 
+difficulty explaining how the test would be conducted.</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td class="examiner"><strong>Test </strong></td>
+<td class="examiner"><strong>Conducted</strong></td>
+</tr>
+<tr>
+<td class="examiner">That links go to the location 
+indicated</td>
+<td class="examiner">I would load the site into a browser and click on each link to see where it took me.</td>
+</tr>
+<tr>
+<td class="examiner">That the web pages/site 
+displayed correctly in common 
+browsers</td>
+<td class="examiner">I would open the web site in a range of common browsers to see if the pages came 
+up with the correct components.</td>
+</tr>
+<tr>
+<td class="examiner">That the on-line order form 
+sends the correct data to the 
+company</td>
+<td class="examiner">I would complete an order and click send. I would then check the company&rsquo;s 
+computer to see if the order was recorded.</td>
+</tr>
+</table>
+<p>d. Identify a sample group of people who could be used to test the 
+  solution. Justify your choice.</p>
+<p>Sample group</p>
+<p class="myanswer">Volunteer customers may be invited to test the 
+site.</p>
+<p>Justification</p>
+<p class="myanswer">Solutions should be tested by typical members of 
+the target audience. By selecting existing customers, you should get a 
+reasonable cross-section of the total population of potential users. It 
+is important to use typical people rather than IT specialists - specialists 
+are not likely to suffer the same sorts of mistakes, confusion and misunderstandings 
+that a typical site visitor would suffer. </p>
+<p class="examiner">In general, students selected an appropriate sample group but the lower responses showed little evidence of being able 
+to justify the choice made.</p>
+<p>e. Two possible criteria for evaluating the effectiveness of the 
+  web site would be</p>
+<p>i. number of hits</p>
+<p>ii. number of online orders placed by email has increased</p>
+<p>Select the criterion you would recommend and justify your choice.</p>
+<p class="myanswer">Criterion ii actually measures sales, and hence 
+profit, which is the primary organisational goal. Large numbers of visitors 
+who don't buy anything is a waste of time, effort and money for the organisation.</p>
+<p class="examiner">It was noticeable that students had difficulty justifying their choice. The expected response was option two. Accepted justifications included:<br />
+&bull; this evaluates effectiveness better because the number of hits does not necessarily reflect in sales. People may have 
+searched for a related word and the search engine brings up this site as a hit and an user checks it out<br />
+&bull; the number of orders is a better criterion than the number of hits because the business has made a sale, therefore 
+showing an improvement in performance.</p>
+<p></p></td>
+</tr>
+<tr> 
+<td valign="top" > <h2>13</h2></td>
+<td > <p>13. Cheapway Supermarkets is planning to introduce a self-scanning system 
+into its supermarkets. Instead of checkout attendants, customers will 
+take their items to a self-scanning terminal. Customers will scan each 
+item and press a button. After all items have been scanned the terminal 
+will print a docket, which will be taken to the cashier for payment. There 
+will be one cashier for every four terminals.</p>
+<p>a. Identify and explain one health and safety requirement that will need 
+to be considered when customers use this new system.</p>
+<p>Health and safety requirement</p>
+<p class="comment">Hmmm - this is a dicey one. There's not a lot of 
+interest or importance to say...</p>
+<ul>
+<li class="blue">Customers should not suffer lifting injuries 
+by having to man-handle large or heavy items</li>
+<li class="blue">Customers should not be able to blind themselves 
+with the laser from the scanning gun (?)</li>
+<li class="blue">The system should be electrically safe and not 
+electrocute customers (??)</li>
+<li class="blue">The system should not emit dangerous radiation 
+(???)</li>
+<li class="blue">The system should not explode, or release toxic 
+gases :-)</li>
+</ul>
+<p class="examiner">Students who could identify a concern were usually able to explain why this was. A number listed concerns that had no 
+relevance to the case study or the tasks being undertaken by the customers, and a small number provided no response to 
+this question.</p>
+<p class="comment">This was because it was a BAD QUESTION! Don't blame students for being unable to answer a question that has no clear answer. </p>
+<p>Explanation</p>
+<p class="myanswer">You don't want customers crippled, blinded, electrocuted, 
+irradiated or blown to bits?</p>
+<p class="comment">Not a really good question, I'm afraid. It does 
+not cover much of significance.</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="20%"><strong>Issue</strong></td>
+<td width="80%"><strong>Explanation</strong></td>
+</tr>
+<tr>
+<td><span class="examiner">Lifting heavy items</span></td>
+<td><span class="examiner">Customers have to pick up and put down each item to self-scan the code.<br />
+This could cause injuries or back problems</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Dropping items</span></td>
+<td><span class="examiner">A customer could accidentally drop an item on the floor and it could break 
+and leave glass or liquid on the floor which is an OHS concern for other 
+clients/staff.</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Spills</span></td>
+<td><span class="examiner">If the contents of an item are spilled and not cleaned up it could produce a 
+risk if it is a chemical or if it is mixed with another spill. If the spill is a 
+liquid it could short circuit the electronic equipment.</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Food handling</span></td>
+<td><span class="examiner">Food substances need to be handled appropriately to meet current Food 
+handling guidelines.</span></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>The first set of four terminals will be installed in the city store 
+  three months before installation in other stores.</p>
+<p>b. Identify the changeover method.</p>
+<p class="comment">Note: implementation methods are no longer part of the study design. (2011-2014)</p>
+<p class="myanswer">Pilot.</p>
+<p>Management thinks that self-scanning terminals will reduce company costs.</p>
+<p>c. Using one example, discuss why this may not occur.</p>
+<ul>
+<li class="myanswer">The costs of buying, installing, maintaining 
+and upgrading the system might outweigh the costs of the current system.</li>
+<li class="myanswer">Customers might not like the new system and 
+might go elsewhere to do their shopping.</li>
+<li class="myanswer">Extra staff might need to be put on to help 
+customers who are having trouble with the system, negating the cost-saving 
+achieved by downsizing the checkout-chick workforce. Also, extra staff 
+may need to be retained to monitor customers who &quot;cheat&quot; during 
+scanning.</li>
+<li class="myanswer">Extra training for staff using the new system 
+would incur costs</li>
+<li class="myanswer">Advertising and public education to increase 
+customer acceptance would be expensive</li>
+</ul>
+<p class="examiner">In general, students handled this question appropriately and indicated why costs might not be reduced. However, the 
+common error was to focus on reduced income from loss of customers rather than look at company costs as indicated in 
+the question. Some of the more common responses were:<br />
+&bull; customers scanning their own items should reduce the tasks undertaken by cashiers. However, if there is a problem 
+with scanning an item, a staff member will be needed to fix the problem, so staff work will change rather than 
+reduce<br />
+&bull; customers may not scan all the items that are in their trolley leading to an increasing problem of theft (shop lifting).<br />
+&bull; this will increase the costs of running the store<br />
+&bull; allowing all customers to use the equipment may cause more breakdowns and mean that repair<br />
+bills/maintenance/replacement costs are higher than if trained staff used the terminals<br />
+&bull; it will be slower as customers are less experienced than trained staff in using the scanner and so the cashier will be 
+standing around idle for periods of time<br />
+&bull; more staff will be needed initially to train customers and they will be needed the whole time that the store is in 
+operation even if there are very few customers using the store (e.g. late at night if it&rsquo;s open extended hours).</p>
+<hr /> 
+<p>The diagram below represents some of the tasks 
+to be completed to install the terminals in the city store.</p>
+<p class="comment">Note: PERT and Gantt are no longer part of the study design (2011-2014)</p>
+<p><img src= "/m/pm/03i-qb15.gif" width="641" height="291" /></p>
+<p>d. i. Mark the critical path</p>
+<blockquote>&nbsp;</blockquote>
+<p><img src= "/m/pm/03i-qb15-cp.gif" width="641" height="291" /></p>
+<p class="examiner">This question was poorly done and students frequently omitted to mark the critical path or marked the whole diagram. 
+Students either knew the term and its meaning or were clearly guessing.</p>
+<p><b>OTHER POINTS OF VIEW - from Antony</b></p>
+<p> <em>We see the critical path as 5 days only as 
+part d (ii) tells us that the project finished before the opening celebrations 
+began. Note that this little gem of information is given to students after they 
+have just used their thick black texta.</em></p>
+<p><em>It's an iffy one. My philosophy is that if it's 
+in the PERT, it must be part of the project. If not, why is it there? 
+PERTs describe projects :-)</em></p>
+<p><em>I'd be upset if examiners expected kids to ignore 
+the end of the PERT!</em></p>
+<p>ii. Explain why the supermarket has allowed a week between the completion 
+  of the project and the opening celebrations.</p>
+<p class="myanswer">'Bedding-down' time? Allows the staff to become 
+familiar and comfortable with the new system. <br />
+Also gives time for unexpected 'bugs' to appear and be dealt with. <br />
+Allows time for advertising the celebrations.</p>
+<p class="examiner">Most students could explain contingency planning and the only common error was to indicate that one of the tasks in the original diagram was going to occur during the week (e.g. training of the cashier). The two most common responses were:<br />
+One week has been allowed for:<br />
+&bull; fixing any problems that occur during the testing of the system<br />
+&bull; allowing for any delays that might occur so that the store meets its opening date.</p>
+<p>e. List two groups of people who will need to be trained to use the new 
+system and explain the type of training you would recommend for each group.</p>
+<p class="myanswer">Managers - need to gain an overview of the whole 
+system so they understand its operation and the roles of people who use 
+it. Small-group training would be suitable.</p>
+<p class="myanswer">Customers - need to know how to carry out scanning 
+and make payment, how to cope with common problems (e.g. items that won't 
+scan). Public advertising can demonstrate how to use the new system. One-on-one 
+training of customers by staff could be used for customers who have trouble 
+with the system.</p>
+<p class="myanswer">Cashiers / Staff - need to know how to fix common 
+problems (e.g. items that won't scan, dirty scanners, incompetent customers), 
+need to be able to spot customers who are 'cheating' by deliberately not 
+scanning all items. For the pilot installation, small-group training would 
+be best. For full roll-out to all stores, a train-the-trainer program 
+might be most effective and efficient.</p>
+<p class="myanswer">Technicians - may need to be trained in the workings 
+of the new equipment so they can repair or upgrade it when necessary. 
+Since there are few technicians, small-group training supported by comprehensive 
+documentation would be best.</p>
+<p class="myanswer">All training would be carried out on-site, preferably 
+outside normal working hours (with some form of compensation given to 
+staff for giving up their personal time).</p>
+<p class="examiner">In this question the better students had the opportunity to demonstrate their knowledge and the question produced an 
+effective spread of marks. Weaker students were able to identify appropriate groups but in general were unable to come 
+up with appropriate types of training. Better responses provided detailed strategies for each user group. Many students 
+only indicated some of the content of the training, rather than giving a detailed response. The most common responses 
+were:</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><span class="examiner"><strong>Group</strong></span></td>
+<td><span class="examiner"><strong>Type of Training</strong></span></td>
+</tr>
+<tr>
+<td><span class="examiner">Cashier</span></td>
+<td><span class="examiner">Trained in groups, on site, by a representative of the company during working hours and given an 
+instruction manual on how to assist customers and use the docket to receipt payment 
+OR<br />
+Trained by the supervisor, in groups, during working hours and given an instruction manual.</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Customers</span></td>
+<td><span class="examiner">Provided with an information pamphlet and with a sign with instructions beside the terminal. A 
+staff member is available to solve any problems encountered 
+OR<br />
+Provided with instructions beside the terminal and with a staff member assisting customers during 
+the first week.</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Supervisors</span></td>
+<td><span class="examiner">Training on site from a company representative, which includes how to solve common problems 
+and appropriate documentation provided. Supervisors would then train cashiers.</span></td>
+</tr>
+<tr>
+<td><span class="examiner">Technicians</span></td>
+<td><span class="examiner">Training should be provided off site by a representative of the equipment suppliers and include 
+how to diagnose and fix problems. Technicians should have to diagnose and repair problems as 
+part of the training. Access to a help line and a technical manual should be provided.</span></td>
+</tr>
+</table>
+<p>&nbsp;</p></td>
+</tr>
+<tr > 
+<td >&nbsp;</td>
+<td > 
+<h3 align="center">All in all - a fair and pretty easy exam. </h3>
+<h3 align="center">And guess what - the PERT chart question had no problems 
+this year! </h3>
+<h3 align="center">Woohoo!</h3></td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created November 11, 2003</font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2003<br />
+</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly 2001-<script type="text/javascript">
+D = new Date();
+year = D.getFullYear();
+document.write(year);
+</script></font></p><p></p>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

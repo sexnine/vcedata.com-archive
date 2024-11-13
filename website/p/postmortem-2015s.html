@@ -1,0 +1,1692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VCE Software Development Exam 2015 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body lang="EN-US" >
+<h2 align="center" class="red"><a href="/index.html"><img src="/bits/title.png" alt="VCE IT Post Mortem by Mark Kelly
+" border = "0" /></a></h2>
+<p align="center"><font size="2">Last changed: 
+  <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+ <hr />
+</div>
+<div align="center">
+ <table width="80%" border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+ <h1 align="center">VCAA Exam Post Mortem </h1>
+ <h1 align="center">2015</h1>
+ <h1 align="center"><img src="/m/toetags.jpg" alt="vcedata.com exam post mortem" width="527" height="235" /></h1></td>
+ </tr>
+ <tr>
+ <td><div align="center"> 
+ <p>
+ </p><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><p></p>
+ </div></td>
+ </tr>
+ <tr>
+ <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+ </tr>
+ </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"><div align="center">
+ <h2>The Post Mortem Awards</h2>
+ </div></td>
+ </tr>
+ <tr>
+ <td width="18%" valign="top"><p align="center"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+ <p>The infamous <strong>SCHMACKOS</strong> <strong>award</strong> for questions that are a complete dog's breakfast.</p></td>
+ <td width="18%" valign="top"><div align="center"><img src="/m/sickdog.jpg" alt="Sick as a Dog Award" width="125" height="125" /></div>
+ <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+ Questions that are <em>wrong </em>in a way that does not jeopardise the answer, or are just <em>dumb</em>.</p></td>
+ </tr>
+ <tr>
+ <td valign="top"><div align="center"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></div>
+ <p align="center">The <strong>Stamp of Approval</strong> for questions I like.</p></td>
+ <td valign="top"><p align="center"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ <p align="center">The exciting <strong>Illiteracy Award</strong> for crimes against the English language.</p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ <tr>
+ <td height="885"><h3 align="center">Written examination</h3>
+ <p align="center"><strong>Friday 13 November 2015</strong></p>
+ <p align="center"><strong>Reading time: 3.00 pm to 3:15 (15 minutes) </strong></p>
+ <p align="center"><strong>Writing time: 3:15 to 5:15 pm (2 hours)</strong></p>
+ <table border="1" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="95" ><div ></div></td>
+ <td width="100"><p ><strong><em>Number of questions</em></strong></p></td>
+ <td width="152"><p ><strong><em>Number of questions to be answered</em></strong></p></td>
+ <td width="105"><p ><strong><em>Number of marks</em></strong></p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#a">Section A</a></p></td>
+ <td width="100" align="center"><p >20</p></td>
+ <td width="152" align="center"><p >20</p></td>
+ <td width="105" align="right"><p >20</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#b">Section B</a></p></td>
+ <td width="100" align="center" ><div >5</div></td>
+ <td width="152" align="center"><p >5</p></td>
+ <td width="105" align="right"><p >20</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#c1">Section C</a></p></td>
+ <td width="100" align="center" ><div >15</div></td>
+ <td width="152" align="center">15</td>
+ <td width="105" align="right"><p >60</p></td>
+ </tr>
+ <tr>
+ <td width="95"><div ></div></td>
+ <td width="100"><div ></div></td>
+ <td width="152"><div ></div></td>
+ <td width="105" align="right"><p >Total 100</p></td>
+ </tr>
+ </table>
+ <ul>
+ <li> Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.
+ </li>
+ <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape. </li>
+ </ul>
+ <p align="left">Materials supplied</p>
+ <ul>
+ <li> Question and answer book of 23 pages with a detachable insert containing a case study for Section C in the centrefold.
+ </li>
+ <li>Answer sheet for multiple-choice questions. </li>
+ </ul>
+ <p align="left">Instructions</p>
+ <ul>
+ <li> Remove the insert containing the case study during reading time.
+ </li>
+ <li>Write your student number in the space provided above on this page. </li>
+ <li>Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this. </li>
+ <li>All written responses must be in English. </li>
+ </ul>
+ <p>At the end of the examination </p>
+ <ul>
+ <li> Place the answer sheet for multiple-choice questions inside the front cover of this book.
+ </li>
+ </ul>
+ <p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+   <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ <tr>
+   <td colspan="2" ><p class="examiner"><strong>Examiners' report general comments</strong></p>
+    <p class="examiner"> Section A was answered well by many students.  
+      </p>
+    <p class="examiner">Section B required students to demonstrate      sound theoretical knowledge and to provide detailed and accurate responses.  
+      </p>
+    <p class="examiner">In Section C      students&rsquo; responses were expected to refer to the case study. </p>
+    <p class="examiner">The key weakness in many      responses in this section was a lack of detail and depth of understanding. </p>
+    <p class="examiner">Durin<span class="examiner">g the examination, students should: </span>
+    </p><ul>
+      <li class="examiner">  endeavour to use correct technical terminology 
+      </li>
+      <li class="examiner">
+        discuss all options when asked to justify a choice or compare one option with another 
+      </li>
+      <li class="examiner">
+        respond to key instructional terms, such as &lsquo;state&rsquo;, &lsquo;explain&rsquo; and &lsquo;describe&rsquo; 
+      </li>
+      <li class="examiner">
+        re-read each question and their response to ensure that the question has been answered 
+      </li>
+      <li class="examiner">
+        remove the case study insert from the question and answer book, and refer to it when 
+        completing Section C 
+      </li>
+      <li class="examiner">
+        read the case study and questions carefully, and underline or highlight key words 
+      </li>
+      <li><span class="examiner">
+        demonstrate their knowledge of the subject and apply that knowledge to the case study as      general responses often resulted in low or no marks; knowledgeable, clear and appropriate      responses received high marks.</span><br />
+        <!--EndF>><!--EndFragment-->      </li>
+    </ul></td>
+ </tr>
+ <tr>
+ <td colspan="2" bgcolor="#CCCCCC" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+ <p><strong>Instructions for Section A</strong></p>
+ <p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+ Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+ A correct answer scores 1, an incorrect answer scores 0. <br />
+ Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+ No marks will be given if more than one 
+ Answer is completed for any question</p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top" bgcolor="#CCCCCC"><strong><a name="a1" id="a1"></a>A1</strong></td>
+ <td width="873" valign="top"><p><strong>Question 1</strong></p>
+ <p> Sue has just completed outlining the scope of a software development project. At which stage of the problem-solving methodology does this occur? </p>
+ <ol type="A">
+ <li>design </li>
+ <li>analysis </li>
+ <li>evaluation </li>
+ <li>development </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p><span class="examiner">75% of the state got this right.</span> </p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a2" id="a2"></a>A2</strong></td>
+ <td valign="top"><p><strong>Question 2</strong><br />
+ </p>
+ <p align="left">A systems analyst wants to collect unbiased data about an existing system. The best way to collect this data is by completing </p>
+ <ol type="A">
+ <li>a site visit. </li>
+ <li>mail-out surveys. </li>
+ <li>telephone interviews. </li>
+ <li>face-to-face interviews. </li>
+ </ol>
+ <p class="myanswer">Answer is A.</p>
+ <p class="myanswer">With observation, the only bias will come from the observer. All of the other options involve people's opinions.</p>
+ <p>
+ </p><p><span class="examiner">57% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" >&nbsp;</td>
+ <td valign="top" ><p>Use the following information to answer Questions 3-5. <br />
+ The pseudocode below alters the values of the three variables A, B and C. </p>
+   <p><br />
+    <img src="/m/pm/15s-a03.gif" width="222" height="273" alt="" /></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a3" id="a3"></a>A3</strong></td>
+ <td valign="top" ><p><strong>Question 3</strong><br />
+ </p>
+ <p> What is the output from the pseudocode above? </p>
+ <ol type="A">
+ <li>4</li>
+ <li>9 </li>
+ <li>16 </li>
+ <li>25 <br />
+ </li>
+ </ol>
+ <p class="myanswer">Answer is D.</p>
+ <p class="myanswer">Prove it with a deskcheck. Pay attention to <strong>every</strong> line.</p>
+ <table width="95%" border="1" cellspacing="0" cellpadding="3">
+   <tbody>
+     <tr>
+       <td>&nbsp;</td>
+       <td><strong>Loop 1</strong></td>
+       <td><strong>Loop 2</strong></td>
+       <td><strong>Loop 3</strong></td>
+       <td>&nbsp;</td>
+     </tr>
+     <tr>
+       <td width="23%">A<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />3</td>
+       <td width="17%">a=3</td>
+       <td width="16%">&nbsp;</td>
+       <td width="17%">&nbsp;</td>
+       <td width="27%">&nbsp;</td>
+     </tr>
+     <tr>
+       <td>B<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />5</td>
+       <td>b=5</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+     </tr>
+     <tr>
+       <td>While A&lt;2*B</td>
+       <td>true (3&lt;5*2)</td>
+       <td>true (4&lt;4*2)</td>
+       <td>true (5&lt;3*2)</td>
+       <td> <strong>false</strong> (6 not &lt; 2*2=4)</td>
+     </tr>
+     <tr>
+       <td><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->C<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />A*A</td>
+       <td>c=3*3=9</td>
+       <td>c=4*4=16</td>
+       <td>c=5*5=25</td>
+       <td>skip</td>
+     </tr>
+     <tr>
+       <td><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />A+1</td>
+       <td>a=3+1=4</td>
+       <td>a=4+1=5</td>
+       <td>a=5+1=6</td>
+       <td>skip</td>
+     </tr>
+     <tr>
+       <td><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B<img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />B-1</td>
+       <td>b=5-1=4</td>
+       <td>b=4-1=3</td>
+       <td>b=3-1=2</td>
+       <td>skip</td>
+     </tr>
+     <tr>
+       <td>Endwhile</td>
+       <td>loop again</td>
+       <td>loop again</td>
+       <td>loop again</td>
+       <td>skip</td>
+     </tr>
+     <tr>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>Print c (25)</td>
+     </tr>
+   </tbody>
+ </table>
+ <p class="comment">The complete artificiality of the sample code is a little irritating. <br />
+   Something a little more realistic and less contrived would be welcome.</p>
+ <p class="comment">
+ </p><p><span class="examiner">49% of the state got this right.</span> </p>
+ &nbsp;<p></p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a4" id="a4"></a>A4</strong></td>
+ <td valign="top" ><p><strong>Question 4</strong><br />
+ </p>
+ <p>How many times is the <strong>While</strong> loop executed? </p>
+ <ol type="A">
+ <li>1 </li>
+ <li>2 </li>
+ <li>3 </li>
+ <li>4 </li>
+ </ol>
+ <p class="myanswer">Answer is C. </p>
+ <p class="myanswer">In the last column, the loop is skipped and its contents are not executed.</p>
+ <p>
+ </p><p><span class="examiner">55% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a5" id="a5"></a>A5</strong></td>
+ <td valign="top" ><p><strong>Question 5</strong><br />
+ </p>
+ <p>In the pseudocode above, the lines C <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" />A * A and A <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> A + 1 are examples of which control structure? </p>
+ <ol type="A">
+ <li>repetition </li>
+ <li>selection </li>
+ <li>sequence </li>
+ <li>iteration </li>
+ </ol>
+ <p class="myanswer">Answer is C.</p>
+ <p class="myanswer">I've always thought the sequence control structure is pretty useless as a concept. But it can't be any of the other options. BTW, <strong>repetition and iteration are exactly the same thing</strong>.</p>
+ <ul>
+   <li class="myanswer">Sequence = lines are executed in the order they appear. Also includes the deprecated and loathed GOTO statement.  </li>
+   <li><span class="myanswer">Repetition or iteration = any form of loop
+   </span>
+     <ul>
+    <li class="myanswer">counted (e.g. For/Next) or </li>
+    <li><span class="myanswer">uncounted
+      </span>
+      <ul>
+        <li class="myanswer">'test at top' or 'pre-test', e.g. While &lt;condition&gt;/EndWhile or</li>
+        <li class="myanswer">'test at bottom' or 'post-test', e.g. Do/Loop While &lt;condition&gt;</li>
+        </ul>
+      </li>
+  </ul>
+   </li>
+   <li class="myanswer">Selection = any construct that selects while lines to execute based on some condition, e.g. IF/THEN/ELSE/ELSEIF/ENDIF, SELECT CASE. </li>
+ </ul>
+ <p>
+ </p><p><span class="examiner">66% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a6" id="a6"></a>A6</strong></td>
+   <td valign="top" ><p><strong>Question 6</strong><br />
+     </p>
+     <p>Which types of documentation would a programmer find most useful when needing to understand the logic of program code? </p>
+     <ol type="A">
+       <li>CASE tools and storyboard </li>
+       <li>internal documentation and storyboard </li>
+       <li>external documentation and pseudocode </li>
+       <li>pseudocode and internal documentation </li>
+      </ol>
+     <p class="myanswer">Answer is D.</p>
+     <p class="myanswer">Pseudocode is a relaxed, language-independent representation of an algorithm. Internal documentation are the non-executable comments and remarks inserted into source code for reference by programmers. It may also refer to other things that make code more understandable, such as line indentation and meaningful object naming. In compiled programs, comments are ignored by the compiler so they add no size to an executable program.</p>
+     <p></p>
+    <p>
+    </p><p><span class="examiner">87% of the state got this right.</span> </p>
+    &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a7" id="a7"></a>A7</strong></p>
+ <p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p></td>
+ <td valign="top" ><p><strong>Question 7</strong><br />
+ </p>
+   <p>A binary search is performed on the following list of 15 names: <br />
+Anne, Ben, Charles, David, Dianna, Erica, James, Joanna, Joshua, Mary, Murray, Nuwan, Olivia, Piper, Soula. How many names need to be compared to show that Francine is not on the list? </p>
+ <ol type="A">
+ <li>3</li>
+ <li>4 </li>
+ <li>7 </li>
+ <li>15 </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p class="myanswer">In a binary search, half of the data (e.g. the green half or the yellow half below) is eliminated after each comparison until the sought data is either found, or shown not to exist. Remember, binary searches require the data to be sorted. </p>
+ <p class="myanswer">And don't confuse searching with sorting!</p>
+ <table width="100%" border="0" cellspacing="0" cellpadding="2">
+   <tbody>
+     <tr>
+       <td bgcolor="#BFE8BD">Anne</td>
+       <td bgcolor="#BFE8BD">Ben</td>
+       <td bgcolor="#BFE8BD">Charles</td>
+       <td bgcolor="#BFE8BD">David</td>
+       <td bgcolor="#BFE8BD">Dianna </td>
+       <td bgcolor="#BFE8BD">Erica</td>
+       <td bgcolor="#BFE8BD">James</td>
+       <td bgcolor="#EFEE92">Joanna</td>
+       <td bgcolor="#EFEE92"> Joshua</td>
+       <td bgcolor="#EFEE92">Mary</td>
+       <td bgcolor="#EFEE92">Murray</td>
+       <td bgcolor="#EFEE92">Nuwan</td>
+       <td bgcolor="#EFEE92">Olivia</td>
+       <td bgcolor="#EFEE92">Piper</td>
+       <td bgcolor="#EFEE92">Soula</td>
+       </tr>
+     <tr>
+       <td bgcolor="#BFE8BD">Anne</td>
+       <td bgcolor="#BFE8BD">Ben</td>
+       <td bgcolor="#BFE8BD">Charles</td>
+       <td bgcolor="#EFEE92">David</td>
+       <td bgcolor="#EFEE92">Dianna </td>
+       <td bgcolor="#EFEE92">Erica</td>
+       <td bgcolor="#EFEE92">James</td>
+       <td colspan="8" bgcolor="#8E8E8A">1. Francine &lt; Joanna, so it can't be in this half. Throw it away</td>
+       </tr>
+     <tr>
+       <td colspan="3" bgcolor="#8E8E8A">&nbsp;</td>
+       <td bgcolor="#BFE8BD">David</td>
+       <td bgcolor="#BFE8BD">Dianna </td>
+       <td bgcolor="#EFEE92">Erica</td>
+       <td bgcolor="#EFEE92">James</td>
+       <td colspan="8" bgcolor="#8E8E8A">2. Francine &gt; Charles, so throw away the green half.</td>
+       </tr>
+     <tr>
+       <td colspan="5" bgcolor="#8E8E8A">&nbsp;</td>
+       <td bgcolor="#BFE8BD">Erica</td>
+       <td bgcolor="#EFEE92">James</td>
+       <td colspan="8" bgcolor="#8E8E8A">3. Francine &gt; Dianna, so throw away the green half</td>
+       </tr>
+     <tr>
+       <td colspan="6" bgcolor="#8E8E8A">&nbsp;</td>
+       <td bgcolor="#EFEE92">James</td>
+       <td colspan="8" bgcolor="#8E8E8A">4. Francine &gt; Erica, leaving only James.</td>
+     </tr>
+     </tbody>
+ </table>
+ <p class="comment">An interesting and refreshing new take on examining search methods.</p>
+ <p>
+ </p><p><span class="examiner">28% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a8" id="a8"></a>A8</strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top" ><p><strong>Question 8</strong><br />
+ </p>
+ <p>What is the best tool to represent the role of people in a software development project? </p>
+ <ol type="A">
+ <li>context diagram </li>
+ <li>use case diagram </li>
+ <li>data flow diagram </li>
+ <li>data structure diagram </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p class="myanswer">The UCD shows the connections between external entities (actors) and processes (use cases) within a system. </p>
+ <p></p>
+ <p class="examiner">
+ </p><p><span class="examiner">88% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a9" id="a9"></a>A9</strong></p></td>
+ <td valign="top" ><p align="left"><strong>Question 9</strong><br />
+ </p>
+ <p>When using files, fields and records, what is a record? </p>
+ <ol type="A">
+ <li>a collection of related data </li>
+ <li>a set of instructions saved into a table </li>
+ <li>a collection of data saved into a table </li>
+ <li>a collection of data all of the same type </li>
+ </ol>
+ <p class="myanswer">Answer is A. </p>
+ <p class="myanswer">A record might consist of related fields strFirstName, strFamilyName, intNumKids, boolMarried? that comprise a set of fields for one person. </p>
+ <p align="left">
+ </p><p><span class="examiner">56% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a10" id="a10"></a>A10</strong></td>
+ <td valign="top" ><p><strong>Question 10</strong></p>
+ <p>A company is developing a staff survey to help evaluate its new software solution. <br />
+What would be a good survey question to help evaluate the efficiency of this solution? </p>
+ <ol type="A">
+ <li>Is the solution always accurate? </li>
+ <li>Is the solution always faster to use? </li>
+ <li>Are the online instructions always clear? </li>
+ <li>Is the solution producing what is expected? </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p class="myanswer">An easy efficiency/effectiveness question. Remember that the efficiency criteria are <strong>cost</strong>, <strong>time</strong> and <strong>labour</strong>. <br />
+   <strong>   Everything</strong> else such as accuracy, clarity of output, functionality, security etc is effectiveness. </p>
+ <p>
+ </p><p><span class="examiner">83% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a11" id="a11"></a>A11</strong></p>
+ <p><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p></td>
+ <td valign="top" ><p><strong>Question 11</strong></p>
+ <p>Which one of the following would be the best description of a Trojan? </p>
+ <ol type="A">
+ <li>It hides itself in an application and infects one or more systems after the application is executed. </li>
+ <li>It is self-replicating and, therefore, needs no user intervention to allow the system to be infiltrated. </li>
+ <li>It sends messages to a computer with an IP address, indicating that the message is coming from a trusted host. </li>
+ <li>It collects personal information from the user without appropriately obtaining prior consent from the user and transmits this data. </li>
+ </ol>
+ <p class="myanswer">Answer is going to be A. But that is a classical description of an old-fashioned <strong>virus</strong>.</p>
+ <p class="myanswer">B describes a worm. D sounds like spyware. </p>
+ <p class="comment">C is poorly expressed. It sounds like, &quot;It sends messages to a computer <strong>that has</strong> an IP address, <strong>saying</strong> that the message is coming from a trusted host.&quot;<br />
+   It would have been less ambiguous to say, &quot;It pretends to be a trusted host by sending messages with a false IP address to a target computer.&quot; </p>
+ <p class="comment">A Trojan misrepresents itself as something good. It does not <strong>hide</strong>. </p>
+ <p class="comment">This is pretty much a dog of a question.</p>
+ <p class="comment"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+ <p>
+ </p><p><span class="examiner">86% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a12" id="a12"></a>A12</strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top" ><p align="left"> <strong>Question 12</strong></p>
+ <p>Molly is designing an electronic key card system to unlock the doors to rooms in a hotel. <br />
+ Which one of the following validation techniques could be used to allow only numbers between 1 and 50 to be entered into the data entry field for the room number? </p>
+ <ol type="A">
+ <li>check digit </li>
+ <li>room check </li>
+ <li>range check </li>
+ <li>length check </li>
+ </ol>
+ <p class="myanswer">Answer is C.</p>
+ <p class="myanswer">Range checks can ensure values are between acceptable parameters, or that data exists in a list of acceptable options. </p>
+ <p align="left">
+ </p><p><span class="examiner">92% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a13" id="a13"></a>A13</strong></td>
+ <td valign="top" ><p> <strong>Question 13</strong></p>
+ <p>'This layer transmits data bit by bit over different media.' <br />
+Which layer of the Open Systems Interconnections (OSI) model does the statement above best describe? </p>
+ <ol type="A">
+ <li>the physical layer </li>
+ <li>the network layer </li>
+ <li>the data link layer </li>
+ <li>the transport layer </li>
+ </ol>
+ <p class="myanswer">Answer is A.</p>
+ <p class="myanswer">Since you only need a 'brief overview' of the OSI model, and you only need to know the physical layer, you should never be asked about what any <strong>other</strong> layer does. As soon as you see the OSI model mentioned in the exam, the answer should automatically be 'physical layer.' </p>
+ <p>
+ </p><p><span class="examiner">34% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a14" id="a14"></a>A14</strong></td>
+ <td valign="top" ><p> <strong>Question 14</strong></p>
+ <p>Which one of the following best describes a wired network when compared with a wireless network? </p>
+ <ol type="A">
+ <li>easier to install, easier to add computers, less secure </li>
+ <li>easier to install, harder to add computers, less secure </li>
+ <li>harder to install, easier to add computers, more secure </li>
+ <li>harder to install, harder to add computers, more secure </li>
+ </ol>
+ <p class="myanswer">Answer is D.</p>
+ <p class="myanswer">Laying cables is expensive and slow. Adding more computers involves more cabling. <br />
+   Cables are however fast, reliable, and hard to tap or eavesdrop. </p>
+ <p>
+ </p><p><span class="examiner">71% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a15" id="a15"></a>A15</strong></td>
+ <td valign="top" ><p><strong>Question 15</strong><br />
+ </p>
+ <p>Frederick is a professional photographer. At the end of each day, he copies all the files he has created that day onto a flash drive. At the end of each month, he copies all the files older than six months onto a DVD and stores the DVD in a fireproof safe. He then deletes these files (those over six months old) from his computer system. <br />
+This procedure is best described as </p>
+ <ol type="A">
+ <li>backing up files each day and archiving files each month. </li>
+ <li>archiving files each day and backing up files each month. </li>
+ <li>archiving files each day and disposing of files each month. </li>
+ <li>backing up files each day and disposing of files each month. </li>
+ </ol>
+ <p class="myanswer">Answer is A.</p>
+ <p class="myanswer">Copying to the flash drive is backing up, since the original copy is retained. <br />
+   Moving old files to DVD is archiving, since the original copy is deleted. </p>
+ <p>
+ </p><p><span class="examiner">83% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a16" id="a16"></a>A16</strong></td>
+ <td valign="top" ><p><strong>Question 16</strong><br />
+ </p>
+ <p>When using stacks and queues, which is the correct statement? </p>
+ <ol type="A">
+ <li>The last item in is the last item out for a stack. </li>
+ <li>The first item in is the first item out for a stack. </li>
+ <li>The last item in is the last item out for a queue. </li>
+ <li>The first item in is the last item out for a queue. </li>
+ </ol>
+ <p class="myanswer">Answer is C.</p>
+ <p class="myanswer">Stacks are FILO (First In Last Out). They are primitive, simple, temporary data stores.<br />
+   Queues are FIFO (First In First Out) or LILO. They store and release data in the order the data arrives. </p>
+ <p>
+ </p><p><span class="examiner">79% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a17" id="a17"></a>A17</strong></td>
+ <td valign="top" ><p><strong>Question 17</strong><br />
+ </p>
+ <p>In addition to identifying, scheduling and monitoring tasks, what other key factors should be considered when managing a project? </p>
+ <ol type="A">
+ <li>time, cost, programs </li>
+ <li>time, resources, people </li>
+ <li>people, procedures, cost </li>
+ <li>people, programs, processes </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p class="myanswer">You don't need to know a lot about project management in this study design. <br />
+   In 2016, you need to know more, including Gantt charts, in both SD and Informatics. </p>
+ <p>
+ </p><p><span class="examiner">75% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a18" id="a18"></a>A18</strong></td>
+ <td valign="top" ><p> <strong>Question 18</strong></p>
+ <p>Which one of the following is a key action undertaken in the evaluation stage? </p>
+ <ol type="A">
+ <li>validation of all variables used in the solution </li>
+ <li>measuring the constraints that influence the solution </li>
+ <li>designing measures to protect the security of the solution </li>
+ <li>collecting data to measure the effectiveness of the solution </li>
+ </ol>
+ <p class="myanswer">Answer is D.</p>
+ <p class="myanswer">Validation occurs during development. <br />
+   How does one 'measure' a constraint?<br />
+   Design happens during... duhh... design.
+ </p>
+ <p>
+ </p><p><span class="examiner">82% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a19" id="a19"></a>A19</strong></td>
+ <td valign="top" ><p> <strong>Question 19</strong></p>
+ <p>When Julie is drawing data flow diagrams (DFD), she is always careful to follow the correct guidelines. Which one of the following statements would she regard as correct? </p>
+ <ol type="A">
+ <li>All data processes must manipulate data. </li>
+ <li>The data stores are represented by large circles. </li>
+ <li>Data flows must be labelled with the names of physical objects. </li>
+ <li>Data flows can be shown as moving directly from an&nbsp; entity to a data store. </li>
+ </ol>
+ <p class="myanswer">Answer is A.</p>
+ <p class="myanswer">Data stores are shown by parallel lines (like a big = sign).<br />
+   The flow of physical objects is not shown in a DFD.
+     <br />
+     External entities must not have direct connection to a data store. Flows to or from an EE must pass through a process.
+ </p>
+ <p>
+ </p><p><span class="examiner">64% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a20" id="a20"></a>A20</strong></td>
+ <td valign="top" ><p><strong>Question 20</strong><br />
+ </p>
+ <p>Five family members each have a notebook computer and a mobile phone. The parents have decided to give each other and each child a tablet and an ebook reader. <br />
+The users furthest away from the wi-fi router, which is located at the front of the house, may experience </p>
+ <ol type="A">
+ <li>decreased security. </li>
+ <li>decreased bandwidth. </li>
+ <li>decreased power usage. </li>
+ <li>decreases in costs and services. </li>
+ </ol>
+ <p class="myanswer">Answer is B.</p>
+ <p class="myanswer">The further you are from a WAP, the weaker its signal and the lower your bandwidth.</p>
+ <p class="comment">All those details about how many family members there are and what gadgets they own was pretty unnecessary.</p>
+ <p>
+ </p><p><span class="examiner">97% of the state got this right.</span> </p>
+ &nbsp;<p></p></td>
+ </tr>
+ <tr>
+ <td bgcolor="#CCCCCC" ></td>
+ <td><p align="left">&nbsp;</p>
+ <p align="left"><strong>Overall for section A</strong> - as usual for SD, a sound set of reasonably challenging questions.</p>
+ <p align="left" class="comment">Unfortunately, the examiner's report has reverted to bad, old habits, and <em><strong>not one</strong></em> of the answers is explained. <br />
+   Bad examiner. <strong>BAD</strong>.</p>
+ <p align="left"> <br />
+ </p></td>
+ </tr>
+ <tr>
+ <td colspan="2"></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2" valign="top" bgcolor="#99CCFF" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+ <p class="blueback">Instructions for Section B<br />
+ Answer all questions in the spaces provided.</p>
+ <p class="comment">[x lines] indicates the number of ruled lines provided on the paper for the answers.</p></td>
+ </tr>
+ <tr>
+ <td width="99" valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="c21"></a>B1 <br />
+ (5 marks)</strong></p></td>
+ <td width="996" valign="top"><p><strong>Question 1</strong></p>
+ <p align="left">Annalie asks a programmer, Sam, to help her code a program. She suggests that 50 per cent of code lines be internal documentation as that is her company's normal practice. Sam says that adding internal documentation is a waste of time and he can work much faster if he just leaves out all internal documentation.</p>
+ <p align="left">a. Outline two reasons to support Annalie's suggestion of adding internal documentation.&nbsp;2 marks </p>
+ <p>Reason 1 [4 lines] </p>
+ <p class="myanswer">It makes the meaning and purpose of the code clear to programmers. Code tends to be terse and its operation unclear. Adding remarks explains what the code is meant to do. Using code indentation and good object naming (other forms of internal documentation) makes code more readable and self-explanatory.</p>
+ <p>Reason 2 [4 lines]</p>
+ <p class="myanswer">It makes the code easier to maintain in future. Trying to understand someone else's code (or even your own code) after time has elapsed can take a lot of study without the explanations offered by internal documentation.</p>
+ <p class="myanswer"> <span class="examiner">Most students were able to provide two reasons to support the addition of internal documentation,<br />
+   with many mentioning that this assists with readability and maintainability.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>Internal documentation will aid the company in the future in maintaining or repairing the code,</em><br />
+   <em>as whoever is reading and editing it can understand its purpose.</em><br />
+   <em>Internal documentation is beneficial as it provides meaningful comments which may help</em><br />
+   <em>Annalie understand Sam&rsquo;s code. As they are both working on the project together, this is</em><br />
+   <em>necessary</em>. AVERAGE MARK 1.4</span><br />
+ </p>
+ <p>b. Describe <strong>one</strong> naming convention that you have used in programming. Explain how this convention makes programming better. Give an example to support your answer. 3 marks [6 lines]</p>
+ <p class="myanswer">Hungarian Notation - the use of a prefix to identify the type of object, such as intLength for an integer or lblName for a label. The prefix ensures each object is treated appropriately, and you don't try to store decimal places in an integer, or forget that 'Name' is a label rather that a textbox and try to set properties that don't exist for that class of object.</p>
+ <p class="comment">or</p>
+ <p class="myanswer">CamelCase - since one can't use spaces in object names, using capital letters for the initial letter of each words in an object's name makes it easier to identify the different words in the name. e.g. 'TimeOfArrival' is easier to read than 'timeofarrival'.</p>
+ <p> <span class="examiner">Although students had an understanding of naming conventions many did not fully answer the<br />
+   question. The question contained three instructional terms &lsquo;describe&rsquo;, &lsquo;explain&rsquo; and &lsquo;give (an<br />
+   example)&rsquo; and each of these parts needed to be addressed. However, often students only<br />
+   answered one part or two parts of the question, with many not providing examples.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>One naming notation is Hungarian notation such as &lsquo;btnExit&rsquo;, in which the first letters are what</em><br />
+   <em>the object is, such as button (btn) or textbox(txt) and the second half describes the purpose of</em><br />
+   <em>the it. For example, in btnExit, the &lsquo;Exit&rsquo; is the purpose of the button. This makes programming</em><br />
+   <em>better as the developers will be able to understand what the object is and its purpose, so they</em><br />
+   <em>can code it more efficiently and will less errors.</em> AVERAGE MARK 1.6.</span></p>
+ <p><span class="examiner"><br />
+   </span>
+   <!--EndFragment>><!--EndFragment-->
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b2" id="c20"></a>B2<br />
+ (4 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 2</strong></p>
+ <p>A pathology company provides patients with a device to monitor their blood sugar levels on a daily basis. After taking a reading, patients enter their blood sugar level readings into a website.<br />
+Software on the pathology company's information system will then allow:</p>
+ <ol>
+ <li>a pathologist to log in, analyse the data and store the results in the patient's file</li>
+ <li>the patient to log in and check their blood sugar levels</li>
+ <li>the patient's doctor to log in and view results.</li>
+ </ol>
+ <p>A use case diagram is drawn to help understand the system.<br />
+ Indicate all the links to represent this system correctly on the incomplete diagram below.</p>
+<p><img src="/m/pm/15s-b02.gif" width="575" height="345" alt="" /></p>
+<p>&nbsp;</p>
+<p><img src="/m/pm/15s-b02sol.gif" width="555" height="340" alt="" /></p>
+<p class="comment">A pretty basic and repetitive UCD task, IMO. <br />
+  For added value, I added the arrow heads to show that the actors could initiate the logins.<br />
+  The pathologist actor was awkwardly placed. It should have been on the other side with the patient.
+  <br />
+  How is this going to be marked?  <strong>Four</strong> marks are given for only <strong>three</strong> association lines? <br />
+  Why can medical information be accessed willy-nilly without any security?
+  <br />
+  Have I missed something?</p>
+<p class="comment"><img src="/m/pm/15s-b02sol2.gif" width="658" height="390" alt="" /></p>
+<p class="comment">Yes.<br />
+  The scenario was not realistic. <br />
+  Why could people access sensitive medical data without needing to login?<br />
+  It makes sense to make all 4 of the the data accesses <strong>always</strong> requires logged in first (using &lt;&lt;includes&gt;&gt;).<br />
+  That also neatly solves the inconvenient placement of the pathologist actor.<br />
+  It also explains the 4 marks for 4 association lines.
+</p>
+<p class="comment">Thanks to Brody for the prompt!</p>
+<p class="comment">Then a third possibility comes to mind too. Since the pathologist will firstly analyse (requiring the login) and <strong>then</strong> store, the 'store results' use case could be shown as an includes as well. </p>
+<p class="comment">Fourth possibility is that the 'store results' use case is an &lt;&lt;extends&gt;&gt; if the pathologist did not always store the results of the analysis.</p>
+<p class="comment">But in either case, the association line from pathologist to the 'store results' use case would need to be removed, and it's all getting rather too complex, and the assigned number of marks doesn't make sense again.</p>
+<p class="myanswer"><span class="comment"><img src="/m/pm/15s-b02sol3.gif" width="688" height="420" alt="" /></span></p>
+<p class="myanswer"> <span class="examiner">Most students struggled to indicate the four required relationships. A common error was showing<br />
+  the relationship as a solid line, rather than dotted lines, and arrowheads were often at the wrong<br />
+  end or at both ends. AVERAGE MARK 0.7</span><br />
+</p>
+<p class="myanswer"><img src="/m/pm/15s-b02-examiner.gif" width="715" height="431" alt="examiner's UCD
+"/></p>
+<p class="comment">Above is the examiner's solution.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b3" id="c19"></a>B3 <br />
+ (5 marks)</strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 3</strong></p>
+ <p align="left">Sue has written a program to record the results of History tests. She has decided to use a two-dimensional array to hold the results of four tests so that each row corresponds to a student. The programming language that she is using does not allow her to mix data types. She has decided to set up a one-dimensional array sorted by students' names, Names[ ], to store the students' names. Each position in Names[ ] corresponds to the position of the student's results in the two-dimensional array, called Results[ ][ ]. In this case, the index values start with 1.<br />
+ &nbsp;&nbsp;</p>
+ <table width="80%" border="0" cellspacing="0" cellpadding="3">
+ <tbody>
+ <tr>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td><table border="1" cellspacing="0" cellpadding="3">
+   <tr>
+     <td align="center" valign="top" bgcolor="#F0EDAB"><strong>Array: Names[ ]</strong></td>
+     <td colspan="4" align="center" valign="top" bgcolor="#F5B9BA"><strong>Array: Results[ ][ ]</strong></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Amy </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">23 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">30 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">25 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">26 </p></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Ben </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">19 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">20 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">14 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">20 </p></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Charlie </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">27 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">29 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">28 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">26 </p></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Harriett </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">25 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">29 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">27 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">25 </p></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Olivia </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">29 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">24 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">28 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">30 </p></td>
+     </tr>
+   <tr>
+     <td width="76" valign="top" bgcolor="#F0EDAB"><strong>Sophie </strong></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">27 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">30 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">22 </p></td>
+     <td width="76" valign="top" bgcolor="#F5B9BA"><p align="center">27 </p></td>
+     </tr>
+ </table></td>
+ </tr>
+ </tbody>
+ </table>
+ 
+ 
+ 
+<p></p>
+<p>a. The total mark for each test is 30. No half-marks are awarded. <br />
+ What was Olivia's test score for the third test? 1 mark [1 line]</p>
+<p class="myanswer">28.</p>
+<p class="comment">You mean - that's IT? 
+  That's all? Just effectively <strong>read a table</strong>?<br />
+  It hardly takes a year of study to work that one out.</p>
+<p class="comment">And why was it necessary to point out &quot;The total mark for each test is 30. No half-marks are awarded.&quot;<br />
+  It's completely irrelevant to any question asked! It seems like the examiner planned to use it to ask other questions (e.g. the array's data type), then didn't.
+</p>
+<p class="examiner">The correct response was 28. AVERAGE MARK 1.</p>
+<p>b. The lowest test score is 14. <br />
+ What are the index values for i and j in Results [i, j] for this test score? 1 mark [1 line]</p>
+<p class="myanswer">Results[2,3]<span class="examiner"></span></p>
+<p class="myanswer"><span class="examiner"> Many students were able to read the array correctly and provide the index values for i and j in<br />
+  Results [i,j]. The index values were [2,3]; however, a number of students incorrectly provided [3,2]. AVERAGE MARK 0.5.</span><br />
+</p>
+<p>c. To find the total of the four test scores of a student, would Sue write a procedure to find the sum of each column or the sum of each row? 1 mark [1 line]</p>
+<p class="myanswer">Each row.</p>
+<p class="myanswer"> <span class="examiner">Most students were able to identify that the sum of each row was required to perform the<br />
+  calculation described. AVERAGE MARK 0.8.</span><br />
+</p>
+<p>d. State <strong>two</strong> reasons why Sue has used a two-dimensional array instead of four one-dimensional arrays to store the test scores. 2 marks [4 lines]</p>
+
+<p class="myanswer">1. Using 4 arrays, she would have had to repeat code four times to manipulate each test. This is a lot of unnecessary coding that would only make the software bigger and slower - and no better.</p>
+<p class="myanswer">2. Using one array means she can quickly and easily use nested loops to process all students and all tests in one operation. She could loop  vertically to add all students' test results and then generate a class average for each test, or horizontally add values to get each student's total or average over all four tests.</p>
+<p class="comment">This would have been a chance to get students to write pseudocode to actually create a test average for each student.<br />
+  You can do it anyway, just for the exercise.
+</p>
+<p class="examiner"> A number of possible reasons were accepted; however, more commonly students identified that it<br />
+  was easier to add scores and more efficient (easier) programming.<br />
+  The following is an example of a high-scoring response.<br />
+  <em>An individual separate test scores can be easily referenced or summed.</em><br />
+  <em>All the data is found within one structure making it easier to manage the code.</em> AVERAGE MARK 0.6</p>
+<p class="examiner"><br />
+</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><strong><a name="b4" id="c18"></a>B4 <br />
+ (2 marks)</strong></td>
+ <td valign="top"><p><strong>Question 4</strong></p>
+ <p align="left">Teachers and students use the same computer network in a school. Teachers are concerned that tests and personal information kept on their computers may be accessed by students.<br />
+ Describe a test that could be carried out to see if students can access this information. [5 lines]</p>
+<p class="myanswer">A penetration test (pen test) could be organised whereby someone (perhaps a reliable and skilful student) attempts to access some dummy information that has been placed in a teacher's data storage area on the network. If the person can access the dummy information without being given any special privileges or credentials, the network has been shown to be insecure and should be strengthened.</p>
+<p class="myanswer"> <span class="examiner">Students were asked to describe a test that could be carried out to see if students were able to<br />
+  access teachers&rsquo; computers on the network. A number of students incorrectly wrote the statement<br />
+  &lsquo;do a penetration test&rsquo;, and failed to follow the instructional term &lsquo;describe&rsquo;.<br />
+  The following is an example of a possible response: A teacher or an administrator could be given a<br />
+  student login and attempt to access the restricted teacher data on their computer or network folder.<br />
+  Folder and individual file access should be checked. Results should then be reported to<br />
+  appropriate IT personnel. AVERAGE MARK 0.9</span></p>
+<p class="myanswer"><br />
+</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b5" id="c17"></a>B5<br />
+ (4 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 5</strong></p>
+ <p align="left">Explain how error logs can be used to measure the reliability and maintainability of a network. </p>
+ <p align="left">Reliability [5 lines]<br />
+ </p>
+ <p align="left" class="myanswer">The more errors that are recorded in the log over time, the greater the evidence that the system suffers from faults and is not reliable. If there are few errors in the log, the system is more reliable.</p>
+ <p align="left">Maintainability [5 lines]</p>
+<p class="myanswer">If the error rate reported in the log increases over time, it's a sign that the system is hard to maintain and is becoming increasingly error-prone. If the error rate stays consistent, it is evidence that the system can be repaired and upgraded appropriately because it's not getting any worse.</p>
+ <p class="comment"> <span class="examiner">Students answered this question with varying degrees of success. It was important for students to<br />
+   explain how error logs could measure the reliability and maintainability of a network; for example,<br />
+   that a large number of errors in an identified period of time may suggest that the network was<br />
+   unreliable.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>Reliability is how long the network can operate in its intended environment. Error logs could be</em><br />
+   <em>used to analyse the number and length of breakdowns and downtimes in the network. If the</em><br />
+   <em>error logs show that the network has been down often it is not reliable.</em><br />
+   <em>Maintainability is the effort, time and cost required to keep the network running and also how</em><br />
+   <em>easily it can be upgraded or fixed. Error logs can be used to identify how many breakdowns</em><br />
+   <em>there were and how long each one took to fix. If the network was down for a long time it shows</em><br />
+   <em>that the network has low maintainability as it is hard to fix errors and keep it running.</em> AVERAGE MARK 1.7.</span></p>
+ <p class="comment"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td colspan="2" valign="top" bgcolor="#99CCFF"><p class="comment">Section B overall - <br />
+   The UCD scenario could have emphasised the NEED for actors to login before accessing medical data. <br />
+   The array questions were rather too basic.</p>
+ <p class="comment">&nbsp;</p></td>
+ </tr>
+</table>
+<div align="left">
+ <table>
+ <tr>
+ <td valign="top" ></td>
+ </tr>
+ <tr>
+ <td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+ <p align="left">CASE STUDY INSERT FOR SECTION C<br />
+ Please remove from the centre of this book during reading time. </p>
+ <p><strong>Case study</strong></p>
+ <p class="question">Case study<br />
+ A large regional city council is due to elect new council members. The city council covers an area of 
+ 20000 square kilometres and has a population of 50000. The council members are elected by council 
+ residents and property owners who are legally able to vote. The council maintains an electronic roll of all 
+ eligible voters (voters' electoral roll). This year, the council has decided to use electronic voting to collect 
+ and count the votes.</p>
+ <p class="question"> The current proposal is to use specially designed desktop computers (voting machines) connected to a server 
+ at each polling booth. Each of the servers will be linked to the main server at the council's office. When 
+ voters cast their votes, the data will be uploaded to the local file server at the polling booth. A file of voters 
+ who have voted will be created and a separate file containing the actual votes, stripped of any identification, 
+ will also be created. These files will then be transmitted to the local council records, where they will be 
+ stored on the main server as part of the council's computer system.</p>
+ <p class="question"> All voters who cannot attend on Election Day will be required to vote earlier at the council's office or request 
+ access to the mobile voting service, if they meet certain eligibility criteria. The mobile voting service will 
+ be available to voters who live within the council's boundaries and are at least 80 years of age or have a 
+ diagnosed medical condition that may prevent them from travelling to a polling booth. A mobile device will 
+ be brought to eligible voters so that they can cast their vote. The mobile device will be connected wirelessly 
+ to the main server at the council's office.</p>
+ <p class="question"> The proposed voting system will operate two weeks prior to, and on, Election Day. Voters who need to vote 
+ before Election Day will be required to come into the council's office during this period to cast their votes. 
+ The mobile service will be available only on application.</p>
+ <p class="question"><img src="/m/pm/15s-cs01.gif" width="616" height="501" alt="" /></p>
+ <ul>
+   <li>The electronic voting system is expected to have the following advantages:</li>
+   <li>     It substantially reduces invalid votes.</li>
+   <li>It allows for election results to be known	earlier.</li>
+   <li>It eliminates the need to employ staff to count votes.</li>
+   <li>It reduces postal voting.</li>
+   <li>It is accessible to those with disabilities.</li>
+   <li>It reduces the possibility of human manipulation of the results.</li>
+ </ul>
+ <p align="left"><strong>END OF CASE STUDY INSERT FOR SECTION C</strong></p></td>
+ </tr>
+ </table>
+ <table>
+ <tr>
+ <td colspan="2" bgcolor="#FFFFCC"><p align="left"><strong>Instructions for Section C</strong></p>
+ <p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p></td>
+ </tr>
+ <tr>
+ <td width="97" valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c1" id="c1"></a>C1 </strong></p>
+ <p class="question"><strong> (2 marks)</strong></p>
+ <p class="question">&nbsp;</p></td>
+ <td width="1006" valign="top"><p align="left"><strong>Question 1</strong></p>
+ <p>The council has appointed the company Marvellous Management Systems (MMS) to produce the voting software. The council has provided the information in the case study insert and has asked MMS for the software requirements specifications (SRS) document as soon as possible.<br />
+ Explain the purpose of the SRS document. [5 lines]</p>
+<p align="left" class="myanswer">An SRS documents the scope, constraints and requirements of the new software, and is used to guide the design, development and evaluation of the system.</p>
+<p align="left"> <span class="examiner">The study design indicates that the &lsquo;software requirements specifications fulfils the purposes of<br />
+  breaking down the problem into component parts, providing input to the designing stage and<br />
+  serving as a reference point for further stages of the problem-solving methodology&rsquo;. &lsquo;It documents<br />
+  the key tasks associated with the analysing stage of the problem-solving methodology. The<br />
+  software requirements specifications (SRS) fully describes the functional requirements (what it is<br />
+  required to do) and non-functional requirements of the solution (solution attributes)&hellip; the<br />
+  conditions affecting the solution (constraints) and the parameters of the solution (scope).&rsquo;<br />
+  Students responded with varying levels of knowledge, from very vague comments (&lsquo;documents<br />
+  what the solution will be like&rsquo;) to clear and detailed responses. Students were expected to show<br />
+  depth of understanding in their response.<br />
+  The following is an example of a high-scoring response.<br />
+  <em>The SRS is written after the proposed solution has been analysed and contains the solution</em><br />
+  <em>requirements, the scope, constraints and its intended operating environment. The purpose of</em><br />
+  <em>the SRS is to provide direction to the developers so they clearly understand what the solution</em><br />
+  <em>must do, what to include, what not to include and it helps them focus on the project.</em> AVERAGE MARK 1.0</span></p>
+<p align="left"><br />
+</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c2" id="c2"></a>C2 </strong></p>
+ <p class="question"><strong> (4 marks)</strong></p></td>
+ <td valign="top" ><p><strong>Question 2</strong></p>
+ <p>Sally, as the manager of the voting software for MMS, is beginning to write the SRS document.<br />
+ Provide two important non-functional requirements relevant to this voting software for Sally's SRS and explain why each is relevant to the software.<br />
+ </p>
+ <p>Requirement 1 [1 line] - <span class="myanswer">It must be able to work on a mobile device.</span></p>
+ <p>   Explanation [2 lines] - <span class="myanswer">Voters who can't attend on Election Day will be visited at their home so they can cast their vote. This will only work if the software can be run on a mobile device.</span></p>
+ <p>   Requirement 2 [1 line] - <span class="myanswer">It must work quickly.</span></p>
+ <p>Explanation [3 lines] - <span class="myanswer">One expected advantage is that it allows for election results to be known earlier.</span></p>
+ <p class="myanswer">Also:</p>
+ <ul>
+   <li class="myanswer">It needs to be usable by people with disabilities - such as the elderly or people with diagnosed disorders.</li>
+   <li class="myanswer">It needs to be secure, to reduce the possibility of human manipulation of the election results.</li>
+   </ul>
+ <p> <span class="examiner">A number of non-functional requirements could have been discussed in response to this question;<br />
+   however, the most common responses were user friendliness/ease of use and reliability. It was not<br />
+   appropriate in this scenario to discuss maintainability.<br />
+   The following are examples of high-scoring responses.<br />
+   <em>Ease of use &ndash; with so many voters of different ages and levels of technical ability, the system</em><br />
+   <em>must be easy to understand, navigate and use.</em><br />
+   <em>User friendliness of the voting system- as thousands of residents will be voting (many of which</em><br />
+   <em>may be inexperienced with IT) voting needs to be a quick and simple process to avoid large</em><br />
+   <em>queues and waiting times.</em><br />
+   <em>The voting software must be 100% reliable &ndash; the software store the voters add their votes for</em><br />
+   <em>transfer to the main server and must be able to operate with not breakdowns or all the important</em><br />
+   <em>data will be lost and must be recollected</em>. AVERAGE MARK 1.9</span></p>
+ <p><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c3" id="c3"></a>C3 </strong></p>
+ <p class="question"><strong> (6 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 3</strong></p>
+ <p>Sally continues her analysis by drawing a context diagram and she has started a data flow diagram (DFD).</p>
+<p class="question">&nbsp;</p>
+ <p class="question"><img src="/m/pm/15s-c03.gif" width="648" height="270" alt="" /></p>
+ <p class="question">a. List the entities involved. 2 marks [1 line]</p>
+ <ul>
+   <li class="myanswer">Voters</li>
+   <li class="myanswer">Council</li>
+   </ul>
+ <p> <span class="examiner">The two entities involved were voters and council, and most students were able to identify them<br />
+   correctly. AVERAGE MARK 1.8</span><br />
+ </p>
+ <p class="question">b. There are three processes:</p>
+ <ul>
+ <li>Process A - Allocate votes to candidates</li>
+ <li>Process B - Prepare reports for each candidate</li>
+ <li>Process C - Check voter eligibility and record votes</li>
+ </ul>
+ <p>From these processes, select the correct two for the circles labelled 1 and 2 in the DFD below.</p>
+Write your answers in the circles.
+ <p class="question"><img src="/m/pm/15s-c03b.gif" width="748" height="594" alt="" /></p>
+ <p class="myanswer">Process 1 - Check voter eligibility and record votes</p>
+ <p class="myanswer">Process 2 - Allocate votes to candidates</p>
+ <p class="explanation">Process 1 imports voter_ID_details (to check voter eligibility) and exports voting_data (to record votes)</p>
+ <p class="explanation">Process 2 exports individual_votes to each of 3 candidates (which is allocating votes)</p>
+ <p class="question"> <span class="examiner">The two processes required in the DFD were:<br />
+   &bull; 1. Process C &ndash; Check voter eligibility and record votes<br />
+   &bull; 2. Process A &ndash; Allocate votes to candidates. AVERAGE MARK 1.6</span><br />
+ </p>
+ <p class="question">c. Using the context diagram, the DFD and correct labelling conventions, choose labels for the data flows numbered 3 and 4. 2 marks<br />
+   3. [1 line]</p>
+ <p class="myanswer">Voting_data</p>
+ <p class="explanation">You can see this in the context diagram. <br />
+   The 'Voters' external entity has 2 outputs - voter_ID-details and voting_data. The DFD already shows the voter_ID-details input
+ so the missing one must be voting_data. </p>
+ <p class="question"> 4. [1 line]</p>
+ <p class="question">
+</p>
+ <p class="myanswer">Election_results</p>
+ <p class="explanation">Again, the context diagram shows there is only one data export from the system to the council. This is the same mystery flow in the DFD.</p>
+ <p class="explanation"> <span class="examiner">Students should be encouraged to use the data flow diagram to assist in formulating accurate<br />
+   responses, particularly with respect to labelling conventions. The two data flows were:<br />
+   &bull; 3. Voting_ data<br />
+   &bull; 4. Election_results. AVERAGE MARK 1.1</span></p>
+ <p class="explanation"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c4" id="c4"></a>C4 </strong></p>
+ <p class="question"><strong>(6 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 4</strong></p>
+ <p>The council wants to offer mobile voting to voters aged 80 and above or those who may be unable to get to the polling booth due to a diagnosed medical condition. To obtain an estimate of how many voters will require mobile voting, Sally has decided to use the council's electronic roll of eligible voters. She will create a file containing each voter's name, address, age and information on whether they have a diagnosed medical condition. The following algorithm is suggested, with Age being the age of the person in years and Medical indicating if they have a diagnosed medical condition. </p>
+ <p><img src="/m/pm/15s-c04.gif" width="457" height="353" alt="" /></p>
+ <p >a. To check this algorithm before coding, the data in the table below was created.</p>
+ <p>Complete the table by filling in both expected and actual values after each record is read and the loop is executed. 3 marks</p>
+ 
+ <table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="117" valign="top"><strong> Record number </strong></td>
+ <td width="57" valign="top"><p align="left"><strong>Age </strong></p></td>
+ <td width="76" valign="top"><p align="left"><strong>Medical </strong></p></td>
+ <td width="144" valign="top"><p align="left"><strong>Expected value of NumberEligible </strong></p></td>
+ <td width="144" valign="top"><p align="left"><strong>Actual value of NumberEligible </strong></p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="center">1 </p></td>
+ <td width="57" valign="top"><p align="center">81 </p></td>
+ <td width="76" valign="top"><p align="left">False </p></td>
+ <td width="144" align="center" valign="top"><p align="center">1 </p></td>
+ <td width="144" align="center" valign="top"><p align="center">1 </p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="center">2 </p></td>
+ <td width="57" valign="top"><p align="center">75 </p></td>
+ <td width="76" valign="top"><p align="left">True </p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>2</p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>2</p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="center">3 </p></td>
+ <td width="57" valign="top"><p align="center">75 </p></td>
+ <td width="76" valign="top"><p align="left">False </p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>2</p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>2</p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="center">4 </p></td>
+ <td width="57" valign="top"><p align="center">85 </p></td>
+ <td width="76" valign="top"><p align="left">True </p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>3</p></td>
+ <td width="144" align="center" valign="top" class="myanswer"><p>4</p></td>
+ </tr>
+ </table>
+ <p class="comment">This was so obvious that a thorough deskcheck may not even have been necessary.   Do it now anyway - as an exercise.
+ </p>
+ <p class="comment"> <span class="examiner">Many students struggled with this question &ndash; many had the correct expected values but did not<br />
+   provide the correct actual values. The use of trace tables/desk checks is encouraged as a method<br />
+   of checking the logic and flow of an algorithm; students are able to draw and write on and around<br />
+   the algorithm to aid the checking process. AVERAGE MARK 1.0 </span></p>
+ <p class="comment">[The examiner's answers match mine above].<span class="examiner"><br />
+ </span></p>
+ <p class="comment">&nbsp;</p>
+ <p>b. Outline the major error in this algorithm. 1 mark [4 lines]</p>
+ <p class="myanswer">If someone's age is &gt;= 80, and they <strong>also</strong> have Medical=True the NumberEligible is incremented for <strong>each</strong> condition, instead of just once. </p>
+ <p class="myanswer"> <span class="examiner">Many students were able to identify that the error occurred because the value of NumberEligible is<br />
+   increased by 1 when the person&rsquo;s age is over 80 and increased again when they have a medical<br />
+   condition, i.e. an increase of 2 rather than 1. AVERAGE MARK 0.6</span><br />
+ </p>
+ <p>c. Write new lines of code to correct this error. 2 marks [9 lines]</p>
+ <p class="myanswer">Remove both IF structures and replace with...</p>
+ <p class="myanswer">IF age &gt;= 80 or Medical = True then<br />
+   <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> NumberEligible <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> NumberEligible +1<br />
+   ENDIF</p>
+ <p class="comment">The examiners' answer is the same as mine. AVERAGE MARK 1.0</p>
+ 
+ </td></tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c5" id="c5"></a>C5 </strong></p>
+ <p class="question"><strong> (4 marks)</strong></p>
+ <p class="question">&nbsp;</p></td>
+ <td valign="top"><p><strong>Question 5</strong></p>
+ <p>Sally has started a data dictionary of all the variables that will be used in the voting software.<br />
+For each variable in the table below, state the most appropriate data type and a description of what it is used for. An example has been provided.</p>
+
+ <table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="117" valign="top"><strong> Variable name </strong></td>
+ <td width="113" valign="top"><p align="center"><strong>Type </strong></p></td>
+ <td width="413" valign="top"><p align="center"><strong>Description </strong></p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="left">Name </p></td>
+ <td width="113" valign="top"><p align="left" class="cursive">string </p></td>
+ <td width="413" valign="top"><p align="left" class="cursive">stores the names of all those eligible to vote </p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="left">NumberEligible </p></td>
+ <td width="113" valign="top" class="myanswer"><p>integer</p></td>
+ <td width="413" valign="top" class="myanswer"><p>a count of how many voters are eligible for mobile voting.</p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top"><p align="left">Medical </p></td>
+ <td width="113" valign="top" class="myanswer"><p>Boolean</p></td>
+ <td width="413" valign="top" class="myanswer"><p>does a voter have a diagnosed medical condition - true or false?</p></td>
+ </tr>
+ </table>
+ <p class="comment"> <span class="examiner">Students were generally aware of the appropriate data type; however, a number failed to provide<br />
+   sufficient information in the description. For example, a number of students indicated that<br />
+   &lsquo;NumberEligible&rsquo; was the number eligible for voting, where the key was that they were eligible for<br />
+   mobile voting.</span> AVERAGE MARK 1.0<br />
+ </p>
+ <p class="comment">The examiners' answer is the same as mine. </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c6" id="c6"></a>C6 </strong></p>
+ <p class="question"><strong> (2 marks)</strong></p>
+ <p class="question">&nbsp;</p>
+ <p class="question">&nbsp;</p></td>
+ <td valign="top"><p class="question"><strong>Question 6</strong></p>
+ <p>Choose the best data structure from the list below for the data in the voters' electoral roll:</p>
+ <ul>
+ <li>one-dimensional array</li>
+ <li>file</li>
+ <li>record</li>
+ </ul>
+ <table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td width="265" valign="top"><p align="center"><strong>Description </strong></p></td>
+ <td width="322" valign="top"><p align="center"><strong>Data structure </strong></p></td>
+ </tr>
+ <tr>
+ <td width="265" valign="top"><p align="left">storage of <strong>all</strong> of <strong>one</strong> voter's details </p></td>
+ <td width="322" align="center" valign="top" class="myanswer"><p>record</p></td>
+ </tr>
+ <tr>
+ <td width="265" valign="top"><p align="center">storage of all voters' surnames in RAM </p></td>
+ <td width="322" align="center" valign="top" class="myanswer"><p>one-dimensional array</p></td>
+ </tr>
+ </table>
+<p class="explanation">The &quot;in RAM&quot; bit is essential. Arrays only apply to storage in primary memory.</p>
+ <p class="examiner"><span class="comment">The examiners' answer is the same as mine. AVERAGE MARK 1.2</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c7" id="c7"></a>C7</strong></p>
+ <p class="question"><strong> (4 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 7</strong></p>
+ <p>A member of Sally's team has suggested using a virtual private network (VPN) for sending the voting data back to the council.<br />
+ Explain <strong>two</strong> advantages for the council of using a VPN rather than the internet using HTTP or HTTPS. [9 lines]</p>
+ 
+ <p class="myanswer">Communications over a  VPN are very securely encrypted, so data will be safe during transit. <br />
+   A VPN is obviously better than HTTP, which is not encrypted at all, and is very insecure since it's easy to intercept and read packets as they travel.<br />
+   HTTPS is encrypted with public key encryption (SSL or TLS) which offer good protection (but there have been recent cases of security holes in some SSL libraries.) <br />
+   Also, SSL happens at layer 7 of the OSI model, and most VPNs work at the network layer (3), which means it protects data from bad guys on the internet earlier than SSL does. But remember: not even VPN is guaranteed 100% secure. No software ever will be.</p>
+ <p class="comment">What's a <strong><em>second</em></strong> advantage of VPN? <br />
+   Is it quicker to type &quot;VPN&quot; than &quot;HTTPS&quot;? <br />
+   Does it sound more impressive if you say you have a VPN?</p>
+ <p class="comment">This is quite a technical question - especially the difference between HTTPS and VPN. 
+   <br />
+   It's a bit too rough on most students, I'd say.<br />
+   I predict that most students will score badly on this question.
+ </p>
+ <p class="comment"> <span class="examiner">Most students had difficulty with providing technically accurate information or responses were<br />
+   generic statements without depth. The question required a response that addressed the<br />
+   advantages to the council, not just the advantages of a VPN. There was also an expectation that<br />
+   students considered the advantages when compared to HTTP or HTTPS. One key advantage<br />
+   being the encryption provided between the polling booth and the council, which was essential for<br />
+   security of data as well as privacy of voting information.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>One advantage of the VPN will be that it will not require the council to build any new</em><br />
+   <em>infrastructure to facilitate the sending of data as a VPN will utilise already made networks. A</em><br />
+   <em>VPN will also be more secure than internet using HTTP or HTTPS. One reason for this is that a</em><br />
+   <em>VPN will require users to login with a username and password, which only approved council</em><br />
+   <em>workers will possess. The data will also be encrypted in a VPN so that if it is intercepted it still</em><br />
+   <em>cannot be read, and is therefore more secure than a standard HTTP or HTTPS.</em> </span></p>
+ <p class="comment"><span class="examiner">AVERAGE MARK 1.5.</span></p>
+ <p class="comment">Told you so.<br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c8" id="c8"></a>C8</strong></p>
+ <p class="question"><strong> (3 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 8</strong></p>
+ <p> The voting software will need to be accessible to all eligible voters. This includes voters with special needs, such as visual impairments, reading disabilities and physical disabilities.<br />
+ Outline how these special needs will influence the design of the voting software.<br />
+ </p>
+ <p>Visual impairments [4 lines]</p>
+ <ul>
+   <li class="myanswer">The display of text will need to be large enough to read easily, and have good contrast.</li>
+   <li class="myanswer">There should be no use of coloured text on coloured background that is unreadable to people with colour-blindness.</li>
+   <li class="myanswer">   It might need an option to narrate the display to voters who are completely blind.</li>
+ </ul>
+ <p>   Reading disabilities [4 lines]</p>
+ <ul>
+   <li class="myanswer">Instructions and information should be expressed using simple, clear language with a basic vocabulary and short sentences.</li>
+   <li class="myanswer">Icons or images (e.g. photos of candidates) should supplement textual information.</li>
+ </ul>
+ <p>   Physical disabilities [4 lines]</p>
+ <ul>
+   <li class="myanswer">Controls (e.g. tickboxes, buttons) should be big enough to be accessed by those with poor coordination.</li>
+   <li class="myanswer">Every data input should be able to be cancelled in case of erroneous data entry.</li>
+   <li class="myanswer">Several types of input devices should be supported by the software to cater for people with different disabilities (e.g. voice input for people with no arms)</li>
+ </ul>
+ <p class="comment"> <span class="examiner">Most students were able to discuss accessibility issues, with many providing a range of<br />
+   considerations for design. For example:<br />
+   &bull; visual impairments: consideration of font size<br />
+   &bull; reading disabilities: use of pictures or diagrams, limiting text<br />
+   &bull; physical disabilities: the use of buttons, and alternative input methods, such as voice, the size of<br />
+   objects within the interface, etc. AVERAGE MARK 2.2</span></p>
+ <p class="comment"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c9" id="c9"></a>C9</strong></p>
+ <p class="question"><strong> (6 marks)</strong></p></td>
+ <td valign="top" ><p class="question"><strong>Question 9</strong></p>
+ <p align="left">Voters may need to update their details on the electronic electoral roll. Sally needs to be sure that all data entered into this file is reasonable.</p>
+ <p>a. What is this technique called?
+ 1 mark [1 line] </p>
+ <p class="myanswer">Validation.</p>
+ <p class="myanswer"> <span class="examiner">A majority of students were able to identify validation as the technique described. AVERAGE MARK 0.6</span><br />
+ </p>
+ <p class="question">b. Surnames must contain alphabetic characters and may also contain an apostrophe ('), hyphens and spaces. The field &lsquo;Surnames' cannot be blank and no upper limit on length is set. <br />
+ Surnames must start with an upper-case letter.<br />
+ In the table below, create five test data that could be used to check the processing of names.<br />
+ The test data should test a wide variety of conditions. An example has been provided. 5 marks</p>
+
+ <table width="100%" border="1" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="112" valign="top"><strong> Test <br />
+ no. </strong></td>
+ <td width="431" valign="top"><p align="center"><strong>Test data </strong></p></td>
+ <td width="311" valign="top"><p align="center"><strong>Expected output </strong></p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p align="center">1 </p></td>
+ <td width="431" valign="top"><p align="left" class="cursive">Smith </p></td>
+ <td width="311" valign="top"><p align="left" class="cursive">Valid Name </p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p>2 </p></td>
+ <td width="431" valign="top" class="myanswer"><p>123</p></td>
+ <td width="311" valign="top" class="myanswer"><p>Invalid name</p>
+   <p>(No letters.)</p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p align="center">3 </p></td>
+ <td width="431" valign="top" class="myanswer"><p>O'Mc Donald-Jones</p></td>
+ <td width="311" valign="top" class="myanswer"><p>Valid name</p>
+   <p>(Accepts punctuation.)</p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p>4 </p></td>
+ <td width="431" valign="top" class="myanswer">&nbsp;</td>
+ <td width="311" valign="top" class="myanswer"><p>Invalid name </p>
+   <p>(Empty)</p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p align="center">5 </p></td>
+ <td width="431" valign="top" class="myanswer"><p>von Hindenburg</p></td>
+ <td width="311" valign="top" class="myanswer"><p>Invalid name. </p>
+   <p>(Does not start with capital letter.)<br />
+     <span class="comment">I pity the von Hindenburg family when they vote.</span></p></td>
+ </tr>
+ <tr>
+ <td width="112" align="center" valign="top"><p>6 </p></td>
+ <td width="431" valign="top" class="myanswer"><p>Johann Gambolputty de von Ausfern -schplenden -schlitter -crasscrenbon -fried -digger -dangle -dungle -burstein -von -knacker -thrasher -apple -banger -horowitz -ticolensic -grander -knotty -spelltinkle -grandlich -grumblemeyer -spelterwasser -k&uuml;rstlich -himble -eisen -bahnwagen -gutenabend -bitte -eine -n&uuml;rnberger -bratwurstle -gerspurten -mit -zweimache -luber -hundsfut -gumberaber -sh&ouml;nendanker -kalbsfleisch -mittler -raucher von Hautkopft of Ulm.</p></td>
+ <td width="311" valign="top" class="myanswer"><p>Valid name</p>
+   <p>(Tests the lack of a length limit.)</p>
+   <p class="comment"><a href="https://www.youtube.com/watch?v=UDPqB9i1ScY">Monty Python fans</a> might recognise this valid name.</p></td>
+ </tr>
+</table>
+
+<p class="question"> <span class="examiner">Most students were able to provide a range of test data; however, a number of students tested the<br />
+  same thing on more than one occasion.<br />
+  The following is a set of possible tests. There was a range of accepted tests. AVERAGE MARK 4.2</span></p>
+<p class="question"><br />
+</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c10" id="c10"></a>C10</strong></p>
+ <p class="question"><strong> (2 marks)</strong></p>
+ <p class="question">&nbsp;</p></td>
+ <td valign="top"><p class="question"><strong>Question 10</strong></p>
+ <p align="left">MMS has made a recommendation to the council to mail to each voter a printed copy of a simple quick start guide to assist them with the use of the online voting software. The council had assumed that all user documentation would be built into the software and this would help them to reduce printing costs.<br />
+ Explain one disadvantage (other than cost) of providing voters with a simple printed quick start guide instead of in-built user documentation in this situation. [4 lines]</p>
+ <ul>
+   <li class="myanswer">It's slow and labour-intensive to print and distribute.</li>
+   <li class="myanswer">Few people will remember to bring the documentation with them when they vote.</li>
+   <li class="myanswer">It is easily lost.</li>
+   <li class="myanswer">It can't be quickly searched for key words.</li>
+   <li class="myanswer">It can't contain animation, sound, narration, video information.</li>
+   <li class="myanswer">Hyperlinks can't be inserted to connect separate sections of the discussion.</li>
+   <li class="myanswer">Late changes, updates or corrections cannot be easily made and distributed.</li>
+ </ul>
+ <p class="question"> <span class="examiner">A number of students concentrated on the inefficiency of the postal service or people&rsquo;s inability to<br />
+   remember to bring the guide with them as the main disadvantages of a printed quick start, rather<br />
+   than the concerns with the content or format of this form of documentation.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>Users will need to read through the quick start guide to find the area they are struggling with,</em><br />
+   <em>whereas in-built user documentation would give users specific help at the section they are up to</em><br />
+   <em>in the voting process.</em> AVERAGE MARK 0.9</span></p>
+ <p class="question"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c11" id="c11"></a>C11 </strong></p>
+ <p class="question"><strong> (2 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 11</strong></p>
+ <p class="question"> In order for the election process to run smoothly, election officials will need to be trained to use the new voting software. The council will need to employ at least 60 officials to supervise voting at the polling booths. Many of these officials will be employed only for Election Day and could have other employment on other days.<br />
+Describe a low-cost training strategy that the council could use to ensure that all of its election officials employed on Election Day are able to perform their duties. [7 lines]</p>
+ <p class="myanswer">Online training will probably be the cheapest and most convenient. Video tutorials could be put on a password-protected part of the council website with animated multimedia explanations and electronic tests. The completion of tests, and the test results can be stored by the council to ensure officials are now qualified.</p>
+ <p class="explanation">The traditional methods - lecture, small-group, and train-the-trainer are not really appropriate here.<span class="examiner"></span></p>
+ <p class="question"><span class="examiner"> Students often provided responses such as train-the-trainer or a centralised training session;<br />
+   however, due to the travel distances required and the time to complete this while still engaged in<br />
+   other employment, these options were, in general, unreasonable. The most appropriate low-cost<br />
+   strategy was an online training strategy.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>The council could provide online training which requires all of the election officials to complete a</em><br />
+   <em>course on the new voting software online via videos or online tutorial. The council could give</em><br />
+   <em>each official an account to track if they have completed the training or not. The benefit of this is</em><br />
+   <em>that it is very cheap, the officials can do it in their own time so that it doesn&rsquo;t interfere with their</em><br />
+   <em>jobs, and they can repeat parts of the online training that they didn&rsquo;t understand the first time.</em> AVERAGE MARK 0.5</span></p>
+ <p class="question"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c12" id="c12"></a>C12</strong></p>
+ <p class="question"><strong> (4 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 12</strong></p>
+ <p>The data collected from the file servers at the polling booths and through mobile voting is irreplaceable. The data must be retained and must be collected even if the internet connection is lost between the polling booth file servers or the mobile devices and the main server at the council's office.<br />
+ Describe a method to do this for data</p>
+ <p>1. on the polling booth file server [4 lines]</p>
+ <ul>
+   <li class="myanswer">Data should be stored on the server and - optionally - also a network-attached storage (NAS) device.</li>
+   <li><span class="myanswer">If the internet connection is lost
+     </span>
+     <ul>
+       <li class="myanswer">if a 3G or 4G connection exists, data could be sent using wireless broadband.</li>
+       <li class="myanswer">data could be copied to a portable hard disk or USB drive and physically transported to the council's office</li>
+       </ul>
+   </li>
+   </ul>
+ <p>2.  on the mobile devices. [4 lines]</p>
+ <ul>
+   <li class="myanswer">Data should be stored on SD card or Flash drive.</li>
+   <li><span class="myanswer">If the internet connection is lost
+     </span>
+     <ul>
+       <li class="myanswer">data on the card or drive can be physically transported to the council's office</li>
+       </ul>
+   </li>
+   </ul>
+ <p class="comment">I'm having trouble working out what key knowledge the examiner is fishing for.<br />
+   Is it about storage media? Or is it alternatives to the internet, such as carrier swallows (either <a href="https://www.youtube.com/watch?v=liIlW-ovx0Y">African or European</a>), <a href="https://www.youtube.com/watch?v=91_jymgH8QY">semaphore</a>, or mental telepathy?</p>
+ <p> <span class="examiner">Students struggled to provide clear and technically accurate responses to this question. Many<br />
+   simply stated back up the data and send later, without including any specific details. The question<br />
+   asked students to describe a method by which data could make it to the main server if the internet<br />
+   connection was lost, so students needed to provide a procedure or a number of steps that would<br />
+   be followed to accomplish this task.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>The data on the polling booth file server could be automatically backed up and written to on-site</em><br />
+   <em>hard drives, meaning that any lost votes can still be accessed and sent once the internet</em><br />
+   <em>connection is available.</em><br />
+   <em>The voting data on the mobile devices could be saved to the phone itself if an internet</em><br />
+   <em>connection is not available. Users can then be notified that once they are connected to the</em><br />
+   <em>internet again must send this data.</em> AVERAGE MARK 1.7</span></p>
+ <p><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c13" id="c13"></a>C13</strong></p>
+ <p class="question"><strong> (3 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 13</strong></p>
+ <p>If this voting software is successful, it is hoped that the software will be sold and used in other larger elections. As such, it may need to allow for electoral rolls of approximately 10 million voters. Each voter's record is approximately 150 bytes.</p>
+ <p>a. Calculate the file size, in gigabytes, of an electoral roll with 10 million users and explain if the file can be stored on a mobile device with 32 GB of storage. 2 marks</p>
+ <p>Size of file [1 line]</p>
+ <p class="myanswer">1.5 GB (assuming an even 1 million bytes per megabyte) or <br />
+   1.39 GB (assuming good ol' binary measurements)</p>
+ <p class="explanation">10,000,000 voters * 150 bytes = 1,500,000,000 bytes.<br />
+   Divide by about 1 million = 1,500 MB<br />
+   Divide by about 1000 to convert MB to GB = 1.5 GB.</p>
+ <p>   Explanation [3 lines]</p>
+ <p class="myanswer">Yes. The file can be stored on the device because 1.5 GB is less than 32 GB.</p>
+ <p class="myanswer"> <span class="examiner">This question required students to calculate the likely file size in gigabytes. A number of students<br />
+   struggled with this question, in particular with ensuring the value was in gigabytes. The file size<br />
+   was 1.5 GB, and calculations using 1024 bytes were also accepted. As the file was 1.5 GB it would<br />
+   easily fit onto a device with 32 GB of storage. AVERAGE MARK 1.0</span><br />
+ </p>
+ <p>b. If the mobile device has 512 megabytes of RAM, what effect is using this file likely to have on processing?
+ 1 mark [3 lines]</p>
+ <p class="myanswer">Processing will be slower. Because the entire data file will not be able to be stored completely in RAM, it will need to be swapped in and out to secondary storage (e.g. SD card) as needed. Accessing these non-volatile media is slower than accessing RAM, so processing will be considerably slower.</p>
+ <p class="explanation">The same happens with a home PC with little RAM that has to use the page file on hard disk to simulate RAM.</p>
+ <p class="examiner"> The majority of students were able to identify that the whole file cannot be held in RAM at the same<br />
+   time, so processing will be slower as the records will need to be read each time they are required<br />
+   from storage and not just from the faster RAM. This meant that more time would be required for<br />
+   this reading and writing back to stored file each time.<br />
+ AVERAGE MARK 0.7</p>
+ <p class="examiner">&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c14" id="c14"></a>C14 </strong></p>
+ <p><strong> (6 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 14</strong></p>
+ <p align="left">Sally is concerned that during the two-week period prior to Election Day, the newly installed voting software may create conflicts for other council services, such as the council's website and IT department.<br />
+ </p>
+ <p align="left">a. State <strong>two</strong> conflicts that may occur.&nbsp; 2 marks [3 lines]</p>
+ <ul>
+   <li class="myanswer">The support staff and resources of the website and IT department may be called on to support the voting system, which may <strong>add to the workload</strong> of these people or distract them from their primary purpose and affect their productivity or day-to-day performance.</li>
+   <li class="myanswer">These people may also be expected to <strong>learn</strong> about the workings of new voting system, which may induce <strong>stress</strong>.</li>
+   </ul>
+ <p> <span class="examiner">Students had difficulty expressing what conflicts may occur in this situation. Most common were<br />
+   concerns with overloading the council website, causing frustrated users, and concerns that IT staff<br />
+   may be overworked.<br />
+   The following is an example of a high-scoring response.<br />
+   <em>1. The council&rsquo;s IT department may become angry due to increased demands on the council</em><br />
+   <em>website and server, and on their time for increased maintenance and problem solving.</em><br />
+   <em>2. Website users may become frustrated at slower connection speeds</em> AVERAGE MARK 0.9</span><br />
+ </p>
+ <p align="left">   b. For <strong>one</strong> of the conflicts stated above, identify the stakeholders and outline why the conflict exists. 2 marks [4 lines]</p>
+ <ul>
+   <li class="myanswer">IT staff have their own normal jobs to do, and may feel aggrieved that they are expected to work longer hours or come to work during their holidays to support a system they have no interest in. Meanwhile, their normal tasks keep adding up and may be neglected.</li>
+   <li class="myanswer">Website maintainers may regard the voting scheme a complex challenge to the existing website for which they are not equipped. They may have to learn new coding techniques and technologies in order to make the voting system feasible, which may stress them.</li>
+   </ul>
+ <p> <span class="examiner">If students were able to identify a conflict, they were generally able to identify the appropriate<br />
+   stakeholders. For example, Question 14a., students most often identified the IT department staff<br />
+   and their immediate superiors or bosses as the key stakeholders. <br />
+   This conflict exists due to changes in working conditions and additional demands on their time to monitor and maintain the<br />
+   election system even though it is not part of the council&rsquo;s network. AVERAGE MARK 0.7</span><br />
+ </p>
+ <p align="left">c. Suggest two techniques that could be used to minimise the conflict discussed in <strong>part b.</strong>&nbsp;2 marks</p>
+ <ul>
+   <li class="myanswer">Pay the website team and IT department more money for their increased workloads.</li>
+   <li class="myanswer">If they lose personal time, give them time off in-lieu.</li>
+   <li class="myanswer">Hire extra consultants or temporary staff during the peak period to take the pressure off the stakeholders.</li>
+ </ul>
+ <p class="question"> <span class="examiner">Students gave a range of techniques that could be used to minimise the conflict with IT staff,<br />
+   including hiring extra staff while voting is occurring, paying higher wages when working overtime<br />
+   and providing bonuses for the two-week period. A range of responses was accepted based on the<br />
+   conflict identified; however, most students did not score on this question. AVERAGE MARK 0.5</span><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c15" id="c15"></a>C15 </strong></p>
+ <p class="question"><strong> (6 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 15</strong></p>
+ <p>After Election Day, the council needs to prepare a list of those who have not voted. The voters' electoral roll contains a number of fields, including Surname, GivenName, StreetAddress, Suburb, Postcode and Voted. To do this, it is necessary to read each voter's details from the Electoral Roll file and display the fields Surname, GivenName, StreetAddress, Suburb and Postcode for those who are recorded as false in the Voted field. Each record is read until the EndOfFile is reached.<br />
+ </p>
+ <p>Write pseudocode for a procedure to perform this process. [11 lines] </p>
+ <p class="myanswer">Begin<br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>Open ElectoralRollFile<br />
+   <span class="myanswer"><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>While not End of File</span><br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>Read Surname, GivenName, StreetAddress, Suburb, Postcode, Voted<br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>If Voted = False then<br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>Display Surname, GivenName, StreetAddress, Suburb, Postcode<br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span><span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>EndIf<br />
+   <span class="examiner"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></span>EndWhile<br />
+   End </p>
+ <p class="comment">Pretty easy.</p>
+ <p class="comment"> <span class="examiner">Students are reminded to read the question carefully as many students read and displayed the<br />
+   same data set. Alternative ways of performing the procedure were accepted, but students are<br />
+   encouraged to consider the most efficient option. AVERAGE MARK 3.4<br />
+   <strong>Begin</strong><br />
+   Repeat<br />
+   Read Surname, GivenName, StreetAddress, Suburb, Postcode, Voted<br />
+   If Voted = False Then<br />
+   Display Surname, GivenName, StreetAddress, Suburb, Postcode<br />
+   EndIf<br />
+   Until EndOfFile<br />
+   <strong>End</strong></span><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><div align="center">
+ <p>&nbsp;</p>
+ <p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+ </div></td>
+ </tr>
+ <tr>
+   <td colspan="2"><div align="center" class="comment">
+     <p><strong>Section C summary</strong></p>
+     <p align="left">It's a shame the pseudocode challenges were so lightweight. Kids can do better than that.</p>
+     <p align="left">Overall, pretty fair and straightforward.</p>
+     <p align="left">&nbsp;</p>
+     </div></td>
+ </tr>
+ <tr>
+   <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ </table>
+ <p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+ <p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+ <p align="center"><font size="2">Created 2 November 2015</font></p>
+ <p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+ <p align="center"><font size="2">Original Content &copy; Mark Kelly 2015<br />
+ Images and questions are &copy; Victorian Curriculum 
+ and Assessment Authority 2015. <br />
+ Reproduced here with permission for educational purposes.</font><br />
+ Thanks, VCAA!</p>
+ <p align="center"><font size="2">VCE Applied Computing Notes &copy; <a href="/mailform.htm">Mark Kelly</a></font></p>
+ <p align="center">&nbsp;</p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

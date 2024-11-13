@@ -1,0 +1,1670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2011 - Post Mortem by Mark Kelly</title>
+<meta name="keywords" content="VCAA,exam,software development,post mortem,Mark Kelly" />
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><img src="/bits/title.png" /></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr>
+  <td><p>&nbsp;</p>
+    <h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2011</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+  <td> <script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;
+  &nbsp;</td>
+</tr>
+</table>
+<table>
+  <tr>
+  <td ><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+<td ><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><span class="examiner">Examiners' comments added 15 May 2012</span></div></td>
+</tr>
+</table>
+<table>
+<tr>
+  <td><table>
+    <tr>
+      <td colspan="3"><div align="center">
+        <h2>The Post Mortem Awards</h2>
+      </div></td>
+    </tr>
+    <tr>
+      <td width="25%"><p align="center"><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+        <p>The <strong>SCHMACKOS</strong> award is given to questions that are a complete dog's breakfast.</p></td>
+      <td width="50%"><div align="center"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></div>
+        <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+          Questions that are not totally <em>wrong,</em> but are just <em>dumb</em> <br />
+          or are wrong in a way that does not jeopardise the answer.</p></td>
+      <td width="25%"><p align="center"><img src="/m/illiterate.jpg" alt="" width="47" height="89" />&nbsp;</p>
+        <p align="center">And the exciting Illiteracy Award.</p></td>
+    </tr>
+  </table></td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+googleadclient = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+googleadslot = "0313383460";
+googleadwidth = 728;
+googleadheight = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="/pagead/showads.js">
+</script>
+</td>
+</tr>
+<tr>
+<td><h3 align="center">Written examination</h3>
+<p align="center"><strong>Thursday 17 November 2011</strong></p>
+<p align="center"><strong>Reading time: 11.45 am to 12 noon (15 minutes) </strong></p>
+<p align="center"><strong>Writing time: 12:00 noon to 2:00 pm (2 hours)</strong></p>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+<tr>
+  <td   ><div >&nbsp;</div></td>
+  <td><p ><strong><em>Number of questions</em></strong></p>
+  </td>
+  <td><p ><strong><em>Number of questions to be answered</em></strong></p>
+  </td>
+  <td  ><p ><strong><em>Number of marks</em></strong></p>
+  </td>
+</tr>
+<tr>
+  <td  ><p ><a href="#a">A</a></p>
+  </td>
+  <td><p >20</p>
+  </td>
+  <td><p >20</p>
+  </td>
+  <td  ><p >20</p>
+  </td>
+</tr>
+<tr>
+<td  ><p ><a href="#b">B</a></p>
+</td>
+<td ><div >6</div></td>
+<td><p >6</p>
+</td>
+<td  ><p >20</p>
+</td>
+</tr>
+<tr>
+<td  ><p ><a href="#c">C</a></p>
+</td>
+<td ><div >16</div></td>
+<td><p >16</p>
+</td>
+<td  ><p >60</p>
+</td>
+</tr>
+<tr>
+<td  ><div ></div></td>
+<td><div ></div></td>
+<td><div ></div></td>
+<td  ><p >Total 100</p>
+</td>
+</tr>
+</table>
+<ul>
+<li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.</li>
+<li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+</ul>
+<p><strong>Materials supplied</strong></p>
+<ul>
+<li>Question and answer book of 21 pages with a detachable insert containing a case study for Section C in the centrefold.</li>
+<li>Answer sheet for multiple-choice questions.</li>
+</ul>
+<p><strong>Instructions</strong></p>
+<ul>
+<li>Remove the insert containing the case study during reading time.</li>
+<li>Write your <strong>student number</strong> in the space provided above on this page.</li>
+<li>Check that your <strong>name</strong> and <strong>student number</strong> as printed on your answer sheet for multiple-choice questions are correct, <strong>and</strong> sign your name in the space provided to verify this.</li>
+<li>All written responses must be in English. </li>
+</ul>
+<p><strong>At the end of the examination </strong></p>
+<ul>
+<li>Place the answer sheet for multiple-choice questions inside the front cover of this book.</li>
+</ul>
+<p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td><script type="text/javascript"><!--
+googleadclient = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+googleadslot = "0313383460";
+googleadwidth = 728;
+googleadheight = 90;
+//-->
+</script> 
+<script type="text/javascript"
+src="/pagead/showads.js">
+</script>&nbsp;</td>
+</tr>
+<tr>
+<td class="examiner">During the examination, students should:<br />
+&bull; endeavour to use correct IT terminology<br />
+&bull; discuss all options when asked to justify a choice or compare one option to another<br />
+&bull; know how to respond to key instructional terms in questions, such as 'state', 'explain', 'justify' or 'describe'<br />
+&bull; reread each question and their response to ensure the question has been answered<br />
+&bull; <strong>avoid using pencil</strong> in Sections B and C as responses in pencil can often be difficult for assessors to read<br />
+&bull; read the case study and questions carefully and underline or highlight key words<br />
+&bull; endeavour to demonstrate their knowledge of the subject and apply that knowledge to the case study, as<br />
+generic responses often result in low or no marks.</td>
+</tr>
+<tr>
+<td >
+<h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+No marks will be given if more than one 
+Answer is completed for any question</p></td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 1</strong></p>
+<p align="left"><br />
+The stages of the problem-solving methodology are</p>
+A. &nbsp;analysis, design, document, report.<br />
+B. &nbsp;analysis, design, development, report.<br />
+C. &nbsp;analysis, design, development, evaluation.<br />
+D. &nbsp;analysis, solution, development, evaluation.<p></p>
+<p align="left" class="myanswer">Answer is C.</p>
+<p align="left" class="comment">As usual, an&nbsp;easy one to start with.</p>
+<p align="left" ><span class="examiner">97% got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 2</strong></p>
+<p align="left"><br />
+Michael is getting an Internet connection in his home and wants to set up a network so all the family can access the connection. He has a PC in his home office; his wife has a laptop she likes to use in the lounge room. Both of his children have netbooks for school that they use in their bedrooms and often in the family room.<br />
+</p>
+<p align="left">From the family's point of view, which characteristic of a wireless network most suits their needs?</p>
+A. &nbsp;cost<br />
+B. &nbsp;security<br />
+C. &nbsp;mobility<br />
+D. &nbsp;bandwidth<p></p>
+<p align="left" class="myanswer">Answer is C.</p>
+<p align="left" class="myanswer">The only factor alluded to in&nbsp;the case study is that they use their netbooks in more than one location.</p>
+<p>61% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 3</strong></p>
+<p align="left"> The diagram that best represents the Open Systems Interconnections (OSI) model of network architecture is</p>
+<table width="80%" border="1" cellpadding="3" cellspacing="0">
+  <tr>
+  <td valign="top"><div align="center"><strong>A</strong></div></td>
+  <td valign="top"><div align="center"><strong>B</strong></div></td>
+  <td valign="top"><div align="center"><strong>C</strong></div></td>
+  <td valign="top"><div align="center"><strong>D</strong></div></td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">application</p>
+</td>
+<td width="130" valign="top"><p align="center">application</p>
+</td>
+<td width="131" valign="top"><p align="center">application</p>
+</td>
+<td width="108" valign="top"><p align="center">application</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">data link</p>
+</td>
+<td width="130" valign="top"><p align="center">data link</p>
+</td>
+<td width="131" valign="top"><p align="center">presentation</p>
+</td>
+<td width="108" valign="top"><p align="center">presentation</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">network</p>
+</td>
+<td width="130" valign="top"><p align="center">network</p>
+</td>
+<td width="131" valign="top"><p align="center">session</p>
+</td>
+<td width="108" valign="top"><p align="center">session</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">transport</p>
+</td>
+<td width="130" valign="top"><p align="center">physical</p>
+</td>
+<td width="131" valign="top"><p align="center">transport</p>
+</td>
+<td width="108" valign="top"><p align="center">transport</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">session</p>
+</td>
+<td width="130" valign="top"><p align="center">presentation</p>
+</td>
+<td width="131" valign="top"><p align="center">network</p>
+</td>
+<td width="108" valign="top"><p align="center">network</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">presentation</p>
+</td>
+<td width="130" valign="top"><p align="center">session</p>
+</td>
+<td width="131" valign="top"><p align="center">data link</p>
+</td>
+<td width="108" valign="top"><p align="center">physical</p>
+</td>
+</tr>
+<tr>
+<td width="126" valign="top"><p align="center">physical</p>
+</td>
+<td width="130" valign="top"><p align="center">transport</p>
+</td>
+<td width="131" valign="top"><p align="center">physical</p>
+</td>
+<td width="108" valign="top"><p align="center">data link</p>
+</td>
+</tr>
+</table>
+<p align="left" class="myanswer">Answer is C.</p>
+<p align="left" class="myanswer"><strong>P</strong>rogrammers <strong>D</strong>o <strong>N</strong>ot <strong>T</strong>hrow <strong>S</strong>tale <strong>P</strong>izza <strong>A</strong>way</p>
+<p>72% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong></p>
+<p> Miklos is writing a program for a mobile phone.<br />
+With which layer of the OSI model will the program directly interact?</p>
+<p>A. &nbsp;physical<br />
+B. &nbsp;network<br />
+C. &nbsp;data link<br />
+D. &nbsp;application</p>
+<p class="myanswer">Answer is D. 
+</p>
+<p class="myanswer">The application layer is the highest layer, closest to the user - and applications! 
+</p>
+<p>67% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p class="myanswer">
+</p>
+<p class="myanswer"><span class="black"><strong>Question 5 </strong></span> 
+</p>
+<p align="left"><br />
+An example of an evaluation criterion that measures the effectiveness of a newly developed software solution to process invoices would be</p>
+A. &nbsp;processing speeds have increased by 35%.<br />
+B. &nbsp;the time taken to process items has reduced by 50%.<br />
+C. &nbsp;the number of staff required to process items has been halved.<br />
+D. &nbsp;the accuracy of invoices generated by the new software has improved.<p></p>
+<p class="myanswer">Answer is D.
+</p>
+<p class="myanswer">The key&nbsp;word in the question is <em>effectiveness. </em>Processing speed, time and staffing are all <em>efficiency</em> measures.
+</p>
+<p>78% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p class="myanswer">
+</p>
+<p align="left"><strong>Question 6</strong></p>
+<p align="left"> User documentation that would be the most appropriate for worldwide customers using a new web-based booking system would be</p>
+A. &nbsp;online user help.<br />
+B. &nbsp;a procedures manual.<br />
+C. &nbsp;a printed quick start guide.<br />
+D. &nbsp;a technical specifications manual.<p></p>
+<p class="myanswer">Answer is A.
+</p>
+<p class="myanswer">It has to be online for use by worldwide web customers.
+</p>
+<p>91% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 7</strong></p>
+<p align="left"><br />
+What is the correct output for the following algorithm?</p>
+<p align="left"><img src="/m/pm/11s-A7.jpg" width="221" height="231" /><br clear="all" />
+</p>
+<div>
+<p>A.&nbsp; 4,5<br />
+B.&nbsp; 5,4<br />
+C.&nbsp; 16,6<br />
+D.&nbsp; 6, 16<br clear="all" />
+</p>
+<p><br clear="all" />
+</p>
+</div>
+<p class="myanswer">
+Answer is D.</p>
+<p class="myanswer">This is how I deskcheck things algorithms like this... </p>
+<table width="45%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="20%" ><strong>Begin</strong></td>
+<td width="38%" ><strong>loop 1</strong></td>
+<td width="42%" ><strong>loop 2</strong></td>
+</tr>
+<tr>
+<td><strong>a &lt;- 4</strong></td>
+<td>a=4</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>b &lt;- 2</strong></td>
+<td>b=2</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>repeat</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>a &lt;- a+1</strong></td>
+<td>a= 4 + 1 = 5</td>
+<td>a= 5 + 1 = 6</td>
+</tr>
+<tr>
+<td><strong>b &lt;- b*b</strong></td>
+<td>b = 2 * 2&nbsp;= 4</td>
+<td>b = 4 * 4 = 16</td>
+</tr>
+<tr>
+<td><strong>until b&gt;a</strong></td>
+<td>no - 4 &lt; 5 so next loop...</td>
+<td>yes, 16 &gt; 5 so drop down</td>
+</tr>
+<tr>
+<td><strong>display a,b</strong></td>
+<td>&nbsp;</td>
+<td>6,16</td>
+</tr>
+<tr>
+<td><strong>end</strong></td>
+<td>&nbsp;</td>
+<td>yippee</td>
+</tr>
+</table>
+<p>73% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p class="myanswer">
+</p>
+<p align="left"><strong>Question 8</strong></p>
+<p align="left"><img src="/m/pm/11s-A8.jpg" width="280" height="203" /></p>
+<p align="left"><br />
+What is the correct output for this algorithm?</p>
+A. &nbsp;SueBill<br />
+B. &nbsp;FredBill<br />
+C. &nbsp;Bill Sue<br />
+D. &nbsp;Fred Sue<p></p>
+<p class="myanswer">Answer is A.</p>
+<p class="myanswer">Again, step through the code like you were the compiler.</p>
+<p class="myanswer">Name is a 1 dimensional array.</p>
+<p class="myanswer">if a=2 and b=1 then we're joining name(1) 'SUE' and name(2) 'BILL' to make SueBill.</p>
+<p class="myanswer"><em>It's good to see emphasis on actual programming. After all, that's what the course is supposed to be about!</em></p>
+<p>87% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 9</strong></p>
+<p align="left"> In a program, a line of code that modifies a variable's content is best described as a</p>
+A. &nbsp;function.<br />
+B. &nbsp;procedure.<br />
+C. &nbsp;instruction.<br />
+D. &nbsp;control structure.<p></p>
+<p class="myanswer">
+<s>Answer is <strong>A</strong>, officially. I chose C, and I can't see why that's not at least equally if not more correct than A.</s></p>
+<p class="myanswer"><em>After I raised this on the SD teachers' mailing list, this message arrived from Paula Christophersen, Manager of IT at VCAA...</em></p>
+<p><em>Thank you for raising your concerns about this question. I have checked with the Examinations Unit and Option C for Question 9 &nbsp;was marked as <strong>correct</strong>, however, a publishing error has occurred on the website, inadvertently showing Option A as the correct answer. An updated version will be posted shortly.</em></p>
+<p><em>Once again, thank you for your sharp minds.</em></p>
+<p class="myanswer">So, the answer is <strong>C</strong>, officially. I chose C, and so did <span class="examiner">13%</span> of students. Out of interest, <span class="examiner">45%</span> chose the incorrect A option!</p>
+<p class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><em>Use the following information to answer Questions 10-13.</em></p>
+<p align="left"> The manager of the SmallBank Company phoned Michelle and asked her to write a program for a mobile phone for the bank. During their short conversation, the manager specified that the program must cater for visually impaired people as well as people with normal vision. It will be available to customers via the bank's website. The manager also indicated that the bank was only trialling this idea. This means Michelle must focus on making the required functions work properly and not spend time adding extra functions to the program. Michelle agreed to write the program and was given 60 days to create a solution that would meet the bank's needs.</p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p class="black"> 
+</p>
+<p class="black"><strong>Question 10</strong> 
+</p>
+<p align="left"> Before Michelle can begin designing the solution, she has to determine exactly what the program is required to do. The most appropriate method for her to collect data about what the program is required to do is to</p>
+A. &nbsp;conduct a survey of the bank's customers.<br />
+B. &nbsp;interview the SmallBank Company's manager.<br />
+C. &nbsp;investigate the mobile phone's technical specifications.<br />
+D. &nbsp;observe another bank's customers using a similar program.<br />
+<p></p>
+<p class="myanswer">Answer is B. </p>
+<p class="comment">Only the bank's manager knows what he wants the app to do.</p>
+<p>62% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p class="black">&nbsp;</p>
+<p class="black"><strong>Question 11</strong></p>
+<p class="black"> The constraint on the solution that will most influence Michelle's design is that</p>
+<p class="myanswer"><span class="black">A. &nbsp;the bank is trialling this idea.<br />
+B. &nbsp;she has been given 60 days to create the solution.<br />
+C. &nbsp;she should not spend time adding extra functions.<br />
+D. &nbsp;the solution must cater for visually impaired people and people with normal vision.</span><br />
+</p>
+<p class="myanswer">Answer is D.</p>
+<p class="myanswer">The app must be accessible to those with visual handicaps. <br />
+B is a time constraint, but it won't really affect the way she designs the software.</p>
+<p>64% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p class="black">&nbsp;</p>
+<p class="black"><strong>Question 12</strong></p>
+<p class="black"> The factor that will most limit the scope of Michelle's solution is that</p>
+<p class="black">A. &nbsp;the bank does not want her to add extra functions.<br />
+B. &nbsp;the program will be made available via the bank's website.<br />
+C. &nbsp;the bank is only small and does not require a complex program.<br />
+D. &nbsp;the program must cater for visually impaired people and people with normal vision.</p>
+<p><span class="myanswer">Answer is A.</span></p>
+<p class="myanswer">She has been specifically instructed to not add features, and the number of features is the software's scope.</p>
+<p>58% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 13</strong></p>
+<p align="left"> Michelle has completed her analysis and written the Software Requirements Specifications (SRS) for the bank. It lists all the tasks that must be undertaken in order to successfully complete the project.</p>
+<p align="left"> The best order to undertake three of these tasks is</p>
+A. &nbsp;survey a sample of customers; test the program; write internal documentation.<br />
+B. &nbsp;write internal documentation; test the program; survey a sample of customers.<br />
+C. &nbsp;test the program; survey a sample of customers; write internal documentation.<br />
+D. &nbsp;test the program; write internal documentation; survey a sample of customers.<p></p>
+<p class="myanswer">
+Answer is B.</p>
+<p class="myanswer">Internal documentation and testing are done during development. <br />
+The survey of users has to be for evaluation, so it comes last. It can't be for analysis since that's already finished.<br />
+The steps in B reflect development (writing internal doc + testing) and evaluation (survey).</p>
+<p>50% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 14</strong></p>
+<p align="left"> Which statement best describes the purpose of the Open Systems Interconnections (OSI) physical layer?</p>
+A. &nbsp;to route a packet of data through a network to a remote location<br />
+B. &nbsp;to move individual data bits across a shared medium to another point in the network<br />
+C. &nbsp;to ensure that packets of data are assembled and presented to an application in the correct order<br />
+D. &nbsp;to ensure that packets of data received from another point in the network are free of any errors caused by the medium connecting the two points<p></p>
+<p class="myanswer">
+Answer is B.</p>
+<p class="myanswer">The physical level is as basic as communications can get - shunting bits over wires. All of the other activities require higher levels of intelligence and organisation.<br />
+A = IP<br />
+C= TCP<br />
+D= Checksum calculation in TCP.
+</p>
+<p>42% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 15</strong></p>
+<p align="left"> Nola's and Ben's computers are part of a network. Recently Nola's computer became infected with a worm. Which statement is most correct?</p>
+A. &nbsp;The worm will not spread to Ben's computer because it is not a useful program.<br />
+B. &nbsp;The worm will spread to Ben's computer only if Nola sends an infected file to Ben as an email attachment.<br />
+C. &nbsp;The worm will spread to Ben's computer only if a copy of one of Nola's infected files is opened on his computer.<br />
+D. &nbsp;The worm will spread to Ben's computer by sending a copy of itself through the network and infecting
+one of his files.<p></p>
+<p class="myanswer">
+Answer is D (or B maybe)</p>
+<p class="myanswer">This is not an easy one. After all, the naming and behaviour of malware is not defined by IEEE or Australian standards. Worms, as I understand it, are self-contained code that travels by email. Viruses attach themselves to executable files and travel with them.</p>
+<p class="myanswer"> Option A is just silly.<br />
+B specifically mentions email, which is how I understand worms propagate. I may be wrong about whether they <strong>only</strong> use email.<br />
+C assumes worms attach to files, which they don't.
+Maybe. If they're self-contained, they do their damage like normal exe files.<br />
+D is possible, but worms don't travel alone. They need a medium, like email.&nbsp;
+Maybe. Perhaps.&nbsp; I'll have to look this up!</p>
+<p class="myanswer">There's debate about this question, about whether worms can travel without email, and whether they infect files or not. The consensus seems to be going for D. I'll have to see if there's an authoritative source of info about worms...</p>
+<p>63% got this right. Official answer was D.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 16</strong></p>
+<p align="left"> Which of the following is <strong>not</strong> a feature of a Virtual Private Network?</p>
+A. &nbsp;has high-level data security<br />
+B. &nbsp;connects multiple locations<br />
+C. &nbsp;may use public telecommunications infrastructure<br />
+D. &nbsp;relies on leased telecommunications lines to connect<p></p>
+<p class="myanswer">
+Answer is D.</p>
+<p class="myanswer">VPN's main attraction is that you don't need expensive leased lines like companies had to use in the old days. With VPN, you get a private communication channel using standard internet infrastructure. The privacy is attained with a VPN box at each end of the connection to manage encryption.</p>
+<p>54% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 17</strong></p>
+<p align="left"> The principal of a secondary college is considering purchasing some new software to enable teachers to mark the roll quickly at the start of each lesson. He has downloaded a trial copy of QuickMarkT and notes that it only uses three different screens. What is the most important characteristic the principal should look for in this software?</p>
+A. &nbsp;use of multimedia<br />
+B. &nbsp;consistency of navigation<br />
+C. &nbsp;lengthy on-screen instructions<br />
+D. &nbsp;a pleasing and colourful design<p></p>
+<p class="myanswer">
+Answer is B.</p>
+<p class="comment">I don't like the answer, but it's the only possible one. <br />
+If there are only three screens, navigation could not be too difficult, could it? <br />
+If the other options weren't even more inane, I would've gone for one of them instead.</p>
+<p>88% got this right.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 18</strong></p>
+<p align="left"> Consider the following stack, where STACK holds the values and TOP indicates the current position of the top of the stack.</p>
+<p><img src="/m/pm/11s-A18a.jpg" width="220" height="192" /></p>
+<p>The following three operations are carried out on the stack in the order</p>
+<p>1. Push (21)<br />
+2. Push(10)<br />
+3. Pop</p>
+<p>Which of the following is the correct stack at the end of the three operations?</p>
+<p><img src="/m/pm/11s-a18b.jpg" width="628" height="207" /><br clear="all" />
+</p>
+<p class="myanswer">
+Answer is D.</p>
+<p class="myanswer">Working it through...</p>
+<table width="62%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="18%">&nbsp;</td>
+<td width="18%"><strong>starting point</strong></td>
+<td width="19%"><strong>PUSH 21</strong></td>
+<td width="22%"><strong>PUSH 10</strong></td>
+<td width="23%"><strong>POP</strong></td>
+</tr>
+<tr>
+<td><strong>TOP &gt;&gt;&gt;</strong></td>
+<td><strong>2</strong></td>
+<td><strong>3</strong></td>
+<td><strong>4</strong></td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>&nbsp;</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>35</strong></td>
+<td><strong>35</strong></td>
+<td><strong>35</strong></td>
+<td><strong>35</strong></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>62</strong></td>
+<td><strong>62</strong></td>
+<td><strong>62</strong></td>
+<td><strong>62</strong></td>
+</tr>
+</table>
+<p class="myanswer">Notice that the 10 remains in place after the POP, and only TOP is changed. This is because it takes far less processing to modify the stack pointer than it is to physically move data in memory. So the 10 stays where it is, and the stack effectively pretends it isn't there. If there were another Push, slot 4 would be overwritten with the new data and the 10 will finally go to stack heaven.</p>
+<p>51% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 19</strong></p>
+<p align="left"> A data structure in which the first data item entered is always the first item removed is known as</p>
+A. &nbsp;a stack.<br />
+B. &nbsp;an array.<br />
+C. &nbsp;a queue.<br />
+D. &nbsp;a record.<p></p>
+<p class="myanswer">
+Answer is C.</p>
+<p class="myanswer">Queues store and release data in the order it arrives.</p>
+<p>83% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 20</strong></p>
+<p align="left"><br />
+A program is being written for a hand-held touch-screen device with no physical keyboard. It will allow the user to look up facts about any country in the world (there are about 200). The user will be able to choose from the five languages shown.</p>
+<p align="left"><img src="/m/pm/11s-a20.jpg" width="200" height="115" /></p>
+<p align="left"> To find information about a country, the user will have to input the name of the country in the chosen language. To make the input as efficient as possible for the user, the programmer should write code that</p>
+A. &nbsp;gets a selection from a scrollable list.<br />
+B. &nbsp;gets a selection from the display of a world map.<br />
+C. &nbsp;gets a selection from a list that is matched to characters as they are entered by the user.<br />
+D. &nbsp;reads the country name from a single text box that has had the name entered into it by the user.<p></p>
+<p class="myanswer">
+My answer is B. Official answer was A.</p>
+<p class="myanswer">A is feasible, and avoids the user having to enter (and possibly misspell) the name of a country. It would take a lot of scrolling to get through 200 countries, so it would be less efficient for the user.<br />
+B would be intuitive to users, but selecting tiny countries like Israel or Vatican city could be difficult on a small display!<br />
+C and D require users to type country names, and that means trouble for Chinese and Japanese characters. It would take a lot of extra programming to handle non-Latin alphabets&nbsp;(but this is not relevant to the issue of the user's efficiency.)</p>
+<p>34% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+googleadclient = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+googleadslot = "0313383460";
+googleadwidth = 728;
+googleadheight = 90;
+//-->
+</script> 
+<script type="text/javascript"
+src="/pagead/showads.js">
+</script>&nbsp;</td>
+</tr>
+</table>
+<table>
+<tr>
+<td valign="top" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question B1</strong></p>
+<p align="left"> Maria has a program that works well on her laptop and she would like to put it onto her Personal Digital Assistant (PDA).<br />
+Other than the operating system, state two important characteristics of the PDA that will need to be considered when she modifies her program to work on the PDA.</p>
+<ul>
+<li class="myanswer">Screen resolution - a single laptop display may need to be divided into several screens' worth on a PDA</li>
+<li class="myanswer">Available memory</li>
+<li class="myanswer">Available secondary storage</li>
+<li class="myanswer">Data input devices</li>
+<li class="myanswer">CPU speed</li>
+<li class="myanswer">Battery consumption of a hard-working CPU</li>
+<li class="myanswer">Bandwidth requirements</li>
+</ul>
+<p align="left"><br />
+2 marks</p>
+<p align="left" class="examiner">State average was 68%</p>
+<p align="left" class="examiner">Characteristics that will need to be considered include (two of):<br />
+&bull; size of RAM<br />
+&bull; size of screen<br />
+&bull; processing speed<br />
+&bull; screen resolution.<br />
+Most students were able to provide a reasonable response to this question.</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p>&nbsp;</p>
+<p><strong>Question B2</strong><br />
+</p>
+<p><img src="/m/pm/11s-b2.jpg" width="371" height="144" /><br />
+</p>
+<p>As shown in the diagram above, data flow diagrams (DFD) and use case diagrams (UCD) share similar symbols, but their purposes are not the same.<br />
+a.&nbsp;&nbsp; Describe the difference in purpose between the arrowed line in the DFD and the straight line in the UCD.</p>
+<ul>
+<li class="myanswer">The DFD's arrow indicates the direction of data flow, unlike the UCD's association line which is bidirectional.</li>
+<li class="myanswer"> The DVD's arrow indicates a single piece of data. The UCD's line shows all sorts of data flows.</li>
+<li class="myanswer"> The arrowhead in a UCD is used to indicate who initiates the use case, and not the direction of data flow.
+</li>
+</ul>
+<p>2 marks</p>
+<p>State average was 60%</p>
+<p><span class="examiner">While it was clear that most students had studied both diagram methods, many were not able to clearly articulate the
+purpose of the lines or the purpose of the circle/ellipse in each diagram. Students should be able to read, draw and write
+about each of these diagram methods.</span><br />
+</p>
+<p><span class="examiner">The following is an example of a high-scoring response.<br />
+</span><em>&quot;The line in a DFD illustrates the flow of data to or from an entity, process or data store, with the arrow indicating direction of
+flow. The line in a UCD shows that an actor interacts with a specific use case.</em>&quot;</p>
+<p><br />
+b.&nbsp;&nbsp; Describe the difference in purpose between the circle in the DFD and the ellipse in the UCD.</p>
+<p class="myanswer">The DFD's circle is a process where data is changed or manipulated in some way. e.g. Create invoice<br />
+The ellipse in a UCD is a called a use case, and shows an action, or unit of functionality in software. It does not have to process data.</p>
+<p >2 marks</p>
+<p class="examiner" >State average was 55%</p>
+<span class="examiner">The following is an example of a high-scoring response.<br />
+<em>&quot;The ellipse in a UCD shows a use case &ndash; an interaction that a user has with the system, whereas a circle in a DFD shows a
+process in the system, where data is manipulated or transferred.&quot;.</em></span>
+<p >&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question B3</strong></p>
+<p align="left"> Brian is a programmer for a large IT services company. He is in charge of the development of a security system for a financial services company that maintains a large credit references database that big banks rely on when people apply for loans. The system is due to be finished in a month's time. Brian's manager has just told him that they will need to deliver it to the customer in one week as he has promised the finance company that it will be ready by then. Brian knows that the testing process will not be finished and that he cannot guarantee the security of the system. He knows that this is not right for the customer, but does not really know what to do about his manager's request.</p>
+<p align="left"> a.&nbsp;&nbsp; Explain how a code of ethics could assist Brian in dealing with this situation.</p>
+<p align="left" class="myanswer">If the programmer's code of ethics specified that a programmer should not deliberately release software that is known to have significant security or safety deficiencies, he could use that as an argument against his manager. </p>
+<p align="left" class="myanswer">He would also have the backing of his professional association if the manager caused Brian trouble over the issue.</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 33%</span></p>
+<p>The following are examples of high-scoring responses.<br />
+<em>A code of ethics is a document in a company or profession that explains how people in that company or profession can behave in
+an ethical manner. A code of ethics could assist Brian in knowing what and who to prioritize in his ethical dilemma.<br />
+</em></p>
+<p><em>Brian is in an ethical situation, wanting the best for the customer and to obey his manager. A code of ethics is guidelines that all
+must follow, it can give Brian the reasoning and privilege to not obey his managers demands and follows the rules of ethics
+towards the customer.</em><br />
+</p>
+<p >b.&nbsp;&nbsp; Assuming Brian's organisation has a code of ethics, outline how a decision support framework could assist in resolving this ethical dilemma.</p>
+<p class="myanswer" >A decision support framework gives decision-makers guidelines on how to behave in given circumstances. If the framework foresaw such a dilemma arising, it could advise both Brian and the manager about what actions would be appropriate or necessary to resolve the problem. </p>
+<p class="myanswer" >e.g. &quot;If a manager issues instructions that a worker considers morally or professionally unacceptable, the matter should be directed to the head of human resources.&quot;</p>
+<p>2 marks</p>
+<p><span class="examiner">State average was 33%</span></p>
+<p>The following are examples of high-scoring responses.<br />
+<em>A decision support framework would be an individual/group or possibly document that outlines how to go about resolving the
+dilemma by suggesting courses of action and outlines what the company believes Brian should do in his circumstance. DSF helps
+ensure Brian doesn't break the code of ethics, and solves the ethical dilemma legally correct.<br />
+</em></p>
+<p><em>A decision support framework is a package of resources that helps to prevent conflicts from occurring, and describe how to
+resolve them when they do occur. A decision support framework will outline the steps needed to resolve the conflict and Brian
+can go through these steps which will involve listening to all points of view in order to resolve the dilemma.</em></p>
+<p>A code of ethics and decision support frameworks are part of Unit 4, Outcome 2 and are both new to the study. 
+A code of ethics outlines the values of the organisation and the expected behaviour of employees. <br />
+A decision support framework outlines how the organisation deals with an ethical dilemma in order to ensure consistency in the process
+and the outcomes.</p>
+<p> Most students struggled to provide a clear and accurate response to this question, with many simply stating that 'the
+code of ethics/decision support framework would help Brian'. In this style of question it is important that students
+provide a definition/description/explanation as well as relate the response to the scenario presented. For example,
+students should have explained what a code of ethics is, as well as how it was going to help Brian in this situation.</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question B4</strong></p>
+<p align="left"> Big O Television's secure computer network was recently breached. Big O Television has hired an independent IT security company, Secure TVtech, to test the security of its network and provide support in identifying and repairing any weaknesses in its security.<br />
+</p>
+A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Suggest a technique that Secure TVtech might use to test the security of Big O Television's computer network and describe how it would work.<p></p>
+<p align="left" class="myanswer">They would carry out a penetration test. Without being given any special knowledge about the system, they would attempt to break into the network from outside the firewall and record the weakness they discover.</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 63%</span></p>
+<p class="examiner" >Many students discussed a version of ethical hacking to test the security. Students are reminded to use technically
+correct IT terminology. Many students used terms incorrectly, including white-box, black-box, white/black/grey hat
+hacker, penetration testing, cracker, etc. Appropriate responses included the techniques of penetration testing or packet
+sniffing and a technical and accurate description of how the technique works.</p>
+<p > b.&nbsp;&nbsp; Explain how a security audit of the computer network may have prevented the original network breach at Big O Television.</p>
+<p class="myanswer" >A security audit is a systematic technical assessment of how data security is managed in a system. Unlike a penetration test, which is done without special privileges, an audit is carried out - with full privileges and inside information - within the system to assess security weaknesses. They may use interviews with staff, vulnerability scans, technical inspections, reviewing security policy and procedures, and the use of network monitoring software. The audit may inspect password policies, review audit trails, check the state of security patches on key software, test the disaster recovery plan, etc.</p>
+<p>2 marks</p>
+<p><span class="examiner">State average was 50%</span></p>
+<p>A security audit is a preventative security measure; it not only examines the equipment (hardware and software) but
+other elements of the information system (people and procedure) to ensure there are no security issues.<br />
+For full marks students needed to demonstrate knowledge of the function of a security audit and apply this knowledge
+to the case study.<br />
+The following is an example of a high-scoring response.</p>
+<p><em>A security audit would have involved security experts examining the security of the system to identify weaknesses and gaps in the
+security. This may have involved the identification of the weakness that allowed the original network breach, thus allowing Big O
+Television to remove the weakness. The breach therefore may have been prevented.</em></p>
+<p>This question required students to show their knowledge of security techniques and how the techniques may be tested. It
+is important that students read questions carefully and ensure they are answering the question asked, as a number of
+students wrote about what security could be implemented. Students are encouraged to highlight or underline key words
+and phrases in questions during writing time.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">Stand by - this is a doozy. Probably the silliest question ever to appear in a Software Development exam.</td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question B5</strong></p>
+<p align="left"> Caitlin and Ryan are discussing the best way to store their new software solution and the data files it uses. The software, which company employees will need to access every day, is 80 gigabytes (GB) and uses several data files which will grow in size over time.</p>
+<p align="left"> Caitlin suggests the software should be stored on the file server and the data files could be stored on DVDs. </p>
+<p align="left">Ryan suggests that as the software is not very large (80 GB) it could also be kept on the same DVD as the data files. </p>
+<p align="left">The network administrator is not happy with either solution.<br />
+</p>
+<p align="left">Provide a better solution for Caitlin and Ryan and give three reasons to support your solution.</p>
+<p align="left" class="comment">When I first read this, I had to sit down. I assumed it had to be a complex misprint. But no, it's a serious question.&nbsp; It's hard to know where to start with the massive unreality of this case study.&nbsp; Caitlin and Ryan should not be let loose from a sheltered workshop, much less working with real IT.&nbsp; </p>
+<p align="left" class="comment">- Let's start with the software. It's said to be 80G... 80,000 megabytes.&nbsp; Even Windows 7 is nowhere NEAR 80G!&nbsp; My entire Windows and Program Files directories only add up to 47G - and I have a <em>lot</em> of programs!&nbsp; What does this software do - run the <strong>planet</strong>?<br />
+<br />
+- It's absurd that IT professionals would even for a second consider storing data files on DVD. It means the data must be read-only, but it's said that the files will grow in size over time, so they must be read-write. A hamster would know that. Caitlin doesn't.<br />
+<br />
+- &quot;Ryan suggests that as the software is not very large (80G)...&quot;&nbsp; What <strong>would</strong> he consider large?? Ryan should not be allowed anywhere near an information system.<br />
+<br />
+- He wants to store the 80G software on a DVD?&nbsp; My grandmother had a old rooster who knew that you can only fit 4.7G of data on a DVD. The rooster deserves Ryan's job. And Ryan even wanted to add the read-write data to the DVD as well.&nbsp; Dear oh dear.<br />
+<br />
+- Next, even if they built a 16 metre-wide DVD to fit 80G of data, how could the software run from there without being installed on a computer? Not much software can run without being installed on a computer. Some software runs on networks, but at 80G, it would take users centuries to get anything done with it.<br />
+<br />
+- Even if the software <strong><em>could</em></strong> be run from the DVD, how will it write new or changed data to the DVD? </p>
+<p align="left" class="comment">Surely the examiners could have come up with a scenario that tested students' technical knowledge just as effectively without turning it into a 'Three&nbsp;Stooges Do I.T.' farce? This question was <strong>nearly</strong> as bad as an Adam Sandler movie.</p>
+<p>Solution</p>
+<p> <span class="myanswer">Take Caitlin and Ryan out the back, shoot them, and then terminate their employment.</span></p>
+<p class="myanswer"> The 80G software would need to be installed on the hard disks of workstations. The data files could be stored on the file server.</p>
+<p>Reasons </p>
+<ul>
+<li class="myanswer">Read-write files cannot be put on DVD</li>
+<li class="myanswer">80G will not fit on a DVD</li>
+<li class="myanswer">Software cannot usually be run directly from a read-only disk. It needs to be installed on a computer. </li>
+</ul>
+<p >1+3 = 4 marks</p>
+<p ><span class="examiner">State average was 66%</span></p>
+<p ><img src="/m/schmacho.jpg" alt="" width="98" height="150" /><img src="/m/schmacho.jpg" alt="" width="98" height="150" /><br />
+<span class="comment">Double-Schmacko time! </span></p>
+<p class="examiner" >A significant nu<span class="examiner">m</span>ber of students were able to correctly identify that 80 GB would not be able to fit on a DVD and
+provide an appropriate, justified solution. The most appropriate solution was to store data on a file server, which a
+majority of students described; however, a range of other reasonable responses was accepted.
+The following is an example of a high-scoring response.<br />
+</p>
+<p><em class="examiner">Solution: Store the software on the file server and store the data files on the file server.<br />
+Reasons:</em></p>
+<ul>
+<li><em class="examiner">  DVDs are not large enough to store a 80GB program so Ryan's suggestion is not appropriate</em></li>
+<li><em class="examiner">  DVD's for data files is not appropriate as the information would take to long to load. </em></li>
+<li><em class="examiner">The amount of DVD's would also increase
+as the data files grow over time making them harder to store.</em></li>
+<li><em class="examiner">  Storing all data on a server is better as all data is accessed quicker, more efficiently, memory can be added, easily backed up and
+archived.</em></li>
+</ul></td>
+</tr>
+<tr>
+<td valign="top"><p align="left">&nbsp;</p>
+<p align="left"><strong>Question B6</strong></p>
+<p align="left"> Wendy and Gareth have been asked to design an intranet for the residents of an aged-care facility. This intranet will provide access to suitable mind-challenging games. It will also allow residents to upload photos and leave comments.<br />
+Choose two important characteristics of the users of this website that Wendy and Gareth will need to consider when designing the intranet. State how these will influence Wendy and Gareth's design.</p>
+<p>User characteristic - <span class="myanswer">Poor vision</span></p>
+<p>Effect on design - <span class="myanswer">large text, good contrast</span></p>
+<p>User characteristic - <span class="myanswer">Poor fine-motor muscular control</span></p>
+<p> Effect on design - <span class="myanswer">large controls, low sensitivity settings</span></p>
+<p>User characteristic - <span class="myanswer">lack of IT experience</span></p>
+<p>Effect on design - <span class="myanswer">interface must be intuitive, lots of help easily available, avoid jargon</span></p>
+<p>User characteristic - <span class="myanswer">Closeness to death</span></p>
+<p>Effect on design - <span class="myanswer">Make the system fast and responsive, so they can make the most of it in the time they have left.</span></p>
+<p class="comment">OK. Maybe not the last one.</p>
+<p>2 marks</p>
+<p><span class="examiner">State average was 55%</span></p>
+<p>Most students were able to identify user characteristics such as vision impairment, physical impairment, education
+level, experience with technology, etc. and were able to describe how this would affect the design of the website.<br />
+However, a significant number of students confused user characteristics with non-functional requirements such as
+readability or easy navigation.<br />
+The following is an example of a high-scoring response.<br />
+</p>
+<p><em>Visual impairment: will need to design a solution with high contrast and large interface elements to accommodate for the user's
+impaired vision.<br />
+Technical ability: will need to have a focus on user friendliness, as the users will not have much technical knowledge e.g. simple,
+step by step process.</em></p>
+</td>
+</tr>
+</table>
+<p align="left">&nbsp;</p>
+<div align="left">
+<table>
+<tr>
+<td valign="top" ><script type="text/javascript"><!--
+googleadclient = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+googleadslot = "0313383460";
+googleadwidth = 728;
+googleadheight = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="/pagead/showads.js">
+</script>
+&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+<p align="left">&nbsp;</p>
+<h2 align="left">Bigton City Car Parking</h2>
+<p align="left"> The large regional city of Bigton has a busy central business district (CBD). Over the last few years parking in the CBD has become a concern. One difficulty is that too many people overstay the time limits of the parking bays in the CBD's streets. Employing enough parking officers has also become a problem, so the Bigton City Council has decided to look for a technological solution to the problem.</p>
+<p align="left"> City Engineer, James Jones, proposed that the city purchases and installs a commercially available solution that detects vehicles that have overstayed the time limit. However, after examining one such solution, the Council decided that it provided a lot of features the city would never use and it was too expensive. The Council asked James to investigate creating the city's own solution. Its only purpose would be to detect overstaying vehicles and notify parking officers where these vehicles are parked.</p>
+<p align="left">
+After some thought and investigation, James drew the plan shown below.</p>
+<p align="left"><strong>Parking Infringement Monitoring System (PIMS)</strong></p>
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td width="445" ><div align="right"><img src="/m/pm/11s-cs1.jpg" width="444" height="129" /></div></td>
+<td width="271" ><p>A Car Detection Unit (CDU) in each parking bay detects the arrival (or departure) of a car. When an arrival (or departure) occurs the CDU sends a signal to a nearby Road-side Data Logger (RDL). </p>
+<p>The signal identifies the CDU and the presence (or absence) of a car.</p>
+</td>
+</tr>
+<tr>
+<td ><div align="right"><img src="/m/pm/11s-cs02.jpg" width="439" height="144" /></div></td>
+<td ><p>At set intervals, RDLs send the data they have collected to a dedicated computer at the Council's offices. This is done via the Internet, using the mobile phone network.</p>
+</td>
+</tr>
+<tr>
+<td ><div align="right"><img src="/m/pm/11s-cs03.jpg" width="436" height="137" /></div></td>
+<td ><p>The Council's dedicated computer determines which cars have stayed too long. It then sends the location of the cars and the overstay details to a parking officer's mobile phone.</p>
+</td>
+</tr>
+<tr>
+<td ><div align="right"><img src="/m/pm/11s-cs04.jpg" width="434" height="133" /></div></td>
+<td ><p>The parking officer locates each car and confirms that it is the overstaying car. If so, the officer gets the car's details, prints a ticket, and then sends this information to the Council's fines-payment information system.</p>
+</td>
+</tr>
+<tr>
+<td ><div align="right"><img src="/m/pm/11s-cs05.jpg" width="92" height="93" border = "0" /></div></td>
+<td ><p>From time to time the City Engineer will access the dedicated computer to obtain statistics regarding the operation of the system.</p>
+</td>
+</tr>
+</table>
+<p>During his investigation James found out that the Council gives all its parking officers a mobile phone for use on the job, which means that these do not have to be purchased for the system; they would just need some software written for them. He also found that all the other hardware needed for the system, including a portable Bluetooth printer, can be purchased 'off the shelf'.</p>
+<p> The CDUs and RDLs operate automatically, but the dedicated computer would need software written for it. The computer can be connected to the Council's existing network, which would allow it to interact with the Council's fines-payment system.</p>
+<p> To take his idea further, James hired programmer Kirsten Koder.</p>
+<p> After interviewing James, Kirsten drew a use case diagram of the proposed Parking Infringement Monitoring System (PIMS). It is shown below.</p>
+<p align="left"><img src="/m/pm/11s-cs-ucd.jpg" width="442" height="459" /></p>
+<p align="left"><strong>The Car Detection Unit (CDU)</strong></p>
+<p align="left"> The type of CDU James has decided to use in the system is a small self-contained device about 5 cm long. It is designed to be placed just under the surface of a road. When the magnetic field around it is disturbed by a car, the CDU transmits a data signal that contains a 12-digit code as shown below.</p>
+<p align="left"><img src="/m/pm/11s-cs-cdu.jpg" width="525" height="208" /></p>
+<p>Since 1990, each parking bay in Bigton has been allocated a bay number, as shown in a section of the city map below. Since the CDU ID number is programmed at the factory and cannot be changed, James has decided that the best way to provide its location is to match the CDU ID to the bay number.</p>
+<p><strong>Parking bays</strong></p>
+<p align="left"><img src="/m/pm/11s-cs-parking.jpg" width="507" height="364" /></p>
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;</td>
+</tr>
+</table>
+<table>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Instructions for Section C</strong></p>
+<p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong><a name="c2" id="c2"></a>Question 1</strong></p>
+<p align="left"> While looking at the plan drawn by James, the engineer, Kirsten noted that there would be four different data transfers. She also noted that one of the data transfers will not need TCP/IP.<br />
+Identify this data transfer and explain why TCP/IP is not needed.</p>
+<p>Data transfer from <span class="myanswer">CDU</span> to <span class="myanswer">RDL</span></p>
+<p>Explanation </p>
+<p class="myanswer">The transfer is not being routed through the internet like the other three, and to use the internet you must use TCP/IP for packet handling and routing. The transfer might use Bluetooth instead, since the CDU and RDL are said to be &quot;nearby&quot;.</p>
+<p >1+2 = 3 marks</p>
+<p ><span class="examiner">State average was 52%</span></p>
+<p>Most students were able to identify that the data transfer from CDU to RDL was the one that did not require TCP/IP.
+However, many students struggled to provide a technically accurate description as to why it was not required. TCP/IP is
+a protocol for Internet use and the use of the Internet is not required for this data transfer. Stating 'because it is not
+required' was not sufficient and simply restated the question.<br />
+The following is an example of a high-scoring response. </p>
+<p>&quot;Data transfer from CDU to RDL<br />
+Explanation: The data does not transfer using the Internet. Because TCP/IP is only for data transfer over the Internet the
+protocol is not required."</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 2</strong><br />
+</p>
+<p align="left">To check that she had understood James' plan, Kirsten showed him the use case diagram. He expressed concern that the dedicated computer was not shown in the diagram.<br />
+State why Kirsten did not include the dedicated computer in her use case diagram.</p>
+<p class="myanswer" >The actors shown in the UCD are external entities that exploit functionality within the system.&nbsp; Since the dedicated computer <strong>is</strong> the system it does not interact with itself from outside of itself! </p>
+<p >1 mark</p>
+<p ><span class="examiner">State average was 40%</span></p>
+<p class="examiner" >Students had some difficulty with written responses regarding use case diagrams. As use case diagrams are new to the
+study, teachers are encouraged to provide more questions of this type throughout the year. Appropriate responses made
+comment about the dedicated computer not being included in the use case diagram because it was not being an actor
+(but part of the system).</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 3</strong><br />
+</p>
+<p align="left">Kirsten will include the use case diagram in the Software Requirements Specifications (SRS) she is writing. <br />
+In addition, Kirsten will include a context diagram in her SRS.<br />
+</p>
+<p align="left">State two functional requirements of the Parking Infringement Monitoring System (PIMS) that this context diagram would show. Give an example of each.</p>
+<p>Functional requirement 1 - <span class="myanswer">Calculate if cars have overstayed their parking time.</span></p>
+<p>Example - <span class="myanswer">? For example, a car stays too long in a parking bay??</span></p>
+<p>Functional requirement 2 - <span class="myanswer">Transfer ticket details</span></p>
+<p> Example - <span class="myanswer">Send ticket data to the fines payment system.</span> <span class="comment">(??)</span></p>
+<p class="comment">First problem: a context diagram will show <strong>no functional requirements</strong>. A context diagram doesn't show <strong>any</strong> processes: the system is a black box.&nbsp; The CD will only show <strong>data flows</strong> between the system and its external entities. FRs might be suggested by the data flows, but the&nbsp;FRs themselves are not shown.</p>
+<p class="comment">Second problem: how can you provide examples of specific functional requirements? <br />
+It's not as if FRs are a <strong>class</strong>, and there are <strong>instances</strong> of them in the UCD.<br />
+So if a FR is &quot;print parking ticket&quot;, how do you provide an example of that?</p>
+<p class="comment">Third problem: a big part of the system is calculating when cars have overstayed their time, but this FR is not shown in the UCD. The closest use case is &quot;register car arrives and/or departures&quot; which is different to calculating the time intervals&nbsp;between the events.</p>
+<p><span class="comment">I'm confused.</span></p>
+<p><img src="/m/pm/confused-dog.jpg" width="87" height="119" /></p>
+<p>4 marks</p>
+<p><span class="examiner" id="FR">State average was 48%</span></p>
+<p><span class="examiner">A range of responses was accepted as long as the student could clearly articulate the functional requirements of the
+system. Functional requirements include:<br />
+&bull; send data from roadside logger to central computer<br />
+&bull; CDU detects the arrival/departure of a car<br />
+&bull; transfer data from CDU to RDL<br />
+&bull; send data to parking officers.<br />
+Functional requirements are statements about what the system is required to do; however, when responding to this
+question, many students confused functional and non-functional requirements. Reliability, robustness and
+maintainability were common answers, but these are all non-functional requirements.</span><br clear="all" />
+</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 4</strong><br />
+</p>
+<p align="left">When writing the SRS, Kirsten identifies user-friendliness, response rates and maintainability as important non-functional requirements of the system.<br />
+Which of these three requirements is the most critical for the success of the system? Justify your choice.<br />
+</p>
+<p align="left">Most critical non-functional requirement - <span class="myanswer">Response rates.</span></p>
+<p>Justification - <span class="myanswer">since the allocation of parking tickets is strictly time-dependent, any lag in getting data on car arrival/departure times could lead to overstaying cars leaving a bay before the parking officer can get there to deliver the ticket.</span> &nbsp;<span class="myanswer"> A responsive system will react in a timely manner to critical events like these.</span></p>
+<p>1 + 3 = 4 marks</p>
+<p><span class="examiner">State average was 46%</span></p>
+<p>The most critical non-functional requirement in this situation is response rate. When justifying a choice, students who
+appropriately contrasted response rate with the other non-functional choices generally provided better responses.<br />
+It is important that students are conversant with the terminology used in the problem-solving methodology stated on
+pages 16&ndash;18 of the study design. It was apparent that many students did not recognise, or understand, the term
+'functional requirement' &ndash; part of the analysis stage of the problem-solving methodology.</p>
+<p> The following are examples of high-scoring responses.<br />
+<em>Justification: The success of the system depends on whether it can inform parking officers of overstaying cars in time for them to
+give these cars a ticket. The system's response rates will therefore need to be quick enough to get this information to the officers
+in time for it to be used. User friendliness and maintainability do not necessarily effect whether the system fulfils its purpose, but
+in this case the response rates of the system are critical to its success,<br />
+</em></p>
+<p><em>Justification: Seeing as how the parking officer will need constant updates as the whereabouts of each overstaying vehicle, the
+response times between detecting an overdue car then the RDL sending this information through to the council's dedicated
+computer and then on to the parking inspector will need to be very short. How easy the program is to use is irrelevant because
+there is no handling by users, it is all automatic beside the information received by the officer, and the maintainability, whilst in
+its own right be an important part, is not considered as it is required but the devices are assumed to be very robust.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>The analysis is now complete. Kirsten has submitted the SRS to James and he has told her to begin designing the software for the dedicated computer and the mobile phones.</p>
+<p> Kirsten starts with the dedicated computer. It will deal with the use case 'register car arrivals and/or departures'. Kirsten has drawn the following data flow diagram (DFD) to help her with the design of the software. </p>
+<p align="center"><br />
+<img src="/m/pm/11s-dfd.jpg" width="662" height="241" /></p>
+<p class="comment">1. I've always told my kids that each piece of data should have its own arrow. This DFD has multiple data items on the same arrow. </p>
+<p class="comment">UPDATE - 28 June 2012 - after some research, I can't find an 'official' rule against multiple data items on a flow, but they are nevertheless VERY rare. In <a href="http://facweb.cs.depaul.edu/yele/Course/IT215/DFD Mechanics.ppt">one nice slideshow on data flow diagrams</a> I found an example of two data items on one arrow - but that was a higher level DFD, and the two data items were split up into two arrows in the lower level DFD that showed more detail.</p>
+<p class="comment"> 2. Aren't double-headed arrows forbidden in DFDs? </p>
+<p class="comment">UPDATE - 28 June 2012 - Yes. <a href="http://arxiv.org/ftp/arxiv/papers/1011/1011.0278.pdf">Data flows can only go in one direction</a>!</p>
+<p class="comment">3. Why are two arrows unlabelled?</p>
+<p class="comment"> Did someone change the DFD rules when I wasn't watching?</p>
+<p>For the process 'Determine deadlineTime &amp; cduBattery' she has developed the following algorithm. It updates deadlineTime and cduBattery in cduFile. The variable currentTime is set by the system and represents the current time of day in 24-hour time.<br />
+</p>
+<p align="center"><img src="/m/pm/11s-c05.jpg" width="505" height="338" /></p>
+<p align="center">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong><br />
+</p>
+<p>The structure of cduFile is shown in the table below.</p>
+<p> Using the information in the DFD, the algorithm and case study, complete the table to indicate the most appropriate data type for each field.</p>
+<p> Select from: integer, floating point number, Boolean, array, string.</p>
+<table border="2" cellspacing="0" cellpadding="3">
+<tr>
+<td width="90" valign="top"><p><strong>Field name</strong></p>
+</td>
+<td width="132" valign="top"><p><strong>Type</strong></p>
+</td>
+<td width="510" valign="top"><p><strong>Use</strong></p>
+</td>
+</tr>
+<tr>
+<td width="90" valign="top"><p>cduID</p>
+</td>
+<td width="132" valign="top"><p>Integer</p>
+</td>
+<td width="510" valign="top"><p>Unique identifier for the CDU</p>
+</td>
+</tr>
+<tr>
+<td width="90" valign="top"><p>bayNum</p>
+</td>
+<td width="132" valign="top"><p class="myanswer">Integer</p>
+</td>
+<td width="510" valign="top"><p>Number of the parking bay in which the CDU is located</p>
+</td>
+</tr>
+<tr>
+<td width="90" valign="top"><p>bayLocation</p>
+</td>
+<td width="132" valign="top"><p class="myanswer">String</p>
+</td>
+<td width="510" valign="top"><p>Street address of the parking bay</p>
+</td>
+</tr>
+<tr>
+<td width="90" valign="top"><p>cduBattery</p>
+</td>
+<td width="132" valign="top"><p class="myanswer">Boolean</p>
+</td>
+<td width="510" valign="top"><p>Is the CDU's battery getting low?</p>
+</td>
+</tr>
+<tr>
+<td width="90" valign="top"><p>deadlineTime</p>
+</td>
+<td width="132" valign="top"><p class="myanswer">Integer <span class="examiner">or floating point</span></p>
+</td>
+<td width="510" valign="top"><p>The time by which the car must have left the parking bay (24-hour time)</p>
+</td>
+</tr>
+</table>
+<p class="comment">The deadlineTime data type is awkward. The most efficient type would have been 'time' but that was not allowed. Storing it like &quot;1345&quot; meaning 1:45pm is also clumsy and requires processor-intensive parsing. It would be far better to store it as a number of seconds since midnight, which comfortably fits in a&nbsp;short integer.</p>
+<p>4 marks</p>
+<p><span class="examiner">State average was 74%</span></p>
+<p>Only responses from the provided list were accepted. The VCE Software Development Study Design states the following
+data types: integer, floating point, Boolean, character and string. It is important that students undertaking IT
+Applications and Software Development are aware of the differences in each study's definition of data types.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 6</strong><br />
+</p>
+<p align="left">The updateCduFile algorithm uses a function called bayNumFind. It will search cduFile for the bay number that matches the given cduID.</p>
+<p align="left"> a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Kirsten plans to use a binary search in the function bayNumFind.<br />
+What does this tell us about how the data must be organised in cduFile?</p>
+<p class="myanswer" >cduID has to be sorted from smallest to largest.</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 28%</span></p>
+<p class="examiner" >Most students were able to identify that the file needed to be sorted in order to perform a binary search; however, many
+failed to identify the data item that should be sorted &ndash; cduID.</p>
+<p > b.&nbsp;&nbsp; Kirsten can choose to have cduFile either as a serial file or a random file. Which should she choose and why?</p>
+<p>Choice - <span class="myanswer">Random file</span>.</p>
+<p>Reason - <span class="comment">Records in a random file can be retrieved far more quickly than those in a serial file because the starting byte of any record can be calculated with a simple calculation because every record has the same length. Serial files&nbsp;do not have to have their field lengths pre-defined, so their contents can be far more flexible than a random file, but one has to seek from the start of the file&nbsp;through each record until the required one is found.</span></p>
+<p>2 marks</p>
+<p><span class="examiner">State average was 40%</span></p>
+<p>Only a small number of students were able to adequately give a reason why a random file was better than a serial file in
+this instance. Random access files allow direct access to required records/data, so every record does not need to be read
+to find it as is the case with a serial file.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 7</strong></p>
+<p align="left"> For the process 'Determine overstay bays' Kirsten has developed the following algorithm. It goes through every record in cduFile and finds any that have overstayed. There is one record per parking bay.</p>
+<p align="left"><img src="/m/pm/11s-c07.jpg" width="319" height="284" /></p>
+<p align="left">Normally currentTime is set by the system, but for testing purposes Kirsten will set it to 1300 (1.00pm). To properly test the algorithm, Kirsten believes she will need to have four different values for deadlineTime. Complete the table below with samples that test the algorithm. State which line is being tested.</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="13%"><strong>DeadlineTime</strong></td>
+<td width="23%"><strong>Expected outcome</strong></td>
+<td width="32%"><strong>Line of code</strong></td>
+<td width="32%"><strong>Reason</strong></td>
+</tr>
+<tr>
+<td><span class="myanswer">1259</span></td>
+<td><span class="myanswer">send overstay message</span></td>
+<td><span class="myanswer">if currenttime&gt;deadlinetime</span></td>
+<td><span class="myanswer">Time has elapsed</span></td>
+</tr>
+<tr>
+<td><span class="myanswer">1300</span></td>
+<td><span class="myanswer">none</span></td>
+<td><span class="myanswer">if currenttime&gt;deadlinetime</span></td>
+<td><span class="myanswer">Time is on the borderline, but not over</span></td>
+</tr>
+<tr>
+<td><span class="myanswer">1301</span></td>
+<td class="myanswer">none</td>
+<td><span class="myanswer">if currenttime&gt;deadlinetime</span></td>
+<td><span class="myanswer">Time has not elapsed</span></td>
+</tr>
+<tr>
+<td><span class="myanswer">-1</span></td>
+<td><span class="myanswer">none</span></td>
+<td><span class="myanswer">if deadlinetime &lt;&gt;-1 then</span></td>
+<td><span class="myanswer">No car is in the bay</span></td>
+</tr>
+</table>
+<p align="left">8 marks </p>
+<p align="left" class="examiner">State average was 41%</p>
+<p align="left" class="examiner">In this question students needed to identify key boundary conditions that would test the algorithm logic. Many students
+confused the variables deadlineTime with currentTime. An overstay message should occur if the deadline time was
+prior to 1300 (1.00 pm).</p>
+<p align="left" class="examiner">Students should be given the opportunity to demonstrate these skills in testing tables throughout the year. Creating their
+own test tables for assessment is not sufficient; sample algorithms with and without errors and practice questions from
+past papers should be completed where appropriate to ensure students are well prepared for these types of questions.</p>
+<p align="left"> Kirsten now works on the mobile phone software. This software will be responsible for the three use cases associated with the parking officers.</p>
+<p align="left">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 8</strong></p>
+<p align="left"> Messages containing overstay parking data are sent from the dedicated council computer to the mobile phone of the parking officer in the area. The phone software must process the messages in the order they are received.<br />
+Which data structure, stack or queue, should Kirsten use to store the messages? Justify your choice.</p>
+<p>Choice - <span class="myanswer">Queue</span></p>
+<p>Justification - <span class="myanswer">A queue stores incoming data and releases it in the order in which it arrived. A stack (usually) releases that last datum that arrived most recently, which is not the desired behaviour in this case.</span></p>
+<p>4 marks</p>
+<p><span class="examiner">State average was 59%</span></p>
+<p>The majority of students were able to identify queue as the correct data structure. It was clear that students had covered
+this material well as they were able to articulate the fundamental difference between queues and stacks, that being the
+order is which data is handled &ndash; first in first out (FIFO) for queues versus last in first out (LIFO) for stacks. In this case
+the tickets needed to be processed as they were received, so a queue was required.<br />
+</p>
+<p>The following is an example of a high-scoring response.<br />
+<em>Choice: A queue structure should be chosen by Kristen<br />
+Justification: Kristen should choose a queue structure because it operates in a FIFO (first in first out) nature. Therefore the first
+message which will be sent to the officers mobile will be the first which is processed and dealt with which enable officers to deal
+with the infringements in the order in which they occur, as opposed to always having the first infringement processed last (like
+the operation of the stack) as offenders could never be punished as they are gone by the time the officer makes it on site.</em></p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 9</strong></p>
+<p align="left"> When the parking officers arrive at the parking bays they will enter the car's number plate into their mobile phones. The software must check that each number plate entered is in the correct format. Then each number plate is sent to the dedicated computer. Kirsten has proposed the following algorithm. The number plates can only contain numbers and letters and be no longer than 6 characters. The function length() is used to find the number of characters in a string.</p>
+<p align="left"><span class="comment">I love the image of parking officers removing number plates from cars and entering them into their mobile phones. <br />
+Perhaps the examiners meant to say the officers entered the car's registration number?</span></p>
+<p align="left"><br />
+<img src="/m/pm/11s-c09.jpg" width="455" height="352" /></p>
+A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Kirsten desk checks this algorithm with test data for the numberPlate, as shown below. Complete the test table.<p></p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="45" valign="top"><p align="center"><strong>Test</strong></p>
+</td>
+<td width="75" valign="top"><p><strong>Test data</strong></p>
+</td>
+<td width="244" valign="top"><p><strong>Expected outcome</strong></p>
+</td>
+<td width="244" valign="top"><p><strong>Actual outcome</strong></p>
+</td>
+</tr>
+<tr>
+<td width="45" valign="top"><p align="center">1</p>
+</td>
+<td width="75" valign="top"><p>ABC123</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>none</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>invalid number plate*</p>
+</td>
+</tr>
+<tr>
+<td width="45" valign="top"><p align="center">2</p>
+</td>
+<td width="75" valign="top"><p>*ABC</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>invalid number plate</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>invalid number plate</p>
+</td>
+</tr>
+<tr>
+<td width="45" valign="top"><p align="center">3</p>
+</td>
+<td width="75" valign="top"><p>123AB&amp;</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>invalid number plate</p>
+</td>
+<td width="244" valign="top" class="myanswer"><p>invalid number plate*</p>
+</td>
+</tr>
+</table>
+<p class="comment" >*Thanks to Melanie for pointing out that because the test data is 6 characters long (not &lt; 6), it fails the first IF test and drops down to the second numberPlateValid = False line without even checking for invalid characters. I'm not sure the examiners intended this. Were they, I wonder, if thinking that the actual outcomes were (1) valid, (2) invalid, (3) erroneously valid as I originally did?</p>
+<p >4 marks</p>
+<p ><span class="examiner">State average was only 18%&nbsp; !!</span></p>
+<p class="examiner" >When completing a testing table, students should ensure that the expected outcome and actual outcome are based
+directly on the algorithm in the case study. Many students wrote words such as 'true' or 'invalid', which showed
+understanding but did not reflect the messages displayed by the algorithm.</p>
+<p > b.&nbsp;&nbsp; Describe the error that this test data shows.</p>
+<p class="myanswer" > It automatically rejects number plates that are 6 characters long and does not even check them for valid characters.</p>
+<p class="myanswer" ><span class="black">1 mark</span></p>
+<p class="myanswer" ><span class="examiner">State average was 40%</span></p>
+<p class="examiner" >The algorithm had one error based on the testing table: it does not check the length of the number plate correctly. A
+number of students responded with 'logical error'; however, the question required a description of the error shown by
+the test data.</p>
+<p > c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Write down the line of the algorithm that has caused this error.</p>
+<p class="myanswer" >If length(numberplate)&gt;0 and length(numberplate)&lt;6 then</p>
+<p >1 mark</p>
+<p ><span class="examiner">State average was 50%</span></p>
+<p class="examiner" >The line of the algorithm that has caused the error was: </p>
+<p class="examiner" ><strong><em>If</em></strong><em> length(numberPlate) &gt;0 <strong>And</strong> length(numberPlate)&lt;6 <strong>Then</strong></em> </p>
+<p class="examiner" >This question asked students to write the line of the algorithm with the error. Students are encouraged to write the whole
+line of the algorithm, rather than parts of the line or creating line numbers for the algorithm.</p>
+<p > d.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Write down the line as it should have been written.</p>
+<p><span class="myanswer">If length(numberplate)&gt;0 and length(numberplate)&lt;=6 then</span></p>
+<p class="comment">or </p>
+<p><span class="myanswer">If length(numberplate)&gt;0 and length(numberplate)&lt;7 then</span></p>
+<p>1 mark</p>
+<p><span class="examiner">State average was 45%</span></p>
+<p>The majority of students found this question challenging. Algorithms and testing are both covered in two of the four
+Areas of Study and students need to develop their understanding of each. Students should practise these types of
+questions either in classroom activities using past examination papers or in assessment where appropriate.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 10</strong></p>
+<p align="left"> Kirsten is concerned about the storing of offenders' details if parking officers lost or even left their mobile phones on their desks at work.</p>
+<p align="left"> State two features Kirsten should build into the mobile phone software to ensure that the data in the parking officers' mobile phones is secure.</p>
+<p align="left"> For each feature, explain how it would help secure the data.</p>
+<p>Feature 1 - <span class="myanswer">password-protected login</span></p>
+<p>Explanation - <span class="myanswer">prevents unauthorised people using the software</span></p>
+<p>Feature 2 - <span class="myanswer">encryption of stored and transmitted data</span></p>
+<p>Explanation - <span class="myanswer">prevents unauthorised people 'sniffing' data travelling wirelessly. Also prevents people being able to read data stolen from the device's storage.</span></p>
+<p >4 marks</p>
+<p class="examiner" >State average was 69%</p>
+<p class="examiner" >Students' familiarity with mobile phones was in some cases a limitation to them providing accurate responses to this
+question. A number of students simply described a list of mobile phone safeguards &ndash; for example, a timed screen lock&ndash; rather than what should be built into the software to ensure the security of the data.<br />
+</p>
+<p class="examiner" >The following is an example of a high-scoring response.<br />
+Feature 1: Password authentication<br />
+Explanation: This would only enable the authorised people to access the data who knew the password. Therefore, the data could
+not be easily stolen.<br />
+Feature 2: Encryption<br />
+Explanation: Even if the phone was compromised the data would be unreadable to everyone except the person or people it is
+intended for eg by using public/private key authentication. This means that the data even if it is removed from the phones can't be
+accesses by unauthorised people. Therefore, only the council and parking inspectors need to be able to decrypt this data.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 11</strong></p>
+<p align="left"><br />
+A friend, Jose, argues with Kirsten that if she uses single letters for variable and procedure names, her program code would be 20% smaller and hence she would be producing more efficient software.<br />
+</p>
+A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Explain why Kirsten should ignore this advice.<p></p>
+<p class="myanswer" >The names would be meaningless and would require constantly referring to a data dictionary to find out what the variables and procedures contained or did. It could also easily lead to errors by using the wrong variables.</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 50%</span></p>
+<p class="examiner" >Students needed to demonstrate an understanding of efficiency in their explanation. According to the study design
+glossary 'measures of an efficient solution include the speed of processing, the functionality of the solution, the ease of
+use of the solution &hellip;' Full marks were awarded to responses that focused on processing and ease of use.<br />
+</p>
+<p class="examiner" >The following is an example of a high-scoring response.<br />
+<em>It is the processing of lines rather than reading variable and procedure names that take up processing time, so any efficiency
+gains would be too small to be measurable. Furthermore, single letter variables and procedure names make code hard to
+understand making development and maintenance more difficult.</em></p>
+<p > b.&nbsp;&nbsp; State one other action, besides using meaningful names, Kirsten could perform to make her program code more programmer friendly.</p>
+<p class="myanswer" >Lots of useful, relevant internal documentation.</p>
+<p class="examiner" >The following is an example of a high-scoring response.<br />
+<em>Kristen should include meaningful internal documentation.</em></p>
+<p>1 mark</p>
+<p><span class="examiner">State average was 75%</span><br />
+</p>
+<p>Most students were able to show that a naming convention and internal documentation were essential elements for the
+maintainability of the code by the programmer or a future programmer, and that variable length had little, if any, impact
+on the efficiency of the software. </p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 12</strong></p>
+<p align="left"> During the development of the software, Kirsten finds a module developed by the Fast Fines company. If she could use this module she would not have to develop the module herself.</p>
+<p align="left"> Explain Kirsten's legal obligations if she wishes to use this module.</p>
+<p class="myanswer" >The Copyright Act (1968) says she would need to obtain permission from the owner of the intellectual property before using the code.</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 65%</span></p>
+<p class="examiner" >Some students failed to provide a detailed response to this question. Students should ensure that they read questions
+carefully and provide sufficient depth and detail in their responses to ensure the question is answered as asked. To gain
+full marks students needed to make reference to the legal obligation, namely intellectual property through copyright,
+and an action that could be taken in order to act legally such as seeking permission or paying a fee for copyright
+permission.<br />
+</p>
+<p class="examiner" >The following is an example of a high-scoring response.<br />
+<em>As the module was created by the Fast Fines Company, it is legally protected by the Copyright Act. If she wishes to use the code
+she would have to contact the company and ask their permission, as well as most likely pay a cost to be able to use it.</em></p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 13</strong></p>
+<p align="left"> Kirsten is sure that all of the errors are now out of the software and that it is ready to be used by the Bigton City Council. The final testing process is to complete the User Acceptance Testing (UAT), but James is not entirely sure what this is and how he will be involved.</p>
+<p align="left"> a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Explain the process of UAT and how James and the other staff will be involved.</p>
+<p class="myanswer" >UAT is testing the opinions of people who will actually use the software once it is released. This is important because these people will have to use it, and can offer valuable feedback from a experienced user's point of view. It is not done by developers, who are too close to the system and may not see its faults, or managers who would be unlikely to know what is important from a regular user's perspective. </p>
+<p >3 marks</p>
+<p ><span class="examiner">State average was 47%</span></p>
+<p class="examiner" >Most students struggled to provide a detailed response, limiting their responses to statements about 'checking the
+system does what is intended'. In addition, many students confused user acceptance testing (UAT) with evaluation.<br />
+User acceptance testing occurs in the development stage during testing activities, generally as the last testing step before
+implementation and user sign-off that the programming solution meets the requirements in the software Requirements
+Specifications (SRS). The UAT would then be evaluated for its effectiveness as part of an evaluation strategy.<br />
+</p>
+<p class="examiner" >For full marks students needed to address what is involved in user acceptance testing, James' role in this and how other
+staff would be involved.<br />
+</p>
+<p class="examiner" >The following are examples of high-scoring responses.<br />
+<em>The user acceptance testing is done at the end of development and requires the Bigton City Council staff such as James to test the
+solution to make sure it operates in the intended manner. They will use numerous tests such as accuracy tests, response rate tests
+to make sure that it operates correctly before signing off on the solution.<br />
+</em></p>
+<p class="examiner" ><em>A UAT is the process of finding out if the software meets the requirements and the expectations of the end user. The parking staff
+will be involved in testing the mobile software and each of the other staff members will test if their section functions correctly.
+Once testing is completed the staff will report back to Kirsten any problems.</em></p>
+<p > b.&nbsp;&nbsp; Provide an example of a criterion that the new PIMS must meet to pass the UAT process.</p>
+<p class="myanswer">It must be easy for the parking officers to use. <br />
+It must be reliable and responsive. <br />
+Its output (onscreen and printed) must be clearly readable.</p>
+<p>1 mark</p>
+<p><span class="examiner">State average was 45%</span></p>
+<p>A variety of responses, inc<span class="examiner">l</span>uding their form, were appropriate to this question. For example, some responses stated a
+criterion in terms of a question; others identified if the criterion was a measure of efficiency or effectiveness and then
+provided an example.<br />
+The following are examples of appropriate responses.<br />
+<em>The PIMS must be able to send overstay data to the mobile phones of parking inspectors.<br />
+Effectiveness &ndash; more overdue cars are being found and more fines are being issued.<br />
+Does the system send the location of overstayed cars to a parking officer's mobile phone?</em></p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 14</strong></p>
+<p align="left"> To evaluate the success of the PIMS, Kirsten needs to collect a range of data.<br />
+Suggest a strategy that she might use to acquire data relating to the accuracy of the parking fines that are issued.</p>
+<ul>
+<li class="myanswer">She could check council logs to count how many complaints there have been by motorists about incorrect fines being issued. </li>
+<li class="myanswer">She could also investigate court records to find how many times motorists successfully challenged incorrect fines.</li>
+<li class="myanswer">She could advertise for people to give feedback on the accuracy of parking tickets they have received.</li>
+<li class="myanswer">She could interview parking officers about how often the system has indicated a fine should be given when the officer knew a fine was not actually deserved.
+</li>
+</ul>
+<p class="comment">She would <strong>not</strong> get a car to enter/leave a bay and leave it there for various times, and observe whether tickets were issued by the system - this would be <strong>testing</strong>, not evaluation.</p>
+<p >3 marks</p>
+<p ><span class="examiner">State average was 33%</span></p>
+<p class="examiner" >This question required students to suggest a strategy to evaluate the accuracy of the parking fine issued. A number of
+students missed the key word 'accuracy' and provided a general answer. As in previous years many students found it
+difficult to develop a strategy. A strategy is a method by which an activity is carried out; this would include a set of
+steps or procedures, i.e. What will be done? When does it happen? Who does it? etc. Evaluation questions can be found
+on previous exams and these questions should be used as appropriate in classwork and in assessments.</p>
+<p class="examiner" >For full marks responses needed to consider what data needed to be collected, who was collecting it and from where,
+and what type of information was being generated to measure the accuracy of the solution.<br />
+</p>
+<p class="examiner" >The following are examples of high-scoring responses.<br />
+<em>After approximately 6 months, Kirsten should attempt to collect data as to the accuracy of parking fines produced. To do this
+Kirsten should consult documents, or logs, letters, emails, telephone correspondence (possibly notes taken by the council when
+on the phone to clients). All of this information will show how many complaints there have been from customers over the last 6
+months to determine how well Kirsten's solution is working. She could also survey customers to see if they notice improvements
+or agree with the accuracy of the fines. This could be done through the post or email or online survey.<br />
+</em></p>
+<p class="examiner" ><em>Kirsten may wish to count the number of complaints from motorists in relation to being overcharged in their parking fines. If this
+number is lower than the previous system then it is an indicator of success although it should be noted that more parking fines
+are likely to be issued with the new system increasing error amounts.<br />
+Kirsten should review any documents relating to the public's complaints with regards to the fines that were issued. She could </em><em>survey affected people as to whether the parking fine was accurate when they came to pay their fine, bearing in mind that some
+people will lie about whether they deserve parking fines. She should also interview some parking officers as the whether they
+have noticed inaccuracies in the new system</em></p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 15</strong></p>
+<p align="left"><br />
+The key users of the new PIMS developed by Kirsten are the parking officers. The Council wants Kirsten to develop a training program to teach them how to use the new software.<br />
+</p>
+A.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Describe a suitable training program she could use.<p></p>
+<p class="myanswer" >The case study does not say how many officers need training. If there are not too many (e.g. a dozen or fewer), they could be trained in a single group with practical hands-on experience.<br />
+If there are many of them, a group lecture could introduce the system to them all, and selected officers could be trained as trainers to teach the rest.<br />
+If they were all trained at the same time, it would need to happen outside of normal work hours 
+so people don't get away with illegal parking. 
+</p>
+<p >2 marks</p>
+<p ><span class="examiner">State average was 65%</span></p>
+<p class="examiner" >Most students were able to provide a reasonable response to this question. Student generally responded with, 'train the
+trainer' or 'onsite group training'; however, a range of responses were appropriate as long as they were applicable to the<br />
+organisation.</p>
+<p > b.&nbsp;&nbsp; Suggest how the Council could measure the suitability of this program.</p>
+<p class="myanswer" >They could test trained officers in the use of the system and see how many mistakes the officers made. If trained offers used the system accurately and quickly, the training would be considered a success.</p>
+<p>1 mark</p>
+<p><span class="examiner">State average was 40%</span></p>
+<p>Suitable responses included a method of data collection (for example, a survey, interviewing, a written test or
+observing) and what was to be collected (for example, questions such as was the training sufficient or who was the data
+to be collected from &ndash; the parking inspector) or when this would occur (for example, at the conclusion of the training
+program).
+Many students misread the question and assumed the word 'program' was the software implemented, not the training<br />
+program discussed in 15a.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left">&nbsp;</p>
+<p align="left"><strong>Question 16</strong></p>
+<p align="left"> The introduction of the new PIMS at the Bigton City Council will affect a number of stakeholders. Outline the conflict that may occur between the Council and each of the following stakeholders. </p>
+<p align="left">Parking officers</p>
+<p class="myanswer">If fewer parking officers are needed with the new system, some of them might lose their jobs. This would cause a considerable amount of stress and hardship.</p>
+<p class="myanswer">Some officers might resent having to learn a new system - especially some older experienced people who have used the old system for years.</p>
+<p>Motorists using parking bays</p>
+<p class="comment">Motorists might believe they are being watched by a 'Big Brother' and resent the intrusion.<br />
+They might not believe or trust the evidence of the the sensors and the ticketing system, and might want to challenge its accuracy.</p>
+<p class="comment">They might resent having their rates used to pay for a system that will fine them more efficiently!</p>
+<p class="comment">They might be annoyed that the new system is fining them for offences they never got caught for in the past (e.g. overstaying for a short period of time).</p>
+<p>2 marks</p>
+<p><span class="examiner">State average was 30%</span></p>
+<p>Most students found this question challenging, with many unable to clearly describe a conflict. An answer such as 'they
+may feel annoyed' was not sufficient.
+The following is an example of high-scoring response.</p>
+<p><em>Parking officers: The parking officers may resist the council's changes and be angry about the new system since they weren't
+warned or told why. This could result in for example, strike action or an increase in sick days.
+Motorists will complain that the council is deliberately attempting to raise revenue from PIMS and that the software is
+unfair/unjust.</em></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+</td>
+</tr>
+<tr>
+<td> <script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></td>
+</tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 17 November 2011</font></p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->May 7, 2022 11:50 AM<!-- #EndDate --> 
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2010<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2010. <br />
+Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font></p>
+</div></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>VCE IT Applications Exam 2007 - Post mortem by Mark Kelly</title>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><img src="/bits/title.png" /></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr>
+  <td ><h1 align="center">IT Applications </h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2007</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+<td ><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><a href="http://www.vcaa.vic.edu.au/vce/studies/infotech/it-applications/exams.html#H2N10037">Full ITA examiner's report on the VCAA site </a>
+</div>
+<p align="center"><span class="reditalic">State percentages added 26 Feb 08</span> <br />
+</p>
+</td>
+</tr>
+<tr>
+<td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --><p align="center">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td >
+<center>
+<h1><b><a name="a"></a>SECTION A - Multiple-choice questions</b></h1>
+<p><a href="#b">Go to section B</a></p>
+<p>* in multiple choice marks my answers </p>
+<p>Across the state: average multiple choice question accuracy = <br />
+Lowest question success was (Q) <br />
+Highest question success was (Q) </p>
+</center></td>
+</tr>
+<tr>
+<td>
+<p align="center">
+<b>Instructions for Section A</b> </p>
+<p>
+Answer <b>all </b>questions in pencil on the answer sheet provided for multiple-choice questions. Choose the response that is <b>correct </b>or that <b>best answers </b>the question.
+<br />
+A correct answer scores 1, an incorrect answer scores 0.
+<br />
+Marks will <b>not </b>be deducted for incorrect answers.
+<br />
+No marks will be given if more than one answer is completed for any question. </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 1<br />
+</p>
+<p>A sudden loss of power caused by a falling tree destroyed some data on a hard drive. This data loss is classified as</p>
+<p>A. accidental.*<br />
+B. deliberate.<br />
+C. technical failure of the hard disk casing.<br />
+D. procedural failure of login software.</p>
+<p class="comment">My cat could have worked this out without 12 months of ITA training! What on earth were options C and D about? </p>
+<p><span class="red"> 93% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p></p><p>Question 2<br />
+</p>
+<p>A bank teller uses a swipe card and a login with password to access clients' bank accounts. 
+This security is an example of </p>
+<p>A. physical and biometric. <br />
+B. electronic and physical. *<br />
+C. biometric and biometric. <br />
+<span class="red">D. electronic and electronic.</span> <span class="myanswer">&lt;= <em>officially right answer - I'm dubious</em></span> </p>
+<p class="myanswer">It's certainly not biometric, so rule out A and C. One would have to classify the swipe card as a physical component even though it only contributes security via electronic processing. Unlike a barred window, a card will not physically stop an evildoer (unless the card was the size and thickness of a door, with a lock fitted...) </p>
+<p class="myanswer">43% of the state got this right. 48% said B like I did.</p>
+<p class="examiner">Many students were distracted by electronic and physical (option B) and did not correctly identify the security measures used to prevent unauthorised access to data and information as electronic and electronic. </p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 3<br />
+</p>
+<p>To protect emails sent via the Internet, users should </p>
+<p>A. backup the emails.<br />
+B. encrypt the emails. * <br />
+C. carbon copy the emails.<br />
+D. blind carbon copy the emails.</p>
+<p class="comment">I mean to say. My cat could have got this right in his sleep. </p>
+<p><span class="red">90 % of the state got this right.</span></p>
+<p ></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 4<br />
+</p>
+<p>The primary key field of a database must always</p>
+<p>A. be sorted.<br />
+B. use an autonumber data type.<br />
+C. have an entry for each record.<br />
+D. contain entries that are a combination of text and numbers.</p>
+<p class="myanswer">Another fairly dumb question. C is right, but it should really have been &quot;a unique entry&quot;. Too easy. </p>
+<p><span class="red">58% of the state got this right.</span></p>
+<p class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 5</p>
+<p> Separate campuses of a secondary school are two kilometres apart. 
+The best transmission media to securely connect all campuses to the school intranet is </p>
+<p>A. wireless.<br />
+B. fibre optic.*<br />
+C. USB (Universal Serial Bus).<br />
+D. UTP (Un shielded Twisted Pair).</p>
+<p class="myanswer">Aha... one could argue that microwave would be &quot;wireless&quot; and therefore acceptable, but microwave is, AFAIK, rather expensive compared to FOC. If you're thinking of wireless as 801.11 (&quot;local&quot; wireless), it's not an option because 2km is far too distant for it to work. </p>
+<p><span class="red">51% of the state got this right.</span></p>
+<p class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 6</p>
+<p><br />
+What is the most efficient formula the owner can enter to calculate the correct Total in cell B12? </p>
+<p><img src="/m/pm/07i-a05.jpg" width="356" height="337" /></p>
+<p>A. =(B4:B10)<br />
+B. =SUM(B4:Bl0)*<br />
+C. =SUM(B4+B10)<br />
+D. =(B4+B5+B6+B7+B8+B9+B10)</p>
+<p class="comment">Oh, really. This is a year 7 IT question. </p>
+<p><span class="red">83% of the state got this right.</span></p>
+<p class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 7</p>
+<p>The formula =COUNT(B4:Bll) in cell B13 will return </p>
+<p>A. 7*<br />
+B. 8<br />
+C. #######<br />
+D. an error message </p>
+<p class="comment">The COUNT( ) function does not count empty cells like B11. </p>
+<p><span class="red">45</span><span class="red">% of the state got this right.</span></p>
+<p></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 8</p>
+<p>A new layout for a timetable must be produced from an existing spreadsheet and multiple copies printed on a company's black and white laser printer, rather than the new colour printer. 
+The constraints on this solution are best described as</p>
+<p>A. economic and operational.<br />
+B. operational and social.<br />
+C. social and technical.<br />
+D. technical and economic.*</p>
+<p class="comment">Hmmm. The IT glossary does define constraints as including economic, social and technical, so that rules out options A and B. The use of that specific printer is a technical constraint, but that does not help further limit the possibilities. So we need to decide between <em>social</em> and <em>economic</em>. There's no hint of a &quot;people&quot; issue so it must be economic. One supposes that the company insisted on using the B&amp;W printer because it was cheaper, but it's a bit of a stretch for students to have to <em>assume</em> that - some colour printers cost the same amount as B&amp;W lasers if the page is monochrome, so the colour laser might <em>not </em>be cheaper. </p>
+<p><span class="red">47</span><span class="red">% of the state got this right.</span></p>
+<p></p></td>
+</tr>
+<tr>
+<td ><p>&nbsp;</p>
+<p><a name="a9"></a>Question 9</p>
+<p>Validation is used to<br />
+A. check the accuracy of calculations.<br />
+B. detect software errors and alert the manager.<br />
+C. test functions and alert programmers to errors. <br />
+<span class="red">D. prevent inaccurate data from entering the system.</span> <span class="comment">&lt;== official 'right' answer. Absolute rubbish!</span> </p>
+<p class="style14">X. None of the above.* </p>
+<p><span class="style14">This is a big worry.</span>&nbsp;<span class="comment"> It cannot be D because validation does NOT check the ACCURACY of data, only its reasonableness. Even the sacred IT glossary says validation checks data input to a system is of an "appropriate type for processing, and within acceptable boundaries") <br />
+<br />
+B and C are silly. <br />
+<br />
+So are we to accept that validation is used to check the accuracy of calculations?&nbsp; Not really - that's called testing. <br />
+<br />
+I think the question is just plain wrong, and I'm tempted to appeal against it on the grounds of factual inaccuracy. <br />
+<br />
+Any other opinions? </span></p>
+<p><img src="/m/schmacho.jpg" width="98" height="150" /></p>
+<p><span class="red">63% of the state got this right - or thought they did! </span></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 10</p>
+<p><br />
+A virtual team of medical specialists located all over the world uses a virtual private network (VPN) to discuss their research in real-time. 
+This is an example of</p>
+<p>A. email using a LAN.<br />
+B. email using a WAN.<br />
+e. web conferencing using a LAN.<br />
+D. web conferencing using a WAN.*</p>
+<p class="comment">The key words in the question are &quot;all over the world&quot; (meaning it's a WAN), and &quot;in real-time&quot; which includes web conferencing, not email. </p>
+<p class="examiner">86% of the state got this right.</p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 11</p>
+<p><br />
+The main purpose of the <em>Copyright Act </em>1968 for web designers collecting images for a website is to ensure </p>
+<p>A. confidential records are secure.<br />
+B. encrypted files are not hacked into.<br />
+C. all artists receive payment for their work.<br />
+D. intellectual property is not used without permission.*</p>
+<p class="myanswer">Many of these questions are far too easy, I reckon. </p>
+<p><span class="red">81% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 12</p>
+<p>A database is used by a virtual team of scientists to record and process temperature readings taken around volcanoes.<br />
+The IPO (Input-Process-Output) chart best representing the design of the database is</p>
+<p><img src= "/m/pm/07i-a12.jpg" width="679" height="239" /></p>
+<p class="myanswer">The answer is C. Temperature is the input data. The processing involves calculations. The output is the report. Not too hard. </p>
+<p class="examiner">90% of the state got this right.</p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 13</p>
+<p>The most appropriate way to evaluate the effectiveness of a website offering online football ticket sales is to </p>
+<p>A. interview all customers about the clarity of instructions.<br />
+B. survey customers online about the clarity of instructions.*<br />
+C. interview all customers about the speed of response to mouse clicks.<br />
+D. survey customers online about the speed of response to mouse clicks.</p>
+<p class="myanswer">Key word is &quot;effectiveness&quot; which rules out C and D which refer to <em>efficiency</em>. Personally interviewing <em>all</em> customers would be next to impossible. The only option left is to survey a sample of customers.</p>
+<p><span class="red">86% of the state got this right.</span> </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 14</p>
+<p>A Network Operating System (NOS) is</p>
+<p>A. software that controls the operations of a network.*<br />
+B. hardware that controls the operations of a network.<br />
+C. hardware that provides secure connections between components in a network. <br />
+D. software that enables users to create multimedia network information products.</p>
+<p class="myanswer">Again, too easy. </p>
+<p><span class="red">71% of the state got this right.</span></p>
+<p class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 15</p>
+<p>The most appropriate data type for the field in a database storing Phone Numbers such as (03) 8999 7777 is </p>
+<p>A. text.*<br />
+B. integer.<br />
+C. number.<br />
+D. autonumber.</p>
+<p class="myanswer">Yep. Unless you need to do arithmetic on a 'number', you can store it as text. If you try to store it as a number, you cannot use spaces, parentheses or leading zeroes. Phone numbers must be stored as text. Postcodes can be stored numerically if you like - in Australia, but not in the UK where they contain letters. </p>
+<p><span class="red">30% of the state got this right.</span></p>
+<p class="examiner">Many students chose number as the data type (option C); however, the phone number shown contained &lsquo;spaces&rsquo; and &lsquo;brackets&rsquo; which are text data types (option A). </p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 16</p>
+<p>The database table below is used to record a personal movie collection.</p>
+<p><img src= "/m/pm/07i-a16.jpg" width="568" height="194" /></p>
+<p>Which movie ID would be returned if the query below was entered?</p>
+<p><em>Category</em> &lt;&gt; Thriller and Time &lt; 90 </p>
+<p>A. 3*<br />
+B. 4<br />
+C. 2,3<br />
+D. 3,4</p>
+<p class="myanswer">I was worried how the examiners would phrase the database question. This has a whiff of 'Access' but nothing that a sensible Filemaker user couldn't approach... or any Excel user, come to think of it. Such formulas are not solely a database issue. </p>
+<p><span class="red">Only 15% of the state got this right.</span> <span class="myanswer">Yikes! </span> <span class="myanswer">My class got 0% - possibly a 'Filemaker effect'.</span> </p>
+<p class="examiner">The majority of students chose option B. The query contains the comparison operators &lsquo;&lt; &gt;&rsquo; (not equal to) and &lsquo;&lt;&rsquo; (less than). Both conditions must apply under the logical operator &lsquo;and&rsquo;. This query will return the Movie_Title &lsquo;Fun and Games&rsquo; which has the ID 3 (option A). </p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 17</p>
+<p>The fruit and vegetable manager of a supermarket wants to increase sales by 2% over the next six months. This is an example of</p>
+<p>A. an organisational goal at the tactical level of decision making.<br />
+B. an organisational goal at the strategic level of decision making.<br />
+C. an organisational objective at the tactical level of decision making.*<br />
+D. an organisational objective at the strategic level of decision making.</p>
+<p class="myanswer">The specific target of 2% tells you it's an objective rather than a goal. The next bit is not as easy to decide. Tactical vs strategic questions tend to be murky. </p>
+<p class="myanswer">For a start, is this manager of a specific <em>branch </em>of a supermarket (e.g. Safeway in Bentleigh), or is it referring to the national <em>chain</em>? Makes a difference! I read it as a <em>branch</em> manager. </p>
+<p class="myanswer">Strategic concerns tend to long term - whether 6 months could be called long term is a matter of debate. I'd tend to read it as medium term.</p>
+<p class="myanswer">Smells like tactical to me - aiming to implement a larger strategic goal of overall profitability for the entire organisation. </p>
+<p><span class="red">28% of the state got this right.</span> </p>
+<p class="examiner">Many students were distracted by an organisational goal (options A and B). The scenario described an organisational objective at the tactical level of decision making (option C). An organisational objective is a small, achievable and measurable task undertaken to achieve a goal. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 18</p>
+<p align="left">Vera starts entering data for the electronic school bulletin at 3.00 pm. All notices must be sent to Vera by<br />
+3.00 pm. She uses a template and uploads the bulletin to the school's intranet. 
+Vera is changing jobs and has to provide a flow chart of the process for the new person who will complete the bulletins. 
+Which chart best represents the process described?</p>
+<p align="left"><img src= "/m/pm/07i-a18.jpg" width="613" height="365" /></p>
+<p align="left">Answer is B. </p>
+<p align="left" class="myanswer">Can't be A or C because they allow her to enter notices before 3pm. The labelling of the decision arrows is wrong on D. That leaves B.</p>
+<p align="left" class="myanswer"><span class="red">73% of the state got this right.</span></p>
+<p align="left" class="myanswer">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 19</p>
+<p>Criteria to evaluate the effectiveness of an organisation's data management strategy would measure </p>
+<p>A. cost and reliability.<br />
+B. cost and recovery time.<br />
+C. integrity of data and currency of files.*<br />
+D. currency of files and speed of retrieval.</p>
+<p><span class="myanswer">Again the key word is effectiveness, ruling out issues of cost and speed. The only option left standing is C. </span></p>
+<p><span class="red">54% of the state got this right.</span></p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p>Question 20</p>
+<p> A school library keeps track of book loans using a relational database which has tables called Books, Borrowers, and Loans. Parts of these tables are shown below.</p>
+<p><img src= "/m/pm/07i-a20a.jpg" width="438" height="396" /> </p>
+<p>Which diagram best represents the relationship between these tables?</p>
+<p><img src= "/m/pm/07i-a20b.jpg" width="579" height="550" /> </p>
+<p><span class="myanswer">Answer (I hope!) is B.*</span></p>
+<p class="myanswer">Firstly, fortunately, Filemaker and Access show relationships in similar charts, so this was not a problem for either of them. Such representations are also pretty standard in the database world, so most DBMS users could make sense of it. </p>
+<p class="myanswer">This was quite a challenging question: certainly a discriminator to find the A+ students in the audience. The 4 options are identical except for the &quot;1 to many&quot; or &quot;many to 1&quot; relationship indicators. It took me quite a few minutes to get my head around it. </p>
+<p class="myanswer">This is how I read it...</p>
+<ul>
+<li class="myanswer">A book can be lent out to many people over time, so the Loans table could refer to the same book many times. </li>
+<li class="myanswer">A borrower can borrow many books over time, so again the Loans table would refer to the same borrower many times.</li>
+<li class="myanswer">Therefore the Loans table has many references to individual books and borrowers - each of the many loans is strictly tied to a <em>single</em> book and a <em>single </em>borrower.</li>
+<li class="myanswer">So one book can be linked to many Loans.</li>
+<li class="myanswer">One borrower can be linked to many Loans. </li>
+</ul>
+<p><span class="red">34% of the state got this right.</span></p>
+<p class="examiner">The fairly even distribution across the incorrect options suggested that many students did not understand either the one-to-many relationship or its representation in the diagram. The correct response was option B, as it was the only diagram where the Book_ID was shown as one (unique) in the Book table and the Borrower_ID was shown as one (unique) in the Borrower table. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td>End of Section A</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<table>
+<tr>
+<td >
+<h1 align="center"><b><a name="b"></a>SECTION B - Short answer questions</b></h1>
+<center>
+<a href="#a">Go up to section A </a>
+</center></td>
+</tr>
+<tr>
+<td>
+<center>
+<b>Instructions for Section B</b>
+</center>
+<p align="center">Answer <b>all </b>questions in the spaces provided.</p>
+</td>
+</tr>
+<tr>
+<td><span class="red">The examiners said: The short answer section was answered well. Students provided a wide variety of examples to support their descriptions of procedures, people, software and equipment in organisational settings. </span></td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><b>Question 1</b></p>
+<p>The site map of the Gum Leaf State Primary School's website is shown below. There are eight blank positions (A, B, C, D, E, F, G, H) for new links to be added.</p>
+<p><img src= "/m/pm/07i-b01.jpg" width="413" height="516" /><br />
+There are complaints that the Weekly Newsletter for parents is not easy to find. </p>
+<p> a. Indicate in which position (A-H) you would place the Weekly Newsletter link. Justify your choice (1+2 lines, 2 marks).<span class="red"> State average=1.7</span></p>
+<p class="myanswer">You'd have to go for D. It's logical to look for a newsletter immediately under a &quot;News&quot; heading. C is bad because it's nested in an illogical subpage. E to G make no sense. H is a reasonably logical place for parents to look too. A - a link on the home page - is a possibility if they consider their newsletter <em>really</em> important. Anyway, I think the the justification is what will interest the marker more than the choice of position.</p>
+<p class="examiner" 
+>Full marks were awarded to responses which selected positions A, D or H and provided an explanation of how placing the Newsletter link in the chosen position enabled users to intuitively and confidently locate the information they required. It was very pleasing to see that most students gained the marks allocated. </p>
+<p>The principal has decided to make student reports available online.</p>
+<p>b.	Discuss this decision and describe one security feature the principal should add to the parents' page. (2 marks)<span class="red"> State average=1.7</span></p>
+<p>Discussion (3 lines)</p>
+<p class="myanswer">It's a decision fraught with peril if not handled carefully. The risk of sensitive information being accessed by unauthorised people is high.</p>
+<p>Security feature (1 line) </p>
+<p class="myanswer">Logins and passwords would be necessary to ensure report information is only sent to authorised people. </p>
+<p class="examiner">Answers needed to discuss the legal obligations that principals and schools have with respect to the ownership and privacy of information, such as the use and disclosure of information, and provide examples of appropriate procedures and equipment for preventing unauthorised access to school reports placed online, such as password protection. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 2</p>
+<p><br />
+The local council has a large library of movies, video clips and articles. Library members access video clips and articles via the council website. New articles and video clips are added to the library every day. 
+The technician has chosen a portable (external) hard disk as a backup media.</p>
+<p class="myanswer">Arghh! &quot;a backup medium&quot;. Singular! Not plural! </p>
+<p>a. Identify two features of the portable hard disk and explain how each is an advantage as a backup media. (1 line for each feature, 2 lines for each advantage - 2 marks) <span class="red"> State average=1.3</span></p>
+<p>Feature 1 - <span class="myanswer">high speed storage and retrieval</span></p>
+<p>Advantage - <span class="myanswer">backups and restores could be done very quickly. Recovering from data loss would be fast.</span></p>
+<p>Feature 2 -<span class="myanswer"> large capacity </span></p>
+<p>Advantage - <span class="myanswer">many full backups could be done on a single medium, saving on the handling of media.</span></p>
+<p class="myanswer">Other advantages could be:</p>
+<ul>
+<li class="myanswer"> low cost per megabyte stored</li>
+<li class="myanswer">reliability because hard disks can be worked a lot harder and longer than DAT tape before the media starts to become unreliable.</li>
+<li class="myanswer">easily removed from the system and taken to an offsite location. </li>
+</ul>
+<p class="examiner">&lsquo;Portability&rsquo; and &lsquo;capacity&rsquo; were appropriate features. Students also needed to provide explanations relevant to the needs of the library, the technician, or the types of files stored. </p>
+<p>The technician must recommend and justify a backup strategy.<br />
+b. Recommend a storage location and a backup schedule for the backup media.4 marks<span class="red"> State average=2.5</span></p>
+<table width="80%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th width="175" scope="col">&nbsp;</th>
+<th width="199" scope="col">Recommendation</th>
+<th width="281" scope="col">Justification</th>
+</tr>
+<tr>
+<th scope="row">storage location </th>
+<td valign="top"><p class="myanswer">Offsite, such as the technician's home </p>
+<p class="examiner" 
+>&bull; onsite in a fireproof secure cabinet <br />
+&bull; offsite in a secure location </p>
+<p>&nbsp;</p>
+<p></p></td>
+<td valign="top"><p class="myanswer">If the original data are stolen or destroyed by fire, for example, the backup media will not also be stolen or destroyed and a data restoration can be done.</p>
+<p class="examiner" 
+>&bull; so that it can be re-instated quickly <br />
+&bull; so that it is not damaged in a disaster </p>
+<p></p></td>
+</tr>
+<tr>
+<th scope="row">backup schedule </th>
+<td valign="top"><p class="myanswer">Incremental backups daily, full backups weekly, monthly and annually. </p>
+<p class="examiner" 
+>&bull; daily or incremental backup after hours </p>
+<p class="examiner" 
+>&nbsp;</p>
+ <p></p></td>
+<td valign="top"><p class="myanswer">Incremental backups are faster and consume less media space than full backups. However, they rely on regular <em>full</em> backups as their starting point. The last full backup is restored first, and the incremental backups since that full backup are added to it. </p>
+<p class="examiner">&bull; because new video clips are added every day </p>
+</td>
+</tr>
+</table>
+<p class="examiner">Students were asked to recommend and justify the procedures associated with the equipment chosen as backup media for the library&rsquo;s movies, video clips and articles. Most students were able to recommend and justify a storage location but fewer could also recommend and justify a schedule in order to obtain full marks for this question. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 3</p>
+<p><br />
+Employees have received the following email and the network manager has been asked to send out a warning to all staff.<br />
+<img src= "/m/pm/07i-b03.jpg" width="601" height="337" /></p>
+<p>a. List two features of this email that the network manager would identify as suspicious and likely to give 
+illegal access to confidential data. Explain why each is suspicious. 4 marks<span class="red"> State average=3.4</span></p>
+<p>Email feature 1 - (1 line) <span class="myanswer">The recipient is not individually named, only &quot;The Lucky Winner&quot; </span></p>
+<p>Explanation (2 lines) <span class="myanswer">Spam or phishing attempts are sent en masse to anonymous email addresses, and the sender does not usually know the real name of the mailbox owner. Some sites such as Paypal and Ebay now address their customers by name in their emails to reassure them that they are legitimate senders because they do possess that personal information. </span></p>
+<p>Email feature 2 - <span class="myanswer">it's asking for sensitive information (account number and password)</span></p>
+<p>Explanation - <span class="myanswer">phishing attempts rely on misleading people into disclosing sensitive information. Even if it was a legitimate request, sending that information back to them via email would be remarkably dangerous. </span></p>
+<p class="examiner">Correct answers included: <br />
+&bull; it is not addressed to an individual, so it is probably a bulk mail out and a scam <br />
+&bull; banking details are not entered on an insecure site, so it is not a genuine email. <br />
+Most students described threats to the integrity of data and the security of information presented in this email. </p>
+<p>b. What advice should the network manager give to staff to deal with this email? (2 lines) 1 mark<span class="red"> State average=0.8</span></p>
+<p class="myanswer">Delete it. Do not reply to it. Never give out any account names or passwords via email even if you think you know the person asking for it. Do not believe offers that are too good to be true. </p>
+<p class="examiner" 
+>Accepted responses included: <br />
+&bull; delete <br />
+&bull; move the email to trash. </p>
+<p>c. Describe how this advice should be communicated to staff. (2 lines, 1 mark)<span class="myanswer"><span class="red"> State average=0.35</span></span></p>
+<p><span class="myanswer">If it's a small organisation, a staff briefing or public address announcement could avert immediate danger. Since potential victims must use email, a warning could be emailed to everyone. A warning message could automatically be displayed when users logged into the network</span>.</p>
+<p class="examiner"> Any of: <br />
+&bull; immediately <br />
+&bull; face to face warning <br />
+&bull; at a staff meeting <br />
+&bull; via a public address announcement. <br />
+Full marks were awarded where the answer indicated that the network manager could be certain the message was received quickly and by as many users as possible. </p>
+<p class="examiner">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 4</p>
+<p><br />
+The on screen user documentation for a spreadsheet program is shown below.<br />
+<img src= "/m/pm/07i-b04.jpg" width="587" height="399" /></p>
+<p>a. Identify two navigation features of this onscreen user documentation. (2 x 1 line, 2 marks)<span class="red"> State average=1.45</span></p>
+<p class="myanswer">1. Back, forward and home buttons<br />
+2. Links to table of contents, assistance, training, downloads etc<br />
+3. Search box</p>
+<p class="examiner" 
+>Any two of: <br />
+&bull; search box <br />
+&bull; link to &lsquo;Training&rsquo;<br />
+&bull; the table of contents. <br />
+Other explicit examples of navigation features visible on the screenshot were also accepted. </p>
+<p class="myanswer"><span class="black">b. i. Identify what you could measure to evaluate the efficiency of the onscreen user documentation.(1 mark)</span> <span class="red"> State average=0.85</span></p>
+<p class="myanswer">The time taken to locate the particular help you needed. </p>
+<p class="examiner">Accepted efficiency measures included the time taken or effort required to display the required information. </p>
+<p>ii. Describe how you would measure it. (1 mark) <span class="red"> State average=0.85</span></p>
+<p><span class="myanswer">Give typical end-users a topic to ask for help on (e.g. how COUNT differs to COUNTA) and time them to see how long they take, compared to other means of finding the same information (e.g. a printed user manual).</span></p>
+<p class="examiner">Appropriate measures included: <br />
+&bull; count the mouse clicks <br />
+&bull; record the time for information to appear. <br />
+Answers which correctly described surveying users about the time or effort associated with the help screens were also awarded full marks. </p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 5</p>
+<p><br />
+The tasks below are part of a Gantt chart used to monitor the creation of a new database to sell sports equipment online.<br />
+<img src= "/m/pm/07i-b05.jpg" width="568" height="293" /><br />
+a. Identify a task in the list above which is a milestone. 1 mark</p>
+<p class="myanswer">Task 25 (has zero duration) </p>
+<p class="examiner">Task 25 is a milestone, as it has zero duration. </p>
+<p>b. i. Define predecessor. (1 mark)</p>
+<p class="myanswer">It's a task that must be completed before a following task can begin. </p>
+<p class="examiner">A predecessor is a task which must occur before another task can start. </p>
+<p>ii. Task 24 does not have a predecessor listed. 
+Explain what this means for the person coordinating these tasks. (1 mark)</p>
+<p class="myanswer">It means that task 24 can begin as early as the person likes. </p>
+<p class="examiner">With no predecessor, Task 24 can start at any time. </p>
+<p><span class="red"> State average=1.95 / 3 </span></p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 6</p>
+<p><br />
+The Clean Water Research Group has a virtual private network (VPN) for a group of scientists to share their research findings.</p>
+<p><img src= "/m/pm/07i-b06.jpg" width="569" height="387" /></p>
+<p>a. Identify one reason the scientists need a virtual private network. (1 mark) <span class="red"> State average=0.4</span></p>
+<p class="myanswer">So they can communicate in a secure environment using the existing infrastructure of the internet so they don't need private cables between them (e.g. ISDN). </p>
+<p class="examiner" 
+>Acceptable answers included either of: <br />
+&bull; to provide closed or limited access to research data <br />
+&bull; so that the media or rival scientists cannot use the research findings without permission from the research group. </p>
+<p>b. Describe one design element used to present the scientists' information and explain how this design element 
+helps to achieve the purpose of the website. 2 marks State average=0.7</p>
+<p class="myanswer">The glossary defines Design Elements as &quot;Factors that contribute to the appearance and functionality of an information product. In this study these elements are proportion (visual hierarchy), orientation (direction/aspect), clarity and consistency, colour and contrast, usability and accessibility, appropriateness, relevance.&quot; but for the life of me I can't see any of those being used to &quot;present the scientists' information.&quot;</p>
+<p class="examiner">Answers which described the graph, headings or icons in terms of proportion, orientation, clarity and consistency, colour or contrast, usability or accessibility, appropriateness or relevance were awarded full marks. For example, &lsquo;contrast is achieved in the heading where a dark relief is used with a light coloured font&rsquo; and &lsquo;consistency is achieved through the use of similar shapes (squares and rectangles) and the use of a single font type&rsquo;. </p>
+<p>You have to present your plans for a colour upgrade to the website.</p>
+<p> c. Recommend a design tool to represent the new colour choices you will make. Explain why you would use 
+this design tool. 2 marks<span class="red"> State average=0.6</span></p>
+<p class="myanswer">A screen mockup or layout diagram. It represents the appearance of the interface, including colour schemes, positioning of elements, object / text sizes etc.<br />
+</p>
+<p class="examiner" 
+>Acceptable design tools included: <br />
+&bull; annotated diagrams <br />
+&bull; screen mock-ups <br />
+&bull; storyboards <br />
+&bull; layout diagrams. <br />
+Students should know the design tools and design elements, which are listed in the study design on pages 28, 32 and 48.</p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 7</p>
+<p>Conferences-R-Us is a small business which organises conferences for other organisations. 
+At present, people wishing to attend a conference must select and download the application form from the Conferences-R-Us website, complete the form by hand and return it by mail with payment for the conference.</p>
+<p>Payment can be made by sending a cheque or completing the credit card details on the application form. Susan must record the data from each form so that accurate records of all applications and payment methods are available. She can use either spreadsheet or database software.</p>
+<p>a. Select one of these software types and describe an advantage it has over the other.1 mark<span class="red"> State average=0.55</span></p>
+<p><span class="myanswer">Spreadsheet - allows easy automated calculations by using formulas. Electronic validation can highlight data input inconsistencies (e.g. credit card number that is missing its expiry month value). Easier to set up than a database is. </span></p>
+<p class="myanswer">or</p>
+<p class="myanswer">Database - better for data storage and retrieval. Can also do calculations and data validation. Better for producing nicely formatted reports, receipts etc. </p>
+<p class="examiner" 
+>A spreadsheet is easier to set up than a database, and requires less training to use. <br />
+A database, once it is set up, has better input and reporting features than a spreadsheet. </p>
+<p class="black">b.	Explain how this software will help Susan organise this data. 2 marks State average=0.85</p>
+<p class="myanswer">A spreadsheet could easily generate totals and charts, but would be less useful for reporting purposes. She would use a different column for each data field. </p>
+<p class="myanswer">or</p>
+<p class="myanswer">A database can store in fields the names and payments that are received, and it can sort, add up, group, search and filter the data easily.</p>
+<p class="examiner" 
+>Susan can use the spreadsheet to set out columns for all conference and customer details. She can set formulas to calculate totals and use a sort function to arrange the data into whatever groups she needs. </p>
+<p class="examiner" 
+>Susan can use the database to set up forms to input online data directly into the right table. She can use a report wizard to print or display the timetables she needs. </p>
+<p class="examiner" 
+>A variety of other answers were also accepted, provided the student showed that they could analyse current information processing practices and identify appropriate database management or spreadsheet features, functions, formats or validation techniques to produce the required information. </p>
+<p>When Conferences-R-Us have received payment, information about the conference and a receipt are emailed out 10 days before the conference.</p>
+<p>c. List four data items that would be included on the receipt to be emailed. 2 marks <span class="red"> State average=1.5</span></p>
+<ul>
+<li class="myanswer">1. Description of the services that were paid for. </li>
+<li class="myanswer">2. The total amount paid. </li>
+<li class="myanswer">3. The date.</li>
+<li class="myanswer">4. Who paid the money.</li>
+</ul>
+<p class="myanswer">There are probably others. </p>
+<p class="examiner">Any four of the following data items to be included on a receipt were accepted.<br />
+&bull; Conference items, such as:
+conference name,
+time,
+location.<br />
+&bull; Payment items, such as:
+credit card details,
+amount received,
+cost of conference.<br />
+&bull; Client items, such as:
+client name,
+client email address.</p>
+<p>The Conferences-R-Us website collects personal information and must comply with the Privacy Act 1988.</p>
+<p class="myanswer">Hmmm. I'd like to know why they must comply. Do they trade information, turn over more than $3m per annum or are a federal government agency?</p>
+<p>d.	Name one principle of this legislation. 1 mark<span class="red"> State average=0.75</span></p>
+<p class="myanswer">Any of the National Privacy Principles would do </p>
+<p class="examiner" 
+>The manner and purpose of collection of personal information. Any one of the privacy principles listed in the <em>Privacy Act 1988</em> was accepted. It was very pleasing to see that most students obtained the mark for this question </p>
+<p>e. Explain what Conferences-R-Us must do to comply with this law. 2 marks<span class="myanswer"><span class="red"> State average=1.15</span></span></p>
+<p><span class="myanswer">See the link above</span> </p>
+<p><span class="red">Susan must explain the reason for collecting the data in a statement of purpose which must be clear and easily accessible on the Conferences-R-Us website. Other acceptable answers correctly named a key principle of the <em>Privacy Act 1988</em> and explained what Conferences-R-Us must do to monitor or control storage, or to communicate, or to dispose of the personal information collected via their website. </span></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 8</p>
+<p>Art-Logo is a business that creates logos for customers starting a new business. Their studios in Melbourne and Sydney have networks connected via the Internet.<img src= "/m/pm/07i-b08.jpg" width="683" height="221" /></p>
+<p>a. Describe one way the Art-Logo network helps the artists working in the studios. 1 mark<span class="red"> State average=0.55</span></p>
+<ul>
+<li class="myanswer">It lets them collaborate on jobs and share work easily.</li>
+<li class="myanswer">They can store communal files centrally and access each others' work. </li>
+<li class="myanswer">They can all access resources on the internet</li>
+<li><span class="myanswer">They can use email to communicate with each other and their customers </span></li>
+</ul>
+<p class="examiner">The network enables the artists working in different studios to quickly or easily collaborate or share data, information, ideas and files. </p>
+<p>Art-Logo's network is a client-server type.</p>
+<p>b. Describe an advantage this has for the network manager. 1 mark <span class="red"> State average=0.3</span></p>
+<p class="myanswer">With a NOS, he/she can allocate rights and resources to staff on a needs basis, and can control what they do. The server can also run programs for the good of everyone, e.g. DHCP, virus scanning etc. </p>
+<p class="examiner" 
+>Correct responses explained that a client server network provides a network manager with a central, electronic overview, or it allows the monitoring of security or file management. Other answers were also accepted where it was clear that the advantage described derived from both central and electronic control or monitoring. </p>
+<p>The owner of Art-Logo has a disaster recovery plan which includes Uninterruptible Power Supplies (UPS). </p>
+<p>c. Explain one benefit of an Uninterruptible Power Supply for the artists working in the studios. 1 mark<span class="red"> State average=0.6</span></p>
+<p class="myanswer">A UPS keeps connected computers running for a time after the power goes off, so (if the UPS is connected to the artist's PC) artists don't lose their unsaved work. If the UPS is connected to the server (as it should be!), the network's server can continue its work. </p>
+<span class="red">In the event of a power surge the Uninterruptible Power Supply gives the artists time to save the file they are working on. Most students were able to explain the benefit of an Uninterruptible Power Supply within a strategy to prevent accidental equipment malfunction. </span>
+<p></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 9</p>
+<p>Adam has designed a database of club records and used the Lastname field as the primary key.</p>
+<p><img src= "/m/pm/07i-b09.jpg" width="705" height="179" /></p>
+<p>a.	Explain why this design will cause problems. Give an example to support your answer. 2 marks<span class="red"> State average=1.0</span></p>
+<p class="myanswer">The database would not be able to distinguish between 2 people with the same surname. E.g. if there were 2 Smiths, there would be no way of uniquely identifying one or the other.</p>
+<p class="examiner" 
+>Following are some examples of acceptable answers. <br />
+&bull; Primary keys must be unique. Given that two people can have the same surname, surname alone cannot be used as a primary key. <br />
+&bull; When a postcode is included in the suburb field, you cannot sort by postcode or it cannot be validated easily.<br /> 
+&bull; &lsquo;Street&rsquo; only has a number and no street name, which will make it impossible to deliver letters. </p>
+<p>b. Adam has used a Boolean data type in the Fees-Paid field. <span class="red"> State average=1.05 (i + ii) </span><br />
+i. Describe the function of a Boolean data type. 1 mark </p>
+<p class="myanswer">It stores a true/false, yes/no value. </p>
+<p>ii. Explain why Adam has used this data type for this field. 1 mark </p>
+<p class="myanswer">The Boolean data type requires very little storage space so the most efficient way of storing the &quot;Fees Paid?&quot; data. </p>
+<p class="myanswer">This is more of a Software Development question! </p>
+<p class="examiner">Adam has used it because fees paid only has two options, paid or not paid </p>
+<p>Adam would like to use electronic validation to check that the postcodes are between 3000 and 3999.<br />
+c. List the changes Adam needs to make to the database design. 3 marks<span class="red"> State average=1.16</span></p>
+<p class="myanswer">He would need to add a Postcode field and make it numeric. <br />
+Then he'd need to create a validation rule that would reject values &lt;3000 or &gt;3999. [In reality he'd need to add 8000-8999 too]. <br />
+Then he would need to either enter the postcode data or use a table containing all postcodes with a lookup or relationship to fetch the postcode belonging to the person's suburb. </p>
+<p class="examiner" 
+>Adam would need to: <br />
+&bull; create a separate field for postcode (and delete it from the suburb description) <br />
+&bull; make the new field a numeric or integer data type <br />
+&bull; add a validation rule 2999&lt;Postcode&lt;4000. </p>
+<p class="examiner" 
+> The majority of students were able to comment on the structure of the database and the choice of a primary key. They also described and explained the use of the Boolean data type in the context of the question. However, it was clear that many students understood the concepts associated with the electronic data validation in the given context but could not correctly list all of the steps required.</p>
+<p><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Question 10</p>
+<p>Karen is the manager of a Melbourne medical clinic with 500 patients. She has checked the appointments for the past<br />
+12 months and decided to archive the electronic record files of 100 patients. </p>
+<p> a.	Identify one reason why a patient's record file would be selected for archiving. 1 mark<span class="red"> State average=0.5</span></p>
+<ul>
+<li class="myanswer">The patient was dead.</li>
+<li class="myanswer">The patient had not contacted the clinic for a long time and would probably not return. </li>
+</ul>
+<p class="examiner">The patients&rsquo; records chosen for archiving have not been accessed for 12 months. </p>
+<p>b. Describe one benefit for the clinic of archiving records. 1 mark<span class="red"> State average=0.5</span></p>
+<p class="myanswer">It frees up online storage space so more useful data can be stored without increasing the total amount of storage available.</p>
+<p class="examiner">Archiving frees up space in the memory and makes searching the database faster. </p>
+<p>Karen has been asked to send the archived patient records to a medical research project. </p>
+<p>c. Discuss one legal obligation and one ethical conflict for Karen. 4 marks<span class="red"> State average=1.75</span></p>
+<p>Legal obligation (5 lines) </p>
+<p class="myanswer">Under the National Privacy Principles, she would not be allowed to use the records for a purpose other than the one for which the information was collected, unless she had the people's permission. </p>
+<p class="examiner" 
+>Legal obligation: Karen has to work within the provisions of the <em>Health Records Act 2001</em>. For example, she must be sure that patients have consented to the disclosure of information given in confidence. </p>
+<p>Ethical conflict (5 lines)</p>
+<p class="myanswer">The medical research project might provide information that helps some or all of the patients. The conflict is that the many could benefit from the sacrifice of a few - but the rights of the few are strongly protected. She might be tempted to overlook the privacy of the patients for the 'greater good'. </p>
+<p class="examiner" 
+>Ethical conflict: Although the medical research may be beneficial to society and, in some circumstances, it may be legal for Karen to send the records to a research project, it may not be ethical. Karen may be worried about breaking the trust between patients and doctors if she reveals information given in confidence. </p>
+<p class="examiner" 
+>Many students described one of the other 11 principles in the <em>Health Records Act 2001</em> to correctly answer the first part of this question. Although many students could identify a legal reason why the medical clinic should monitor or control the storage, communication or disposal of information, they were not able to explain an ethical dilemma. Many students seemed to have a vague understanding that Karen would be uncomfortable about sending the information given in confidence, but they could not frame an answer in terms of Karen &lsquo;weighing up&rsquo; or choosing between two equally difficult or equally beneficial options. </p>
+<p class="examiner" 
+>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p><br />
+Question 11</p>
+<p>The spreadsheet below is used to create mobile phone accounts for a customer.</p>
+<p><br />
+<img src= "/m/pm/07i-b11a.jpg" width="695" height="393" /></p>
+<p>a. Provide the formula for cell B2. 1 mark<span class="red"> State average=0.75</span></p>
+<p class="myanswer">=SUM(D7:D18)</p>
+<p class="myanswer">Dumb question, again. Too easy. </p>
+<p>The formula =LOOKUP(A7,$F$2:$G$4,2)*C7 has been used to calculate the result in D7.<br />
+b.	Explain why the $ signs are included in this formula. 1 mark <span class="red"> State average=0.4</span></p>
+<p class="myanswer">It was used because the person is too dim to use named ranges :-)</p>
+<p class="myanswer">But seriously folks, the $ (in Excel - not sure how other spreadsheets do it) locks row and column references so they are not automatically changed when the formula is copied elsewhere. In other words, the cell reference is converted from relative to absolute.</p>
+<p class="myanswer">Note: don't use horrible $ signs! Use cell and range names instead! </p>
+<p class="myanswer">My kids would have had trouble with this question because I trained them from day 1 to use cell/range names. I only referred to $ codes to explain how nasty and unnecessary they were. Prevention is better than cure. </p>
+<p class="myanswer">Why spend a week teaching &quot;How to escape from a sewer&quot; when you could do a 5 minute chat on &quot;Don't fall into sewers in the first place&quot; ? </p>
+<p class="myanswer">And - as a noteworthy teacher has pointed out - the formula is just WRONG. It should be VLOOKUP, not LOOKUP. Arghhhh! </p>
+<p class="examiner">The $ sign indicates an absolute reference, or that the reference remains the same when D7 changes to D8, D9, &hellip; D18 as the formula is dragged or filled down. </p>
+<p>The mobile phone company would like to add a graph (chart) to this account.</p>
+<p>c. Recommend a graph and explain how it would improve communication of the information. 2 marks<span class="red"> State average=0.9</span></p>
+<p>Graph</p>
+<p class="myanswer">A bar chart showing a total talk time and/or cost for each carrier would be handy. </p>
+<p>Explanation</p>
+<p class="myanswer">It would show the customer how much time and money was spent on each carrier. The customer could more easily choose which carrier to use for future calls. </p>
+<p class="examiner" 
+>A pie or bar chart of the &lsquo;Duration of Call&rsquo; or &lsquo;Cost of Call&rsquo; data would quickly show a comparison of call duration or percentage cost per carrier. A number of other chart types and appropriate explanations were also considered worthy of full marks. </p>
+<p>You have been asked to group the calls from each carrier as shown below.</p>
+<p><img src= "/m/pm/07i-b11d.jpg" width="687" height="387" /></p>
+<p>d. List the instructions used to group the calls from each carrier. 2 marks. 2 lines. <span class="red"> State average=0.4</span></p>
+<ul>
+<li class="myanswer">Select rows 7 to 18.</li>
+<li class="myanswer">Use the Sort Ascending<span class="myanswer"> command.</span></li>
+</ul>
+<p><span class="comment">Am I missing something here, or is the question just very poorly worded?</span> </p>
+<p class="examiner">Select cells A7 to D18 and use the sort function in ascending order. It was disappointing to note that so few students were able to answer this question correctly. </p>
+<p class="comment" 
+>Hmm - it was disappointing that the exam question was so poorly written! </p>
+<p>Managers have suggested the formula =If(B2&gt;(B3+ l00),&quot;ALERT&quot;,&quot; &quot;) be placed in cell C5 to alert customers when their new bill is $100 or more than their previous bill.</p>
+<p class="myanswer"><em>As Matthew, a student, pointed out - the formula is wrong. It tests for values $100 over the last bill, but not $100 or more. It should have been &gt;= and not &gt;. </em></p>
+<p>e. Recommend appropriate data to test the formula for C5 and show expected results. 4 marks <span class="red"> State average=2.0</span></p>
+<p class="myanswer">You could either enter data in C7 to C18 that added up to a certain value or you could temporarily overwrite the formulas in B2 &amp; B3 for testing the new formula in C5. Take your pick, but let's assume that B2 and B3 contain the following values whichever way you do it.</p>
+<p class="myanswer">Note: the data suggested below tests for the &quot;$200 or more&quot; condition rather than the &quot;more than $200&quot; the examiners mistakenly used in their suggested formula. Remember, kiddies: it's usually boundary conditions that break your logical tests!</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th width="37" scope="col">Test</th>
+<th width="221" scope="col">Data</th>
+<th width="388" scope="col">Expected Result </th>
+</tr>
+<tr>
+<th scope="row">1</th>
+<td><span class="myanswer">B2=299, B3=200 </span></td>
+<td><span class="myanswer">Nothing appears</span></td>
+</tr>
+<tr>
+<th scope="row">2</th>
+<td><span class="myanswer">B2=300, B3=200 </span></td>
+<td><span class="myanswer">ALERT displayed</span></td>
+</tr>
+</table>
+<p><span class="comment">Only 2 data needed? 3 would have been better to make students test all conditions. </span><br />
+</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th width="37" scope="col"><span class="red">Test</span></th>
+<th width="221" scope="col"><span class="red">Data</span></th>
+<th width="388" scope="col"><span class="red">Expected Result </span></th>
+</tr>
+<tr>
+<th scope="row"><span class="red">1</span></th>
+<td><p class="examiner" 
+>B2=170.20, 
+B3=80.20 </p>
+<p class="examiner" 
+>Or other examples of figures which tested the &ldquo; &rdquo;option </p></td>
+<td><p class="examiner" 
+>NO ALERT </p>
+<p class="examiner" 
+>&ldquo; &rdquo; </p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<th scope="row"><span class="red">2</span></th>
+<td><p class="examiner" 
+>B2=190.20 <br />
+B3=80.20 </p>
+<p class="examiner" 
+>Or other examples of figures which tested the &ldquo;ALERT&rdquo; option </p></td>
+<td><span class="red">ALERT </span></td>
+</tr>
+</table>
+<p class="examiner">A wide range of responses were accepted, so long as the data provided correctly tested for an ALERT and &ldquo;no entry&rdquo;. </p>
+</td>
+</tr>
+<tr>
+<td><p>Question 12<br />
+A map-making and surveying company wants to improve electronic communications between the crews working in the city, the country and head office. The laptops combined with smart phones will allow crews to upload maps and photographs onto the company website for staff comment.</p>
+<p><img src= "/m/pm/07i-b12.jpg" width="695" height="577" /></p>
+<p>a. Select one laptop feature and one smart phone feature and describe how each will help input or process useful data for crews working in the country. 2 marks.<span class="red"> State average=0.9</span></p>
+<p>Laptop Feature</p>
+<p class="myanswer">The touchpad</p>
+<p>Description</p>
+<p class="myanswer"> It is a convenient replacement for a mouse when using a mouse is awkward. (Don't refer to the modem being a data input device - it's properly classified as a communications device.) </p>
+<p class="myanswer">You could also argue that the 1.7GHz CPU is reasonably powerful for processing lots of topological data. </p>
+<p>Smart phone Feature</p>
+<p class="myanswer">The full keyboard </p>
+<p>Description</p>
+<p class="myanswer">Aids data entry - no more pressing each button 3 times to enter a single letter!</p>
+<p class="myanswer">You could also say the camera is good for data input of pictures, or the Windows Mobile 5.0 operating system and MS Office lets them run many standard Windows programs on the portable device. </p>
+<p class="examiner" 
+>Laptop feature: Photoshop will help crews to process (recolour, crop or resize) images of the land they are mapping. <br />
+Smart phone feature: A full keyboard or camera will help crews input data quickly while moving around the country. </p>
+<p class="examiner"> Many students selected features that were not associated with the input or processing of data or they did not relate their response to crews working in the country. </p>
+<p>b.&nbsp;&nbsp; Identify one hardware component required for the laptops to provide communication between crews in 
+the country and head office. Explain the function of the component. 2 marks <span class="red"> State average=1.05</span></p>
+<p>Hardware</p>
+<p class="myanswer">Modem </p>
+<p>Explanation</p>
+<p class="myanswer">It converts digital data into analogue data for communication over phone lines (either dialup or ADSL - same principle, different frequencies of sound). It lets them exchange email, for example, or access web wikis or chat rooms. </p>
+<p><span class="red">Modem: A modem will allow crews to use the analogue phone network to send digital images to head office. </span></p>
+<p>c. Identify two features of the smart phone that will assist video conferencing between crews and head 
+office. 2 marks <span class="red"> State average=1.8</span></p>
+<p>Feature 1</p>
+<p class="myanswer">Internet Explorer Mobile (web browser) </p>
+<p> Feature 2</p>
+<p class="myanswer">Still/Video Camera (for video of the talking heads)</p>
+<p class="myanswer">Note - don't discuss 'em , just identify 'em! </p>
+<p class="examiner" 
+>Acceptable answers included: <br />
+&bull; camera pictures and video <br />
+&bull; Internet access <br />
+&bull; wireless broadband <br />
+&bull; Windows Mobile 5.0 <br />
+&bull; Internet Explorer Mobile. <br />
+Constant advances in mobile technology meant that other features on the list could be accepted as likely to assist video conferencing. </p>
+<p> d. Recommend one security feature the smart phones need to protect map-making and survey data when 
+being communicated to head office. Justify your choice. 2 marks. <span class="red"> State average=1.0</span></p>
+<p>Recommendation</p>
+<p class="myanswer">Encryption</p>
+<p>Justification</p>
+<p class="myanswer">Even if the data were intercepted, they would be useless to the interceptors since encryption renders the data unreadable by unauthorised people. </p>
+<p class="examiner" 
+>Encryption: Encrypted data is &lsquo;scrambled&rsquo; so that even if it is intercepted it is unreadable to hackers. Only the person at head office with the correct encryption key can &lsquo;unscramble&rsquo; the data and read it. </p>
+<p class="examiner" 
+>It was pleasing to note that many students were able to explain how various laptop and smart phone features helped input data or process information and to describe how a modem would support communication between crews working in the country and head office. The majority of students also explained very clearly how encryption works. A smaller number also described the procedures associated with the key that needs to accompany it. </p>
+<p></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><em><span class="style14">In summary</span> -<span class="comment"> too easy. It seems you can also now do an ITA exam by writing a maximum of 100 words! Where are the questions that require some detailed and deep analysis? I am trying not to call it a vegie test. It would, I expect, give outsiders the impression that ITA was a sheltered workshop.</span></em></p>
+<p class="comment"><em>I believe there were not enough challenging material to allow good discrimination of C students from A+ students.</em></p>
+<p class="comment">And I reckon <a href="#a9">Section A, Q9</a> is a DOG and should be stricken from the exam marking. </p>
+<h1 align="center"><img src="/m/schmacho.jpg" width="98" height="150" /></h1>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td><p align="center"><b>End of question and answer booklet</b></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2007<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2007 &amp; 2008. Reproduced here with permission for educational purposes.</font></p>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

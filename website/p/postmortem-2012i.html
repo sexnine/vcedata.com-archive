@@ -1,0 +1,1732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<title>ITA 2012 Exam Post Mortem - VCE Applied Computing Notes by Mark Kelly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="VCAA,exam,software development,post mortem,Mark Kelly" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<p align="center"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></p>
+<br /><div align="center">
+<div align="center"> 
+<p><a href="/index.html" target="_top">VCE Applied Computing Notes</a>
+by <a href="/mailform.htm">Mark Kelly</a> </p>
+</div>
+</div>
+<table>
+<tr>
+  <td colspan="3" ><div align="center">
+    <h1 align="center"><a name="top" id="top"></a>IT Applications</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2012</h1>
+    <h6 ><img src="/m/toetags.jpg" alt="" width="527" height="235" /></h6>
+  </div></td>
+</tr>
+<tr>
+  <td colspan="3" ><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><span class="red"></span></div>
+  </td>
+</tr>
+<tr>
+  <td colspan="3" ><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td colspan="3" ><div align="center"><font size="2">Last changed:
+    <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate -->
+  </font></div></td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan="3"><div align="center">
+<h2>The Post Mortem Awards</h2>
+</div></td>
+</tr>
+<tr>
+<td width="25%"><p align="center"><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+<p>The <strong>SCHMACKOS</strong> award is given to questions that are a complete dog's breakfast.</p>
+</td>
+<td width="50%"><div align="center"><img src="/m/sickdog.jpg" alt="" width="125" height="125" /></div>
+<p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award 
+Questions that are not totally <em>wrong,</em> but are just <em>dumb</em> 
+or are wrong in a way that does not jeopardise the answer.</p>
+</td>
+<td width="25%"><p align="center"><img src="/m/illiterate.jpg" alt="" width="47" height="89" />&nbsp;</p>
+<p align="center">And the exciting Illiteracy Award.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+  <td width="100%"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>&nbsp;</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="100%" ><center>
+<h1><b><a name="a" id="a"></a>SECTION A - Multiple-choice questions</b></h1>
+<p><a href="#b">Go to section B</a></p>
+</center></td>
+</tr>
+<tr>
+<td valign="top"><p >Victorian Certificate of Education 2012</p>
+<p>INFORMATION TECHNOLOGY: IT APPLICATIONS<br />
+Written examination</p>
+<p >Monday 13 November 2012<br />
+</p>
+<p >Reading time: 11.45 pm to 12.00 pm (15 minutes) <br />
+Writing time: 12.00 pm to 2.00 pm (2 hours)</p>
+<p >QUESTION AND ANSWER BOOK</p>
+<p>Structure of book</p>
+<div align="center">
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="94" valign="top"><p><em>Section</em></p>
+</td>
+<td width="114" valign="top"><p><em>Number of questions</em></p>
+</td>
+<td width="139" valign="top"><p><em>Number of questions to be answered</em></p>
+</td>
+<td width="88" valign="top"><p><em>Number of marks </em></p>
+</td>
+</tr>
+<tr>
+<td width="94" valign="top"><p align="center">A</p>
+</td>
+<td width="114" valign="top"><p align="center">20</p>
+</td>
+<td width="139" valign="top"><p align="center">20</p>
+</td>
+<td width="88" valign="top"><p align="center">20</p>
+</td>
+</tr>
+<tr>
+<td width="94" valign="top"><p align="center">B</p>
+</td>
+<td width="114" valign="top"><p align="center">12</p>
+</td>
+<td width="139" valign="top"><p align="center">12</p>
+</td>
+<td width="88" valign="top"><p align="center">70</p>
+</td>
+</tr>
+<tr>
+<td width="94" valign="top">&nbsp;</td>
+<td width="114" valign="top">&nbsp;</td>
+<td width="139" valign="top">&nbsp;</td>
+<td width="88" valign="top"><p>Total 90</p>
+</td>
+</tr>
+</table>
+</div>
+<ul>
+<li>Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners and rulers.</li>
+<li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</li>
+<li>No calculator is allowed in this examination.</li>
+</ul>
+<p><strong>Materials supplied</strong></p>
+<ul>
+<li>Question and answer book of 22 pages.</li>
+<li>Answer sheet for multiple-choice questions.</li>
+</ul>
+<p><strong>Instructions</strong></p>
+<ul>
+<li>Write your student number in the space provided above on this page.</li>
+<li>Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this.</li>
+<li>All written responses must be in English. </li>
+</ul>
+<p><strong>At the end of the examination </strong></p>
+<ul>
+<li>Place the answer sheet for multiple-choice questions inside the front cover of this book. </li>
+</ul>
+<p>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</p>
+</td>
+</tr>
+<tr>
+  <td ><p>Examiners' general comments on the 2012 ITA exam (<a href="http://www.vcaa.vic.edu.au/Documents/exams/infotech/2012/itapps_assessrep12.pdf">source</a>)</p>
+    <p class="examiner">Generally, students who were able to apply their knowledge and understanding to the specific context of a question 
+      achieved higher marks than those who provided a more recall-type response. Similarly, students who could draw on
+      their practical experiences of using relational database management systems (RDBMS) or spreadsheet software when 
+      answering the relevant questions scored well.</p>
+    <p class="examiner"> The positive influence of students' familiarity with online communities was very evident in the responses to the social 
+      media question (<a href="#b6">Section B, Question 6</a>). Most students were able to develop a coherent argument to support their point 
+      of view about the relationship between users' needs and solutions. The responses to this question contained 
+      well-thought-out examples of functions and applications that are available on social media websites and their alignment 
+      with users' needs. <br />
+    </p>
+    <p class="examiner">Similarly, many responses indicated that students understood the interpersonal aspects that complicated the ethics of 
+      accepting stolen printing credits (<a href="#b8">Section B, Question 8</a>). Many students outlined three or four issues to be considered, 
+      stated that there was a need for a systematic response and identified a range of points of view. </p>
+    <p class="examiner"> Generally, students could identify the design elements used in a prototype website and explain how these influenced the 
+      appearance of the website (<a href="#b7">Section B, Question 7</a>). They could also choose an appropriate design tool to represent the 
+      appearance of a website. Less well understood was the influence of design elements on the functionality of a website.       Many students did not annotate the diagram as required. </p>
+    <p class="examiner">Finally, teachers are reminded that questions usually ask students to 'state', 'explain', 'discuss' or 'justify' some feature 
+      that is described in a scenario and that each of these words is requesting a specific type of response. This is also the case 
+      where a 'procedure' or 'strategy' is mentioned in a scenario. It was very pleasing to see that many students understood 
+      that each of these words refers to a sequence of processes or set of actions. </p>
+    <p class="examiner"><strong>Problem-solving methodology </strong>
+      The problem-solving methodology (VCE Information Technology Study Design, pp. 16&ndash;18) is fundamental to the IT 
+      Applications study, and it is critical that students have a sound understanding of the purpose of the methodology, the 
+      role of each stage and the nature of the activities undertaken in each of these. Generally, students performed poorly on the multiple-choice questions based on this methodology. It is pivotal to every Area of Study and as such will be 
+    addressed in a variety of ways in examinations.</p></td>
+</tr>
+
+<tr>
+<td><p>&nbsp;</p>
+<h2>SECTION A - Multiple-choice questions </h2>
+<h3 >Instructions for Section A</h3>
+<p>Answer all questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is correct or that best answers the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+marks
+will not be deducted for incorrect answers.<br />
+No marks
+will be given if more than one answer is completed for any question. </p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 1</strong></p>
+<p> The stage of the problem-solving methodology where the solution requirements are determined is<br />
+<b>A.</b> design.<br />
+<b>B.</b> analysis.<br />
+<b>C.</b> evaluation.<br />
+<b>D.</b> development.</p>
+<p class="myanswer">Answer is B. <em>See the study design, page 16.</em></p>
+<p class="examiner"> 75% of the state got this right. 13% went for A.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong><a name="a2" id="a2"></a>Question 2</strong></p>
+<p> The best electronic validation technique for ensuring that an online data entry form is complete is<br />
+<b>A.</b> a data type check.<br />
+<b>B.</b> a data range check.<br />
+<b>C.</b> a required field check.<br />
+<b>D.</b> graphic image recognition (CAPTCHA).</p>
+<p class="myanswer">Answer is C, <em>but I think most of us call it an existence check. Why does VCAA like inventing non-standard terminology?</em></p>
+<p class="myanswer"><span class="examiner">74% of the state got this right.</span> <span class="examiner">A and B got about 11% each.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 3</strong></p>
+<p> The manager of a graphic art studio wants to use cloud computing instead of an external hard drive to store image data.<br />
+One criterion that can be used to evaluate the effectiveness of this decision would be to ask<br />
+<b>A.</b> is it cheaper to use the cloud than the external hard drive?<br />
+<b>B.</b> is the upload time to the cloud faster than saving to the external hard drive?<br />
+<b>C.</b> do staff find it quicker to retrieve images from the cloud than from the external hard drive?<br />
+<b>D.</b> do the images have the same resolution when retrieved from the cloud as when retrieved from the<br />
+external hard drive?</p>
+<p class="myanswer">Answer is D. All the others are efficiency (cost,time).</p>
+<p class="myanswer"><span class="examiner">61% of the state got this right.</span> <span class="examiner">C got 18%.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 4</strong></p>
+<p> The best design tool to show the structure of a database solution is<br />
+<b>A.</b> a site map.<br />
+<b>B.</b> a mock-up of the input form.<br />
+<b>C.</b> an entity-relationship (ER) diagram.<br />
+<b>D.</b> an input-process-output (IPO) chart.</p>
+<p class="myanswer">Answer is C. Site maps are for websites, mockups design appearance rather than architecture, IPO designs formulas.</p>
+<p class="myanswer"><span class="examiner">60% of the state got this right.</span> <span class="examiner">19% went for A.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 5</strong><br />
+</p>
+<p>A relational database management system (RDBMS) developer is creating a new table within a database. The most efficient name and data type for a field containing phone numbers, such as (03) 456 5667, is<br />
+<b>A.</b> name: cpn, data type: number<br />
+<b>B.</b> name: custPn#, data type: text<br />
+<b>C.</b> name: custPhNum, data type: text<br />
+<b>D.</b> name: customer phone number, data type: number</p>
+<p class="myanswer">Answer is C. Phone numbers have to be text to accommodate the parentheses and leading zero. &lt;B&gt; is not as good because its name is less clear.</p>
+<p class="examiner">Option C (name: custPhNum, data type: text) is the most  efficient name and correct data type because 'custPhNum' is 
+  more easily and quickly identified by users as the field name 
+  for the given phone numbers. A field name 'cusPn#' could be 
+  interpreted as a customer PIN field.</p>
+<p class="examiner">62% of the state got this right. The others went for the other options in nearly equal numbers.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 6</strong></p>
+<p> A farmer has hired you to develop a new stock management solution. During development, to ensure that the new solution does what it is intended to do, you should<br />
+<b>A.</b> enter a lot of data to make sure the stock numbers are correct.<br />
+<b>B.</b> read the quick start guide to make sure it is logical and efficient.<br />
+<b>C.</b> create a set of evaluation criteria to judge if the requirements were met.<br />
+<b>D.</b> check the system in three to six months to make sure it is working as intended.</p>
+<p class="myanswer">It <strong>can't</strong> be &lt;B&gt; because the documentation is irrelevant, and probably won't even exist yet. Reading the QSG does not test if the solution is working properly - it would only test the quality of the QSG!</p>
+<p class="myanswer">It <strong>can't</strong> be &lt;C&gt; because the problem solving methodology says that evaluation criteria are determined during design, not development. If this is the answer, the question contradicts the study design and must be declared invalid.</p>
+<p class="myanswer">It <strong>can't</strong> be &lt;D&gt; because that's obviously evaluation.</p>
+<p class="myanswer">So it has to be &lt;A&gt; <em>but - really - &quot;enter a lot of data&quot;? That is very odd wording. Test data is about quality, not quantity.</em></p>
+<p class="myanswer"><em>This question has raised a lot of debate amongst teachers. It's not a good question.</em></p>
+<p class="examiner">Option A (enter a lot of data to make sure the stock numbers 
+  are correct) occurs during development. Creating a set of 
+  evaluation criteria (Option C) occurs during design. Students 
+  need to take into account the problem-solving methodology 
+  and activities that are performed in each of the four stages.</p>
+<p class="examiner">Only 32% of the state got this right. 58% went for C!</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 7</strong></p>
+<p align="left"> A government school has decided to store all parents' credit card information in a text file on the school's computer system. The school has a legal obligation to change this information management strategy because<br />
+<b>A.</b> parents might get angry.<br />
+<b>B.</b> human error might occur when the credit card numbers are entered.<br />
+<b>C.</b> sensitive data should be stored safely and text files are too easily read.<br />
+<b>D.</b> expired credit cards may still be in the system, resulting in a lack of data integrity.</p>
+<p align="left" class="myanswer">Answer is C. <em>Too easy.</em></p>
+<p align="left" class="myanswer"><span class="examiner">82% of the state got this right.</span> <em>I told you it was too easy!</em></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 8</strong></p>
+<p> Barry received a three-monthly report showing that the number of complaints about orders being delivered to the wrong addresses had increased. He decides that all stages of the order delivery process will be completely computerised in three years. Strategies for evaluating the new solution are best carried out</p>
+<p> <b>A.</b> during testing.<br />
+<b>B.</b> as soon as the solution is in use.<br />
+<b>C.</b> immediately before the solution is in use.<br />
+<b>D.</b> six months after the solution has been in use.</p>
+<p class="myanswer">Answer is D. It's obviously evaluation, which happens after implementation.</p>
+<p class="examiner">48% of the state got this right. 29% went for A.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 9</strong></p>
+<p> The best procedure to dispose of a data file and make it extremely difficult to retrieve is to<br />
+<b>A.</b> delete it.<br />
+<b>B.</b> overwrite it with specialty software.<br />
+<b>C.</b> move it to the trash and empty the trash.<br />
+<b>D.</b> encrypt it with licensed software and save it to the cloud.</p>
+<p><span class="myanswer">Answer is B. <em>Is it just me, or are these questions ridiculously obvious?</em></span></p>
+<p><span class="examiner">64% of the state got this right.</span> <span class="examiner">16% went for C and 13% for D.</span> <span class="comment">Maybe not as 'ridiculously obvious' as I thought.</span><br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 10</strong></p>
+<p> Drivers are insured for mountain track driving if they pass a special driving course (SDC), have a car with roll bars (RB) and are without any convictions (C) for dangerous driving. The design for a query to identify drivers who can receive insurance is<br />
+<b>A.</b> Insured = SDC or RB and C<br />
+<b>B.</b> Insured = SDC and RB and C<br />
+<b>C.</b> Insured = SDC or RB and not C<br />
+<b>D.</b> Insured = SDC and RB and not C</p>
+<p class="myanswer">Answer is D. <em>Again, easy.</em></p>
+<p class="myanswer"><em class="examiner">76</em><span class="examiner">% of the state got this right.</span> <span class="examiner">18% opted for B.</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 11</strong></p>
+<p align="left"> An operating system is designed to<br />
+<b>A.</b> provide online help to new users.<br />
+<b>B.</b> manage file access and application software.<br />
+<b>C.</b> provide user-friendly filenames for shared files.<br />
+<b>D.</b> encrypt files that are leaving and entering the network.</p>
+<p align="left" class="myanswer">Answer is B. <em>Yawn.</em></p>
+<p align="left" class="myanswer"><span class="examiner">88% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 12</strong></p>
+<p> A text box on a data entry form has this validation rule applied to it: 2999 &lt; Postcode &lt; 4000. The most suitable data to test the rule is<br />
+<b>A.</b> 3336, 3337, 3999<br />
+<b>B.</b> 2050, 3050, 4050<br />
+<b>C.</b> 2999, 4000, 4001<br />
+<b>D.</b> 3000, 3999, 4050</p>
+<p class="myanswer">Answer is B. It has data that are too low, in range, and too high so it it covers all possible data possibilities. &lt;D&gt; does a better job testing boundary conditions, but it does not have a value that is too low.</p>
+<p class="examiner">56% of the state got this right. Most of the others opted for C.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 13</strong></p>
+<p> A telecommunications company has more than 2000 employees across Australia with 24-hour access to the company intranet. The human resource manager wants to make sure that employees can check their holiday entitlements at any time. 
+The most efficient method of achieving this would be to<br />
+<b>A.</b> email all employees whenever any entitlements change.<br />
+<b>B.</b> upload new entitlement information to the home page on the company intranet.<br />
+<b>C.</b> send new entitlement information to the relevant employees' company mobile phones.<br />
+<b>D.</b> provide each employee with a written copy of their entitlements whenever there is a change.</p>
+<p class="myanswer">My answer is B, but probably shouldn't be. (Spoiler: The official answer is C). <br />
+  Email is fast (efficient) so &lt;A&gt; is good. Putting employees' personal information onto the homepage of the intranet violates privacy constraints (but would be efficient!) &lt;C&gt; would probably be quick, but SMSs cost money, which is not efficient. &lt;D&gt; is very slow and expensive.</p>
+<p class="examiner">Option C (send new entitlement information to the relevant 
+  employees' company mobile phones) is the quickest, easiest 
+  and cheapest way for a telecommunications company to 
+  communicate the information to the people affected. As all 
+  employees have been issued with a mobile phone, direct 
+  contact is assumed. Option A relies on relevant employees 
+  having access to the internet in order to receive their emails. 
+  A home page on an intranet (Option B) is not an appropriate 
+  place to store a large amount of personal information and 
+  there would not be enough space. Providing a written copy of 
+  entitlements (Option D) is not cheap.</p>
+<p class="examiner">Only 9% of the state chose C! 66% went for B, 18% for A.<br />
+<span class="comment">This was a shocking question, and the state response shows it.</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 14</strong><br />
+</p>
+<p align="left">The database table below shows the most popular songs during the decade 2000 to 2010, as voted by an online music community in 2011.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="68" valign="top"><p align="center"><strong>SongID</strong></p>
+</td>
+<td width="170" valign="top"><p><strong>SongTitle</strong></p>
+</td>
+<td width="170" valign="top"><p><strong>Artist</strong></p>
+</td>
+<td width="50" valign="top"><p><strong>Year</strong></p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">1</p>
+</td>
+<td width="170" valign="top"><p>Halo</p>
+</td>
+<td width="170" valign="top"><p>Beyonce</p>
+</td>
+<td width="50" valign="top"><p align="right">2009</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">2</p>
+</td>
+<td width="170" valign="top"><p>Yeah!</p>
+</td>
+<td width="170" valign="top"><p>Usher</p>
+</td>
+<td width="50" valign="top"><p align="right">2004</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">3</p>
+</td>
+<td width="170" valign="top"><p>Low</p>
+</td>
+<td width="170" valign="top"><p>Flo Rida</p>
+</td>
+<td width="50" valign="top"><p align="right">2008</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">4</p>
+</td>
+<td width="170" valign="top"><p>How You Remind Me</p>
+</td>
+<td width="170" valign="top"><p>Nickelback</p>
+</td>
+<td width="50" valign="top"><p align="right">2001</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">5</p>
+</td>
+<td width="170" valign="top"><p>I Gotta Feeling</p>
+</td>
+<td width="170" valign="top"><p>The Black Eyed Peas</p>
+</td>
+<td width="50" valign="top"><p align="right">2009</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">6</p>
+</td>
+<td width="170" valign="top"><p>No One</p>
+</td>
+<td width="170" valign="top"><p>Alicia Keys</p>
+</td>
+<td width="50" valign="top"><p align="right">2007</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">7</p>
+</td>
+<td width="170" valign="top"><p>Boom Boom Pow</p>
+</td>
+<td width="170" valign="top"><p>The Black Eyed Peas</p>
+</td>
+<td width="50" valign="top"><p align="right">2009</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">8</p>
+</td>
+<td width="170" valign="top"><p>Gold Digger</p>
+</td>
+<td width="170" valign="top"><p>Kanye West</p>
+</td>
+<td width="50" valign="top"><p align="right">2005</p>
+</td>
+</tr>
+<tr>
+<td width="68" valign="top"><p align="center">9</p>
+</td>
+<td width="170" valign="top"><p>Apologize</p>
+</td>
+<td width="170" valign="top"><p>Timbaland</p>
+</td>
+<td width="50" valign="top"><p align="right">2007</p>
+</td>
+</tr>
+</table>
+<p>The query Artist = The Black Eyed Peas OR Year &lt; 2009 will display records<br />
+<b>A.</b> 5,7<br />
+<b>B.</b> 1,5,7<br />
+<b>C.</b> 2, 3, 4, 6, 8, 9<br />
+<b>D.</b> 2, 3, 4, 5, 6, 7, 8, </p>
+<p class="myanswer">Answer is D. <em>And that's all I got to say about that.</em></p>
+<p class="examiner">55% of the state got this right. The others went for A,B or C in equal numbers.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 15</strong><br />
+</p>
+<p align="left">A non-technical constraint on using company logos for promotions on a website is<br />
+<b>A.</b> breach of copyright.<br />
+<b>B.</b> the storage capacity of the server.<br />
+<b>C.</b> the file format of the company logo.<br />
+<b>D.</b> the data and file processing capabilities available to users.</p>
+<p align="left" class="myanswer">Answer is A. </p>
+<p align="left" class="comment">You didn't need to study ITA for 12 months to work that one out.</p>
+<p align="left" class="comment"><span class="examiner">82% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 16</strong><br />
+</p>
+<p>Determining the scope of a solution includes<br />
+<b>A.</b> identifying the functions the solution has to provide.<br />
+<b>B.</b> determining what the solution can and cannot do.<br />
+<b>C.</b> identifying the constraints of the solution.<br />
+<b>D.</b> planning the appearance of the solution.</p>
+<p class="myanswer">Answer should be A, <em>but it's probably going to end up being B. (Spoiler: It did end as B)</em></p>
+<p class="comment">There's a lot of debate about this one: many people prefer B because the study design uses those words. But if anyone can tell me the difference between <em>solution requirements</em> and <em>scope</em>, I'd be glad to hear it, because it's at the heart of this question. Once you have defined all that a solution has to do for its users, have you not also effectively defined its scope? What is in 'scope' that is not already in 'solution requirements'? I'd like to know!</p>
+<p class="comment">Anyway, &lt;B&gt; uses the present tense for a future system... it should be &quot;determining what the solution will and will not be able to do.&quot;</p>
+<p class="comment">The examiners had nothing to say about this in their report on the exam.</p>
+<p class="comment"><span class="examiner">47% of the state got this right.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 17</strong><br />
+</p>
+<p>The efficiency of the information architecture of a website can be measured by<br />
+<b>A.</b> the number of clicks required to get to the relevant information.<br />
+<b>B.</b> whether all links go to relevant information.<br />
+<b>C.</b> the number of different font colours used.<br />
+<b>D.</b> the readability of the links.</p>
+<p class="myanswer">Answer is A. The others are all effectiveness measures.</p>
+<p class="examiner">65% of the state got this right. Most of the others chose B.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 18</strong></p>
+<p> To protect the rights of individuals and organisations that are supplying data on a website, a host company is legally required to include on its website a policy statement regarding<br />
+<b>A.</b> shipping and returns.<br />
+<b>B.</b> human rights.<br />
+<b>C.</b> privacy.<br />
+<b>D.</b> spam.</p>
+<p class="myanswer">Answer is C. It's a privacy policy.</p>
+<p class="myanswer"><span class="examiner">84% of the state got this right.</span> <span class="examiner">Most of the others chose B.</span></p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 19</strong><br />
+</p>
+<p>A complete disaster recovery strategy involves<br />
+<b>A.</b> preparing a backup plan for stored data and determining the cause of the disaster.<br />
+<b>B.</b> practising the procedures for shutting down the computer system and recovering data.<br />
+<b>C.</b> purchasing preventative equipment and documenting the procedures for managing risk to an organisation's data.<br />
+<b>D.</b> undertaking a risk assessment, and documenting and practising the procedures for managing risk to an organisation's data and employees.</p>
+<p class="myanswer">If I had to guess, I'd go for D [which turned out to be the official correct answer], based on my patented &quot;What Were The Examiners Hoping I Would Say?&quot; strategy. But I don't like any of the options.</p>
+<p class="myanswer">Let me explain how I read the question:</p>
+<p class="myanswer">A &quot;complete disaster recovery strategy&quot; is the series of steps taken after a disaster to recover from the disaster. <br />
+It is not talking about preparing for disaster. <br />
+It is not talking about preparing the strategy itself.</p>
+<p class="myanswer">It won't be &lt;A&gt;. A backup plan should be prepared before the disaster, not after. <br />
+&lt;B&gt; is the only option that refers to recovering data, but practising the procedures is done before, not after the disaster.<br />
+Prevention measures are not relevant to disaster recovery, so it's not &lt;C&gt;. <br />
+&lt;D&gt; is also about practising. Risk assessment is useful to PREPARE a recovery strategy, but is not done as part of a strategy for recovering from disaster!</p>
+<p class="myanswer"><em>I don't like any of the options.</em></p>
+<p><img src="/m/schmacho.jpg" alt="" width="98" height="150" /></p>
+<p class="examiner">Option D (undertaking a risk assessment, and documenting 
+  and practising the procedures for managing risk
+  to an organisation's data and employees) is complete because 
+  it involves undertaking risk assessment, and documenting 
+  and practising procedures for managing risk to an 
+  organisation's data and employees.</p>
+<p class="examiner">48% of the state got this right. Nearly everyone else chose A or B.</p>
+</td>
+</tr>
+<tr>
+<td><p align="left"><strong>Question 20</strong><br />
+</p>
+<p align="left">Developing a prototype website involves<br />
+<b>A.</b> conducting tests and recording results.<br />
+<b>B.</b> determining what benefits the solution will bring to users.<br />
+<b>C.</b> considering the constraints and conditions that need to be met.<br />
+<b>D.</b> deciding what measures will be used to judge whether or not the solution requirements have been met.</p>
+<p class="myanswer">Answer is A. &lt;B&gt; and &lt;C&gt; are done during analysis. &lt;D&gt; is working out evaluation criteria, which the study design insists is done during the design stage.</p>
+<p class="examiner">Conducting tests and recording results (option A) are part of 
+  developing a solution. Considering the constraints and 
+  conditions that need to be met (Option C) and determining 
+  what benefits the solution will bring to users (Option B) are 
+  both part of analysis. Students are reminded to refer to the 
+  problem-solving methodology and activities associated with 
+  each of the four stages.</p>
+<p class="examiner">33% of the state got this right. 32% chose C.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>END OF SECTION A</strong></p>
+<p ></p>
+</td>
+</tr>
+<tr>
+<td><div align="center" class="myanswer"><em>Overall -  too easy. The wording was rather slapdash in Q6, the real difference between solution requirements and scope is yet to be defined for A16, and the options in 19 were poor.</em><br clear="all" />
+</div></td>
+</tr>
+<tr>
+<td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<div align="left">
+<table>
+<tr>
+<td width="20%" >&nbsp;</td>
+<td width="80%" ><h1 align="center"><b><a name="b" id="b"></a>SECTION B - Short answer questions</b></h1>
+<center>
+<a href="#a">Go up to section A </a>
+</center></td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td><center>
+<b>Instructions for Section B</b>
+</center>
+<p align="center">Answer <b>all </b>questions in the spaces provided.</p>
+</td>
+</tr>
+<tr>
+<td ></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 1</strong></td>
+<td><p>An accounting company wants to raise its profile by developing a website that will provide a secure login and allow existing clients to check their own tax returns.<br />
+</p>
+<p>a.&nbsp;&nbsp; Name one software component that is required to set up the website. Describe its function.
+2 marks</p>
+<ul>
+<li class="myanswer">webpage editor - creates and edits web pages</li>
+<li class="myanswer">TCP/IP protocols - to communicate across the internet</li>
+<li class="myanswer">web server software - to manage the web server that accepts requests for webpages and delivers the site's webpages to visitors</li>
+<li class="myanswer">browser - to test and manage the site</li>
+<li class="myanswer">FTP client - to send files to the web server </li>
+</ul>
+<p align="left" class="examiner">Many correct responses identified well-known software, such as Dreamweaver or Notepad, to receive a mark. 
+  Explanations that gained a second mark included 'allowing users to create links using http' or 'helping users to create 
+  web pages that can be viewed or tested'. Students who named less well-known software and explained how it could be 
+  used to create a website also received full marks. </p>
+<p align="left" class="examiner">Average mark was 0.9</p>
+<p align="left">  b.&nbsp;&nbsp; Name one hardware component that is required to host the website. Describe its function. 2 marks</p>
+<ul>
+<li class="myanswer">web server - to store the site's files</li>
+<li class="myanswer">cables (fibre optic or twisted pair) - to send data along between the visitor and the web server</li>
+<li class="myanswer">modem - to convert digital data to/from analogue data for transmission</li>
+<li class="myanswer">router - to route Ethernet packets between the visitor and the webserver</li>
+</ul>
+<p class="examiner">One mark was allocated to naming a hardware component and one mark for a description of its function. The most 
+  common student responses were 'web server' or 'hard disk' as the hardware component. Other accepted answers included any one of Network Interface Cards, modems or routers (network hardware). Acceptable descriptions of the 
+  functions for web servers, hard disks and network hardware included 'stores applications', 'stores data files' and 
+  'provides communication to the network'.</p>
+<p class="examiner">Average mark was 1.3</p>
+<p align="left">  c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> The company would also like to set up an online community where users can discuss sensitive tax issues. Explain what should be considered when deciding if the website should be closed or open. 2 marks</p>
+<ul>
+<li class="myanswer">Assuming that the users going to be giving personal or sensitive information that the whole world should not be free to see, a closed site is necessary.</li>
+</ul>
+<p class="comment">There's not a lot to be considered. The question says the issues are sensitive and obviously must not be open to everyone to see!</p>
+<p class="examiner">Most responses to this question identified either 'privacy of client data as a legal obligation' or 'confidentiality of client 
+  data as part of ethical business practice'. Typically, these students argued that the website should be closed and 
+  accessed only by registered clients using a login identity and password. Students who argued for an open website and 
+  explained that they wanted to encourage more business or have more open discussion were also rewarded. </p>
+<p class="examiner">Average mark was 1.1</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 2</strong></td>
+<td><p>Discuss the possible effects on data integrity if an employee does not follow the company's security procedures for shutting down their computer at the end of the day. 3 marks</p>
+<ul>
+<li class="myanswer">Any passing person could access the computer to steal, read or damage sensitive or valuable data.</li>
+<li class="myanswer">If files are left open, backup software might not be able to read the files and back them up, leading to potential data loss in case of a data disaster.</li>
+</ul>
+<p class="examiner">Students had to identify the possible consequences of a user's action. Responses that described possible scenarios and 
+  likely consequences for the company's information system received marks. For example, one effect is that anyone else 
+  in the office can access at least the network and possibly private client data. This means that the business has not met its 
+  legal obligations. Another effect is that incorrect shutdown or power-off can cause data loss because the most recent 
+  activity is not saved or client files are corrupted. Another effect is that changes to data might not show up because the 
+  intruder is wrongly identified as a legitimate user. As a consequence, the company could lose customer data and not 
+  know it has gone or been stolen, or not be able to identify who last accessed a file.</p>
+<p class="examiner">Average mark was 1.7</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 3</strong></td>
+<td><p>A teacher records student percentage results on tests and calculates averages, as shown in the table below.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="114" valign="top"><p align="center"><strong>StudentName</strong></p>
+</td>
+<td width="87" valign="top"><p align="center"><strong>Test1</strong></p>
+</td>
+<td width="87" valign="top"><p align="center"><strong>Test2</strong></p>
+</td>
+<td width="87" valign="top"><p align="center"><strong>Test3</strong></p>
+</td>
+<td width="102" valign="top"><p align="center"><strong>Average</strong></p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top"><p>Adams</p>
+</td>
+<td width="87" valign="top"><p align="right">85</p>
+</td>
+<td width="87" valign="top"><p align="right">78</p>
+</td>
+<td width="87" valign="top"><p align="right">67</p>
+</td>
+<td width="102" valign="top"><p>76.66666666</p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top"><p>Bunsen</p>
+</td>
+<td width="87" valign="top"><p align="right">77</p>
+</td>
+<td width="87" valign="top"><p align="right">56</p>
+</td>
+<td width="87" valign="top"><p align="right">84</p>
+</td>
+<td width="102" valign="top"><p>72.33333333</p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top"><p>Callas</p>
+</td>
+<td width="87" valign="top"><p align="right">56</p>
+</td>
+<td width="87" valign="top"><p align="right">61</p>
+</td>
+<td width="87" valign="top"><p align="right">45</p>
+</td>
+<td width="102" valign="top"><p>54</p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top"><p>Lee</p>
+</td>
+<td width="87" valign="top"><p align="right">78</p>
+</td>
+<td width="87" valign="top"><p align="right">78</p>
+</td>
+<td width="87" valign="top"><p align="right">78</p>
+</td>
+<td width="102" valign="top"><p>78</p>
+</td>
+</tr>
+<tr>
+<td width="114" valign="top"><p>Schmidt</p>
+</td>
+<td width="87" valign="top"><p align="right">50</p>
+</td>
+<td width="87" valign="top"><p align="right">60</p>
+</td>
+<td width="87" valign="top"><p align="right">50</p>
+</td>
+<td width="102" valign="top"><p>53.33333333</p>
+</td>
+</tr>
+</table>
+<p><br clear="all" />
+Indicate with a tick one software type that your answers will refer to.</p>
+<ul>
+<li>relational database management system (RDBMS)</li>
+<li>spreadsheet(SS)<br clear="all" />
+</li>
+</ul>
+<p>a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> State how the teacher can list the students from highest average to lowest average. 1 mark</p>
+<p class="myanswer">Sort them by their average value.</p>
+<p class="myanswer"><em>This is a year 12 question??</em></p>
+<p class="examiner">Students who chose RDBMS typically stated 'Sort Average field Z to A'. Students who chose spreadsheet software 
+  typically stated 'Sort the Average column Z to A'.</p>
+<p><span class="examiner">Average mark was 0.6</span></p>
+<p>  b.&nbsp;&nbsp; Recommend an effective format that the teacher could use to display each student's average mark in a report. Justify your answer. 2 marks</p>
+<p class="myanswer">Show them as percentages, maybe with a decimal place or rounded to the nearest integer. Right-justify the numbers, or align them on their decimal points. The percentage sign is a clear indicator to the reader what the value is. The rounding or removal of decimal places makes the key information (the integer part) easier to find and read.</p>
+<p><span class="examiner">Many students struggled with this question. Correct responses included 'displaying in bold or red font with the label 
+  'Average' and displaying 'as a graph so that parents can compare individual marks to the average'. Marks were also 
+  awarded to answers that focused on the number of decimal places appropriate for a report. Examples of student 
+  responses included<br />
+  &#61623; there should be no decimal places because the data has no decimal places<br />
+  &#61623; round the average to whole numbers because it makes it easier for parents to read<br />
+  &#61623; round the average to two decimal places because people are used to reading this format. </span></p>
+<p><span class="examiner">Average mark was 0.5</span><br />
+</p>
+<p>c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> List the steps in a procedure that the teacher could use to test the accuracy of the averages provided by the software. 3 marks</p>
+<ol>
+<li class="myanswer">Select a random student.</li>
+<li class="myanswer">Calculate the student's average manually (add the test marks and divide by 3)</li>
+<li class="myanswer">Compare the manual calculation with the answer calculated by the software.</li>
+<li class="myanswer">If they are the same, celebrate with champagne (or a fine Chardonnay). Perhaps have some duck liver pat&eacute; spread on a nice water cracker. If not, fix the formula.</li>
+</ol>
+<p class="comment">Really - this is year 12 level material? My year sevens would be bored by the simplicity of this stuff.</p>
+<p class="examiner">Responses that covered the three steps in a testing procedure received full marks. These steps are: 'create test data', 'use 
+  a calculator or desk check' and 'compare manually calculated answers to software answers' or 'get another person to 
+  check manual answers'. Students handled this question reasonably well.</p>
+<p class="examiner">Average mark was 1.5</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 4</strong></td>
+<td><p align="left"><br />
+Toetappers is an organisation that sells music online.</p>
+<p align="left"> a.&nbsp;&nbsp; Name a design tool that is used to represent the appearance of a website solution where music can be sold and downloaded. 1 mark<br />
+</p>
+<p align="left" class="myanswer">A screen mockup.</p>
+<p align="left" class="examiner">Responses that covered the three steps in a testing procedure received full marks. These steps are: 'create test data', 'use 
+  a calculator or desk check' and 'compare manually calculated answers to software answers' or 'get another person to 
+  check manual answers'. Students handled this question reasonably well.</p>
+<p align="left" class="examiner">Average mark was 0.6</p>
+<p align="left">b.&nbsp;&nbsp; Describe a strategy for evaluating the extent to which the website solution meets the organisation's needs. 2 marks</p>
+<ul>
+<li class="myanswer">Assuming the needs are primarily financial, they should compare annual profits before and after launching the site.</li>
+<li class="myanswer">They could look at website logs to see how many people are visiting the site.</li>
+<li class="myanswer">If they wanted to raise their public profile or customer service, they could survey visitors with a web-based poll.
+</li>
+</ul>
+<p align="left" class="comment">The question is not really fair, since it does not tell students what the organisation's needs are. Students have to guess.</p>
+<p align="left" class="examiner">High-scoring responses included two steps. The first was to identify what would be measured and the second was a 
+  comparison over time. The most frequently accepted responses were <br />
+  &#61623; number or duration of visits to the site in one month compared to those in a previous month <br />
+  &#61623; trends in sales of online music <br />
+  &#61623; check sales against criteria set during the design of the site.</p>
+<p align="left" class="examiner">Average mark was 0.7</p>
+<p align="left">  c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Recommend a type of on-screen user documentation for new users of the website solution. Justify your choice. 2 marks</p>
+<ul>
+<li class="myanswer">A quick start guide - quickly give just enough basic information for the user to get started</li>
+<li class="myanswer">A tutorial - to teach the more stupid user how to make a purchase</li>
+<li class="myanswer">Content-sensitive help - to give relevant help based on the user's current activity</li>
+<li class="myanswer">The other option, a user manual, would be too detailed and unnecessary for a simple website.</li>
+</ul>
+<p><span class="examiner">There was a variety of accepted responses to this question. Those that were accompanied by a reasonable, plausible 
+  explanation of how the on-screen user documentation applied to new users purchasing music online achieved high
+  marks. Typical examples were<br />
+  &#61623; content-sensitive help automatically shows users how to solve a current problem when purchasing music<br />
+  &#61623; FAQs provide answers to questions that are commonly asked by new users <br />
+  &#61623; online tutorials provide step-by-step instructions for buying music online.</span></p>
+<p><span class="examiner">Average mark was 1.2</span><br />
+</p>
+<p align="left">d.&nbsp;&nbsp; Name legislation that could apply to this website. 1 mark</p>
+<ul>
+<li class="myanswer">Copright Act, 1968</li>
+<li class="myanswer">Privacy Act, 1988</li>
+<li class="myanswer">Spam Act, 2003</li>
+</ul>
+<p class="comment">Well, the question said &quot;name it&quot;. So, you just name it. Don't explain it or justify it. Just name it. It seems a pretty silly way to find out if students know why they're choosing that legislation.</p>
+<p class="examiner">Students received a mark for stating the Copyright Act 1968 or the Privacy Act 1988.</p>
+<p class="examiner">Average mark was 0.4</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 5</strong></td>
+<td><p><br />
+a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Identify a technique that can be used to acquire data for a voting or polling website. 1 mark</p>
+<ul>
+<li class="myanswer">Use a web form to let users can enter their preferences.</li>
+</ul>
+<p class="comment">I mean, what else can one say? What are they after, I wonder...</p>
+<p class="examiner">'Online survey' and 'form' were the most frequently accepted responses to this question. This question related directly 
+  to a key skill in Unit 3, Outcome 2, Task 2 (techniques for acquiring data via websites), and the key knowledge for this 
+  Area of Study specifically mentions 'voting' as a reason why individuals and organisations supply data via websites.</p>
+<p class="examiner">Average mark was 0.4</p>
+<p>  b.&nbsp;&nbsp; Explain how the website designers could protect the rights of voters. 2 marks</p>
+<ul>
+<li class="myanswer">Keep the voters' identities secret.</li>
+<li class="myanswer">Give them a username and password to prevent unauthorised imposters voting as if they were the user.</li>
+<li class="myanswer">Encrypt store voting data to prevent unauthorised access.
+</li>
+<li class="myanswer">Not use the data in any secondary manner without the voters' consent.</li>
+<li class="myanswer">Not spam the voters.</li>
+</ul>
+<p class="comment">What rights? Rights under the Privacy Act? Rights under the Human Rights and Responsibilities Act? Spam Act? All of the above? It's all a bit vague.</p>
+<p class="examiner">Most students answered this question well. A range of responses was accepted for this question, including</p>
+<p class="examiner">&#61623; allow voting only by users with usernames and passwords to ensure users vote only once <br />
+  &#61623; to protect voters' privacy, encrypt any data after it is acquired so that only authorised people can read it <br />
+  &#61623; provide anonymity by removing names or aggregating data and only count totals.</p>
+<p class="examiner">Average mark was 1.1</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong><a name="b6" id="b6"></a>Question 6</strong></td>
+<td><p>Identify an online social networking website and explain how the needs of its users influence the nature of the website. 4 marks</p>
+<p class="comment">One guesses the examiner is waiting for everyone to identify Facebook...</p>
+<ul>
+<li class="myanswer">Users want to exchange information with friends, so the site needs to keep track of users' relationships with other users. </li>
+<li class="myanswer">Users want privacy so the site needs to password-protect access to personal information and let users specify how much privacy they require.</li>
+<li class="myanswer">Users want quick updates and responsiveness so the site must be engineered to update quickly and deliver data without delay.</li>
+<li class="myanswer">Users want protection from abuse, so the site needs to set down rules and enforce their observance, and deal with rulebreakers.</li>
+<li class="myanswer">Users want to see a lot of really dumb comments being made by uneducated bigots, so the site needs to allow Americans in.</li>
+</ul>
+<p class="examiner">Students had to identify a social media website and respond to a statement about the relationship between users and the 
+  website. The question was very well answered. Most frequently, students identified Facebook and then went on to 
+  describe situations in which users' needs had resulted in a range of additional functions being added to the website. For 
+  example<br />
+  &#61623; chat was originally for communication only between college students, but registration was opened to all when 
+  complaints indicated that users found this too restrictive<br />
+  &#61623; users wanted to read other people's profiles and share photos, so Facebook has, over time, created a space for 
+  personal profiles where you can publicly or privately share photos or post comments on your profile. <br />
+  Some students referred to a 'growing democratisation' of the social media website and gave a range of examples to 
+  support this claim. For example<br />
+  &#61623; it has responded to user criticism of changes to the privacy policy by allowing users to vote on whether <br />
+  proposed changes should be implemented <br />
+  &#61623; users can choose the level of security they want and speak only to people they know<br />
+  &#61623; users can invite new friends to join the conversation <br />
+  &#61623; users can track the activity of existing friends.</p>
+<p class="examiner">The few students who argued that changes were brought about by commercial needs and who provided a coherent 
+  argument with examples to illustrate their claim also received marks.</p>
+<p class="examiner">Average mark was 2.5</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 7</strong></td>
+<td><p> <a name="b7" id="b7"></a>A mock-up for the Southern Bird Spotters organisation's website is shown below. Members of this organisation observe birds in the temperate southern regions of Australia. The organisation wants to encourage members to use a range of online communication features to present and exchange information, and share a collective identity.</p>
+<p><img src="/m/pm/12i-B7.jpg" width="642" height="546" alt="Birds" /></p>
+<p>a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Select <strong>two</strong> of the following design elements. On the mock-up, show with a label where these elements have been applied. 2 marks</p>
+<ul>
+<li class="myanswer"><strong>contrast</strong> - the &quot;Sighting of the year&quot;'s white text on grey background<br />
+</li>
+<li class="myanswer"><strong>orientation</strong> - vertical alignments of the left-hand boxes and right-hand pictures<br />
+</li>
+<li class="myanswer"><strong>proportion</strong> - the text in the heading is bigger than the other text</li>
+</ul>
+<p>The examiners' answer annotate the picture in the exam. Arrows pointed to the relevant area...<br />
+  &quot;Southern Bird Spotters&quot; logo in map of Australia: <span class="examiner">PROPORTION - larger font for the title.</span><br />
+  Adelaide region - <span class="examiner">CONTRAST - black on grey or white.</span><br />
+Vaguely under the &quot;This Week&quot; item and left of the &quot;Sighting of the year&quot; item... not really clear what it was pointing at - <span class="examiner">ORIENTATION - caption has horizontal layout.</span></p>
+<p class="examiner">The majority of students scored full marks on this question, though some did not annotate the mock-up. Those who 
+  correctly labelled any two of the many examples available received full marks. The mock-up above shows examples of 
+  correct answers.</p>
+<p class="examiner">Average mark was 1.4</p>
+<p>b.&nbsp;&nbsp; Briefly explain how these two design elements have been used to influence the appearance of the website. 2 marks</p>
+<ul>
+<li class="myanswer"><strong>contrast</strong> - white text on grey stands out from the other black text on white background to make it visually distinctive and prominent</li>
+<li class="myanswer"><strong>orientation</strong> - the vertical columns makes the site - umm - neat and attractive?<br />
+</li>
+<li class="myanswer"><strong>proportion</strong> - the bigger heading text makes it more prominent and easy to find.</li>
+</ul>
+<p class="examiner">Most students could describe features on the website to illustrate how two of the three design elements were used to 
+  enhance the appearance of the website. For example<br />
+  &#61623; contrast &ndash; a white or grey background is used with black text or a black background with white text so that 
+  images and words stand out and appear more vibrant <br />
+  &#61623; orientation &ndash; the shape containing the links is in portrait format because it is a list and the citing of the year is 
+  in landscape format because the caption text is on two longer lines<br />
+  &#61623; proportion &ndash; font and image sizes have been used to create a hierarchy, where larger elements, such as the title,
+  are more important.</p>
+<p class="examiner">Average mark was 1.4</p>
+<p>c. Select <strong>two</strong> of the following design elements and explain how they have been used to enhance the functionality of the website. 4 marks.<br />
+</p>
+<ul>
+<li class="myanswer"><strong>appropriateness</strong> - the complete lack of nude ladies means male visitors will not be distracted and can concentrate on using the site's functions. Perhaps the copyright statement may also be considered appropriate? It's appropriate that a birdwatcher site has a picture of binoculars? This isn't an easy one...<br />
+</li>
+<li class="myanswer"><strong>navigation</strong> - the navbar makes it easy to find information on the site.<br />
+</li>
+<li><span class="myanswer"><strong>relevance</strong> - learning how to upload photos is relevant to the site's purpose, and helps the site gather resources and be more functional.</span></li>
+</ul>
+<p class="examiner">Most students chose to explain how navigation and relevance had been used to enhance the functionality of the website. <br />
+  Typical responses include<br />
+  &#61623; navigation &ndash; major links are underlined or are in a box on the left; the login link is in a prominent position.  Together, these let members access the login screen and then choose what they want from the link list. <br />
+  &#61623; relevance &ndash; images are of birds found in the region shaded in the map or indicated in the club's name. <br />
+  This is what the club is about &ndash; birds sighted in the southern parts of Australia.</p>
+<p><span class="examiner">  Very few students chose to explain how appropriateness influenced the functionality of the website. Those who did 
+  suggested that the club takes birds and knowledge about birds seriously. Typical responses include<br />
+  &#61623; the images are all of birds and are of good quality <br />
+  &#61623; there is no bad language, no jokes and no images of dead birds. </span></p>
+<p><span class="examiner">Average mark was 2.7</span><br />
+</p>
+<p align="left">d. Discuss the extent to which this website meets the organisation's aim to encourage members to present and exchange information, and share a collective identity. 4 marks</p>
+<ul>
+<li class="myanswer">The &quot;upload picture&quot; tutorial enables users to present and exchange relevant images. </li>
+<li class="myanswer">The &quot;chats&quot; link lets them develop their collective identity by socialising and meeting each other.</li>
+<li class="myanswer">The login prevents non-members access features that help define the solidarity and exclusivity of being members.</li>
+<li class="myanswer">The calendar can help them plan and participate in collective events.</li>
+<li class="myanswer">The blogs let members present information.</li>
+<li class="myanswer">The wikis let them collaborate on information gathering.</li>
+<li class="myanswer">All of these features taken together would significantly contribute to knowledge sharing and a feeling of community.</li>
+</ul>
+<p class="examiner">Students were required to address the two aims stated in this question to receive full marks. <br />
+  With regard to the first aim, many students identified features that would allow members to share and exchange 
+  information. For example <br />
+  &#61623; users can share knowledge by clicking on links to blogs, wikis, chats, a photo gallery and an events calendar<br />
+  &#61623; members can discuss birds and find out where some species are located <br />
+  &#61623; new users can find out how to become members.<br />
+  Fewer students were able to address the second aim &ndash; share a collective identity. Typically, appropriate student
+  responses referred to members 'identifying with the logo', 'using the image of binoculars' or 'using a map' to 
+  encourage a collective identity.</p>
+<p class="examiner">Average mark was 2.2</p>
+<p align="right"></p>
+</td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 8</strong></td>
+<td><p align="left"><a name="b8" id="b8"></a> Ally knows that her best friend Jack, who is a brilliant programmer, has access to other students' passwords. Jack uses these passwords to access the other students' print accounts to print his own assignments on the school network. He has offered to print Ally's assignments. This would save Ally at least $50.</p>
+<p align="left">  State an ethical dilemma that Ally might have and discuss what she should consider when resolving this issue. 3 marks</p>
+<ul>
+<li class="myanswer">If she agrees to Jack's offer, she would benefit from saving money but she would be stealing money from other students, which is unfair to them.</li>
+<li class="myanswer">To resolve the issue, she needs to consider the effect on other students if she accepted Jack's offer, compared to the financial benefit to herself. </li>
+<li class="myanswer">She should also consider the possibility of Jack and her being punished if they were discovered breaking the rules.</li>
+<li class="myanswer">She should consider whether she should try to convince Jack that he should also not access other students' accounts.</li>
+<li class="myanswer">She should consider what she would do if Jack continued breaking the rules: she could inform the authorities, but that would raise another dilemma because she would have to balance the wellbeing of her best friend against that of the school and its students. </li>
+</ul>
+<p align="left" class="examiner">This question was well answered. Many students framed questions that Ally might ask herself. For example<br />
+  &#61623; is it fair to use other students' money? <br />
+  &#61623; is her loyalty to Jack more important than to other students or to the school? <br />
+  &#61623; how would I feel if it was my money that is being used by someone else?<br />
+  High-scoring responses typically started with an introductory statement about Ally's problem, identified a likely 
+  consequence and recommended an option for action. For example <br />
+  &#61623; Ally needs to realise Jack is stealing &hellip; ask herself if the school's reputation will suffer &hellip; she should talk to
+  Jack and ask him to stop <br />
+  &#61623; Ally needs to decide if her friendship with Jack is more important than &hellip; doing the right thing &hellip; she should 
+  help Jack to think about others.</p>
+<p align="left" class="examiner">Average mark was 1.9</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 9</strong></td>
+<td><p>The following data has been collected and stored by an elderly citizens' club. Drivers who transport members of the club are paid an hourly rate according to the number of years they have worked and the type of car they drive - $10 for a small car and $20 for a large car with wheelchair access. You have been asked to set up a database of members and drivers so that the information can be accessed online.
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="137" valign="top" ><p><strong>Member name</strong></p>
+</td>
+<td width="144" valign="top" ><p><strong>Member address</strong></p>
+</td>
+<td width="125" valign="top" ><p><strong>Driver name</strong></p>
+</td>
+<td width="79" valign="top" ><p align="right"><strong>Years worked</strong></p>
+</td>
+<td width="79" valign="top" ><p align="right"><strong>Car rate ($)</strong></p>
+</td>
+<td width="80" valign="top" ><p align="right"><strong>Total fee ($)</strong></p>
+</td>
+</tr>
+<tr>
+<td width="137" valign="top"><p>Mrs Mabel Cane</p>
+</td>
+<td width="144" valign="top"><p>2 Hill St Richmond</p>
+</td>
+<td width="125" valign="top"><p>Bill Evans</p>
+</td>
+<td width="79" valign="top"><p align="right">4</p>
+</td>
+<td width="79" valign="top"><p align="right">20</p>
+</td>
+<td width="80" valign="top"><p align="right">80</p>
+</td>
+</tr>
+<tr>
+<td width="137" valign="top"><p>Mrs Georgia Karis</p>
+</td>
+<td width="144" valign="top"><p>13 Bay Rd Burnley</p>
+</td>
+<td width="125" valign="top"><p>Ollie Mantel</p>
+</td>
+<td width="79" valign="top"><p align="right">3</p>
+</td>
+<td width="79" valign="top"><p align="right">10</p>
+</td>
+<td width="80" valign="top"><p align="right">30</p>
+</td>
+</tr>
+<tr>
+<td width="137" valign="top"><p>Mr Ken Robins</p>
+</td>
+<td width="144" valign="top"><p>34 Cape Cr Kew</p>
+</td>
+<td width="125" valign="top"><p>Bill Evans</p>
+</td>
+<td width="79" valign="top"><p align="right">4</p>
+</td>
+<td width="79" valign="top"><p align="right">20</p>
+</td>
+<td width="80" valign="top"><p align="right">80</p>
+</td>
+</tr>
+<tr>
+<td width="137" valign="top"><p>Ms Anne Olsen</p>
+</td>
+<td width="144" valign="top"><p>5 Moon St Richmond</p>
+</td>
+<td width="125" valign="top"><p>Rob Quin</p>
+</td>
+<td width="79" valign="top"><p align="right">2</p>
+</td>
+<td width="79" valign="top"><p align="right">10</p>
+</td>
+<td width="80" valign="top"><p align="right">20</p>
+</td>
+</tr>
+<tr>
+<td width="137" valign="top"><p>Mr Jack Brunetti</p>
+</td>
+<td width="144" valign="top"><p>12 Oak St Kew</p>
+</td>
+<td width="125" valign="top"><p>Sue Alison</p>
+</td>
+<td width="79" valign="top"><p align="right">1</p>
+</td>
+<td width="79" valign="top"><p align="right">10</p>
+</td>
+<td width="80" valign="top"><p align="right">10</p>
+</td>
+</tr>
+</table>
+<p>Normalise this data and explain how each normal form (1-3) ensures the integrity of data. Use the space below and over the page. 6 marks</p>
+<p>[1.5 empty pages provided!]</p>
+<p><img src="/m/pm/12i-b9.jpg" width="553" height="236" alt="B9" /></p>
+<p class="myanswer">To achieve 1NF, I needed to split up multiple data items that were in a single cell: member title, firstname, surname; driver firstname, surname. This lets us search, sort and report on the data items individually rather than as a unit. The member and driver tables needed unique IDs to avoid potential confusion between different people with the same names. These IDs are used as key fields for their tables. 1NF also requires each field to refer to the key, but in this table there is no unique key field: you'd have to use membername+drivername as a combined key. Adding key fields to the members and drivers tables avoids that: now, each field in those tables relates directly to the key in that table. e.g. a member's address and title are both connected to that member's ID.</p>
+<p class="myanswer">Using a combination of fields as a key is A Bad Idea, because it allows 2NF failure. 2NF is never going to be a problem if you create a unique key field in each table you create. 2NF says that each field in a table must refer to the whole key, not just part of it. The original table fails because if we use membername+drivername as the key, the member address only relates to the membername, not the drivername. And the driver's Car rate only relates to the drivername, not the membername. This violates 2NF. Creating the separate key fields in each table avoids this problem.</p>
+<p class="myanswer">Having only the member and driver table was a partial solution, but it had its limitations: one driver could help many members, but a member would be tied to a single driver. It would be impossible for a member to use different drivers on different days without using a many:many relationship, and RDBMS do not allow many:many relationships!</p>
+<p class="myanswer">Another problem is that a history of trips would not be possible to produce since there is no record of individual trips: the driver's payrate is just increased after each trip. This is unacceptable.</p>
+<p class="myanswer">To solve these problems, a &quot;line table&quot; is used to avoid having a many:many relationship. It acts as an intermediary between the two main tables. One record in the trips table records the member, the driver and the trip cost. The calcTotalFee field is a calculated field equal to Drivers_Table::numYearsWorked * Drivers_Table::numCarRate.</p>
+<p class="myanswer">With referential integrity turned on (in Access - RI does not exist in Filemaker Pro), database integrity can be helped by preventing the deletion of drivers who have trip data that refers to their record.</p>
+<p class="myanswer">3NF requires that each non-key field in table should refer to nothing but the key field. In the normalised database, each non-key field in each table relates only to the key field in that table. e.g. the totalfee relates to the trip that produced it, not to the driver to whom it applies.</p>
+<p class="comment">I confidently predict that the average mark for this question will be about 1.5 out of 6! Six marks for a normalisation question is grossly excessive and unfair. Detailed normalisation theory is <strong>not</strong> something for year 12 students to have to worry about.</p>
+<p class="comment">APRIL 2013 - ha... I knew it! <span class="examiner">The average mark was <strong>1.7 out of 6</strong>.</span> <span class="examiner">38% of students got zero.</span></p>
+<p class="examiner">Few students gave complete responses to this question. Many were able to correctly normalise the data but did not 
+  attempt to explain how each normal form contributes to data being stored efficiently and redundancy or repetition being  avoided. <br />
+  Some responses comprised drawings of tables that were accompanied by explanations. Other responses consisted of 
+  explanations with references to examples of changes to the fields shown in the original table. Both types of responses
+  were acceptable.</p>
+<p class="examiner">With regard to the first normal form, students either stated that a field should contain only a single item of data and 
+  provided an example or they prepared a new table in which the 'Address' field was separated into three new fields of 
+  'StreetNumber', 'StreetName' and 'Suburb'. An explanation of the reason for this adjustment was also required. The 
+  most frequent explanation for separating the 'Suburb' from the 'StreetName' or the 'FirstName' from the 'LastName' is 
+  it allows for greater accuracy and more detailed searches. For example, 'drivers can be grouped by suburb and then <br />
+  assigned to jobs so that driving time is reduced' and 'names can be sorted alphabetically by LastName so that browsing
+  a list is faster'.<br />
+  With regard to the second normal form, students either stated that the fields should be grouped into two separate tables 
+  of 'Member' and 'Driver' so that each field could relate to a unique identifier or primary key for that field, and provided 
+  an example, or they prepared the two tables and explained the need for the primary key fields of 'MemberID' and 
+  'DriverID'. Other accepted explanations included 'creating relationships' and problems associated with 'deleting and 
+  updating records'.<br />
+  With regard to the third normal form, students either stated that one field should not rely on another field or indicated 
+  with a diagram that the 'TotalFee' should be calculated in a query or report by multiplying the data from the 
+  'YearsWorked' and 'CarRate' fields. The most frequent explanations were that this was more efficient because 'data 
+  was not repeated' and calculations were 'processed only when needed'.</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 10</strong></td>
+<td><div>
+<p align="left"><br />
+A section of a hockey club's membership data that is used to manage training schedules is shown below. </p>
+<p align="left">Spreadsheet worksheet</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="57" valign="top" ><p>&nbsp;</p>
+</td>
+<td width="99" valign="top" ><p>A</p>
+</td>
+<td width="99" valign="top" ><p>B</p>
+</td>
+<td width="99" valign="top" ><p>C</p>
+</td>
+<td width="98" valign="top" ><p>D</p>
+</td>
+<td width="114" valign="top" ><p>E</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>1</p>
+</td>
+<td width="99" valign="top"><p><strong>MemberlD</strong></p>
+</td>
+<td width="99" valign="top"><p><strong>TrainingDay</strong></p>
+</td>
+<td width="99" valign="top"><p><strong>Coach</strong></p>
+</td>
+<td width="98" valign="top"><p><strong>AgeGroup</strong></p>
+</td>
+<td width="114" valign="top"><p><strong>FeePaid</strong></p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>2</p>
+</td>
+<td width="99" valign="top"><p>Callan01</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="114" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>3</p>
+</td>
+<td width="99" valign="top"><p>Costanza01</p>
+</td>
+<td width="99" valign="top"><p>Mon</p>
+</td>
+<td width="99" valign="top"><p>James</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="114" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>4</p>
+</td>
+<td width="99" valign="top"><p>Dillon01</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="114" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>5</p>
+</td>
+<td width="99" valign="top"><p>Dijon01</p>
+</td>
+<td width="99" valign="top"><p>Fri</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="114" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>6</p>
+</td>
+<td width="99" valign="top"><p>Dunlop02</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="114" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>7</p>
+</td>
+<td width="99" valign="top"><p>Finlay03</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="114" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>8</p>
+</td>
+<td width="99" valign="top"><p>Gonzales02</p>
+</td>
+<td width="99" valign="top"><p>Mon</p>
+</td>
+<td width="99" valign="top"><p>James</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="114" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>9</p>
+</td>
+<td width="99" valign="top"><p>Georges04</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="114" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>10</p>
+</td>
+<td width="99" valign="top"><p>Grayson01</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="114" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="57" valign="top" ><p>11</p>
+</td>
+<td width="99" valign="top"><p>Han01</p>
+</td>
+<td width="99" valign="top"><p>Fri</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="114" valign="top"><p>450.00</p>
+</td>
+</tr>
+</table>
+<p>Database datasheet</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td width="95" valign="top" ><p><strong>MemberlD</strong></p>
+</td>
+<td width="99" valign="top" ><p><strong>TrainingDay</strong></p>
+</td>
+<td width="99" valign="top" ><p><strong>Coach</strong></p>
+</td>
+<td width="98" valign="top" ><p><strong>AgeGroup</strong></p>
+</td>
+<td width="115" valign="top" ><p><strong>FeePaid</strong></p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Callan01</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="115" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Costanza01</p>
+</td>
+<td width="99" valign="top"><p>Mon</p>
+</td>
+<td width="99" valign="top"><p>James</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="115" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Dillon01</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="115" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Dijon01</p>
+</td>
+<td width="99" valign="top"><p>Fri</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="115" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Dunlop02</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="115" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Finlay03</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="115" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Gonzales02</p>
+</td>
+<td width="99" valign="top"><p>Mon</p>
+</td>
+<td width="99" valign="top"><p>James</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="115" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Georges04</p>
+</td>
+<td width="99" valign="top"><p>Wed</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="115" valign="top"><p>450.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Grayson01</p>
+</td>
+<td width="99" valign="top"><p>Tues</p>
+</td>
+<td width="99" valign="top"><p>Wills</p>
+</td>
+<td width="98" valign="top"><p>Junior</p>
+</td>
+<td width="115" valign="top"><p>230.00</p>
+</td>
+</tr>
+<tr>
+<td width="95" valign="top"><p>Han01</p>
+</td>
+<td width="99" valign="top"><p>Fri</p>
+</td>
+<td width="99" valign="top"><p>Harrison</p>
+</td>
+<td width="98" valign="top"><p>Senior</p>
+</td>
+<td width="115" valign="top"><p>450.00</p>
+</td>
+</tr>
+</table>
+</div>
+<p>Indicate with a tick one software type that your answers will refer to.<br clear="all" />
+</p>
+<ul>
+<li>relational database management system (RDBMS)</li>
+<li>spreadsheet (SS)</li>
+</ul>
+<p>a.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> State how you would list all the coaches who are working on Monday. 1 mark</p>
+<ul>
+<li class="myanswer">RDBMS: do a query (Access) or find (Filemaker) to select records with &quot;Mon&quot; in the TrainingDay field.</li>
+<li class="myanswer">SS: use a filter to show rows with &quot;Mon&quot; in the TrainingDay column.</li>
+</ul>
+<p><span class="examiner">Average mark was 0.5</span></p>
+<p>b.&nbsp;&nbsp; State how you would list all Juniors trained by James. 2 marks</p>
+<ul>
+<li class="myanswer">RDBMS: Create a query for Agegroup=Junior AND Coach=James.</li>
+<li class="myanswer">SS: Good question! I don't think Excel filters allow multiple conditions. I would create new column that concatenates the AgeGroup and Coach values (=AgeGroup&amp;Coach) and filter that column for values equalling &quot;JuniorJames&quot;. Messy and inflexible, but this is why databases exist!</li>
+</ul>
+<p><span class="examiner">Average mark was 0.9</span></p>
+<p>c.<!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Explain how you would calculate and display the total amount of money paid by Seniors. 3 marks</p>
+<ul>
+<li class="myanswer">RDBMS: In Filemaker, you'd create a summary field defined as &quot;TOTAL OF FeePaid&quot;. Filemaker would than add up all the FeePaid fields currently found. I have no idea how this is done in Access.</li>
+<li><span class="myanswer">SS: Somewhere (e.g. E12) put the formula =SUM(E2:E11)</span></li>
+</ul>
+<p><span class="examiner">Average mark was 1.1</span></p>
+<p><span class="examiner">Students who chose spreadsheet software generally used a filter function and 'IF' statement in their response to this 
+  question. High-scoring responses used names and headings from the question. Examples of accepted responses include<br />
+&#61623; use a filter function on the 'TrainingDay' column and select 'Mon'<br />
+  &#61623; use a filter function on the 'Coach' column and select James <strong>and</strong> use the filter function on the 'AgeGroup'
+  column and select 'Junior'<br />
+  &#61623; use the 'IF' statement in a new labelled column to list seniors from the 'AgeGroup' column <strong>and</strong> applied the 
+  'Count' function multiplied by 450.<br />
+  Responses that applied the 'CountIF' function to the correct column and explained how the result should be displayed 
+  and labelled also received marks.<br />
+  Students who chose RDBMS software generally used queries, filters and 'Sum' or 'Total' in their responses. Examples 
+  of accepted responses include<br />
+  &#61623; use a filter TrainingDay = 'Mon'<br />
+  &#61623; use a filter 'Coach= James' <strong>and</strong> AgeGroup= 'Junior'<br />
+  &#61623; use a filter AgeGroup = 'Senior' and a query called 'SeniorFeeTotal to sum the 'FeePaid' field. <br />
+  Responses that used 'Count*450' on the filtered 'AgeGroup' field were also awarded marks.</span><br clear="all" />
+</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 11</strong></td>
+<td><p align="left"><br />
+AppsNow is a company that provides a website where young programmers can advertise and sell their software applications (apps). AppsNow uses cloud computing so that programmers can store their apps and discuss their latest projects online, and receive payments for apps that are sold.</p>
+<p align="left">a.&nbsp;&nbsp; Describe how AppsNow can make sure that the apps stored online are safe from hackers. 2 marks</p>
+<ul>
+<li class="myanswer">Require authorised users to use a username and strong password to access the apps.</li>
+<li class="myanswer">Encrypt the app files so they can't be opened even if a hacker manages to get to them.</li>
+<li class="myanswer">Use SSL or TLS connections to prevent user or app details being observed in transit.</li>
+<li class="myanswer">Ensure the site is protected by a router and a software firewall to prevent port sniffing and unauthorised communication port access.
+</li>
+</ul>
+<p class="examiner">This question was very well answered, with most students providing appropriate examples to support their 
+  recommendations and strategies.The most frequently accepted response to this question was 'encrypt the Apps-R-Us files so that they are unreadable to 
+  anyone who does not have the encryption key'. Responses that suggested a firewall and clearly described how it 
+  protected the apps stored online from external threats were also awarded marks.</p>
+<p class="examiner">Average mark was 1.3</p>
+<p align="left">  b.&nbsp;&nbsp; Explain how AppsNow can test that the apps uploaded to the cloud are completely uploaded. 2 marks</p>
+<ul>
+<li class="myanswer">Compare the file size of the uploaded file on the server with the size it was before it was sent.</li>
+<li class="myanswer">Download the app that has just been uploaded and try to run it.</li>
+<li class="myanswer">Compare the uploaded file's MD5 hash value with that of the file before upload.
+</li>
+</ul>
+<p class="comment">What an odd question. What point was it trying to make, I wonder? It does not seem relevant to anything in the study design.</p>
+<p class="examiner">Successful testing strategies involved comparing two versions of a file. Some students suggested uploading a file twice 
+  and comparing the two. Others suggested checking that all of the coding is present in both copies of the file.</p>
+<p class="examiner">Average mark was 1.0</p>
+<p align="left">c. 
+Explain one disadvantage of using cloud computing for storing data with AppsNow. 2 marks</p>
+<ul>
+<li><span class="myanswer">All user data becomes inaccessible if
+</span>
+<ul>
+<li class="myanswer">the cloud service provider closes down</li>
+<li class="myanswer">the service provider is closed down (like Megaupload)</li>
+<li class="myanswer">the user's account is wrongly shut down for perceived &quot;misbehaviour&quot; (as Google famously did)</li>
+</ul>
+</li>
+<li class="myanswer">It requires internet access to load/save data.</li>
+<li class="myanswer">Internet speed is much slower than storing to local hard disk.</li>
+<li class="myanswer">It usually costs money.</li>
+<li class="myanswer">You have to trust that the service provider is backing up your data properly</li>
+<li class="myanswer">The service provider might be misusing the data you store with them.</li>
+</ul>
+<p align="left" class="examiner">There was a variety of accepted responses to this question. The most common response was that backup and retrieval 
+  depends on the internet functioning. Other acceptable responses included<br />
+  &#61623; security depends on procedures being followed correctly at a remote location<br />
+  &#61623; processes are managed by people you do not know <br />
+  &#61623; the cloud company could steal your data or go bankrupt.</p>
+<p align="left" class="examiner">Average mark was 1.3</p></td>
+</tr>
+<tr>
+<td valign="top" ><strong>Question 12</strong></td>
+<td><p align="left"> Fast Wheels sells eight models of sports bicycles. The manager wants to increase bicycle sales in the new year and reduce costs. He has decided to</p>
+<ol>
+<li>review the sales trends of all models after the first three months</li>
+<li>drop the two models that have sold the least in the first three months</li>
+<li>reward sales staff who sell more than 20 bicycles in the first three months.</li>
+</ol>
+<p align="left">Describe how you would use a spreadsheet or a relational database management system to provide the information the manager needs. For each information requirement, make reference to</p>
+<ol>
+<li>data required</li>
+<li>functions to be used</li>
+<li>data to test the solution.</li>
+</ol>
+<p align="left">Indicate with a tick one software type that your answer will refer to.</p>
+<ul>
+<li>relational database management system (RDBMS)</li>
+<li>spreadsheet (SS)</li>
+</ul>
+<p align="left"><strong>9 marks!</strong></p>
+<p align="left" class="comment">The 8 mark question was poorly answered last year, so what do the examiners do? Make it into a 9 mark question!</p>
+<p align="left" class="comment"><span class="examiner">Average mark was 3.4 out of 9. 22% of students scored zero.</span></p>
+<p align="left" class="examiner">The responses to this question were frequently well framed and coherent. Most students set out their response under the 
+  three main headings: review the sales trends, drop the two models and reward sales staff. Under each heading they then 
+  described the data required for processing, a function used and the test data required. <br />
+</p>
+<p align="left" class="examiner">&nbsp;</p></td>
+</tr>
+<tr>
+<td valign="top" >&nbsp;</td>
+<td><p class="myanswer">RDBMS solution (Filemaker Pro)</p>
+<p class="myanswer"><strong>To compare models</strong></p>
+<p class="myanswer">Test data could be as simple as a single field containing a bike model and the number sold in the transaction. If the database has to isolate records from the past 3 months, a date field would also be required. Use a find on the date field with a value of (say) &quot;&gt;=1/1/2012 AND &lt;=31/3/2012&quot; to find records.</p>
+<p class="myanswer">Gather the sales records from the 3 months, including the model of the bike sold. Sort the records by the model field. Create a layout (Filemaker) that has a subsummary part with MODEL as its break field. In the subsummary part, put a summary field defined as NumSold = &quot;SUM OF NumSold&quot;. This will display the total bikes sold for each model. From this they can easily see the worst-selling models. (I don't know how you'd do this in Access.) </p>
+<p class="myanswer"><strong>To give sales bonuses (boni?)</strong></p>
+<p class="myanswer">Each test data record needs to include salespersonID (and date if necessary. Use the method described above to locate the records from the required 3 months) and the number of bikes sold in the transaction. Ensure at least one salespersonID has 20 or more sales.</p>
+<p class="myanswer">In the sales table, create a summary field defined as CountOfSales = &quot;SUM of NumSold&quot; to count the occurences of models. Sort the data by SalespersonID and create a layout with a trailing subsummary part containing the salesperson ID and the summary field. The layout will show/print a sorted list of IDs with a count of their sales. </p>
+<p class="myanswer">To sweeten the deal, create a calculated BONUS field defined as IF(CountOfSales&gt;20, &quot;Bonus&quot;, &quot;No Bonus&quot;) and show the value of this field along with the total sales figure.</p>
+<p align="left" class="examiner">Students who selected RDBMS software included an introductory description or drawing of the tables and fields. For 
+  example, 'Create database tables 'Staff', 'Bicycles' and 'Sales' with the fields 'StaffID' and 'BicycleModelID', and 
+  'SaleID' and 'QuantitySold' in the 'Sales' table. Then 'At the end of three months the Manager would &hellip;'<br />
+  Review the sales trends<br />
+  &#61623; Create a report with a graph using the 'QuantitySold' field to show trends in monthly sales or give the manager 
+  a picture of sales trends for each model with a summary table.<br />
+  &#61623; An accepted response for testing the functionality of the solution was 'change quantities sold for the two 
+  models each month and check the actual graph'.</p>
+<span class="examiner">Drop the two models<br />
+&#61623; Create a report using the 'SUM for each Bicycle Model' and display the list sorted A to Z. Identify the two 
+lowest-selling models.<br />
+&#61623; An accepted response for testing the functionality of the solution was 'use equal quantities sold for some 
+models and check the actual minimums'.<br />
+Reward sales staff<br />
+&#61623; Create a query using 'QuantitySold is greater than 20' to list all 'StaffID who get a bonus'.<br />
+&#61623; An accepted response for testing the functionality of the 'Bonus' list was 'QuantitySold is 19, 20 and 21 and 
+check the actual outcome'.</span>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top" >&nbsp;</td>
+<td><p>Spreadsheet solution (Excel)</p>
+<p class="myanswer"><strong>To compare models</strong></p>
+<p class="myanswer">Test data may need a sales date (see above). Each sales record should include the model and number sold in the transaction. Sort the data by model. Use the SUBTOTAL button in Excel and specify that you want to &quot;At each change in MODEL use function SUM and add subtotal to SALES.&quot;</p>
+<p class="myanswer">This will show the subtotals for each model.</p>
+<p class="myanswer"><strong>To give sales bonuses</strong></p>
+<p class="myanswer">Test data needs a SalesPersonID value and a number of bikes sold. </p>
+<p class="myanswer">Use the SUMIF function to generate totals for each salesperson. e.g. =SUMIF(SalesPersonIDs,&quot;Fred&quot;,NumberSoldRange) to count the sales for each sales person.</p>
+<p><span class="examiner">Students who selected spreadsheet software included an introductory description or drawing of the column structure in 
+  their response. For example, 'Set up a spreadsheet with 'Staff', 'Bicycles' and 'Sales' worksheets. Use columns for 
+  'StaffID', 'BicycleModel' and 'QuantitySold' in the 'Sales' worksheet to record each sale. Then 'At the end of three 
+  months the Manager would &hellip;.'<br />
+Review the sales trends<br />
+&#61623; Select the 'BicycleModel' and 'QuantitySold' columns to create a column graph to show monthly sales during 
+  the three-month period. This will give the manager a visual indication of sales trends for each model.<br />
+&#61623; An accepted response for testing the functionality of the solution was 'use various quantities sold for some 
+  models each month and check against the expected graph'.<br />
+Drop the two models<br />
+&#61623; Use a 'SUM' formula to record the total of 'QuantitySold' for each model and 'SORT function A to Z' to 
+  identify the two lowest-selling models.<br />
+&#61623; An accepted response for testing the functionality of the solution was 'create equal quantities sold for some 
+  models and compare to the expected output'.<br />
+Reward sales staff<br />
+&#61623; Use an 'IF QuantitySold is greater than 20' statement to create an alert in a column called 'Bonus'.<br />
+&#61623; An accepted response for testing the functionality of the IF function was 'QuantitySold is 19, 20 and 21 and 
+  compare to the expected alert'.</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" >&nbsp;</td>
+<td>
+<p>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>END OF QUESTION AND ANSWER BOOK<br clear="all" /></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<table>
+<tr>
+<td width="100%" height="84"><p class="myanswer"><em>Overall - </em>It's strange that there was only one graphic in the entire paper. Usually they like to dress up their papers with nice pictures.</p>
+<p class="myanswer">There were stretches of tedious, easy questions punctuated by moments of needless terror such as normalisation.</p>
+<p class="myanswer">And is it my imagination or did the paper seem very <em>short</em> this year in spite of having one more question and 4 more pages than 2011?</p>
+</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created </font>14 November 2012</p>
+<p align="center"><font size="2">Last changed: 
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly 2001- 
+<script type="text/javascript">
+D = new Date();
+year = D.getFullYear();
+document.write(year);
+</script> 
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2012<br />
+Images and questions &copy; Victorian Curriculum 
+and Assessment Authority 2012. <br />
+Reproduced here with permission.</font></p>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

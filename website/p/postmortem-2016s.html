@@ -1,0 +1,1369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VCE Software Development Exam 2016 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="/courier-prime:n4:default.js" type="text/javascript"></script>
+
+</head>
+<body lang="EN-US" >
+<h2 align="center" class="red"><a href="/index.html"><img src="/bits/title.png" alt="VCE IT Post Mortem by Mark Kelly
+" border = "0" /></a></h2>
+<p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+ <hr />
+</div>
+<div align="center">
+ <table width="80%" border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td align="center"><h2 align="center" class="Inverse_heading"><a name="top" id="top"></a>Software Development</h2>
+ <h1 align="center">VCAA Exam Post Mortem </h1>
+ <h1 align="center">2016</h1><img src="/m/toetags.jpg" width="750" height="399" alt="Post Mortem banner"/>
+ <h1 align="center"></h1>
+ <p align="center">Now in living colour!</p><p></p></td>
+ </tr>
+ <tr>
+ <td><div align="center"> 
+ <p>
+ </p><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><p></p>
+ </div><p></p></td>
+ </tr>
+ <tr>
+ <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --><p></p></td>
+ </tr>
+ </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script><p></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"><div align="center">
+ <h2>The Post Mortem Awards</h2>
+ </div><p></p></td>
+ </tr>
+ <tr>
+ <td width="18%" valign="top"><p align="center"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+ <p>The infamous <strong>SCHMACKOS</strong> <strong>award</strong> for questions that are a complete dog's breakfast.</p><p></p></td>
+ <td width="18%" valign="top"><div align="center"><img src="/m/sickdog.jpg" alt="Sick as a Dog Award" width="125" height="125" /></div>
+ <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+ Questions that are <em>wrong </em>in a way that does not jeopardise the answer, or are just <em>dumb</em>.</p><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><div align="center"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></div>
+ <p align="center">The <strong>Stamp of Approval</strong> for questions I like.</p><p></p></td>
+ <td valign="top"><p align="center"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ <p align="center">The exciting <strong>Illiteracy Award</strong> for crimes against the English language.</p><p></p></td>
+ </tr>
+ <tr>
+   <td colspan="2" align="center" valign="top"><p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p>
+    <p class="black">New for 2016 - the <strong>Naughty Step Award</strong>, for when the examiners breaks their own rules! and are sent to think about what they have done.</p></td>
+  </tr>
+</table>
+<table>
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script><p></p></td>
+ </tr>
+ <tr>
+ <td height="885"><h3 align="center" class="examiner">Written examination</h3>
+ <p align="center"><strong>Thursday 10 November 2016</strong></p>
+ <p align="center"><strong>Reading time: 11.45 pm to 12:00 noon (15 minutes) </strong></p>
+ <p align="center"><strong>Writing time: 12:00 noon to 2:00 pm (2 hours)</strong></p>
+ <table border="1" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+ <td width="95" ><div ></div><p></p></td>
+ <td width="100"><p ><strong><em>Number of questions</em></strong></p><p></p></td>
+ <td width="152"><p ><strong><em>Number of questions to be answered</em></strong></p><p></p></td>
+ <td width="105"><p ><strong><em>Number of marks</em></strong></p><p></p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#a">Section A</a></p></td>
+ <td width="100" align="center"><p >20</p></td>
+ <td width="152" align="center"><p >20</p></td>
+ <td width="105" align="right"><p >20</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#b">Section B</a></p></td>
+ <td width="100" align="center" ><div >4</div></td>
+ <td width="152" align="center"><p >4</p></td>
+ <td width="105" align="right"><p >20</p></td>
+ </tr>
+ <tr>
+ <td width="95"><p ><a href="#c1">Section C</a></p></td>
+ <td width="100" align="center" ><div >13</div></td>
+ <td width="152" align="center">13</td>
+ <td width="105" align="right"><p >60</p></td>
+ </tr>
+ <tr>
+ <td width="95"><div ></div></td>
+ <td width="100"><div ></div></td>
+ <td width="152"><div ></div></td>
+ <td width="105" align="right"><p >Total 100</p></td>
+ </tr>
+ </table>
+ <ul>
+ <li> Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.
+ </li>
+ <li>Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape. </li>
+ </ul>
+ <p align="left">Materials supplied</p>
+ <ul>
+ <li> Question and answer book of 21 pages</li>
+ <li>Detachable insert containing a case study for Section C in the centrefold. </li>
+ <li>Answer sheet for multiple-choice questions. </li>
+ </ul>
+ <p align="left">Instructions</p>
+ <ul>
+ <li> Remove the insert containing the case study during reading time.
+ </li>
+ <li>Write your <strong>student number</strong> in the space provided above on this page. </li>
+ <li>Check that your <strong>name</strong> and <strong>student number</strong> as printed on your answer sheet for multiple-choice questions are correct, <strong>and</strong> sign your name in the space provided to verify this. </li>
+ <li>All written responses must be in English. </li>
+ </ul>
+ <p>At the end of the examination </p>
+ <ul>
+ <li> Place the answer sheet for multiple-choice questions inside the front cover of this book.
+ </li>
+ <li>You may keep the detached insert.</li>
+ </ul>
+ <p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p><p></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"><p></p></td>
+ </tr>
+ <tr>
+ <td colspan="2" ><p class="examiner"><strong>Examiners' report general comments</strong></p>
+ <p class="examiner"><br />
+ <!--EndF>><!--EndFragment-->  </p><p></p></td>
+ </tr>
+ <tr>
+ <td colspan="2" bgcolor="#CCCCCC" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+ <p><strong>Instructions for Section A</strong></p>
+ <p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+ Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+ A correct answer scores 1, an incorrect answer scores 0. <br />
+ Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+ No marks will be given if more than one 
+ answer is completed for any question</p><p></p></td>
+ </tr>
+ <tr>
+ <td width="117" valign="top" bgcolor="#CCCCCC"><strong><a name="a1" id="a1"></a>A1</strong><p></p></td>
+ <td width="873" valign="top"><p><strong>Question 1</strong></p>
+ <p> Which specific data type would be the most appropriate to represent a street number (for example, &lsquo;5A&rsquo;)? </p>
+ <ol type="A">
+  <li>string </li>
+  <li>numeric </li>
+  <li>Boolean </li>
+  <li>decimal </li>
+ </ol>
+ <p>&nbsp;</p>
+ <p class="myanswer">Answer is A.</p>
+<p class="comment">The sample data is alphanumeric - containing both alphabetical data and numbers. It can only be stored as text/string. </p>
+<p><span class="examiner"></span> This bit will be filled in when the examiner's report is released - in half a year or so.</p></td>
+ </tr>
+ <tr>
+ <td height="1022" valign="top" bgcolor="#CCCCCC"><strong><a name="a2" id="a2"></a>A2</strong><p></p></td>
+ <td valign="top"><p><strong>Question 2</strong><br />
+ </p>
+ <p align="left">In the process of sorting an array of eight integers using the quick sort algorithm, the first partitioning with the array appears as follows. </p>
+ <div align="center">
+ <table border="1" cellspacing="0" cellpadding="2">
+  <tr>
+  <td width="76" valign="top"><p align="center">12 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">15 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">11 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">17 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">19 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">22 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">21 </p><p></p></td>
+  <td width="76" valign="top"><p align="center">20 </p><p></p></td>
+  </tr>
+ </table>
+ </div>
+ <p>Which one of the following statements is correct? </p>
+ <ol type="A">
+ <li>Neither 17 nor 19 was the pivot. </li>
+ <li>The pivot was either 17 or 19. </li>
+ <li>The pivot was 17, but was not 19. </li>
+ <li>The pivot was not 17, but it could have been 19. </li>
+ </ol>
+ <p class="myanswer">Answer is B.<span class="explanation"> I'll stake 5 cents on it. I'm hoping...</span></p>
+ <p class="explanation">For most students, I suspect this was a brain-destroying question to start off section A. </p>
+ <p class="explanation">I instinctively started trying to reverse-engineer the starting state of the array, before realising that it was like trying to unscramble an egg. It took a while to go back to first principles: quicksort divides an array into 2 subarrays with a point somewhere in it (the pivot) that separates the values <em>smaller</em> than the pivot value from all values <em>greater</em> <em>than </em> the pivot value.</p>
+ <p class="explanation">This meant that having to carry out a quick sort was not necessary. It involved more basic principles inherent to quick sort.</p>
+ <p class="explanation">After a partition, there will be a value (the pivot) that will only have <em>smaller</em> values to its left, and only greater (or equal) values to its right. </p>
+ <p class="explanation">Taking each datum in turn and applying this rule...</p>
+ <ul>
+  <li class="explanation">It can't be 12 because 11 is to its right.</li>
+  <li class="explanation">Same for 15.</li>
+  <li class="explanation">Can't be 11 because a larger value is to its left (12 and 15).</li>
+  <li class="explanation"><strong>Could be 17</strong>, because it has only smaller values leftwards and larger values rightwards.</li>
+  <li class="explanation"><strong>Also could be 19</strong> for the same reason.</li>
+  <li class="explanation">Can't be 22 because a smaller value (21) is on its right.</li>
+  <li class="explanation">Can't be 20 because larger values are to its left.</li>
+ </ul>
+ <p class="explanation">I'm guessing 98% of you just guessed an answer. It took me an hour (and three Youtube tutorials) to finally decide. This is a luxury you do not have in exam conditions. The lesson here (apart from pivot stuff) is that if you get a multichoice question that takes more than a couple of minutes to be sure about - SKIP IT and come back if you have time. Do not spend 15 minutes stubbornly trying to earn one single mark - especially when there's a 25% chance you'll get the mark by sheer luck anyway.</p>
+ <p class="myanswer"><em>Dog almighty, this was a brutal way to start off a nice, friendly exam!</em> <em>It was not unfair or unclear - in fact I tip my hat to its clever questioning and focus on core theoretical principles - but by golly there will be a few sad and confused puppies in the cohort after this question.</em></p>
+ <p class="myanswer"><img src="/m/scared-dogs.jpg" width="315" height="160" alt="Easy, boy. Calm down. It will be all right."/><br />
+  </p>
+ <p class="myanswer">I inaugurate a new award - the 'Scare The Bejeezus Out Of Students Award'. </p>
+ <span class="examiner"></span></td>
+ </tr>
+ <tr>
+ <td valign="top">&nbsp;<p></p></td>
+ <td valign="top" ><p>Use the following information to answer Questions 3 and 4.</p>
+  <p>The following algorithm has been written. </p>
+  <p><img src="/m/pm/16s-a03.png" width="350" height="292" alt="" /></p>
+ <p class="comment">First, let me be the first to say BAD EXAMINER and bop you on the nose with a rolled up magazine.</p>
+ <p class="comment">You've broken your own pseudocode conventions! </p>
+ <p class="comment">Assignment in SD exams is marked by the <img src="/m/pm/equals.jpg" width="15" height="13" alt="" /> symbol, not &quot;=&quot; which is reserved for equality. </p>
+ <p class="comment">Then, you forgot to put the <strong>output</strong> keyword in bold with a capital 'O'. One would expect better.</p>
+ <p class="comment">Now, go and sit on the naughty step.</p>
+ <p class="comment">No. Don't be a sook. Naughty step. Now!</p>
+ <p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p> <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a3" id="a3"></a>A3</strong><p></p></td>
+ <td valign="top" ><p><strong>Question 3</strong></p>
+  <p>  The algorithm needs to be tested for logic errors.<br />
+  Which of the following sets of test data would provide the best test for the algorithm?</p>
+  <ol type="A">
+  <li>0,75,80,84,100 </li>
+  <li>75, 76, 84, 85</li>
+  <li>70, 75, 76, 80</li>
+  <li>0, 74, 84, 85</li>
+ </ol>
+  <p class="myanswer">Answer is B.</p>
+<p class="explanation">Another challenging question. Consider the options. None of them leap out as immediately ridiculous, so there are no quick and easy cross-outs to be made.</p>
+<p class="explanation">We need to thoroughly check ALL possible valid data inputs. We need to focus on boundary conditions where the logic of the code may fail.</p>
+<p class="explanation">These valid inputs are not defined, but we can assume 0 to 100.</p>
+<p class="explanation">The 3 valid ranges and their boundaries are (paying close attention to the &gt;= and &gt; signs)</p>
+<ol>
+ <li class="explanation">0 to 75 (C grade).</li>
+ <li class="explanation">76 to 84 (B grade)</li>
+ <li class="explanation">85 and above (A grade)</li>
+</ol>
+<ul>
+ <li class="explanation">Option A tests ranges 1 (0,75), 2 (80,84), 3 (100).</li>
+ <li class="explanation">Option B tests ranges 1 (75), 2 (76,84), 3 (85)</li>
+ <li class="explanation">Option C tests ranges 1 (70,75), 2 (76,80). It does not test range 3. Cross this option out.</li>
+ <li class="explanation">Option D tests ranges 1 (0,74), 2 (84), 3 (85)</li>
+</ul>
+<p class="explanation">Options A, B and D all test the 3 possible ranges of valid inputs. (A) has more tests and does not focus on boundary values as well as (B). Option (D) also lacks boundary-specific tests. So of the 3 complete sets, B would be the most likely to uncover boundary condition faults in the code's logic.</p>
+<p class="comment">Another thought-provoking question. These multichoice questions are taking some time to ponder!</p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a4" id="a4"></a>A4</strong><p></p></td>
+ <td valign="top" ><p><a name="bookmark6" id="bookmark6"><strong>Question 4</strong></a> </p>
+  <p>  The algorithm contains</p>
+  <ol type="A">
+  <li>procedures  and functions.</li>
+  <li>procedures and instructions.</li>
+  <li>control structures and functions.</li>
+  <li>selection statements and instructions.</li>
+ </ol>
+  <p class="myanswer">Answer is D.</p>
+<p class="explanation">It does not have functions. Rule out (A) and (C).</p>
+<p class="explanation">It does not contain multiple 'procedures' (B) even thought the code <em>itself</em> would constitute a procedure.</p>
+<p class="explanation">That leaves (D) - but check it anyway. It has selection statements ('IF' etc to choose which code to execute) and instructions (like 'output grade')  </p>
+<p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a5" id="a5"></a>A5</strong><p></p></td>
+ <td valign="top" ><p><strong>Question 5</strong></p>
+ <p><img src="/m/pm/16s-a05.png" width="426" height="252" alt="" /></p>
+ <p>Which data structure would be best to store the data being collected from the form above?</p>
+ <ol type="A">
+  <li>four one-dimensional arrays</li>
+  <li>a single array</li>
+  <li>a record</li>
+  <li>a list</li>
+ </ol>
+ <p class="myanswer">Answer is C.</p>
+ <p class="explanation">4 x 1D arrays <em>would</em> do the job, but they would be rather more difficult to manage. </p>
+ <p class="explanation">Records allow a collection of fields with different data types (e.g. text, Boolean) in a single unit. </p>
+ <p class="explanation">The key word in the question is &quot;best&quot;. </p>
+ <p><span class="examiner"></span></p> <p></p></td>
+ </tr>
+ <tr>
+  <td valign="top"><strong><a name="a6" id="a6"></a>A6</strong><p></p></td>
+  <td valign="top" ><p><a name="bookmark8" id="bookmark8"><strong>Question 6</strong></a> </p>
+   <p>  When a student upgrades their operating system to a new version of the operating system, the updating software creates a new folder called &lsquo;OperatingSystem.old&rsquo; and copies some of the computer&rsquo;s files to that folder.<br />
+   This is an example of</p>
+   <ol type="A">
+    <li>archiving the computer&rsquo;s files.</li>
+    <li>backing up the computer&rsquo;s files.</li>
+    <li>cleaning up the computer&rsquo;s files.</li>
+    <li>creating extra space for the computer&rsquo;s files.</li>
+   </ol>
+   <p class="myanswer">According to the wording of the question, the answer would be B -<span class="comment"> but the question is badly written and common sense should lead to the answer of A.</span></p>
+ <p class="explanation">Hmmm.</p>
+ <p class="explanation">An <strong>archive</strong> moves a copy of data into offline storage. It deletes the original data.</p>
+ <p class="explanation">A <strong>backup</strong> copies (and keeps) the original data. It is intended to allow recovery of lost data.</p>
+ <p class="explanation">The question says the old OS files are 'copied' to the new folder. That means the original files remain in place and are <em>not deleted</em>. That is a backup.</p>
+ <p class="explanation">The question would need to have said &quot;<em>moves</em> some of the computer's files&quot; to qualify as archiving.</p>
+ <p class="explanation">The problem is, in <em>real</em> operating system upgrades, &quot;old&quot; folders contain OS data that <em>has been copied, then deleted</em> and replaced by newer versions - which is an archive.</p>
+ <p class="comment">The question is flawed. If the original files are only copied and the originals are left in place, it's a backup. If the original files are moved and the originals are deleted, it's an archive.</p>
+ <p class="comment">The question says that files are <em>copied</em>, not moved. It must be a backup - but that does not happen in The Real World&#8482;. Why copy files to a new folder when the originals are left in place? It makes no sense for an operating system upgrade to retain old, incompatible versions of files in its active system software store.</p>
+ <p class="myanswer"><img src="/m/pm/confused-dog.jpg" width="87" height="119" alt="" /></p>
+ <p class="myanswer"><span class="examiner"></span></p>
+ <br clear="all" /><p></p></td>
+ </tr>
+ <tr>
+  <td valign="top"><strong><a name="a7" id="a7"></a>A7</strong><p></p></td>
+  <td valign="top" ><p><strong>Question 7</strong></p>
+   <p>  The following array is sorted in ascending order.<br />
+   </p>
+   <blockquote>
+    <p>Starting point: 13,6, 64, 25, 12, 22, 11, 17 </p>
+    <p>After the <strong>third</strong> pass: 6, 11, 12, 25, 64, 22, 13, 17<br />
+    </p>
+   </blockquote>
+   <p>What type of algorithm is used to sort the array?</p>
+   <ol type="A">
+    <li>quick sort</li>
+    <li>bubble sort</li>
+    <li>binary search</li>
+    <li>selection sort</li>
+   </ol>
+   <p class="myanswer">Answer is D.</p>
+ <p class="comment">Sorting - again.</p>
+ <p class="explanation">Well it obviously can't be C, which is a search, not a sort. That leaves 3 little piggies.</p>
+ <p class="explanation">If it were a bubble sort (B), the first few pairs would have been swapped, leading to 6, 13, 25 - which isn't right. Rule that out too.</p>
+ <p class="explanation">I'm assuming a <em>good</em> exam would <em>not re-examine</em> quick sort again so quickly, so I consider it wiser to next investigate <strong>selection sort</strong> rather than binary search as next contender...</p>
+ <p class="explanation">Work it through a selection sort walkthrough...</p>
+ <table width="80%" border="1" cellspacing="0" cellpadding="3">
+  <tbody>
+   <tr>
+    <td width="152" align="center"><strong>Original</strong></td>
+    <td width="65" align="center" bgcolor="#FFFFFF">13</td>
+    <td width="77" align="center">6</td>
+    <td width="76" align="center">64</td>
+    <td width="74" align="center">25</td>
+    <td width="84" align="center">12</td>
+    <td width="72" align="center">22</td>
+    <td width="62" align="center">11</td>
+    <td width="64" align="center">17</td>
+    </tr>
+   <tr>
+    <td align="center"><strong>After pass 1</strong></td>
+    <td align="center" bgcolor="#F4D7D7">6</td>
+    <td align="center" bgcolor="#FFFFFF"><strong>13</strong></td>
+    <td align="center" bgcolor="#FFFFFF">64</td>
+    <td align="center" bgcolor="#FFFFFF">25</td>
+    <td align="center">12</td>
+    <td align="center">22</td>
+    <td align="center">11</td>
+    <td align="center">17</td>
+    </tr>
+   <tr>
+    <td align="center"><strong>After pass 2</strong></td>
+    <td align="center" bgcolor="#F4D7D7">6</td>
+    <td align="center" bgcolor="#F4D7D7">11</td>
+    <td align="center" bgcolor="#FFFFFF">64</td>
+    <td align="center" bgcolor="#FFFFFF">25</td>
+    <td align="center">12</td>
+    <td align="center">22</td>
+    <td align="center"><strong>13</strong></td>
+    <td align="center">17</td>
+    </tr>
+   <tr>
+    <td align="center"><strong>After pass 3</strong></td>
+    <td align="center" bgcolor="#F4D7D7">6</td>
+    <td align="center" bgcolor="#F4D7D7">11</td>
+    <td align="center" bgcolor="#F4D7D7">12</td>
+    <td align="center" bgcolor="#FFFFFF">25</td>
+    <td align="center"><strong>64</strong></td>
+    <td align="center">22</td>
+    <td align="center">13</td>
+    <td align="center">17</td>
+    </tr>
+   </tbody>
+ </table>
+ <p class="explanation">Yep. After the third pass, it matches the question. Done and done.</p>
+ <p class="explanation">See the  <a href="/s/sort-selection.pptx">slideshow on selection sort</a> to see how it works.</p>
+ <p class="comment">Another challenging and time-consuming multichoice question. This exam is not easy.</p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFFF"><strong><a name="a8" id="a8"></a>A8</strong><p></p></td>
+ <td valign="top" bgcolor="#FFFFFF" ><p><strong>Question 8</strong></p>
+  <p>  If software is purchased over the internet, copies of that software can be sold provided that</p>
+  <ol type="A">
+  <li>the software is open source.</li>
+  <li>the software licence allows for this action.</li>
+  <li>slight changes are made to the software before selling it.</li>
+  <li>it explicitly states that the software is copyright protected.</li>
+ </ol>
+  <p class="myanswer">Answer is B.</p>
+  <p class="explanation">If you thought of 'open source', remember that such a licence lets you use and (maybe) redistribute the software, but <em>not</em> to sell it.</p>
+<p class="comment"><span class="examiner"></span></p><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top">&nbsp;<p></p></td>
+ <td valign="top" ><p><em>Use the following information to answer Questions 9 and 10.</em><br />
+ Consider the following piece of pseudocode.</p><p><img src="/m/pm/16s-a09.png" width="650" height="250" alt="pseudocode"/></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a9" id="a9"></a>A9</strong><p></p></td>
+ <td valign="top" ><p><strong>Question 9</strong></p>
+  <p>  The purpose of the pseudocode is to</p>
+  <ol type="A">
+  <li>find the sum of all numbers in an array that are higher than 10.</li>
+  <li>search for numbers in an array that are equal to or higher than 10.</li>
+  <li>find the sum of all numbers in an array that are equal to or lower than 10.</li>
+  <li>find the sum of all numbers in an array that are equal to or higher than 10.</li>
+ </ol>
+  <p class="myanswer">Answer is D.</p>
+<p class="explanation">Once again, SD exercises the famous &quot;&gt;=&quot; gotcha. Whenever you see &lt;= or &gt;= your shields should be up.</p>
+<p class="comment">Again, VCAA mucks up their pseudocode: this time with with irregular indentation in the 'Display' line. </p>
+<p class="comment">At least they got the assignment arrows right this time.</p>
+<p class="comment">One thing I find concerning is the use of the len( ) function. Pseudocode is supposed to be completely intuitive and readable and self-explanatory. Any invented functions should either be blatantly-obvious or explained in a comment. The len( ) function is an invention that - supposedly - returns the number of elements in the named array. So if nums[ ]  had 5 elements, len(nums) would return 5. But that is not immediately and blindingly obvious to students whose programming language did not use that name for the function, or used a different name for it. From my personal experience, len( ) is a function that returns the length of a <strong>string</strong>.</p>
+<p class="comment">Let's make a deal, VCAA - you may invent any useful function you like for exams, but they must be either crystal clear or self-explanatory in meaning (e.g. 'Display') or explained in a comment, such as...</p>
+<p class="code" >// len( ) returns the number of elements in an array</p>
+<p class="comment">OK?</p>
+<p><span class="examiner"></span></p>  
+  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a10" id="a10"></a>A10</strong><p></p></td>
+ <td valign="top" ><p><strong>Question 10</strong></p>
+  <p>  When converting the pseudocode into a program, it would be useful to include in the programming code the</p>
+  <ol type="A">
+  <li>design specifications.</li>
+  <li>constraints of the code.</li>
+  <li>internal documentation.</li>
+  <li>external documentation.</li>
+ </ol>
+  <p class="myanswer">Answer is B. Probably.</p>
+  <p class="explanation">There is no internal documentation in the pseudocode so it can't be (C).</p>
+  <p class="explanation">There is no external documentation either, and even if there were, it wouldn't be put in the code - 'cos it's external. So it's not (D)</p>
+  <p class="explanation">I can't see how the design specifications (A) would be useful in the source code. </p>
+  <p class="explanation">That only leaves the constraints of the code, which may be useful to later programmers who need to be aware of the limits within which the code needs to operate. For example </p>
+  <p class="myanswer"><span class="code">// Remember that nums[ ] must support floating point values!</span></p>
+<p class="comment">The answer had better not be C. Sure, pseudocode is highly recommended in source code, but if there is none given in the pseudocode, how can it be put into the source code?</p>
+<p class="comment">Notice that the question says &quot;it would be useful to include in the programming code <strong>the</strong>&quot; - not just <strong>any</strong> design specs, constraints, internal or external doc but those that have <strong>already been provided</strong> <strong>in the pseudocode</strong>.</p>
+<p class="comment">If the question turns out to mean, &quot;When converting the pseudocode into a program, it would be useful to include in the programming code <strong>some</strong> <strong>internal documentation</strong>.&quot; I will be very, <strong>VERY</strong> annoyed - in both capitals and bold face!</p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top">&nbsp;<p></p></td>
+ <td align="left" valign="top" ><p ><em>Use the following information to answer Questions 11 and 12.</em><br />
+ A photographer is viewing high-quality photographs on a computer. The photographs are stored as JPEG files on a central fileserver and have an average size of 2 MB each.</p><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a11" id="a11"></a>A11</strong><p></p></td>
+ <td valign="top" ><p align="left"><strong><a >Question 11</a></strong></p>
+  <p align="left">  How long will it take the photographer to download one photograph to a computer that has a wireless connection running at 10 megabits per second?</p>
+  <ol type="A">
+  <li>0.8 s</li>
+  <li>1.0 s</li>
+  <li>1.2 s</li>
+  <li>1.6 s</li>
+ </ol>
+  <p class="myanswer">Answer is D.</p>
+<p class="explanation">Rejoice, for we have reached the single question for which you brought your calculator. Let's work it through.</p>
+<p class="explanation">2 megabytes = 2,000,000 bytes (or 2,097,152 if you're a pedantic 1,024 bytes to a kilobyte person. The answer does not depend on which one you choose.)</p>
+<p class="explanation">Multiply by 8 to get 16,000,000 bits.</p>
+<p class="explanation">Divide by 10,000,000 (10 megabits)</p>
+<p class="explanation">Answer is 1.6 seconds.</p>
+<p class="comment">I found it odd how the examiners suddenly decided to get casual and abbreviate &quot;seconds&quot; to &quot;s&quot; in the options, without explanation and for no apparent reason. Would this be obvious to ESL students?</p>
+<p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a12" id="a12"></a>A12</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 12</a></strong><a ></a> </p>
+  <p>  The photographer is considering using a wired network.<br />
+  The advantages of a wired network compared to a wireless network are that it is</p>
+  <ol type="A">
+  <li>faster and more secure.</li>
+  <li>faster and more portable.</li>
+  <li>more secure and portable.</li>
+  <li>easier to set up and cheaper.</li>
+ </ol>
+  <p class="myanswer">Answer is A.</p>
+  <p class="explanation">This is a pretty easy one. Cables are nearly always faster than wireless, and - unlike wireless - cannot accidentally carry data beyond the walls of the organisation. Cables are, however, far from portable or easy to set up.  </p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a13" id="a13"></a>A13</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 13</a></strong><a ></a> </p>
+  <p>  A standalone application is being written for handheld devices. This application will store all its data on the device and does not need an internet connection.<br />
+  Which type of application architecture would be best to use?</p>
+  <ol type="A">
+  <li>mobile</li>
+  <li>rich client</li>
+  <li>thin client</li>
+  <li>peer-to-peer</li>
+ </ol>
+  <p class="myanswer">Answer is A.</p>
+  <p class="comment">I expect there will be arguments over this one, and most kids would have been scratching their heads during the exam. </p>
+  <p class="explanation">The stem says that an internet connection is not needed, but is some other communications (e.g. wifi or Bluetooth) required? </p>
+  <p class="explanation">The app is said to be &quot;standalone&quot; which means it needs no connection to remote data or code sources. So let's assume no comms are needed at all. Think of a self-contained game like Solitaire on a phone. So, which architecture would suit?</p>
+  <ul>
+    <li class="explanation">Rich client means that the host computer has all the processing power and ability required with no support needed from external sources, such as cloud processors. The average computer is rich client since it does all of its own processing.</li>
+    <li class="explanation">Thin client is the scheme whereby the host computer has minimal processing facilities, and relies on an external source to supply the processing grunt. The host computer acts more like a dumb screen and keyboard to enter data and view the information that has been created by another computer. Think of cheap, low-powered Chromebook computers that use cloud processing. Without the external processors, a thin client terminal is little more than a paperweight.</li>
+    <li class="explanation">Peer-to-peer means that in a network of devices, each one has equal rights to initiate transactions (e.g. sharing files locally on a small LAN, or sharing files globally via Bittorrent). I can't see how it's relevant to this situation involving a standalone app.</li>
+  </ul>
+  <p class="explanation">That leaves A, which fits because the app is meant for handheld devices.</p>
+<p class="comment"><span class="examiner"></span></p><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a14" id="a14"></a>A14</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 14</a></strong><a ></a> </p>
+  <p>  XML stands for extensible mark-up language.<br />
+  Which one of the following is true?</p>
+  <ol type="A">
+  <li>An XML data file is designed to only display data on a web page.</li>
+  <li>An XML data file will work as expected if some data is modified.</li>
+  <li>An XML data file will never work as expected if some data is modified.</li>
+  <li>An XML data file is interchangeable with an HTML file because they are both mark-up languages.</li>
+ </ol>
+  <p class="myanswer">Answer is B. <span class="explanation">I reckon.</span></p>
+  <p class="explanation">XML is new theory, and many people will not be very familiar with it. </p>
+  <p class="explanation">The answer will not be (A). XML  is used in many places other than web pages: it is a flexible all-purpose, plain-text, human-readable way to store and communicate self-contained, structured data files. </p>
+  <p class="explanation">I have done a lot a work with XML because the database I made for teachers to create semester reports had to generate XML to feed into the education department's system. It was certainly possible to modify data within an XML file, considering it is plain text. Mind you, XML will break if you muck around with the tags in the file, but not the data within the tags. So (B) is true.</p>
+  <p class="explanation">And therefore (C) is not true.</p>
+  <p class="explanation">It is true that XML and HTML both use markup tags to provide structure to data content, but that's where the similarity ends. Otherwise you'd have to say that worms and garden hoses are basically the same because they're both long and thin with a hole in the middle.  </p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a15" id="a15"></a>A15</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 15</a></strong><a ></a></p>
+<p align="left">Inta is writing a new application for a small bicycle company so its staff can use their mobile phones to access the stock information stored on the company&rsquo;s fileserver. In the company, there is a manager and four people who sell the bicycles. They all use different brands of mobile phones.<br />
+  To help her with writing the software requirements specifications (SRS), Inta should</p>
+  <ol type="A">
+  <li>interview all those who will use the new application.</li>
+  <li>send out a survey to the manager and one other staff member.</li>
+  <li>observe one of those who will use the new application at work.</li>
+  <li>survey some of the people who have bought bicycles from the company.</li>
+ </ol>
+  <p class="myanswer">Answer is A.</p>
+  <p class="explanation">Hmmm. Interesting. What key knowledge is this question fishing for? What exactly is being examined? </p>
+  <p class="explanation">Is it testing understanding of <strong>who</strong> should be consulted?</p>
+  <p class="explanation">Or is it testing understanding of <strong>how</strong> they should be consulted?</p>
+  <p class="explanation">Or could it be testing <strong>both</strong>?</p>
+  <p class="explanation">I'm thinking of SD U3O2 KK 1 in the study design - &quot;techniques for collecting data to determine needs and requirements, including interviews, surveys and observation&quot;.</p>
+  <p class="explanation">The question smells very much like a fishing expedition for knowledge of KK1 - data collection techniques.<br />
+  </p>
+  <p class="explanation">This is another arguable one. One could say that interviewing <strong>all</strong> users (A) would be over-the-top and that just one user and the manager (B) would suffice. But there is that rather odd comment in the case study - <strong>&quot;They all use different brands of mobile phones.&quot;</strong> </p>
+  <p class="explanation">&quot;Why is that there?&quot; you should  ask, for stuff is not put into questions as filler or fun. It must be relevant to guiding your decision. </p>
+  <p class="explanation">So - how could it be relevant? What options might it be intended to rule out?</p>
+  <p class="explanation">If all users have different types of phones, they would all have different experiences and needs from the app. One person, for example, might have a small screen and require the app to be designed with minimal output on each page. Another might have a phone with a stylus, which would enable hand-written input. Another might have a phone with a different constraint that would rule out an important design idea. That comment in the case study makes me lean towards option (A).</p>
+  <p class="explanation">But looking at (B), one realises that the manager would be an important person to consult to determine the organisation's functional requirements for the app. But will the manager be using the app - and therefore be included in option A, and be interviewed? </p>
+  <p class="comment">Sadly the wording of the case study is ambiguous - a common fault in VCAA IT exams. We are told that &quot;In the company, there is a manager and four people who sell the bicycles.&quot;</p>
+  <p class="comment">This could mean...</p>
+  <blockquote>
+    <p class="comment"> 1. In the company, there is a manager and four people, who <strong>(all five of them)</strong> sell the bicycles. </p>
+  </blockquote>
+  <p class="comment">or</p>
+  <blockquote>
+    <p class="comment"> 2. In the company, there is a manager <strong>---</strong> and four people who sell the bicycles.</p>
+    </blockquote>
+  <p class="comment">Try this.
+    What does <strong>this</strong> mean...? </p>
+  <blockquote>
+    <p class="comment">A and B doing  C</p>
+    </blockquote>
+  <p class="comment">Does it mean...</p>
+  <blockquote>
+    <p class="comment">(A and B) doing C</p>
+    </blockquote>
+  <p class="comment">or</p>
+  <blockquote>
+    <p class="comment">A and (B doing C)</p>
+    </blockquote>
+  <p class="comment">VCAA really needs a punctuation and grammar manager. <br />
+    It may alleviate the frequent ambiguities in VCAA study designs and exams.</p>
+  <p class="explanation">As a former English teacher, these things leap out at me. And that's why VCAA exams often annoy me more than they irritate other people.</p>
+  <p class="explanation">But, it's section A and we can't explain our reasoning or give alternative answers to cope with ambiguities in the questions. We have to decide. Here I look at option B's data collection technique - survey - and wonder. Would a survey be sufficient? <br />
+    Surveys are composed of closed-answer questions with limited opportunities to provide answers. Surveys are designed for mass data collection to be undertaken after detailed initial fact-finding (using interviews and observation) has uncovered what is relevant to the topic in question. No, surveys are not suitable here. </p>
+  <p class="explanation">Remember - knowledge of interviews, surveys and observation are required by SD U3O2 KK 1.</p>
+  <p class="explanation">Let's down-vote (B).</p>
+  <p class="explanation">Option (C) is fair enough - observing users can uncover valuable ideas that may contribute to the formulation of functional or non-function requirements (e.g. sales staff may be very busy so the app would need to work more quickly than usual.) But only observing only <strong>one</strong> user would probably not be enough.</p>
+  <p class="explanation">Option (D) is feasible and might yield some insight into the requirements of the new system, but it is less valuable than getting input from the actual users of the proposed system. It's not a strong option.</p>
+  <p class="explanation">So, I'd say option (A) best answers the question, even though some of the others also have some merit. </p>
+<p class="comment">Fun fact 1: Inta is a feminine Latvian given name. It's about time female Latvian programmers got mentioned in an exam question.  <br />
+  Fun Fact 2: Research in The Real World shows that about 92% of software developers are male. Yet in SD exams, most programmers are female. <br />
+  In this exam, we have Inta, Sue-Lee and Janette as female IT professionals, compared with 2 males, Patel and Ethan.</p>
+<p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a16" id="a16"></a>A16</strong><p></p></td>
+ <td valign="top" ><p><strong>Question 16</strong></p>
+  <p>  Just as Toni was returning to her car in the shopping centre car park, she witnessed another car reverse into her car and drive off. She quickly took a photograph of the car with her mobile phone, capturing the registration number.<br />
+  Toni contacted her insurance company to lodge a claim. She supplied the registration number, but was told she also needed the driver&rsquo;s name and home address in order to make a successful claim. This information is only held by VicRoads, the Victorian government agency responsible for issuing drivers&rsquo; licences. She contacted VicRoads, but was told she could not have this information.<br />
+  In accordance with which Act is the privacy of Victorian driver&rsquo;s licence holders&rsquo; information protected?</p>
+  <ol type="A">
+  <li>Privacy Act 1988</li>
+  <li>Health Records Act 2001</li>
+  <li>Privacy and Data Protection Act 2014</li>
+  <li>Charter of Human Rights and Responsibilities Act 2006</li>
+ </ol>
+  <p class="myanswer">Answer is C.</p>
+  <p class="explanation">The PDPA of the current study design replaces the IPA (Information Privacy Act) of the old study design. It only affects Victorian government agencies (and private organisations working for the government.)</p>
+<p class="comment"><span class="explanation">'Health Records Act' - hehehe. I wonder how many kids will choose that one.</span><br />
+  </p>
+<p class="comment">Anyway - why would an insurance company put the onus on the <strong>policy holder</strong> to identify the holder of a number plate? Silly. The Real Word&#8482; - as mentioned several times already - does not work like that. </p>
+<p class="comment"><span class="examiner"></span></p><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a17" id="a17"></a>A17</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 17</a></strong><a ></a></p>
+  <p>  Which one of the following correctly identifies features of type checking?</p>
+  <ol type="A">
+  <li>checks if only letters are entered into a field and if the text is spelt correctly</li>
+  <li>checks if data entered already exists in the database and if the data is reasonable</li>
+  <li>checks if a number is entered into a numeric field and if the number is within a set range</li>
+  <li>checks if numbers are entered into a numeric field and if letters are entered into a text field</li>
+ </ol>
+  <p class="myanswer">Answer is D.</p>
+  <p class="explanation">Notice that each option has two components. <strong>Both</strong> must be true for the option to be accepted.</p>
+  <p class="explanation">The first part of (A) may be true, but the spelling part is not.</p>
+  <p class="explanation">The existence check rules out option (B).</p>
+  <p class="explanation">The first half of (C) is OK, but the bit after the 'and' is a range check, not a type check.</p>
+  <p class="explanation">Both parts of (D) are fair and reasonable.  </p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a18" id="a18"></a>A18</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 18</a></strong><a ></a> </p>
+  <p>  A data flow diagram can be used as a tool when designing software.<br />
+  Data flow diagrams must always show</p>
+  <ol type="A">
+  <li>the decisions that are made when sub-modules are called.</li>
+  <li>the sequence of tasks involved in completing a project.</li>
+  <li>where data originates and where it is stored.</li>
+  <li>the specific data flows between processes.</li>
+ </ol>
+  <p class="myanswer">Answer is D.</p>
+  <p class="explanation">The key word is &quot;<strong>always</strong>&quot;.</p>
+  <p class="explanation">(A) sounds like a flow chart or decision tree, neither of which is examinable. Such decisions are certainly not included in a DFD.</p>
+  <p class="explanation">(B) is project management, such as a Gantt chart.</p>
+  <p class="explanation">(C) A DFD <strong>does</strong> include external entities (data origins) and data stores, but the latter don't <strong>have to</strong> always appear... but any system without data stores would be a strange and rare beast indeed...</p>
+  <p class="explanation">(D) Yeah, that feels good. Right there. Data flows in a DFD are specific (each data flow arrow must be labelled), and data certainly flows between processes. Yep.</p>
+<p class="comment">Silly, silly examiner. DFDs are not used during <strong>design</strong>. </p>
+<p class="comment">They are used during <strong>analysis</strong>. </p>
+<p class="comment">Back to the naughty step. Go on.</p>
+<p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p>
+<p class="comment">&nbsp;</p>
+  <p><span class="examiner"></span></p>  <p></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><strong><a name="a19" id="a19"></a>A19</strong><p></p></td>
+ <td valign="top" ><p><strong><a >Question 19</a></strong><a ></a></p>
+  <p>Some of the variables in a program are to be given new names.<br />
+  Which documentation must also be modified?</p>
+  <ol type="A">
+  <li>software requirements definitions</li>
+  <li>milestones and dependencies</li>
+  <li>data dictionary definitions</li>
+  <li>functional requirements</li>
+ </ol> <p class="myanswer">Answer is C.</p>
+<p class="explanation">The SRS is produced during analysis and contains an overview of the purpose and aims of the software. It does not consider how these are to be actually implemented. (B) obviously refers to project management, which also is not concerned with the details of task implementation. <br />
+  A data dictionary is the place where details of programming design are documented, and need to be kept up to date.<br />
+  (D) is also part of analysis, like (A).</p>
+<p class="comment">Dang! A19 is an easy one, yet A2 dislocated several of my brain cells.</p>
+ <p><span class="examiner"></span></p> <p></p></td>
+ </tr>
+ <tr>
+   <td valign="top" ><strong><a name="a20" id="a20"></a>A20</strong><p></p></td>
+   <td valign="top" ><p><strong><a >Question 20</a></strong><a ></a> </p>
+     <p>  A local shopping centre is considering providing free wi-fi for its customers.<br />
+      Which one of the following would be a non-functional requirement for its new system?</p>
+     <ol type="A">
+       <li>The system must have a failure rate of less than 3%.</li>
+       <li>The system must be easy for customers to connect to.</li>
+       <li>The system must be able to cope with 500 simultaneous users.</li>
+       <li>The system must have a speed of at least 5 megabits per second.</li>
+      </ol>
+     <p class="myanswer">Answer is B. But I don't like it much.</p>
+     <p class="explanation">[This section is in development - which is why it rambles.]</p>
+     <p class="explanation">A <strong>non-functional requirement</strong> (NFR) is a quality or a performance characteristic that a solution must possess. It usually describes what a <strong>user</strong> requires from the system. Being 'easy to connect to' is such a quality. <br />
+      (For those of you who were guessing, it's also the only option without a specific number in it. That makes it stand out.)     </p>
+     <p class="explanation">A <strong>functional requirement</strong> (FR) relates to what a system must be able to <strong>do</strong>. It often describes what a system's owner/manager requires from the system.</p>
+     <p class="explanation">So...</p>
+     <p class="explanation">FR - the system must be able to email a customer a record of a purchase. (What the system can <strong>do</strong>)<br />
+      NFR - the system must be able to send the email within 5 minutes of the transaction. (<strong>How</strong> the system should do it)</p>
+     <p class="comment">But let's quibble, shall we? Do you have time? Good. Please sit down, and let's quibble together. <br />
+      No, not like <strong>that</strong>. That's not 'quibbling'. That's just awful. Stop it.</p>
+     <p class="comment">I see an NFR is a global quality of a solution - it describes what the solution should <strong>be</strong>. <br />
+      An NFR  is probably not achieved in a single procedure (as an FR would be) - it is often an outcome often born of many parts of a solution, e.g. 'easy to use' or 'secure' as a whole may require many pieces of programming in different procedures to achieve. <br />
+      An NFR is usually related to what the solution's user wants and experiences.
+      <br />
+    </p>
+     <p class="comment">A functional requirement (FR) on the other hand is an action that a solution must be able to <strong>do</strong>, particularly related to inputs, outputs and processing requirements, e.g. <strong>produce</strong> a graph of weekly sales, <strong>send</strong> an email to a customer after each purchase. <br />
+       FRs require active <strong>verbs</strong>. <br />
+       Such activities need to be specifically programmed, and are usually found in specific modules. <br />
+       If a programmer is told that a system must have a failure rate &lt; 3% he/she might complain, &quot;Yeah - but where? What module/function are you talking about? Or do you mean the code should be generally reliable? How do we test this achievement?&quot;<br />
+       Yes, an FR is rather specific, but does <strong>not</strong> have to have a number attached, as A20 implies. A20 assumes that if an objective is so specific that it has a number attached, it must be an FR.</p>
+     <p class="comment">Alas, FRs and NFRs are not defined in the study design. So, when did VCAA decide to define an FR as a specific, numerically-defined <em>objective</em>? - like a system objective? (Also see the <a href="#c2">system objective question in C2</a> below)</p>
+     <p class="comment">I rue the day that the study design had to cut back on the scope of the glossary. It's questions like this that make such definitions essential.</p>
+     <p class="myanswer">To quote <a href="https://en.wikipedia.org/wiki/Functional_requirement">Mr Wikipedia</a>:</p>
+     <blockquote>
+       <p class="comment">&quot;Generally, functional requirements are expressed in the form &quot;system must do &lt;requirement&gt;&quot;, while non-functional requirements are &quot;system shall be &lt;requirement&gt;&quot;.  </p>
+   </blockquote>
+     <p class="comment"><a href="http://www.scaledagileframework.com/nonfunctional-requirements/">Another source</a> says: (with my inserts in <strong>bold</strong>)</p>
+     <blockquote>
+       <p class="comment">Nonfunctional Requirements (NFRs, or system qualities) describe system attributes such as security, reliability <strong>[option A]</strong>, maintainability,<br />
+         scalability <strong>[option C]</strong>, and usability <strong>[option B]</strong> (often referred to as the &quot;ilities&quot;). They can also be constraints or restrictions on the design of the system (in         which they may be referred to as design constraints)... </p>
+     </blockquote>
+     <p class="comment">The exam's interpretation of FRs and NFRs in A20 seems to be new and idiosyncratic.</p>
+     <p class="comment">End of quibble.</p>
+     <p class="comment">Yes, you can stop now.</p>
+     <p class="myanswer">Other references:</p>
+     <ul>
+       <li><a href="http://www.scaledagileframework.com/nonfunctional-requirements/" class="myanswer">http://reqtest.com/requirements-blog/functional-vs-non-functional-requirements/</a></li>
+       <li><a href="http://stackoverflow.com/questions/16475979/what-is-functional-and-non-functional-requirement" class="myanswer">http://stackoverflow.com/questions/16475979/what-is-functional-and-non-functional-requirement</a></li>
+     </ul>
+     <p><span class="examiner"></span></p>
+    <br clear="all" /></td>
+ </tr>
+ <tr>
+   <td bgcolor="#CCCCCC" ><p></p></td>
+   <td><p align="left">&nbsp;</p>
+     <p align="left"><strong>Overall for section A</strong> - <span class="comment">Difficult! Not many quick, easy-peasy questions. Most of them took time to ponder.</span> </p>
+     <p align="left" class="comment">There were also too many time-outs for the examiner on the naughty step.<br />
+    </p><p></p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><p></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+   <td colspan="2" valign="top" bgcolor="#99CCFF" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+     <p class="blueback">Instructions for Section B<br />
+      Answer all questions in the spaces provided.</p>
+    <p class="comment">[x lines] indicates the number of ruled lines provided on the paper for the answers.</p><p></p></td>
+ </tr>
+ <tr>
+   <td width="99" valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="c21"></a>B1 <br />
+    </strong></p><p></p></td>
+   <td width="996" valign="top"><p><strong>Question 1</strong> (3 marks)</p>
+     <p>A company stores the following data in a linear file for its payroll.</p>
+  <p align="left"><img src="/m/pm/16s-b01.png" width="552" height="308" alt="" /><span class="examiner"><br />
+       </span>      </p>
+  <p>Name three fields contained in this file.
+    &nbsp;</p>
+    <p class="myanswer">Take any 3 of these:</p>
+    <ul>
+      <li class="myanswer">Name</li>
+      <li class="myanswer">Staffid</li>
+      <li class="myanswer">Staffname</li>
+      <li class="myanswer">Salary</li>
+      </ul>
+    <p><img src="/m/sickdog.jpg" alt="Sick as a Dog Award" width="125" height="125" /></p>
+    <p class="comment">What is a &quot;linear file&quot;? I've never heard of one before - and not even good old Mr Google knows the term.<br />
+      The study design certainly never mentions them.<br />
+      The sample SD exam had questions on random and sequential files, which VCAA acknowledged as inappropriate since that key knowledge is not examinable.<br />
+      And now the real exam does something quite similar.</p>
+    <p class="comment">Hence the &quot;The Questions That Make You Sick As A Dog Award&quot;.<br />
+    The reference to linear files was incorrect, but did not jeopardise the answer.</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="b2"></a>B2<br />
+  </strong></p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p><strong>Question 2</strong> (6 marks)</p>
+   <p align="left">A government department has been issuing new employees with a sequential employee number for over 70 years. The sequential employee numbers are now at just under 100 000 and the department would like to know who has the smallest number and is still working for the department.</p>
+   <p align="left">A file has been created of the EmployeeName and the EmployeeNumber sorted on EmployeeName. The plan is to write a simple program to search this file for the smallest number. The pseudocode has been started.<br />
+     </p>
+   <p align="left">Fill in the missing lines below to find the employee with the smallest number and to print this employee&rsquo;s name and number.</p>
+<p><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LowestEmployeeName <img src="/m/pm/equals.jpg" width="15" height="13" alt="" /> &quot;&quot;</p>
+<p><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LowestEmployeeNumber <img src="/m/pm/equals.jpg" width="15" height="13" alt="" /> 100000</p>
+<p><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><span class="myanswer"><strong>Open</strong> datafile</span></p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>while not</strong> end of file</p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>read</strong> tempname, tempnum <strong>from</strong> datafile</p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>if</strong> tempnum &lt; LowestEmployeeNumber <strong>then</strong></p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LowestEmployeeNumber <img src="/m/pm/equals.jpg" width="15" height="13" alt="" />  tempnum</p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->LowestEmployeeName <img src="/m/pm/equals.jpg" width="15" height="13" alt="" /> tempname</p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>endif</strong></p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>endwhile</strong></p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>print</strong> &quot;Lowest number  &quot; , LowestEmployeeNumber , &quot; belongs to &quot; , LowestEmployeeName</p>
+<p class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>close</strong> datafile</p>
+<strong>End</strong><br clear="all" />
+<p><span class="examiner"><span class="comment">8 lines were provided for the answer.</span></span> <span class="comment">I think more were needed. I don't know how the code could be done properly (including explicitly closing the file, which is good practice) in only 8 lines.</span></p>
+<p><span class="examiner"><br />
+  </span>
+  <!--EndFragment>><!--EndFragment--></p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="b3"></a>B3<br />
+  </strong></p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p><strong>Question 3</strong> (6 marks)</p>
+   <p align="left">To find an item in an array, a binary search, in most cases, is quicker than a linear search. However, a binary search requires the array to be sorted.<br />
+     a.	Explain why an array must be sorted to find a record using a binary search and how the record is found. 4 marks</p>
+   <p align="left" class="myanswer">Binary search checks whether the sought value is larger or smaller than the middle value of the dataset. It discards the wrong half and repeats the procedure with the remaining data. By repeatedly halving the dataset, the search area rapidly decreases and the value is soon found, or known not to exist. It is only possible to eliminate half of the dataset if the data is sorted.</p>
+   <p align="left">     b.	A linear search, unlike a binary search, can find records in an unsorted array. Explain why. 2 marks</p>
+   <p align="left" class="myanswer">It checks every value in the dataset in turn.</p>
+   <p align="left" class="explanation">Does anything else need to be said? </p>
+   <p align="left" class="explanation">Six lines were provided for the answer. You don't need to use them all.<br />
+   </p>
+   <p><span class="examiner"><br />
+    </span>
+    <!--EndFragment>><!--EndFragment-->
+   </p>
+  <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="b4"></a>B4<br />
+   </strong></p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p><strong>Question 4</strong> (5 marks)</p>
+   <p align="left">A hash function has been created to store a set of different integers in an array. The hash function creates a key value from the integer. The hash function takes the integer to be stored, divides the integer by 5 and uses the remainder as an index value. For example, if the first integer is 11, then 11 divided by 5 gives a remainder of 1. This becomes the hash key.<br />
+   When a collision occurs because two integers hash to the same array location, the second integer is placed in the next available space under the hash key.</p>
+   <p>The numbers to be stored via the hash function are: 11, 17, 23, 8, 13. The number 11 has already been entered. </p>
+   <p>a. Complete the diagram below.</p>
+   <p><img src="/m/pm/16s-b04a.png" width="470" height="342" alt="" /></p>
+   <p><img src="/m/pm/16s-b04a-answer.png" width="470" height="342" alt="Answer to B4a"/></p>
+   <p class="myanswer">17/5 = 3 with remainder 2. So 17 hashes to 2.<br />
+     23/5 = 4 with remainder 3. So 25 hashes to 3.<br />
+     8/5 = 1 with remainder 3, so 8 also hashes to 3, leading to the first collision.<br />
+     13/5 = 2 with remainder 3, leading to the second collision.</p>
+   <p class="comment">A pretty straightforward and fair hash question.</p>
+   <p>b. Outline how a value is retrieved using a hash key. 1 mark</p>
+   <p><span class="myanswer">The slot in the hash table that corresponds to the hash key is checked. <br />
+     The values stored in that slot are compared with the value being sought until a match is found  (or no values remain, meaning the value does not exist in the table).</span><br clear="all" />
+   </p>
+   <p class="comment">Only 3 lines were provided for the answer. I expected more space, and more than one mark for a fairly meaty answer.</p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td colspan="2" valign="top" bgcolor="#99CCFF"><p class="comment">Section B overall - A fair set of questions, especially on the new theory such as XML, hash. A decent pseudocode exercise. The search questions were challenging but very reasonable. The balance between difficulty and challenge was handled well. A couple of answers needed more space provided.</p>
+    <p class="comment"><img src="/m/stamp_of_approval-trans.png" width="54" height="53" alt="" /></p>
+    <p class="comment">I award the stamp of approval.<br />
+    </p>
+  <p class="comment">&nbsp;</p><p></p></td>
+ </tr>
+</table>
+<div align="left">
+ <table>
+ <tr>
+ <td valign="top" ><p></p></td>
+ </tr>
+ <tr>
+ <td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+ <p align="left">Patel and Janette started a small, suburban physiotherapy clinic. They both have a professional interest in a holistic approach<sup>1</sup> to health and wellbeing.<br />
+Business has been steady, so Patel and Janette decided to expand the number of clinics and have established four clinics around the state. They have called their business &lsquo;Soul &amp; Body Health&rsquo;.<br />
+One of the clinics has become their head office and it contains their fileserver and the commercial medical software required to keep patient records, both medical and financial.<br />
+There is also a connection to the national healthcare system so that rebates<sup>2</sup> may be claimed from the government. The commercial medical software also allows Soul &amp; Body Health to upload other data files to the healthcare system.<br />
+The other three clinics use virtual private network (VPN) connections to the head office.<br />
+Patel and Janette feel that they can improve patient care by introducing preventive medicine techniques. So they have decided to provide extra services to their patients by incorporating a fitness application (app) called Keep Fit.<br />
+The purpose of the app is twofold:</p>
+ <ol>
+  <li>To allow patients to make appointments and pay fees online to the head office</li>
+  <li>To provide an online recording service to help patients record their dietary intake as well as their daily exercise regime</li>
+ </ol>
+ <p>Patel and Janette believe that patients will benefit from detailed knowledge of their eating and exercising habits. The data will be held locally on each patient&rsquo;s mobile device and then uploaded to the Soul &amp; Body Health server each night or when it is convenient.<br />
+  Patel and Janette feel that, in addition to having detailed knowledge of their eating and exercising habits, patients will benefit from a more holistic approach by also maintaining an accurate record of their diet and exercise plan.</p>
+ <p><sup>1</sup><strong> holistic approach</strong> - an approach concerned with the whole person (physical, mental and emotional)<br />
+   <sup>2</sup> <strong>rebate</strong> - return of part of an amount paid or due for a service</p>
+ <p><img src="/m/pm/16s-cs01.png" width="744" height="692" alt="" /></p>
+<p class="question">&nbsp;</p>
+ <p align="left"><strong>END OF INSERT</strong></p><p></p></td>
+ </tr>
+ </table>
+ <table>
+ <tr>
+  <td colspan="2" bgcolor="#FFFFCC"><p align="left"><strong>Instructions for Section C</strong></p>
+   <p align="left"> Please remove from the centre of this book during reading time. </p>
+   <p align="left">Use the case study provided in the insert to answer the questions in this section. Answers must apply to the case study.<br />
+    Answer all questions in the spaces provided.</p>
+   <p align="left">Answer <strong>all</strong> questions in the spaces provided. </p> 
+   <p></p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c1" id="c1"></a>C1 </strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left">Patel and Janette select a software development company to develop both the new Keep Fit application (app) for their patients&rsquo; mobile devices as well as new communications software for their Soul &amp; Body Health system to enable the Keep Fit app to communicate with their existing software.</p>
+<p align="left"><strong>Question 1</strong> (5 marks)</p>
+   <p align="left">Sue-Lee, the project manager, begins to plan the project. She decides to use two programming teams.<br />
+    To write, test and debug the Keep Fit app for the mobile devices will take about 25 days. To write, test and debug the new Soul &amp; Body Health communications software will take about 30 days.<br />
+    Then they will need to test that the Keep Fit app can communicate with the Soul &amp; Body Health software. This should take about five days.<br />
+    The next step would be to demonstrate the entire system to Janette and Patel, and to make modifications. This should take another five days. Then they would need to install the new software on the server at the clinic and test it using the app, which would take another five days.<br />
+    That gives Sue-Lee a total of 70 days.</p>
+   <p align="left">a. Complete the Gantt chart below to show Sue-Lee how to complete the project in fewer than 70 days. 4 marks.   </p>
+   <p><img src="/m/pm/16s-c01.png" alt="" width="911" height="381" border="0"/></p>
+   <p><img src="/m/pm/16s-c01a-answer.png" width="900" height="367" alt="" /></p>
+   <p class="myanswer">Keep in mind that the testing task requires both the app <strong>and</strong> the SBH software to be finished first .</p>
+   <p>b. Name <strong>one</strong> milestone for the project.
+   </p>
+   <p class="myanswer">'End of Project' after the last task?</p>
+   <p class="explanation">No activity in the question has zero duration, so it can't be any of them. I had to invent one.</p>
+   <p class="comment">This is an odd question.</p>
+   <p><span class="myanswer"><img src="/m/pm/confused-dog.jpg" width="87" height="119" alt="" /></span></p>
+   <p align="left"><br />
+   </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td width="65" valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c2" id="c2"></a>C2</strong></p>
+     <p class="question">&nbsp;</p>
+     <p class="question">&nbsp;</p><p></p></td>
+   <td width="1260" valign="top"><p align="left"><strong>Question 2 </strong>(2 marks)</p>
+     <p>Sue-Lee begins to plan the software requirements specifications (SRS). She understands that she will need to follow the goals and objectives of Soul &amp; Body Health.<br />
+       Apart from financial considerations, state one organisational goal and one system objective.</p>
+     <p align="left">Organisational goal</p>
+     <p align="left" class="myanswer">Improve patient care.</p>
+     <p align="left" class="myanswer">Provide holistic patient care.</p>
+     <p>System objective</p>
+     <p class="myanswer">Introduce preventive medicine techniques (to support the goal of improving patient care)</p>
+     <p class="myanswer">Give patients detailed knowledge of their diet and exercise (to support the goal of holistic care)</p>
+     <p class="explanation">Objectives are short-term, practical, achievable steps towards a larger long-term, rather vague goal.</p>
+     <p class="explanation">Org goals and objectives affect the whole org and everything it does.</p>
+     <p class="explanation">System goals and objectives relate to systems within the org that should be helping to achieve org goals and objective.</p>
+     <p class="comment">This - like goal/objective questions of past exams - was not easy. I'm still not sure of the sys objectives.</p>
+     <p class="comment">I have a suspicion that the examiner may be conflating <strong>functional requirements</strong> and <strong>system objectives</strong> (see <a href="#a20">A20 above</a>)</p>
+     <p><br clear="all" />
+       </p>
+     <p align="left"><br />
+      </p><p></p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c3" id="c3"></a>C3</strong></p>
+     <p class="question">&nbsp;</p>
+     <p class="question">&nbsp;</p>
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 3 </strong>(3 marks)</p>
+     <p>Sue-Lee now begins to prepare a use case diagram for the Keep Fit app. A patient should be able to log in and:</p>
+     <ol>
+       <li>check the availability of appointments</li>
+       <li>make an appointment</li>
+       <li>cancel an appointment</li>
+       <li>pay any fees that are due</li>
+       <li>change personal data</li>
+       <li>download their own Keep Fit data.</li>
+       </ol>
+     <p>Complete the use case diagram below by indicating all of the requirements.</p>
+     <p align="left"><img src="/m/pm/16s-c03.png" width="524" height="585" alt="" /><br />
+   </p>
+     <p class="explanation">At first I added the two lines from the patient and muttered, &quot;You mean to say - that's IT for... how many marks... three marks? For adding TWO LINES! Skippy the Bush Kangaroo could have got THAT one right... hang on. <strong>How</strong> many marks? Three? <strong>Three</strong> marks for two lines? How do you work that out... 1.5 marks per line? Or... <strong>maybe I've missed something</strong>.&quot;</p>
+     <p class="explanation">&quot;Come to think of it, THAT doesn't look right... how can you cancel an appointment without the system knowing who you are? You'd have to ... LOG IN FIRST! &quot;</p>
+     <p class="explanation">&quot;Ahhhh. And would it be necessary to log in to book an appointment? Maybe not. I could imagine a system where a stranger books an appointment for the first time and becomes a registered patient upon their first visit. Not sure. I'll put it in two &lt;&lt;includes&gt;&gt;, just to be safe.&quot;     </p>
+     <p><img src="/m/pm/16s-c03a-answer1.png" width="464" height="523" alt="" /></p>
+     <p class="explanation">&quot;But on the other hand, there are <strong>three</strong> marks available - two marks for the association lines and one for the &lt;&lt;includes&gt;&gt; from 'cancel appt' - and I've added <strong>four</strong> items.&quot;</p>
+     <p class="myanswer"> <span class="explanation">&quot;Also, that &lt;&lt;includes&gt;&gt; line from 'Book appt' to the login use case crosses the association line, which looks really awkward and ugly. So maybe there's only <strong>one</strong> &lt;&lt;includes&gt;&gt; arrow. OK. Maybe I was right - there's no need to already be on the system to be able to make an appointment. You'd think they might have mentioned that in the case study. But anyway...&quot;</span></p>
+     <p class="explanation">Which led to this:</p>
+     <p><img src="/m/pm/16s-c03a-answer2.png" width="464" height="527" alt="" /></p>
+     <p class="explanation">The morals of the story:</p>
+     <ul>
+       <li class="explanation"> Use the number of marks to help determine how much needs to be done. The mark allocation is usually logical: one mark for each thing expected. </li>
+       <li class="explanation">Also use common sense, such as the need to be identified before being about to cancel an appointment.</li>
+     </ul></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c4" id="c4"></a>C4</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 4 </strong>(4 marks)</p>
+   <p>Patel and Janette have asked the developers to take a simple approach to the design of the Keep Fit app. They want error-handling features, simple navigation between the components of the solution, and a clean and clear interface that allows for easy data entry regardless of the device. They also want it to be interesting to look at.<br />
+    Sue-Lee has developed two design ideas for the app. Each design idea includes a start screen and one of the data entry screens. The design ideas are shown below.<br />
+   </p>
+   <p><img src="/m/pm/16s-c04a.png" width="531" height="438" alt="" /></p>
+   <p><img src="/m/pm/16s-c04b.png" width="477" height="417" alt="" /><br clear="all" />
+   </p>
+   <p align="left"><br />
+  </p>
+   <p>a. Describe one feature of each design idea that contributes to its effectiveness. 2 marks</p>
+   <p>Feature of Design idea A</p>
+   <p class="myanswer">Sensible and time-efficient, easy-to-use data entry control choices, such as the calendar and slider, compared to the ugly and awkward scrolling and text entry needed for design idea B.</p>
+   <p>Feature of Design idea B</p>
+   <p class="myanswer">Text on the controls main screen with text to explain their purpose, rather than the potentially-confusing or meaningless icons of design idea A.</p>
+   <p>b. Which design idea would you choose based on the stated requirements? Justify your choice. 2 marks</p>
+   <p class="myanswer">Both offer <strong>error-handling</strong> (home/reset links). </p>
+   <p class="myanswer">The text-based <strong>navigation</strong> of idea B is clearer and simpler. </p>
+   <p class="myanswer">Idea A is more <strong>interesting to look at</strong>, and allows for <strong>easier data entry</strong>.</p>
+   <p><span class="myanswer">Since the ease of data entry is especially important, I'd choose <strong>idea A</strong> because of its superior choice of appropriate data entry controls.</span><br clear="all" />
+   </p>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c5" id="c5"></a>C5</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 5 </strong>(3 marks)</p>
+   <p>Sue-Lee also looks at the flow of data to and from the Keep Fit app and the Soul &amp; Body Health system by starting to draw a context diagram.<br />
+    Continue the context diagram below by naming the <strong>three</strong> entities and showing <strong>one</strong> data flow from each entity.<br />
+   </p>
+   <p><img src="/m/pm/16s-c05.png" width="524" height="202" alt="" /> </p>
+   <p class="explanation">Query - is the app meant to be seen as <strong>part of</strong> the Soul &amp; Body Health system? If so, the app cannot not be classed as an external entity. That's how I read it. Instead, the <strong>patient</strong> would be the data provider/entity.</p>
+   <p class="comment">Note 1 - the question is asking for a data flow FROM each entity, not TO it. This is difficult in the case of the health care system since the case study only describes data flows TO it, not FROM it (rebate claims, other data files). I believe the question was worded incorrectly.   </p>
+   <p class="comment">Rather than invent an data flow FROM the healthcare system, I've assumed the question was bad and provided data flow TO it. That, I figure, is What The Examiner Wanted Me To Say.   </p>
+   <p class="comment">Sit on the naughty step.</p>
+   <p><span class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></span></p>
+   <p class="comment">Note 2 - assuming that one entity is a clinic, what data flows are described in the case study between SBH and the clinic? None that I can see. Do we have to invent one as we did with the Gantt chart milestone? </p>
+   <p class="comment">STUDENTS SHOULD NOT HAVE TO BE EXPERIENCED BUSINESS OWNERS in order to figure out how The Real World works and invent probable scenarios in an exam!</p>
+   <p class="comment">And, back you go.</p>
+   <p><span class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></span></p>
+   <p>&nbsp;</p>
+   <p><img src="/m/pm/16s-c05-answer.png" width="548" height="378" alt="C5 answer
+"/></p>
+   <p class="comment">Now, let's see. If my interpretations above are right, two sits on the naughty step must add up to one Dog's Breakfast Award.</p>
+   <p><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+   <p align="left"><br />
+ </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c6" id="c6"></a>C6</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 6 </strong>(4 marks)</p>
+   <p>The Keep Fit app will require access to the kilojoule content of a large selection of foods. Ethan, a member of the software development team, suggests that this data be stored on the mobile device where the app is installed. Sue-Lee feels that the data should be stored centrally at the Soul &amp; Body Health head office and accessed over the internet.</p>
+   <p>a. State two advantages of Ethan&rsquo;s method. 2 marks</p>
+   <p class="myanswer">The app can access the kilojoule data more quickly than having to download it.</p>
+   <p class="myanswer">The app can use the data even when the internet is inaccessible (e.g. the phone is out of range, or 3G/4G is turned off by the user to save money)   </p>
+   <p>b. State two advantages of Sue-Lee&rsquo;s method. 2 marks</p>
+   <p class="myanswer">Data storage space on the phone will be reduced.</p>
+   <p><span class="myanswer">Data can quickly and easily be added or changed centrally without having to repeatedly send large update uploads to all phones.</span><br clear="all" />
+   </p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c7" id="c7"></a>C7</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 7 </strong>(9 marks)</p>
+   <p align="left">The system at the Soul &amp; Body Health head office will need to store sensitive information.</p>
+<p>a. Identify <strong>one</strong> appropriate security measure that could protect this data and explain how the measure would protect the data. 3 marks.</p>
+<ul>
+  <li class="myanswer">A firewall - prevents unauthorised access from outside the LAN.</li>
+  <li class="myanswer">File encryption - if data is stolen, it is unreadable to unauthorised people, so it's harmless and worthless.</li>
+  <li class="myanswer">Wifi encryption - prevent locals accessing the system through the company's wireless network.</li>
+  <li class="myanswer">Usernames/passwords required to access workstations and the database - prevents intrusion by people getting physical access to equipment or software.</li>
+</ul>
+<p>b. Describe <strong>one</strong> backup procedure that could be used to back up this data. Make reference to the technique used and the frequency of the backup procedure. 3 marks.</p>
+<ul>
+  <li>A <strong>cloud-based</strong> backup system could be set up to store all new and modified data immediately to a remote cloud server hosted by a reliable and reputable cloud host. Any data loss would be minimal since all changes are backed up instantly. Since the data is stored <strong>offsite</strong>, local disasters would not damage the backups. The backup scheme will be <strong>tested</strong> regularly with test data to ensure recovery works as expected. The backup procedure will be <strong>documented</strong> so new staff in charge of backups will know how it's done properly.</li>
+  <li>At the <strong>end of each day's business</strong> (when files are closed and able to be copied, and the network will not be slowed by a backup), an <strong>incremental backup</strong> of all new and changed data can be copied to tape or a USB hard disk and <strong>stored offsite</strong>. Once a week, a <strong>full backup</strong> of the entire system would be taken and stored offsite. In case of disaster, the latest full backup can be restored, followed by all incremental backups taken since the full backup. The backup scheme will be <strong>tested</strong> regularly with test data to ensure recovery works as expected. The backup procedure will be <strong>documented</strong> so new staff in charge of backups will know how it's done properly.</li>
+</ul>
+<p class="explanation">Did you know: Rumours of the demise of tape backups have been greatly exaggerated. Tape backup is still alive and well in the corporate world, and can still kick hard disk's backside in terms of storage capacity and speed. Amazing, but true. </p>
+   <p>c. It has been suggested that patients who have not visited Soul &amp; Body Health for over five years should have their records archived. Explain what is meant by archiving and provide <strong>one</strong> advantage of archiving records. 3 marks<br clear="all" />
+     </p>
+   <p>Archiving is the copying of old, unwanted, irrelevant, bulky records to <strong>offline</strong> storage (for example disc, tape, hard disk) that is still accessible, but requires media to be located and loaded before data can be read. The original data is <strong>deleted</strong> after being copied.</p>
+   <p>The <strong>advantage</strong> of archiving is that storage space is freed up for new, active data.<br clear="all" />
+   </p>
+   <p align="left"><span class="explanation">Note my use of emphasis to mark the answer to each part of the question, and to stress key concepts that make all the difference, such as the deletion of archived data (compared with <strong>backup</strong> data which is copied and retained in place.) If you make the marker's job easier by stressing key parts of your answer, everyone is better off. In an exam, you can underline or highlight key text.</span><br />
+ </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c8" id="c8"></a>C8</strong></p>
+     <p class="question">&nbsp;</p>
+     <p class="question">&nbsp;</p>
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 8 </strong>(5 marks)</p>
+     <p>The new software for Soul &amp; Body Health&rsquo;s system will be receiving sensitive information from the new Keep Fit app from all of the patients. Sue-Lee is investigating how the mobile devices could send this information as securely as possible. To do this, she is exploring the use of protocols.</p>
+     <p>a. Apart from the patient&rsquo;s name, list <strong>two</strong> different pieces of sensitive information that the new software will need to keep secure. 2 marks.</p>
+     <p class="myanswer">Bank account / PayPal account details.</p>
+     <p class="myanswer">Personal information of diet and exercise.</p>
+     <p class="explanation">(Note - medical records would <strong>not</strong> be sent from the app. They are stored on the HQ's file server, but not sent by users of the app.)</p>
+     <p>b. Identify a suitable protocol for securing this sensitive information and explain how the protocol achieves this. 3 marks<br clear="all" />
+       </p>
+     <p align="left" class="comment">I reckon the question is fishing for an answer like </p>
+     <p align="left" class="myanswer">SSL or TLS over HTTP so web traffic is encrypted by the sending device, and decrypted by the receiving device, making it unreadable if it is intercepted in transit.</p>
+     <p align="left" class="comment">But the case study gives no clue about <strong>how</strong> the app communicates with the SBH system. Does all 3G/4G mobile phone traffic travel via HTTP? I dunno.<br />
+       I doubt most kids would know either. They're not telecommunication engineers, for dog's sake. <br />
+  <span class="comment">I shall research, but I'm not liking the assumptions that this question is making, given the paucity of information given in the case study.</span><br />
+       </p>
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c9" id="c9"></a>C9</strong></p>
+     <p class="question">&nbsp;</p>
+     <p class="question">&nbsp;</p>
+     <p>&nbsp;</p></td>
+   <td valign="top"><p align="left"><strong>Question 9 </strong>(5 marks)</p>
+     <p>A commercial software company has contacted Patel with a proposal about some newly developed software that is suitable for Soul &amp; Body Health&rsquo;s system. The software would search the data and provide extra information about the patients, which could help Soul &amp; Body Health improve its business.</p>
+     <p>a. What is this process called? 1 mark</p>
+     <p class="myanswer">Data mining.     </p>
+     <p>b. The software company is willing to load its software onto Soul &amp; Body Health&rsquo;s system so it can provide information automatically. Patel is concerned about how this new software will affect the rest of Soul &amp; Body Health&rsquo;s system.    Discuss two technical issues Patel should investigate before making a decision regarding the offer. 4 marks</p>
+     <p class="myanswer">1. Whether the system has the capacity to do its normal business and also run the mining software.</p>
+     <p class="myanswer">2. Whether the software is compatible with his system.</p>
+     <p class="myanswer">3. Whether the software may contain malware, spyware or other PUP (potentially unwanted program) that may damage or steal data from his system.</p>
+     <p><span class="explanation">Issues such as cost, ease of use etc are not relevant because the question asked for technical issues.</span><br clear="all" />
+     </p>
+     <p align="left"><br />
+     </p>
+     <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c10" id="c10"></a>C10</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 10 </strong>(3 marks)</p>
+   <p>Patel has questions about the use of patient information. He is concerned about who owns the patient information stored on Soul &amp; Body Health&rsquo;s system and what his legal obligations are concerning this information.<br />
+    Outline three actions that Patel should take to ensure that he meets Soul &amp; Body Health&rsquo;s legal obligations before purchasing the software.</p>
+   <p class="myanswer">1. Patel is subject to the <strong>Privacy Act 1988</strong> because he holds health information about people. He must ensure that the information: is well protected and not used for any other purpose than that for which it was collected; not disclosed; is accurate, complete and up to date. He must also clearly advertise his privacy policy and allow information owners to check what is stored about them.</p>
+   <p class="myanswer">2. Under the Victorian <strong>Health Records Act 2001</strong> - basically everything is repeated as for the Privacy Act.</p>
+   <p class="myanswer">3. Under the <strong>Spam Act 2003</strong>, Patel would need to know that the software would not be used to send unsolicited commercial email to patients.</p>
+   <p class="explanation">The relevance of the <strong>Spam Act</strong> is a bit of a stretch, I grant you, but three actions are needed. Maybe I could have unpacked required actions from the Privacy Act and just used those. The question did not demand three different <strong>laws</strong> to be quoted; it asked for three <strong>actions</strong>, and there's no reason they could not have been based on a single relevant law. I went the difficult route to show you how the question might have been handled.</p>
+   <p class="explanation">The first paragraph of the question relates onto to privacy legislation, but the rest of it only refers to &quot;legal obligations&quot; in <strong>general</strong>, not purely those related to privacy. So it might be relevant to bring in the <strong>Copyright Act 1968</strong> and say that Patel must ensure the software is legally owned by the seller. Again, a stretch.</p>
+   <p><span class="explanation">Note that the   <strong>Privacy and Data Protection Act 2014</strong> is not relevant since S&amp;BH is not a state government body or agency.</span></p>
+   <p class="explanation">Also, the only other legislation - the <strong>Charter of Human Rights &amp; Responsibilities Act (Vic) 2006</strong> -  doesn't have any relevance to this case.</p>
+   
+   <p><span class="comment">Hmmm. The 'three' in the question was not highlighted, as numeric parameters usually are.</span><br />
+ </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c11" id="c11"></a>C11</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 11 </strong>(4 marks)</p>
+   <p><img src="/m/pm/16s-c11.png" width="344" height="224" alt="" /></p>
+   <p>Soul &amp; Body Health&rsquo;s new software will be able to connect to the national healthcare system so that patient healthcare numbers can be verified.<br />
+    Sue-Lee would like to be able to check that the data that will be used by Soul &amp; Body Health&rsquo;s new software has integrity.</p>
+   <p>    List two characteristics of data that has integrity and explain one method Sue-Lee could use to check the integrity of the data. (A healthcare number contains 10 digits, as shown on the card above.)</p>
+   <p class="myanswer">Data with integrity is:  complete; accurate; up-to-date; internally consistent; valid; trustworthy; authentic.</p>
+   <p>Explanation</p>
+   <p class="explanation">Any one of these:</p>
+   <p class="myanswer">A type check could discover if a number contained any character other than a digit or space.</p>
+   <p class="myanswer">An existence check could find numbers that have not been entered.</p>
+   <p class="myanswer">A range check could detect numbers that had the wrong number of digits.</p>
+   <p><br clear="all" />
+     <br />
+  </p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c12" id="c12"></a>C12</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 12 </strong>(8 marks)</p>
+   <p>The Keep Fit app will record all exercise that a patient does and calculate the energy used. It will    give the patient a choice of exercise style and then ask questions such as distance travelled and how    much time the exercise took.<br />
+    One exercise that can be selected is running. The app takes into account the patient&rsquo;s weight and any other special factors in a disability index that a physiotherapist can set.<br />
+    The patient&rsquo;s average speed can be calculated by dividing the distance covered by the time taken.<br />
+    The algorithm to do this is complicated and will work properly only for speeds greater than 1 km/h and less than 30 km/h. This is considered a satisfactory range.</p>
+   <p>a. It is necessary to make sure that the speed is within these limits. What is this input testing called? 1 mark</p>
+   <p class="myanswer">Validation.</p>
+   <p><span class="explanation">I assume that's what they want to hear.</span><br clear="all" />
+   </p>
+   <p>b. Sue-Lee has written the following pseudocode to check that the speed meets this range.</p>
+   <p><img src="/m/pm/16s-c12b.png" width="553" height="168" alt="" />'</p>
+   <p class="comment"><strong>Again</strong>, the exam's indentation is incorrect. The second line should be pushed in. <br />
+     They also neglected to bolden 'And' and 'Then' in line 3. Sloppy editing.</p>
+   <p class="comment">Onto the step.</p>
+   <p class="comment"><img src="/m/pm/dog-naughty-step.jpg" width="259" height="194" alt="Naughty Examiner"/></p>
+   <p>Complete the following test data table to fully test this pseudocode. 4 marks</p>
+   <table border="1" cellspacing="0" cellpadding="3">
+    <tr>
+     <td width="50" valign="top"><p align="center"><strong>Test <br />
+      no. </strong></p></td>
+     <td width="53" valign="top"><p align="left"><strong>Test <br />
+      data </strong></p></td>
+     <td width="136" valign="top"><p align="left"><strong>Expected results </strong></p></td>
+     <td width="326" valign="top"><p align="center"><strong>Actual  results </strong></p></td>
+    </tr>
+    <tr>
+     <td width="50" valign="top"><p align="center">1 </p></td>
+     <td width="53" valign="top"><p align="left">20 </p></td>
+     <td width="136" valign="top"><p align="left">ValidSpeed = True </p></td>
+     <td width="326" valign="top"><p align="left">ValidSpeed = True </p></td>
+    </tr>
+    <tr>
+     <td width="50" valign="top"><p align="center">2 </p></td>
+     <td width="53" valign="top" class="myanswer"><p>1</p></td>
+     <td width="136" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+     <td width="326" valign="top" class="myanswer"><p>ValidSpeed = True</p></td>
+    </tr>
+    <tr>
+     <td width="50" valign="top"><p align="center">3 </p></td>
+     <td width="53" valign="top" class="myanswer"><p>30</p></td>
+     <td width="136" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+     <td width="326" valign="top" class="myanswer"><p>ValidSpeed = True</p></td>
+    </tr>
+    <tr>
+     <td width="50" valign="top"><p align="center">4 </p></td>
+     <td width="53" valign="top" class="myanswer"><p>0</p></td>
+     <td width="136" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+     <td width="326" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+    </tr>
+    <tr>
+     <td width="50" valign="top"><p align="center">5 </p></td>
+     <td width="53" valign="top" class="myanswer"><p>31</p></td>
+     <td width="136" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+     <td width="326" valign="top" class="myanswer"><p>ValidSpeed = False</p></td>
+    </tr>
+   </table>
+   <p class="explanation">Again, the tiny &quot;=&quot; in the pseudcode is the villain. It always is. <br />
+     Agatha Christie once wrote a Miss Marple mystery and the killer turned out to be an equals sign. <br />
+     Sadly, it was never published because Agatha by that time was clinically insane.</p>
+   <p align="left">c. What is the invalid response produced by the pseudocode given in <strong>part b.</strong>? 1 mark</p>
+   <p align="left" class="myanswer">It marks speeds of 1 and 30 as valid, but it supposed to identify them as invalid.</p>
+   <p align="left" class="comment">Huh? &quot;Response&quot;? The pseudocode has no &quot;response&quot; - no message or action. Perhaps the question meant to say &quot;What is the inappropriate action taken...&quot;</p>
+<p align="left">d. Rewrite the pseudocode given in <strong>part b.</strong> so that it works correctly. 2 marks.<br />
+</p>
+   <p class="myanswer">To save time, just remove the two equals signs from line 3.</p>
+   <p>&nbsp;</p></td>
+ </tr>
+ <tr>
+  <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c13" id="c13"></a>C13</strong></p>
+   <p class="question">&nbsp;</p>
+   <p class="question">&nbsp;</p>
+   <p>&nbsp;</p></td>
+  <td valign="top"><p align="left"><strong>Question 13 </strong>(5 marks)</p>
+   <p align="left">At the end of each day, the federal government requires a summary of who has been treated under its health plans and what treatment they received.<br />
+    Sue-Lee was originally going to send this data in a simple file organised on the basis of when data was created. Now she has found out that an XML file is required.</p>
+<p>a. In terms of the structure of the file, what advantages does an XML file have over a simple file? 2 marks.</p>
+<p class="myanswer">It contains not just the raw data, but information (metadata tags) on the field names and structure of the data. This makes the file self-descriptive. It lets any database read and interpret the file as a database table.</p>
+<p>b. The federal government requires the transmission of this file via a virtual private network (VPN). Explain one advantage of using a VPN over another form of transmission. 3 marks.<br clear="all" />
+   </p>
+<p align="left"><span class="myanswer">It's a private, encrypted channel using the normal internet infrastructure, so it's relatively cheap and easy to set up (compared to laying a private cable from point A to point B), yet it is very secure.</span><br />
+   </p>
+   <h3 class="explanation">That's it. All done for another year.</h3></td>
+ </tr>
+ <tr>
+  <td colspan="2"><div align="center">
+   <p>&nbsp;</p>
+   <p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+   </div><p></p></td>
+ </tr>
+ <tr>
+ <td colspan="2" align="left"><div class="comment">
+  <p><strong>Section C summary</strong></p>
+  <p>Section C was a bit more gentle than in some previous years that threw up nasty and complicated code walkthroughs or stack simulations.</p>
+  <p>The formatting of the pseudocode was just plain sloppy. The indentation and bolding of the keywords was all over the shop.</p>
+  <p>More room to answer sometimes needs to be provided.</p>
+  <p>The examination of new theory (e.g. hash functions) was handled with care and grace.</p>
+  <p>The wording of some questions was dubious, for example C5 asking for a data flow <strong>from</strong> an entity that has no such flow provided in the case study. </p>
+  <p>C8b was weird. Students are supposed to be experts on mobile phone communication technology? If you want to examine SSL/TLS, <strong>do</strong> that. Don't muddy the water.  </p>
+  <p align="left">&nbsp;</p>
+  </div><p></p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script><p></p></td>
+ </tr>
+ </table>
+ <p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+ <p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+ <p align="center"><font size="2">Created 10 November 2016</font></p>
+ <p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:35 AM<!-- #EndDate --> 
+ </font></p>
+ <p align="center"><font size="2">Original Content &copy; Mark Kelly 2016<br />
+ Images and questions are &copy; Victorian Curriculum 
+ and Assessment Authority 2016. <br />
+ Reproduced here with permission for educational purposes.</font><br />
+ Thanks, VCAA!</p>
+ <p align="center"><font size="2">VCE Applied Computing Notes &copy; <a href="/mailform.htm">Mark Kelly</a></font></p>
+ <p align="center">&nbsp;</p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

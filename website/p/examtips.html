@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="/bits/favicon.ico" />
+<meta name="Description" content="VCE IT Applied Computing, Data Analytics, Software Development Resources by Mark Kelly" />
+<meta name="keywords" content="vce,applied computing, data analytics, software development, mark kelly" />
+<title>VCEDATA - VCE Computing Exam Tips</title>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/bits/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/bits/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/bits/favicon-16x16.png">
+<link rel="manifest" href="/bits/site.webmanifest">
+</head>
+<style>
+.flip {
+	animation-timing-function: ease-in-out;
+	animation-duration: 4s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	max-width: 30em !important;
+	box-shadow: none !important;
+}
+.flip-rotate {
+	animation-name: flip-rotate;
+}
+ @keyframes flip-rotate {
+ 0% {
+transform: perspective(491px) rotatex(0);
+}
+ 100% {
+transform: perspective(491px) rotatex(230deg);
+}
+}
+</style>
+<style>
+.flip-rotateh {
+	animation-name: flip-rotateh;
+}
+ @keyframes flip-rotateh {
+ 0% {
+transform: perspective(491px) rotatey(0);
+}
+ 100% {
+transform: perspective(491px) rotatey(230deg);
+}
+}
+</style>
+
+<body >
+<div class="demo demo-row demo-row-fit" align="center">
+   <div> <a href="/index.html"><img class="flip flip-rotate" src="/bits/title.png" alt="title"/></a> </div>
+</div>
+<table width="80%">
+   <tbody>
+      <tr>
+         <td align="center" ><h1 >VCE Computing Exam tips</h1>
+           <p >by Mark Kelly</p>
+        <p ><img src="/m/examtipspic.jpg" width="416" height="246" alt=""></p></td>
+      </tr>
+      <tr>
+         <td align="center" bgcolor="#A7ECF8" ><p>How to pass a VCE Computing Exam</p>
+            <p>Or, at least, a few tips that might come in handy</p>
+            <p><a href="/postmortems.html">Also see my other exam post mortems</a></p></td>
+      </tr>
+   </tbody>
+</table>
+<table width="80%" border="1" cellpadding="3" cellspacing="0" bordercolor="#444444">
+   <tr>
+      <td  width="15%" align="center" valign="top"><p>&nbsp;</p>
+         <p><strong>DISCLAIMER</strong><br>
+            I am not an examiner.<br>
+            I have not written a VCAA exam.<br>
+      I do not know this year's exam questions.</p>
+      <p>&nbsp;</p></td>
+   </tr>
+   <tr>
+      <td align="center" valign="top"><p><strong>CONTENTS</strong></p>
+         <p><a href="#golden">My Golden Rules</a></p>
+         <p><a href="#before">Before the exam</a></p>
+         <p><a href="#during">During the exam</a><br>
+         </p>
+         <p><a href="#reading">Reading time</a><br>
+         </p>
+         <p><a href="#writing">Writing time</a><br>
+         </p>
+         <p><a href="#a">Section A</a><br>
+         </p>
+         <p><a href="#b">Section B</a><br>
+         </p>
+         <p><a href="#c">Section C</a><br>
+         </p>
+         <p><a href="#after">After the exam</a></p>
+         <p><br>
+         </p></td>
+   </tr>
+   <tr>
+      <td valign="top"><h2 id="golden">My Golden Rules<br>
+      </h2>
+         <h4>1. Use common sense when answering &ndash; especially when the question is unclear. </h4>
+         <p>Ask yourself &ndash; based on the study design's KK (key knowledge) dotpoints, what is the examiner <em>probably</em> trying to ask me?</p>
+         <h4>2. Know the <a href="/glossary.html">meanings of IT words</a> and concepts in the study design. </h4>
+         <p>More particularly, know the subtle differences between similar or related words (e.g. efficiency vs effectiveness, bit vs byte)</p>
+         <h4>3. The <a href="/glossary.html">glossary items</a> (&quot;Terms used in this study&quot;) relevant to your course (i.e. they also are listed in a key knowledge dotpoint) are examinable. </h4>
+         <p>But &ndash; You are very unlikely to get a question asking you to define a given term (e.g. &quot;What is efficiency?&quot; - but it <em>may</em> happen.</p>
+         <p> Instead &ndash; you will most likely be given a glossary term in a question, and will be expected to know its meaning in the creation of your answer.</p>
+         <blockquote>
+           <p>e.g. <span class="question">State one efficiency criterion that is important when...</span></p>
+         </blockquote>
+         <p>Note - many of the terms defined in the glossary only apply to one subject (e.g. year 11, SD). <br>
+         <em>         You</em> only need to know terms that are in the key knowledge or key skills of the study design of the course <em>you</em> are studying.</p>
+         <h4>4. Obey instructions</h4>
+         <p>If you are asked for one item, give <em>one</em> item in your answer. If you give more than the requested number, it is safe to assume that the excess items will be ignored by the marker.</p>
+         <p>Even if you give eleventy-one items, you will only get marks for the number you were asked to give. THERE ARE NO BONUS MARKS! You will not get a special award for being a clever-clogs.</p>
+         <p>Anyway, exceeding the scope of a question will just waste your time for later questions.</p>
+         <p>So, if the question asks you for TWO things, and you can think of FIVE relevant things: </p>
+         <p>Stop. </p>
+         <p>Think. </p>
+         <p>Use your judgement to pick the <em>best</em> two things out of your five.</p>
+         <p>Sometimes, selective judgement is the greatest of all signs of intelligence. </p>
+         <p>Vomiting everything you know about a topic &ndash; regardless of its relevance - is a sign of a good memory with zero understanding.</p>
+         <p>The entire point of the examination is for you to demonstrate your understanding of the subject. If your answer obviously can't tell the difference between what is relevant and what is not... you <em>deserve</em> to be marked down.</p>
+         <p>A poor student will vomit forth everything he or she can remember they've heard about a topic. A top student will have the knowledge to isolate exactly the main relevant point that needs to be made, and make it.</p>
+         <p><strong>Ten seconds of thought is worth a thousand times more than five seconds of aimless writing.</strong></p>
+         <p>Your writing is only evidence of your <strong>understanding</strong>, and that is what is being examined. Writing irrelevant waffle just wastes your and the examiner's time. They can smell bullcrap answers a mile away. You will not be able to fake a good answer with a lot of fancy but dumb words. If you have NO IDEA what an answer is - SKIP IT and move to a question you CAN answer properly.</p>
+         <h4>5. Study the question's VERB</h4>
+         <p> In sections B and C, if a question tells you to LIST, STATE or NAME, just give a name.</p>
+         <p>e.g.</p>
+         <blockquote>
+            <p class="question">Q. List two important criteria when choosing a pet.</p>
+            <p class="myanswer">A1. Size.</p>
+            <p class="myanswer">A2. Ferocity.</p>
+         </blockquote>
+         <p>Do not describe, explain, give examples, justify etc. Just <strong>name</strong> them, as asked.</p>
+         <p>If asked to <strong>justify</strong>, give good, relevant reasons to back up your chosen option.</p>
+         <p>Your justification must be relevant to any given case study, no matter how tiny it is.</p>
+         <p>e.g. </p>
+         <blockquote>
+            <p class="question">Jim owns a caf&eacute; and wants to track his finances. Choose a software tool for Jim and justify your answer.</p>
+         </blockquote>
+         <p>Choose a<em> spreadsheet </em>because it's convenient, easy, cheap and effective for his needs.</p>
+         <p>Do NOT recommend a multi-million dollar web-based neural network that would only be suitable for a quintillionaire running a global business empire.</p>
+         <hr>
+         <h4>TL;DR - How to pass a VCE Computing Exam</h4>
+         <ul>
+            <li> if given a case study, your answer must be relevant to that case, not for any case.</li>
+            <li> if you can think of several options, choose the best option, not just the first option you thought of</li>
+            <li> read the question carefully and work out exactly what it wants you to do before you start writing</li>
+            <li> identify the verb of the question and obey it</li>
+            <li> use IT terms like &quot;data&quot;, &quot;efficiency&quot; and &quot;<a href="/s/affordance.pptx">affordance</a>&quot; according to the study design's definitions</li>
+         </ul>
+         <p><strong>Bonus points</strong></p>
+         <ul>
+            <li> Do not be irrelevant, vague and waffly.</li>
+            <li>Answer <strong>succinctly</strong>. (<em>Look it up</em>. <em>I can't do everything for you</em>)</li>
+            <li> Don't try to bluff. Bluffing DOES NOT WORK. It just wastes your time and makes exam markers snigger at you.</li>
+            <li>Answer the question you were asked, not the one you <em>wished</em> you'd been asked</li>
+         </ul>
+         <p>e.g.</p>
+         <blockquote>
+            <p>Q.<span class="question"> Describe one benefit of using fibre optic cable.</span><br>
+               <span class="cursive">A. </span><span class="myanswer">While FOC is useful in some cases, category cable is also good because it is....</span></p>
+         </blockquote>
+         <h4>The Right Mental Approach to Exams<br>
+         </h4>
+         <ul>
+            <li>The exam is your way of showing how much you know about IT.</li>
+            <li>The examiners do not deliberately try to trick or confuse you (but they occasionally do unintentionally confuse people. Handling this is an art.)</li>
+            <li>The examiners are really keen that you do as well as you can. If everyone fails, VCAA will kill the subject.</li>
+            <li>View the exam as a showcase for your efforts during the year, rather than as a punishment.</li>
+            <li>But if you have made no effort during the year &ndash; you have been warned.         </li>
+         </ul>
+         <p><img src="/m/examtiphall.jpg" width="530" height="353" alt=""></p></td>
+   </tr>
+   <tr>
+      <td valign="top">&nbsp;
+         <h2>BEFORE THE EXAM</h2>
+         <p><br>
+            You must have a study and revision method that works for <em>you</em>. Don't worry about how other people (especially your best, cleverest mate) learn best. You do what works best for <em>you</em>.<br>
+            Now is not the time to be experimenting with &quot;interesting&quot; exam preparation fads.<br>
+         </p>
+         <p> If you know you learn best by reading and writing, read and write your notes with a pen.<br>
+            If you learn best by typing, type. But handwriting is preferable - the exam is handwritten, so it's good to get your brain habituated to handwriting IT theory.<br>
+            If you learn best by listening, record your notes onto tape and listen to them over and over.<br>
+         </p>
+         <p> Look at <a href="/postmortems.html">previous VCAA and practice exams</a>.</p>
+         <p>Warning: if you thought VCAA exams could be iffy, practice exams created by non-VCAA companies or individuals can be really <strong>bad</strong>. Treat them with caution.</p>
+         <p>            Work on them under exam conditions, with a strict time limit.<br>
+            Compare your answers with the solutions.<br>
+            If you find you're off track with an answer, do more research.<br>
+            You don't need to do a full paper in one sitting: set yourself 10 minutes for a single 5 mark question.<br>
+         </p>
+         <p> Build a personal key knowledge (KK) summary - write your own outlines of the main concepts and key words, and examples. </p>
+         <p>Don't borrow your friend's summary &ndash; it won't suit you any more than if you borrowed their orthopaedic shoes or prescription eyeglasses.<br>
+            Do not try to plough through your entire textbook once a week.<br>
+            Daily refreshing of selected topics is far more effective in establishing long-term memory than weekly pig outs on huge quantities of material<br>
+            Pig-outs will leave you mentally exhausted after the first hour, and little will be remembered.<br>
+            You'll also hate the process and do anything to avoid doing it again.<br>
+         Keep revision short, painless, and satisfying.</p>
+         <p>If you take the initative to research theory online and it contradicts VCAA's definitions, go with VCAA - even if it pains you.</p>
+         <p>An exam is <strong>not</strong> the place to assert your independent research results.<br>
+         </p>
+         <p> Don't do the same activity for more than about 30 minutes - or until you start to HATE IT.</p>
+         <ul>
+            <li>Read the text for a while<br>
+            </li>
+            <li>Answer a few sample questions for a bit<br>
+            </li>
+            <li>Summarise the meaning of &quot;data integrity&quot; in your own words in 5 minutes<br>
+            </li>
+            <li>Have a stretch, pat the cat<br>
+            </li>
+            <li>List 4 things that protect data</li>
+            <li>Go outside and play under the sprinklers...<br>
+               etc<br>
+            </li>
+         </ul>
+         <p> If you know you have trouble with certain concepts or words, write (or draw) a really good typical example of it that you can remember easily. e.g. &quot;analysis&quot; vs &quot;design&quot; in the PSM.<br>
+         </p>
+         <p>A brief, concrete example of each will be far more memorable than an abstract paragraph full of words you copied from a website or book.<br>
+         </p>
+         <p> e.g. &quot;analysis&quot; vs &quot;design&quot;</p>
+         <blockquote>
+            <p> <span class="cursive">ANALYSIS &ndash;             define the problem, don't do design or select software<br>
+               DESIGN &ndash; choose software, draw mockups.<br>
+               </span></p>
+         </blockquote>
+         <p> Don't <em>memorise</em> paragraphs of text. Learn concepts. You will not be asked to recite paragraphs from your textbook or the study design. You will be asked to apply your knowledge.<br>
+         </p>
+         <p> Focus on the differences between easily-confused terms:</p>
+         <ul>
+            <li> effectiveness vs efficiency,<br>
+            </li>
+            <li>data vs information,<br>
+            </li>
+            <li>testing criteria vs testing methods<br>
+            </li>
+         </ul>
+         <p>Read questions carefully, actively looking for those terms. 
+         During writing time in the exam, <span class="yellowback">highlight them</span> when they appear. Yes, I said this before, but some people don't listen.<br>
+         </p>
+         <p> Learn basic IT terminology and use IT words carefully. Sloppy, vague thinking leads to sloppy, vague (zero-mark) answers like, &quot;He should get more megs&quot; or &quot;She needs to upgrade.&quot;<br>
+      </p>
+         <p> Just before the exam, don't break routine.<br>
+         </p>
+         <ul>
+            <li>Don't go to bed at 6pm aiming to be super-bright in the morning. You'll probably wake up at 3am and not be able to get back to sleep.<br>
+            </li>
+            <li>Don't have a massive breakfast if you usually have a light breakfast. You don't want to discover for the first time during an exam that you can't handle porridge, bacon, Froot Loops and muesli &ndash; and that espresso REALLY messes up your insides.<br>
+            </li>
+         </ul>
+         <p>            Do NOT try studying until 3am on the morning of the exam: if you're not already up to speed, this will be useless. Studying at such hours is only about 2% effective. Go to bed. Sleep.</p>
+         <p>Sleep is the thing that lays down long-term memory. Without sleep, <em>nothing</em> gets absorbed.</p>
+         <p>            If you find yourself tossing and turning, stop thinking &quot;exam&quot;. Think of something else, e.g. mowing the lawn, your favourite episode of Bluey.</p>
+         <p><img src="/m/examtipbluey.jpg" width="121" height="163" alt=""><br>
+         </p>
+         <p> Is your IT exam is at 3pm? What are you usually doing at 3pm? Is your brain in a dozy state and do you always veg out for an hour after getting home? Or are you alert and active?<br>
+            If you are dozy and flat at 3pm, practise doing heavy brain work at 3pm for a while before the exam.<br>
+            Get your body clock into training for working instead of snoozing at 3pm.<br>
+         </p>
+         <p> <em>BLEEDING OBVIOUS BUT NEEDS TO BE SAID</em></p>
+         <p>Make sure you know <strong>when</strong> and <strong>where</strong> the exam will be held.<br>
+            Don't miss half the exam because your idiot mate Fred said it was at X o'clock.<br>
+         It is very embarrassing to turn up at the wrong venue too.            </p>
+         <p>You do not get extra time if you arrive late.            Stupidity is not grounds for consideration of disadvantage.<br>
+         </p>
+         <p><strong>BEFORE YOU WALK INTO THE EXAM</strong></p>
+         <ul>
+            <li> Go to the toilet. Go twice, just to be sure. Deal with other bodily needs too &ndash; you know what yours are.<br>
+            </li>
+            <li>Go equipped. You must have a grey-lead pencil for the multiple choice section. Take a sharpener too.<br>
+            </li>
+            <li>Bring spare pens, highlighters, erasers and a ruler. Don't expect freebies.<br>
+            </li>
+            <li>Have a reliable watch to prop up on the table in front of you so you can better keep track of time. No, you can't use your phone's clock.<br>
+            </li>
+            <li>Bring tissues. Take some even if you're feeling fine.<br>
+               <br>
+               You are <em>not</em> allowed to take in :</li>
+            <li>phones<br>
+            </li>
+            <li>calculators (except for Software Development)<br>
+            </li>
+            <li>computers (unless you have special needs and have been approved)<br>
+            </li>
+            <li>watches with data storage capacity<br>
+            </li>
+            <li>dictionaries (even if you are in ESL)<br>
+            </li>
+            <li>cheat sheets, books, notes, blank paper<br>
+            </li>
+            <li>white-out liquid or tape</li>
+            <li>emotional-support goats</li>
+         </ul>
+         <blockquote>
+            <p><img src="/m/goat.jpg" width="200" height="195" alt=""></p>
+         </blockquote></td>
+   </tr>
+   <tr>
+      <td valign="top"><h2 id="reading2">DURING READING TIME</h2>
+         <p><br>
+            You are not allowed to touch a pen.<br>
+            You are NOT allowed to use your fingernail to mark the exam paper.<br>
+         </p>
+         <p> Read actively - don't just skim. Look for key verbs and terms you know you have misread in the past.<br>
+            Read ALL of the questions &ndash; look for those that you know will take longer for you.<br>
+            Read the instructions for each question carefully. If you are told to &quot;answer 2 of the following 6 parts&quot;, work out which two you will tackle.<br>
+            Look for landmark words like &quot;data&quot; or &quot;information&quot;, &quot;efficiency&quot; or &quot;effectiveness&quot;.&nbsp;            Raise a mental warning flag when you reach such key words and pay very careful attention.            Misreading a question could lead to a 100% wrong answer.<br>
+            Remember &ndash; you can't use your highlighter during reading time. Do it mentally.<br>
+         </p>
+         <p> Be on the lookout for <em>multi-part</em> questions.            Several questions may be multi-part.<br>
+            Look for key words in the instructions like and / or<br>
+            e.g. &quot;Answer part A or part B&quot;, &quot;Choose one of the following...&quot;<br>
+            If you choose more than one option in a multiple choice question, you get no marks.<br>
+            If you choose NO option in a section A question &ndash; no marks!<br>
+         </p>
+         <p> <strong>VERB HUNT </strong></p>
+         <p>Questions' verbs are not chosen at random. Learn the difference between these question stems:<br>
+         </p>
+         <ul>
+            <li>outline - give a broad, brief summary without much detail<br>
+            </li>
+            <li>list - give the names of. That's ALL! Don't describe, don't explain, don't give examples. Just give their names.<br>
+            </li>
+            <li>sketch/draw - draw a picture<br>
+            </li>
+            <li>explain - provide reasons for something<br>
+            </li>
+            <li>justify - defend your decision with good reasons<br>
+            </li>
+            <li>recommend - choose the best option from a set of possibilities that are appropriate to that particular case<br>
+            </li>
+            <li>describe &ndash; tell what something looks/acts like<br>
+            </li>
+            <li>analyse - critically discuss the component parts of something</li>
+         </ul>
+         <p> Look at previous exams to see what sorts of stems are used in questions, and check the examiners' reports to see what the examiners thought about students' answers to those questions.<br>
+         </p>
+         <p><strong>            Plan your time.</strong></p>
+         <p> The number of marks for each question is given to you with each question.<br>
+            Give each question the time appropriate for how many marks it is worth (about 1.3 minutes per mark).<br>
+            Writing a paragraph for one mark is foolish.<br>
+         </p>
+         <p> The length of an answer (i.e. the amount of detail you should go into) is guided by the number of lines provided in the exam book.<br>
+            Examiners have complained in the past that students do not explain things in enough detail.<br>
+         </p>
+         <p>The examiners have reported : <span class="examiner">&quot;Generally, students should be urged to write longer responses when asked in a question to 'explain' or 'justify'. Many students did not provide enough detail to obtain full marks. For example, students would be expected to provide more than a one-sentence response to a question worth 4 marks that warranted an explanation or justification.&quot;</span></p>
+         <p>&nbsp;</p></td>
+   </tr>
+   <tr>
+      <td valign="top"><h2 id="writing2">&nbsp;</h2>
+         <h2>DURING WRITING TIME</h2>
+         <p> As soon as reading time finishes, pick up your pen and jot down things you know you have trouble memorising e.g. the info processing cycle stages. </p>
+         <p>Once jotted down, you won't have to keep them in memory them while formulating complex answers to questions.</p>
+         <p>Bonus tip: this applies just as well to English and Lit - jot down your quotes so you don't have to keep them in mind when crafting an essay on a text. <br>
+           I used this strategy in my year 12 exams and got 96% in English and 92% in Lit. It <em>works</em>.<br>
+         </p>
+         <h4><br>
+            MY PLATINUM RULE</h4>
+         <p> You get marks for THINKING, not WRITING.<br>
+         </p>
+         <p>Your writing in the exam is <em>evidence</em> of your thinking, not a <em>replacement</em> for thinking.<br>
+         </p>
+         <p>Six lines of vague irrelevant waffle is not worth six well-chosen words that nail the answer in the heart and leave it bleeding on the page, a pitiful victim of your sharp intellect. Go for the jugular.<br>
+         </p>
+         <p>OK. Got carried away there, but....<br>
+         </p>
+         <p>Nail the answer &ndash; don't waffle and hope to hit a relevant answer somewhere along the track. Think it through. Get the words in order. Hit the question with a broadside of powerful knowledge, then move on, knowing the exam question is a smoky, sinking wreckage of arrogant inpudence hit by your magnificent answering skills. </p>
+         <p>OK. Did it again. Sorry.<br>
+         </p>
+         <p> <strong>Keep an eye on the clock.</strong></p>
+         <p>            Ration your time strictly according to the value of the questions.             e.g. if the exam has 100 marks and you have 120 minutes: allocate about 1.2 minutes per available mark.</p>
+         <p>            Multiple choice are sometimes quicker to answer because there's no writing.             Dedicate that time to reading the 4 options REALLY carefully.</p>
+         <p>            Multiple choice options can look VERY similar and may only differ in a single tiny detail.           Some section A questions need considerable thought and re-reading.<br>
+Sections B and C may deserve 1.5 minutes per mark &ndash; but think before writing.<br>
+         </p>
+         <p> Anyway, IN ALL QUESTIONS:<br>
+            Read each question at least <em>twice</em> before answering it.<br>
+            Look for key words like <em>data</em> vs <em>information</em>, <em>criterion vs</em> <em>method</em>. Let them raise red warning flags in your head.<br>
+         </p>
+         <hr>
+         <h3>WRITING TIME - SECTION A</h3>
+         <p><br>
+            Section A of the end-of-year year 12 exam is multiple choice, to be completed by colouring in squares on the exam book. Make sure you have a grey-lead pencil. A pen won't be recognised.<br>
+        </p>
+         <p>Look for the MOST CORRECT answer. Don't settle for the FIRST one that COULD be right... there might be a <em>more</em> correct answer later. </p>
+         <p>e.g. <span class="question">What data type is &quot;4 August 2004&quot; - &lt;A&gt; Text,&lt;B&gt; Alphanumeric, &lt;C&gt; Numeric, &lt;D&gt; Date/Time</span><br>
+         </p>
+         <p>If you chose &quot;Text&quot; or &quot;Alphanumeric&quot; you would be <em>technically</em> correct, but the <em>better</em>, more precise answer is Date/Time. You would not get a mark for choosing the others.<br>
+         </p>
+         <p>Multiple choice questions are famous for &quot;distractor&quot; options that suck in stupid and careless people, or those who don't read carefully.<br>
+         </p>
+         <p>Often, options will be VERY similar and need some thought to tell the right from the wrong.<br>
+            In multiple choice, the time saved answering the question should be invested in READING the question more carefully.<br>
+         </p>
+         <p>Don't answer on impulse - a question that looks easy can be deceptively tricky if you consider it properly!<br>
+         </p>
+         <p>&nbsp;</p>
+         <hr>
+         <h3>WRITING TIME - SECTION B</h3>
+        <p>Read questions carefully, looking for key words like &quot;List&quot;, &quot;Describe&quot;, &quot;Justify&quot; and make sure you do what you're asked to do.<br>
+            Look for important words like how many examples to provide, &quot;and&quot; / &quot;or&quot;, because some questions are complex.<br>
+         </p>
+        <p>Set your answer out in a table if it helps you. e.g. &quot;Describe the benefits and disadvantages of the new hardware and software&quot; means 4 things to talk about. Set it out in a table with columns &quot;benefits&quot; and &quot;disadvantages&quot; and rows &quot;hardware&quot; and &quot;software&quot;.        </p>
+        <table width="80%" border="1" cellspacing="0" cellpadding="3">
+          <tbody>
+             <tr>
+               <td bgcolor="#DFCBCB">&nbsp;</td>
+               <td bgcolor="#DFCBCB" class="cursive"><strong>Benefits</strong></td>
+               <td bgcolor="#DFCBCB" class="cursive"><strong>Disadvantages</strong></td>
+             </tr>
+             <tr>
+               <td bgcolor="#DFCBCB" class="cursive"><strong>Hardware</strong></td>
+               <td bgcolor="#DFCBCB">blah blah blah</td>
+               <td bgcolor="#DFCBCB">blah blah blah</td>
+             </tr>
+             <tr>
+               <td bgcolor="#DFCBCB" class="cursive"><strong>Software</strong></td>
+               <td bgcolor="#DFCBCB">blah blah blah</td>
+               <td bgcolor="#DFCBCB">blah blah blah</td>
+             </tr>
+           </tbody>
+         </table>
+         <p>You demonstrated your understanding. You will not be punished.<br>
+         </p>
+         <p>Think out what the MOST important thing is you have to say - <strong>DO NOT START WRITING</strong> until you've worked this out. Put down your most important point first, then the next most important etc. Don't waste writing time on trivial or arguable points.<br>
+        </p>
+         <p> Put down points even if they seem <strong>bloody obvious</strong>. Sometimes, the bloody obvious is exactly the right answer.</p>
+        <p>            Get to the point and stay on the point. When you've finished, stop writing and move on. Just writing words does NOT get marks - only relevant words count.<br>
+         </p>
+         <p> Pay special attention to words you tend to confuse: e.g. effectiveness and efficiency; data and information; acquisition and input. If you don't read the question properly, everything you write could be a complete waste of time (CWOFT).</p>
+         <p>            If you are in doubt of relevance or importance, jot down key points of your answer in point form before writing it out, especially if you have to choose which options you should discuss.<br>
+         </p>
+         <p>            Write LEGIBLY (so your writing can be read). 
+            If necessary, PRINT or write in CAPITALS.<br>
+            If the examiner can't decipher your answer, guess what happens...<br>
+        </p>
+         <ul>
+            <li> Write in PLAIN ENGLISH, not some cone-headed, SMS-befuddled version of our mother-tongue.<br>
+            </li>
+            <li>Use short sentences and make every word count.<br>
+            </li>
+            <li>Do NOT try to impress the marker with fancy expression or talking like a lawyer in court - you'll just screw things up and sound like an idiot.<br>
+            </li>
+            <li>Say what you need to say QUICKLY and CLEARLY. Get out of there and go on to the next question.</li>
+            <li>Don't tell sob stories to the examiner about how your dog died yesterday and your hand has sinew problems, and your father might drink too much, and it's FAR too early in the day for you to be taking exams. THE EXAMINER WILL NOT CARE.</li>
+         </ul>
+         <p>            I have written many exams. I have marked many more exams.            I know that when I read answers, I say &quot;Thank DOG!&quot; when someone nails the main point in the first few words - the rest is often a good example or some elaboration on the main point.<br>
+            In my head, they immediately get full marks with those first few words, and will only lose marks if they go on to say something DUMB.<br>
+         </p>
+         <p> <strong>Do not copy out or repeat the question! </strong></p>
+         <p>Just answer it.</p>
+         <p>            If you are asked, &quot;<span class="question">Give two reasons why email attachments should be limited in size</span>&quot; do <em>not</em> say, <span class="cursive">&quot;</span><span class="myanswer">Email attachments should be limited in size because blah blah blah...</span>&quot;<br>
+        </p>
+         <p>Only the words after &quot;because&quot; will earn marks.<br>
+        </p>
+         <p>Just because you got an elephant stamp and a warm smile from your grade 4 teacher because you always answered in full sentences does <em>not</em> mean you should do it in the IT exam.</p>
+        <p><img src="/m/elephantstamp.jpg" width="192" height="122" alt="Elephant Stamp for being good"/><br>
+         </p>
+         <hr>
+         <p><br>
+            <strong>MY ALUMINIUM RULES</strong></p>
+         <ul>
+            <li> Summarise in your head what your main point is before you set pen to paper. If you can't summarise it in your head, you can't write it, and you'll just be wasting ink and time.<br>
+           </li>
+            <li> If you start running out of time, answer in point form. Saying <em>something</em> relevant about a question is better than saying nothing. But saying something irrelevant is a waste of time and ink.<br>
+            </li>
+            <li> If you have absolutely NO CLUE what an answer is, skip it. 
+               Faking it is a waste of writing time. Go on to a question you are more confident with. Come back to it if inspiration strikes you later. Sometimes, a later question gives a clue about an earlier question.<br>
+            </li>
+            <li> Exam questions start off short and easy and get more valuable and bigger as the paper goes on. Don't run out of time on short-and-sweet questions before you reach the &quot;big mark&quot; questions at the end of the paper<br>
+            </li>
+            <li> If you come across a term you're unfamiliar with, try working it out logically by the context of the question.<br>
+               e.g. &quot;manipulation&quot; is a synonym for &quot;processing&quot;.<br>
+               &quot;Folder&quot; is the same as &quot;directory&quot;.<br>
+               A question on health and safety that uses the acronym &quot;OH&amp;S&quot; is probably &quot;something Health and Safety&quot;.<br>
+               i.e. Use common sense - See rule #1 above.</li>
+        </ul>
+         <hr>
+         <h3>WRITING TIME - SECTION C</h3>
+         <p>Both year 12 exams now have a big Section C based on a case study. It's worth more than sections A and B combined, so give it appropriate time.</p>
+         <p>My previous tips for section B apply equally in section C.</p>
+         <p>The big difference is the case study:</p>
+         <ul>
+            <li>make sure you read the case study fully, <em>twice</em> before answering any of the questions. You'd be startled to know how many students have answered section C questions without looking at the case study.</li>
+            <li>make sure all of your section C answers refer specifically to the circumstances described in the case study. General-purpose or irrelevant answers (however great they may be in other circumstances) will get zero marks.</li>
+         </ul>
+         <p>&nbsp;</p></td>
+   </tr>
+   <tr>
+      <td align="left"  valign="top">&nbsp;
+         <h2>AFTER THE EXAM</h2>
+         <p> Avoid the &quot;post mortem&quot; discussions after you get out of the exam room:
+                        </p><blockquote>
+                           <p>What did you say for question 2? REALLY? That's odd, I said...</p>
+                           </blockquote>
+                        <p>            Such discussions will only depress you before your next exam, or ruin your mood for the post-exam parties.<br>
+            Forget it all. There's nothing you can do that will change the exam answers. Move on.</p>
+         <p>There is no 'good luck' in exam success - it all comes down to clean socks, emotional-support goats and GOOD PREPARATION.</p>
+         <p><img src="/m/examtipchased.jpg" width="419" height="280" alt=""></p></td>
+   </tr>
+   <tr>
+      <td align="center"  valign="top"><a href="/p/DA-Sample2020-solution.html">Now go away and read detailed exam tips using the 2020 Data Analytics sample exam.</a></td>
+   </tr>
+</table>
+<p>&nbsp;</p>
+<table align="center" width="80%" cellspacing="5" cellpadding="3" border="0">
+   <tbody>
+      <tr>
+         <td colspan="2" align="center"><p>All original content copyright &copy; <a href="/Library/currentyear.lbi"></a> 
+               <script>
+<!--
+var year=new Date();
+year=year.getYear();
+if (year<1900) year+=1900;
+document.write(year);
+//-->
+              </script> 
+               <a href="/index.html">vcedata.com</a><br />
+               All rights reserved. </p>
+            <p>This page was created on 2022-03-09 @ 09:29<span class="text_pink"></span><br>
+               Last modified on 
+               <!-- #BeginDate format:fSw1m -->Wednesday 16 October, 2024  13:13<!-- #EndDate --> 
+            </p></td>
+      </tr>
+   </tbody>
+</table>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

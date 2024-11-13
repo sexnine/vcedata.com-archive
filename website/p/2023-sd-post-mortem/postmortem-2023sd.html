@@ -1,0 +1,1363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VCE Software Development Exam 2023 Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script> 
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+<script>var __adobewebfontsappname__="dreamweaver"</script> 
+<script src="/courier-prime:n4:default.js" type="text/javascript"></script>
+</head>
+<body text="#000000" link="#000080" vlink="#800000" dir="ltr" lang="en-US" >
+<h2 align="center" class="red"><a href="/index.html"><img src="/bits/title.png" alt="VCE IT Post Mortem by Mark Kelly
+" border = "0" /></a></h2>
+<p align="center"><font size="2">Last changed: 
+  <!-- #BeginDate format:Am1a -->August 3, 2024 2:30 PM<!-- #EndDate --> 
+  </font></p>
+<p align="center"><a href="/index.html">VCEDATA.COM</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+  <table width="80%" border="1" cellspacing="0" cellpadding="3">
+    <tr>
+      <td align="center"><h1 align="center" class="Inverse_heading"><a name="top" id="top"></a>Applied Computing - Software Development</h1>
+        <h1 align="center">VCAA Exam Post Mortem 2023</h1>
+        <p align="center">Due to the level of public disinterest, this page will apparently never be finished.</p>
+        <p><img src="/m/toetags-sd.jpg" width="750" alt="Post Mortem banner"/></p>
+        <p><a href="/mailform.htm">Feel free to pick a bone with me or offer further information or corrections</a> . </p>
+        <p>Or, to send attachments, email</p>
+        <p> <img src="/emailvcedata.gif" width="158" height="21" alt=""/></p></td>
+    </tr>
+    <tr>
+      <td><div align="center"><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br />
+  Use these post mortems at your own risk. <br />
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br />
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br />
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br />
+    </span><span class="explanation">Explanations of answers look like this.</span><br />
+</p>
+</div>
+
+<!-- #EndLibraryItem --></div></td>
+    </tr>
+    <tr>
+      <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br />
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+    </tr>
+  </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+    <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+  </tr>
+</table>
+<table width="80%" border="1" align="center">
+  <tr>
+    <td colspan="2"><div align="center">
+        <h2>The Post Mortem Awards</h2>
+      </div></td>
+  </tr>
+  <tr>
+    <td width="48%" align="center" valign="top"><p><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" /></p>
+      <p>Questions that are a complete dog's breakfast</p></td>
+    <td width="52%" align="center" valign="top"><p align="center"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></p>
+      <p align="center">The <em>Sad Dog Award</em> goes to questions that made me sad</p></td>
+  </tr>
+</table>
+<table width="80%" border="1" align="center" cellpadding="2" cellspacing="0">
+  <tr> </tr>
+  <tr>
+    <td align="center" ><h3 align="center" class="examiner"><strong>Written examination</strong></h3>
+      <p align="center"><a name="bookmark0"></a> <strong>Thursday 9 November 2023</strong></p>
+      <p align="center"> <strong>Reading time: 2.00 pm to 2.15 pm (15 minutes)</strong></p>
+      <p > <span class="centre" lang="en-US"><strong>Writing time: 2.15 pm to 4.15 pm (2 hours)</strong></span></p>
+      <p > <span class="centre" lang="en-US"><strong>QUESTION AND ANSWER BOOK</strong></span></p>
+      <p > <span class="centre" lang="en-US"><strong>Structure of book</strong></span></p>
+      <center>
+        <table width="490" border="1" cellpadding="7" cellspacing="0">
+          <col width="81"/>
+          <col width="102"/>
+          <col width="134"/>
+          <col width="115"/>
+          <tbody>
+            <tr>
+              <td width="81" height="20" valign="top"><p align="center"> <em>Section</em></p></td>
+              <td width="102" valign="bottom"><p align="center"> <em>Number 					of questions</em></p></td>
+              <td width="134" valign="bottom"><p align="center"> <em>Number 					of questions to be answered</em></p></td>
+              <td width="115" valign="bottom"><p align="center"> <em>Number 					of marks</em></p></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr valign="bottom">
+              <td width="81" align="center"><p ><strong> <a href="#a">A</a></strong></p></td>
+              <td width="102"><p align="center"> 20</p></td>
+              <td width="134" class="centre">20
+                <p></p></td>
+              <td width="115" class="centre"> 20</td>
+            </tr>
+            <tr valign="bottom">
+              <td width="81" height="4" align="center"><p ><strong> <a href="#b">B</a></strong></p></td>
+              <td width="102"><p align="center"> 6</p></td>
+              <td width="134" class="centre"> 6</td>
+              <td width="115" class="centre"> 20</td>
+            </tr>
+            <tr valign="bottom">
+              <td width="81" height="4" align="center"><p><strong> <a href="#c">C</a></strong></p></td>
+              <td width="102"><p align="center"> 17</p></td>
+              <td width="134" class="centre"> 17</td>
+              <td width="115" class="centre"> 60</td>
+            </tr>
+            <tr valign="top">
+              <td width="81" height="6"><p> <br/>
+                </p></td>
+              <td width="102"><p> <br/>
+                </p></td>
+              <td width="134" class="centre"><p> <br/>
+                </p></td>
+              <td width="115" class="centre">Total 					100</td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+      <ul>
+        <li>
+          <p align="left"> Students 	are permitted to bring into the examination room: pens, pencils, 	highlighters, erasers, sharpeners, rulers and one scientific 	calculator.</p>
+        </li>
+        <li>
+          <p align="left"> Students 	are NOT permitted to bring into the examination room: blank sheets 	of paper and/or correction fluid/tape.</p>
+        </li>
+      </ul>
+      <p align="left"> <strong>Materials supplied</strong></p>
+      <ul>
+        <li>
+          <p align="left"> Question 	and answer book of 26 pages</p>
+        </li>
+        <li>
+          <p align="left"> Detachable 	insert containing a case study for Section C in the centrefold</p>
+        </li>
+        <li>
+          <p align="left"> Answer 	sheet for multiple-choice questions</p>
+        </li>
+      </ul>
+      <p align="left"><strong>Instructions</strong></p>
+      <ul>
+        <li>
+          <p align="left"> Detach 	the insert from the centre of this book during reading time.</p>
+        </li>
+        <li>
+          <p align="left"> Write 	your <strong>student 	number </strong>in 	the space provided above on this page.</p>
+        </li>
+        <li>
+          <p align="left"> Check 	that your <strong>name </strong>and <strong>student 	number </strong>as 	printed on your answer sheet for multiple-choice questions are 	correct, <strong>and </strong>sign 	your name in the space provided to verify this.</p>
+        </li>
+        <li>
+          <p align="left"> All 	written responses must be in English.</p>
+        </li>
+      </ul>
+      <p align="left"><strong>At the end of the examination</strong></p>
+      <ul>
+        <li>
+          <p align="left"> Place-the <em class="myanswer">[sic]</em> answer sheet for multiple-choice questions inside the front cover of 	this book.</p>
+          <p align="left" class="comment">Typos in the exam book? Naughty proof-reader! Also see <a href="#c12">C12</a></p>
+        </li>
+        <li>
+          <p align="left"> You 	may keep the detached insert.</p>
+        </li>
+      </ul>
+      <p align="left"><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+  </tr>
+  <tr>
+    <td ><p class="examiner"><strong>Examiners' report general comments</strong></p>
+      <p class="examiner">May come, eventually</p></td>
+  </tr>
+</table>
+<table width="80%" border="1" align="center" cellpadding="1" cellspacing="0">
+  <tr></tr>
+  <tr>
+    <td colspan="2" bgcolor="#F5F0D6" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+      <p><strong>Instructions for Section A</strong></p>
+      <p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+        Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. </p>
+      <p class="comment">I love the way VCAA quietly admits that <em>all</em> of their options may be incorrect.</p>
+      <p> A correct answer scores 1, an incorrect answer scores 0. <br />
+        Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+        No marks will be given if more than one 
+        answer is completed for any question</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8">&nbsp;</td>
+    <td valign="top"><!DOCTYPE html>
+      
+      <p align="left"> <em>Use the following information to answer Questions 1&mdash;3. </em></p>
+      <p align="left">The following pseudocode describes a search algorithm.</p>
+      <p align="left"><img src="/p/2023-sd-post-mortem/a1.png" alt=""/></p>
+      <p align="left">Part 	of a trace table for the algorithm is shown below. </p>
+      <span id="Frame6" dir="ltr">
+      <p> <img src="/p/2023-sd-post-mortem/a1b.png" width="721" height="386" alt=""/><br/>
+      </p>
+      </span> <span id="Frame7" dir="ltr">
+      <p align="left">&nbsp;</p>
+      </span></td>
+  </tr>
+  <tr>
+    <td width="38" valign="top" bgcolor="#EFECC8"><strong><a name="a1" id="a1"></a>A1</strong></td>
+    <td width="1015" valign="top"><p><strong>Question 1</strong></p>
+      <p> The type of algorithm shown in the pseudocode is a<br />
+        <strong>A. </strong>binary search.<br />
+        <strong>B. </strong>insertion sort.<br />
+        <strong>C. </strong>linear search.<br />
+        <strong>D. </strong>quick sort.</p>
+      <p class="myanswer">Answer is A.</p>
+      <p class="explanation">OK. It's a pretty easy introduction to the exam. The examiners are giving you a freebie: the function in the pseudocode is called &quot;<strong>Search</strong>&quot;</p>
+      <p class="explanation">Two of the options are... <strong>sort</strong>. So you can dismiss B and D immediately.</p>
+      <p class="explanation">The telltale is<span class="code">(low+high)/2</span>. It is finding the mid-point of the data set, preparing to reject one half of the data, as a binary search does. </p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Remember that the data needs to be sorted for a binary search to work.</p>
+      <p class="explanation">The other option, linear search, works by dumb (but easy to program) brute-force, checking each item in the data set in turn to see if it matches the value being sought. It's the Donald Trump of search algorithms: slow, and simple.</p>
+      <p class="comment">Commentary: I haven't done a post-mortem of a SD exam for a few years, and the pseudocode seems to have changed. It used to be extremely simple, plain-English style, but this pseudocode looks very much like Visual BASIC: it identifies itself as a function, it lists its parameters, it returns values. </p>
+      <p class="comment">Rather baffling is the &quot;Return -1&quot; near the end. I assume it's meant to signal a failure to find a match, but the intention of the pseudocode is far from obvious - and the entire point of pseudocode is that <em>its intentions must be obvious</em>. </p>
+      <p class="comment">&quot;Return <strong>False</strong>&quot; would have been a bit clearer. After all, -1 in most programming languages signifies a logical TRUE, and <strong>zero</strong> is FALSE. </p>
+      <p class="red"><br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a2" id="a2"></a>A2</strong></td>
+    <td valign="top"><p><strong>Question 2</strong><br />
+      </p>
+      <p> Which one of the following lists of numbers could have been used in this trace?<br />
+        <strong>A.</strong> 1, 8, 17, 23, 25, 27<br />
+        <strong>B.</strong> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9<br />
+        <strong>C.</strong> 8, 27, 1, 19, 17, 23, 21, 4, 13, 25<br />
+        <strong>D.</strong> 1, 4, 8, 13, 17, 19, 21, 23, 25, 27</p>
+      <p class="comment">This is a tough one.</p>
+      <p><span class="myanswer">Answer is D.</span></p>
+      <p class="explanation">1. Data must be <strong>sorted </strong>for a binary search to work. That immediately rules out option <strong>C</strong>.</p>
+      <p class="explanation">2. Lines numbered 3 tell us we know we need an option containing 17 and 23. That quickly rules out <strong>B</strong>.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Start by eliminating the impossible options, then focus on the remaining candidates. We now only have to look at half of the options.</p>
+      <p class="explanation">Mental Note 1 - the <strong>mid</strong> value is apparently an integer, which is why (0+9)/2 gives a <strong>mid</strong> of 4, and not 4.5</p>
+      <p class="explanation">Mental Note 2 - the <strong>list[ ]</strong> array must start with index zero - i.e. it has 10 'slots' numbered 0-9. This is crucial when identifying which slot values to look at.</p>
+      <p class="explanation">Option A - On the first iteration (look it up - I can't spoon-feed you all of your life) of the WHILE loop in line 3, we compare the target value (25) with list[4] while remembering the array count starts with index 0, so we need to look at the <em>fifth</em> value in the list). Option A's fifth value is... 25. So, that doesn't match the trace table's results</p>
+      <p class="explanation">Option D - fifth value in the list is 17. Yay. So far so good, but <strong>don't jump to conclusions</strong>. Follow the rest of the trace to back up your gut feeling. You might have missed something.</p>
+      <p class="explanation">Tentatively assume option D is right. Work through the trace table as if that were correct.</p>
+      <p class="explanation">The second iteration (did you look it up? I'll be annoyed if you didn't) of the loop compares the target value with 23 - which happens to be list[7]. Bingo. We have confirmed our winner.</p>
+      <p class="comment">I had the luxury of unlimited time and an excellent BACKSPACE key to hide my errors. It certainly took me more than 1.2 minutes to work it out.</p>
+      <p class="comment">The subtle implications of the zero-based array indexing itself would have tripped up many a student who assumed that the first number in an option was stored in list[1] and not list[0].</p>
+      <p class="comment">This question, while fair, would have been pretty damned difficult for nervous young students under exam time constraints. </p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a3" id="a3"></a>A3</strong></td>
+    <td valign="top" ><p><strong>Question 3</strong></p>
+      <p> In the algorithm provided, the statement &lsquo;<strong>Else</strong>&rsquo; relates to which one of the following control structures?<br />
+        <strong>A. </strong>iteration<br />
+        <strong>B. </strong>selection<br />
+        <strong>C. </strong>a method<br />
+        <strong>D. </strong>a function</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p class="comment">We seem to be leaping from the overly-complicated to the overly-simple questions.</p>
+      <p class="explanation">A. Iteration is looping - e.g. WHILE / END WHILE (WEND), DO / LOOP, FOR / NEXT.</p>
+      <p class="explanation">B. Selects which lines of code to execute - e.g. IF / ELSE / END IF</p>
+      <p class="explanation">C. A method is a <strong>procedure</strong> that can be used on a class of <em>object</em>. e.g. <em>window</em> <strong>close</strong>. <em>text</em> <strong>erase</strong>. <em>dog</em> <strong>scratch his furry face</strong>.</p>
+      <p class="explanation">D. A function is a self-contained piece of code that can take incoming values (parameters), calculate a value and return the value to the code that called the function. e.g. square root, convert to uppercase, decide if a year is a leap year or not. </p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a4" id="a4"></a>A4</strong></td>
+    <td valign="top" ><p><a name="bookmark6" id="bookmark6"><strong>Question 4</strong></a></p>
+      <p> Within an application&rsquo;s code base, comments can be used to describe the function of particular sections of code and support future maintenance of the application.<br />
+        How do programming languages differentiate between the code to be executed and comments that should be ignored?</p>
+      <p><strong>A. </strong>Comments are stored in a separate file to the code.<br />
+        <strong>B. </strong>Comments are only placed at the very start of the file containing the code.<br />
+        <strong>C. </strong>Comments commence with a symbol character or sequence of characters.<br />
+        <strong>D. </strong>Programming languages are intelligent enough to tell the difference between code and comments.</p>
+      <p><span class="myanswer">Answer is C.</span></p>
+      <p class="comment">What a dumb question. I mean - we go from the complexity of A2 to <em>this</em> snotty-nosed heap of parrot droppings? </p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a5" id="a5"></a>A5</strong></td>
+    <td valign="top" ><p><strong>Question 5</strong></p>
+      <p> The following lines of data need to be stored within a program.<br />
+      </p>
+      <table width="59%" height="240" border="1" cellpadding="2" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="10%">A</td>
+            <td width="90%">leaf</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>enfix</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>guess</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>haunt</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>shell</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>program</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>frequency</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>consciousness</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br />
+        Considering the information above, which one of the following data structures would be most appropriate to use?</p>
+      <p><strong>A. </strong>a record<br />
+        <strong>B. </strong>an array of strings<br />
+        <strong>C. </strong>an array of integers<br />
+        <strong>D. </strong>an associative array</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p>A. A record is a set of fields (columns) that make up the data for items (rows). Irrelevant here. A record would be <strong>one</strong> row, not a collection of rows.</p>
+      <p>B. Both columns contain alphanumeric (alphabetic and numeric) data, so strings are appropriate. String = text.</p>
+      <p>C. Only a few of the fields contain integers, so this can't be it.</p>
+      <p>D. An associative array is one where you can you use one unique field (e.g. a person's name) to look up a value associated with that field (e.g. that person's phone number). The duplicated values of &quot;B&quot; and &quot;1&quot; prevent us using this data as a lookup table.</p>
+      <p class="comment">Again - pretty basic.</p>
+      <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a6" id="a6"></a>A6</strong></td>
+    <td valign="top" ><p><strong>Question 6</strong></p>
+      <p> In which stage of the problem-solving methodology does collecting data to determine requirements take place?<br />
+        <strong>A. </strong>design<br />
+        <strong>B. </strong>analysis<br />
+        <strong>C. </strong>evaluation<br />
+        <strong>D. </strong>development</p>
+      <p><span class="myanswer">Answer is a reluctant B.</span></p>
+      <p>Logically, it must be B, but the question is, strictly speaking, beyond the scope of the study design.</p>
+      <p>If you have read VCAA PSM (Problem Solving Methodology) dogma in the 2020-2024 study design you will know that the Analysis Stage includes the skill of being able to '<em>Identify and clarify the data and information that needs to be collected....</em>'</p>
+      <p>So, that is very tempting. But it just says<em> identify and clarify the data that needs to be collected</em>. </p>
+      <p>Then it wants you to c<em>ritically analyse the sources of data and information to determine the reliability of it.</em></p>
+      <p>What about actually <em>collecting</em> the data? What stage of the PSM includes that?</p>
+      <p><img src="/m/doubt.gif" width="35" height="35" alt=""/></p>
+      <h2><strong>None.</strong></h2>
+      <p>The study design's PSM never says when you <strong>collect</strong> the data. It must be inferred or guessed by students. </p>
+      <p><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" /></p>
+      <p>The exam is asking for information that is not provided in the study design.</p>
+      <p>I have written to the exam department of VCAA to challenge this dodgy question. </p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8">&nbsp;</td>
+    <td valign="top" ><p><em>Use the following information to answer Questions 7 and 8.</em></p>
+      <p> Poh is planning to introduce new software. When checking the customer satisfaction logs of the existing system, Poh identifies that the current software does not cater to the needs of users from diverse cultural backgrounds.<br />
+        <br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a7" id="a7"></a>A7</strong></td>
+    <td valign="top" ><p><strong>Question 7</strong></p>
+      <p> In analysing the needs of the new software, which data collection technique is Poh using?</p>
+      <p><strong>A. </strong>logs presented in a report<br />
+        <strong>B. </strong>an interview<br />
+        <strong>C. </strong>observation<br />
+        <strong>D. </strong>a survey</p>
+      <p><span class="myanswer">Answer is a VERY reluctant A.</span></p>
+      <p class="comment">Either I'm getting way too pedantic in my old age, or this exam is falling apart at the seams. Could go either way...</p>
+      <p class="explanation">A log in a report is <strong>not</strong> a 'data collection <em>technique</em>'. It is the <strong>result</strong> of a data collection <em>technique</em> (such as interviews, observation, surveys) which provides the data that are then stored or summarised in a <strong>log</strong>.</p>
+      <p class="explanation">The examiners are probably expecting students to choose option <strong>A</strong> because the question said Poh was &quot;checking the customer satisfaction <strong>logs</strong> of the existing system&quot;.</p>
+      <p class="explanation">But where did the data in in the logs come from? Interviews? Observation? Surveys? It is impossible to say.The exam certainly doesn't say.</p>
+      <p class="explanation">So, start drafting your complaint emails to examinations.vcaa@education.vic.gov.au, and choose what the examiners probably <em>wanted</em> you to say. Option A,</p>
+      <p><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" /></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a8" id="a8"></a>A8</strong></td>
+    <td valign="top" bgcolor="#FFFFFF" ><p><strong>Question 8</strong></p>
+      <p> Given that Poh is looking to meet the needs of users from diverse cultural backgrounds, what type of constraint would this place on the development of the solution?<br />
+        <strong>A. </strong>legal<br />
+        <strong>B. </strong>social<br />
+        <strong>C. </strong>technical<br />
+        <strong>D. </strong>economic</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p class="explanation">I mean - what else could it be? </p>
+      <p class="comment">I saw a possum up a tree yesterday. He was a particularly stupid possum, being out at noon. But I bet even <strong>he</strong> could have answered A8.</p>
+      <p class="comment">Are the examiners giving a series a dumb questions to compensate for the brain-numbing A2?</p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a9" id="a9"></a>A9</strong></td>
+    <td valign="top" ><p><strong>Question 9</strong></p>
+      <p> If the completion of an entire project is delayed because one particular task has taken longer to complete than expected, that task must be<br />
+        <strong>A. </strong>a milestone.<br />
+        <strong>B. </strong>a Gantt chart.<br />
+        <strong>C. </strong>on the critical path.<br />
+        <strong>D. </strong>the last task in the project.</p>
+      <p><span class="myanswer">Answer is C.</span> </p>
+      <p class="explanation">A. You KNOW a milestone is an <em>event </em>and has zero duration and cannot affect the duration of a project. <strong>Don't you</strong>? If not - download the slideshow <a href="/s/Project-management.pptx"> here</a>.</p>
+      <p class="explanation">B. I once grew a cellular slime mould in a Petri dish. It had no brain. Even HE would not have selected this option.</p>
+      <p class="explanation">C. By definition, any task on the critical path <strong>cannot</strong> have its duration changed without affecting the finishing date of a project. So this is it.</p>
+      <p class="explanation">D. Why is the <em>last</em> task special? Nope. </p>
+      <p><br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a10" id="a10"></a>A10</strong></td>
+    <td valign="top" ><p><strong>Question 10</strong></p>
+      <p> Under the <em>Privacy Act 1988</em>, organisations are required to<br />
+        <strong>A. </strong>de-identify all sensitive or personal information.<br />
+        <strong>B. </strong>notify individuals of the reasons for collecting their personal data.<br />
+        <strong>C. </strong>withhold an individual&rsquo;s personal data, despite the individual making a reasonable request for access.<br />
+        <strong>D. </strong>disclose the precise storage location of all personal and sensitive data related to an individual, including data stored locally and in the cloud.</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p class="explanation">In order of silliness, to save time:</p>
+      <p class="explanation"><strong>C</strong>. Is ridiculous,. Cross it out. Spit on it. Grind it under your heel with intense vigour. Enjoy listening to its screaming during its evisceration. </p>
+      <p class="explanation">Sorry. Got a bit carried away there. This option is not acceptable. (But you can still spit on it, if you want.)</p>
+      <p class="explanation"><strong>D</strong>. Is dumb. And actually impossible. Good cloud storage is redundantly and automatically backed up to several locations, unknown to the owner of the data - and probably even to the cloud host. </p>
+      <p class="explanation"><strong>A</strong>. Is impossible. If, for example, your phone company was forced to remove all of your contact information, how could it sent you your next month's bill? It just does not work.</p>
+      <p class="explanation"><strong></strong>That leaves B. Once again, it was easy to eliminate several options without breaking a sweat.</p>
+      <p class="explanation"><strong>B</strong>. Notifying people about why you are collecting their personal data makes sense. It is fair and sensible. As my mother always told me as she tucked me into bed, &quot;IPP (Information Privacy Principle) 1.3 requires organisations to take reasonable steps to notify individuals that their personal information has been, or will be, collected, and to inform them of other matters such as which organisation collected the information and why it was collected.&quot;</p>
+      <p class="explanation">But my mother <em>was</em> a bit odd.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Don't give your your mum unnecessary grief. She already has enough of her own. But trust her when she explains information privacy legislation.</p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a11" id="a11"></a>A11</strong></td>
+    <td valign="top" ><p><strong><a >Question 11</a></strong></p>
+      <p> Moe regularly uploads large files (1-2 GB) to an online cloud storage provider and is concerned that his uploads are taking longer than he expected. He investigates a series of possible upgrades that he hopes will improve his upload speeds. The upgrades are shown in the following table.<br />
+      </p>
+      <table width="90%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td><strong>Option</strong></td>
+            <td><strong>Current setup</strong></td>
+            <td><strong>Upgrade option</strong></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Hard drive: read speed of 120 MBps</td>
+            <td>Solid state drive: read speed of 500 MBps</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Wi-fi router on 802.11g: up to 54 Mbps</td>
+            <td>Wi-fi router on 802.1lac: up to 1.3 Gbps</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>NBN current plan: 50 Mbps download, 20 Mbps upload</td>
+            <td>NBN upgraded plan: 250 Mbps download, 50 Mbps upload</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Laptop RAM: 8 GB</td>
+            <td>New laptop RAM: 32 GB</td>
+          </tr>
+        </tbody>
+      </table>
+      <p> Considering the information above, which upgrade would be most likely to reduce the time to upload the files to the cloud storage provider?<br />
+        <strong>A. </strong>Option 1<br />
+        <strong>B. </strong>Option 2<br />
+        <strong>C. </strong>Option 3<br />
+        <strong>D. </strong>Option 4</p>
+      <p><span class="myanswer">Answer is C.</span></p>
+      <p class="explanation">A. Even the slowest hard disk on the planet has a data tranfer speed that is FAR faster than an excellent internet upload speed. A typical HDD transfers data at 30-150 Mega<strong>bytes</strong> per second. So, we're talking 240-1200 Mega<strong>bits</strong> per second (Mbps). A good upload speed today is about 40Mbps. Hard disk speed is <em>not</em> a factor in upload slowness.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> The unit for data <em>storage</em> is the <strong>byte</strong> (8 bits). The (usual) unit for data <em>transmission</em> is the <strong>bit</strong>. Don't embarrass yourself and your entire family by confusing the two. </p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Some web browsers annoyingly confuse matters by measuring data transmission speeds in <strong>bytes</strong> per second. They need to be spanked. On the bottom.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> 'Byte' is abbreviated to a capital B. 'Bit' is abbreviated as a lowercase b. So - MB = mega<strong>bytes</strong>. Mbps = mega<strong>bits</strong> per second.</p>
+      <p class="explanation">B. Once again, the speed of wifi (54Mbps or 1.3Gbps in the question) is FAR faster than the speed offered by an internet service provider. It's like buying a Ferrari in the hope of getting through peak hour traffic more quickly. </p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> <strong>Learn your units. </strong>SD exams will assume you know them.</p>
+      <blockquote>
+        <p class="explanation">- Mega (M) is about a million. A recorded song needs roughly 10MB. </p>
+        <p class="explanation">- a Gigabyte (GB) is about 1024 megabytes. An HD movie takes about 1GB of storage.</p>
+        <p class="explanation">- A Terabyte (TB) is about 1024 Gigabytes. Now we're taking about capacities of small hard disks and average SSDs.</p>
+        <p class="explanation">- And now we're starting to talk about Petabytes (PB) of storage, A Petabyte is about 1024 Terabytes - or about a million Gigabytes.</p>
+        <p class="explanation">Got a million movies to store? You'd need a petabyte of storage and 171 years to watch them all. Good luck with that. </p>
+        <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Skip the Adam Sandler movies. You'll thank me in 150 years.</p>
+        <p class="explanation">(My first computer in 1978 had 4<strong>KB</strong> of RAM - about 4,000 bytes. My current computer has 32<strong>GB</strong> of RAM - 8,000 times larger.)</p>
+      </blockquote>
+      <p class="explanation">C. The upload speed to the internet is the critical factor in this question. Going from 20 to 50 Mbps would certainly improve Moe's upload speed. This is the way.</p>
+      <p class="explanation">(<em>This is the way</em>) If you don't watch <em>The Mandalorian</em>, ignore this line and move on.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/>If you're a keen cloud storage user, find the fastest UPLOAD speed you can amongst available ISPs. You won't regret it. </p>
+      <p class="explanation">e.g. Aussie Broadband currently (2023) offers plans with 50/20, 100/20 and 250/25 download/upload rates. Exetel also offers <strong>100/40, </strong>which is great for cloud uploads. Shop around.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> Why are ISP <em>download</em> speeds typically much faster than their <em>upload</em> speeds? Because most users download much more than they upload. This <em>asymmetric</em> (unbalanced) speed difference has been around for donkey's years - It's where <strong>A</strong>DSL comes from.. It might change in the future as cloud storage requires faster uploading.</p>
+      <p class="explanation">D. Again, RAM size will have little or no effect on upload speeds.</p>
+      <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a12" id="a12"></a>A12</strong></td>
+    <td valign="top" ><p><strong><a >Question 12</a></strong></p>
+      <p> An online store is developing a software solution that will improve order tracking, including sending mobile phone notifications directly to customers as their order is processed, sent and delivered.<br />
+        An objective of this software solution could be to<br />
+        <strong>A. </strong>improve service to customers.<br />
+        <strong>B. </strong>increase sales by 25 per cent over the next year.<br />
+        <strong>C. </strong>become one of the leading toy stores in Australia.<br />
+        <strong>D. </strong>reduce customer complaints regarding lost or delayed orders by half.</p>
+      <p><span class="myanswer">Answer is D. </span></p>
+      <p class="explanation">A <strong>goal</strong> is a rather vague, long-term, and hard to measure ambition that an organisation or solutions wants to achieve, such as &quot;Being popular.&quot;</p>
+      <p class="explanation">But how can you measure your progress towards such a vague target? You need specific <strong>objectives</strong> that have clear and measurable achievements.e.g. &quot;Being popular&quot; (goal) may be broken down into smaller and specific steps such as:</p>
+      <p class="explanation">1. Being in the &quot;XYZ Survey's&quot; top 5 companies or products within 12 months.</p>
+      <p class="explanation">2. Outselling competitor X by 10% in Australia within 6 months.</p>
+      <p class="explanation"><strong>Objectives</strong> tend to have numbers in them, so they can be measured and be found to have achieved or not.</p>
+      <p class="explanation"><strong>Goals</strong> are long-term, vague, and it's nearly impossible to confirm their accomplishment. e.g. &quot;We are proud to announce that we officially became popular at 2:37PM last Tuesday. Yay!&quot;</p>
+      <p class="explanation">So - we should look for <em>numbers </em>in the options.</p>
+      <p class="explanation"><strong>A</strong> and <strong>C</strong> are <em>goals</em>. Vague, waffly, hard to measure long-term ambitions. Ignore them.</p>
+      <p class="explanation"><strong>B</strong> and <strong>D</strong> have a number. That is good, objectively speaking. But which to choose? </p>
+      <p class="explanation"><img src="/m/doubt.gif" width="35" height="35" alt=""/></p>
+      <p class="explanation"><strong>B</strong> is VERY specific. It measures both quantity and time. That is Good. But does it relate to improving <strong>order tracking</strong>, as the question demands? </p>
+      <p class="explanation"><strong>No</strong>. It is about the quantity of sales, which is another matter.</p>
+      <p class="explanation"><strong>D</strong> measures the count of complaints about lost orders. It is acceptable as an objective: it is specific and measurable. But most importantly, it relates directly to <strong>order tracking</strong>.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> When in doubt, <em>read the question again</em>. I dithered for a while between B and D until I re-read the question and realised the <strong>relevance</strong> of their objectives.</p>
+      <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a13" id="a13"></a>A13</strong></td>
+    <td valign="top" ><p><strong><a >Question 13</a></strong></p>
+      <p> In which stage of the problem-solving methodology is a strategy developed to determine whether a solution has met requirements?<br />
+        <strong>A. </strong>design<br />
+        <strong>B. </strong>analysis<br />
+        <strong>C. </strong>evaluation<br />
+        <strong>D. </strong>development</p>
+      <p><span class="myanswer">Answer is C.</span></p>
+      <p class="explanation">Duh.</p>
+      <p class="explanation">If you had to even think about this one, you shouldn't be allowed out on the street unless you are on a leash.</p>
+      <p class="explanation">The examiner did you a favour by leaving out &quot;testing&quot; as an option. I would have included it instead of 'design' just to mess with your minds.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> The examiners love their PSM. Read it carefully in the study design, even if your preferred PSM is more... <em>agile</em>.</p>
+      <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a14" id="a14"></a>A14</strong></td>
+    <td valign="top" ><p><strong><a >Question 14</a></strong> </p>
+      <p> Stephen is writing a block of code that will accept coordinates as parameters and return a Boolean value to indicate whether the given location is on land. This code will be called from multiple different parts of his program.<br />
+        This block of code is most likely<br />
+        <strong>A. </strong>a control structure.<br />
+        <strong>B. </strong>an instruction.<br />
+        <strong>C. </strong>a function.<br />
+        <strong>D. </strong>a method.</p>
+      <p><span class="myanswer">Answer is C.</span></p>
+      <p class="explanation">Easy as that.</p>
+      <p class="explanation"><strong>A</strong>. A control structure lets a programmer determine which bits of code are executed. e.g. IF/ELSE, and loops.</p>
+      <p class="explanation"><strong>B</strong>. An instruction is a key word that the programming language recognises as a command, e.g. INPUT, PRINT, JUMP.</p>
+      <p class="explanation"><strong>C</strong>. See <a href="#a3">A3</a> above. This is what you want.</p>
+      <p class="explanation"><strong>D</strong>. A method is an action or procedure that can be applied to a particular type of object. e.g. a textbox can be CLEARed, but cannot have an item added to it, as a listbox can.</p>
+      <p class="explanation" ><img src="/tip.png" width="40" height="22" alt=""/> A Boolean value can only be a logical TRUE (usually represented by -1) or FALSE (usually represented by zero).</p>
+      <p >&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a15" id="a15"></a>A15</strong></td>
+    <td valign="top" ><p><strong><a >Question 15</a></strong></p>
+      <p> The following diagram represents a data structure that can be used to organise related data of a single data type. The index for the data structure uses integers.<br />
+      </p>
+      <table width="65%" border="0" align="center" cellpadding="0" cellspacing="2">
+        <tbody>
+          <tr class="centre">
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+          </tr>
+        </tbody>
+      </table>
+      <table width="64%" border="1" align="center" cellpadding="2" cellspacing="0">
+        <tbody>
+          <tr class="centre">
+            <td width="20%">5</td>
+            <td width="20%">10</td>
+            <td width="20%">22</td>
+            <td width="20%">6</td>
+            <td width="20%">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p> Which of the following data structures does the diagram represent?<br />
+        <strong>A. </strong>array<br />
+        <strong>B. </strong>record<br />
+        <strong>C. </strong>variable<br />
+        <strong>D. </strong>associative array</p>
+      <p><span class="myanswer">Answer is A.</span></p>
+      <p class="explanation">I did not like this question. It was artificial and vague,</p>
+      <p class="explanation">We can rule out C because a variable can only be a single value.</p>
+      <p class="explanation">Are we to assume that the first line of numbers are the index numbers? Apparently. But this is not made clear.</p>
+      <p class="explanation">The second line of numbers <em>could</em> be a record. A record contains a set of fields (values) related to a single entity, such as a person or product. But the fields in a record do <em>not</em> need have to be of a single data type. e.g. an employee record may contain <em>text</em> (surname), <em>date</em> (of birth), and <em>numeric</em> (number of legs) fields.</p>
+      <p class="explanation">So, with &quot;single data type&quot; the question seems to be fishing for an <em>array</em>.</p>
+      <p class="explanation">That leaves <strong>A</strong> and <strong>D</strong>. </p>
+      <p class="explanation">An associative array needs <em>two</em> dimensions - a lookup value and an associated value, e.g. lookup the employee's ID in one field and fetch their surname in another field.</p>
+      <p class="explanation">The data provided only has <em>one</em> dimension of data, so there is nothing to associate with.</p>
+      <p class="explanation">So, it must be <strong>A</strong>.</p>
+      <p class="explanation">I still don't like this question.</p>
+      <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a16" id="a16"></a>A16</strong></td>
+    <td valign="top" ><p><strong>Question 16</strong></p>
+      <p> John and Deepa are discussing characteristics of efficient and effective software solutions, in preparation for writing some evaluation criteria.<br />
+        Which of the following is a characteristic of an effective software solution?<br />
+        <strong>A. </strong>authenticity<br />
+        <strong>B. </strong>completeness<br />
+        <strong>C. </strong>cost of data processing<br />
+        <strong>D. </strong>speed of processing instructions</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p>Definition time again. Your brain should be buzzing at the word &quot;effective&quot;.</p>
+      <p>Rule out <strong>C</strong> (cost) and <strong>D</strong> (speed) because they are efficiency, not effectiveness. OK. We're already halfway there. Easy.</p>
+      <p>The sacred VCAA glossary says that: </p>
+      <blockquote>
+        <p class="red">&quot;Measures of <strong>effectiveness</strong> in a solution include accessibility, accuracy, attractiveness, clarity, communication of message, <strong>completeness</strong>, readability, relevance, timeliness, and usability.&quot;</p>
+      </blockquote>
+      <p><em>Completeness</em> is in the list. <em>Authenticity</em> is not. </p>
+      <p>(But I think it should be.)</p>
+      <p>Don't be misled by SD U4O2 KK06, which doth declare that students shouldst know &quot;characteristics of <strong>data</strong> that has <strong>integrity</strong>, including accuracy, <strong>authenticity</strong>, correctness, reasonableness, relevance and timeliness&quot;</p>
+      <p>Good data<strong> integrity</strong> and good <strong>solution effectivenes</strong>s have some overlap, but they are <em>not</em> the same beast.</p>
+      <p class="comment">It's a rather boring question based on memorising VCAA's glossary definitions, which is both dull - and debateable.</p>
+      <p class="comment"><img src="/m/yawn-boring.png" width="59" height="59" alt=""/></p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a17" id="a17"></a>A17</strong></td>
+    <td valign="top" ><p><strong><a >Question 17</a></strong> </p>
+      <p> A finance officer at a school receives an invoice via email from the school&rsquo;s regular stationery supplier. He notices that the supplier&rsquo;s banking details on the invoice have changed.<br />
+        The finance officer contacts the supplier, who confirms that they sent the invoice but their banking details have not changed.<br />
+        This could suggest that the stationery supplier is a victim of<br />
+        <strong>A. </strong>a data breach.<br />
+        <strong>B. </strong>a phishing scam.<br />
+        <strong>C. </strong>social engineering.<br />
+        <strong>D. </strong>a man-in-the-middle attack</p>
+      <p><span class="myanswer">Answer is D.</span></p>
+      <p class="explanation">Rest assured: the examiners were entitled to ask about MITM attacks - it is listed in the KK of SD U4O2 KK03.</p>
+      <p class="explanation">The fact that the genuine message was manipulated between being sent and and received points to a MITM exploit.</p>
+      <p class="explanation">In a MITM attack, the bad actor incercepts a message, records and/or changes it (e.g. the banking details), and passes it along it its intended recipient.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> TLS (or old SSL) encryption can authenticate one or both parties in a communication. </p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a18" id="a18"></a>A18</strong></td>
+    <td valign="top" ><p><strong><a >Question 18</a></strong></p>
+      <p> A website allows users to add product ratings or reviews without logging in or demonstrating that they have ever purchased the product they are reviewing.<br />
+        The characteristic of data integrity that is most affected by this practice is<br />
+        <strong>A. </strong>accuracy.<br />
+        <strong>B. </strong>timeliness.<br />
+        <strong>C. </strong>authenticity.<br />
+        <strong>D. </strong>maintainability</p>
+      <p><span class="myanswer">Answer is C.</span></p>
+      <p class="explanation"><strong>A</strong>. It <em>may</em> be inaccurate. But it need not be.</p>
+      <p class="explanation"><strong>B</strong>. Timeliness is not a factor. It refers to being ready when needed. It does <em>not</em> refer to being up-to-date.</p>
+      <p class="explanation"><strong>C</strong>. Data authenticity refers to whether data comes from the source that it claims to come from, and that it is reliable and accurate. Fake reviews lack authenticity because they are... not authentic.They're pretending to be real.</p>
+      <p class="explanation"><strong>D.</strong> You have better things to do than think about option D, such as breathing and digesting your lunch. It was a desperate dive by the writer of the question. Bottom soundly smacked. </p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8"><strong><a name="a19" id="a19"></a>A19</strong></td>
+    <td valign="top" ><p><strong><a >Question 19</a></strong></p>
+      <p> Use case diagrams are used to outline and summarise how<br />
+        <strong>A. </strong>data is manipulated and flows through a system.<br />
+        <strong>B. </strong>actors interact with a system and its functions.<br />
+        <strong>C. </strong>external entities interact with a system.<br />
+        <strong>D. </strong>data is transmitted across a network</p>
+      <p><span class="myanswer">Answer is B.</span></p>
+      <p class="explanation">Don't confuse a UCD with a <img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/><a href="/s/Design-Tools-DFD,CD.pptx"> Data Flow Diagram (DFD)</a>.</p>
+      <p class="explanation">That is all. Download the UCD <img src="/ppt.png" width="28" height="22" alt="vcedata.com slideshow"/><a href="/s/Use-Case-Diagram-UCD.pptx"> slideshow</a>.</p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#EFECC8" ><strong><a name="a20" id="a20"></a>A20</strong></td>
+    <td valign="top" ><p><strong><a >Question 20</a></strong></p>
+      <p> The <em>Health Records Act 2001</em> applies in which one of the following places?<br />
+        <strong>A. </strong>Victoria<br />
+        <strong>B. </strong>Queensland<br />
+        <strong>C. </strong>New South Wales<br />
+        <strong>D. </strong>All states of Australia</p>
+      <p><span class="myanswer">Answer is A.</span></p>
+      <p class="comment">This is a cheap and nasty question, It just wants students to memorise legislative origins.</p>
+      <p class="comment">The HRA is Victorian state law. It only applies in Victoria. Surely the examiners could have come up with something more intellectually changing. </p>
+      <p class="comment">Apparently not.</p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td width="20%"><span class="explanation"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></span></td>
+            <td width="80%"><p class="comment">I'm sad because the examiners are testing students' memorisation of trivial details from the study design.</p>
+              <p class="comment">There are far bigger fish to fry in the wok of software development than whether the HRA is a Victorian or Federal Act.</p>
+              <p class="comment">Ask something <em>substantial</em>, for Dog's sake, like what the Act <em>does</em> or why it's <em>important</em>.</p>
+              <p class="comment">You might as well have asked ...</p>
+              <blockquote>
+                <p class="examiner"><strong>20</strong>. Was the Health Records Act originally published in </p>
+                <p class="examiner"><strong>A</strong>. September 2001<strong><br>
+                  B</strong>. October 2001<br>
+                  <strong>C</strong>. November 2001<br>
+                  <strong>D</strong>. December 2001</p>
+              </blockquote>
+              <p class="comment">(For thrillseekers out there, the answer would have been C)</p>
+              <p class="comment">A20 was a waste of exam time and intellectual effort.</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="red">&nbsp;</p>
+      <br clear="all" /></td>
+  </tr>
+  <tr>
+    <td bgcolor="#EFECC8" >&nbsp;</td>
+    <td bgcolor="#EFECC8"><p><strong>Overall for section A</strong></p>
+      <p><span class="comment">I'm not overly impressed.</span> </p>
+      <p><span class="comment">SD exams used to be a bit classier than this.</span></p>
+      <p><br />
+      </p></td>
+  </tr>
+  <tr> </tr>
+</table>
+<p>&nbsp;</p>
+<table width="80%" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="160%" colspan="2" valign="top" bgcolor="#B1D1F0" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+      <p>Instructions for Section B<br />
+        Answer all questions in the spaces provided.</p>
+      <p class="comment">[x lines] indicates the number of ruled lines provided on the paper for the answers.</p></td>
+  </tr>
+</table>
+<table width="80%" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="3%" valign="top" bgcolor="#B1D1F0" ><strong id="b1">B1</strong></td>
+    <td width="97%" valign="top" ><p><strong>Question 1</strong> (2 marks)</p>
+      <p> Identify and describe one characteristic that a well-constructed software requirements specification (SRS) would have.<br>
+        Characteristic [1 line]</p>
+      <p class="myanswer">Description of the functional and non-functional requirements.</p>
+      <p> Description [3 lines]</p>
+      <p class="myanswer">This sets out all of the tasks that the planned software should be able to do (e.g. graph the data), and the qualities and software should have (e.g. ease of use).</p>
+      <p class="explanation">Other possible answers could be system and technical requirements, constraints, scope, and assumptions.</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" ><strong id="b2">B2</strong></td>
+    <td valign="top" ><p><strong>Question 2</strong> (2 marks) [4 lines]</p>
+      <p> Explain why it is sometimes necessary to store numbers in a string data type variable. Provide an example of when numbers should be stored as a string, rather than as a numeric data type.</p>
+      <p class="myanswer">If the number contains non-numeric characters or has leading zeroes, it must be stored as a string.</p>
+      <p class="myanswer">e.g. a phone number like (045) 1234 1678 contains parentheses, a leading zero, and spaces - none of which can be stored numerically.</p>
+      <p class="explanation">Or...</p>
+      <p class="myanswer">The number has a very large number of digits (e.g. Part number 105561241212957286025), making it impossible to encode as a numeral.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> In general, iIf you're never going to do any calculations with a number, it is best stored as a string. </p>
+      <p class="red">&nbsp;</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" ><strong id="b3">B3</strong></td>
+    <td valign="top" ><p><strong>Question 3</strong> (4 marks)</p>
+      <p> An app developer is creating a sports-scoring application for mobile devices that is currently in the design stage. Two of the solution designs are shown below.</p>
+      <p><br>
+        <img src="/p/2023-sd-post-mortem/b3.png" width="797" height="433" alt=""/><br>
+      </p>
+      <p>a. Identify the type of design tool used for the sports-scoring application.
+        1 mark [1 line]</p>
+      <p class="myanswer">Screen mockup.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> As always, don't waste time with empty words such as &quot;<em>The type of design tool is a...</em> &quot; The examiner knows what the question is - you just give an <em>answer</em>.</p>
+      <p> Other design tools, such as object descriptions and pseudocode, could be used to represent different aspects of the solution design.</p>
+      <p> b. Explain how object descriptions and pseudocode represent different aspects of the solution design, in comparison to the design tool identified in <strong>part a</strong>.    3 marks [5 lines]</p>
+      <p class="myanswer">A mockup designs the appearance of an interface or printout. </p>
+      <p class="myanswer">Object descriptions list the properties of an object, e.g. a text box's name, font colour, width, justification etc.</p>
+      <p class="myanswer">Pseudocode designs the logic of an algorithm and will later be converted into actual code of a real programming language.</p>
+      <p class="comment">Who on earth needs a sport scoring app?</p>
+      <p class="comment"><img src="/m/doubt.gif" width="35" height="35" alt=""/></p>
+      <p class="comment">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" ><strong id="b4">B4</strong></td>
+    <td valign="top" ><p><strong>Question 4</strong> (5 marks)</p>
+      <p> Ananta is the team leader in a software development company that is creating a workflow management tool for a large marketing organisation. The clients are hoping that the new software will be capable of supporting their employees in monitoring the production of high-quality marketing and advertising materials.<br>
+        As the project is nearing completion, Ananta is looking to conduct usability testing. She knows that members of the development team should not be participants in the usability tests.<br>
+      </p>
+      <p>a.	Identify who should participate in the usability test and explain why.	2 marks [3 lines]</p>
+      <p class="myanswer">Actual anticipated end-users are needed - the employees who will be using the tool in their work. They are the target audience, and if the tool does not satisfy <em>their</em> particular needs, it will be unsuitable.</p>
+      <p>To record the results of the usability tests, Ananta is considering two methods of collecting information.<br>
+        Method 1: Recording a video of the tests.<br>
+        Method 2: Observing the tests directly so she can ask clarifying questions.</p>
+      <p> b.	Identify which option Ananta should use. Justify your answer.
+        3 marks [6 lines]</p>
+      <p class="myanswer">Method 1 would be cheaper, quicker, and might gather data about more users in a given time.</p>
+      <p class="myanswer">Method 2 would be slower, and more expensive, but it would gather richer (more informative) data. Being able to ask follow-up questions based on users' feedback would let Ananta discover things that she may never have expected or anticipated.</p>
+      <p class="myanswer">The method to choose depends on how much time and money are available, vs data quality desired. I'd go for method 2.</p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td width="15%"><span class="explanation"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></span></td>
+            <td width="85%" class="comment"><p>I'm sad because the case study did not give any clues about what factors are relevant to the decision. Both methods have their pros and cons.</p>
+              <p>Students are expected to answer with no idea of what is relevant - and that is unfair.</p>
+              <p>If the question's case study had dropped a <em>hint</em>, e.g. &quot;Ananta is very short on time and money for the usability testing stage.&quot; it would have helped students.</p>
+              <p>As it is, how can examiners measure students' understanding?</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> If you are given names in the case study of a question, use the names in your answer to make it clear who you are referring to. </p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" ><strong id="b5">B5</strong></td>
+    <td valign="top" ><p><strong>Question 5</strong> (5 marks)</p>
+      <p> a. Describe why a risk-management strategy should be applied as part of an organisation&rsquo;s software development practices.	1 mark [3 lines]</p>
+      <p class="myanswer">Lost or damaged data is expensive and slow to re-create or repair. Deadlines may be missed. Costs can blow out. Contracts may not be fulfilled. Commercial secrets may be disclosed to competitors. Companies may be prosecuted for abuse of data protection laws, e.g. the Privacy Act. The company's public reputation and stock price can suffer.</p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td width="15%"><span class="explanation"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></span></td>
+            <td width="85%" class="comment"><p>I'm sad because that's a <strong><span class="explanation"> lot</span></strong><span class="explanation"> of writing for one mark. </span></p>
+              <p><span class="explanation">Any &quot;describe&quot; question deserves more than one mark - especially when it expects 3 lines for the answer.</span></p>
+              <p>Not fair!</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <p> b. Using the categories provided below, propose a risk-management strategy that could be used during the development of a software application.	3 marks</p>
+      <p> Technique [1 line]</p>
+      <p class="myanswer">Regular, tested, offsite backups</p>
+      <p> Responsibility [1 line]</p>
+      <p class="comment">I have literally <strong>no</strong> idea what this is supposed to mean.</p>
+      <p class="comment">&quot;Who is responsible for carrying out the technique&quot;? </p>
+      <p class="comment">&quot;Yes, it is indeed a heavy responsibility&quot; ?</p>
+      <p class="comment">I call a foul on this question. <strong>It is meaningless.</strong></p>
+      <p class="comment"><span class="explanation"><img src="/m/security-dog.jpg" width="243" height="132" alt=""/></span></p>
+      <p class="comment">So - to give an answer (for you should never leave an answer blank)</p>
+      <p class="myanswer">Ananta. From the previous question. <em>She's</em> responsible.</p>
+      <p class="explanation">Or</p>
+      <p class="myanswer">The backupper guy.</p>
+      <p> Timing [2 lines]</p>
+      <p class="comment">This, again, is hopelessly uninformative.</p>
+      <p class="myanswer">Scheduled daily incremental backups to the cloud after working hours. Weekly full backups on Saturday night.</p>
+      <p><br>
+        c. Suggest <strong>one</strong> benefit of using the technique proposed in <strong>part b</strong>.	1 mark [2 lines]</p>
+      <p class="myanswer">It allows recovery of most, if not all of the lost data so normal operations can be resumed quickly.</p>
+      <p class="comment">Question B5 is a disaster. No amount of risk management can rescue it. </p>
+      <p class="comment"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" /></p>
+      <p class="red">&nbsp;</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" ><strong id="b6">B6</strong></td>
+    <td valign="top" ><p><strong>Question 6</strong> (2 marks) [6 lines]</p>
+      <p> Compare how version control is different from backing up a file.</p>
+      <p class="explanation">Version control is the tracking and management of changes to software code. There are software tools that let teams manage changes to software when there can be several people working on the same shared code and submitting changes independently of each other. Version control allows the reversion of code to a previous state when errors are detected.</p>
+      <p class="explanation">Backing up a file is simply copying a file to another location and keeping the original. It is a primitive form of version control.      </p>
+      <p><br>
+</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#B1D1F0" >&nbsp;</td>
+    <td valign="top" bgcolor="#B1D1F0" ><p><strong>Section B overall</strong></p>
+    <p>Disappointing,</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="80%" border="1" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td colspan="2" align="left" bgcolor="#D3F7E1"><h2 align="left"><a name="cs" id="cs2"></a>Case study</h2>
+      <p>A software-as-a-service (SaaS)* development business currently provides productivity and project-management software to clients. The business has decided to offer translation** and transcription*** services using artificial intelligence (Al). The business is based in Melbourne, and has offices around the world. Ness is the development leader on the project. Her team will predominantly be based in Melbourne although some staff will be working remotely in offices overseas.</p>
+      <p> In her preliminary planning and work on the project, Ness has decided on using an iterative approach, where three complete phases of the problem-solving methodology will take place. Each phase will take place as follows:</p>
+      <p> Phase 1: User profile (including authentication) module<br />
+        Phase 2: Transcription module<br />
+        Phase 3: Translation module</p>
+      <p> She has also drawn a sketch of the intended workflows for the application when it is complete.</p>
+      <p><img src="/p/2023-sd-post-mortem/cs1.png" width="895" height="222" alt=""/><br />
+        <br />
+        <strong>Establishing expectations for secure development</strong></p>
+      <p> Ness wants secure development practices at the forefront of her team&rsquo;s thinking when they are developing the platform. The following secure development practices will be implemented:<br />
+        &bull;	two-factor authentication (password and swipe card) to access office spaces and devices working on the project for everyone involved<br />
+        &bull;	logs that record user access to office spaces and the development environment, including failed attempts at access<br />
+        &bull;	ongoing professional learning about secure development practices<br />
+        &bull;	ongoing code auditing for security vulnerabilities<br />
+        &bull;	ongoing code auditing to meet industry standards and legal requirements around security.<br />
+        These practices will be evaluated for their effectiveness once the project has been completed.<br />
+      </p>
+      <p>* <strong>Software-as-a-Service (SaaS)</strong> - Application hosted online. Users typically have a subscription to the service and access the application through a web browser, rather than installing the application on their device.<br />
+        ** <strong>Translation</strong> - The process of converting written or spoken words from one language into another, while maintaining the meaning of the original text.<br />
+        ***<strong> Transcription</strong> &mdash; The process of converting speech or audio into a written or typed text document.<br />
+        <br />
+        <strong>Application development</strong><br />
+        <strong>Phase 1: User profile (including authentication) module</strong><br />
+        The user profile and authentication procedures are outlined below.</p>
+      <p>&bull;	When users sign up to the platform, they provide personal details, including name, email address and billing information (including address). Users are then asked to verify their email address by clicking a link in a confirmation email.<br />
+        &bull;	Once verified, users are able to log in using their email address and password combination.<br />
+        &bull;	Once authenticated, users can access their user profile and the translation and transcription services offered (when the solution is fully developed).<br />
+        A context diagram representing this is shown below.</p>
+      <p><img src="/p/2023-sd-post-mortem/cs2.png" width="868" height="278" alt=""/></p>
+      <p><br />
+        Due to the size of the business, the development team is required under the Privacy Act 1988 to ensure that the personal details of users, and their data, are protected from unauthorised access and misuse.<br />
+        Phase 2: Transcription module<br />
+        Once the user profile module is completed, an analysis of requirements for the transcription module will be conducted. The team is now working on the design of the transcription module.<br />
+        Two alternative designs for the transcription module user interface have been developed.</p>
+      <p><img src="/p/2023-sd-post-mortem/cs3.png" width="915" height="423" alt=""/><br />
+        <br />
+        <br />
+        Ness&rsquo;s team has also designed the three evaluation criteria below to use when evaluating the designs for this module.<br />
+      </p>
+      <table width="30%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td bgcolor="#FFFFFF"><strong>Criterion 1</strong>: Design follows common layout conventions for easy navigation.<br />
+              <strong>Criterion 2</strong>: Design uses standard symbols to communicate functions.<br />
+              <strong>Criterion 3</strong>: Design minimises typing to be more efficient across a range of devices.<br /></td>
+          </tr>
+        </tbody>
+      </table>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <p><strong>Figure 4: Evaluation criteria for the transcription module&rsquo;s user interface</strong><br />
+            </p>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+      <p><strong>Phase 3: Translation module</strong><br />
+        Initially the translation module will accept documents in one of five languages (Chinese, English, French, Arabic and Spanish) and be able to translate between languages (for example, English to French, French to English, French to Arabic). It is intended that eventually 50 languages will be supported by the platform. </p>
+      <p>Due to a delay in the development of the solution, it has been recommended that a third-party translation service be used to ensure that the platform can be released on time. This third-party service will be accessed by the module, using API (application programming interface) requests/calls.<br />
+      </p>
+      <p><strong> END OF INSERT</strong></p>
+      <p class="comment">Wow - that's a lot for students to absorb before they can answer the first question.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p><strong>Instructions for Section C</strong></p>
+      <p>Please remove the insert from the centre of this book during reading time.<br>
+        Use the case study provided in the insert to answer the questions in this section. Answers must apply to the case study.<br>
+        Answer all questions in the spaces provided.</p>
+      <p ><img src="/tip.png" width="40" height="22" alt=""/> <span class="explanation"><strong>Dumb Way to Die in an Exam #1</strong> - save time by ignoring the case study and just jump into answering section C. It <em>has</em> happened.</span></p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> <strong>Dumb Way to Die in an Exam #2</strong> - give answers that may apply to <em>other</em> circumstances, but are not relevant to the section C case study.</p>
+      <p class="explanation"><img src="/tip.png" width="40" height="22" alt=""/> If you're too young to know about <em>Dumb Ways To Die</em>, <a href="https://www.youtube.com/watch?v=IJNR2EpS0jw">go here</a>.</p>
+    <p class="red">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td height="56" colspan="2" valign="top" bgcolor="#FFFFCC"><h1>SECTION C</h1></td>
+  </tr>
+  <tr>
+    <td width="56" height="56" valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c1" id="c1"></a>C1 </strong></p></td>
+    <td width="1164" valign="top"><p> <strong>Question 1</strong> (4 marks)</p>
+      <p> a. Name the specific development model that Ness&rsquo;s team will use during the development of this application. 1 mark</p>
+      <p class="myanswer">Spiral.</p>
+      <p class="comment">That's all you need to say to get your mark,</p>
+      <p class="comment">The Holy Study Design  decrees that <strong>three</strong> models of the problem solving methodology <br>
+        (aka SDLC  = <strong>S</strong>oftware <strong>D</strong>evelopment <strong>L</strong>ife <strong>C</strong>ycle) <br>
+        be knownst by students: <br>
+        (1) agile, (2) spiral and (3) waterfall.</p>
+      <p class="comment">Starting with the last, the <strong>waterfall model</strong> starts with analysis, finishes analysis, moves to design, finishes design, starts development (including testing, documentation, implementation) and unto the end of evaluation. Like a waterfall, once you finish a step and go over the edge. You can't go back to a previous stage. It's a one-way path down.</p>
+      <p class="comment"><img src="/m/waterfall.png" width="396" height="287" alt=""/></p>
+      <p class="comment">The <strong>spiral model</strong> is just a repetitive (iterative) version of the waterfall model. It is the standard procedure for software development: you write software using the Waterfall model, release it as version 1, improve it, release it as version 2, etc. </p>
+      <p class="comment">Spiral is just Waterfall with 'rinse and repeat'. </p>
+      <p class="comment">The case study description is certainly <em>not</em> Agile.</p>
+      <p class="comment">Agile allows developers to return to previous stages of the SDLC before the entire process is finished. e.g. You are halfway through design when you discover that your analysis was incomplete or outdated, so you need to go back and fix the analysis. Or you are busy developing and discover that newly-released technological standards has made your product obsolete so you need to restart design from scratch.      </p>
+      <hr />
+      <p> b. Complete the diagram to represent the development model that Ness has chosen to use for the development of this application.<br>
+      The start of each phase should be represented on the diagram after completing the key below. 3 marks</p>
+      <table width="37%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td><p><strong>Key</strong></p>
+            <p>1.</p>
+            <p>2.</p>
+            <p>3.</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br>
+      </p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td><p><strong>Analysis</strong></p>
+            <p>&nbsp;</p></td>
+            <td><p><strong>Design</strong></p>
+            <p>&nbsp;</p></td>
+          </tr>
+          <tr>
+            <td><p><strong>Evaluation</strong></p>
+            <p>&nbsp;</p></td>
+            <td><p><strong>Development</strong></p>
+            <p>&nbsp;</p></td>
+          </tr>
+        </tbody>
+      </table>
+    <p class="comment">I give up. I have <strong>absolutely no idea </strong>what this questions is asking. </p>
+    <p class="comment">What is &quot;the key&quot;?</p>
+    <p class="comment">What is expected to be in the &quot;diagram&quot; to represent the spiral SDLC?    </p>
+    <p class="comment">I would <a href="/mailform.htm">appreciate some advice.</a></p>
+    <p class="comment">I'm cutting my losses and moving on. </p>
+    <p class="comment"><img src="/tip.png" width="40" height="22" alt=""/> If you have no clue what a question means, don't waste too much time on it. Move on and get marks elsewhere. You can always come back to it later if you have time.</p>
+    <table width="80%" border="1" cellspacing="0" cellpadding="2">
+      <tbody>
+        <tr>
+          <td width="15%"><span class="explanation"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></span></td>
+          <td width="85%" class="comment"><p>I'm sad because I have no idea what this question means.</p>
+            <p>What is 'the key' supposed to refer to?</p>
+            <p>How is the diagram supposed to represent the SDLC?</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="comment">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC">&nbsp;</td>
+    <td valign="top" bgcolor="#F5D3D3"><p>At this point, I am out of energy.</p>
+    <p>If you want this page to continue, <a href="/mailform.htm">please tell me</a>.</p>
+    <p>Otherwise, it seems like a massive waste of time.</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="dac2"></a>C2 </strong></p></td>
+    <td valign="top"><p><strong>Question 2</strong> (3 marks)</p>
+      <p> Ness has explained her expectations about secure development practices to her team. These expectations are outlined in the case study.<br />
+        Suggest three criteria that Ness could use to evaluate the effectiveness of the secure development practices she will be putting in place.</p>
+      <p><br />
+        Criterion 1</p>
+      <p>&nbsp;</p>
+      <p><br />
+        Criterion 2</p>
+      <p>&nbsp;</p>
+      <p><br />
+        Criterion 3</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c3" id="c29"></a>C3 </strong></p></td>
+    <td valign="top"><p><strong>Question 3</strong> (2 marks)</p>
+      <p> To ensure that the team can work efficiently and effectively throughout the development of the platform, Ness and her team need to select a naming convention. It will be used by all team members throughout the project when naming variables, functions and other components of their code base.</p>
+      <p> Describe one characteristic that their naming convention should incorporate. Provide an example of what this characteristic would look like when implemented in this solution.</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c4" id="c2"></a>C4 </strong></p></td>
+    <td valign="top"><p><strong>Question 4</strong> (4 marks)<br />
+        Part of the project plan is shown below.</p>
+      <p><img src="/p/2023-sd-post-mortem/c4.png" width="761" height="451" alt=""/><br />
+        <br />
+        Once Ness has completed the initial project plan, there are likely to be changes.<br />
+        a. Describe a technique she could use for recording the progress of the project to identify any changes made to the project plan.	2 marks</p>
+      <p><br />
+        A member of the development team fears that Task 3 (&lsquo;Purchase and set up developer equipment&rsquo;) could take up to six days instead of the planned two days.</p>
+      <p><br />
+        b. Describe the likely impact this will have on the timing of the milestone &lsquo;Ready for Phase 1 &rsquo;.	2 marks</p>
+      <p><br />
+        <strong>Phase 1: User profile (including authentication) module</strong></p>
+      <p class="explanation">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c5" id="c33"></a>C5</strong></p></td>
+    <td valign="top"><p><strong>Question 5</strong> (3 marks)<br />
+        Below is a partial data flow diagram (DFD) representing the authentication process.</p>
+      <p><img src="/p/2023-sd-post-mortem/c5.png" width="724" height="397" alt=""/></p>
+      <p>Referring to the context diagram in the case study insert, identify the correct names for the following labels.</p>
+      <p><br />
+        A:</p>
+      <p><br />
+        B:</p>
+      <p><br />
+        C:<br />
+      </p>
+      <p class="explanation">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c6" id="c45"></a>C6 </strong></p></td>
+    <td valign="top"><p><strong>Question 6</strong> (1 mark)</p>
+      <p> Users will be asked to provide a billing address, including postcode and state (for example, Victoria), when creating a profile on the platform.</p>
+      <p> They will enter which state they are from, and then their postcode. The postcode will then be checked to ensure that it matches the state that was entered.</p>
+      <p> Identify a feature of a user interface that could be used to facilitate effective and efficient entry of the user&rsquo;s state.<br />
+      </p>
+      <p>Feature</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c7" id="c46"></a>C7 </strong></p></td>
+    <td valign="top"><p><strong>Question 7</strong> (5 marks)</p>
+      <p> Ness originally planned to purchase high-quality test data as part of the testing of the user profile and authentication module.</p>
+      <p> Unfortunately, she found that purchasing this data would cost significantly more than she had budgeted for, which would make it almost impossible to finish the project.<br />
+        The finance manager has told Ness that she must either reduce the size of her team by eliminating two members&rsquo; roles from the organisation, or purchase lower-quality test data.</p>
+      <p> a. Identify two possible consequences that might arise from this ethical issue.	2 marks</p>
+      <p> b. Suggest a possible method of resolving one of the consequences identified in part a. and describe an advantage and a disadvantage of taking this approach.	3 marks</p>
+      <p> Method</p>
+      <p> Advantage.</p>
+      <p>Disadvantage<br />
+      </p>
+      <div align="center"></div></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c8" id="c47"></a>C8</strong></p></td>
+    <td valign="top"><p><strong>Question 8</strong> (4 marks)</p>
+      <p> As part of the security testing for the platform, <em>admin &rsquo; OR &lsquo;1 &rsquo;= &lsquo;1</em> is entered into the username field on the &lsquo;user log in&rsquo; section of the platform.<br />
+        The diagram below shows a screenshot provided for clarity.</p>
+      <p><img src="/p/2023-sd-post-mortem/c8.png" width="353" height="330" alt=""/></p>
+      <p><br />
+        a.	Identify the type of risk posed to the platform.	1 mark</p>
+      <p><br />
+        b.	Provide two reasons why malicious individuals might use the risk identified in <strong>part a.</strong> on the platform.	2 marks</p>
+      <p><br />
+        c.	Suggest how the risk identified in <strong>part a.</strong> could be mitigated.	1 mark</p>
+      <p><br />
+        Phase 2: Transcription module</p>
+      <p><br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c9" id="c48"></a>C9 </strong></p></td>
+    <td valign="top"><p><strong>Question 9</strong> (3 marks)</p>
+      <p> Ness&rsquo;s team has developed some designs for the transcription module&rsquo;s interface (Figure 3 in the case study insert), as well as three evaluation criteria that will be used to evaluate the designs they have come up with (Figure 4 in the case study insert).</p>
+      <p> Use the provided criteria to select a preferred design, Design A or Design B. Justify your choice.</p>
+      <p> Preferred design</p>
+      <p> Justification</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c10" id="c49"></a>C10</strong></p></td>
+    <td valign="top"><p><strong>Question 10</strong> (4 marks)</p>
+      <p> The process for uploading a file for transcription will involve checking that the selected file can be processed by the platform&rsquo;s artificial intelligence (Al).<br />
+        Users select a file from their device and the platform will check the file extension. If the check determines that a valid audio (.m4a, .mp3, .flac, .ogg or .wav) or video (.mp4, .avi, .ogv or .mov) file has been selected, it will upload the file for transcription and the process will continue.<br />
+        If any other file type (including audio and video file types other than those listed) has been selected, a message will be displayed to the user indicating that the file is incompatible with the platform and then asking the user to upload a different file.<br />
+      </p>
+      <p>a.	Construct a set of tests to fully test the checking of files uploaded to the platform.	2 marks </p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td width="28%"><strong>Proposed test</strong></td>
+            <td width="19%"><strong>Example file name</strong></td>
+            <td width="53%"><strong>Expected result</strong></td>
+          </tr>
+          <tr>
+            <td>Compatible/valid extensions </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Incompatible/ invalid extensions </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>b.	Explain how the use of an error message when an attempt is made to upload an incompatible file would increase the effectiveness of the user interface of the platform.	2 marks<br />
+      </p>
+      <p><br />
+      </p>
+      <p><br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c11" id="c50"></a>C11</strong></p></td>
+    <td valign="top"><p><strong>Question 11</strong> (5 marks)</p>
+      <p> George and Regina, two members of the team, are discussing the processing features to use in the development of the transcription module.<br />
+        One discussion is about the code required for uploading audio recordings, which results in the text transcription of the file. George is saying that a function is the best structure to use, while Regina is suggesting that a method should suffice.</p>
+      <p><br />
+        a.	Justify why a function should be used within the platform&rsquo;s code.	3 marks</p>
+      <p><br />
+        b.	George and Regina start considering how classes could be used within the module. Describe how the development team could use a class within the transcription module.	2 marks</p>
+      <p>&nbsp;</p>
+      <p class="explanation"></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c12" id="c51"></a>C12</strong></p></td>
+    <td valign="top"><p><strong>Question 12</strong> (6 marks)</p>
+      <p> The team knows that the accuracy of transcriptions will be an important non-functional requirement for the platform.<br />
+        They have generated an algorithm that will compare each word in the transcription (generated by the Al), with a library of words from previously transcribed audio. The transcribed word will then be checked against the matched audio from the uploaded recording. Where an inaccurately transcribed word is detected, the word will be re-transcribed and the transcription updated with the new text. The new text will then be re-checked by the algorithm.</p>
+      <p> This algorithm is outlined below.</p>
+      <p><br />
+        <img src="/p/2023-sd-post-mortem/c12.png" alt=""/></p>
+      <p class="comment">Whoops. The writer screwed the pooch in the 'wordLibrary[ ])) line. One too many right-parentheses!</p>
+      <p class="comment"><img src="/m/shame.png" width="50" height="47" alt=""/></p>
+      <p> Using the information and algorithm provided, complete the data dictionary below.<br />
+      </p>
+      <table width="30%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td><h3>Name</h3></td>
+            <td><h3>Data type/structure</h3></td>
+            <td><h3>Description</h3></td>
+          </tr>
+          <tr>
+            <td>error</td>
+            <td>integer</td>
+            <td>Used to determine the position of an error within the transcription</td>
+          </tr>
+          <tr>
+            <td>transctext[]</td>
+            <td>&nbsp;</td>
+            <td>Collection of words that have been transcribed from the uploaded audio</td>
+          </tr>
+          <tr>
+            <td>rec[]</td>
+            <td>array (audio) </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>i</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Boolean</td>
+            <td>Used to determine whether an issue with the transcription has been detected</td>
+          </tr>
+          <tr>
+            <td>wordLibrary[]</td>
+            <td>&nbsp;</td>
+            <td>Collection of words from previously transcribed audio</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br />
+        <strong>Phase 3: Translation module</strong><br />
+      </p>
+      <p></p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c13" id="c52"></a>C13 </strong></p></td>
+    <td valign="top"><p><strong>Question 13</strong> (3 marks)</p>
+      <p><br />
+        The development of the platform was delayed during the testing of the transcription component of the solution. The business&rsquo;s management insists that Ness must ensure that the new product is released on time. One suggestion is to integrate a third-party Al-based translation service into their platform to help launch the platform on time. Ness&rsquo;s team has identified a particular product that could be integrated into their product; however, she is worried that this approach could present some issues in the medium- and long-term future.<br />
+        Propose how Ness and her team could manage each of the following risks that she has identified.</p>
+      <p><br />
+        Risk 1: Loss of access to the Al-based translation service during server maintenance conducted by the third party.</p>
+      <p> Proposal</p>
+      <p><br />
+        Risk 2: Security vulnerabilities could be introduced into the platform.</p>
+      <p> Proposal</p>
+      <p> Risk 3: User data could be transferred internationally without their knowledge.</p>
+      <p> Proposal</p>
+      <p><br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c14" id="c53"></a>C14</strong></p></td>
+    <td valign="top"><p><strong>Question 14</strong> (4 marks)</p>
+      <p> The translation module takes the source document and splits it into paragraphs, resulting in an XML file being generated. The module then sends each paragraph to the API (application programming interface) as separate requests/calls, working through each paragraph node in the file. As each paragraph is translated, the API adds the translated data to the end of the original XML file.</p>
+      <p> One of the junior developers recommends using a CSV file to send the data to the API; however, Ness disagrees.</p>
+      <p> a.	Justify why it is better to use an XML file in this scenario, rather than a CSV file.	3 marks</p>
+      <p>b.	From the options below, circle one factor that would influence the decision to use an XML file when designing the module.	1 mark<br />
+        affordance interoperability marketability security<br />
+      </p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><span class="question"><strong><a name="c15" id="c54"></a>C15</strong></span></td>
+    <td valign="top"><p><strong>Question 15</strong> (3 marks)</p>
+      <p> Describe a suitable backup procedure that Ness could use while working on the project.</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><strong><a name="c16" id="c4"></a>C16</strong></td>
+    <td valign="top"><p><strong>Question 16</strong> (2 marks)</p>
+      <p> As development of the platform is nearing completion, Ness is preparing to review the platform for maintainability, security and legal compliance purposes.</p>
+      <p> Suggest two areas of investigation that Ness could include in reviewing these aspects of the platform.</p>
+      <p> Suggestion 1</p>
+      <p> Suggestion 2</p></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFCC"><strong><a name="c17" id="c3"></a>C17</strong></td>
+    <td valign="top"><p><strong>Question 17</strong> (4 marks)</p>
+      <p> At the conclusion of the development of the translation module, and overall project, Ness will assess the effectiveness of her project plan.</p>
+      <p><br />
+        a.	Propose how the project plan could be assessed for its effectiveness.	2 marks</p>
+      <p><br />
+        b.	Explain why it is important for Ness to assess how the project plan has assisted in monitoring the progress of the project.	2 marks</p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+        <p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+      </div></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left"><div class="comment">
+        <p><strong>Section C summary</strong></p>
+        <p>&nbsp;</p>
+      </div></td>
+  </tr>
+  <tr>
+    <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+  </tr>
+</table>
+<table width="80%" border="1" align="center" cellpadding="1" cellspacing="0">
+  <tr>
+    <td valign="top"><p>A temporary icon repository...</p>
+      <p><span class="explanation"><img src="/m/security-dog.jpg" width="243" height="132" alt=""/></span><span class="explanation"><img src="/m/xtick.gif" width="29" height="28" alt=""/></span><span class="explanation"><img src="/m/xcross.png" width="30" height="29" alt=""/></span><span class="explanation"><img src="/m/xqm.png" width="23" height="23" alt=""/></span><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /><img src="/tip.png" width="40" height="22" alt=""/><img src="/thumbsup.gif" width="39" height="43" alt=""/><img src="/m/doubt.gif" width="35" height="35" alt=""/></p>
+      <table width="80%" border="1" cellspacing="0" cellpadding="2">
+        <tbody>
+          <tr>
+            <td width="14%"><span class="explanation"><img src="/m/dogsad.jpg" width="108" height="115" alt="Sad Dog Award"/></span></td>
+            <td width="86%" class="comment">I'm sad because</td>
+          </tr>
+        </tbody>
+      </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 2023-12-07</font></p>
+<p align="center"><font size="2">Last changed: 
+  <!-- #BeginDate format:Am1a -->August 3, 2024 2:30 PM<!-- #EndDate --> 
+  </font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2023<br />
+  Images and questions are &copy; Victorian Curriculum 
+  and Assessment Authority. <br />
+  Reproduced here with permission for educational purposes.</font><br />
+  Thanks, VCAA!</p>
+<p align="center"><font size="2">VCE DATA &copy; <a href="/mailform.htm">Mark Kelly</a></font></p>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

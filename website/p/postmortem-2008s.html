@@ -1,0 +1,1309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE IT Software Development Exam 2008 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21490715-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<p align="center"><img src="/bits/title.png" /></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a></p>
+<table>
+<tr>
+  <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+    <h1 align="center">VCAA Exam Post Mortem </h1>
+    <h1 align="center">2008</h1>
+    <p align="center"><img src="/m/toetags.jpg" alt="VCE IT Exam Post Mortem" width="527" height="235" /></p></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+</tr>
+<tr>
+  <td>
+  <p><em>Sept 2012 - For those using old exams for revision purposes, I've marked questions that are no longer relevant in the 2011-2014 study design. The notes appear after the question numbers.</em></p>
+  </td>
+</tr>
+<tr>
+  <td><h3 align="center">Written examination</h3>
+    <p align="center"><strong>Thursday 13 November 2008</strong></p>
+    <p align="center"><strong>Reading time: 11.45 am to 12.00 noon (15 minutes) </strong></p>
+    <p align="center"><strong>Writing time: 12.00 noon to 2.00 pm (2 hours)</strong></p>
+    <div align="center">
+      <table border="1" align="center" cellpadding="3" cellspacing="0" class="MsoNormalTable"
+style="margin-left:86.45pt;border-collapse:collapse">
+        <tr>
+          <td width="95" ><p></p></td>
+          <td width="113"><p align="right"><em>Number of questions</em></p></td>
+          <td width="153"><p align="right"><em>Number of questions to be answered</em></p></td>
+          <td width="126"><p align="right"><em>Number of marks</em></p></td>
+          </tr>
+        <tr>
+          <td width="95"><p>&nbsp;</p></td>
+          <td width="113"><p>&nbsp;</p></td>
+          <td width="153"><p>&nbsp;</p></td>
+          <td width="126"><p>&nbsp;</p></td>
+          </tr>
+        <tr>
+          <td width="95"><p><a href="#a">A</a></p></td>
+          <td width="113"><p align="right" >20</p></td>
+          <td width="153"><p align="right" >20</p></td>
+          <td width="126"><p align="right" >20</p></td>
+          </tr>
+        <tr>
+          <td width="95"><p ><a href="#b">B</a></p></td>
+          <td width="113" ><div align="right">5
+            <p></p>
+            </div></td>
+          <td width="153"><p align="right" >5</p></td>
+          <td width="126"><p align="right" >17</p></td>
+          </tr>
+        <tr>
+          <td width="95"><p ><a href="#c">C</a></p></td>
+          <td width="113&lt;p" ><div align="right">13
+            <p></p>
+            </div></td>
+          <td width="153"><p align="right" >13</p></td>
+          <td width="126"><p align="right" >52</p></td>
+          </tr>
+        <tr>
+          <td width="95"><p>&nbsp;</p></td>
+          <td width="113"><p align="right">&nbsp;</p></td>
+          <td width="153"><p align="right">&nbsp;</p></td>
+          <td width="126"><p align="right">Total 89</p></td>
+          </tr>
+        </table>
+      </div>
+    <p>&bull;&nbsp;Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.<br />
+      &bull;&nbsp;Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.</p>
+    <p><strong>Materials supplied</strong></p>
+    <p>&bull;&nbsp;Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.<br />
+      &bull;&nbsp;Answer sheet for multiple-choice questions.</p>
+    <p><strong>Instructions</strong></p>
+    <p>&bull;&nbsp;Remove the insert containing the case study during reading time.<br />
+      &bull;&nbsp;Write your student number in the space provided above on this page.<br />
+      &bull;&nbsp;Check that your name and student number as printed on your answer sheet for multiple-choice &bull;questions are correct, and sign your name in the space provided to verify this.<br />
+      &bull;&nbsp;All written responses must be in English. </p>
+    <p><strong>&nbsp;At the end of the examination</strong></p>
+    <p>&bull;&nbsp;Place the answer sheet for multiple-choice questions inside the front cover of this book.</p>
+    <hr />
+    Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</td>
+</tr>
+<tr>
+<td>
+<center>
+Jump to <a href="#a">SECTION A</a>, <a href="#b">SECTION B</a>, <a href="#cs">CASE STUDY</a>, <a href="#c">SECTION C</a>
+</center>
+</td>
+</tr>
+<tr>
+<td ><p><a name="a"></a></p>
+<h2>SECTION A - Multiple-choice questions</h2>
+<p><strong>Instructions for Section A</strong></p>
+<p>Answer all questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+Choose the response that is correct or that best answers the question. <br />
+A correct answer scores 1, an incorrect answer scores 0. <br />
+Marks will not be deducted for incorrect answers.<br />
+No marks will be given if more than one answer is completed for any question</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td class="red">Most students handled the multiple-choice questions reasonably well, with an average mark of 14. However, a number<br />
+of students left questions unanswered. Students should be encouraged to provided responses to all multiple-choice<br />
+questions even if they are unsure of the correct response. Marks are not deducted for incorrect answers.</td>
+</tr>
+<tr>
+<td class="red">During the examination, students should:<br />
+&bull; endeavour to use correct IT language throughout the paper<br />
+&bull; when asked to justify a choice or compare one option with another, they should discuss all options<br />
+&bull; know the difference between verbs such as 'state', 'explain', 'justify' or 'describe'<br />
+&bull; re-read the question and their response to ensure the actual question has been answered<br />
+&bull; avoid using pencil in Sections B and C, as responses in pencil can often be difficult for assessors to read<br />
+&bull; read the case study and questions carefully and underline or highlight key words<br />
+&bull; endeavour to demonstrate their knowledge of the subject and apply that knowledge to the case study, as generic responses often result in low or no marks.</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 1</strong> <em>(2011-2014 - no longer relevant)</em></p>
+<p>The main components of an information system are</p>
+<p>A.&nbsp;equipment, people, information, and procedures.</p>
+<p>B.&nbsp;equipment, people, data, and programs.</p>
+<p><strong>C.&nbsp;equipment, people, data, and procedures.</strong></p>
+<p>D.&nbsp;equipment, data, procedures and software.</p>
+<p class="myanswer">Answer is C. That's how the study design defines 'information system'.</p>
+<p class="examiner">51% of students got this right. 26% went for D.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 2</strong> <em>(2011-2014 - types of info systems is no longer relevant)</em></p>
+<p>A ticket seller at a cinema uses a computer to</p>
+<p>&bull;&nbsp;check which seats are available for a customer<br />
+&bull;&nbsp;allocate a vacant seat to the customer<br />
+&bull;&nbsp;print a ticket for the customer.</p>
+<p>What type of information system is the ticket seller using?</p>
+<p>A.&nbsp;an office automation system</p>
+<p>B.&nbsp;a management information system</p>
+<p>C.&nbsp;an expert system</p>
+<p><strong>D.&nbsp;a transaction processing system</strong></p>
+<p class="myanswer">Answer is D. A TPS records transactions. Its data is fed upwards to Management Information Systems at the tactical decision making level of management, and then up to be used by Executive Information Systems at the Strategic level of management.</p>
+<p class="examiner">46% got this right. 30% went for B.</p>
+</td>
+</tr>
+<tr>
+<td><p>The following information relates to Questions 3 and 4.</p>
+<p>One model of the systems development life cycle involves the process of creating a simplified version, or part, of a system as soon as analysis is completed. This helps to quickly identify misunderstandings between system users and developers, and to expose missing user requirements early in the systems development life cycle.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong><strong></strong> <em>(2011-2014 - SDLC and its alternatives are no longer used. Only the PSM is now used)</em></p>
+<p>The systems development life cycle model described above is most probably</p>
+<p>A.&nbsp;rapid application development.</p>
+<p>B.&nbsp;agile modelling.</p>
+<p>C.&nbsp;structured modelling.</p>
+<p><strong>D.&nbsp;prototyping.</strong></p>
+<p class="myanswer">Answer is D. Prototypes are demonstration models of products which demonstrate the functionality of the real product, or demonstrate the &quot;look and feel&quot; of it.</p>
+<p class="examiner">57% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong>
+<strong></strong> <em>(2011-2014 - not relevant)</em></p>
+<p>It-is clear that the model described above is not the waterfall model of systems development because</p>
+<p><strong>A.&nbsp;in the waterfall model no part of the system is created until the design is complete.</strong></p>
+<p>B.&nbsp;in the waterfall model users are not involved at all in the systems development life cycle.</p>
+<p>C.&nbsp;the waterfall model does not include an analysis stage.</p>
+<p>D.&nbsp;the waterfall model does not allow misunderstandings to occur between users and software developers.</p>
+<p class="myanswer">Answer is A. The traditional SDLC is rigidly 'lock step' with each stage following the previous one. As its waterfall name suggests, you can't go back.</p>
+<p class="examiner">74% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong></p>
+<p>Data sent through a cable connection is naturally more secure than data sent through a wireless connection. This statement is</p>
+<p><strong>A.&nbsp;true, because to dishonestly obtain data from a cable requires a physical connection to be made to the<br />
+cable.</strong></p>
+<p>B.&nbsp;false, because wireless transmissions are encrypted and so data is safe from unauthorised access.</p>
+<p>C.&nbsp;true, because when wireless is used, data is broadcast to all computers within a 10-kilometre radius of the<br />
+transmitter.</p>
+<p>D.&nbsp;false, because cable connections can only go a certain distance before wireless has to be used.</p>
+<p class="myanswer">Answer is A. Cable must be physically tapped to steal signal. Wireless cannot be geographically constrained and can be received remotely.</p>
+<p class="myanswer"><em>Interesting question. It can't be B because not all wireless is encrypted, and encryption is not always uncrackable. It can't be C because wireless does not often reach 10km. It can't be D because some cables can outstretch wireless (e.g. fibre optic).</em></p>
+<p class="examiner">70% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p><img src="/m/pm/08s-image001.gif" width="228" height="288" /></p>
+<p>The algorithm <strong>Process_weights</strong> has been designed to process data contained in a file called <strong>bag_weights</strong>.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Question 6</strong><strong></strong> <em>(2011-2014 - NSDs are no longer examinable)</em></p>
+<p>The algorithm is to be tested using a pencil and paper. It is assumed that <strong>bag_weights</strong> will contain the test data: 55, 77, 60, 0, 58.</p>
+<p>At the end of the test the final value in variable <strong>count</strong> will be</p>
+<p>A.&nbsp;-1</p>
+<p>B.&nbsp;0</p>
+<p><strong>C.&nbsp;1</strong></p>
+<p>D.&nbsp;2</p>
+<p class="myanswer">Answer is C. </p>
+<p class="comment">Let's walk through it as the computer would... ('cos I can't do these in my head - I really do need pencil and paper)</p>
+<p class="comment">count =0<br />
+cutoff=60<br />
+weight=9999 (this is a temporary value so it actually enters the loop!)<br />
+<br />
+weight (9999) &gt; 0 so enter the while loop<br />
+read 55 into weight
+<br />
+55 &lt; cutoff (60), so count = 1</p>
+<p class="comment">Retest the While condition - weight (55) &gt; 0 so loop again<br />
+read 75 into weight<br />
+75 &gt; cutoff
+(60) so do nothing</p>
+<p class="comment">Retest the While condition - weight (75) &gt; 0 so loop again<br />
+read 60 into weight<br />
+60 is not less than cutoff (60) so do nothing</p>
+<p class="comment">Retest the While condition - weight (60) &gt; 0 so loop again<br />
+read 0 into weight<br />
+0 &lt; cutoff (60) so count now =2</p>
+<p class="comment">Retest the While condition - weight (0) not &gt; 0 so exit the while loop</p>
+<p class="comment">decrement count (2) to 1</p>
+<p class="comment">That was rather fun with some nice border condition testing and a tricky end-of-loop before all the data was read :-)</p>
+<p class="examiner">34% got this right. Other responses were 20% for A, 29% for B, 15% for D.</p>
+<p class="examiner">It is expected that students will be able to look at an algorithm and desk check it to see what it actually produces. There was little evidence of a formal desk check in student responses.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 7</strong></p>
+<p>In <strong>Process_weights</strong>, the variable <strong>count</strong> will most probably only ever contain</p>
+<p>A.&nbsp;string data.</p>
+<p>B.&nbsp;floating point data.</p>
+<p><strong>C.&nbsp;integer data.</strong></p>
+<p>D.&nbsp;decimal data.</p>
+<p class="myanswer">Answer is C. Since it is only ever incremented or decremented by 1, it will always remain an integer. By the way, floating point is the same as decimal in that they both just have fractional parts.</p>
+<p class="examiner">84% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 8</strong><br />
+</p>
+<p>Process_weights will be a small part of an information system. The information system is to be represented with a data flow diagram.</p>
+<p>The part of the data flow diagram associated with the algorithm Process_weights is best drawn as<br />
+</p>
+<p><img src="/m/pm/08s-image002.gif" width="625" height="593" /></p>
+<p class="myanswer">Answer is A. The parallel lines around 'bag_weights' denotes a data store. The other options had a rectangle (which is an external entity) or an arrow (which is a data flow from somewhere else.</p>
+<p class="examiner">49% got this right. Those who got it wrong were evenly split across the other options.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 9</strong></p>
+<p>The major purpose of creating test data and expected results is to find</p>
+<p>A.&nbsp;syntax errors.</p>
+<p><strong>B.&nbsp;logic errors.</strong></p>
+<p>C.&nbsp;variable errors.</p>
+<p>D.&nbsp;documentation errors.</p>
+<p class="myanswer">Answer is B. Syntax errors are mistakes in how commands are expressed in the language being used, including command/function names, number of parameters entered, punctuation. They just can't be understood by the very literally-minded compiler. Logic errors occur when language rules are not broken, but the result is not what you expected. For example, A=A+3 is syntactially correct, but if you meant to subtract rather than add, your answer will be rubbish. </p>
+<p class="examiner">64% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 10</strong></p>
+<p>The best data type to store a phone number in the format (99) 9999 9999, for example (03) 1234 5678, would be</p>
+<p>A.&nbsp;integer.</p>
+<p>B.&nbsp;floating point or decimal number.</p>
+<p><strong>C.&nbsp;string or text.</strong></p>
+<p>D.&nbsp;Boolean.</p>
+<p class="myanswer">Answer is C. Repeat after me, kiddies: you should <span class="myanswer"><strong>never</strong></span> store phone numbers as numbers. If you did, you could not enter the parentheses, leading zero, or the spaces. Since you'll never be doing arithmetic with the number anyway, storing it as text is no disadvantage.</p>
+<p class="examiner">59% got this right. 30% went for A.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 11</strong></p>
+<p>A program for viewing high quality photographs on a computer screen is being written. The photographs are stored as JPEG files on a central fileserver and have an average size of 2 megabytes each. To download one photograph to a computer that has a wireless connection running at 10 megabits per second will take about</p>
+<p>A.&nbsp;0.2 seconds.</p>
+<p><strong>B.&nbsp;1.6 seconds.</strong></p>
+<p>C.&nbsp;5 seconds.</p>
+<p>D.&nbsp;6.25 seconds.</p>
+<p class="myanswer">Answer is B. This is why they let you bring in your calculator. Let's do some arithmetic.</p>
+<p class="myanswer">10 megaBITs divided by 8 bits in a byte = 1.25 megaBYTES per second. So a 2M photo will take a second and a bit.</p>
+<p class="myanswer">2 divided by 1.25 = 1.6 seconds.</p>
+<p class="examiner">41% got this right. 40% went for A.</p>
+<p class="examiner">This question was poorly done, showing that students were either not aware of the difference between bits and bytes or that they misread the question.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 12</strong></p>
+<p>When evaluating the effectiveness of a software application you are mainly looking at</p>
+<p>A.&nbsp;how quick it is to load and run.</p>
+<p><strong>B.&nbsp;how well it does its job.</strong></p>
+<p>C.&nbsp;how little space it takes up.</p>
+<p>D.&nbsp;how quickly it can access data.</p>
+<p class="myanswer">Answer is B. <strong>Effectiveness</strong> is a measure of quality, accuracy, pleasantness etc. <strong>Efficiency</strong> is a measure of saved time, money or labour. Read such keywords very carefully!</p>
+<p class="examiner">91% got this right. </p>
+<p class="myanswer"><em>Woohoo!</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 13</strong></p>
+<p>A school database is being set up. The programmers wish to check that the entry of the date of birth of a student is what is expected for a student entering that year level. <br />
+Assuming that the date is a valid date, the best validation technique would be</p>
+<p>A.&nbsp;existence test.</p>
+<p>B.&nbsp;numeric test.</p>
+<p>C.&nbsp;string test.</p>
+<p><strong>D.&nbsp;range test.</strong></p>
+<p class="myanswer">Answer is D. You need to check that the value is within reasonable lower and upper ranges. Existence test simply checks that the value was entered at all. I've not heard of numeric and string tests: they usually fall under the heading 'type check'.</p>
+<p class="examiner">72% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 14</strong></p>
+<p>Documentation that introduces new users to the commonly used features of software packages is called</p>
+<p><strong>A.&nbsp;a tutorial.</strong></p>
+<p>B.&nbsp;an installation guide.</p>
+<p>C.&nbsp;a data dictionary.</p>
+<p>D.&nbsp;systems documentation.</p>
+<p class="myanswer">Answer is A. The installation guide gives instructions for (duh) installing the software. A data dictionary describes the data structures (fields etc) within the software. </p>
+<p class="examiner">88% got this right.<br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>The following information relates to Questions 15-17. </p>
+<p>The functional block diagram below is of a small company's local area network.</p>
+<p><img src="/m/pm/08s-image003.jpg" width="514" height="246" /></p>
+<p><strong>Question 15</strong></p>
+<p>In the network shown above, what is the name of the hardware shown as X?</p>
+<p>A.&nbsp;printer</p>
+<p><strong>B.&nbsp;switch</strong></p>
+<p>C.&nbsp;CAT 5 cable</p>
+<p>D.&nbsp;LAN</p>
+<p class="myanswer">Answer is B. It's the device that lets you interconnect many separate CAT cables from devices. </p>
+<p class="comment">Not really a hard question, as shown by...</p>
+<p class="examiner">94% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 16</strong><strong></strong> <em>(2011-2014 - topologies are probably no longer examinable. The study design's references to LAN technologies is vague)</em></p>
+<p>The local area network above shows an example of a</p>
+<p>A.&nbsp;hybrid topology.</p>
+<p>B.&nbsp;bus topology.</p>
+<p><strong>C.&nbsp;star topology.</strong></p>
+<p>D.&nbsp;tree topology.</p>
+<p class="myanswer">Answer is C. Hybrid is a mixture of 2 or more topologies, e.g. star-bus, star of stars. It certainly isn't a bus (which requires coaxial cable and looks like a centipede). </p>
+<p class="comment">After <a href="http://en.wikipedia.org/wiki/Network_topology">researching the difference between hybrid and tree</a> (I've previously considered them synonymous), I've found they both exist and are different. Luckily, they are not relevant to this question.</p>
+<p class="examiner">63% got this right. 22% went for A.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 17</strong></p>
+<p>The company, on learning that its ISP does not have a firewall, must install one on its system. Using the positions labelled 1-4, which is the best position for the firewall?</p>
+<p>A.&nbsp;1</p>
+<p>B.&nbsp;2</p>
+<p><strong>C.&nbsp;3</strong> <span class="red">&lt;&lt; the official VCAA answer</span></p>
+<p><strong>D.&nbsp;4</strong></p>
+<p class="myanswer">Answer is probably C. </p>
+<p class="comment">I originally thought 'D' because you want your firewall to be the first part of your LAN exposed to the outside world. However that is controlled by the ISP and consists of analogue data heading for your modem to be demodulated. As one reliable teacher colleague said, &quot;Terrible question&quot; because none of the answers are really good in the real world. Best choice would be inside the router/modem rather than in a separate box in either location 3 or 4.</p>
+<p class="examiner">39% got this right. 57% went for D <span class="comment">(as I did)</span>.</p>
+<p class="examiner">Many students confused where a firewall should be placed.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 18</strong><strong></strong> <em>(2011-2014 - skip this. Gantt and PERT charts are no longer examinable)</em></p>
+<p>A company that conducts surveys is setting up five of its networked computers for special data entry work. The person in charge created a Gantt chart to help manage the project. A section of the chart is shown below.</p>
+<p><img src="/m/pm/08s-image004.jpg" width="552" height="165" /></p>
+<p>Which of the following statements is supported by the Gantt chart?</p>
+<p>A.&nbsp;Testing of software can begin as soon as the central database is set up.</p>
+<p><strong>B.&nbsp;The critical path for this part of the project is the tasks numbered 1-3-4-5.</strong></p>
+<p>C.&nbsp;Data entry operators must be trained before software testing can begin.</p>
+<p>D.&nbsp;Setting up the central database and installing data entry software cannot occur at the same time.</p>
+<p class="myanswer">Answer is B.</p>
+<p class="myanswer">Can't be A because software testing has to wait not only for database setup, but also for installing data entry software. It has 2 predecessors.<br />
+Can't be C because clearly training is done <strong>after </strong>software testing.<br />
+Can't be D because database setup overlap in the chart, so they are concurrent. </p>
+<p><span class="myanswer">And it must be B because the critical path is the longest path from the beginning of the project to the end of the project that has no slack time in it.</span></p>
+<p class="examiner">80% got this right.<br />
+</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 19</strong></p>
+<p>A program reads a set of money amounts entered via a keyboard. It stores each amount into a file in the order it is received. This file is later accessed by reading the data in the order it was received. This kind of file access is known as</p>
+<p>A.&nbsp;normal access.</p>
+<p>B.&nbsp;direct access.</p>
+<p>C.&nbsp;random access.</p>
+<p><strong>D.&nbsp;serial access.</strong></p>
+<p class="myanswer">Answer is D. </p>
+<p class="comment">I've often wondered if there is a difference between serial access and sequential access, but in this case it's not important. There's only one viable option. One text tells me that sequential files are sorted by one or more fields. Serial access records appear in the order in which they were entered. In both cases, they are different to random access files in which records can be accessed without having to read all of the records between where the read/write head is and where the record is stored. Hard disks, CDs, DVDs, even old LP vinyl record players are random: the head can be lifted and dropped anywhere, instantly. Serial/sequential files are more akin to cassette tape which must be rewound or fast forwarded to find a particular song.</p>
+<p class="examiner">71% got this right.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 20</strong></p>
+<p>A program is being written that will perform calculations involving temperature measurements taken over a long period of time. The programmer chooses T as the name for the variable which will hold a temperature measurement. This variable name is</p>
+<p>A.&nbsp;a good choice because that is the symbol used in science.</p>
+<p><strong>B.&nbsp;a poor choice because it is not clear whether it stands for temperature or time.</strong></p>
+<p>C.&nbsp;a good choice because it is brief and quick to enter.</p>
+<p>D.&nbsp;a poor choice because it does not specify the size of the variable.</p>
+<p class="myanswer">Answer is B. The name may be temptingly easy to type, but it will later become confusingly meaningless and will require relearning the data dictionary every time the program is revisited.</p>
+<p class="examiner">89% got this right.<br />
+<br />
+</p>
+</td>
+</tr>
+<tr>
+<td ><h2><a name="b"></a>SECTION B - Short answer questions</h2>
+<p><strong>Instructions for Section B</strong></p>
+<p><strong>Answer all questions in the spaces provided.</strong></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td class="red">Section B required students to demonstrate core theoretical knowledge. Students appeared to be familiar with this<br />
+structure, but it is disappointing that the mean score for this section was approximately 58 per cent. Students were not<br />
+required to apply their knowledge to a case study, rather they were just required to demonstrate knowledge about key<br />
+concepts. </td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 1</strong></p>
+<p>Two important file management procedures are 'archiving' and 'backing up'. Both involve copying files, but they have very different purposes, </p>
+<p>a.&nbsp;State the main purpose of each procedure. </p>
+<p>Main purpose of archiving</p>
+<p class="myanswer">Instead of deleting files that are no longer required, they are taken offline and stored elsewhere to free up storage space. </p>
+<p>Main purpose of backup</p>
+<p class="myanswer">To protect files by copying them to a second location.</p>
+<p>2 marks - State average was 1.5.</p>
+<p class="examiner">Acceptable purposes included:<br />
+&bull; archiving: long-term storage of main system files in case information is needed in the future and to free up space on the main system<br />
+&bull; backup: storage of files so that the system can be restored in the case of a crash or similar problem &ndash; data security.<br />
+This question asked students to state the purpose of archiving and backup and did not ask for an explanation of how to do it. A large number of students did not appear to know the purpose of archiving, even though it is listed in the VCE Software Development Study Design. Students needed to explain why the process was used, not how the process was performed. Many students explained how to archive and/or backup and therefore did not answer the question.</p>
+<p>Describe one difference between them.</p>
+<p class="myanswer">Files that are archived are deleted from the original location. Backed up files are copied, not moved, and the original copy remains in place.</p>
+<p>2 marks - Average 1.1</p>
+<p class="examiner">A possible response could have been:<br />
+<em>Archiving is the storage of important data that is external to the main system for the purpose of later retrieval if required. Backup is the storage of data that is external to the main system in case the system crashes and data is lost. </em></p>
+<p class="examiner">This question required students to explain a difference between archiving and backup. Many students struggled to describe a difference and simply gave a definition without contrasting one process with the other. Many students also tended to repeat their answer for part a. Archiving transfers inactive files to an auxiliary storage medium before being deleted from the hard disk. Backups involve the copying of active files to an auxiliary storage medium to safeguard against loss or corruption &ndash; the files are not deleted.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 2</strong></p>
+<p>Explain the difference between user documentation and internal documentation for a software application.</p>
+<p class="myanswer">User documentation provides software users with information on how to use the software. Internal documentation (such as comments within a program) is not seen by users; it is meant to tell programmers important things about the code, such as: what it does; why it was written as it was; who wrote it; its version; warnings to future developers etc.</p>
+<p>4 marks - Average 2.5</p>
+<p class="examiner">&bull; user documentation explains the use and features of a program as well as providing a guide to fix any common errors. It is external and usually printed in hard copy through online user documentation<br />
+&bull; internal documentation refers to the comments inserted into the code by the original programmers. These comments provide guidance or explanations to maintenance programmers who may have to fix bugs in the software<br />
+Students needed to contrast both the purpose and the type of user and internal documentation. Many students did not clearly explain that internal documentation occurs in the code or did not mention the purpose of the documentation.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong></p>
+<p>List the main features of a naming convention for variables and procedures that you have used in your programming this year. State two advantages of this convention.</p>
+<p>Main features</p>
+<p class="myanswer">'Hungarian notation' uses a <strong>prefix.name</strong> format such as txtFirstName, boolMarried, globalFlag.The prefix identifies the object type, and the name instantiates an particular instance of the object. </p>
+<p>Advantage 1</p>
+<p class="myanswer">The prefix clearly identifies the type of the object so mismatched objects cannot be accidentally combined. e.g. if bNumber is a a byte variable (which can hold up to 255) and pPoint is a 32 bit pointer, the programmer would quickly realise that bNumber = pPoint + 1 would lead to an error because any 'p' variable could never fit into a 'b' variable.</p>
+<p>Advantage 2</p>
+<p class="myanswer">It promotes consistency throughout a program, and throughout a team. It reduces the chances that an individual or team mate will mistreat variables because they did not realise their type. It's also more efficient for program maintenance, since returning to work on a program after a long absence will be easier because the programmer will not need to relearn that particular program's naming scheme.</p>
+<p>3 marks - average 1.6</p>
+<p class="examiner">Students were asked to describe the features of a naming convention and state the advantages of this convention. Students needed to give two different advantages and not simply a rewrite of one advantage. It was disappointing to see the number of students who did not answer this question.</p>
+<p class="examiner">Following is an example of a student response that does not use Hungarian notation.<br />
+<em>Main features: clear naming &ndash; relating the variable/procedure name to its purpose and using an underscore to separate multiple words, that is, 'procedure name'.<br />
+Advantage 1: makes it easier to tell what the purpose of the variable or procedure is if someone else was to read the program.<br />
+Advantage 2: the use of underscore makes the variable name easy to read and therefore easier to understand.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 4</strong> </p>
+<p>A program is being written that will require a file to be randomly accessed many times in order to read data from it. The file contains about 600 megabytes of data and is currently stored on a CD. The programmer has three options.</p>
+<p>A - Write the program so that it reads the data as needed directly from the CD.</p>
+<p>B - Write the program so that it first copies the entire file onto hard disk and then reads the data as needed.</p>
+<p>C - Write the program so that it first copies the entire file into main memory and then reads the data as needed.</p>
+<p>Which option should the programmer choose in order to minimise the program's running time? Give reasons for your answer.</p>
+<p class="myanswer">Option C. RAM access is far faster than accessing hard disks, and especially optical media.</p>
+<p class="comment">The key information in the question was <strong>&quot;minimise running time&quot;</strong>. There would be arguments for using the other options under different circumstances, but not if the main aim was speed. The instruction was to give <strong>reasons</strong> (plural) but I can't really think of a second one. Perhaps explain that (1) seeking and (2) reading/writing operations would be faster in RAM than either of the options.</p>
+<p>2 marks - average 1.0</p>
+<p class="examiner">C &minus; Write the program so that it first copies the entire file into main memory and then reads the data as needed.<br />
+<br />
+C was the expected answer due to the speed of access and the critical words in the question 'randomly accessed many times'. However, many students chose option B 'Write the program so that it first copies the entire file onto hard disk and then reads the data as needed', arguing that the memory may not be able to handle 600 Mb of data without slowing the computer down which was also accepted. Students were expected to give reasons why the non-selected systems were inferior. Many students did not discuss the options they did not choose.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 5</strong></p>
+<p>A principal wants to purchase new software to enable teachers to design their own online examinations. On searching the web he finds Excellent Exams Software and decides to set up a criteria table to help him evaluate the software accurately. Excellent Exams Software makes the claims stated in the table below. Complete the table below by stating the evaluation criteria for each claim and provide a comment to help the principal make a decision.</p>
+<table border="1" cellpadding="3" cellspacing="0" >
+<tr>
+<td><p><strong>Claim</strong></p>
+</td>
+<td><p><strong>Criteria
+for evaluation</strong></p>
+</td>
+<td><p><strong>Comment</strong></p>
+</td>
+</tr>
+<tr>
+<td>Very easy to use</td>
+<td>Usability
+<p></p>
+</td>
+<td><p>This should mean teachers will need very little training but you will need to
+check this</p>
+</td>
+</tr>
+<tr>
+<td><p>It takes only three minutes to load per user</p>
+</td>
+<td class="myanswer"><p>Speed</p>
+</td>
+<td class="myanswer"><p>It will be quick to start using the software, so staff will be productive sooner and with less frustrating waiting. But will staff be willing to wait even 3 minutes?</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2"><p>Operates without fatal errors on most networked
+systems</p>
+</td>
+<td class="myanswer">Reliability</td>
+<td class="myanswer"><p>Perhaps there are no &quot;fatal&quot; errors, but are there other non-fatal errors it is prone to?</p>
+</td>
+</tr>
+<tr>
+<td class="myanswer"><p>Compatibility</p>
+</td>
+<td class="myanswer"><p>Is <strong>our</strong> network system one of the &quot;most&quot;? Need to find out.</p>
+</td>
+</tr>
+</table>
+<p>4 marks - average 2.4</p>
+<p class="comment">'It takes only three minutes to load per user' could be a touch ambiguous. It could mean 'install' (onto their laptop) or load (run) each time they wanted to use it.</p>
+<table border="1" cellpadding="3" cellspacing="0" >
+<tr>
+<td><p><strong>Claim</strong></p>
+</td>
+<td><p><strong>Criteria
+for evaluation</strong></p>
+</td>
+<td><p><strong>Comment</strong></p>
+</td>
+</tr>
+<tr>
+<td>Very easy to use</td>
+<td>Usability
+<p></p>
+</td>
+<td><p>This should mean teachers will need very little training but you will need to
+check this</p>
+</td>
+</tr>
+<tr>
+<td><p>It takes only three minutes to load per user</p>
+</td>
+<td class="red"><p>Efficiency</p>
+</td>
+<td class="red"><p>This will need to be tested on our hardware. Three minutes is<br />
+also a long time to wait</p>
+</td>
+</tr>
+<tr>
+<td><p>Operates without fatal errors on most networked
+systems</p>
+</td>
+<td class="red">Stability, compatibility<br />
+or reliability</td>
+<td class="red"><p>Fatal errors will often cause a loss of all current work so this<br />
+needs to be well checked. What is meant by most networked<br />
+systems and is our network one of these systems?</p>
+</td>
+</tr>
+</table>
+<p class="examiner">The terms listed in the 'Criteria for evaluation' column are from the study design and students were expected to know them. Comments needed to be more than a restatement of the claim and should have included information that would help the principal make a decision, demonstrating that the student understood the implications of the claim.</p>
+</td>
+</tr>
+<tr>
+<td><p><strong>Total 17 marks</strong></p>
+<p><strong>END OF SECTION B</strong> </p>
+</td>
+</tr>
+<tr>
+<td >
+<h2 align="center">Case Study Centrefold</h2>
+<h1 align="center"><a name="cs"></a><strong>Pattie's Parties</strong></h1>
+<p>Pattie owns a small business: Pattie's Parties. It is a party planning and catering service that Pattie runs from her suburban home. Pattie advertises through the Yellow Pages and a simple website. She also has a team of event coordinators: people who she can hire on a casual basis to coordinate the event on the day.</p>
+<p>When first planning an event, Pattie visits the home of a client and writes down information about their event. When she returns home she enters the information into a 'quotes' spreadsheet. The spreadsheet calculates the item costs and gives a total. Pattie enters this data into a word processor so a properly formatted quote and covering letter can be printed. The letter and quote are then sent either by post or email to the client.</p>
+<p>If the quote is accepted, Pattie arranges the event including</p>
+<p>&bull;&nbsp;booking a venue</p>
+<p>&bull;&nbsp;ordering the catering and equipment for the event</p>
+<p>&bull;&nbsp;organising security if required</p>
+<p>&bull;&nbsp;selecting an event coordinator from her team.</p>
+<p>Pattie keeps information about suppliers and products in a 'suppliers' spreadsheet. It is linked to the quotes spreadsheet so that quotes have up-to-date prices and product numbers. In the past, she updated the suppliers spreadsheet as soon as her suppliers provided her with new information.</p>
+<p><strong>The problem</strong></p>
+<p>Pattie's Parties has been so successful that a year ago Pattie had to hire two people to help her do the quote preparation and event arrangement work. So that her workers can also work from home, Pattie sends them a new version of her suppliers spreadsheet as soon as she updates it.</p>
+<p>Unfortunately the continued increase in business, and having two staff to work with, has led to the following difficulties.</p>
+<p>1.&nbsp;Long delays in preparing and sending out an up-to-date suppliers spreadsheet. This has resulted in a loss of income for Pattie's Parties either because the new job is underquoted (out-of-date data), or because the job is lost (the client is not prepared to wait).</p>
+<p>2.&nbsp;Occasional double-booking of event coordinators and some specialist equipment, because the three people organising events are not fully aware of all other events.</p>
+<p><strong>Proposed system</strong></p>
+<p>Lucy, a systems analyst who Pattie hired to look into her business difficulties, has suggested the following.</p>
+<p>1.&nbsp;Pattie's Parties set up a central database that includes information about suppliers, products, staffing and client bookings. The supplier and product information should be kept up to date by electronic transfer of information between the suppliers and Pattie's Parties.</p>
+<p>2.&nbsp;The central database be hosted by an ISP.</p>
+<p>3.&nbsp;Pattie and her staff are each issued with a mobile computing device that allows the user to</p>
+<p>&bull;&nbsp;use information obtained from the central database</p>
+<p>&bull;&nbsp;show the-client images (stills and video clips) of products and past parties so that the client can make decisions more easily</p>
+<p>&bull;&nbsp;enter all party requirements and a detailed description of the party venue</p>
+<p>&bull;&nbsp;print a quote to give to the client before leaving the client's home</p>
+<p>&bull;&nbsp;upload bookings into the central database</p>
+<p>&bull;&nbsp;perform all other activities related to the business.</p>
+<p><img src="/m/pm/08s-image006.jpg" width="642" height="944" /></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td ><h2><a name="c"></a>Instructions for Section C</h2>
+<p>Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study.</p>
+</td>
+</tr>
+<tr>
+<td class="red">Section C has followed a consistent format for many years (previously as Section B), and student responses were again expected to apply to the case study. Students found many questions in this section challenging, with many gaining no 
+marks on particular questions, either through providing no response or an incorrect response. The mean for this section 
+of the paper was approximately 51 per cent, showing a significant increase on the 2007 mean of 45 per cent. Despite 
+this improvement, students again did very poorly on Question 5, which focussed on an algorithm. This type of question 
+appears every year and students must be prepared for such questions.</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Lucy began her analysis of Pattie's Parties' current system by interviewing Pattie and taking many notes. She then returned to her office and used the data in her notes to continue the analysis.</p>
+<p><strong>Question 1</strong><strong></strong> <em>(2011-2014 - reasons for change are no longer relevant)</em></p>
+<p>From Lucy's notes it became clear that there were a number of reasons for Pattie to change her system. Each reason related to one of the three types of factors prompting changes in organisations. In the table below Lucy has identified an economic factor and has provided an explanation of why it is an economic factor. From the case study, identify a technical factor and a social factor, and provide an explanation for why each is considered that type of factor.</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="22%"><strong>Type of factor</strong></td>
+<td width="32%"><strong>Example</strong></td>
+<td width="46%"><strong>Explanation</strong></td>
+</tr>
+<tr>
+<td>economic</td>
+<td>errors in quotes</td>
+<td>leads to a loss of income for Pattie's Parties</td>
+</tr>
+<tr>
+<td>technical</td>
+<td class="myanswer"><p>1. messy and inefficient system exchanging data between spreadsheet and word processor.</p>
+or
+<p>2. recording initial data by handwriting and then typing it up later</p>
+</td>
+<td class="myanswer"><p>1. transferring data between applications is slow and a potential cause of errors or data loss.</p>
+or
+<p>2. double-handling of data is inefficient and could also lead to transcription errors.</p>
+</td>
+</tr>
+<tr>
+<td>social</td>
+<td class="myanswer">Pattie did not spend as much time as possible with the client because follow-up work needed to be done back at the office</td>
+<td class="myanswer">It's important to make good contact with clients to encourage their trust and to get as much information as possible about their needs. Calculating the detail in the client's presence will also let Pattie better determine the client's needs as more pricing information is discovered.</td>
+</tr>
+</table>
+<p>4 marks - average 1.4 </p>
+<p class="comment">'There WAS a number of reasons', not 'were'.</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="22%"><strong>Type of factor</strong></td>
+<td width="32%"><strong>Example</strong></td>
+<td width="46%"><strong>Explanation</strong></td>
+</tr>
+<tr>
+<td>economic</td>
+<td>errors in quotes</td>
+<td>leads to a loss of income for Pattie's Parties</td>
+</tr>
+<tr>
+<td>technical</td>
+<td class="red">out of date information or double booking</td>
+<td class="red">the manual system cannot keep the information up-to-date the system does not record information</td>
+</tr>
+<tr>
+<td>social</td>
+<td class="red">long working hours</td>
+<td class="red">lack of staff means that records are rarely up-to-date, causing staff to work long hours</td>
+</tr>
+</table>
+<p class="examiner">This question was very poorly answered. Very few students gave the correct example and explanation for the social factor. The question asked students to select from the case study, however many did not. Students were also asked to explain why it was a technical or social factor; many simply expanded on their example and did not answer the question asked.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 2</strong><strong></strong> <em>(2011-2014 - system flow charts are not referred to in the study design)</em></p>
+<p>Using the data in her notes, Lucy has drawn a system flow chart of Pattie's current system. Part of the chart is shown in the case study. Explain what Lucy should do with the completed chart before using it in the rest of her analysis.</p>
+<p>1 mark - average 0.3</p>
+<p class="myanswer">Check it with Pattie for errors and completeness?</p>
+<p class="myanswer">Convert it into a data flow diagram?</p>
+<p class="myanswer">Print it?</p>
+<p class="myanswer">Staple it?</p>
+<p class="comment">The instruction is a bit vague for my liking. Anyway... as long as the markers accept 'Staple it', I'll be happy :-)</p>
+<p class="comment">Is there an official step required after completing a system flow chart? Baptise it, perhaps? Take it out to dinner with the parents?</p>
+<p class="comment">System flow charts are physical design tools which model the actual processes and data manipulation in use. After analysis, the DFD is created. It's a logical design tool to model what needs to be done in the new system. The big difference is that physical design says <strong>how</strong> something is done; logical design says <strong>what </strong>is done.</p>
+<p class="examiner">Lucy should take the flow chart back to Pattie's Parties to check if she has correctly interpreted what is happening and ensure that no errors have occurred. Most students did not answer this question well. They had to mention that Lucy needed to show the flow chart to Pattie to link their answer to the case study.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 3</strong></p>
+<p>Lucy has started drawing a data flow diagram (DFD) of the current system. A part of her DFD is shown below. It is based on the part of the system flow chart shown in the case study. Lucy has not yet labelled several parts of the diagram.</p>
+<p><img src="/m/pm/08s-image005.jpg" width="422" height="308" /></p>
+<p>Suggest the best labels for the parts of the diagram currently labelled A, B, C and D.</p>
+<p>A - <span class="myanswer">Client</span></p>
+<p>B - <span class="myanswer">Suppliers Spreadsheet</span></p>
+<p>C - <span class="myanswer">Itemised costs</span></p>
+<p>D - <span class="myanswer">Prepare quote for client</span></p>
+<p>4 marks - average 2.2</p>
+<p class="comment">It's not too hard if you compare the system flowchart and the DFD and locate the similarities. Remember that rectangles are external entities (sources or destinations of data or information that are outside of the the system. Clients would be one, and suppliers are another. The parallel lines indicate data stores, such as databases, spreadsheets etc. Circles are processes that are done (not people who perform the processes).</p>
+<p class="examiner">A &ndash; client <br />
+B &ndash; suppliers <br />
+C &ndash; itemised costs <br />
+D &ndash; create quote <br />
+Students should have identified the names from the system flow chart in the case study in order to complete the data flow diagram (DFD) in this question. Ideally the same names should have been used for the same items, functions and procedures. It was clear that a number of students had little idea of what the symbols meant and what they could contain in them. Students need to be familiar with data flow diagrams and the meaning of standard symbols.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Lucy's analysis of Pattie's system is now complete and she proposes the system described in the case study. Pattie gives her approval to design the proposed system.</p>
+<p><strong>Question 4</strong></p>
+<p>There are two ways in which the data from the central database can be made available to Pattie and her staff.</p>
+<p><strong>System A</strong> - Download the entire central database onto each mobile device at the start of the day. At the end of the day upload the new data from clients on to the central database.</p>
+<p><strong>System B</strong> - Use the web to obtain access to the central database and update client data as required.</p>
+<p>a.&nbsp;Explain one advantage of System A compared with System B.</p>
+<p class="myanswer">Less time and money spent on data access. Work can continue even if data access is unavailable for the rest of the day (e.g. out of range, system failure, losing the device or leaving it at home)</p>
+<p>2 marks - average 1.3</p>
+<p class="myanswer"><span class="red">Pattie&rsquo;s staff will not have to wait for the database to load over the Internet each time they use it, as loading from memory is quicker than loading off the web, which is what System B does. <br />
+In this question students were asked to explain one advantage of System A over System B. Full marks were not awarded for simply stating one factor that was relevant to System A without reference to System B.</span></p>
+<p>b.&nbsp;Explain one advantage of System B compared with System A.</p>
+<p class="myanswer">Changes to data are immediately available to all users, and would prevent double-bookings and out-of-date pricings. Since untimely data access is a big part of the current problem, this is a major advantage.</p>
+<p class="examiner">They have an updated database each time they use it as the database could change during the day, whereas in System A the staff are stuck with the one database all day and they have no way of knowing whether it has been updated.<br />
+In this question students were asked to explain one advantage of System B over System A. Full marks were not awarded for simply stating one factor that was relevant to System B without reference to System A.</p>
+<p>2 marks - average 1.4</p>
+<p class="examiner"></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p>Lucy advises that purpose-built software is the best way to go and provides Pattie with specifications. Pattie hires the company Baron Software to write the software for the new system.</p>
+<p><strong>Question 5</strong></p>
+<p>The software specifications show that a procedure is required to enable Pattie to see which event coordinators are available on a particular date. The algorithm for this procedure has been created and is shown below.</p>
+<p>The algorithm uses the following variables.</p>
+<table width="86%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Variable</strong></td>
+<td><strong>Use</strong></td>
+</tr>
+<tr>
+<td>DateRequired</td>
+<td>Stores the date Pattie requires a coordinator</td>
+</tr>
+<tr>
+<td>Num_Coordinators</td>
+<td>Stores the number of coordinators employed by Pattie</td>
+</tr>
+<tr>
+<td>CountCoordinator</td>
+<td>Counter for coordinators</td>
+</tr>
+<tr>
+<td>Coordinator_Available[]</td>
+<td>Stores the availability (true/false) of each coordinator</td>
+</tr>
+<tr>
+<td>CoordinatorBooking</td>
+<td>Stores a booking date for a coordinator</td>
+</tr>
+<tr>
+<td>Coordinator_Name[]</td>
+<td>Stores the names of the coordinators</td>
+</tr>
+</table>
+<p><img src="/m/pm/08s-image007.jpg" width="576" height="586" /></p>
+<p>Test data used to check algorithm</p>
+<table width="34%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td width="43%"><strong>Variable</strong></td>
+<td width="57%"><strong>Test data</strong></td>
+</tr>
+<tr>
+<td>Date_Required</td>
+<td>13/11/2008</td>
+</tr>
+<tr>
+<td>Coordinator_Name[1]</td>
+<td>Pattie</td>
+</tr>
+<tr>
+<td>Coordinator_Name[2]</td>
+<td>Charles</td>
+</tr>
+<tr>
+<td>Coordinator_Name[3]</td>
+<td>Manfred</td>
+</tr>
+</table>
+<p>Bookings file</p>
+<table width="13%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td>3</td>
+</tr>
+<tr>
+<td>2/5/2008</td>
+</tr>
+<tr>
+<td>12/12/2008</td>
+</tr>
+<tr>
+<td>Blank</td>
+</tr>
+<tr>
+<td>13/11/2008</td>
+</tr>
+<tr>
+<td>15/11/2008</td>
+</tr>
+<tr>
+<td>Blank</td>
+</tr>
+<tr>
+<td>2/11/2008</td>
+</tr>
+<tr>
+<td>12/11/2008</td>
+</tr>
+<tr>
+<td>Blank</td>
+</tr>
+</table>
+<p>a.&nbsp;Using the test data above</p>
+<p>i.&nbsp;What output would you expect to get if the algorithm was correct? </p>
+<p class="myanswer">Pattie</p>
+<p class="myanswer">Manfred</p>
+<p>ii.&nbsp;What output does the algorithm actually give?</p>
+<p class="myanswer">Charles</p>
+<p>2 marks - average 0.3</p>
+<p>b.&nbsp;Describe the error in the algorithm.</p>
+<p class="myanswer">It sets the count_coordinator to 1 during initialisation and does it again as soon as the outside REPEAT begins, so the starting count is 1 higher than it should be. <br />
+Therefore only the first two coordinators are tested, and it sets the wrong coordinator's availability flag.</p>
+<p>2 marks - average 0.5</p>
+<p class="examiner">The Count_Coordinator was initialised at 1 and then immediately increased to 2 before the first coordinator&rsquo;s details were accessed. Therefore, the first coordinator&rsquo;s details were allocated to the second coordinator, and the second to the third, without the third ever being accessed. Many students recognised this error even if they could not complete part a.</p>
+<p>c.&nbsp;Suggest one way the algorithm could be altered to fix this error.</p>
+<p class="myanswer">Change the initialisation to Count_coordinators = 0</p>
+<p>or (not as easily)...</p>
+<p class="myanswer">Move the count increment to just before the UNTIL count_coordinator = num_coordinators, and change the '=' to '&gt;'</p>
+<p>2 marks - average 0.5</p>
+<p class="examiner">To fix the error initialise the Count_Coordinator to 0 instead of 1. <br />
+An alternative patch would be to move the line &#129;'Count_Coordinator &#129;&lt;-- Count Coordinator + 1' to just before the line &#129;'UNTIL Count_Coordinator = Num_Coordinators&#129;'.<br />
+If the second method was chosen, students needed to alter the UNTIL line by changing the &#129;'=&#129;' sign to a &#129;'&gt;&#129;' sign or changing Num_Coordinators to Num_Coordinators + 1. <br />
+Students who answered Question 5b. correctly generally also answered this question correctly. However, students who chose the second method of fixing the error generally did not mention the change to the UNTIL line and only obtained half marks.</p>
+<p class="examiner">This question was presented in two parts. The first part required students to read the test data and the description of what was wanted and predict what the algorithm should have produced. <br />
+The second part of the question required students to desk check the algorithm to find out what was produced. <br />
+In responses where this was done well, the answers to parts b and c of the question were also done well. <br />
+Students should be able to create expected results from test data and also desk check algorithms, although most did not do so. <br />
+</p>
+<hr />
+<p class="comment">Let's walk through the pseudocode with the test data.. Be careful with these questions because they are usually studded with very subtle &quot;gotchas&quot; that trip up the unwary or casual reader. A walkthrough takes some time, but it's worth it. I thought after a quick scan taht I had easily discovered the gotcha - until I found that a second gotcha got me. Only the walkthrough uncovered it.</p>
+<ul>
+<li class="comment">BEGIN</li>
+<li class="comment">Input Date_required (13/11/2008)</li>
+<li class="comment">Read Num_coordinators (3)</li>
+<li class="comment">Set_Up_coord_Info - so </li>
+<li class="comment">Coordinator_available[1]=TRUE</li>
+<li class="comment">Coordinator_available[2]=TRUE</li>
+<li class="comment">Coordinator_available[3]=TRUE</li>
+<li class="comment">Coordinator_name[1]=Pattie</li>
+<li class="comment">Coordinator_name[2]=Charles</li>
+<li class="comment">Coordinator_name[3]=Manfred</li>
+<li class="comment">Count_coordinator == 1 (this causes the logical error later)</li>
+<li class="comment">REPEAT</li>
+<li class="comment">Count_coordinator ==2</li>
+<li class="comment">REPEAT</li>
+<li class="comment"> Read coordinator_booking (2/5/08) </li>
+<li class="comment">Date_required (13/11/2008) &lt;&gt; coordinator_booking (2/5/08) so do nothing</li>
+<li class="comment">Read coordinator_booking (12/12/08)</li>
+<li class="comment">Date_required (13/11/2008) &lt;&gt; coordinator_booking (12/12/08) so do nothing</li>
+<li class="comment">Read coordinator_booking (Blank)</li>
+<li class="comment">Drop through the UNTIL because coordinator_booking == Blank</li>
+<li class="comment">Coordinator_available[2] still = TRUE so print Coordinator_name[2] which is <strong>Charles</strong></li>
+<li class="comment">Count_coordinator ==2 &lt;&gt; Num_Coordinators (3) so return to the first repeat</li>
+<li class="comment">REPEAT</li>
+<li class="comment">Count_coordinator ==3</li>
+<li class="comment">REPEAT</li>
+<li class="comment"> Read coordinator_booking (13/11/2008) </li>
+<li class="comment">Date_required (13/11/2008) == coordinator_booking (13/11/08) so Coordinator_available[count_coordinator, which is 3 ] == FALSE</li>
+<li class="comment">Read coordinator_booking (15/11/08)</li>
+<li class="comment">Date_required (13/11/2008) &lt;&gt; coordinator_booking (15/11/08) so do nothing</li>
+<li class="comment">Read coordinator_booking (Blank)</li>
+<li class="comment">Drop through the UNTIL because coordinator_booking == Blank</li>
+<li class="comment">coordinator_available[3] = FALSE so don't print anything</li>
+<li class="comment">Count_coordinator ==3 equals Num_Coordinators (3) so drop through to END</li>
+</ul>
+<p class="comment">So the actual output is <strong>Charles</strong></p>
+<hr />
+<p class="comment">A pet peeve of mine, which I really find irksome is that the examiners use a left-facing arrow in their pseudocode to represent assignment. It's a royal pain to type into a webpage! The best I can manage is using Wingdings font (a pain) or using a potentially ambiguous substitute such as &lt;= or &lt;-- (which never look right). What's so difficult with using = or even == (two equal signs) to indicate assignment of values? They're commonly used in most languages!</p>
+<p class="comment"><strong>You</strong> could easily enough understand the meaning of <span class="myanswer"><strong>Count_coordinators = 0</strong></span> or <span class="myanswer"><strong>Count_coordinators == 0</strong></span>, couldn't you? And since the syntax of pseudocode is largely arbitrary, who really would care?<br />
+</p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 6</strong></p>
+<p>From the variables used in the algorithm, select one of each type to complete the following table.</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Type</strong></td>
+<td><strong>Variable Name</strong></td>
+</tr>
+<tr>
+<td>Boolean Array</td>
+<td class="myanswer">Coordinator_Available[]</td>
+</tr>
+<tr>
+<td>String (Text) Array</td>
+<td class="myanswer">Coordinator_Name[]</td>
+</tr>
+<tr>
+<td>Numeric</td>
+<td class="myanswer">Count_coordinator <span class="red">or nNum_coordinators</span></td>
+</tr>
+</table>
+<p>3 marks - average 2.3</p>
+<p class="examiner">This question was generally well answered with most students achieving full marks.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 7</strong></p>
+<p>The software specifications also require a program to be written for the mobile device. This program is to be used to prepare quotes at the client's house.</p>
+<p>The programmer at Baron Software has designed a dialog box for checking the categories of staff required for the event, and for entering the number of guests. This will calculate the staff numbers required for the event.<br />
+</p>
+<p><img src="/m/pm/08s-image009.jpg" width="222" height="310" /></p>
+<p>a.&nbsp;Explain why the programmer has used checkboxes rather than text boxes to enter the staff required into the system.</p>
+<p class="myanswer">It forces the entry of valid boolean data.</p>
+<p>2 marks - average 1.2</p>
+<p class="examiner">Appropriate answers could have included: <br />
+&bull; to eliminate the chance of spelling errors <br />
+&bull; to restrict the choice to those options that are available. <br />
+A number of students did not recognise this as a question on data validation and their reasons for using text boxes were generally either incorrect or irrelevant.</p>
+<p>b.&nbsp;Explain two data validation techniques the programmer can use to ensure that the number of guests entered in the text box is suitable.</p>
+<p>Technique 1</p>
+<p class="myanswer">Test for existence (value is not blank)</p>
+<p>Technique 2</p>
+<p class="myanswer">Test for a value greater than zero. Perhaps try for a range, but determining the upper limit for a party can be tricky? 100 might be too small for a big wedding, so set it to 5,000? </p>
+<p class="comment"><span class="myanswer"></span>Deciding on range limits can be quite a difficult decision. You don't want to allow bad data to enter the system, but neither do you dare risk excluding data that is valid but unusual.</p>
+<p>2 marks - average 1.3</p>
+<p class="examiner">Appropriate answers could have included:<br />
+&bull; an existence test: to see if any data has been added<br />
+&bull; a numeric test: to see if a number was entered<br />
+&bull; a range test: to check that the number falls within a restricted range.</p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 8</strong></p>
+<p>Part of Pattie's agreement with Baron Software is to keep development costs to a minimum. When the programmers are discussing how best to store the client quotes on the mobile device, one programmer, Schroeder, argues that they must include encryption. Another programmer, Sally, disagrees as encryption will increase the overall development cost.</p>
+<p>Discuss the ethical considerations from each point of view.</p>
+<p class="myanswer"><strong>Including</strong> encryption is ethical since it would protect clients' personal information. It's not that Pattie's organisation would likely be subject to the Privacy Act, but any organisation should take reasonable steps to protect clients' data, especially if it's being stored/transmitted in potentially risky environments such as wireless communications.</p>
+<p class="myanswer"><strong>Excluding</strong> encryption would be ethical in that they have an obligation to keep the costs down for the benefit of the client.</p>
+<p class="myanswer"><em>(It seems this question was written by a Peanuts comic fan!)</em></p>
+<p>4 marks - average 2.2</p>
+<p class="examiner">Generally this question was not answered as well as expected. Students were asked to discuss the ethical considerations from both points of view. It was expected that students would contrast the two views and add further relevant information showing their understanding. However, many failed to do this and either simply restated the question and/or only discussed one point of view. Students need more practice on this type of question. Students need to understand that when an ethical dilemma exists usually there is not a clear-cut right or wrong viewpoint; rather it is a matter of weighing up these viewpoints, and determining which stakeholder has the strongest argument.<br />
+The following is an example of a reasonable answer. <br />
+<em>Ethically programmers are expected to create programs which do not maliciously seek to cause harm to other companies (i.e. virus) and are expected to maintain the integrity of the data which has been given to them, so as it does not breach the Privacy Act 1988 or the Information Privacy Act 2000. While Sally contends that implementing encryption software is expensive and will increase the overall development costs, and it might be ethically wrong, she is bound by law to abide with the agreement with Pattie. While Schroeder is correct that ethically they should include the encryption software as it is part of their job as programmers to protect the information given to them, legally he cannot do anything about it as he would be breaking the contractual agreement which Pattie agreed to.</em></p>
+</td>
+</tr>
+<tr>
+<td><p>&nbsp;</p>
+<p><strong>Question 9</strong></p>
+<p>Pattie goes shopping to find the most suitable mobile computing device for her business. She knows that these devices need to</p>
+<ul>
+<li>use information obtained from the web-based central database</li>
+<li>show the client images (stills and video clips) of products and past parties so that the client can make decisions more easily</li>
+<li>efficiently enter all party requirements and a detailed description of the party venue</li>
+<li>upload bookings into the central database.</li>
+</ul>
+<p>She also wants the device to promote her product in the best possible way. Some of the specifications of her three favourite brands are stated below.<br />
+Considering the functions that Pattie wants the device to perform, list the three brands in the order that you would recommend to Pattie and clearly explain the reasons for the order of your choice.</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Features</strong></td>
+<td><strong>LINUS</strong></td>
+<td><strong>MARCELL</strong></td>
+<td><strong>FRANKLIN</strong></td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>1 GB</td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>40 GB HDD</td>
+<td>80 GB HDD</td>
+<td>80 GB Hard drive</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>5&quot; (12.5 cm)</td>
+<td>12.5&quot; (32 cm)</td>
+<td>12.9&quot; (33 cm)</td>
+</tr>
+<tr>
+<td>Connectivity</td>
+<td>Wireless LAN only</td>
+<td>Wireless LAN + Ethernet CAT 6 LAN</td>
+<td>Wireless LAN only</td>
+</tr>
+<tr>
+<td>Ports</td>
+<td>1 USB 2.0</td>
+<td>2 USB 2.0</td>
+<td>2 USB 2.0</td>
+</tr>
+<tr>
+<td>Battery life</td>
+<td>10 hours</td>
+<td>9 hours</td>
+<td>10 hours</td>
+</tr>
+<tr>
+<td>DVD drive</td>
+<td>External DVD + - RW</td>
+<td>External DVD + - RW</td>
+<td>External DVD + - RW</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>Touch screen</td>
+<td>Stylus + touch screen</td>
+<td>Touch screen</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Integrated 2.0 Megapixel camera</td>
+<td>Full keyboard</td>
+<td><p>Bar code scanner <br />
+Integrated 2.0 Megapixel camera</p>
+</td>
+</tr>
+</table>
+<p>a. Order of preference</p>
+<p>1. <span class="myanswer">Marcell</span></p>
+<p>2. <span class="myanswer">Franklin</span></p>
+<p>3. <span class="myanswer">Linus</span></p>
+<p>&nbsp;</p>
+<p>b. Explanation for the order of your choice</p>
+<p class="myanswer">The specifications are quite similar, so it comes down to details. </p>
+<p class="myanswer">The main reason for the <strong>Marcell</strong> is its input facilities: it's the only one with a full keyboard and styles to make it quicker and easier to enter data. Its screen is reasonably-sized to comfortably show pictures and video to clients. Its RAM, HDD, USB, battery life and DVD are no worse than the <strong>Franklin</strong>, and better than the <strong>Linus</strong> (which has a smaller HDD and screen). The <strong>Marcell</strong> also has a RJ45 for the CAT cable, which may be a bonus back at the office to speed up data communications. One feature lacking in the <strong>Marcell</strong> is that it's the only one without a camera, but the device was never said to need to take pictures, only to show them, so this factor can be discounted.</p>
+<p class="myanswer">The second choice, <strong>Franklin</strong> is equal to the <strong>Marcell</strong> in nearly every respect except for the keyboard. It shares the <strong>Marcell's</strong> screen and HDD benefits over the remaining option, the <strong>Linus</strong>. The bar code scanner is unique, but is not useful to Pattie.</p>
+<p class="myanswer">The Linus' only score comes from equal-best battery life, but on the other hand it has one less USB port than the other devices.</p>
+<p>4 marks - average 2.8</p>
+<p class="examiner">This question was generally well answered. Students who answered it poorly did not take into account the reason for the use of the mobile computing device and instead chose the largest and best model. <br />
+The following is a sample of a good discussion. <br />
+<em>The Marcell and Franklin models have large hard drives for image and video storage, as well as for software, whereas the Linus does not. The Linus&rsquo; screen is too small to view images or video and although the Franklin&rsquo;s screen is larger, the Marcell&rsquo;s screen is big enough. The battery life and the input does not differ greatly between the three models. The full keyboard will be useful for the detailed description of parties, but the camera and barcode scanner are not needed. The Marcell does the required job the best.</em></p>
+<p class="comment">I'm a bit confused. Wireless LAN (i.e. 802.11) is not going to give them internet access unless every client has a WLAN that they can connect to. They would need to have broadband wireless - WAN wireless, not LAN wireless. That's unless they have a USB-connected broadband wireless modem. So, strictly speaking none of the options is acceptable without adding equipment to them. Question 10 follows this up...</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 10</strong></p>
+<p><img src="/m/pm/08s-image010.jpg" width="618" height="158" /></p>
+<p>Later, Pattie receives this junk mail advertising. She realises that if this is true, then her staff could connect to the website and upload the accepted quotes immediately from the client's home. But she would need to ask the company for more information about its offer.</p>
+<p class="comment">If she has only <strong>now</strong> discovered this possiblity, she must have been intending to only connect to the website when at the office. After Question 4 asked whether it was better to work offline (system A) or online (system B), I assumed she was aware of this possibility and would naturally have gone for the online alternative. Apparently she didn't, which is an odd decision. Either that, or she didn't know that broadband internet existed, which is even stranger for a so-called system analyst.</p>
+<p>List three important characteristics of the Mobile Broadband that Pattie would want to use in her business and explain why each is important.</p>
+<p>Characteristic 1</p>
+<p class="myanswer">High speed</p>
+<p>Reason</p>
+<p class="myanswer">Saves time uploading and downloading, so quotes could be created efficiently.</p>
+<p>Characteristic 2</p>
+<p class="myanswer">It's mobile!</p>
+<p> Reason</p>
+<p class="myanswer">The online database could be accessed at clients' homes so quotes could be produced onsite.</p>
+<p>Characteristic 3</p>
+<p class="myanswer">It automagically switches between 3G and GPRS.</p>
+<p> Reason</p>
+<p class="myanswer"> Connectivity can be used in a broad range of locations</p>
+<p>6 marks - average 3.2</p>
+<p class="examiner">Appropriate responses included: <br />
+&bull; range of network <br />
+&bull; travelling to the client&rsquo;s home is part of the job. The range of the network must allow any access with the areas of Pattie&rsquo;s clients <br />
+&bull; high-speed wireless network <br />
+&bull; this will allow Pattie and her staff to upload information directly from the mobile device to the website in quick time and resolve delays.</p>
+<p class="examiner">Characteristics that could have been discussed included coverage, speed, cost, etc. Students then needed to explain what it was about the feature that was of interest in this particular case. Many students did not link their answers back to the case study. Students cannot expect to receive marks for generic answers or answers that restate the question without showing how it relates to this particular situation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 11</strong></p>
+<p>Lucy has arranged for the Pattie's Parties database to be hosted remotely by an ISP called Illuminated Business Hosting. Pattie has asked to see its disaster recovery plan so that she can be confident that her business will not suffer if something goes wrong.</p>
+<p>Identify two features she would want in this plan and explain why they are important to Pattie's business.<br />
+4 marks - average 2.3</p>
+<table width="80%" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><strong>Feature</strong></td>
+<td><strong>Reason</strong></td>
+</tr>
+<tr>
+<td>Its backups are regular.</td>
+<td>Out-of-date backups are worth little. To get back to normal operations, backups need to be done frequently.</td>
+</tr>
+<tr>
+<td>Its backups are tested.</td>
+<td>Backups cannot be trusted until they have been tested to ensure the data can be restored if necessary.</td>
+</tr>
+<tr>
+<td>Backup media are stored offsite</td>
+<td>If backups are stored in the same place as the original data, the same disaster (e.g. fire, theft) could remove <strong>all</strong> of the valuable data.</td>
+</tr>
+<tr>
+<td>Its DDRP is documented</td>
+<td>It's important to know what needs to be done in a moment of crisis. Documentation makes it clear who does what, when and how.</td>
+</tr>
+</table>
+<p class="examiner">Appropriate responses included: <br />
+&bull; how frequently backups are made <br />
+&bull; Pattie would want to know that this is the plan because if backups are only made on a fortnightly or weekly basis she would lose a lot of quotes, and therefore a lot of business if there was a disaster and it needed to be implemented <br />
+&bull; recovery speed <br />
+&bull; if the company cannot get the system back online quickly, Pattie could lose money through loss of business as no information is being provided to her clients. <br />
+This question referred to the disaster recovery plan of the ISP and not for Pattie&rsquo;s Parties. Areas that could have been discussed included the backup plan and the recovery plan. Students not only had to explain the plans but also needed to explain why they would be important to Pattie&rsquo;s Parties. Some students did not link their answers to the case study and did not know what was in a disaster recovery plan (for example, discussing data security issues).</p>
+</td>
+</tr>
+<tr>
+<td height="413">
+<p>&nbsp;</p>
+<p>In order to implement the new system, Pattie needs to provide her staff with appropriate training and user documentation to support them in its use.</p>
+<p><strong>Question 12</strong></p>
+<p>Baron Software has a room on its premises for training clients. It contains a set of networked desktop computers which can be loaded with the client's software. Baron Software has offered Pattie two training programs.</p>
+<p>1&nbsp;One day at Baron premises for Pattie and her staff at a total cost of $300</p>
+<p>2&nbsp;A half-day at Pattie's house and then at the home of each staff member at a total cost of $600 </p>
+<p>a.&nbsp;State one advantage, apart from cost, of each training program.</p>
+<p>Advantage of training program 1</p>
+<p class="myanswer">It's cheaper than the other option.</p>
+<p class="myanswer">Pattie does not need to buy hardware and set up mobile internet accounts before training begins.</p>
+<p class="myanswer">One would trust Baron to set up the software properly so it reflects how Pattie wil be using it for real.</p>
+<p>Advantage of training program 2</p>
+<p class="myanswer">It's individualised one-on-one nature means that the instructor can focus on the specific needs of each trainee.</p>
+<p class="myanswer">It's more convenient not having to travel to be trained.</p>
+<p class="myanswer">It can be set up in the same sort of environment in which it will be used for real, so the training is more realistic and can reveal potential implementation issues.</p>
+<p>2 marks - average 1.5</p>
+<p class="examiner">&bull; Advantage of Training program 1: the staff can concentrate on learning Pattie&rsquo;s new system and not be distracted by the day-to-day business. <br />
+&bull; Advantage of Training program 2: staff would learn to use the new system on the job and can apply what they are learning to real life situations. It also gives them the opportunity to ensure the system will work correctly from each home.<br />
+This question was well answered. For the minority of students who did not score full marks, it was because they cited cost as an advantage (when the question asked them to state an advantage apart from cost) or claimed that they would not get professional trainers for option 2, despite the question stating that the same company was supplying the training. Students also lacked knowledge of what onsite training involves.</p>
+<p>b.&nbsp;Considering all factors, recommend which option would be better for Pattie's business and explain your choice.</p>
+<p>Recommendation</p>
+<p class="myanswer">Program 2. While it is more expensive, it is money wisely spent. Personal training will better address the individual needs of each person's level of skill and preferred learning style.
+It is likely to be more effective and also more efficient because training time is not being wasted explaining things to people who already understand them, or inadequately explaining things to some people and not others. Since it's vital that the users can use the system properly, second-rate training could leave them underequipped for the tasks they will need to perform; they could even damage the system if they use it without fully understanding how it works.</p>
+<p>1 mark - average 0.8</p>
+<p class="examiner">Pattie should choose option two despite the cost as this training allows the staff to see how the new system will actually work from Pattie&rsquo;s house. Pattie&rsquo;s staff will learn how their mobile devices and the new software will work from their homes. <br />
+This question was well answered. Most students were able to find justifications for the option they chose.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>&nbsp;</p>
+<p><strong>Question 13</strong></p>
+<p>One important goal Pattie established at the beginning of her system development was to provide accurate and timely quotes.<br />
+Using the headings below, outline a strategy Pattie could use to determine whether this system goal has been met after implementation.</p>
+<p><strong>Evaluation strategy</strong></p>
+<ul>
+<li class="myanswer">Time how long it takes to create a range of quotes and compare those times with times taken before the system was implemented.</li>
+<li class="myanswer">Compare actual costs with quotes and see whether they are more or less accurate than the previous system.</li>
+<li class="myanswer">Count the number of times errors such as double-bookings or incorrect prices occurred compared to the old system.</li>
+<li class="myanswer">Count the number of times quotes could be delivered to the client onsite rather than at a later time.</li>
+</ul>
+<p><strong>Time frame</strong></p>
+<p class="myanswer">Evaluation should begin a reasonable time after the system has been implemented fully, but not so long that they have completely forgotten about the old system's strengths and weaknesses. If the system is used daily, perhaps one month of usage might be adequate. It is important that users have had enough time to become well-acquainted with the system so they can use it skilfully and confidently and assess its performance knowledgably.</p>
+<p><strong>Data to be collected and from where</strong></p>
+<ul>
+<li class="myanswer">Collect timings of how long it took to generate quotes from a log book maintained by each user.</li>
+<li class="myanswer">Refer to copies of quotes generated with the new system and compare them with actual costs.</li>
+<li class="myanswer">Users should have been instructed to record any instances of double-bookings or bad prices occurring. Refer to these records to get a system failure rate.</li>
+<li class="myanswer">Use copies of quotes to see if the date and time the quote was generated was more than a day after the client meeting.</li>
+</ul>
+<p class="comment">Note that other techniques such as interviews and surveys are not really appropriate for objective assessments of times and financial accuracy. They should be reserved for subjective criteria such as ease of use, comfort levels, attractiveness etc, which are very human factors that are hard or impossible to measure scientifically. </p>
+<p><strong>How the data will be used to evaluate this system goal</strong></p>
+<p class="myanswer">If the data reveals that the system produced quotes that accurately predicted actual party costs, and also were produced quickly, the system goal could be said to have been achieved. If not, remedial action might be needed to enhance the system.</p>
+<p>1 +2 + 2 = 5 marks - average 1.8</p>
+<p class="examiner">This question was poorly answered with very few students getting full marks. Many students did not understand what an evaluation strategy is and what it should include. Many students also did not refer to the criteria that were to be evaluated and their answers were not relevant. The following is a sample answer. <br />
+<em>Time frame: three to six months after the implementation of the new system.<br />
+Data to be collected and from where: database (to collect initial quotes and final billing details). Get feedback from customers regarding the timeliness of the quote.<br />
+How the data will be used to evaluate this system goal: if the initial quote and final billing details are usually close, this would indicate that Pattie had achieved her goal of providing accurate quotes. If the customers responded positively about the timeliness of the quote, this would mean that Pattie had achieved her goal of providing timely quotes</em>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>Total 52 marks</strong></p>
+<p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+</td>
+</tr>
+<tr>
+<td class="comment">As usual, an interesting and challenging paper with only minor oddities. Compared to the average IT Applications paper, it is a delight!</td>
+</tr>
+</table>
+<p align="center"><a href="/index.html" target="_top">Back to the IT Lecture Notes index</a></p>
+<p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+<p align="center"><font size="2">Created 19 November 2008 </font></p>
+<p align="center"><font size="2">Last changed:
+<!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate -->
+</font></p>
+<p align="center"><font size="2">Original Content &copy; Mark Kelly 2008<br />
+Images and questions are &copy; Victorian Curriculum 
+and Assessment Authority 2006. Reproduced here with permission for educational purposes.</font></p>
+<p align="center"><font size="2">VCE Applied Computing Notes &copy; Mark Kelly </font><font size="2"></font></p>
+<p>&nbsp;</p></body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

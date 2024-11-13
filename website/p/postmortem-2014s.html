@@ -1,0 +1,1607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Archive taken on 2024-11-14 -->
+<head>
+
+<title>VCE Software Development Exam 2014 - Post Mortem by Mark Kelly</title>
+<script type="text/javascript">
+var gaq = gaq || [];
+gaq.push(['setAccount', 'UA-21490715-2']);
+gaq.push(['trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">
+window.googleanalyticsuacct = "UA-21490715-2";
+</script>
+<link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body >
+<h4 align="center" class="red"><a href="/index.html"><img src="/bits/title.png" width="240" height="72" alt="title"/>
+           </a></h4><p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate --> 
+ </font></p>
+<p align="center"><a href="/index.html">VCE Applied Computing Notes</a> by <a href="/mailform.htm">Mark Kelly</a> </p>
+<div align="center">
+  <hr />
+</div>
+<div align="center">
+  <table width="80%" border="1" cellspacing="0" cellpadding="3">
+ <tr>
+ <td><h1 align="center"><a name="top" id="top"></a>Software Development</h1>
+ <h1 align="center">VCAA Exam Post Mortem </h1>
+ <h1 align="center">2014</h1>
+ <h1 align="center"><img src="/m/toetags.jpg" alt="vcedata.com post mortem" width="527" height="235" /></h1></td>
+ </tr>
+ <tr>
+ <td><div align="center"> 
+   <p>
+   </p><!-- #BeginLibraryItem "/Library/PostMortem Notes.lbi" -->
+<h3 align="center" >Post Mortem Notes</h3>
+<div align="center"> This is <em>not</em> a VCAA publication.<br />
+  I do <em>not</em> speak for the VCAA, the IT examiners, or exam markers.<br />
+  I was <em>not</em> involved in the writing or marking of this examination.<br />
+  Extracts from exams are all Copyright &copy; VCAA, and are used with permission.<br>
+  Use these post mortems at your own risk. <br>
+  I reserve the right to change my mind <em>completely</em>, at <em>short notice</em>, about <em>anything</em> I've said here.<br>
+  <a href="/mailform.htm">Suggestions, discussions and corrections</a> are welcome.<br />
+  <p> <span class="question">Questions  look like this.</span><br>
+    <span class="myanswer">My suggested answers look like this.</span><br />
+    <span class="comment">My editorial ramblings  look like this.</span><br />
+    <span class="examiner">Examiners' report comments look like this.<br>
+    </span><span class="explanation">Explanations of answers look like this.</span><br>
+</p>
+</div>
+
+<!-- #EndLibraryItem --><p></p>
+<span class="examiner">Examiners' comments were added April 24, 2015.</span> </div></td>
+ </tr>
+ <tr>
+ <td><!-- #BeginLibraryItem "/Library/postmortems.lbi" -->
+<p align="center">Other VCE IT Exam Post Mortems to enjoy</p>
+<p align="center">IPM / ITA / Informatics / Data Analytics - 
+<a href="/p/postmortem-2001i.htm">2001</a> | 
+<a href="/p/postmortem-2002i.htm">2002</a> | 
+<a href="/p/postmortem-2003i.htm">2003</a> | 
+<a href="/p/postmortem-2004i.htm">2004</a> | 
+<a href="/p/postmortem-2005i.htm">2005</a> | 
+<a href="/p/postmortem-2006i.htm">2006</a> | 
+<a href="/p/postmortem-2007i.htm">2007</a> |
+<a href="/p/postmortem-2008i.htm">2008</a> | 
+<a href="/p/postmortem-2009i.htm">2009</a> | 
+<a href="/p/postmortem-2010i.htm">2010</a> | 
+<a href="/p/postmortem-2011i.htm">2011</a> | 
+<a href="/p/postmortem-2012i.htm">2012</a> | 
+<a href="/p/postmortem-2013i.htm">2013</a> | 
+<a href="/p/postmortem-2014i.htm">2014</a> |
+<a href="/p/postmortem-2015i.htm">2015</a> |
+<a href="/p/postmortem-2016i.htm">2016</a> | <a href="/p/2023-da-postmortem/postmortem-2023da.htm">2023</a> </p>
+
+<p align="center"><br>
+Info Systems / SD - 
+<a href="/p/postmortem-2006s.htm">2006</a> | 
+<a href="/p/postmortem-2007s.htm">2007</a> | 
+<a href="/p/postmortem-2008s.htm">2008</a> | 
+<a href="/p/postmortem-2009s.htm">2009</a> | 
+<a href="/p/postmortem-2010s.htm">2010</a> | 
+<a href="/p/postmortem-2012s.htm">2011</a> | 
+<a href="/p/postmortem-2012s.htm">2012</a> | 
+<a href="/p/postmortem-2013s.htm">2013</a> | 
+<a href="/p/postmortem-2014s.htm">2014</a> | 
+<a href="/p/postmortem-2015s.htm">2015</a> |
+<a href="/p/postmortem-2016s.htm">2016</a>
+ | <a href="/p/2023-sd-post-mortem/postmortem-2023sd.htm">2023</a></p><!-- #EndLibraryItem --></td>
+ </tr>
+ </table>
+</div>
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="4"><div align="center">
+ <h2>The Post Mortem Awards</h2>
+ </div></td>
+ </tr>
+ <tr>
+ <td width="18%" valign="top"><p align="center"><img src="/m/schmacho.jpg" alt="Dog's Breakfast Award" width="98" height="150" /></p>
+ <p>The infamous <strong>SCHMACKOS</strong> <strong>award</strong> for questions that are a complete dog's breakfast.</p></td>
+ <td width="18%" valign="top"><div align="center"><img src="/m/sickdog.jpg" alt="Sick as a Dog Award" width="125" height="125" /></div>
+ <p align="center">The <strong>Questions That Make You Sick As A Dog</strong> Award<br />
+ Questions that are <em>wrong </em>in a way that does not jeopardise the answer, or are just <em>dumb</em>.</p></td>
+ <td width="22%" valign="top"><div align="center"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></div>
+ <p align="center">The <strong>Stamp of Approval</strong> for questions I like.</p></td>
+ <td width="21%" valign="top"><p align="center"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /> </p>
+   <p align="center">The exciting <strong>Illiteracy Award</strong> for crimes against the English language.</p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ <tr>
+ <td height="885" valign="top"><h3 align="center">Written examination</h3>
+ <p align="center"><strong>Friday 14 November 2014</strong></p>
+ <p align="center"><strong>Reading time: 3.00 pm to 3:15 (15 minutes) </strong></p>
+ <p align="center"><strong>Writing time: 3:15 to 5:15 pm (2 hours)</strong></p>
+ <table border="1" align="center" cellpadding="3" cellspacing="0">
+ <tr>
+ <td   ><div ></div></td>
+ <td><p ><strong><em>Number of questions</em></strong></p></td>
+ <td><p ><strong><em>Number of questions to be answered</em></strong></p></td>
+ <td><p ><strong><em>Number of marks</em></strong></p></td>
+ </tr>
+ <tr>
+   <td  ><p ><a href="#a">Section A</a></p></td>
+   <td><p >20</p></td>
+   <td><p >20</p></td>
+   <td><p >20</p></td>
+ </tr>
+ <tr>
+ <td  ><p ><a href="#b">Section B</a></p></td>
+ <td ><div >5</div></td>
+ <td><p >5</p></td>
+ <td><p >20</p></td>
+ </tr>
+ <tr>
+ <td  ><p ><a href="#c1">Section C</a></p></td>
+ <td ><div >16</div></td>
+ <td>16</td>
+ <td><p >60</p></td>
+ </tr>
+ <tr>
+ <td  ><div ></div></td>
+ <td><div ></div></td>
+ <td><div ></div></td>
+ <td><p >Total 100</p></td>
+ </tr>
+ </table>
+ <ul>
+ Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers and one scientific calculator.
+ Students are NOT permitted to bring into the examination room: blank sheets of paper and/or white out liquid/tape.
+ </ul>
+ <p align="left">Materials supplied</p>
+ <ul>
+ Question and answer book of 22 pages with a detachable insert containing a case study for Section C in the centrefold.
+ Answer sheet for multiple-choice questions.
+ </ul>
+ <p align="left">Instructions</p>
+ <ul>
+ Remove the insert containing the case study during reading time.
+ Write your student number in the space provided above on this page.
+ Check that your name and student number as printed on your answer sheet for multiple-choice questions are correct, and sign your name in the space provided to verify this.
+ All written responses must be in English.
+ </ul>
+ <p>At the end of the examination </p>
+ <ul>
+ Place the answer sheet for multiple-choice questions inside the front cover of this book.
+ </ul>
+ <p><strong>Students are NOT permitted to bring mobile phones and/or any other unauthorised electronic devices into the examination room.</strong></p></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2"></td>
+ </tr>
+ <tr>
+ <td colspan="2" ><p class="examiner"><strong>Examiners' report general comments</strong> - </p>
+   <p class="examiner">The multiple-choice questions were answered well by many students. <br />
+     Section B required students to demonstrate sound theoretical knowledge and to provide detailed and accurate responses. <br />
+     The format of Section C was consistent with that of previous years and students&rsquo; responses were expected to refer to the case study. The key weakness in many responses in this section was a lack of depth and detail.<br />
+     </p>
+   <p class="examiner">During the examination, students should:<br />
+     &#61623; endeavour to use correct IT terminology<br />
+     &#61623; discuss all options when asked to justify a choice or compare one option with another<br />
+     &#61623; respond to key instructional terms, such as &lsquo;state&rsquo;, &lsquo;explain&rsquo;, &lsquo;justify&rsquo; and &lsquo;describe&rsquo;<br />
+     &#61623; re-read each question and their response to ensure that the question has been answered<br />
+     &#61623; remove the case study insert from the question and answer book, and refer to it when completing Section C<br />
+     &#61623; read the case study and questions carefully, and underline or highlight key words<br />
+    &#61623; demonstrate their knowledge of the subject and apply that knowledge to the case study as general responses often result in low or no marks; knowledgeable, clear and appropriate responses receive full marks.</p></td>
+ </tr>
+ <tr>
+ <td colspan="2" bgcolor="#CCCCCC" ><h2><a name="a"></a>SECTION A - Multiple-choice questions</h2>
+ <p><strong>Instructions for Section A</strong></p>
+ <p>Answer <strong>all</strong> questions in pencil on the answer sheet provided for multiple-choice questions. <br />
+ Choose the response that is <strong>correct</strong> or that <strong>best answers</strong> the question. <br />
+ A correct answer scores 1, an incorrect answer scores 0. <br />
+ Marks will <strong>not</strong> be deducted for incorrect answers.<br />
+ No marks will be given if more than one 
+ Answer is completed for any question</p></td>
+ </tr>
+ <tr>
+ <td width="107" valign="top" bgcolor="#CCCCCC"><strong><a name="a1" id="a1"></a>A1</strong></td>
+ <td width="644" valign="top"><p><strong>Question 1</strong><br />
+ During which stage of the problem-solving methodology should user documentation be produced?</p>
+ <p><strong>A. </strong>design<br />
+ <strong>B. </strong>analysis<br />
+ <strong>C. </strong>evaluation<br />
+ <strong>D. </strong>development</p>
+ <p class="myanswer">Answer is D.</p>
+ <p class="explanation">You can't document software earlier, since it's not created yet. You can't do it during evaluation because the software has already been distributed to users.</p>
+ <p class="examiner">71% of students got this right. <br />
+   Note - 
+   The examiners' report offered no explanations for their Section A answers, which I think is just lazy.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC"><strong><a name="a2" id="a2"></a>A2</strong></td>
+ <td valign="top"><p><strong>Question 2</strong><br />
+ </p>
+ <p>Antivirus software</p>
+ <p><strong>A. </strong>needs to be installed only when your computer is networked.<br />
+ <strong>B. </strong>needs to be installed once you have detected a virus on your computer.<br />
+ <strong>C. </strong>needs to be updated regularly in order to ensure protection from newly created viruses.<br />
+ <strong>D. </strong>works quickest when you install multiple antivirus programs from different companies.
+ 
+ </p>
+ <p><span class="myanswer">Answer is C.</span></p>
+ <p class="comment">Ridiculously simple. I have a starving goldfish with learning disabilities. <strong>He</strong> got this one right.</p>
+ <p class="comment"><span class="examiner">97% of students got this right.</span></p>
+ <p class="comment">3% of students were beaten by my goldfish!</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a3" id="a3"></a>A3</strong></td>
+ <td valign="top" ><p><strong>Question 3</strong><br />
+ </p>
+ <p>The maximum amount of data that can be transmitted electronically during a given period of time is known as</p>
+ <p><strong>A. </strong>frequency.<br />
+ <strong>B. </strong>broadband.<br />
+ <strong>C. </strong>fibre-optic.<br />
+ <strong>D. </strong>bandwidth. </p>
+ <p><span class="myanswer">Answer is D.</span></p>
+ <p class="comment">Another easy one - to settle the nerves, maybe? </p>
+ <p class="comment"><span class="examiner">88% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a4" id="a4"></a>A4</strong></td>
+ <td valign="top" ><p><strong>Question 4</strong><br />
+ </p>
+ <p>Spyware, trojans and worms are examples of</p>
+ <p><strong>A. </strong>spam.<br />
+ <strong>B. </strong>malware.<br />
+ <strong>C. </strong>freeware.<br />
+ <strong>D. </strong>antivirus software. </p>
+ <p><span class="myanswer">Answer is B.</span></p>
+ <p class="comment">Duhhh. Too easy - again.</p>
+ <p class="comment"><span class="examiner">98% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a5" id="a5"></a>A5</strong></td>
+ <td valign="top" ><p><strong>Question 5</strong><br />
+ </p>
+ <p>Which one of the following statements best describes the purpose of the Open Systems Interconnections (OSI) physical layer?</p>
+ <p><strong>A. </strong>to route a packet of data through a network to a remote location<br />
+ <strong>B. </strong>to ensure that packets of data received across a network are in the correct order<br />
+ <strong>C. </strong>to ensure that packets of data received across a shared medium are free of errors <br />
+ <strong>D. </strong>to move individual bits of data across a shared medium to another point on the network </p>
+ <p><span class="myanswer">Answer is D.</span></p>
+ <p class="comment">Why SD focuses on the physical layer baffles me. That's an engineering focus, not software! The study design could have chosen <strong>any</strong> other layer to make it relevant to software, but no... it chose the <strong>only</strong> layer that is not software-driven. Sigh.</p>
+ <p class="comment">It makes it damned hard to write challenging questions, and it makes for easy answers.</p>
+ <p class="comment"><span class="examiner">60% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ></td>
+ <td valign="top" ><p><em>Use the following information to answer Questions 6 and 7.</em></p>
+ <p> The following algorithm finds a given value of a variable in an array.<br />
+ </p>
+ <p class="code"><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Get</strong> idValue <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> idx <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 1 <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Found <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> false<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <strong>While</strong> idx &lt;= arraylen(array) and Found &lt;&gt; true <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>If</strong> array[idx] = idValue <strong>Then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>print</strong> &lsquo;found the value of idValue&rsquo;<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>Endlf</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->idx <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> idx + 1 <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> <strong>Endwhile</strong><br />
+ <strong>End</strong></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a6" id="a6"></a>A6</strong></td>
+ <td valign="top" ><p><strong>Question 6</strong><br />
+ </p>
+ <p>The algorithm is using a</p>
+ <p><strong>A. </strong>quick sort.<br />
+ <strong>B. </strong>bubble sort.<br />
+ <strong>C. </strong>linear search.<br />
+ <strong>D. </strong>binary search. </p>
+ <p><span class="myanswer">Answer is C.</span></p>
+ <p class="explanation">The 'Found the value of' line was a give-away that it was a search, and the code was too simple for a binary search.</p>
+ <p class="explanation"><span class="examiner">64% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a7" id="a7"></a>A7</strong></p>
+ <p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p></td>
+ <td valign="top" ><p><strong>Question 7</strong><br />
+ </p>
+ <p>Which one of the following lines could be inserted into the algorithm to improve its efficiency?</p>
+ <p><strong>A. </strong>Found <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> true<br />
+ <strong>B. </strong>idValue <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> idx<br />
+ <strong>C. </strong>idx <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> arraylen(array)<br />
+ <strong>D. </strong>print &lsquo;the value of idValue not found&rsquo; </p>
+ <p><span class="myanswer">Answer is A.</span></p>
+ <p class="explanation">As it stands, the loop never exercises the 'and Found &lt;&gt; True' part of its continuation test. Adding option (A) lets the loop exit if the target is found, and the remainder of the array need not be uselessly searched.</p>
+ <p class="explanation">Option (D) does improve the code, but it aids effectiveness (the output is more informative), not efficiency.</p>
+ <p class="comment">I like this one. It's an interesting approach to the old efficiency/effectiveness chestnut, and it makes kids think.</p>
+ <p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p>
+ <p><span class="examiner">42% of students got this right.</span></p>
+ <p class="comment">Interestingly, the examiner's report has a new column that says that 1% of students did not answer the question at all. BOYS AND GIRLS - THAT'S JUST DUMB! In section A - GUESS if you have no idea. A guess has a 25% chance of a mark. No answer guarantees NO MARK!</p>
+ </td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a8" id="a8"></a>A8</strong></p>
+ <p><img src="/m/stamp_of_approval.jpg" width="57" height="57" alt="Stamp of Approval" /></p></td>
+ <td valign="top" ><p><strong>Question 8</strong><br />
+ </p>
+ <p>The following algorithm produces an error when tested.<br />
+ </p>
+ <p><span class="code"><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->A <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 12 <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->B <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 3<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><strong>While</strong> B &gt;= 0 <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;A <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> A/B <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;B <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> B - 1 <strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;Print</strong> A <strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Endwhile</strong> <strong><br />
+ End</strong></span><br />
+ </p>
+ <p>The reason for this error is</p>
+ <p><strong>A. </strong>the variable A never changes.<br />
+ <strong>B. </strong>a variable cannot be divided by 0.<br />
+ <strong>C. </strong>the algorithm never exits the loop.<br />
+ <strong>D. </strong>A and B are not good names for variables. </p>
+ <p><span class="myanswer">Answer is B.</span></p>
+ <p class="explanation">Rule out (D) because bad naming does not cause errors.<br />
+ Eliminate (A) because variable A obviously
+   <strong>does</strong> get changed in line 5.<br />
+ It can't be (C) because variable B <strong>is</strong> decremented and the loop <strong>would</strong> end when it goes below zero. (Ignoring the division issue for now.)<br />
+ That leaves (B) so we scrutinise it with an intense scrute, just to be sure. Yes, B will hit zero before the loop ends, and B is the (divisor? minuend? dividend? I can never remember that arithmetic stuff) number at the bottom of the divide. So there will be a division by zero error.<br />
+ Even in these modern times, division by zero is still frowned upon by most people.
+ </p>
+ <p class="comment">Another nice question. Full of meaty marrowbone goodness.</p>
+ <p><img src="/m/stamp_of_approval.jpg" width="57" height="57" alt="Stamp of Approval" /></p>
+ <p class="examiner"><span class="examiner">69% of students got this right.</span><br />
+   21% went for C.
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ></td>
+ <td valign="top" ><p align="center"><em>Use the following information to answer Questions 9 and 10.</em><br />
+ </p>
+ <p class="code"><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->TotTemp <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 0 <br />
+ <strong> <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->For</strong> Week <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 1 to 7 <strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Input</strong> (DailyTemp)<br /><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->TotTemp <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> TotTemp + DailyTemp <br />
+ <strong>&nbsp;&nbsp; Endfor</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->AveTemp <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> TotTemp/7<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Print</strong> (&lsquo;Average temperature for the week:&rsquo;, AveTemp)<br />
+ <strong>End </strong></p>
+ <p class="comment">I hope you appreciate just how painful it is to format pseudocode in HTML. Hundreds of &amp;nbsp; codes for indentation, bolding all keywords, inserting the <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> graphics, formatting as Courier. Poor me. (Sob). Thank you. Please leave a penny in the cup.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a9" id="a9"></a>A9</strong></p></td>
+ <td valign="top" ><p align="left"><strong>Question 9</strong><br />
+ </p>
+ <p align="left">Which control structures does the algorithm contain examples of?</p>
+ <p><strong>A. </strong>repetition and division<br />
+ <strong>B. </strong>selection and sequence<br />
+ <strong>C. </strong>sequence and repetition <br />
+ <strong>D. </strong>selection and repetition </p>
+ <p><span class="myanswer">Answer is C.</span></p>
+ <p class="explanation">Sequence refers to the order in which lines of code are executed. GOTO is relevant.<br />
+ Selection uses IF/THEN/ELSE, CASE etc to decide which lines of code to execute. <br />
+ Repetition is shown in the FOR loop. Real programmers call it 'iteration.'</p>
+ <p class="explanation">'Division' is not a control structure.</p>
+ <p class="explanation"><span class="examiner">50% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a10" id="a10"></a>A10</strong></td>
+ <td valign="top" ><p><strong>Question 10</strong></p>
+ <p> The <strong>best</strong> data type for AveTemp is</p>
+ <p><strong>A. </strong>string.<br />
+ <strong>B. </strong>integer. <br />
+ <strong>C. </strong>Boolean. <br />
+ <strong>D. </strong>floating point.</p>
+ <p class="myanswer"><span class="myanswer">Answer is D.</span><br />
+   <span class="explanation">It will need to accommodate decimal places.</span> </p>
+ <p class="myanswer"><span class="examiner">66% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a11" id="a11"></a>A11</strong></p>
+ <p><img src="/m/illiterate.jpg" alt="" width="47" height="89" /></p></td>
+ <td valign="top" ><p><strong>Question 11</strong></p>
+ <p><img src="/m/pm/14s-a11.gif" width="634" height="256" alt="a11" /></p>
+ <p>Which one of the following statements best describes what is shown in the diagram above?</p>
+ <p><strong>A. </strong>Two data flows are combined in a data store and sent to a file. <br />
+ <strong>B. </strong>A process reads data from two data stores and combines them into a medical history. <br />
+ <strong>C. </strong>A patient is admitted into a hospital and their medical details are recorded in a hospital file. <br />
+ <strong>D. </strong>Two processes move patient information to a data store which then sends it to an entity called medical_history. </p>
+ <p><span class="myanswer">Answer is C.</span></p>
+ <p class="explanation">It's not (A) because the 'combining' thing is a circle - a process - not a data store.<br />
+ It's not (D) because there's obviously only one process (circle) in the diagram.<br />
+ (B) looks promising for a while, but the &quot;two data stores&quot; can't be right. Rectangles are external entities.<br />
+ That leaves (C) which matches the DFD.
+ </p>
+ <p class="comment">What sort of external entity is &quot;patient hospital admission&quot;? What does that mean? <br />
+   The admissions department of the patient's hospital?<br />
+   The hospital admission with lots of time and a casual attitude towards people being late?</p>
+ <p class="comment"> Sorry, but that earns an illiteracy award.</p>
+ <p><img src="/m/illiterate.jpg" alt="" width="47" height="89" /></p>
+ <p><span class="examiner">41% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ></td>
+ <td valign="top" ><p align="center"><em>Use the following information to answer Questions 12 and 13.</em></p>
+ <p align="left"> A large company has recently installed a new software solution. The software solution has been operating in its network environment for about three months and management is keen to determine how well it is working. Management has employed a consultant to assess the effectiveness of the network and whether the software solution is still producing the required results</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><p><strong><a name="a12" id="a12"></a>A12</strong></p>
+ <p>&nbsp;</p></td>
+ <td valign="top" ><p align="left"> <strong>Question 12</strong></p>
+ <p align="left">Which type of testing should the consultant undertake to assess the effectiveness of the network?</p>
+ <p><strong>A. </strong>existence<br />
+ <strong>B. </strong>reliability<br />
+ <strong>C. </strong>processing<br />
+ <strong>D. </strong>penetration</p>
+ <p><span class="myanswer">Answer is B.</span></p>
+ <p class="explanation">I went around the block a couple of times on this one, but here's what I reckon.</p>
+ <p class="explanation">The software has been implemented and is being evaluated - specifically relating to whether it is still producing the required results.</p>
+ <p class="explanation">So</p>
+ <p class="explanation">(a) penetration testing does not find whether a solution is producing required results.<br />
+ (b) pen testing is actually <strong>testing</strong> to see whether a system works properly <strong>before</strong> it's implemented. Pen tests should not be carried out during evaluation.</p>
+ <p class="comment">But I fear the examiner is confusing evaluation with &quot;another round of testing&quot;. Testing should be FINISHED before the system is implemented.</p>
+ <p class="comment">Testing should <strong>not</strong> be happening 3 months after being put into regular use - unless the system is malfunctioning and needs repair.</p>
+ <p class="comment">The word &quot;testing&quot; in the question is a mistake. It should be &quot;evaluation&quot;. Evaluation checks that the system is satisfying the organisational goals for it was originally created. </p>
+ <p class="comment">Though I love (A) - 
+   &quot;Dammit Jim - we've been working on this network for 6 weeks and I've just discovered <strong>it doesn't exist</strong>!&quot;</p>
+ <p class="comment"><span class="examiner">64% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a13" id="a13"></a>A13</strong></td>
+ <td valign="top" ><p> <strong>Question 13</strong></p>
+ <p>Which quality of the software solution is the consultant required to assess?</p>
+ <p><strong>A. </strong>useability<br />
+ <strong>B. </strong>efficiency<br />
+ <strong>C. </strong>effectiveness<br />
+ <strong>D. </strong>maintainability</p>
+ <p class="myanswer">Answer is C.</p>
+ <p class="explanation">Remember the consultant is assessing whether the software is producing the required results. Not whether it's easy to use (A), or efficiency (B), nor how easy it is to keep running (D).</p>
+ <span class="examiner">68% of students got this right.</span></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a14" id="a14"></a>A14</strong></td>
+ <td valign="top" ><p> <strong>Question 14</strong></p>
+ <p>One of the purposes of software requirements specifications (SRS) is to provide</p>
+ <p><strong>A. </strong>the breakdown of a problem into its component parts.<br />
+ <strong>B. </strong>instructions to users, describing how to use the new solution.<br />
+ <strong>C. </strong>instructions to programmers on how the new program works.<br />
+ <strong>D. </strong>evaluation criteria to ensure solution requirements have been met. </p>
+ <p><span class="myanswer">Answer is A.</span></p>
+ <p class="explanation">By a process of elimination... it can't be (B) because documentation happens at the end of production, not in analysis when no product yet exists. <br />
+   (C) has the same problem - and is probably referring to internal documentation, also produced during development. <br />
+   And as we all know and love so much, the examiners insist on developing evaluation criteria during the design stage. </p>
+ <p class="comment">Dog knows why - it makes no sense to me. Anyone with a good justification for developing evaluation criteria during design rather than during analysis, please <a href="/mailform.htm">get in touch</a>. You could win a lovely prize.</p>
+ <p class="comment">Well, not so much &quot;lovely&quot;, but I promise the prizehas been disinfected and hardly smells <strong>at all</strong>.</p>
+ <p class="examiner">54% of students got this right.<br />
+   Nearly everyone else went for D.
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a15" id="a15"></a>A15</strong></td>
+ <td valign="top" ><p><strong>Question 15</strong><br />
+ </p>
+ <p>A football club wants to create an electronic version of its membership records.<br />
+ The functional requirements of the software solution include</p>
+ <p><strong>A. </strong>being easily maintained.<br />
+ <strong>B. </strong>storing all member details.<br />
+ <strong>C. </strong>retrieving a record in less than a second. <br />
+ <strong>D. </strong>displaying records in an easy-to-read format.</p>
+ <p><span class="myanswer">Answer is B.</span></p>
+ <p class="explanation">Remember that an FR is what a solution should be able to <strong>do</strong>, usually because of a specific piece of coding. </p>
+ <p class="explanation">An NFR refers to <strong>how</strong> the solution should do things (e.g. safely, quickly), or qualities that a solution should <strong>have</strong> (e.g. maintainability, readability.)</p>
+ <p class="comment"><span class="examiner">86% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a16" id="a16"></a>A16</strong></td>
+ <td valign="top" ><p><strong>Question 16</strong><br />
+ </p>
+ <p>A manager is notified that the software she requested to be produced is ready for installation onto the company network. She is asked to set a date for acceptance testing to take place.<br />
+ Acceptance testing is when</p>
+ <p><strong>A. </strong>users are tested to see if they can use the software. <br />
+ <strong>B. </strong>the manager checks that the software price is what she agreed to. <br />
+ <strong>C. </strong>the manager and a few users of the software check if it does what they require. <br />
+ <strong>D. </strong>the manager sends out a survey to all users to provide feedback after using the software for three months. </p>
+ <p><span class="myanswer">Answer is C.</span></p>
+ <p class="explanation">Acceptance testing is when stake-holders, usually typical end-users, check if the product is suitable before it is implemented. This is because a product might work well technically in the lab, but be a thorough pain to use in real life.</p>
+ <p class="explanation">(D) is evaluation.</p>
+ <p><span class="examiner">70% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a17" id="a17"></a>A17</strong></td>
+ <td valign="top" ><p><strong>Question 17</strong><br />
+ </p>
+ <p>A decision-support framework</p>
+ <p><strong>A. </strong>is a framework outlining all workplace behaviour. <br />
+ <strong>B. </strong>helps organisations make decisions about programming. <br />
+ <strong>C. </strong>provides a set of decisions that organisations must follow. <br />
+ <strong>D. </strong>provides a structure for conflict resolution within organisations.</p>
+ <p><span class="myanswer">Answer is D.</span></p>
+ <p class="explanation">A DSF gives guidelines to help decision-makers when making difficult decisions. In law courts, legal precedents help judges make verdicts based on a thousand years' previous similar judgements. Using a DSF means a decision is not made purely based on an individual's personal beliefs, whims, prejudices or preferences, and it gives the decider greater confidence that their verdict is likely to be valid and defensible.</p>
+ <p class="explanation"><span class="examiner">67% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a18" id="a18"></a>A18</strong></td>
+ <td valign="top" ><p> <strong>Question 18</strong></p>
+ <p>Which one of the following techniques would capture data to measure the effectiveness of a software solution?</p>
+ <p><strong>A. </strong>surveying users<br />
+ <strong>B. </strong>measuring average login time<br />
+ <strong>C. </strong>running the network under load<br />
+ <strong>D. </strong>timing the execution of a process</p>
+ <p><span class="myanswer">Answer is A.</span></p>
+ <p class="explanation">The key word is <strong>effectiveness</strong>. Login time (B) and execution time (D) are efficiency. </p>
+ <p class="explanation">(C) is interesting to ponder for a minute. What does load testing measure? The amount of work that a system can cope with in a given time. That also equates with <strong>efficiency</strong>.</p>
+ <p class="explanation"><span class="examiner">52% of students got this right.<br />
+   31% went for C.
+ </span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a19" id="a19"></a>A19</strong></td>
+ <td valign="top" ><p> <strong>Question 19</strong></p>
+ <p>Lines of code that are frequently called from another part of a program and do not return a value back to the code where they were called are best described as</p>
+ <p><strong>A. </strong>a function.<br />
+ <strong>B. </strong>a procedure.<br />
+ <strong>C. </strong>an instruction. <br />
+ <strong>D. </strong>a control structure.</p>
+ <p><span class="myanswer">Answer is B.</span></p>
+ <p class="explanation">A function (A) returns a value. An instruction is a single, complete program statement, not &quot;lines&quot; of statements. A control structure lurks within a procedure, but is not equal to a procedure. </p>
+ 
+ <span class="examiner">59% of students got this right.</span></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#CCCCCC" ><strong><a name="a20" id="a20"></a>A20</strong></td>
+ <td valign="top" ><p><strong>Question 20</strong><br />
+ </p>
+ <p>The most appropriate data structure to store information about customer orders on a computer&rsquo;s hard drive is a</p>
+ <p><strong>A. </strong>file. <br />
+ <strong>B. </strong>character. <br />
+ <strong>C. </strong>one-dimensional array. <br />
+ <strong>D. </strong>two-dimensional array.</p>
+ <p><span class="myanswer">Answer is A.</span></p>
+ <p class="explanation">To go to secondary storage (like a disk), data must be saved as a file. The other options are logical entities used within a programming language.</p>
+ <p class="myanswer"><span class="examiner">57% of students got this right.</span></p></td>
+ </tr>
+ <tr>
+ <td bgcolor="#CCCCCC" ></td>
+ <td><p align="left">&nbsp;</p>
+   <p align="left"><strong>Overall for section A</strong> - <span class="comment">once again the Software Development exam puts its <a href="/p/postmortem-2014i.htm">IT Applications brother </a>to shame. The questions are suitably meaty and - with some thought - valid and clearly written with little or no ambiguity or inaccuracy.</span></p>
+ <p align="left" class="comment"><img src="/m/happydog.gif" width="82" height="104" alt="Happy dog" /></p>
+ <p align="left"><span class="comment">Who's a good section A? <br />
+ <strong>Who's</strong> a good section A? <strong><br />
+ You</strong> are! <br />
+ Yes you <strong>are</strong>.<br />
+ What a clever boy!</span></p>
+ <p align="left"><br />
+ </p></td>
+ </tr>
+ <tr>
+ <td colspan="2"></td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td colspan="2" valign="top" bgcolor="#99CCFF" ><h2><a name="b" id="c"></a>SECTION B - short answer questions</h2>
+ <p class="blueback">Instructions for Section B<br />
+ Answer all questions in the spaces provided.</p>
+ <p class="comment">[x lines] indicates the number of ruled lines provided on the paper for the answers.</p></td>
+ </tr>
+ <tr>
+ <td width="98" valign="top" bgcolor="#99CCFF"><p><strong><a name="b1" id="c21"></a>B1 <br />
+ (3 marks)</strong></p></td>
+ <td width="653" valign="top"><p><strong>Question 1</strong> (3 marks)</p>
+ <p> Match each type of security threat below to its correct description in the table that follows: </p>
+ <p align="center">worm trojan spyware</p>
+ <table border="1" cellspacing="0" cellpadding="2">
+ <tr>
+ <td width="151" valign="top"><strong> Security threat </strong></td>
+ <td width="416" valign="top"><p align="center"><strong>Description</strong></p></td>
+ </tr>
+ <tr>
+ <td width="151" valign="middle" class="myanswer">worm</td>
+ <td width="416" valign="middle"><p>a program that always self-replicates</p></td>
+ </tr>
+ <tr>
+ <td width="151" valign="middle" class="myanswer">spyware</td>
+ <td width="416" valign="middle"><p>a program where the major feature is monitoring user activity</p></td>
+ </tr>
+ <tr>
+ <td width="151" valign="middle" class="myanswer">trojan</td>
+ <td width="416" valign="middle"><p>a program that disguises itself as useful</p></td>
+ </tr>
+ </table>
+ <p class="comment">&lt;gump&gt; </p>
+ <p class="comment">That's all I have to say about that. </p>
+ <p class="comment">&lt;/gump&gt;</p>
+ <p><span class="examiner">Average mark 97%</span></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b2" id="c20"></a>B2<br />
+ (4 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 2</strong> (4 marks)</p>
+ <p>a. Explain how a bubble sort works. 2 marks
+ 
+ [6 lines]
+</p>
+ <p class="myanswer">A bubble sort checks each item in the data set to see if it is in the correct sort order compared to the following item. If they are in the wrong order, the items are swapped. When the end of the data set is reached, the process is repeated until no further swaps are needed.</p> <p><span class="examiner">Average mark 40%</span></p>
+ <p class="examiner">Many students had difficulty clearly explaining their answer to this question. Very few students were able to provide accurate definitions and many were superficial. Reponses needed to include details of how items were swapped and that swapping is repeated in subsequent passes until all items are sorted.<br />
+   Students are encouraged to keep a glossary of key terms throughout the year (in addition to the glossary in the study design) and include key programming concepts in it. Students should also ensure that they use the allocated marks as a guide to the depth of response required.<br />
+   The following is an example of a high-scoring response.<br />
+   With each iteration of the sort, the biggest value is &lsquo;bubbled&rsquo; to the top of the list. This is done by comparing adjacent values, and if the leftmost value is bigger, a swap is made. This repeats until the largest value is at the top of the list, and repeats until all values have been placed in the right place.</p>
+ <p>b. Briefly explain how a quick sort works and how this differs from a bubble sort. 2 marks [6 lines]</p>
+ <p class="myanswer">- A quick sort recursively subdivides the data set into 2 parts and chooses a pivot value. All items in the part of the data set that are less than the pivot value are moved to the left of the pivot item, items greater than the pivot value are moved to the right of the pivot item. This is repeated until all items are sorted.</p>
+ <p class="myanswer">- Compared to the bubble sort, the quick sort is more complex to code, but is usually more efficient with large data sets.</p>
+ <p class="comment">Damn, Nelly - that's a tough one! Explaining shell sort and its difference to bubble sort - for only 2 marks is asking a lot. I predict that this question will  get shockingly-low marks. But it <strong>will</strong> identify the top SD candidates...</p>
+ <p class="myanswer"><span class="examiner">Average mark 30%</span></p>
+ <p class="examiner">As with part a., most students struggled to provide a complete and detailed response, with many missing the second part of the question &ndash; &lsquo;how this differs from a bubble sort&rsquo;.<br />
+   The following are examples of high-scoring responses.<br />
+   With each iteration, a value called a pivot is chosen from the list. For each other value, if it is greater than pivot it places it to the right, if it is less than, it places to left. The pivot is in the right place and on the two side lists. This differs from bubble sort as it is a divide and conquer algorithm, whereas bubble sort goes through one by one. Quick sort as a result is much faster.<br />
+   A quick sort chooses a random pivot item and compared other items to that element until it has two subsets of elements higher and lower than the pivot. It then does the same to the sublists and so on till it&rsquo;s all sorted. The difference to the bubble sort is the creation of sublists rather than looping over one list.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b3" id="c19"></a>B3 <br />
+ (5 marks)</strong></p>
+   <p><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p></td>
+ <td valign="top"><p><strong>Question 3</strong> (5 marks)</p>
+ <p> A school stores its Year 12 students&rsquo; names and ages in two separate arrays - Names[] and Ages[]. The position of the students&rsquo; names in Names[] is the same as the position of their ages in Ages[].<br />
+ Write pseudocode to print the names and ages of all students who are 18 or over where the number of students in Year 12 is stored in the variable NoOfStudents. </p>
+ <p>[10 ruled lines provided between 'Begin' and 'End']</p>
+ <p><strong>Begin</strong></p>
+ <p class="code"><strong>&nbsp;&nbsp;<span class="myanswer">&nbsp;For</span></strong><span class="myanswer"> student <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 1 <strong>to</strong> NoOfStudents<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->if</strong> Ages[student] &gt;= 18 <strong>then</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->print</strong> Names[student], Ages[student]<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->end if</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->next</strong> </span></p>
+ <p> <strong>End</strong></p>
+ <p class="explanation">You could have used a WHILE or similar loop instead of FOR, but since NoOfStudents was known, why not use it? Pay attention to the '&gt;=' because the rules said &quot;students who are 18 or over&quot;.</p>
+ <p class="explanation">The markers are also probably going to penalise answers that lack consistent code indentation.</p>
+ <p class="comment"><img src="/m/stamp_of_approval.jpg" alt="Stamp of Approval" /></p>
+ <p class="comment">I like the increased weight on code writing. It's about time software development exams really started to examine and reward it!</p>
+ <p class="comment">It's only in recent exams that students needed to show ANY ability to write code! This is our subject's meat and vegetables and we need to more intently focus on core business: programming.</p>
+ <p class="comment">I feel better now.</p>
+ <p class="comment"><span class="examiner">Average mark 32%</span></p>
+ <p class="examiner">A majority of students attempted this question, but most struggled to construct a clear and accurate algorithm. In particular, students had difficulty with correctly representing the array data structure and a loop control structure (For, While or Repeat could have been used). Students are expected to use the variables identified and include appropriate indentation. Students are encouraged to develop a set of basic algorithms and practise these throughout the year.</p>
+ <p class="examiner">The following is an example of a possible response.<br />
+   For position <span class="myanswer"><img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /></span> 1 to NoOfStudents<br />
+   <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong>If Age[position] =&gt; 18 Then<br />
+   <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong><strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong>Print Names[position]<br />
+   <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong><strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong>Print Ages[position]<br />
+   <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --></strong>EndIf<br />
+   EndFor</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><strong><a name="b4" id="c18"></a>B4 <br />
+ (5 marks)</strong></td>
+ <td valign="top"><p><strong>Question 4</strong> (5 marks)</p>
+ <p> Liana is developing software for online learning programs. She gives one of her new programmers, Andrew, the client specifications for one element of the package, and gives him the freedom to design and develop the solution. He must then bring his program to Liana for approval. Andrew has presented a program that looks very much like a commercial program produced by one of Liana&rsquo;s competitors. The program also appears to collect information on users that can be retained by the business for marketing purposes.</p>
+ a. Outline two legal issues that Liana should be concerned about.
+ 
+ 2 marks
+ <p>Legal issue 1 [3 lines]</p>
+ <p class="myanswer">Using the competitors' code without permission may violate the Copyright Act 1968, and render Liana liable to civil prosecution.</p>
+ <p> Legal issue 2 [3 lines]</p>
+ <p class="myanswer">If Liana's organisation is subject to the Privacy Act 1988, using the collected information for a purpose other than that for which it was collected - without consent - could violate the 'use and disclosure' national privacy principle, and render the organisation vulnerable to criminal prosecution.</p>
+ <p class="explanation">Notice the &quot;if&quot; above. There is no indication that they are subject to the act. Legislation questions hardly ever give enough information to make such decisions.</p>
+ <p><span class="examiner">Average mark 80%</span></p>
+ <p class="examiner">Most students were able to identify copyright and privacy issues associated with the development of the software.<br />
+   The following is an example of a high-scoring response.<br />
+   Legal issue 1 As Andrew&rsquo;s program looks very similar to a commercially available program, Liana should be concerned that Andrew may have broken copyright by using other companies code.<br />
+   Legal issue 2 As Andrew&rsquo;s program retains user details, Liana should be concerned that Andrew&rsquo;s program collects users private information without consent breaching the Privacy Act.</p>
+ <p>b. What should Andrew do to resolve Liana&rsquo;s legal concerns? 2 marks [7 lines]</p>
+ <p class="myanswer">- Ensure that the code he uses is clearly not based on the competitor's code. Or, pay for a licence to use the intellectual property.<br />
+ - Get permission from clients to use their personal information for marketing purposes. Or, not use the information for marketing purposes.
+ </p>
+ <p><span class="examiner">Average mark 60%</span></p>
+ <p class="examiner">Most students assumed that Andrew had indeed &lsquo;copied&rsquo; the code; however, the stem of the question stated that it &lsquo;looks very much like a commercial program&rsquo;. This assumption resulted in many students stating that if he removed the code, this would resolve the legal issue. The more appropriate response was to prove that that code was his intellectual property. With regard to the copyright issue, communicating with users and seeking permission within the software would resolve the issue.</p>
+ <p>c. What could Liana do to make sure that <strong>one</strong> legal issue stated in <strong>part a.</strong> does not occur again? 1 mark
+   
+   [3 lines]</p>
+ <p class="comment">Choose one...</p>
+ <ul>
+ <li class="myanswer"> <strong>Educate</strong> programmers about their responsibilities under the Copyright Act 1968.</li>
+ <li class="myanswer"> Ditto, Privacy Act 1988 (if it the act does not apply to the organisation, they should consider their moral obligations to their clients.)</li>
+ <li class="myanswer"> Add such misbehaviours to the organisation's <strong>Code of Ethics</strong> that programmers must know and obey.</li>
+ <li class="myanswer"> Punish Andrew publicly as a warning to other programmers. (i.e. apply <strong>sanctions</strong>)</li>
+ </ul> 
+ <p class="explanation">Sometimes it helps to highlight (e.g. underline) the key words in your answers to make your understanding of the key knowledge apparent, and assure the marker that you have hit the nail on the head.</p>
+ <p><span class="examiner">Average mark 40%</span></p>
+ <p class="examiner">Many students simply rewrote responses that they had used in part b., that is, how to resolve the issue rather than how this could be prevented in the future. Appropriate responses included developing a code of ethics, training programmers about the code of ethics or training programmers about legal issues in a programming environment.</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#99CCFF"><p><strong><a name="b5" id="c17"></a>B5<br />
+ (3 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 5</strong> (3 marks)</p>
+ <p> The manager of a real estate agency is having new software developed. He wants to be able to use the software in order to maintain the information on the system as well as add and remove new rentals. All his agents need to be able to add the details of new clients who take up a rental property. Everyone must login.</p>
+ <p> Complete the use case diagram below to show the stated requirements.</p>
+ <p><img src="/m/pm/14s-b05.gif" width="575" height="383" alt="b5" /></p>
+ <p class="comment">My solution...</p>
+ <p><img src="/m/pm/14s-b05-solution.gif" width="575" height="383" alt="Created with Microsoft Image Composer 1.5 fro 1997. Yeah. Suck THAT down!" /></p>
+ <h6 class="comment">Yeah - it's crappy digital editing. Not <strong>everyone's</strong> a Photoshop genius like <strong>you</strong>. Hmphh.</h6>
+ <p class="comment">A nice, reasonable test of students' UCD skills. Not too hard, not too easy.</p>
+ <p class="comment">Right smack in the Goldilocks zone.</p>
+ <p class="explanation">No mention is made of the manager needing to add new clients, so no line is needed from the manager to the added use case.</p>
+ <p class="explanation"><span class="examiner">Average mark 50%</span></p>
+ <p class="examiner">Many students struggled to interpret the scenario and included a range of irrelevant items on the use case diagram. Students are encouraged to highlight key text (such as functional requirements in the scenario) as they are working through each question.</p>
+ <p class="examiner"><img src="/m/pm/14s-b5.jpg" width="595" height="418" alt="SD 2014 B5 answer" /></p></td>
+ </tr>
+ <tr>
+ <td colspan="2" valign="top" bgcolor="#99CCFF"><p class="comment">Section B overall</p>
+ <p class="comment">Again, like section A: clear, sensible questions of reasonable levels of difficulty. <br />
+ No problems here for me.</p></td>
+ </tr>
+</table>
+<div align="left">
+ <table>
+ <tr>
+ <td valign="top" ></td>
+ </tr>
+ <tr>
+ <td valign="top" ><h2 align="left"><a name="cs" id="cs"></a>Case study</h2>
+ <p align="left">CASE STUDY INSERT FOR SECTION C<br />
+ Please remove from the centre of this book during reading time. </p>
+ <p><strong>Case study</strong></p>
+ <p class="comment">Note - Figure 1 was a drawing of a happy cow getting a tag attached to her ear. The image was not produced by VCAA so I have not included it here. In any case, it added nothing to the case study, unless you love drawings of cows and ear tags. In that case, I substitute a reasonable facsimile. Now, stop crying. There there.</p>
+ <p> <img src="/m/pm/14s-cs00-cowtag.jpg" alt="Eartag" width="329" height="276" align="right" />The Wide Hill cattle station is in Central Australia and measures approximately 80 km by 50 km. It is situated 200 km from a town of about 100 people. Currently, there is a herd of approximately 30 000 cattle on the station. The station provides cattle for a variety of markets. Some require cattle of a certain weight, while others require cattle of a certain age. All cattle in Australia are registered with the <strong>Australian Cattle Identification System</strong> (ACIS) and, when cattle are bought and sold, the information must be transmitted to a national database that is available online. All cattle producers have login access to this information. The cattle carry a radiofrequency identification (RFID) tag that can be scanned easily by an electronic reader. This provides a unique RFID code for each animal. The electronic reader can also record the current weight of each animal through a sensor set up in the cattle yards. The RFID tag provides many advantages to producers as all cattle in Australia can be traced.</p>
+ <p>   Mike McIntosh, the station&rsquo;s owner and manager, would like to expand the use of ACIS to help him work more efficiently and help him keep records that will provide information to improve his herd. He has identified a number of concerns he would like to address:</p>
+ <ul>
+   <li>Cattle from other stations get mixed in with Mike&rsquo;s herd and he wants to use the system to quickly identify these cattle. Currently, he has to read the animal&rsquo;s tag and check the RFID against his paper records to find out if it is one of his animals. If it is not one of his, he has to login to ACIS to find out where the animal belongs.   </li>
+   <li>Currently, Mike&rsquo;s limited breeding information is kept on paper. In the future, Mike would like these records to be electronic. He hopes he will then be able to identify his best breeding stock and improve the quality of his herd.   </li>
+   <li>Mike weighs cattle for certain markets (which specify a specific range) and he hopes to be able to produce cattle that grow quicker, using this weighing and his electronic breeding records.   </li>
+   <li>Mike would also like to introduce some new breeding lines into his cattle and wants his records to keep track of these animals to see how they compare to the rest of the herd. If they do well, he will switch to these new breeding lines in the future.
+     
+   </li>
+ </ul>
+ <p>Mike recognises that the remote location of his cattle station may present some problems. The only access to the internet is from a satellite connection based at the station&rsquo;s homestead, where Mike&rsquo;s office is. The only other form of communication around the station is via handheld radios. Mike has set up a wi-fi network of beacons around the homestead so that the buildings and cattle yards within 400 m of the main house have wi-fi available.<br />
+   The weighing and scanning set-up is portable and can be moved to any one of six yards located around the station as well as the main homestead yards. However, the only way of communicating with Mike&rsquo;s office is through a simple radio voice system when Mike is away from the homestead and out of wi-fi range. He is considering using a satellite system to transfer data to and from the homestead&rsquo;s computer.</p>
+ <p>   Mike would like to have a new software solution that will scan an animal&rsquo;s RFID tag and enter its weight into his records while he is using a tablet computer in any of his cattle yards. He would then like to be able to upload these records onto the homestead&rsquo;s computer.<br />
+   He would also like the following information to be stored and displayed on the tablet:</p>
+ <ul>
+   <li>whether each animal belongs to him</li>
+   <li>where each animal was born and its parentage</li>
+   <li>the age of each animal</li>
+   <li>a comparison of each individual animal&rsquo;s weight with the average for the herd (at that age)</li>
+   <li>any other relevant information about the cattle (e.g. how many calves each cow has produced) </li>
+ </ul>
+ <p>On viewing this information, Mike can then make a decision as to what to do with each animal and direct his station workers accordingly. As he has approximately 30 000 cattle on the station, these decisions need to be made quickly. If he finds an animal with an excellent growth rate, for example, he may wish to keep it for future breeding.</p>
+ <p>   Mike has contracted Nicole to design and develop his new Cattle Station Software (CSS) to provide all the extra information. The new software must be able to provide communication between his office in the homestead and the portable weighing and scanning system when it is used at each of the six cattle yards around the station.<br />
+ </p>
+ <p align="center"><img src="/m/pm/14s-cs02.gif" width="543" height="444" alt="casestudy2" /></p>
+ <p align="left"><strong>END OF CASE STUDY INSERT FOR SECTION C</strong></p></td>
+ </tr>
+ <tr>
+   <td valign="top" class="comment" >Note - what's interesting is that this is the first time I can remember a case study not being set in Victoria. There are no legislation questions in section C, so it doesn't look like the exotic setting will be of significance.</td>
+ </tr>
+ </table>
+ <table>
+ <tr>
+ <td colspan="2" bgcolor="#FFFFCC"><p align="left"><strong>Instructions for Section C</strong></p>
+ <p align="left"> Answer <strong>all</strong> questions in the spaces provided. Remove the case study insert and read <strong>all</strong> the information provided before you answer these questions. Answers must apply to the case study. </p></td>
+ </tr>
+ <tr>
+ <td width="93" valign="top" bgcolor="#FFFFCC"><p class="question"><strong><a name="c1" id="c1"></a>C1 </strong></p>
+ <p class="question"><strong> (4 marks)</strong></p>
+ <p class="question">&nbsp;</p></td>
+ <td width="666" valign="top"><p align="left"><strong>Question 1</strong> (4 marks)</p>
+ <p align="left"> Nicole&rsquo;s office is 600 km from the Wide Hill cattle station. She needs to begin the analysis as soon as possible. There are four techniques Nicole could use to help her with her analysis: observation, interviews, questionnaires and reviews of Wide Hill&rsquo;s software documentation.<br />
+ Outline a major strength of each of these techniques. [3 lines per topic]</p>
+ <p align="left" class="explanation">Hmmm. Does the question mean a major strength for <strong>Nicole</strong>, 600km away? Answers <strong>should</strong> always relate to the case study, but the question does not focus on Nicole's special circumstances. Play it safe and focus on this situation, I'd say.</p>
+ <p><strong>Observation</strong></p>
+ <ul>
+   <li class="myanswer">direct, first-hand, primary evidence can be obtained. All other secondary evidence must be filtered through other people's interpretations and choice of what to report.</li>
+   <li class="myanswer">can get a better understanding of the realities of the context of the solution;</li>
+   <li><span class="myanswer">direct observation may unearth facts that farm workers had considered self-evident and unworthy of mention. For example, farmhands know that semi-wild cattle are huge and nasty, so noone should get near them without a steel enclosure; a city-girl like Nicole might have been planning a system that involved treating cattle like they were friendly, tame dairy cows. Or Nicole may realise first-hand the rigors that equipment</span> <span class="myanswer">must cope with in 50 degree temperatures and clouds of choking dust - something that the workers may not have mentioned since they took it for granted.</span></li>
+ </ul>
+ <p><strong>Interviews</strong></p>
+ <ul>
+   <li class="myanswer">can get more detailed information than would be likely if it had to be written down</li>
+   <li class="myanswer">can elicit personal feelings and reactions. People (especially men) are much less likely to open up emotionally in writing compared with face-to-face conversation.</li>
+   <li class="myanswer">the exchange is more dynamic and responsive - planned questions may be modified in the light of previous answers, and follow-up questions asked after an unexpected or illuminating answer</li>
+   <li class="myanswer">the personal touch may 'loosen up' up uncooperative subjects and make them more responsive. These people may easily refuse to fill in a questionnaire, but will feel sheepish about rudely refusing to talk directly to a visitor.</li>
+   <li class="myanswer">body language, tone of voice, hesitation, and gestures can be valuable clues to deeper unexpressed truths behind a person's words. Irony, sarcasm, reluctance, emotion can all be expressed and detected.and review</li>
+ </ul>
+ <p><strong>Questionnaires </strong></p>
+ <ul>
+   <li class="myanswer">for<strong> Nicole</strong>, these are easy to accomplish. People need not travel to a remote location. Questionnaires can be handled by mail or email.</li>
+   <li class="myanswer">are quick to fill in, so respondents are more likely to comply</li>
+   <li class="myanswer">can gather a lot of information from large groups of people quickly, cheaply and easily</li>
+   <li class="myanswer">responses with restricted sets of answers are easy to enter into an information system</li>
+ </ul>
+ <p><strong>Reviews</strong> (of software documentation)</p>
+ <p class="comment">(Assuming that this refers to <em>user documentation</em> and not <em>internal documentation</em>...)</p>
+ <ul>
+   <li class="myanswer">the documentation would tell Nicole what the existing software was capable of (i.e. scope)</li>
+   <li class="myanswer">it could reveal areas of functionality that need to be improved, removed, or added</li>
+ </ul>
+ <p class="examiner">Most students handled the first three stated techniques well; however, many students misinterpreted &lsquo;Reviews&rsquo;. The stem of the question stated one of the techniques that could be used to help with the analysis was &lsquo;reviews of Wide Hill&rsquo;s software documentation&rsquo;, that is, the technique would review the current documentation, not the software. Many students assumed the reviews had already been conducted and this was incorrect.<br />
+   It is important that students remember that responses in Section C must apply to the case study. So when describing the strength of a technique, it was expected that the strength would be applicable to Wide Hill.<br />
+   The following is an example of a high-scoring response.<br />
+   &#61623; Observation Can see the current system at work and detect problems that the cattle station&rsquo;s staff may not see<br />
+   &#61623; Interviews Able to directly know what Mike and the station workers are having trouble with, and discuss their options with Nicole<br />
+   &#61623; Questionnaires Allows Nicole to quickly obtain information about the cattle station&rsquo;s staff&rsquo;s problems<br />
+   &#61623; Reviews Allows Nicole to very carefully examine the current system, outlining flaws that observation cannot</p>
+ <p class="examiner">Average mark 57%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c2" id="c2"></a>C2 </strong></p>
+ <p class="question"><strong> (4 marks)</strong></p></td>
+ <td valign="top" ><p><strong>Question 2</strong> (4 marks)</p>
+ <p> As part of her analysis, Nicole has begun a data flow diagram (DFD; Diagram 3) and a context diagram (Diagram 4).</p>
+ <p><br />
+ </p>
+ <p align="center"><strong>Diagram 3: Data flow diagram (DFD)</strong></p>
+ <p><img src="/m/pm/14s-c02.gif" width="666" height="366" alt="c2" /></p>
+ <p align="center"><strong>Diagram 4: Incomplete context diagram</strong></p>
+ <p><img src="/m/pm/14s-c02b.gif" width="611" height="392" alt="c2b" /></p>
+ <p>Using the information in the DFD, complete the context diagram by writing the labels for A, B, C and D below. [1 line each]</p>
+ <p class="comment"><span class="question">A -</span><span class="myanswer"> Manager</span></p>
+ <p class="explanation">The DFD shows a report being sent from the 'prepare cattle report for manager' process. It must logically be going to the manager external entity.</p>
+ <p class="myanswer"> <span class="question">B -</span> Portable weighing and scanning set-up</p>
+ <p class="myanswer"><span class="explanation">The only external entity that provides weight information must be the portable scales.</span><br />
+ </p>
+ <p class="examiner"><strong>The examiner's report said B = cattle. That's an odd one!</strong></p>
+ <p class="myanswer"><span class="question">C -</span> Cattle condition</p>
+ <p class="explanation">If you find &quot;cattle destination&quot; in the DFD, you'll notice that the only other data travelling with it is cattle condition.</p>
+ <p class="myanswer"><span class="question">D -</span> TagID + cattle destination</p>
+ <p class="explanation">Something is being sent to the ACIS external entity. Look at the DFD and find that the process for 'format data for ACIS database' is sending  TagID + cattle destination - and it must be going to the ACIS database.</p>
+ <p class="explanation">Remember - </p>
+ <ul>
+   <li class="explanation">The CD incorporates <strong>all</strong> of the DFD's information, but hides system processes and data stores within a single system circle. </li>
+   <li class="explanation">Tip - in the DFD, draw a line to enclose the CSS system's processes and exclude the external entities. </li>
+   <li class="explanation">The CD and DFD both show the <em>same</em> external entities.</li>
+   </ul>
+ <p class="examiner">Responses to this question were quite poor. Students should be encouraged to use the data flow diagram to assist in formulating accurate responses, particularly with respect to labelling conventions. Further emphasis should be given to the teaching and learning of this topic.</p>
+ <p class="examiner">Average mark 38%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c3" id="c3"></a>C3 </strong></p>
+ <p class="question"><strong> (5 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 3</strong> (5 marks)</p>
+ <p class="question"> Nicole decides that, when each animal is weighed, if its weight is below 50 kg or over 500 kg, the software solution will seek confirmation of that value before it is entered into the animal&rsquo;s records. Animal weights are recorded to one decimal place.</p>
+ <p>a. What type of validation is this?
+ 1 mark [1 line]</p>
+ <p class="myanswer">Range check.</p>
+ <p class="explanation">Do not ramble with statements like &quot;This type of validation is known as a range check.&quot; We all know what the question is. You don't need to repeat it.</p>
+ <p class="examiner">The correct validation type was range check.</p>
+ <p class="examiner">Average mark 60%</p>
+ <p>b. Five different items of test data are required to test this weight function. The first item of test data has been provided in the table below.
+   
+ </p>
+ <p>Complete the table with the remaining four items. 4 marks</p>
+ <table border="1" cellspacing="0" cellpadding="2">
+ <tr>
+ <td width="68" valign="top"><strong> Test no. </strong></td>
+ <td width="98" valign="top"><p><strong>Cattle weight</strong></p></td>
+ <td width="386" valign="top"><p align="center"><strong>Expected output</strong></p></td>
+ </tr>
+ <tr>
+ <td width="68" valign="top"><p align="center">1</p></td>
+ <td width="98" valign="top"><p align="center" class="cursive"><em>49.5 kg</em></p></td>
+ <td width="386" valign="top"><p class="cursive"><em>confirmation required</em></p></td>
+ </tr>
+ <tr>
+ <td width="68" valign="top"><p align="center">2</p></td>
+ <td width="98" valign="top" class="myanswer"><div align="center">50.0 kg</div></td>
+ <td width="386" valign="top" class="myanswer">Acceptable</td>
+ </tr>
+ <tr>
+ <td width="68" valign="top"><p align="center">3</p></td>
+ <td width="98" valign="top" class="myanswer"><div align="center">50.1 kg</div></td>
+ <td width="386" valign="top" class="myanswer">Acceptable</td>
+ </tr>
+ <tr>
+ <td width="68" valign="top"><p align="center">4</p></td>
+ <td width="98" valign="top" class="myanswer"><div align="center">500kg</div></td>
+ <td width="386" valign="top" class="myanswer">Acceptable</td>
+ </tr>
+ <tr>
+ <td width="68" valign="top"><p align="center">5</p></td>
+ <td width="98" valign="top" class="myanswer"><div align="center">500.1 kg</div></td>
+ <td width="386" valign="top" class="myanswer">Confirmation required</td>
+ </tr>
+ </table>
+ <p class="explanation">Good test data thoroughly tests boundary conditions where software behaviour is expected to change. That's where most SD exam logical errors lurk.</p>
+ <p class="examiner">(The examiners' answer is the same as mine. Test 3 can be any value 0ver 50 and less than 500.)</p>
+ <p class="examiner">Students are reminded that when testing a specific range, it is important to test the boundaries and not to test the same thing multiple times.</p>
+ <p class="examiner">Average mark 77%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c4" id="c4"></a>C4 </strong></p>
+ <p class="question"><strong>(4 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 4</strong> (4 marks)</p>
+ <p> Nicole decides that the Cattle Software Solution (CSS) will store its data in a single file. This file will be regularly searched using the ACIS code. The file contains only one type of record and includes the field names given in the table below.<br />
+ From the following list of data types, select the most appropriate data type for each field name and its accompanying description in the table below. An example has been provided.</p>
+ <p align="center">integer floating point Boolean character string</p>
+ <table border="1" cellspacing="0" cellpadding="2">
+ <tr>
+ <td width="121" valign="top"><div align="center"><strong> Field name </strong></div></td>
+ <td width="234" valign="top"><p align="center"><strong>Description</strong></p></td>
+ <td width="220" valign="top"><p align="center"><strong>Type</strong></p></td>
+ </tr>
+ <tr>
+ <td width="121" valign="top"><p>ACISMother</p></td>
+ <td width="234" valign="top"><p>holds the ACIS code of the mother or is left blank if not known</p></td>
+ <td width="220" valign="top"><p class="cursive"><em>string</em></p></td>
+ </tr>
+ <tr>
+ <td width="121" valign="top"><p>ACISNo</p></td>
+ <td width="234" valign="top"><p>holds the ACIS code and is a 16-digit number with the fourth digit blank</p></td>
+ <td width="220" valign="top" class="myanswer"><p>string</p>
+   <p><span class="explanation">The space in the fourth digit eliminates using any numeric data type.</span></p></td>
+ </tr>
+ <tr>
+ <td width="121" valign="top"><p>Weight</p></td>
+ <td width="234" valign="top"><p>holds the last weight known for that animal in kilograms</p></td>
+ <td width="220" valign="top" class="myanswer"><p>floating point</p>
+   <p><span class="explanation">We were told one decimal place was necessary, so it can't be integer</span></p></td>
+ </tr>
+ <tr>
+ <td width="121" valign="top"><p>Gender</p></td>
+ <td width="234" valign="top"><p align="left">C for cow, B for bull and S for steer</p></td>
+ <td width="220" valign="top" class="myanswer">character</td>
+ </tr>
+ <tr>
+ <td width="121" valign="top"><p align="left">BreedingDefects</p></td>
+ <td width="234" valign="top"><p>T if a defect exists that would prevent it from being used for breeding and F if a defect does not exist</p></td>
+ <td width="220" valign="top" class="myanswer">Boolean</td>
+ </tr>
+ </table>
+ <p class="explanation">Thank Dog the SD exam did not fuff up the interpretation of the logical true/false Boolean field as the <a href="/p/postmortem-2014i.htm#b5">ITA exam</a> did. Bravo!</p>
+ <p class="examiner">Students generally answered this question well; however, many overlooked the description of ACISNo. The description indicated that it was a 16-digit number with the fourth digit blank. With this condition, it could not be an integer.</p>
+ <p class="examiner">Average mark 75%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c5" id="c5"></a>C5 </strong></p>
+ <p class="question"><strong> (1 mark)</strong></p>
+ <p class="question"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p></td>
+ <td valign="top"><p><strong>Question 5</strong> (1 mark)</p>
+ <p> When an animal&rsquo;s ACIS code is identified, a number of steps are undertaken. </p>
+ <p class="comment">&quot;A number of steps IS undertaken.&quot;<br />
+The verb must agree with the subject of the sentence, &quot;A number&quot; (singular) and not &quot;steps&quot; (plural). <br />
+Wrists out, VCAA. Slap. Now, be good.</p>
+ <p class="comment"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ <p>One step is represented by the algorithm below.</p>
+ <p><span class="code"><strong>Search</strong> station records using ACIS code <br />
+ <strong> If</strong> Found <strong>then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->ACISFound <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> True<br />
+ <strong>Else</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->ACISFound <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> False<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Display</strong> &lsquo;This animal does not belong to this station&rsquo;<br />
+ <strong>Endlf</strong></span><br />
+ </p>
+ <p>What is the name of this type of check? [1 line]</p>
+ <p class="myanswer">Existence check.</p>
+ <p class="comment">Well - that was easy. </p>
+ <p class="explanation">In SD U4O1, you only need to know validation checks for: range; type; and existence.<br />
+   And range check had already been examined in C3a.</p>
+ <p class="examiner">The correct validation type was existence check.<br />
+   Many students were unable to identify the types of validation occurring in this question and in Question 3a. It is important that students apply validation during school-assessed coursework. It is also recommended that they include an algorithm for each of the three types of validation listed in the study design, in their glossary.</p>
+ <p class="examiner">Average mark 50%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c6" id="c6"></a>C6 </strong></p>
+ <p class="question"><strong> (10 marks)</strong></p>
+ <p class="question"><span class="comment"><img src="/m/stamp_of_approval.jpg" width="57" height="57" alt="Stamp of Approval" /></span></p>
+ <p class="question">and</p>
+ <p class="question"><span class="myanswer"><img src="/m/not-impressed.jpg" alt="Not impressed" hspace="5" width="61" height="63" align="left" /></span></p></td>
+ <td valign="top"><p class="question"><strong>Question 6</strong> (10 marks)</p>
+ <p class="question"> Mike wants to know how each animal compares to others of its age before deciding whether he wants to keep it for breeding or sell it. Cattle between six months and 24 months are broken into three age groups:</p>
+ <ul>
+ <li> AgeGroup = 1 is for cattle older or equal to six months and less than 12 months </li>
+ <li> AgeGroup = 2 is for cattle older or equal to 12 months and less than 18 months </li>
+ <li> AgeGroup = 3 is for cattle older or equal to 18 months and less than 24 months
+ 
+ </li>
+ </ul> 
+ <p>On start-up, the program will compute the average weight of the cattle in each of the above groups so that Mike can compare an individual animal&rsquo;s weight with the average weight. The algorithm below calculates the CattleAge in months and then the age group of each animal. If the animal is too young or too old, an appropriate message is given.</p>
+ <table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+ <tr>
+ <td width="585"><strong>Begin</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->AgeGroup <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 0<br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->CattleAge <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> Difference in months between current date and date of birth <br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->If</strong> CattleAge &lt; 6 <strong>Then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Display &lsquo;Cattle Too Young&rsquo;<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->EndIf</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->If</strong> CattleAge &gt;= 6 <strong>And</strong> CattleAge &lt; 12 <strong>Then</strong> <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->AgeGroup <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 1 <br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Display</strong> &lsquo;AgeGroup = 1&rsquo;<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->EndIf</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->If</strong> CattleAge &gt;= 12 <strong>And</strong> CattleAge &lt; 18 <strong>Then</strong> <br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;AgeGroup <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 2 <strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Display</strong> &lsquo;AgeGroup = 2&rsquo;<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->EndIf</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->If</strong> CattleAge &gt;= 18 <strong>And </strong>CattleAge &lt; 24 <strong>Then</strong><br />
+ <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;AgeGroup <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 3 <br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Display </strong>&lsquo;AgeGroup = 3&rsquo;<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->Else</strong><br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Display</strong> &lsquo;Cattle over 24 months&rsquo;<br />
+ <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->EndIf</strong><br />
+ <strong>End</strong></td>
+ </tr>
+ </table>
+ <p>a. The following table contains a subset of the test data that was used to test the algorithm before coding it.
+ 
+ </p>
+ <p>Complete the table for each date of birth given. An example has been provided.<br />
+ For the testing, Current Date = 14/11/2014 was used. 6 marks</p>
+ <table width="80%" border="1" cellpadding="2" cellspacing="0">
+ <tr>
+ <td width="107" valign="top" bgcolor="#F9D6E4"><p align="center"><strong>Test<br />
+ num.</strong></p></td>
+ <td width="148" valign="top" bgcolor="#F9D6E4"><p><strong>Date of birth</strong></p></td>
+ <td width="250" valign="top" bgcolor="#F9D6E4"><p align="center"><strong>Expected output</strong></p></td>
+ <td width="267" valign="top" bgcolor="#F9D6E4"><p align="center"><strong>Actual output</strong></p></td>
+ </tr>
+ <tr>
+ <td valign="top"><p align="center">1</p></td>
+ <td width="148" valign="top"><p>14/8/2012</p></td>
+ <td width="250" valign="top"><p><em>message &lsquo;Cattle over 24 months&rsquo;</em></p></td>
+ <td width="267" valign="top"><p><em>message &lsquo;Cattle over 24 months&rsquo;</em></p></td>
+ </tr>
+ <tr>
+ <td width="107" valign="top"><p align="center">2</p></td>
+ <td width="148" valign="top"><p>14/1/2013</p></td>
+ <td width="250" valign="top" class="myanswer">'AgeGroup=3'</td>
+ <td width="267" valign="top" class="myanswer">'AgeGroup=3''</td>
+ </tr>
+ <tr>
+ <td width="107" valign="top"><p align="center">3</p></td>
+ <td width="148" valign="top"><p>14/1/2014</p></td>
+ <td width="250" valign="top" class="myanswer">'AgeGroup=1'</td>
+ <td width="267" valign="top" class="myanswer">'AgeGroup=1'<br />
+   <em>&lsquo;Cattle over 24 months&rsquo;</em></td>
+ </tr>
+ <tr>
+ <td width="107" valign="top"><p align="center">4</p></td>
+ <td width="148" valign="top"><p>14/8/2014</p></td>
+ <td width="250" valign="top" class="myanswer">'Cattle Too Young'</td>
+ <td width="267" valign="top" class="myanswer"><p>'Cattle Too Young'<br />
+   <em>&lsquo;Cattle over 24 months&rsquo;</em><br />
+   </p></td>
+ </tr>
+ </table>
+ <p class="examiner">Students were able to identify expected output, but many students assumed that the message &lsquo;Cattle over 24 months&rsquo; would overwrite the age group message rather than two messages being displayed. Also, many students confused display the text &lsquo;AgeGroup = 1&rsquo; with the variable &lsquo;AgeGroup&rsquo; and so assumed the output would be &lsquo;1 = 1&rsquo;.</p>
+ <p class="examiner">Average mark 56%</p>
+ <p>b. Explain the major error in the algorithm. 2 marks [4 lines]</p>
+ <p class="myanswer">Previous 'true' tests are ignored by the final 'else' statement, which should only test ages that have not already been proved true. So, for example, if the test for age=10 is true for an earlier test, it is again tested for ages 18-24, fails, and the 'Cattle over 24' results.</p>
+ <p class="examiner">In all age groups other than between 18 and 24 months, the correct message is displayed along with an incorrect message saying &lsquo;Cattle over 24 months&rsquo;.<br />
+   Students needed to ensure that they commented on the incorrect message being displayed and when that message appeared. A small number of students said there was no condition equal to 24 months; however, this was not the major error in the algorithm.</p>
+ <p class="examiner">Average mark 30%</p>
+ <p>c. Explain how to fix the error in the algorithm. Where a line(s) of code needs to be rewritten, write the line(s) in full. 2 marks [9 lines]</p>
+ <p class="myanswer">The final ELSE statement needs to be separated from the test for ages 18-24 because it's catching all cases that are not aged 18-24. If cattle have already been categorised, they should not be tested again.</p>
+ <p class="myanswer">Change the end of the code to...</p>
+ <p class="myanswer"><strong>If</strong> CattleAge &gt;= 18 <strong>And </strong>CattleAge &lt; 24 <strong>Then</strong><br />
+  <!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;AgeGroup <img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /> 3 <br />
+  <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem --> Display </strong>&lsquo;AgeGroup = 3&rsquo;<br />
+  <strong>End if</strong></p>
+ <p class="myanswer"><strong>If </strong>CattleAge &gt; 24 <strong>Then</strong><br />
+   <strong><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp; Display</strong> &lsquo;Cattle over 24 months&rsquo;<br />
+   <strong>EndIf</strong></p>
+ <p class="myanswer"><span class="explanation">Don't waste time re-writing <strong>all</strong> of the code. Make it clear that you know where the error is and re-write that part only.</span><br />
+ </p>
+ <p class="comment">I hope the markers accept valid variations like SELECT CASE. Most languages have a SELECT CASE facility, which obviates messy IF/ELSE construct errors.</p>
+ <p class="comment">Another meatybite question. Me gusta.</p>
+ <p class="comment"><img src="/m/stamp_of_approval.jpg" width="57" height="57" alt="Stamp of Approval" /></p>
+ <p class="examiner">There are a number of ways of fixing the error. The simplest way was to remove the &lsquo;EndIf&rsquo; and add an additional &lsquo;If/Then&rsquo; condition.</p>
+ <p class="examiner">   <strong>If</strong> CattleAge &gt;= 18 <strong>And</strong> CattleAge &lt; 24 <strong>Then</strong><br />
+   <span class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;</span>AgeGroup <span class="myanswer"><img src="/m/pm/equals.jpg" width="15" height="13" alt="assignment" /></span> 3<br />
+   <span class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;</span><strong>Display</strong> &lsquo;AgeGroup = 3&rsquo; <br />
+   <strong>EndIf</strong><br />
+   <strong>If</strong> CattleAge <strong>&gt;=</strong> 24 <strong>Then</strong><br />
+   <span class="myanswer"><!-- #BeginLibraryItem "/Library/indent.lbi" -->&nbsp;&nbsp;&nbsp;<!-- #EndLibraryItem -->&nbsp;&nbsp;</span>   <strong>Display</strong> &lsquo;Cattle over 24 months message&rsquo; <br />
+   <strong>EndIf</strong></p>
+ <p class="examiner"><br />
+   Most students were unable to explain how to fix the error or write the lines of code needed. Students should practise algorithms for a range of unseen scenarios throughout the year.</p>
+ <p class="examiner">Average mark 30%</p>
+ <hr />
+ <p class="comment">This was a tricky task. At first I could not see it, and it took me a while to isolate the problem with a deskcheck. </p>
+ <p class="explanation">Yes, folks. Deskchecks are not just to keep teachers and examiners happy - they actually <strong>work</strong> with <strong>real</strong> programming problems!</p>
+ <p class="explanation">First, you needed to calculate the ages of each test cow.</p>
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+   <tr>
+     <td scope="col"><div align="center">
+       <p class="myanswer"><img src="/m/not-impressed.jpg" alt="U.S. president is not impressed." hspace="5" width="198" height="207" align="left" /></p>
+       <p class="myanswer">&nbsp;</p>
+       <p class="myanswer">&nbsp;</p>
+     </div></td>
+     <td scope="col"><div align="left"><span class="comment"><em>I'm not impressed. The examiners made it unnecessarily difficult by making students calculate the ages of the cattle from their dates of birth. This was just busy-work and did not test students' ability to understand digital logic. An error in counting months could have ruined students' demonstration of their understanding of the true key knowledge - programming logic. I think the question should have given students the ages of the cattle in months and not have made students waste time on irrelevant cow-month computations.</em></span></div></td>
+   </tr>
+ </table>
+ <p class="explanation">For the record - the ages were 22, 10 and 3 months respectively.</p>
+ <p class="explanation"> I counted on my fingers. You might have used higher mathematical cognitive skills to achieve similar results... I wish I had some of those.</p>
+ <p class="myanswer"><span class="explanation">Then, using  each age, step through each line of the pseudocode. Draw lines to create 3 test data columns... (I've abbreviated text a bit so it would fit in a narrow space. &quot;X&quot; means &quot;skip this&quot;)</span><br />
+ </p>
+ <table widtd="100%" border="1" cellspacing="0" cellpadding="2">
+   <tr>
+     <td colspan="4" bgcolor="#CCFFCC" class="black" ><div align="center"><strong>DESKCHECK</strong></div></td>
+     </tr>
+   <tr>
+     <td width="279" bgcolor="#CCCCCC" class="black" ><strong>Pseudocode</strong></td>
+     <td width="91" bgcolor="#CCCCCC" ><strong>14/1/2013</strong></td>
+     <td width="95" bgcolor="#CCCCCC" ><strong>14/1/2014</strong></td>
+     <td width="81" bgcolor="#CCCCCC" ><strong>14/8/2014</strong></td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >AgeGroup <img src="/m/pm/equals.jpg" widtd="15" height="13" alt="assignment" /> 0</span></div></td>
+     <td >Age=0</td>
+     <td >Age=0</td>
+     <td >Age=0</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >CattleAge <img src="/m/pm/equals.jpg" widtd="15" height="13" alt="assignment" /> Difference in months </span></div></td>
+     <td ><p>Age=22</p></td>
+     <td >Age=10</td>
+     <td >Age=3</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >If CattleAge &lt; 6 then</span></div></td>
+     <td >false</td>
+     <td >false</td>
+     <td ><strong>TRUE</strong></td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >Display &lsquo;Cattle Too Young&rsquo;</span></div></td>
+     <td >x</td>
+     <td >x</td>
+     <td bgcolor="#FFFF00" ><strong>show it</strong></td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >EndIf</span></div></td>
+     <td >land here</td>
+     <td >land here</td>
+     <td >OK</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >If CattleAge &gt;= 6 And CattleAge &lt; 12</span></div></td>
+     <td >false</td>
+     <td ><strong>TRUE</strong></td>
+     <td >false</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >AgeGroup <img src="/m/pm/equals.jpg" widtd="15" height="13" alt="assignment" /> 1 </span></div></td>
+     <td >x</td>
+     <td >age=1</td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >Display &lsquo;AgeGroup = 1&rsquo;</span></div></td>
+     <td >x</td>
+     <td bgcolor="#FFFF00" ><strong>show it</strong></td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td class="black" >EndIf</td>
+     <td >land here</td>
+     <td >OK</td>
+     <td >land here</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >If CattleAge &gt;= 12 And CattleAge &lt; 18</span></div></td>
+     <td >false</td>
+     <td >false</td>
+     <td >false</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >AgeGroup <img src="/m/pm/equals.jpg" widtd="15" height="13" alt="assignment" /> 2 </span></div></td>
+     <td >x</td>
+     <td >x</td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >Display &lsquo;AgeGroup = 2&rsquo;</span></div></td>
+     <td >x</td>
+     <td >x</td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >EndIf</span></div></td>
+     <td >land here</td>
+     <td >land here</td>
+     <td >land here</td>
+   </tr>
+   <tr>
+     <td class="black" ><div align="left"><span >If CattleAge &gt;= 18 And CattleAge &lt; 24</span></div></td>
+     <td ><strong>TRUE</strong></td>
+     <td >false</td>
+     <td >false</td>
+   </tr>
+   <tr>
+     <td >AgeGroup <img src="/m/pm/equals.jpg" widtd="15" height="13" alt="assignment" /> 3 </td>
+     <td >Age=3</td>
+     <td >x</td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td > Display &lsquo;AgeGroup = 3&rsquo;
+     </td><td bgcolor="#FFFF00" ><strong>show it</strong></td>
+     <td >x</td>
+     <td >x</td>
+   </tr>
+   <tr>
+     <td>Else</td>
+     <td >x</td>
+     <td >land here</td>
+     <td >land here</td>
+   </tr>
+   <tr>
+     <td>Display &lsquo;Cattle over 24 months&rsquo;
+     </td><td >x</td>
+     <td bgcolor="#FFFF00" ><strong>show it</strong></td>
+     <td bgcolor="#FFFF00" ><strong>show it</strong></td>
+   </tr>
+   <tr>
+     <td>EndIf</td>
+     <td>land here</td>
+     <td>OK</td>
+     <td>OK</td>
+   </tr>
+ </table>
+ <p class="explanation">Obviously in real life you don't rigorously fill in <strong>every</strong> cell. You make a note in the cells of consequence. <br />
+   If you <strong>still</strong> haven't found the logic bomb, <strong>then</strong> you go back and annotate <strong>every</strong> cell!</p>
+ <p class="myanswer">&nbsp;</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c7" id="c7"></a>C7</strong></p>
+ <p class="question"><strong> (2 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 7</strong> (2 marks)</p>
+ <p class="question">Mike wants to use a tablet to record the weight of the cattle. Nicole tells him that the tablet has 512 MB of primary storage (RAM) and 16 GB of secondary storage. She could go to 32 GB of secondary storage, but she cannot alter the 512 MB of RAM. </p>
+ <p class="question">Apart from cost, outline the technical difference between the two types of storage used on the tablet and how this may affect access to the data stored. [5 lines]</p>
+ <p class="myanswer">Data access speed.</p>
+ <p class="myanswer">RAM (random access memory) is used during the execution of a program to hold the program's executable code and the data it is using during execution. It is very quick to read and write to RAM. Primary storage  is volatile - its contents are lost when the program or the device is shut down. If the program plus its necessary runtime variables, arrays etc cannot fit in primary storage, the program will either crash, fail to start, or resort to swapping data in and out of slow secondary storage to get enough room to run the software.</p>
+ <p class="myanswer">Secondary storage (e.g. hard disk, SSD, SD card) is non-volatile storage used to permanently store executable code and data between program executions. Data here can also be accessed by a running program. It is usually much slower to access than RAM, which is why computers will little RAM will run slowly as they resort to using secondary storage page files to act a slow alternative to primary storage.</p>
+ <p class="comment">It's interesting to see that the examiners are no longer spelling out &quot;MB&quot; and &quot;GB&quot; units. We're all growing up! </p>
+ <p class="comment">It wasn't so long ago that we stopped capitalising the &quot;i&quot; in &quot;internet.&quot;</p>
+ <p class="comment">These are significant milestones, folks!</p>
+ <p class="comment"><span class="examiner">Students struggled to provide clear and technically accurate responses to this question. The question had two parts and many students missed the second half of the question. Students are encouraged to read and re-read the question throughout the examination and then do the same for their response.<br />
+   The following is an example of a possible response: Primary storage is non-permanent memory used to hold temporary data and is accessed faster than secondary storage. Data in secondary storage is slower to access but data is stored permanently even after the device is turned off.</span></p>
+ <p class="comment"><span class="examiner">Average mark 35%</span><br clear="all" />
+ </p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c8" id="c8"></a>C8</strong></p>
+ <p class="question"><strong> (2 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 8</strong> (2 marks)</p>
+ <p> Each record contains less than 200 bytes of information. It is expected that the software solution will initially hold 30 000 records and will eventually hold a maximum of 100 000 records.<br />
+ To help with planning, Nicole needs to estimate the range of the file size, from minimum to maximum size, in terms of megabytes.<br />
+ What would be the minimum and maximum expected file sizes?<br />
+ </p>
+ <p>Minimum expected file size [3 lines]</p>
+ <p><span class="comment">[Three lines for each answer? Don't tell me the examiners expected another unrequested justification!]</span></p>
+ <p class="myanswer">6MB</p>
+ <p class="explanation">(200 * 30,000) / 1,000,000</p>
+ <p>Maximum expected file size [3 lines]</p>
+ <p class="myanswer">20MB</p>
+ <p class="explanation">(200 * 100,000) / 1,000,000</p>
+ <p class="comment">All right! Settle down, petals. Chris! Put down that chair. I don't CARE - just put it down. I know this could get messy. The figures shown above assume there are exactly 1,000,000 bytes in a megabyte, obeying the new official IEC (International Electrotechnical Commission) redefined <a href="http://www.iec.ch/si/binary.htm">definition</a> of 'megabyte' as exactly 1,000,000 bytes (which nearly everyone in the industry ignores).</p>
+ <p class="comment">Were the examiners instead thinking of the new (horrible) <strong>mebibyte</strong> (MiB) unit (1 mebibyte = the traditional 1,046,576 bytes), in which case the answers would have been <strong>5.7</strong> and <strong>19.0</strong> respectively?</p>
+ <p class="comment">It will be <strong>fascinating</strong> to see what happens if the markers reject an answer of 19.</p>
+ <p class="comment">As the IEC <a href="http://www.iec.ch/si/binary.htm">says</a>, &quot;Time will tell if comfortable reading will prevail over technical accuracy.&quot;</p>
+ <p class="examiner">Minimum expected file size 5&ndash;6 MB <br />
+   Maximum expected file size 19&ndash;20 MB<br />
+   Students were asked to estimate the minimum and maximum file sizes in megabytes, but many gave their answers in bytes or kilobytes. Students are reminded to read questions carefully. Students who did answer correctly often showed their working and conversion. <br />
+   Either 1024 kilobytes or 1000 kilobytes could have been used.<br />
+   An example of a calculation follows:<br />
+   200 &times; 30 000 = 6 000 000 bytes<br />
+   1 MB = 1000 KB = 1 000 000 bytes<br />
+   6 000 000/1 000 000 = 6 MB</p>
+ <p class="examiner">Average mark 35%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c9" id="c9"></a>C9</strong></p>
+ <p class="question"><strong> (6 marks)</strong></p></td>
+ <td valign="top" ><p class="question"><strong>Question 9</strong> (6 marks)</p>
+ <p class="question"> For the software solution to be successful, rapid searching of the records on the ACIS code is essential. Nicole suggests using a random access file stored on the homestead&rsquo;s computer and sorted on the ACIS code. Also, with 100 000 records, it would be best to read a record only when required and modify it when required.</p>
+ <p class="question">   Adam, a programmer friend, suggests using a sequential file sorted on the ACIS code. When the program starts up, it will load all the data from the homestead&rsquo;s computer onto the tablet and all records will be stored in a one-dimensional array that will then be searched. When the program is shut down, the file will be rewritten back onto the homestead&rsquo;s computer.</p>
+ <p class="comment">Hang on one cotton-picking minute. Did you say the records will be stored in a <strong>one-dimensional</strong> array? How would THAT work? There are 5 fields (see <a href="#c4">Q4</a>). Would the fields in each record be concatenated to form a single string? And then parsed for processing. And then again concatenated for storage? Or would each array index contain a single field, requiring 5 array accesses to gather 1 record? That would make sorting a massive pain! Alan, the silly duffer, should have used a 2D array. Fortunately this does not seem to affect the marking of any questions. I'm not sure whether or not the examiners meant Adam's method to have this serious weakness...</p>
+ <p class="examiner">This question was poorly answered by the majority of students. Most students picked up on the key words &lsquo;random access file&rsquo; and &lsquo;sequential file&rsquo; in the question and wrote lengthy descriptions of these file types; however, the question asked students to describe the advantage of each complete method outlined. So students should have taken on board the full description of file type, file transfer and updating data.</p>
+ <p>a. Describe <strong>one </strong>advantage of Nicole&rsquo;s method. 2 marks [6 lines]</p>
+ <ul>
+   <li class="myanswer">It consumes relatively little RAM on the tablet, since the data does not need to be copied to the portable device.</li>
+   <li class="myanswer">     The system would start up more quickly since the large data transfers of Adam's method would not be necessary.
+   </li>
+   <li class="myanswer">Keeping the random file's records sorted will be vastly quicker than Adam's sequential file method.</li>
+   <li class="myanswer">A record could be retrieved all at once, as a unit, compared to Alan's 1D array which requires 5 operations to gather the fields for a record.</li>
+   <li class="myanswer">Once a record is written to a random file, it is saved. Sudden data loss would not lead to lost data, as it would if the change were stored in a volatile RAM array.</li>
+ </ul>
+ <p class="examiner">Nicole&rsquo;s searching method ensured that the file was always accurate and up-to-date as it accessed a record only when required.</p>
+ <p class="examiner">Average mark <strong>10%</strong></p>
+ <p>b. Describe <strong>one </strong>advantage of Adam&rsquo;s method. 2 marks [6 lines]</p>
+ <ul>
+   <li class="myanswer">Once the data has been loaded from the homestead's computer onto the tablet, data access speeds would be far greater than retrieving them individually over a slow radio internet connection.</li>
+   <li class="myanswer">Once the data has been loaded, the tablet could be used productively even if the internet connection were lost for a while. Once the link was re-established, the modified data could be synced. </li>
+ </ul>
+ <p class="examiner">Reading data (locally) from the tablet is faster than reading it over a network and continually having to read/write back. In addition, work can continue when out of wi-fi range.</p>
+ <p class="examiner">Average mark <strong>20%</strong></p>
+ <p>c. Suggest an alternative method that may overcome a problem with either Nicole&rsquo;s or Adam&rsquo;s method. Justify your suggestion. 2 marks [6 lines]</p>
+ <p class="myanswer">- A copy of the data could be permanently stored in the tablet's secondary storage (e.g. SD card). When changes to the data occurred (either using the tablet or on the homestead computer), the changes could be synced wirelessly. Since changes would be relatively small, syncing would not take much time nor bandwidth. </p>
+ <p class="myanswer">This would overcome the Nicole's potential problem with slow access speeds, and Adam's potential problem with RAM shortage.</p>
+ <p class="myanswer"><span class="explanation">Note: the tablet has 512MB of RAM [see <a href="#c7">Q7</a>], so even the biggest data file (20MB) <em>should</em> still comfortably fit into the tablet with the OS and CSS program using Adam's method</span><span class="explanation">.</span></p>
+ <p class="myanswer">- Alternatively, Adam's slow sequential file sorting problem could be alleviated by using an index to keep track of records' order without having to physically more records in RAM.</p>
+ <p class="myanswer">- Adam should use  a 2D array so a record's fields could more easily be managed and accessed programmatically.</p>
+ <p class="examiner">An alternative to these methods would be one that combines elements of each to ensure ease of use and speed.<br />
+   The following are examples of high-scoring responses.<br />
+   Have the data stored as a random access file on the tablet itself and backup the data to the computer at the end of each day for security and transmission to the ACIS database. This method combines the efficiency of Nicole&rsquo;s method with the convenience of Adam&rsquo;s method and adds a redundancy backup.<br />
+   The files could be sent to the tablet each day and then be access from a random access file while needed, keeping them secuer and improving speed. At the end of the day they would be sent back to the homestead computer.</p>
+ <p class="examiner">Average mark <strong>15%</strong></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c10" id="c10"></a>C10</strong></p>
+ <p class="question"><strong> (2 marks)</strong></p>
+ <p class="question"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p></td>
+ <td valign="top"><p class="question"><strong>Question 10</strong> (2 marks)</p>
+ <p class="question"> Nicole is also concerned that as the number of records increases, it will take more time to search these records.<br />
+ What would be the effect on the number of records read (on average) if the total number of records increased from 32 000 to 64 000 (doubled) using</p>
+ <p class="comment">Hang on. This just doesn't make sense. <br />
+   Let's simplify the second sentence to...<br />
+   - What would be the effect on the number of records read if the total number of records doubled using a XXX search.</p>
+ <p class="comment"> Is this suggesting that using a particular search would double the number of records? <strong>Can't be.</strong></p>
+ <p class="comment">So does it mean - deep down in its befuddled syntax...<br />
+   - If the number of records doubled, what would be the effect on search times using a XXX search?</p>
+ <p class="comment">Or does it mean...<br />
+   - If the number of records doubled, how would that affect the number of records that would have to be read to carry out a XXX search.</p>
+ <p class="comment">The first sentence in the question is definitely focused on search times. <br />
+   The second sentence is (maybe) concerned with the number of records that would have to be read to carry out each type of search.</p>
+ <p class="comment">Obviously the two things are related, but - to me - the question does obfuscate what key knowledge it's trying to assess. It's a shame the question was so confusingly language-mangling.</p>
+ <p class="question"><img src="/m/illiterate.jpg" alt="Illiteracy Award" width="47" height="89" /></p>
+ <p class="question"></p>
+ <p class="question">- a linear search [3 lines]</p>
+ <p class="myanswer">If the number of records doubled, the maximum number of records read -and the consequent maximum search times - would also double.</p>
+ <p>- a binary search? [3 lines]</p>
+ <p class="myanswer">If the number of records doubled, the number of records read - and the consequent search times - would not be significantly increased. Doubling the number of records may only require a few more reads.</p>
+ <p class="comment">This is - I think - what the examiners wanted to hear.</p>
+ <p class="examiner">The following is an example of a possible response:<br />
+   &#61623; a linear search<br />
+   The average number of records read would double (from 16 384 to 32 768).<br />
+   &#61623; a binary search<br />
+   The maximum number of times a record would need to be read would increase by one (from 15 to 16) as only the record in the middle of the list is read because the list is halved each time.</p>
+ <p class="examiner">Average mark 45%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c11" id="c11"></a>C11 </strong></p>
+ <p class="question"><strong> (2 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 11</strong> (2 marks)</p>
+ <p class="question"> Mike is still concerned that the tablet may take too long to transfer files containing 100 000 records. He wants Nicole to design a simple test that will show him whether the tablet can transfer the data between the homestead&rsquo;s computer and the tablet within a given time and under stated conditions.</p>
+ <p>Outline a test that Nicole could use to demonstrate this. [6 lines]</p>
+ <p class="myanswer">Create a test file with 100,000 dummy records. Take the tablet an agreed distance from the homestead computer. Start a stopwatch. Start transferring the test file from the tablet to the homestead. Time the operation. To be complete, then measure how long it takes to send the data back from the homestead to the tablet.</p>
+ <p class="comment">Ummm, is this question inconsequential, or am I missing something significant?<br />
+   A year 7 student could answer this.
+ </p>
+ <p class="examiner">In general, students were able to identify the need to measure the file transfer time. However, it is important that students pay attention to the task word in each question. For full marks students needed to provide the procedure(s) for testing at least one file size under specific test conditions, indicating a technique for measuring transfer time. The response needed to relate to the specific details in the question.<br />
+   The following are examples of high-scoring responses.<br />
+   Nicole could create a file with 100 000 simple records. With the tablet under the stated conditions. Nicole could send the file multiple times to the tablet recording how long each copy takes. The average copy time can then be calculated.<br />
+   Setup the stated conditions. Run a program that starts a timer and begins transmitting the data from tablet to computer but alerts Nicole if it exceeds a given time. Repeat the test with different conditions and perhaps different time restrictions.</p>
+ <p class="examiner">Average mark 55%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c12" id="c12"></a>C12</strong></p>
+ <p class="question"><strong> (3 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 12</strong> (3 marks)</p>
+ <p> Nicole has been working on the interface for the CSS. She knows that when Mike is weighing the cattle, he will be required to make split-second decisions based on the information presented to him by the software. This makes the interface design very important as Mike will need all relevant information in front of him in order to make those decisions.</p>
+ <p>Nicole has produced the following designs for the Weigh Module of the ID screen for each animal. She is currently deciding whether to include visual representations of some information (Option A) or to just present the data in text and numbers (Option B).</p>
+ <p><a href="/m/pm/14s-c12.gif" target="_blank"><img src="/m/pm/14s-c12.gif" width="420" height="223" alt="c12" /></a><br />
+ <span class="comment">(Click to see image full size)</span> </p>
+ <p align="left">Which option would you recommend? Justify your answer. </p>
+ <p align="left">Recommendation [1 line]</p>
+ <p align="left" class="myanswer">Option A</p>
+ <p>Justification [6 lines]</p>
+ <p class="myanswer">It's obvious that human brains interpret analogue and pictorial information far more quickly and with less chance of error than they do when it's written or numeric. A glance at a graph gives more instant - albeit less detailed - information than a paragraph of writing or a table of numbers.</p>
+ <p class="myanswer">Since speed is of the essence in Mike's case, the graphical, iconic presentation of the information would be valuable. The slight loss of details would be a trivial cost if he could get enough vital information with a quick glance.</p>
+ <p class="explanation">Why do you think road signs use simple images with minimal writing? <br />
+ </p>
+ <p class="explanation"><img src="/m/road-sign.jpg" width="215" height="307" alt="road sign" /></p>
+ <p class="explanation">Try describing <em>that</em> information in words for motorists travelling at speed.</p>
+ <p class="examiner">Students could have recommended either interface option but needed to provide a detailed response as to why that option was recommended. Many students provided only one reason as to why that option was recommended. Students should ensure they take note of the mark allocation as this will often give a guideline as to the depth of response required.<br />
+   A possible response could have been: Option A &ndash; Mike needs a visual representation of growth. The graph will provide much clearer information that does not require interpretation or prior knowledge, and anyone could use it. It could contain the average growth tracked on one line with the animal&rsquo;s growth on another to determine good or poor growth. The map will allow Mike to quickly gauge the location of the animals (prior to roundup) and determine whether they should be relocated based on pasture available in each paddock and whether the animals need to put on weight or not. This information is clear and much more easily understood.</p>
+ <p class="examiner">Average mark 50%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c13" id="c13"></a>C13</strong></p>
+ <p class="question"><strong> (6 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 13</strong> (6 marks)</p>
+ a. Identify two hardware items that could be needed to connect the Wide Hill homestead with the ACIS database. State the role of each.
+ 
+ 4 marks
+ <p>Hardware item 1 [1 line] <span class="myanswer">Modem</span></p>
+ <p> Role [3 lines]</p>
+ <p class="myanswer">Converts digital signals to and from analogue signals for the purpose of transmission over non-digital media.</p>
+ <p> Hardware item 2 [1 line] <span class="myanswer">Satellite dish</span></p>
+ <p>Role [3 lines]</p>
+ <p class="myanswer">Converts digital or analogue data into radio signals for transmission to a communications satellite in a geostationary orbit around the earth.</p>
+ <p class="explanation">Perhaps also... a cable, to carry data from the computer to the modem and to the satellite dish.<br />
+ </p>
+ <p class="explanation">You would not want to use handy but inessential items such as routers, switches, mouse mats etc. It's also best to avoid the bleedin' obvious things like &quot;a computer&quot;, &quot;a CPU&quot; or &quot;a power switch.&quot;<br />
+   Use common sense. Identify what the question wants you to prove an understanding of - and give them what they're hoping for.
+ </p>
+ <p class="examiner">A range of answers was accepted, including modem, router, satellite dish, etc.<br />
+   The following is an example of a high-scoring response.<br />
+   Hardware item 1 - Satellite Dish<br />
+   Role - Allows the users of the network to access the internet using satellite technology<br />
+   Hardware item 2 - Router<br />
+   Role - To connect the local area network of Wide Hill homestead to the wide area network (WAN) that is the internet and through that connect to the ACIS database.</p>
+ <p class="examiner">Average mark 58%</p>
+ <p>b. Explain <strong>one </strong>effect on Wide Hill if one of the items identified in <strong>part a.</strong> failed.
+   
+   2 marks [3 lines]</p>
+ <ul>
+   <li class="myanswer">Modem failure - data could not be sent to or received from the satellite dish.</li>
+   <li class="myanswer">Dish failure - data could not be sent from or received to the homestead modem and computer.</li>
+   <li class="myanswer">Cable failure - data could not be sent to the modem for transmission via the satellite dish.</li>
+   </ul>
+ <p class="explanation">In part b, be sure to identify which of the 2 hardware items you are referring to!</p>
+ <p class="examiner">Students are encouraged to highlight key words as it was important to recognise that the response required an explanation of the effect on Wide Hill. Simply stating &lsquo;unable to connect to the internet&rsquo; was not sufficient for two marks.<br />
+   The following is an example of a high-scoring response.<br />
+   If the router failed the Wide Hill homestead computer will not be able to connect the network to any other network including the internet and through that the ACIS database.</p>
+ <p class="examiner">Average mark 60%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c14" id="c14"></a>C14 </strong></p>
+ <p><strong> (4 marks)</strong></p></td>
+ <td valign="top"><p class="question"><strong>Question 14</strong> (4 marks)</p>
+ <p class="question"> Mike feels that a satellite connection is the only option for connecting the outlying cattle yards. Nicole suggests that this would be a very expensive option and that Mike should consider using microwave. Mike says that he has heard there are some issues with using microwave as a method of transmitting data.</p>
+ <p class="question"> State two characteristics of microwave transmission that Nicole needs to explain to Mike before installing it on Wide Hill cattle station. Explain the relevance of each of these characteristics for the cattle station.</p>
+ <p class="question"> Characteristic 1 [1 line] <span class="myanswer">It operates on a line-of-sight.</span></p>
+ <p class="question">Explanation [3 lines] </p>
+ <p class="myanswer">If the signal is blocked by an obstruction (like a hand in front of the beam from a torch) the signal is lost. Unlike radio, microwave signals do not penetrate obstacles. </p>
+ <p class="myanswer">So the transmitter must be placed high enough at the homestead to clear all hills and buildings between itself and the location of the receiver.</p>
+ <p>Characteristic 2 [1 line] <span class="myanswer">It's narrow and directional.</span></p>
+ <p>Explanation [3 lines]</p>
+ <p class="myanswer">Unlike radio waves which (usually) travel in all directions from an emitter. Microwave signals travel as a narrow beam in a single direction - like a laser beam.</p>
+ <p class="myanswer">So, the microwave dish will need to be moveable in order to aim at its intended data recipient.</p>
+ <p class="comment">I think this question will have caught a few students and teachers off-guard. <br />
+   Microwave has never received this sort of attention in an exam before! <br />
+   I predict the state average for this question will be about 25% !</p>
+ <p class="explanation">The peculiar drum-shaped objects you see on the tops and sides of tall buildings are microwave dishes, high up to clear obstacles and aimed precisely at a single destination dish.</p>
+ <p class="examiner">Many students struggled to respond with the detail required and with technically accurate information. It was clear that many did not know a great deal about microwave transmission. The most appropriate characteristic to discuss was &lsquo;interference of signal&rsquo;. Microwave signals need a line of sight between the cattle yard and the homestead and, in addition, weather conditions may interfere with the signal. A range of responses was accepted, but not cost.</p>
+ <p class="examiner">Average mark <strong>28%</strong></p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c15" id="c15"></a>C15 </strong></p>
+ <p class="question"><strong> (3 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 15</strong> (3 marks)</p>
+ <p> Nicole is concerned that if the hardware fails or is destroyed by accident, all of the cattle station&rsquo;s records would be lost and so would years of information. Mike suggests that the records be copied onto a DVD each week and stored in his filing cabinet.</p>
+ <p>a. State <strong>one</strong> potential fault with this method. 1 mark [2 lines]</p>
+ <ul>
+   <li class="myanswer">DVDs deteriorate with age and may lose data.</li>
+   <li class="myanswer">DVDs are easily scratched and become unreadable. 
+     <ul>
+       <li><span class="explanation">Don't just say DVDs are easily scratched. That in itself is not a fault in terms of data backup. Cats are also easily scratched, but that does not impede their catability&#8482;. The fact that DVD scratchability leads to unreadability is the fault. Make sure you finish your train of thought and explain the relevance of your answer.</span></li>
+     </ul>
+   </li>
+   <li class="myanswer">Storing the backup DVDs in the same place as the original data will be dangerous. If the original data is stolen or destroyed by fire/flood/ninja attack etc, the backups could easily suffer the same fate.
+     <ul>
+       <li class="explanation">Better to avoid the 'ninja attack' argument in a real answer. The sense of humour of markers is vastly over-estimated.</li>
+     </ul>
+   </li>
+   <li class="myanswer">Backing up only weekly could still lose up to 6 days' data in a disaster.</li>
+   <li class="myanswer"><s>DVDs' data capacity is not terribly high in modern terms. Weekly backups of 20MB would fill a DVD in... 4.5 years.</s> <span class="explanation">OK. You realise this is not <strong>really </strong>important in this case. Remember that your answers must to be relevant to the case study. Cross this answer out and find a more relevant response.</span></li>
+   </ul>
+ <p class="explanation">Be sure to pay attention to <strong>all </strong>parts of the question. Fixating only on the qualities of the DVD might make you forget to address the issue of the storage in the filing cabinet and the weekly schedule! When you think you've finished answering a question, READ IT AGAIN and discover what you missed the first time. In SD exams, it <strong>will be there</strong>.</p>
+ <p class="examiner">Students tended to focus on the DVD being scratched and thus losing data. A more appropriate response would have discussed the backup method identified &ndash; storing the DVDs in a filing cabinet. Any data in a filing cabinet could be stolen or destroyed by natural disaster. This method offers little data protection.</p>
+ <p class="examiner">Average mark 40%</p>
+ <p>b. State a better method. 1 mark [4 lines]</p>
+ <ul>
+   <li class="myanswer">Daily incremental backups to a portable hard disk with full weekly backups. Store them offsite. Test the backups for accuracy and completeness.</li>
+   <li class="myanswer">Backup to the cloud daily.</li>
+   <li class="myanswer">Even better, set up a &quot;trickle&quot; backup to the cloud that uploads new and changed data as soon as it appears.</li>
+ </ul>
+ <p class="explanation">You only get 1 mark for this. Don't write an essay about it.</p>
+ <p class="examiner">When stating a method, students should have considered the storage media, type of backup method and storage location, such as cloud-based and fireproof safe. Some students also indicated who was responsible for the backup. Many suggested multiple DVDs or a hard drive, or storing off site (which was not practical in a remote location), without providing additional details.</p>
+ <p class="examiner">Average mark 50%</p>
+ <p>c. Nicole also suggests that when one of the cattle is sold and it has not been used in the breeding program, its record should be removed from the main records and stored in a different file that can then be removed from the computer and kept in case it is ever required. </p>
+ <p>State the name of this process. 1 mark [1 line]</p>
+ <p class="myanswer">Archiving.</p>
+ <p class="explanation">That's it. No more. <br />
+   You get no more marks for saying, &quot;The name of this process is archiving.&quot; <br />
+   Nor do you get bonus marks for showing off your knowledge of how archiving differs from backing up. <br />
+   You just waste time and ink.</p>
+ <p class="examiner">Archiving<br />
+   The relevant key knowledge specifically identifies security, archiving, backing up and disposing of files as procedures and techniques for handling and managing files (Unit 4, Area of Study 1).</p>
+ <p class="examiner">Average mark 60%</p></td>
+ </tr>
+ <tr>
+ <td valign="top" bgcolor="#FFFFCC" ><p class="question"><strong><a name="c16" id="c16"></a>C16 </strong></p>
+ <p class="question"><strong> (2 marks)</strong></p></td>
+ <td valign="top"><p><strong>Question 16</strong> (2 marks)</p>
+ <p> Each time the cattle is rounded up for weighing, Mike employs extra staff on-site. The extra staff are usually a mix of contracted farmhands and backpackers. This arrangement works well for Mike, who provides the staff with free access to his internet connection via wi-fi. Recently, Mike has had to bring in more staff than in the past as his herd has grown.<br />
+ </p>
+ <p>With a large number of people accessing the internet connection, describe a conflict that might arise among the users of the system and outline what Mike could do to minimise this conflict. [9 lines]</p>
+ <p class="comment">&quot;contracted farmhands&quot; - is this a term most 16-17 year old students would know - especially if ESL? I seriously doubt it.</p>
+ <p class="myanswer">The limited bandwidth could easily be used up so some people cannot connect. This could cause hostility between those who cannot connect and those who are obviously using more than their fair share of the bandwidth with large or frequent downloads.<br />
+   </p>
+ <ul>
+   <li class="myanswer">Mike could inform all users that they have a responsibility to use the bandwidth moderately and not monopolise it so others cannot also enjoy the facility. (Education)</li>
+   <li class="myanswer">He could enforce a rule that bandwidth abusers will lose wi-fi privileges. (Sanctions)</li>
+   <li class="myanswer">He could give each user a unique login name/password and allocate each account a bandwidth quota. </li>
+   <li class="myanswer">He could revoke wi-fi access for the cows and allot it to the farm hands. After all, they just get on to CowBook and moo endlessly about how their bulls are ignoring their individual girlish bovine needs...</li>
+ </ul>
+ <p class="explanation">Maybe not the last one...</p>
+ <p><img src="/m/pm/cow-facebook.jpg" width="128" height="128" alt="Cowbook" /></p>
+ <p class="examiner">Many students failed to identify the conflict that might occur, simply stating that the internet would slow down. A more appropriate response would have included the following: disgruntled employees frustrated as they can&rsquo;t get their jobs done, farmhands complaining to Mike about the lack of &lsquo;free internet&rsquo;, etc. Students, however, were able to come up with a variety of methods to minimise the conflict. A range of reasonable responses were accepted.<br />
+   The following is an example of a high-scoring response.<br />
+   The staff many complain that with all the staff accessing the internet via the Wi-Fi, that the networks bandwidth many be taken up and therefore its speed many reduce significantly. This could be fixed by setting data limits for those connecting to the network via login so no member of staff uses too much or slows the network down as much.</p>
+ <p class="examiner">Average mark 50%</p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><div align="center">
+ <p>[2 empty pages follow the last question]</p>
+ <p><strong>END OF QUESTION AND ANSWER BOOK</strong></p>
+ </div></td>
+ </tr>
+ <tr>
+ <td colspan="2"><div align="center" class="comment">
+ <p><strong>Section C summary</strong></p>
+ <p align="left">Good. I like it. </p>
+ <p align="left">Questions 5 and 10 had linguistic constipation. </p>
+ <p align="left">C6 was unnecessarily burdened by busy-work that took students away from demonstrating their understanding of key knowledge and put them to work calculating cow ages.</p>
+ <p align="left">Apart from these minor irritations - as usual - the SD exam holds down its annoying little ITA brother and emits bursts of fraternal sulphurous gastric methane into its face.</p>
+ <p align="left">Apologies for that mental image.</p>
+ <p align="left">&nbsp;</p>
+ </div></td>
+ </tr>
+ <tr>
+ <td colspan="2" ><p align="center" class="comment"><strong>The 2014 SD exam in review </strong></p>
+ <p align="left" class="comment">Another solid job. Well balanced, clearly written (on the whole), fair. It gives scope for the top achievers to show their stuff (e.g. the microwave question in <a href="#c14">C14</a> and the explanations of sorts in <a href="#b2">B2</a>). A few questions were inexplicably basic (<a href="#a2">A2</a>, <a href="#a4">A4</a>, <a href="#c11">C11</a>) but most were suitably challenging (e.g. <a href="#a7">A7</a>, <a href="#a8">A8</a>) and several were creative. And kudos for the added weight given to writing pseudocode (<a href="#b3">B3</a>). More please!</p>
+ <p align="center" class="comment">Well done, examiners. <br />
+   You have done well.</p>
+ <p align="center" class="comment"><img src="/m/partydog.jpg" width="350" height="269" alt="Good boy!" /></p>
+ <p align="center" class="comment">Suggestion - get whoever writes the SD exam and put them on a bus to the ITA exam writing office to show them how it's done.</p></td>
+ </tr>
+ <tr>
+ <td colspan="2"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7499744887256625";
+/* 728x90, created 2/21/09 */
+google_ad_slot = "0313383460";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></td>
+ </tr>
+ </table>
+ <p align="center"><a href="/index.html" target="top">Back to the IT Lecture Notes index</a></p>
+ <p align="center"><a href="javascript:history.go(-1)">Back to the last page you visited</a></p>
+ <p align="center"><font size="2">Created 14 November 2014</font></p>
+ <p align="center"><font size="2">Last changed: 
+ <!-- #BeginDate format:Am1a -->March 9, 2022 11:34 AM<!-- #EndDate --> 
+ </font></p>
+ <p align="center"><font size="2">Original Content &copy; Mark Kelly 2014<br />
+ Images and questions are &copy; Victorian Curriculum 
+ and Assessment Authority 2014. <br />
+ Reproduced here with permission for educational purposes.</font><br />
+ Thanks, VCAA!</p>
+ <p align="center"><font size="2">VCE Applied Computing Notes &copy; <a href="/mailform.htm">Mark Kelly</a></font></p>
+</div>
+</body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>

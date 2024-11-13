@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<!-- Archive taken on 2024-11-14 -->
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <link rel="shortcut icon" type="image/x-icon" href="/bits/favicon.ico" />
+    <meta name="Description" content="VCE IT Applied Computing, Data Analytics, Software Development Resources by Mark Kelly" />
+    <meta name="keywords" content="vce,applied computing, data analytics, software development, mark kelly" />
+    <title>VCE Applied Computing SDLC development models - agile, spiral, waterfall</title>
+    <link href="/css.css" rel="stylesheet" type="text/css" />
+
+<link href="/cssvcedata.css" rel="stylesheet" type="text/css" />
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/bits/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/bits/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/bits/favicon-16x16.png">
+<link rel="manifest" href="/bits/site.webmanifest">
+
+
+  </head>
+  
+  
+  <style>
+.flip {
+    animation-timing-function: ease-in-out;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    max-width: 30em !important;
+    box-shadow: none !important;
+}
+
+.flip-rotate {
+    animation-name: flip-rotate;
+}
+
+@keyframes flip-rotate {
+      0% { transform: perspective(491px) rotatex(0); }
+    100% { transform: perspective(491px) rotatex(230deg); }
+}
+
+</style>
+
+
+
+<style>
+
+.flip-rotateh {
+    animation-name: flip-rotateh;
+}
+
+@keyframes flip-rotateh {
+      0% { transform: perspective(491px) rotatey(0); }
+    100% { transform: perspective(491px) rotatey(230deg); }
+}
+
+</style>
+
+
+  
+  <body >
+
+
+  <div class="demo demo-row demo-row-fit" align="center">
+        <div> 
+          <p><a href="/index.html"><img class="flip flip-rotate" src="/bits/title.png" alt="title"/></a>
+          </p>
+          <p><a href="/mailform.htm"><img src="/bits/email.png" width="178" height="26" alt="Write to Mark Kelly"/></a></p>
+    </div>
+  </div>
+
+
+  
+  <table width="80" border="1" cellpadding="3" cellspacing="0">
+    <tbody>
+      
+      <tr>
+        <td align="center" bgcolor="#A7ECF8" >
+          <h1 id="sd32sdlc3"><em>Software Development Life Cycle</em> (SDLC)</h1>
+          <h1>Development models</h1>
+          <h2 id="sd32sdlc5">agile, spiral and waterfall</h2>
+        <p>&nbsp;</p></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <table width="80" border="1" cellpadding="3" cellspacing="0">
+    <caption>
+      <br>
+    </caption>
+    <tbody>
+      <tr>
+        <td ><p id="sd32sdlc4"><strong>Development model approaches, including</strong></p>
+          <ul>
+            <li><strong>agile, </strong></li>
+            <li><strong>spiral and </strong></li>
+            <li><strong>waterfall</strong></li>
+        </ul></td>
+      </tr>
+      <tr>
+        <td ><p>When you are faced with a big, complex job how do you tackle it? </p>
+          <p>Do you leap&nbsp;into it and do&nbsp;bits here and there until you finish, occasionally going back to fix or add to bits you started before? </p>
+          <p>Or do you start at step 1,&nbsp;conscientiously finish every part of it&nbsp;before moving to step 2?</p>
+          <p>In IT there are several different philosophies - or <em>models</em> - of managing large, complicated software development projects. </p>
+          <p>The ones you need to know are named <strong>agile</strong>, <strong>spiral</strong> and <strong>waterfall</strong>.</p>
+          <p>Each is a type of a <em>Software Development Life Cycle</em> (SDLC) model.</p>
+        <p>Note - there is no objective 'best' SDLC model. If there were, the others would no longer exist. Each model has its advantages and disadvantages.</p></td>
+      </tr>
+      <tr>
+        <td ><p>&nbsp;</p>
+          <p><strong>ALL OF THEM </strong>share certain features. They all describe a process of steps to develop software or other products, from its original conception to its final deployment and evaluation.</p>
+          <p>Depending on whom you talk to, the naming and number of SDLC steps vary a little, but they are essentially the same.</p>
+          <p>VCAA's official SDLC (aka 'Problem Solving Methology' aka PSM*) are:</p>
+          <ol>
+            <li><strong>Analysis</strong> of what the solution needs to do, and what attributes it should have.</li>
+            <li><strong>Design</strong> - Exactly how will it do those things? When it's finished, how will its success or failure be judged?</li>
+            <li><strong>Development</strong> - program the software, and/or build the product. Do <em>testing</em>, write <em>documentation</em>, and <em>deploy </em> the product so end-users get access to it. Some SDLC models make Deployment a separate step, but VCAA doesn't. </li>
+            <li><strong>Evaluation </strong>- using the success/failure criteria establish during Design, determine whether the solution is actually achieving the goals for which it was originally created.</li>
+          </ol>
+        <p class="small">*&nbsp;See  the  study design The fact that VCAA dedicates 4 pages to it in the study design shows how much they love it. Pay attention&nbsp;to it.</p></td>
+      </tr>
+      <tr>
+        <td ><h3>&nbsp;</h3>
+          <h3>Important distinctions:</h3>
+          <p><strong>ANALYSIS v DESIGN</strong></p>
+          <ul>
+            <li><strong>Analysis</strong> does <em>not</em> try to explain <em>how</em> the solution will work. It just describes what it should be able to achieve. This is done by managers, executives, and stakeholders (people with a special interest or investment in the project - e.g. investors, partner companies).</li>
+            <li><strong>Design</strong> takes the analysis and works out a &quot;how to&quot; strategy including technologies and techniques. This is done by&nbsp;programmers and designers.</li>
+          </ul>
+          <p><strong>TESTING v EVALUATION</strong></p>
+          <ul>
+            <li><strong>Testing</strong> - <em>informal</em> testing is done <em>during development</em> to ensure a product is producing accurate output, and can do all the jobs it was supposed to. <em>Formal</em> testing occurs at the end of development, using real-world end- users as guinea pigs, as a final guarantee that everything works as expected.</li>
+            <li><strong>Evaluation</strong> is done <em>after the solution has been finished </em>and<em> has been in real-world use for some time</em> to find out whether it is successfully achieving the organisational goals for which it was created.&nbsp; </li>
+          </ul>
+          <p>Example: </p>
+          <ul>
+            <li>A company creates a new website with the sole aim of increasing sales. </li>
+            <li> The finished website has zero errors, attracts millions of visitors, and has rave reviews from website judges.</li>
+            <li>After the site has been online for three months, company sales have <em>not</em> increased. </li>
+            <li>The website's <strong>testing</strong> was <em>fantastic</em> because it operates perfectly.</li>
+            <li>The website's <strong>evaluation</strong> is a <em>disastrous failure</em> because it does not achieve its original goal of increasing sales.</li>
+            <li></li>
+        </ul></td>
+      </tr>
+      <tr>
+        <td bgcolor="#C2F1D0" ><h1>THE SDLC MODELS</h1></td>
+      </tr>
+      <tr>
+        <td ><p>&nbsp;</p>
+          <h2><strong>THE WATERFALL</strong> <strong>MODEL</strong></h2>
+          <p>The first SDLC, described in 1956.</p>
+          <p>This brutal model works in a strictly step-by-step fashion: each step is completely and perfectly finished, reviewed and verified before starting the next step.</p>
+          <p>Just like going over a a waterfall, you <strong>can't go backwards</strong>.</p>
+          <p>This model is valued where late changes to needs, design, or construction would be prohibitively expensive (or indeed impossible) so 100% accuracy is needed from the very beginning to ensure success at the end.</p>
+          <p>The only way to go back to a previous stage in the waterfall model is to completely scrap the project and start again.</p>
+          <p>As I said - it's brutal, but it can save lots of time and money wasted due to insufficient planning.</p>
+          <p><strong>But...</strong></p>
+          <p>What happens if - halfway through a project - a rival company launches a product that is <em>better</em> than the one you are working on? </p>
+          <p>What happens if unexpected technology changes occur, e.g. a brand new type of storage device is released that blows SSD out of the water?</p>
+          <p><strong>Or...</strong></p>
+          <p>The clients (the ones requesting and paying for the solution) originally asked for certain features but now <em>change their minds</em> as they see demo versions of the finished solution?</p>
+          <p>Do you persevere with a product that is already obsolete even before it's finished? Do you scrap it? Or do you go back and <em>tweak</em> it?</p>
+          <p>Sometimes, real-world market or technological pressures force a re-evaluation of a project to keep it relevant.</p>
+          <p>Sometimes, a project model needs to be more f-l-e-x-i-b-l-e. And that is the <a href="#agile">Agile model</a>.</p>
+        <p>Note - there are several modified versions of the Waterfall model with overlapping phases, risk reduction,  etc, but the basic model is all you really need to know.</p>
+        <p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td ><p>&nbsp;</p>
+          <h2><strong id="agile">THE AGILE</strong> <strong>MODEL</strong>          </h2>
+          <p>The Agile model includes flexibility that the waterfall model lacks. </p>
+          <p>It allows adaptive planning (to cope with changes to needs or developing technologies), development that can backtrack to incorporate new techniques or technologies, continual improvement and flexible responses to changes in requirements, capacity limits, or new problems (e.g. new laws that suddenly make your sofware illegal or subject to public ridicule.)</p>
+          <p>Agile Features:</p>
+          <ul>
+            <li>It is <em>iterative</em> - allowing repeated work on previous steps.</li>
+            <li>It is <em>adaptive</em> and <em>evolutionary</em> - capable of responding to real-world changes as the project proceeds. It monitors the social/technological environment and itself and adjusts itself appropriately as needed.</li>
+            <li>It allows ongoing <em>collaboration</em> with clients - to incorporate new or changed needs they might have. There is no unchangeable contract signed at the beginning of the project. Developers and clients work closely and often&nbsp;during development.</li>
+            <li>It frequently delivers updated versions of products based on consumer feedback, developing technology, and commercial competition. </li>
+            <li>It prefers to <em>fail early and often</em> during development, rather than failing <em>once</em>, <em>catastrophically</em> at the end.</li>
+            <li>It relies more on <em>adaptation</em>* than <em>prediction</em>. It adjusts to ongoing changes instead of aiming at an&nbsp;unalterable waterfall-style final goal.</li>
+          </ul>
+        <p>As has been said: &quot;<strong>Agile</strong> = make it up as you go along. <strong>Waterfall</strong>: make it up before you start, live with the consequences&quot; </p>
+        <p>* Contrary to popular illiteracy, there is no such word as &quot;adaption.&quot; It is always &quot;adapt<strong>at</strong>ion&quot;</p>
+        <p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td ><p>&nbsp;</p>
+          <h2><strong>THE SPIRAL MODEL</strong>          </h2>
+          <p>Key words: <em>Risk-driven</em>. It is best used when end-needs are changeable or fuzzy. But it can be slow and expensive.</p>
+          <p>It's basically a blend whatever other SDLC models (e.g. waterfall, agile or other) do the job best.</p>
+          <p>Its creator, Barry Boehm, defined six necessary features of the spiral model:</p>
+          <p>1. It's best to use the waterfall model unless: the requirements are not fully known or might change; there may be high-risk consequences of doing it wrong; there is not enough time to develop the solution.</p>
+          <p>2. Keep in mind what stakeholders would consider a &quot;win&quot; for them. Consider alternative strategies to accomplish that win. Identify and prevent risks from those strategies. Get the approval of stakeholders for the strategies. Otherwise, risks may be too great, or stakeholders may find the solution unacceptable (and won't pay for it).</p>
+          <p>3. How much effort goes into each activity is guided by how much risk it poses. A risky step requires more effort to prevent problems.</p>
+          <p>4. If risk can be reduced by more detailed planning, do it. Less-risky components deserve less detailed design.</p>
+          <p>5. Is there a clear definition of what the client considers a &quot;win&quot; - and how to achieve it - by the time the solution is finished?&nbsp;Is everything (technology, training, documentation, publicity, maintenance and support staff etc) prepared for a &quot;win&quot; when the solution is launched?</p>
+        <p>6. Has the solution been provided with enough long-term maintenance, support, and upgrades for its expected lifespan? </p>
+        <p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td bgcolor="#F4F4D7" >
+          <p id="sd32sdlc"><strong>CONCLUSION - Which one should you use?</strong></p>
+          <p>As with all theoretical models, <em>none</em> of these models will probably ever be used fully and unchanged in The Real World.</p>
+          <p>Instead, each offers a set of useful philosophical approaches that can be adopted and adapted according to need and circumstance. </p>
+          <p>Adopt, and adopt, as necessary.</p>
+          <h3>&nbsp;</h3></td>
+      </tr>
+      <tr>
+        <td align="center">
+          </td>
+      </tr>
+      <tr>
+        <td align="center"><p><a href="/mailform.htm">Write to Mark Kelly</a></p>
+        <p>or</p>
+        <p><a href="/mailform.htm">Tell me why you don't want to write to Mark Kelly</a></p>
+        <p>or</p>
+        <p>Look at this</p>
+        <p><img src="/m/babymonkey.gif" width="33" height="32" alt=""/></p>
+        <p>Yeah. I know which option you went for.</p>
+        <p><span class="beige">(If I cry quietly, no one will hear)</span></p></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="beige" align="center">&nbsp;</p>
+    <table align="center" width="80%" cellspacing="0" cellpadding="3" border="0">
+      <tbody>
+       
+        <tr>
+          <td colspan="2" align="center"><p>All original content copyright &copy; <a href="/Library/currentyear.lbi"></a>
+            <script>
+<!--
+var year=new Date();
+year=year.getYear();
+if (year<1900) year+=1900;
+document.write(year);
+//-->
+              </script>
+            <a href="/index.html">vcedata.com</a><br />
+All rights reserved.
+            </p>
+            <p>This page was created on 2022-04-14 @ 13:59<br>
+              Last modified on 
+                <!-- #BeginDate format:fSw1m -->Friday 6 October, 2023  14:34<!-- #EndDate -->
+</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
+<!-- Archive taken on 2024-11-14 -->
+</html>
